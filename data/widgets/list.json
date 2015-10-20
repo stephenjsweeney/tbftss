@@ -1,0 +1,11 @@
+[
+	"data/widgets/galacticMap.json",
+	"data/widgets/okCancel.json",
+	"data/widgets/startBattle.json",
+	"data/widgets/inBattle.json",
+	"data/widgets/battleWon.json",
+	"data/widgets/battleLost.json",
+	"data/widgets/title.json",
+	"data/widgets/options.json",
+	"data/widgets/stats.json"
+]

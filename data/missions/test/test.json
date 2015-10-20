@@ -1,0 +1,90 @@
+{
+	"name" : "Operation Menelaus",
+	"description" : "",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/spirit.png",
+	"music" : "music/battleThemeA.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate Enemies",
+			"targetName" : "Enemy",
+			"targetValue" : 100
+		}
+	],
+	"challenges" : [
+		{
+			"type" : "CHALLENGE_NO_LOSSES",
+			"targetValue" : 0
+		},
+		{
+			"type" : "CHALLENGE_ARMOUR",
+			"targetValue" : 80
+		},
+		{
+			"type" : "CHALLENGE_PLAYER_KILLS",
+			"targetValue" : 25
+		}
+	],
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_CSN"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"type" : "TAF",
+			"number" : 16,
+			"side" : "SIDE_CSN",
+			"x" : 0,
+			"y" : 0
+		},
+		{
+			"type" : "Jackal",
+			"name" : "Enemy",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : 1000,
+			"y" : 5000
+		},
+		{
+			"type" : "Jackal",
+			"name" : "Enemy",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : 2500,
+			"y" : 5000
+		},
+		{
+			"type" : "Jackal",
+			"name" : "Enemy",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : 4000,
+			"y" : 5000
+		},
+		{
+			"type" : "Sphinx",
+			"name" : "Enemy",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : -1000,
+			"y" : 5000
+		},
+		{
+			"type" : "Sphinx",
+			"name" : "Enemy",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : -2500,
+			"y" : 5000
+		},
+		{
+			"type" : "Sphinx",
+			"name" : "Enemy",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : -5000,
+			"y" : 5000
+		}
+	]
+}

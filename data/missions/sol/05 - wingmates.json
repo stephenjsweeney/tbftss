@@ -1,0 +1,57 @@
+{
+	"name" : "Wingmates",
+	"description" : "Battle along side two team mates to take on 3 enemy fighters.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/earth.png",
+	"music" : "music/Battle in the winter.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate Darts",
+			"targetName" : "Dart",
+			"targetValue" : 3
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Jim Goddard",
+		"squadron" : "Midnight Runners"
+	},
+	"fighters" : [
+		{
+			"name" : "TAF",
+			"type" : "TAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 440,
+			"y" : 480
+		},
+		{
+			"name" : "TAF",
+			"type" : "TAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 840,
+			"y" : 480
+		},
+		{
+			"name" : "Dart",
+			"type" : "SimpleDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 2640,
+			"y" : -1500
+		},
+		{
+			"name" : "Dart",
+			"type" : "SimpleDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 2640,
+			"y" : -1500
+		},
+		{
+			"name" : "Dart",
+			"type" : "SimpleDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 2640,
+			"y" : -1500
+		}
+	]
+}

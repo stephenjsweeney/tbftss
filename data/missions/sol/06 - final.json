@@ -1,0 +1,57 @@
+{
+	"name" : "3 Against 1",
+	"description" : "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/earth.png",
+	"music" : "music/Battle in the winter.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate Darts",
+			"targetName" : "Dart",
+			"targetValue" : 3
+		}
+	],
+	"challenges" : [
+		{
+			"type" : "CHALLENGE_ARMOUR",
+			"targetValue" : 100
+		},
+		{
+			"type" : "CHALLENGE_TIME",
+			"targetValue" : 30
+		},
+		{
+			"type" : "CHALLENGE_ACCURACY",
+			"targetValue" : 25
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Jim Goddard",
+		"squadron" : "Midnight Runners"
+	},
+	"fighters" : [
+		{
+			"name" : "Dart",
+			"type" : "SimpleDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 640,
+			"y" : -1500
+		},
+		{
+			"name" : "Dart",
+			"type" : "SimpleDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 640,
+			"y" : -1500
+		},
+		{
+			"name" : "Dart",
+			"type" : "SimpleDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 640,
+			"y" : -1500
+		}
+	]
+}

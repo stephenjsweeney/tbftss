@@ -1,0 +1,12 @@
+[
+	{
+		"name" : "ok",
+		"group" : "startBattle",
+		"type" : "WT_BUTTON",
+		"text" : "OK",
+		"x" : 640,
+		"y" : 680,
+		"w" : 150,
+		"h": 34
+	}
+]

@@ -1,0 +1,41 @@
+{
+	"name" : "ATAF",
+	"health" : 50,
+	"shield" : 9999,
+	"speed" : 3,
+	"reloadTime" : 6,
+	"shieldRechargeRate" : 5,
+	"textureName" : "gfx/fighters/ataf.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -5,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 5,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 9,
+			"y" : -4
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : -9,
+			"y" : -4
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 13,
+			"y" : -8
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : -13,
+			"y" : -8
+		}
+	]
+}

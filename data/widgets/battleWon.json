@@ -1,0 +1,22 @@
+[
+	{
+		"name" : "continue",
+		"group" : "battleWon",
+		"type" : "WT_BUTTON",
+		"text" : "Continue",
+		"x" : 490,
+		"y" : 680,
+		"w" : 150,
+		"h": 34
+	},
+	{
+		"name" : "retry",
+		"group" : "battleWon",
+		"type" : "WT_BUTTON",
+		"text" : "Retry",
+		"x" : 790,
+		"y" : 680,
+		"w" : 150,
+		"h": 34
+	}
+]

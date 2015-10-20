@@ -1,0 +1,12 @@
+[
+	{
+		"name" : "ok",
+		"group" : "stats",
+		"type" : "WT_BUTTON",
+		"text" : "OK",
+		"x" : 640,
+		"y" : 635,
+		"w" : 150,
+		"h": 34
+	}
+]

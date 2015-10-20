@@ -1,0 +1,43 @@
+[
+	{
+		"name" : "resume",
+		"group" : "galacticMap",
+		"type" : "WT_BUTTON",
+		"text" : "Resume",
+		"x" : -1,
+		"y" : 215,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "stats",
+		"group" : "galacticMap",
+		"type" : "WT_BUTTON",
+		"text" : "Stats",
+		"x" : -1,
+		"y" : 315,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "options",
+		"group" : "galacticMap",
+		"type" : "WT_BUTTON",
+		"text" : "Options",
+		"x" : -1,
+		"y" : 415,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "quit",
+		"group" : "galacticMap",
+		"type" : "WT_BUTTON",
+		"text" : "Return to Title",
+		"x" : -1,
+		"y" : 515,
+		"w" : 200,
+		"h": 34
+	}
+	
+]

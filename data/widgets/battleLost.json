@@ -1,0 +1,22 @@
+[
+	{
+		"name" : "retry",
+		"group" : "battleLost",
+		"type" : "WT_BUTTON",
+		"text" : "Retry",
+		"x" : 490,
+		"y" : 680,
+		"w" : 150,
+		"h": 34
+	},
+	{
+		"name" : "quit",
+		"group" : "battleLost",
+		"type" : "WT_BUTTON",
+		"text" : "Quit",
+		"x" : 790,
+		"y" : 680,
+		"w" : 150,
+		"h": 34
+	}
+]

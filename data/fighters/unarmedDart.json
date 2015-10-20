@@ -1,0 +1,9 @@
+{
+	"name" : "UnarmedDart",
+	"health" : 10,
+	"shield" : 0,
+	"speed" : 3,
+	"reloadTime" : 24,
+	"shieldRechargeRate" : 0,
+	"textureName" : "gfx/fighters/dart01.png"
+}

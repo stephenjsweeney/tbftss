@@ -1,0 +1,68 @@
+{
+	"name" : "Pirate Uprising #2",
+	"description" : "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevelant, and there are more shielded and plasma-equipped fighters to be found in their ranks.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/spirit.png",
+	"music" : "music/battleThemeA.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate Darts",
+			"targetName" : "Dart",
+			"targetValue" : 36
+		}
+	],
+	"challenges" : [
+		{
+			"type" : "CHALLENGE_1_LOSS",
+			"targetValue" : 0
+		},
+		{
+			"type" : "CHALLENGE_ARMOUR",
+			"targetValue" : 80
+		},
+		{
+			"type" : "CHALLENGE_PLAYER_KILLS",
+			"targetValue" : 10
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Katherine Strickland",
+		"squadron" : "Steel Bulls"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"type" : "TAF",
+			"number" : 4,
+			"side" : "SIDE_ALLIES",
+			"x" : 0,
+			"y" : 0
+		},
+		{
+			"type" : "Dart",
+			"name" : "Dart",
+			"number" : 12,
+			"side" : "SIDE_PIRATE",
+			"x" : -3000,
+			"y" : 0
+		},
+		{
+			"type" : "Dart",
+			"name" : "Dart",
+			"number" : 12,
+			"side" : "SIDE_PIRATE",
+			"x" : 4000,
+			"y" : 0
+		},
+		{
+			"type" : "Dart",
+			"name" : "Dart",
+			"number" : 12,
+			"side" : "SIDE_PIRATE",
+			"x" : 0,
+			"y" : 6000
+		}
+	]
+}

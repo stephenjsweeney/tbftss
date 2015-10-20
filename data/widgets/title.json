@@ -1,0 +1,42 @@
+[
+	{
+		"name" : "newGame",
+		"group" : "title",
+		"type" : "WT_BUTTON",
+		"text" : "New Game",
+		"x" : -1,
+		"y" : 250,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "continue",
+		"group" : "title",
+		"type" : "WT_BUTTON",
+		"text" : "Continue",
+		"x" : -1,
+		"y" : 350,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "options",
+		"group" : "title",
+		"type" : "WT_BUTTON",
+		"text" : "Options",
+		"x" : -1,
+		"y" : 450,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "quit",
+		"group" : "title",
+		"type" : "WT_BUTTON",
+		"text" : "Quit",
+		"x" : -1,
+		"y" : 550,
+		"w" : 200,
+		"h": 34
+	}
+]

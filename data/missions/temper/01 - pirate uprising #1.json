@@ -1,0 +1,68 @@
+{
+	"name" : "Pirate Uprising #1",
+	"description" : "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presense at Temper.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/spirit.png",
+	"music" : "music/battleThemeA.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate Darts",
+			"targetName" : "Dart",
+			"targetValue" : 30
+		}
+	],
+	"challenges" : [
+		{
+			"type" : "CHALLENGE_NO_LOSSES",
+			"targetValue" : 0
+		},
+		{
+			"type" : "CHALLENGE_ARMOUR",
+			"targetValue" : 100
+		},
+		{
+			"type" : "CHALLENGE_PLAYER_KILLS",
+			"targetValue" : 15
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Katherine Strickland",
+		"squadron" : "Steel Bulls"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"type" : "TAF",
+			"number" : 4,
+			"side" : "SIDE_ALLIES",
+			"x" : 0,
+			"y" : 0
+		},
+		{
+			"type" : "SimpleDart",
+			"name" : "Dart",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : 1000,
+			"y" : 5000
+		},
+		{
+			"type" : "SimpleDart",
+			"name" : "Dart",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : -3000,
+			"y" : -3000
+		},
+		{
+			"type" : "Dart",
+			"name" : "Dart",
+			"number" : 10,
+			"side" : "SIDE_PIRATE",
+			"x" : 0,
+			"y" : -6000
+		}
+	]
+}

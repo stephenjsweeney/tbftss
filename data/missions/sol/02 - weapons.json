@@ -1,0 +1,29 @@
+{
+	"name" : "Weapons Training",
+	"description" : "Practice using your fighter's weapons against a stationary target.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/earth.png",
+	"music" : "music/Battle in the winter.mp3",
+	"objectives" : [
+		{
+			"description" : "Destroy Dart",
+			"targetName" : "Dart",
+			"targetValue" : 1
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Jim Goddard",
+		"squadron" : "Midnight Runners"
+	},
+	"fighters" : [
+		{
+			"name" : "Dart",
+			"type" : "StaticDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 800,
+			"y" : 200
+		}
+	]
+}

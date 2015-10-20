@@ -1,0 +1,280 @@
+{
+	"starSystems": [
+      {
+        "name": "Sol",
+        "side" : "SIDE_CSN",
+        "x": 840,
+        "y": 425,
+		"missions" : [
+			"data/missions/sol/01 - free flight.json",
+			"data/missions/sol/02 - weapons.json",
+			"data/missions/sol/03 - moving target.json",
+			"data/missions/sol/04 - real target.json",
+			"data/missions/sol/05 - wingmates.json",
+			"data/missions/sol/06 - final.json"
+		]
+      },
+      {
+        "name": "Alpha Centauri",
+        "side" : "SIDE_CSN",
+        "x": 860,
+        "y": 404,
+        "missions" : []
+      },
+      {
+        "name": "Ecuador Minor",
+        "side" : "SIDE_CSN",
+        "x": 831,
+        "y": 333,
+        "missions" : []
+      },
+      {
+        "name": "Angel",
+        "side" : "SIDE_CSN",
+        "x": 690,
+        "y": 305,
+        "missions" : []
+      },
+      {
+        "name": "Indigo",
+        "side" : "SIDE_CSN",
+        "x": 760,
+        "y": 270,
+        "missions" : []
+      },
+      {
+        "name": "Rex",
+        "side" : "SIDE_CSN",
+        "x": 834,
+        "y": 276,
+        "missions" : []
+      },
+      {
+        "name": "Gabriel",
+        "side" : "SIDE_CSN",
+        "x": 860,
+        "y": 170,
+        "missions" : []
+      },
+      {
+        "name": "Darlon",
+        "side" : "SIDE_CSN",
+        "x": 808,
+        "y": 190,
+        "missions" : []
+      },
+      {
+        "name": "Granada",
+        "side" : "SIDE_CSN",
+        "x": 741,
+        "y": 221,
+        "missions" : []
+      },
+      {
+        "name": "Parish",
+        "side" : "SIDE_CSN",
+        "x": 666,
+        "y": 261,
+        "missions" : []
+      },
+      {
+        "name": "Temper",
+        "side" : "SIDE_CSN",
+        "x": 595,
+        "y": 260,
+		"missions" : [
+			"data/missions/temper/01 - pirate uprising #1.json",
+			"data/missions/temper/02 - pirate uprising #2.json"
+		]
+      },
+      {
+        "name": "Lenon",
+        "side" : "SIDE_CSN",
+        "x": 655,
+        "y": 180,
+        "missions" : []
+      },
+      {
+        "name": "HD 21563010",
+        "side" : "SIDE_CSN",
+        "x": 813,
+        "y": 54,
+        "missions" : []
+      },
+      {
+        "name": "Trilliack",
+        "side" : "SIDE_UNF",
+        "x": 501,
+        "y": 312,
+        "missions" : []
+      },
+      {
+        "name": "Alba",
+        "side" : "SIDE_UNF",
+        "x": 465,
+        "y": 235,
+        "missions" : []
+      },
+      {
+        "name": "Aster",
+        "side" : "SIDE_UNF",
+        "x": 445,
+        "y": 145,
+        "missions" : []
+      },
+      {
+        "name": "Iliad",
+        "side" : "SIDE_UNF",
+        "x": 335,
+        "y": 135,
+        "missions" : []
+      },
+      {
+        "name": "Warro",
+        "side" : "SIDE_UNF",
+        "x": 289,
+        "y": 216,
+        "missions" : []
+      },
+      {
+        "name": "Coyote",
+        "side" : "SIDE_UNF",
+        "x": 325,
+        "y": 385,
+        "missions" : []
+      },
+      {
+        "name": "Rothan",
+        "side" : "SIDE_UNF",
+        "x": 366,
+        "y": 298,
+        "missions" : []
+      },
+      {
+        "name": "Donesta",
+        "side" : "SIDE_UNF",
+        "x": 527,
+        "y": 161,
+        "missions" : []
+      },
+      {
+        "name": "India",
+        "side" : "SIDE_UNF",
+        "x": 539,
+        "y": 427,
+        "missions" : []
+      },
+      {
+        "name": "Antomis",
+        "side" : "SIDE_UNF",
+        "x": 582,
+        "y": 115,
+        "missions" : []
+      },
+      {
+        "name": "Mace",
+        "side" : "SIDE_UNF",
+        "x": 444,
+        "y": 359,
+        "missions" : []
+      },
+      {
+        "name": "Clarke",
+        "side" : "SIDE_UNF",
+        "x": 398,
+        "y": 84,
+        "missions" : []
+      },
+      {
+        "name": "Adetton",
+        "side" : "SIDE_INF",
+        "x": 228,
+        "y": 228,
+        "missions" : []
+      },
+      {
+        "name": "Atlante",
+        "side" : "SIDE_INF",
+        "x": 212,
+        "y": 85,
+        "missions" : []
+      },
+      {
+        "name": "Carthege",
+        "side" : "SIDE_INF",
+        "x": 163,
+        "y": 122,
+        "missions" : []
+      },
+      {
+        "name": "Codexa",
+        "side" : "SIDE_INF",
+        "x": 195,
+        "y": 101,
+        "missions" : []
+      },
+      {
+        "name": "Haylahe",
+        "side" : "SIDE_INF",
+        "x": 204,
+        "y": 132,
+        "missions" : []
+      },
+      {
+        "name": "Kethlan",
+        "side" : "SIDE_INF",
+        "x": 95,
+        "y": 95,
+        "missions" : []
+      },
+      {
+        "name": "Krasst",
+        "side" : "SIDE_INF",
+        "x": 135,
+        "y": 305,
+        "missions" : []
+      },
+      {
+        "name": "Mekel",
+        "side" : "SIDE_INF",
+        "x": 228,
+        "y": 113,
+        "missions" : []
+      },
+      {
+        "name": "Phylent",
+        "side" : "SIDE_INF",
+        "x": 275,
+        "y": 165,
+        "missions" : []
+      },
+      {
+        "name": "Sampi-Persei VII",
+        "side" : "SIDE_INF",
+        "x": 342,
+        "y": 182,
+        "missions" : []
+      },
+      {
+        "name": "Tigris",
+        "side" : "SIDE_INF",
+        "x": 269,
+        "y": 274,
+        "missions" : []
+      },
+      {
+        "name": "Troy",
+        "side" : "SIDE_INF",
+        "x": 107,
+        "y": 269,
+        "missions" : []
+      },
+      {
+        "name": "Pearl",
+        "side" : "SIDE_INF",
+        "x": 133,
+        "y": 215,
+        "missions" : []
+      }
+    ]
+}

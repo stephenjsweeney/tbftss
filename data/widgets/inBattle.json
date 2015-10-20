@@ -1,0 +1,43 @@
+[
+	{
+		"name" : "resume",
+		"group" : "inBattle",
+		"type" : "WT_BUTTON",
+		"text" : "Resume",
+		"x" : -1,
+		"y" : 215,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "options",
+		"group" : "inBattle",
+		"type" : "WT_BUTTON",
+		"text" : "Options",
+		"x" : -1,
+		"y" : 315,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "restart",
+		"group" : "inBattle",
+		"type" : "WT_BUTTON",
+		"text" : "Restart",
+		"x" : -1,
+		"y" : 415,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "quit",
+		"group" : "inBattle",
+		"type" : "WT_BUTTON",
+		"text" : "Quit",
+		"x" : -1,
+		"y" : 515,
+		"w" : 200,
+		"h": 34
+	}
+	
+]

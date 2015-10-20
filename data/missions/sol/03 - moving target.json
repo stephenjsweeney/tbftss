@@ -1,0 +1,29 @@
+{
+	"name" : "Moving Target",
+	"description" : "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/earth.png",
+	"music" : "music/Battle in the winter.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate Dart",
+			"targetName" : "Dart",
+			"targetValue" : 1
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Jim Goddard",
+		"squadron" : "Midnight Runners"
+	},
+	"fighters" : [
+		{
+			"name" : "Dart",
+			"type" : "UnarmedDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 640,
+			"y" : 0
+		}
+	]
+}

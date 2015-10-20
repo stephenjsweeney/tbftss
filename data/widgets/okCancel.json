@@ -1,0 +1,22 @@
+[
+	{
+		"name" : "ok",
+		"group" : "okCancel",
+		"type" : "WT_BUTTON",
+		"text" : "OK",
+		"x" : 490,
+		"y" : 680,
+		"w" : 150,
+		"h": 34
+	},
+	{
+		"name" : "cancel",
+		"group" : "okCancel",
+		"type" : "WT_BUTTON",
+		"text" : "Cancel",
+		"x" : 790,
+		"y" : 680,
+		"w" : 150,
+		"h": 34
+	}
+]

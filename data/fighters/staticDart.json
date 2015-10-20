@@ -1,0 +1,9 @@
+{
+	"name" : "StaticDart",
+	"health" : 10,
+	"shield" : 0,
+	"speed" : 0,
+	"reloadTime" : 24,
+	"shieldRechargeRate" : 0,
+	"textureName" : "gfx/fighters/dart01.png"
+}

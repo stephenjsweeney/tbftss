@@ -1,0 +1,16 @@
+{
+	"name" : "Jackal",
+	"health" : 50,
+	"shield" : 50,
+	"speed" : 2,
+	"reloadTime" : 14,
+	"shieldRechargeRate" : 45,
+	"textureName" : "gfx/fighters/jackal.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : 0,
+			"y" : 0
+		}
+	]
+}

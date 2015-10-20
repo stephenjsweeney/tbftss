@@ -1,5 +1,5 @@
 # tbftss
-2D mission-based space shooter, based on the Battle for the Solar System space opera trilogy.
+2D mission-based space shooter, based on the Battle for the Solar System space opera novel trilogy.
 
 Website: www.battleforthesolarsystem.com
 Email: stephenjsweeney@battleforthesolarsystem.com
@@ -11,6 +11,10 @@ GRAPHICS
 gfx/planets/earth.png - modified from the the Blue Marble NASA photograph: http://visibleearth.nasa.gov/view.php?id=57723
 
 All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015, Stephen J Sweeney | www.battleforthesolarsystem.com
+
+DATA FILES (with the exception of Roboto font)
+
+CC BY-NC-SA 3.0, with the following attribution: Copyright 2015, Stephen J Sweeney | www.battleforthesolarsystem.com
 
 SOUND
 

@@ -1,0 +1,5 @@
+Changelog
+
+0.1
+
+	* Added initial missions, galactic map, and title screen. Game is playable in a most basic fashion, and a handful of missions are available. Loading and saving is supported (with -DUNIX, these will go to ~/.local/share/tbftss).

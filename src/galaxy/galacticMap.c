@@ -560,7 +560,7 @@ static void handleGalaxyKB(void)
 		camera.y += CAMERA_SPEED;
 	}
 	
-	if (app.keyboard[SDL_SCANCODE_RETURN])
+	if (app.keyboard[SDL_SCANCODE_RETURN] && selectedStarSystem)
 	{
 		selectStarSystem();
 		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
@@ -601,7 +601,7 @@ static void handleSelectedSystemKB(void)
 		nextMission();
 	}
 	
-	if (app.keyboard[SDL_SCANCODE_RETURN] && selectedMission->available)
+	if (app.keyboard[SDL_SCANCODE_RETURN])
 	{
 		if (selectedMission->available)
 		{

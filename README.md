@@ -1,6 +1,9 @@
 # tbftss
 2D mission-based space shooter, based on the Battle for the Solar System space opera trilogy.
 
+Website: www.battleforthesolarsystem.com
+Email: stephenjsweeney@battleforthesolarsystem.com
+
 CREDITS
 
 GRAPHICS

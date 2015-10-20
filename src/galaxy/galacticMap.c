@@ -49,12 +49,14 @@ static Mission *selectedMission = {0};
 static int missionListStart, selectedMissionIndex;
 static SDL_Texture *background;
 static SDL_Texture *starSystemTexture;
+static SDL_Texture *arrowTexture;
 static SDL_Point camera;
 static int viewingSystem;
 static Pulse pulseHead = {0};
 static Pulse *pulseTail;
 static int pulseTimer;
 static float ssx, ssy;
+static float arrowPulse;
 static int show;
 static int completedMissions, totalMissions;
 static int completedChallenges, totalChallenges;
@@ -73,6 +75,8 @@ void initGalacticMap(void)
 	
 	starSystemTexture = getTexture("gfx/galaxy/starSystem.png");
 	
+	arrowTexture = getTexture("gfx/galaxy/arrow.png");
+	
 	if (!selectedStarSystem)
 	{
 		selectedStarSystem = game.starSystemHead.next;
@@ -87,6 +91,8 @@ void initGalacticMap(void)
 	viewingSystem = 0;
 	
 	pulseTimer = 0;
+	
+	arrowPulse = 0;
 	
 	show = SHOW_GALAXY;
 	
@@ -126,6 +132,8 @@ static void logic(void)
 	
 	pulseTimer++;
 	pulseTimer %= (FPS * 60);
+	
+	arrowPulse += 0.01;
 	
 	doWidgets();
 }
@@ -284,6 +292,7 @@ static void drawGalaxy(void)
 	SDL_Rect r;
 	StarSystem *starSystem;
 	SDL_Color color;
+	float ax, ay, aa;
 	
 	r.w = r.h = 64;
 	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
@@ -298,9 +307,14 @@ static void drawGalaxy(void)
 	SDL_SetRenderDrawColor(app.renderer, 128, 200, 255, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 	
+	arrowPulse += 0.1;
+	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		blit(starSystemTexture, starSystem->x - camera.x, starSystem->y - camera.y, 1);
+		r.x = starSystem->x - camera.x;
+		r.y = starSystem->y - camera.y;
+		
+		blit(starSystemTexture, r.x, r.y, 1);
 		
 		switch (starSystem->side)
 		{
@@ -317,7 +331,45 @@ static void drawGalaxy(void)
 				break;
 		}
 		
-		drawText(starSystem->x - camera.x, starSystem->y - camera.y + 12, 14, TA_CENTER, color, starSystem->name);
+		drawText(r.x, r.y + 12, 14, TA_CENTER, color, starSystem->name);
+		
+		if (starSystem->completedMissions < starSystem->totalMissions)
+		{
+			ax = r.x;
+			ay = r.y;
+			aa = -1;
+			
+			ax = MAX(MIN(SCREEN_WIDTH - 64, ax), 64);
+			ay = MAX(MIN(SCREEN_HEIGHT - 64, ay), 64);
+			
+			if (r.x < 0)
+			{
+				ax = 64 + (sin(arrowPulse) * 10);
+				aa = 270;
+			}
+			else if (r.x > SCREEN_WIDTH)
+			{
+				ax = SCREEN_WIDTH - 64 + (sin(arrowPulse) * 10);
+				aa = 90;
+			}
+			else if (r.y < 0)
+			{
+				ay = 64 + (sin(arrowPulse) * 10);
+				aa = 0;
+			}
+			else if (r.y > SCREEN_HEIGHT)
+			{
+				ay = SCREEN_HEIGHT - 64 + (sin(arrowPulse) * 10);
+				aa = 180;
+			}
+			
+			if (aa != -1)
+			{
+				SDL_SetTextureColorMod(arrowTexture, 255, 0, 0);
+				
+				blitRotated(arrowTexture, ax, ay, aa);
+			}
+		}
 	}
 	
 	if (!viewingSystem && selectedStarSystem != NULL)
@@ -562,6 +614,7 @@ static void handleGalaxyKB(void)
 	
 	if (app.keyboard[SDL_SCANCODE_RETURN] && selectedStarSystem)
 	{
+		playSound(SND_GUI_SELECT);
 		selectStarSystem();
 		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 	}

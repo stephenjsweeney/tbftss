@@ -70,7 +70,17 @@ void initTitle(void)
 	
 	initFighters();
 	
-	selectWidget("newGame", "title");
+	if (fileExists(getSaveFilePath("game.save")))
+	{
+		selectWidget("continue", "title");
+	}
+	else
+	{
+		getWidget("continue", "title")->enabled = 0;
+		
+		selectWidget("newGame", "title");
+	}
+	
 	getWidget("newGame", "title")->action = newGame;
 	getWidget("continue", "title")->action = continueGame;
 	getWidget("options", "title")->action = options;
@@ -207,10 +217,7 @@ static void newGame(void)
 
 static void continueGame(void)
 {
-	if (fileExists(getSaveFilePath("game.save")))
-	{
-		loadGame();
-	}
+	loadGame();
 	
 	initGalacticMap();
 }

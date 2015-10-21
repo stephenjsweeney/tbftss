@@ -1,6 +1,6 @@
 PROG = tbftss
 
-VERSION = 0.1
+VERSION = 0.2
 
 CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DUNIX=1
 CXXFLAGS += -DUNIX

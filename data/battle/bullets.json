@@ -21,5 +21,13 @@
 		"textureName" : "gfx/bullets/missile.png",
 		"sound" : "SND_PLASMA",
 		"flags" : "BF_ENGINE"
+	},
+	
+	{
+		"type" : "BT_MAG",
+		"damage" : 10,
+		"textureName" : "gfx/bullets/magBolt.png",
+		"sound" : "SND_MAG",
+		"flags" : "BF_SYSTEM_DAMAGE"
 	}
 ]

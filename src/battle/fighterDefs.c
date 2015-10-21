@@ -81,7 +81,7 @@ static void loadFighterDef(char *filename)
 	STRNCPY(f->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 	f->health = f->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
 	f->shield = f->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
-	f->speed = cJSON_GetObjectItem(root, "speed")->valueint;
+	f->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;
 	f->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
 	f->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 	f->texture = getTexture(cJSON_GetObjectItem(root, "textureName")->valuestring);
@@ -117,6 +117,9 @@ static void loadFighterDef(char *filename)
 	SDL_QueryTexture(f->texture, NULL, NULL, &w, &h);
 	f->separationRadius = MAX(w, h);
 	f->separationRadius *= 2;
+	
+	/* all craft default to 100 system power */
+	f->systemPower = 100;
 	
 	cJSON_Delete(root);
 	free(text);

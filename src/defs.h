@@ -46,8 +46,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_FIGHTER_GUNS		12
 
-#define BF_NONE			0
-#define BF_ENGINE		(2 << 0)
+#define BF_NONE				0
+#define BF_ENGINE			(2 << 0)
+#define BF_SYSTEM_DAMAGE	(2 << 1)
 
 enum
 {
@@ -60,7 +61,8 @@ enum
 {
 	ALIVE_ALIVE,
 	ALIVE_DYING,
-	ALIVE_DEAD
+	ALIVE_DEAD,
+	ALIVE_DISABLED
 };
 
 enum
@@ -125,7 +127,7 @@ enum
 	OS_INCOMPLETE,
 	OS_COMPLETE,
 	OS_FAILED,
-	OS_CONDITIONAL
+	OS_CONDITION
 };
 
 enum

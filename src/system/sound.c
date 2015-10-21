@@ -93,6 +93,7 @@ static void loadSounds(void)
 {
 	sounds[SND_ARMOUR_HIT] = Mix_LoadWAV("sound/275151__bird-man__gun-shot.ogg");
 	sounds[SND_PLASMA] = Mix_LoadWAV("sound/268344__julien-matthey__jm-noiz-laser-01.ogg");
+	sounds[SND_MAG] = Mix_LoadWAV("sound/18382__inferno__hvylas.ogg");
 	sounds[SND_PARTICLE] = Mix_LoadWAV("sound/77087__supraliminal__laser-short.ogg");
 	sounds[SND_EXPLOSION_1] = Mix_LoadWAV("sound/162265__qubodup__explosive.ogg");
 	sounds[SND_EXPLOSION_2] = Mix_LoadWAV("sound/207322__animationisaac__short-explosion.ogg");

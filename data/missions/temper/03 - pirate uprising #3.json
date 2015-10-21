@@ -1,0 +1,35 @@
+{
+	"name" : "Pirate Uprising #3",
+	"description" : "Allied intelligence have managed to locate one of the pirate ring leaders. We need to bring this man in alive, as he could provide us with further useful information that will allow us to eliminate other high ranking individuals.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/spirit.png",
+	"music" : "music/battleThemeA.mp3",
+	"objectives" : [
+		{
+			"description" : "Capture Pirate Leader",
+			"targetName" : "Pirate Leader",
+			"targetValue" : 1
+		},
+		{
+			"description" : "Do not kill pirate leader",
+			"targetName" : "Pirate Leader",
+			"targetValue" : 1,
+			"condition" : 1
+		}
+	],
+	"player" : {
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Ian Barclay",
+		"squadron" : "Steel Bulls"
+	},
+	"fighters" : [
+		{
+			"name" : "Pirate Leader",
+			"type" : "UnarmedDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 800,
+			"y" : 200
+		}
+	]
+}

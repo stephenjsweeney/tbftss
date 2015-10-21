@@ -1,0 +1,25 @@
+{
+	"name" : "Ray",
+	"health" : 45,
+	"shield" : 45,
+	"speed" : 1.85,
+	"reloadTime" : 16,
+	"shieldRechargeRate" : 60,
+	"textureName" : "gfx/fighters/ray.png",
+	"guns" : [
+		{
+			"type" : "BT_MAG",
+			"x" : -12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : 12,
+			"y" : -12
+		}
+	],
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 4
+	}
+}

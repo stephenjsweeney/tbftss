@@ -114,7 +114,7 @@ static void checkCollisions(Bullet *b)
 				battle.stats.shotsHit++;
 			}
 			
-			damageFighter(f, b->damage);
+			damageFighter(f, b->damage, b->flags);
 			b->life = 0;
 			
 			/* assuming that health <= 0 will always mean killed */

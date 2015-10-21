@@ -34,6 +34,7 @@ extern void addFighterExplosion(void);
 extern void addSmallFighterExplosion(void);
 extern void playBattleSound(int id, int x, int y);
 extern void updateObjective(char *name);
+extern void updateCondition(char *name);
 extern Fighter *getFighterDef(char *name);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 

@@ -53,6 +53,7 @@ void initLookups(void)
 	
 	addLookup("BF_NONE", BF_NONE);
 	addLookup("BF_ENGINE", BF_ENGINE);
+	addLookup("BF_SYSTEM_DAMAGE", BF_SYSTEM_DAMAGE);
 	
 	addLookup("MISSILE_ROCKET", MISSILE_ROCKET);
 	addLookup("MISSILE_MISSILE", MISSILE_MISSILE);

@@ -76,7 +76,7 @@ struct Fighter {
 	float dx;
 	float dy;
 	float thrust;
-	int speed;
+	float speed;
 	int angle;
 	int alive;
 	int health;
@@ -87,8 +87,10 @@ struct Fighter {
 	int reloadTime;
 	int shieldRecharge;
 	int shieldRechargeRate;
+	int systemPower;
 	int armourHit;
 	int shieldHit;
+	int systemHit;
 	int thinkTime;
 	int aiActionTime;
 	int aggression;
@@ -158,6 +160,7 @@ struct Objective {
 	int currentValue;
 	int targetValue;
 	int status;
+	int optional;
 	Objective *next;
 };
 

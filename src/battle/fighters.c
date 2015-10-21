@@ -203,6 +203,7 @@ void doFighters(void)
 			f->shieldRecharge = MAX(f->shieldRecharge - 1, 0);
 			f->armourHit = MAX(f->armourHit - 25, 0);
 			f->shieldHit = MAX(f->shieldHit - 5, 0);
+			f->systemHit = MAX(f->systemHit - 25, 0);
 			
 			if (self->thrust > 0.25)
 			{
@@ -237,6 +238,21 @@ void doFighters(void)
 			f->die();
 		}
 		
+		if (f->systemPower <= 0 && f->alive == ALIVE_ALIVE)
+		{
+			f->dx *= 0.995;
+			f->dy *= 0.995;
+			f->thrust = 0;
+			f->shield = f->maxShield = 0;
+			f->action = NULL;
+			
+			if (f->dx <= 0.01 && f->dy <= 0.01)
+			{
+				updateObjective(f->name);
+				f->alive = ALIVE_DISABLED;
+			}
+		}
+		
 		if (f->alive == ALIVE_DEAD)
 		{
 			if (f == player)
@@ -260,6 +276,8 @@ void doFighters(void)
 				}
 				
 				updateObjective(f->name);
+				
+				updateCondition(f->name);
 			}
 			
 			if (f == battle.fighterTail)
@@ -340,6 +358,11 @@ void drawFighters(void)
 			SDL_SetTextureColorMod(f->texture, 255, 255 - f->armourHit, 255 - f->armourHit);
 		}
 		
+		if (f->systemHit > 0)
+		{
+			SDL_SetTextureColorMod(f->texture, 255 - f->systemHit, 255, 255);
+		}
+		
 		blitRotated(f->texture, f->x, f->y, f->angle);
 		
 		if (f->shieldHit > 0)
@@ -386,21 +409,36 @@ void applyFighterBrakes(void)
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 }
 
-void damageFighter(Fighter *f, int damage)
+void damageFighter(Fighter *f, int amount, long flags)
 {
-	f->shield -= damage;
-	
-	if (f->shield < 0)
+	if (flags & BF_SYSTEM_DAMAGE)
 	{
-		f->health -= abs(f->shield);
-		f->shield = 0;
-		f->armourHit = 255;
+		f->systemPower = MAX(0, f->systemPower - amount);
 		
-		playBattleSound(SND_ARMOUR_HIT, f->x, f->y);
+		f->systemHit = 255;
+	
+		if (f->systemPower == 0)
+		{
+			f->shield = f->maxShield = 0;
+			f->action = f->defaultAction = NULL;
+		}
 	}
-	else if (f->shield > 0)
+	else
 	{
-		f->shieldHit = 255;
+		f->shield -= amount;
+		
+		if (f->shield < 0)
+		{
+			f->health -= abs(f->shield);
+			f->shield = 0;
+			f->armourHit = 255;
+			
+			playBattleSound(SND_ARMOUR_HIT, f->x, f->y);
+		}
+		else if (f->shield > 0)
+		{
+			f->shieldHit = 255;
+		}
 	}
 }
 
@@ -441,6 +479,7 @@ static void spinDie(void)
 	self->thinkTime = 0;
 	self->armourHit = 0;
 	self->shieldHit = 0;
+	self->systemHit = 0;
 	
 	self->angle += 8;
 	
@@ -463,6 +502,7 @@ static void straightDie(void)
 	self->thinkTime = 0;
 	self->armourHit = 0;
 	self->shieldHit = 0;
+	self->systemHit = 0;
 	
 	if (rand() % 2 == 0)
 	{

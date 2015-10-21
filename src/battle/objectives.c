@@ -24,9 +24,11 @@ void failIncompleteObjectives(void);
 
 void doObjectives(void)
 {
+	int conditionFailed;
 	Objective *o;
 	
 	battle.numObjectivesComplete = battle.numObjectivesTotal = 0;
+	conditionFailed = 0;
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
@@ -34,18 +36,39 @@ void doObjectives(void)
 		
 		if (o->currentValue == o->targetValue)
 		{
-			battle.numObjectivesComplete++;
+			switch (o->status)
+			{
+				case OS_COMPLETE:
+					battle.numObjectivesComplete++;
+					break;
+					
+				case OS_FAILED:
+					if (!o->optional)
+					{
+						conditionFailed = 1;
+					}
+					break;
+			}
 		}
 	}
 	
-	if (battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal && battle.status == MS_IN_PROGRESS)
+	if (battle.status == MS_IN_PROGRESS)
 	{
-		battle.status = MS_COMPLETE;
-		battle.missionFinishedTimer = FPS;
+		if (battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
+		{
+			battle.status = MS_COMPLETE;
+			battle.missionFinishedTimer = FPS;
+			
+			game.stats.missionsCompleted++;
+			
+			updateChallenges();
+		}
 		
-		game.stats.missionsCompleted++;
-		
-		updateChallenges();
+		if (conditionFailed)
+		{
+			battle.status = MS_FAILED;
+			battle.missionFinishedTimer = FPS;
+		}
 	}
 }
 
@@ -55,9 +78,9 @@ void updateObjective(char *name)
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		if (strcmp(o->targetName, name) == 0)
+		if (o->status != OS_CONDITION && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 		{
-			o->currentValue = MIN(o->targetValue, o->currentValue + 1);
+			o->currentValue++;
 			
 			if (o->targetValue - o->currentValue <= 10)
 			{
@@ -70,20 +93,27 @@ void updateObjective(char *name)
 			
 			if (o->currentValue == o->targetValue)
 			{
-				switch (o->status)
-				{
-					case OS_INCOMPLETE:
-						o->status = OS_COMPLETE;
-						addHudMessage(colors.green, "%s - Objective Complete!", o->description);
-						break;
-						
-					case OS_CONDITIONAL:
-						o->status = OS_FAILED;
-						battle.status = MS_FAILED;
-						battle.missionFinishedTimer = FPS;
-						failIncompleteObjectives();
-						break;
-				}
+				o->status = OS_COMPLETE;
+				addHudMessage(colors.green, "%s - Objective Complete!", o->description);
+			}
+		}
+	}
+}
+
+void updateCondition(char *name)
+{
+	Objective *o;
+	
+	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	{
+		if (o->status == OS_CONDITION && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+		{
+			o->currentValue++;
+			
+			if (o->currentValue == o->targetValue)
+			{
+				o->status = OS_FAILED;
+				addHudMessage(colors.green, "%s - Objective Failed!", o->description);
 			}
 		}
 	}

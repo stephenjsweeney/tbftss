@@ -23,23 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
-extern SDL_Texture *getTexture(char *filename);
-extern void doAI(void);
-extern void blitRotated(SDL_Texture *t, int x, int y, int angle);
-extern void blit(SDL_Texture *t, int x, int y, int center);
-extern float getAngle(int x1, int y1, int x2, int y2);
-extern int getDistance(int x1, int y1, int x2, int y2);
-extern void addEngineEffect(void);
-extern void addFighterExplosion(void);
-extern void addSmallFighterExplosion(void);
-extern void playBattleSound(int id, int x, int y);
-extern void updateObjective(char *name, int type);
-extern void updateCondition(char *name, int type);
-extern Fighter *getFighterDef(char *name);
-extern void addHudMessage(SDL_Color c, char *format, ...);
+extern void initBattle(void);
+extern void loadMission(char *filename);
 
-extern App app;
-extern Battle battle;
-extern Colors colors;
-extern Fighter *player;
-extern Fighter *self;
+extern Game game;

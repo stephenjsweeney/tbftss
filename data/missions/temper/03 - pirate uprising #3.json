@@ -8,13 +8,15 @@
 		{
 			"description" : "Capture Pirate Leader",
 			"targetName" : "Pirate Leader",
-			"targetValue" : 1
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE"
 		},
 		{
 			"description" : "Do not kill pirate leader",
 			"targetName" : "Pirate Leader",
 			"targetValue" : 1,
-			"condition" : 1
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
 		}
 	],
 	"player" : {
@@ -26,7 +28,7 @@
 	"fighters" : [
 		{
 			"name" : "Pirate Leader",
-			"type" : "UnarmedDart",
+			"type" : "StaticDart",
 			"side" : "SIDE_PIRATE",
 			"x" : 800,
 			"y" : 200

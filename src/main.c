@@ -41,8 +41,7 @@ int main(int argc, char *argv[])
 	
 	if (argc > 1)
 	{
-		initBattle();
-		loadMission(argv[1]);
+		loadTestMission(argv[1]);
 	}
 	else
 	{

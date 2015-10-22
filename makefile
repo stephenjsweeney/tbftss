@@ -9,7 +9,7 @@ CXXFLAGS += -g -lefence
 
 LIBS = `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 
-SEARCHPATH += src/ src/battle src/draw src/game src/galaxy src/json src/system
+SEARCHPATH += src/ src/battle src/draw src/game src/galaxy src/json src/system src/test
 vpath %.c $(SEARCHPATH)
 vpath %.h $(SEARCHPATH)
 
@@ -30,7 +30,7 @@ OBJS += objectives.o options.o
 OBJS += player.o
 OBJS += radar.o
 OBJS += save.o sound.o starfield.o starSystems.o stats.o
-OBJS += textures.o text.o title.o transition.o
+OBJS += testMission.o textures.o text.o title.o transition.o
 OBJS += util.o
 OBJS += widgets.o
 

@@ -157,10 +157,12 @@ struct Effect {
 struct Objective {
 	char description[MAX_DESCRIPTION_LENGTH];
 	char targetName[MAX_NAME_LENGTH];
+	int targetType;
 	int currentValue;
 	int targetValue;
 	int status;
-	int optional;
+	int isCondition;
+	int isOptional;
 	Objective *next;
 };
 

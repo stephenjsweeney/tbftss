@@ -87,6 +87,17 @@ static void loadObjectives(cJSON *node)
 			STRNCPY(o->description, cJSON_GetObjectItem(node, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
 			STRNCPY(o->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
 			o->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
+			o->targetType = lookup(cJSON_GetObjectItem(node, "targetType")->valuestring);
+			
+			if (cJSON_GetObjectItem(node, "isCondition"))
+			{
+				o->isCondition = cJSON_GetObjectItem(node, "isCondition")->valueint;
+			}
+			
+			if (cJSON_GetObjectItem(node, "isOptional"))
+			{
+				o->isOptional = cJSON_GetObjectItem(node, "isOptional")->valueint;
+			}
 			
 			battle.objectiveTail->next = o;
 			battle.objectiveTail = o;

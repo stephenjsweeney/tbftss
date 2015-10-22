@@ -30,6 +30,9 @@ void initLookups(void)
 	memset(&head, 0, sizeof(Lookup));
 	tail = &head;
 	
+	addLookup("TT_DESTROY", TT_DESTROY);
+	addLookup("TT_DISABLE", TT_DISABLE);
+	
 	addLookup("WT_BUTTON", WT_BUTTON);
 	addLookup("WT_SELECT", WT_SELECT);
 	

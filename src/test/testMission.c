@@ -18,24 +18,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "SDL2/SDL.h"
-#include "time.h"
-#include "locale.h"
+#include "testMission.h"
 
-#include "defs.h"
-#include "structs.h"
+static Mission mission;
 
-extern void cleanup(void);
-extern void initSDL(void);
-extern void initBattle(void);
-extern void initGameSystem(void);
-extern void initTitle(void);
-extern void loadTestMission(char *filename);
-extern void saveScreenshot(void);
-
-App app;
-Colors colors;
-Battle battle;
-Fighter *self;
-Fighter *player;
-Game game;
+void loadTestMission(char *filename)
+{
+	memset(&mission, 0, sizeof(Mission));
+	
+	game.currentMission = &mission;
+	
+	initBattle();
+	
+	loadMission(filename);
+}

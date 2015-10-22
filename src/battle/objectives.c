@@ -20,19 +20,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "objectives.h"
 
+void completeConditions(void);
 void failIncompleteObjectives(void);
 
 void doObjectives(void)
 {
-	int conditionFailed;
+	int objectiveFailed;
 	Objective *o;
 	
 	battle.numObjectivesComplete = battle.numObjectivesTotal = 0;
-	conditionFailed = 0;
+	objectiveFailed = 0;
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		battle.numObjectivesTotal++;
+		if (!o->isCondition)
+		{
+			battle.numObjectivesTotal++;
+		}
 		
 		if (o->currentValue == o->targetValue)
 		{
@@ -43,9 +47,9 @@ void doObjectives(void)
 					break;
 					
 				case OS_FAILED:
-					if (!o->optional)
+					if (!o->isOptional)
 					{
-						conditionFailed = 1;
+						objectiveFailed = 1;
 					}
 					break;
 			}
@@ -61,24 +65,28 @@ void doObjectives(void)
 			
 			game.stats.missionsCompleted++;
 			
+			completeConditions();
+			
 			updateChallenges();
 		}
 		
-		if (conditionFailed)
+		if (objectiveFailed)
 		{
 			battle.status = MS_FAILED;
 			battle.missionFinishedTimer = FPS;
+			
+			failIncompleteObjectives();
 		}
 	}
 }
 
-void updateObjective(char *name)
+void updateObjective(char *name, int type)
 {
 	Objective *o;
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		if (o->status != OS_CONDITION && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+		if (!o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 		{
 			o->currentValue++;
 			
@@ -100,24 +108,38 @@ void updateObjective(char *name)
 	}
 }
 
-void updateCondition(char *name)
+void updateCondition(char *name, int type)
 {
 	Objective *o;
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		if (o->status == OS_CONDITION && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+		if (o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 		{
 			o->currentValue++;
 			
 			if (o->currentValue == o->targetValue)
 			{
 				o->status = OS_FAILED;
-				addHudMessage(colors.green, "%s - Objective Failed!", o->description);
+				addHudMessage(colors.red, "%s - Objective Failed!", o->description);
 			}
 		}
 	}
 }
+
+void completeConditions(void)
+{
+	Objective *o;
+	
+	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	{
+		if (o->isCondition)
+		{
+			o->status = OS_COMPLETE;
+		}
+	}
+}
+
 
 void failIncompleteObjectives(void)
 {

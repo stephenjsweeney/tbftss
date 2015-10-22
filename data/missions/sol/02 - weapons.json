@@ -8,7 +8,8 @@
 		{
 			"description" : "Destroy Dart",
 			"targetName" : "Dart",
-			"targetValue" : 1
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
 		}
 	],
 	"player" : {

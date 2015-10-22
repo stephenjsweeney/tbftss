@@ -8,7 +8,8 @@
 		{
 			"description" : "Eliminate Darts",
 			"targetName" : "Dart",
-			"targetValue" : 3
+			"targetValue" : 3,
+			"targetType" : "TT_DESTROY"
 		}
 	],
 	"challenges" : [

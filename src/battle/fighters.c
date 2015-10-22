@@ -238,17 +238,17 @@ void doFighters(void)
 			f->die();
 		}
 		
-		if (f->systemPower <= 0 && f->alive == ALIVE_ALIVE)
+		if (f->systemPower <= 0)
 		{
-			f->dx *= 0.995;
-			f->dy *= 0.995;
+			f->dx *= 0.99;
+			f->dy *= 0.99;
 			f->thrust = 0;
 			f->shield = f->maxShield = 0;
 			f->action = NULL;
 			
-			if (f->dx <= 0.01 && f->dy <= 0.01)
+			if (f->alive == ALIVE_ALIVE)
 			{
-				updateObjective(f->name);
+				updateObjective(f->name, TT_DISABLE);
 				f->alive = ALIVE_DISABLED;
 			}
 		}
@@ -275,9 +275,9 @@ void doFighters(void)
 					}
 				}
 				
-				updateObjective(f->name);
+				updateObjective(f->name, TT_DESTROY);
 				
-				updateCondition(f->name);
+				updateCondition(f->name, TT_DESTROY);
 			}
 			
 			if (f == battle.fighterTail)

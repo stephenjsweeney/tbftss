@@ -132,6 +132,12 @@ enum
 
 enum
 {
+	TT_DESTROY,
+	TT_DISABLE
+};
+
+enum
+{
 	MS_START,
 	MS_IN_PROGRESS,
 	MS_PAUSED,

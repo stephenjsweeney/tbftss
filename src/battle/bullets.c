@@ -230,7 +230,7 @@ void fireGuns(Fighter *owner)
 	
 	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
 	{
-		if (owner->guns[i].type)
+		if (owner->guns[i].type == owner->selectedGunType)
 		{
 			s = sin(TO_RAIDANS(owner->angle));
 			c = cos(TO_RAIDANS(owner->angle));

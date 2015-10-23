@@ -25,7 +25,7 @@ static void drawPlayerTargeter(void);
 static void drawNumAllies(void);
 static void drawNumEnemies(void);
 static void drawHealthBars(void);
-static void drawMissileAmmoBar(void);
+static void drawWeaponInfo(void);
 static void drawObjectives(void);
 static void drawTargetDistance(void);
 static void drawHudMessages(void);
@@ -34,6 +34,7 @@ static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
 
 static int healthWarning;
+static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon"};
 
 void initHud(void)
 {
@@ -95,7 +96,7 @@ void drawHud(void)
 	{
 		drawHealthBars();
 		
-		drawMissileAmmoBar();
+		drawWeaponInfo();
 		
 		drawNumAllies();
 		
@@ -181,46 +182,10 @@ static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g
 	}
 }
 
-static void drawMissileAmmoBar(void)
+static void drawWeaponInfo(void)
 {
-	int w;
-	float i, percent, step;
-	SDL_Rect rect;
-	
-	rect.x = 10;
-	rect.y = 50;
-	rect.w = 250;
-	rect.h = 12;
-
-	SDL_SetRenderDrawColor(app.renderer, 128, 64, 32, 255);
-	SDL_RenderFillRect(app.renderer, &rect);
-	
-	SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
-	SDL_RenderDrawRect(app.renderer, &rect);
-
-	rect.x += 2;
-	rect.y += 2;
-	rect.w -= 4;
-	rect.h -= 4;
-	
-	percent = player->missiles.ammo;
-	percent /= player->missiles.maxAmmo;
-	
-	step = rect.w;
-	step /= player->missiles.maxAmmo;
-	
-	w = rect.w;
-	
-	rect.w *= percent;
-	
-	SDL_SetRenderDrawColor(app.renderer, 255, 128, 0, 255);
-	SDL_RenderFillRect(app.renderer, &rect);
-	
-	for (i = step ; i < w ; i += step)
-	{
-		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
-		SDL_RenderDrawLine(app.renderer, rect.x + i, rect.y, rect.x + i, rect.y + rect.h);
-	}
+	drawText(10, 50, 14, TA_LEFT, colors.white, gunName[player->selectedGunType]);
+	drawText(260, 50, 14, TA_RIGHT, colors.white, "Missiles (%d)", player->missiles.ammo);
 }
 
 static void drawPlayerTargeter(void)

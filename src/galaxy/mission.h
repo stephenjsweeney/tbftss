@@ -33,6 +33,7 @@ extern void startSectionTransition(void);
 extern void endSectionTransition(void);
 extern void playMusic(char *filename);
 extern void stopMusic(void);
+extern void initPlayer(void);
 
 extern Battle battle;
 extern Fighter *player;

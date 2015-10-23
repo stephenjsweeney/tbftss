@@ -61,6 +61,7 @@ extern void scrollBackground(float x, float y);
 extern void initOptions(void (*returnFromOptions)(void));
 extern void drawOptions(void);
 extern void playSound(int id);
+extern void initPlayer(void);
 
 extern App app;
 extern Battle battle;

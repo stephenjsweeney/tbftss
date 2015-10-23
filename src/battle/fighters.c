@@ -73,6 +73,8 @@ Fighter *spawnFighter(char *name, int x, int y, int side)
 		randomizeDart(f);
 	}
 	
+	f->selectedGunType = f->guns[0].type;
+	
 	f->defaultAction = doAI;
 	f->die = die;
 	

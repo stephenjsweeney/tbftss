@@ -21,6 +21,33 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "player.h"
 
 static void selectTarget(void);
+static void switchGuns(void);
+
+static int availableGuns[BT_MAX];
+
+void initPlayer(void)
+{
+	int i, n;
+	
+	memset(&availableGuns, 0, sizeof(int) * BT_MAX);
+	
+	player->selectedGunType = -1;
+		
+	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
+	{
+		n = player->guns[i].type;
+		
+		if (n)
+		{
+			availableGuns[n] = 1;
+			
+			if (player->selectedGunType == -1)
+			{
+				player->selectedGunType = n;
+			}
+		}
+	}
+}
 
 void doPlayer(void)
 {
@@ -55,6 +82,13 @@ void doPlayer(void)
 				fireGuns(player);
 			}
 			
+			if (app.keyboard[SDL_SCANCODE_LSHIFT])
+			{
+				switchGuns();
+				
+				app.keyboard[SDL_SCANCODE_LSHIFT] = 0;
+			}
+			
 			if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles.ammo && player->target)
 			{
 				fireMissile(player);
@@ -81,6 +115,21 @@ void doPlayer(void)
 			battle.missionFinishedTimer = FPS;
 		}
 	}
+}
+
+static void switchGuns(void)
+{
+	int i;
+	
+	i = player->selectedGunType;
+	
+	do
+	{
+		i = (i + 1) % BT_MAX;
+	}
+	while (!availableGuns[i]);
+	
+	player->selectedGunType = i;
 }
 
 static void selectTarget(void)

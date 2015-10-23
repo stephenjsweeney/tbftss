@@ -85,6 +85,7 @@ struct Fighter {
 	int maxShield;
 	int reload;
 	int reloadTime;
+	int selectedGunType;
 	int shieldRecharge;
 	int shieldRechargeRate;
 	int systemPower;

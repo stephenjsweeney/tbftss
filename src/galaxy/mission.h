@@ -34,6 +34,7 @@ extern void endSectionTransition(void);
 extern void playMusic(char *filename);
 extern void stopMusic(void);
 extern void initPlayer(void);
+extern long flagsToLong(char *flags);
 
 extern Battle battle;
 extern Fighter *player;

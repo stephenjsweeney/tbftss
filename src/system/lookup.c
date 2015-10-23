@@ -30,6 +30,10 @@ void initLookups(void)
 	memset(&head, 0, sizeof(Lookup));
 	tail = &head;
 	
+	addLookup("FF_NO_KILL", FF_NO_KILL);
+	addLookup("FF_DISABLE", FF_DISABLE);
+	addLookup("FF_IMMORTAL", FF_IMMORTAL);
+	
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);
 	

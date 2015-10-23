@@ -43,12 +43,14 @@ static void boost(void);
 static void slow(void);
 static int targetOutOfRange(void);
 static void moveToPlayer(void);
+static int canAttack(Fighter *f);
+static int selectWeapon(int type);
 
 void doAI(void)
 {
 	int r;
 	
-	if (!self->target || targetOutOfRange())
+	if (!self->target || targetOutOfRange() || self->target->systemPower <= 0)
 	{
 		findTarget();
 		
@@ -144,9 +146,11 @@ static void findTarget(void)
 	int closest = 2000;
 	int dist = 2000;
 	
+	self->target = NULL;
+	
 	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
 	{
-		if (f->side != self->side && f->health > 0)
+		if (f->side != self->side && f->health > 0 && canAttack(f))
 		{
 			dist = getDistance(self->x, self->y, f->x, f->y);
 			if (dist < closest)
@@ -156,6 +160,44 @@ static void findTarget(void)
 			}
 		}
 	}
+}
+
+static int canAttack(Fighter *f)
+{
+	self->selectedGunType = self->guns[0].type;
+	
+	if (f->flags & FF_DISABLE)
+	{
+		if (f->systemPower > 0)
+		{
+			return selectWeapon(BT_MAG);
+		}
+		
+		return 0;
+	}
+	
+	if (f->flags & FF_NO_KILL)
+	{
+		return selectWeapon(BT_LASER) || selectWeapon(BT_MAG);
+	}
+	
+	return 1;
+}
+
+static int selectWeapon(int type)
+{
+	int i;
+	
+	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
+	{
+		if (self->guns[i].type == type)
+		{
+			self->selectedGunType = type;
+			return 1;
+		}
+	}
+	
+	return 0;
 }
 
 static void faceTarget(Fighter *f)

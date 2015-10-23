@@ -31,6 +31,14 @@
 			"type" : "StaticDart",
 			"side" : "SIDE_PIRATE",
 			"x" : 800,
+			"y" : 200,
+			"flags" : "FF_NO_KILL+FF_DISABLE"
+		},
+		{
+			"name" : "TAF",
+			"type" : "Ray",
+			"side" : "SIDE_ALLIES",
+			"x" : 100,
 			"y" : 200
 		}
 	]

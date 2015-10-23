@@ -142,6 +142,11 @@ static void loadFighters(cJSON *node)
 			f = spawnFighter(type, x, y, side);
 			
 			STRNCPY(f->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+			
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				f->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
 		
 			node = node->next;
 		}

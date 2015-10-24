@@ -25,6 +25,7 @@ static void updateAccuracyChallenge(Challenge *c);
 static void updateArmourChallenge(Challenge *c);
 static void updateLossesChallenge(Challenge *c);
 static void updatePlayerKillsChallenge(Challenge *c);
+static void updateDisabledChallenge(Challenge *c);
 static char *getFormattedChallengeDescription(const char *format, ...);
 char *getChallengeDescription(Challenge *c);
 
@@ -37,7 +38,9 @@ static char *challengeDescription[] = {
 	"Do not lose any team mates",
 	"Do not lose more than 1 team mate",
 	"Do not lose more than %d team mates",
-	"Take down %d enemy targets"
+	"Take down %d enemy targets",
+	"Disable %d or more enemy fighters",
+	"Finish mission in %d minutes or less"
 };
 
 void updateChallenges(void)
@@ -51,6 +54,7 @@ void updateChallenges(void)
 			switch (c->type)
 			{
 				case CHALLENGE_TIME:
+				case CHALLENGE_TIME_MINS:
 					updateTimeChallenge(c);
 					break;
 					
@@ -71,6 +75,10 @@ void updateChallenges(void)
 				case CHALLENGE_PLAYER_KILLS:
 					updatePlayerKillsChallenge(c);
 					break;
+					
+				case CHALLENGE_DISABLE:
+					updateDisabledChallenge(c);
+					break;
 			}
 		}
 	}
@@ -78,9 +86,21 @@ void updateChallenges(void)
 
 static void updateTimeChallenge(Challenge *c)
 {
-	if (battle.stats.time / FPS <= c->targetValue)
+	switch (c->type)
 	{
-		c->passed = 1;
+		case CHALLENGE_TIME:
+			if (battle.stats.time / FPS <= c->targetValue)
+			{
+				c->passed = 1;
+			}
+			break;
+		
+		case CHALLENGE_TIME_MINS:
+			if ((battle.stats.time / FPS) / 60 <= c->targetValue)
+			{
+				c->passed = 1;
+			}
+			break;
 	}
 }
 
@@ -125,6 +145,14 @@ static void updatePlayerKillsChallenge(Challenge *c)
 	if (!c->passed)
 	{
 		c->passed = battle.stats.playerKills >= c->targetValue;
+	}
+}
+
+static void updateDisabledChallenge(Challenge *c)
+{
+	if (!c->passed)
+	{
+		c->passed = battle.stats.disabled >= c->targetValue;
 	}
 }
 

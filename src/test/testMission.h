@@ -22,8 +22,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../defs.h"
 #include "../structs.h"
+#include "../json/cJSON.h"
 
 extern void initBattle(void);
 extern void loadMission(char *filename);
+extern long lookup(char *name);
+extern char *readFile(char *filename);
 
 extern Game game;

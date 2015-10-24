@@ -236,30 +236,32 @@ void doFighters(void)
 			}
 		}
 		
-		if (f->health <= 0 && f->alive == ALIVE_ALIVE)
+		if (f->alive == ALIVE_ALIVE)
 		{
-			f->health = 0;
-			f->alive = ALIVE_DYING;
-			f->die();
-			
-			if (f == battle.missionTarget)
+			if (f->health <= 0)
 			{
-				battle.missionTarget = NULL;
+				f->health = 0;
+				f->alive = ALIVE_DYING;
+				f->die();
+				
+				if (f == battle.missionTarget)
+				{
+					battle.missionTarget = NULL;
+				}
 			}
-		}
-		
-		if (f->systemPower <= 0)
-		{
-			f->dx *= 0.99;
-			f->dy *= 0.99;
-			f->thrust = 0;
-			f->shield = f->maxShield = 0;
-			f->action = NULL;
-			
-			if (f->alive == ALIVE_ALIVE)
+			else if (f->systemPower <= 0)
 			{
-				updateObjective(f->name, TT_DISABLE);
-				f->alive = ALIVE_DISABLED;
+				f->dx *= 0.99;
+				f->dy *= 0.99;
+				f->thrust = 0;
+				f->shield = f->maxShield = 0;
+				f->action = NULL;
+				
+				if (f->alive == ALIVE_ALIVE)
+				{
+					updateObjective(f->name, TT_DISABLE);
+					battle.stats.disabled++;
+				}
 			}
 		}
 		

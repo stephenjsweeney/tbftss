@@ -24,6 +24,7 @@ static void loadStats(cJSON *stats);
 static void loadStarSystems(cJSON *starSystemsJSON);
 static void loadMissions(StarSystem *starSystem, cJSON *missionsCJSON);
 static void loadChallenges(Mission *mission, cJSON *challengesCJSON);
+static int getStat(cJSON *stats, char *name);
 
 void loadGame(void)
 {
@@ -95,15 +96,26 @@ static void loadChallenges(Mission *mission, cJSON *challengesCJSON)
 
 static void loadStats(cJSON *stats)
 {
-	game.stats.missionsStarted = cJSON_GetObjectItem(stats, "missionsStarted")->valueint;
-	game.stats.missionsCompleted = cJSON_GetObjectItem(stats, "missionsCompleted")->valueint;
-	game.stats.shotsFired = cJSON_GetObjectItem(stats, "shotsFired")->valueint;
-	game.stats.shotsHit = cJSON_GetObjectItem(stats, "shotsHit")->valueint;
-	game.stats.missilesFired = cJSON_GetObjectItem(stats, "missilesFired")->valueint;
-	game.stats.missilesHit = cJSON_GetObjectItem(stats, "missilesHit")->valueint;
-	game.stats.enemiesKilled = cJSON_GetObjectItem(stats, "enemiesKilled")->valueint;
-	game.stats.alliesKilled = cJSON_GetObjectItem(stats, "alliesKilled")->valueint;
-	game.stats.playerKilled = cJSON_GetObjectItem(stats, "playerKilled")->valueint;
-	game.stats.playerKills = cJSON_GetObjectItem(stats, "playerKills")->valueint;
-	game.stats.time = cJSON_GetObjectItem(stats, "time")->valueint;
+	game.stats.missionsStarted = getStat(stats, "missionsStarted");
+	game.stats.missionsCompleted = getStat(stats, "missionsCompleted");
+	game.stats.shotsFired = getStat(stats, "shotsFired");
+	game.stats.shotsHit = getStat(stats, "shotsHit");
+	game.stats.missilesFired = getStat(stats, "missilesFired");
+	game.stats.missilesHit = getStat(stats, "missilesHit");
+	game.stats.enemiesKilled = getStat(stats, "enemiesKilled");
+	game.stats.alliesKilled = getStat(stats, "alliesKilled");
+	game.stats.playerKilled = getStat(stats, "playerKilled");
+	game.stats.playerKills = getStat(stats, "playerKills");
+	game.stats.disabled = getStat(stats, "disabled");
+	game.stats.time = getStat(stats, "time");
+}
+
+static int getStat(cJSON *stats, char *name)
+{
+	if (cJSON_GetObjectItem(stats, name))
+	{
+		return cJSON_GetObjectItem(stats, name)->valueint;
+	}
+	
+	return 0;
 }

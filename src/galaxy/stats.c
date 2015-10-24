@@ -86,7 +86,7 @@ void drawStats(void)
 	
 	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Times Killed");
 	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.playerKilled);
-	y += 40;
+	y += 60;
 	
 	seconds = game.stats.time / FPS;
 	minutes = (seconds / 60) % 60;

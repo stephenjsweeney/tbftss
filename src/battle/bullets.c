@@ -166,7 +166,7 @@ static void faceTarget(Bullet *b)
 		
 		brakeAmount = angleDist;
 		brakeAmount /= 360;
-		brakeAmount = 0.7 - brakeAmount;
+		brakeAmount = 0.6 - brakeAmount;
 		
 		/* halve your speed while you're not at the correct angle */
 		b->dx *= brakeAmount;

@@ -128,6 +128,7 @@ static void saveStats(cJSON *gameJSON)
 	cJSON_AddNumberToObject(stats, "alliesKilled", game.stats.alliesKilled);
 	cJSON_AddNumberToObject(stats, "playerKilled", game.stats.playerKilled);
 	cJSON_AddNumberToObject(stats, "playerKills", game.stats.playerKills);
+	cJSON_AddNumberToObject(stats, "disabled", game.stats.disabled);
 	cJSON_AddNumberToObject(stats, "time", game.stats.time);
 
 	cJSON_AddItemToObject(gameJSON, "stats", stats);

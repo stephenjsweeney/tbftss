@@ -22,6 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static Mission mission;
 
+static void loadChallenges(char *filename);
+
 void loadTestMission(char *filename)
 {
 	memset(&mission, 0, sizeof(Mission));
@@ -33,4 +35,42 @@ void loadTestMission(char *filename)
 	initBattle();
 	
 	loadMission(filename);
+	loadChallenges(filename);
+}
+
+static void loadChallenges(char *filename)
+{
+	Challenge *challenge, *challengeTail;
+	cJSON *root, *node;
+	char *text;
+	
+	text = readFile(filename);
+	
+	root = cJSON_Parse(text);
+	
+	challengeTail = &mission.challengeHead;
+	
+	node = cJSON_GetObjectItem(root, "challenges");
+	
+	if (node)
+	{
+		node = node->child;
+		
+		while (node)
+		{
+			challenge = malloc(sizeof(Challenge));
+			memset(challenge, 0, sizeof(Challenge));
+			
+			challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+			challenge->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
+			
+			challengeTail->next = challenge;
+			challengeTail = challenge;
+			
+			node = node->next;
+		}
+	}
+	
+	cJSON_Delete(root);
+	free(text);
 }

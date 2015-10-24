@@ -76,6 +76,8 @@ void initLookups(void)
 	addLookup("CHALLENGE_1_LOSS", CHALLENGE_1_LOSS);
 	addLookup("CHALLENGE_LOSSES", CHALLENGE_LOSSES);
 	addLookup("CHALLENGE_PLAYER_KILLS", CHALLENGE_PLAYER_KILLS);
+	addLookup("CHALLENGE_DISABLE", CHALLENGE_DISABLE);
+	addLookup("CHALLENGE_TIME_MINS", CHALLENGE_TIME_MINS);
 }
 
 static void addLookup(char *name, long value)

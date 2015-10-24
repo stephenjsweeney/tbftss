@@ -202,16 +202,17 @@ struct StarSystem {
 };
 
 typedef struct {
-	int missionsStarted;
-	int missionsCompleted;
-	int shotsFired;
-	int shotsHit;
-	int missilesFired;
-	int missilesHit;
-	int enemiesKilled;
-	int alliesKilled;
-	int playerKilled;
-	int playerKills;
+	unsigned int missionsStarted;
+	unsigned int missionsCompleted;
+	unsigned int shotsFired;
+	unsigned int shotsHit;
+	unsigned int missilesFired;
+	unsigned int missilesHit;
+	unsigned int enemiesKilled;
+	unsigned int alliesKilled;
+	unsigned int playerKilled;
+	unsigned int playerKills;
+	unsigned int disabled;
 	unsigned int time;
 } Stats;
 

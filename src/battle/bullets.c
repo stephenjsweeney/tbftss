@@ -153,12 +153,9 @@ static void faceTarget(Bullet *b)
 		
 		b->angle = mod(b->angle, 360);
 		
-		b->dx *= 0.35;
-		b->dy *= 0.35;
-	}
-	else
-	{
-		b->angle = wantedAngle;
+		/* halve your speed while you're not at the correct angle */
+		b->dx *= 0.5;
+		b->dy *= 0.5;
 	}
 }
 
@@ -167,8 +164,8 @@ static void applyMissileThrust(Bullet *b)
 	int maxSpeed;
 	float v, thrust;
 	
-	b->dx += sin(TO_RAIDANS(b->angle)) * 0.5;
-	b->dy += -cos(TO_RAIDANS(b->angle)) * 0.5;
+	b->dx += sin(TO_RAIDANS(b->angle));
+	b->dy += -cos(TO_RAIDANS(b->angle));
 	
 	maxSpeed = MAX(MIN(b->target->speed + 1, 999), 3);
 	

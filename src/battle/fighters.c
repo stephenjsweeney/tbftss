@@ -188,6 +188,11 @@ void doFighters(void)
 			self->target = NULL;
 		}
 		
+		if (!battle.missionTarget && f->flags & FF_MISSION_TARGET && f->health > 0)
+		{
+			battle.missionTarget = f;
+		}
+		
 		f->x += f->dx;
 		f->y += f->dy;
 		
@@ -236,6 +241,11 @@ void doFighters(void)
 			f->health = 0;
 			f->alive = ALIVE_DYING;
 			f->die();
+			
+			if (f == battle.missionTarget)
+			{
+				battle.missionTarget = NULL;
+			}
 		}
 		
 		if (f->systemPower <= 0)
@@ -372,15 +382,29 @@ void drawFighters(void)
 			blit(shieldHitTexture, f->x, f->y, 1);
 		}
 		
-		if (player != NULL && f == player->target)
+		if (player != NULL)
 		{
-			r.x = f->x - 32;
-			r.y = f->y - 32;
-			r.w = 64;
-			r.h = 64;
+			if (f == player->target)
+			{
+				r.x = f->x - 32;
+				r.y = f->y - 32;
+				r.w = 64;
+				r.h = 64;
+				
+				SDL_SetRenderDrawColor(app.renderer, 255, 64, 0, 255);
+				SDL_RenderDrawRect(app.renderer, &r);
+			}
 			
-			SDL_SetRenderDrawColor(app.renderer, 255, 64, 0, 255);
-			SDL_RenderDrawRect(app.renderer, &r);
+			if (f == battle.missionTarget)
+			{
+				r.x = f->x - 28;
+				r.y = f->y - 28;
+				r.w = 56;
+				r.h = 56;
+				
+				SDL_SetRenderDrawColor(app.renderer, 64, 255, 0, 255);
+				SDL_RenderDrawRect(app.renderer, &r);
+			}
 		}
 	}
 }

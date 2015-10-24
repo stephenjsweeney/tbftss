@@ -1,6 +1,6 @@
 {
 	"name" : "Pirate Uprising #3",
-	"description" : "Allied intelligence have managed to locate one of the pirate ring leaders. We need to bring this man in alive, as he could provide us with further useful information that will allow us to eliminate other high ranking individuals.",
+	"description" : "Allied intelligence have managed to locate one of the pirate ring leaders. We need to bring this man in alive, as he could provide us with further useful information that will allow us to eliminate other high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the leader's Dart.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/battleThemeA.mp3",
@@ -12,7 +12,13 @@
 			"targetType" : "TT_DISABLE"
 		},
 		{
-			"description" : "Do not kill pirate leader",
+			"description" : "Destroy all remaining opposition",
+			"targetName" : "Dart",
+			"targetValue" : 12,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Do not kill Pirate Leader",
 			"targetName" : "Pirate Leader",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
@@ -28,18 +34,30 @@
 	"fighters" : [
 		{
 			"name" : "Pirate Leader",
-			"type" : "StaticDart",
+			"type" : "Dart",
 			"side" : "SIDE_PIRATE",
-			"x" : 800,
-			"y" : 200,
-			"flags" : "FF_NO_KILL+FF_DISABLE"
+			"x" : -5000,
+			"y" : 0,
+			"flags" : "FF_NO_KILL+FF_DISABLE+FF_MISSION_TARGET"
+		}
+	],
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"type" : "TAF",
+			"number" : 2,
+			"side" : "SIDE_ALLIES",
+			"x" : 1600,
+			"y" : 400
 		},
 		{
-			"name" : "TAF",
-			"type" : "Ray",
-			"side" : "SIDE_ALLIES",
-			"x" : 100,
-			"y" : 200
+			"type" : "Dart",
+			"name" : "Dart",
+			"number" : 12,
+			"side" : "SIDE_PIRATE",
+			"x" : -5000,
+			"y" : 0,
+			"scatter" : 2000
 		}
 	]
 }

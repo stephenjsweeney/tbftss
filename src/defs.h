@@ -54,6 +54,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define FF_NO_KILL			(2 << 0)
 #define FF_DISABLE			(2 << 1)
 #define FF_IMMORTAL			(2 << 2)
+#define FF_MISSION_TARGET	(2 << 3)
 
 enum
 {

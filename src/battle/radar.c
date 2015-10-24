@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "radar.h"
 
+#define RADAR_RANGE	20
+
 void drawRadar(void)
 {
 	SDL_Rect r;
@@ -34,13 +36,13 @@ void drawRadar(void)
 	
 	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
 	{
-		if (getDistance(f->x, f->y, player->x, player->y) / 15 < 70)
+		if (getDistance(f->x, f->y, player->x, player->y) / RADAR_RANGE < 70)
 		{
 			r.x = SCREEN_WIDTH - 85;
 			r.y = SCREEN_HEIGHT - 85;
 			
-			r.x -= (player->x - f->x) / 15;
-			r.y -= (player->y - f->y) / 15;
+			r.x -= (player->x - f->x) / RADAR_RANGE;
+			r.y -= (player->y - f->y) / RADAR_RANGE;
 			
 			r.x--;
 			r.y--;
@@ -61,9 +63,14 @@ void drawRadar(void)
 					break;
 			}
 			
-			if (player->target == f)
+			if (f == player->target)
 			{
 				SDL_SetRenderDrawColor(app.renderer, 255, 255, 0, 255);
+			}
+			
+			if (f == battle.missionTarget)
+			{
+				SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
 			}
 			
 			SDL_RenderFillRect(app.renderer, &r);

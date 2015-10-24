@@ -32,6 +32,9 @@ static void drawHudMessages(void);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
+static SDL_Texture *targetPointer;
+static SDL_Texture *targetCircle;
+static SDL_Texture *smallFighter;
 
 static int healthWarning;
 static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon"};
@@ -42,6 +45,10 @@ void initHud(void)
 	
 	memset(&hudMessageHead, 0, sizeof(HudMessage));
 	hudMessageTail = &hudMessageHead;
+	
+	targetPointer = getTexture("gfx/hud/targetPointer.png");
+	targetCircle = getTexture("gfx/hud/targetCircle.png");
+	smallFighter = getTexture("gfx/hud/smallFighter.png");
 }
 
 void doHud(void)
@@ -199,33 +206,45 @@ static void drawPlayerTargeter(void)
 		x = player->x;
 		y = player->y;
 		
-		x += sin(TO_RAIDANS(angle)) * 44;
-		y += -cos(TO_RAIDANS(angle)) * 44;
+		x += sin(TO_RAIDANS(angle)) * 45;
+		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		blitRotated(getTexture("gfx/hud/targetPointer.png"), x, y, angle);
+		SDL_SetTextureColorMod(targetPointer, 255, 0, 0);
+		SDL_SetTextureColorMod(targetCircle, 255, 0, 0);
 		
-		blitRotated(getTexture("gfx/hud/targetCircle.png"), player->x, player->y, angle);
+		blitRotated(targetPointer, x, y, angle);
+		blitRotated(targetCircle, player->x, player->y, angle);
+	}
+	
+	if (battle.missionTarget)
+	{
+		angle = getAngle(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
+		x = player->x;
+		y = player->y;
+		
+		x += sin(TO_RAIDANS(angle)) * 45;
+		y += -cos(TO_RAIDANS(angle)) * 45;
+		
+		SDL_SetTextureColorMod(targetPointer, 0, 255, 0);
+		
+		blitRotated(targetPointer, x, y, angle);
 	}
 }
 
 static void drawNumAllies(void)
 {
-	SDL_Texture *t = getTexture("gfx/hud/smallFighter.png");
+	SDL_SetTextureColorMod(smallFighter, 150, 200, 255);
 	
-	SDL_SetTextureColorMod(t, 150, 200, 255);
-	
-	blit(t, 400, 15, 0);
+	blit(smallFighter, 400, 15, 0);
 	
 	drawText(435, 11, 14, TA_CENTER, colors.white, "(%d)", battle.numAllies);
 }
 
 static void drawNumEnemies(void)
 {
-	SDL_Texture *t = getTexture("gfx/hud/smallFighter.png");
+	SDL_SetTextureColorMod(smallFighter, 255, 100, 100);
 	
-	SDL_SetTextureColorMod(t, 255, 100, 100);
-	
-	blit(t, SCREEN_WIDTH - 410, 15, 0);
+	blit(smallFighter, SCREEN_WIDTH - 410, 15, 0);
 	
 	drawText(SCREEN_WIDTH - 430, 11, 14, TA_CENTER, colors.white, "(%d)", battle.numEnemies);
 }
@@ -248,6 +267,17 @@ static void drawTargetDistance(void)
 		distance /= 10;
 		
 		drawText(SCREEN_WIDTH - 15, 50, 14, TA_RIGHT, colors.red, "Target: %.2fkm", distance);
+	}
+	
+	if (battle.missionTarget != NULL)
+	{
+		distance = getDistance(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
+		distance /= 50;
+		
+		distance = (int)distance;
+		distance /= 10;
+		
+		drawText(SCREEN_WIDTH - 15, 75, 14, TA_RIGHT, colors.green, "Objective: %.2fkm", distance);
 	}
 }
 

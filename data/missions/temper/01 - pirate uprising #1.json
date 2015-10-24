@@ -47,7 +47,8 @@
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
 			"x" : 1000,
-			"y" : 5000
+			"y" : 5000,
+			"scatter" : 2000
 		},
 		{
 			"type" : "SimpleDart",
@@ -55,7 +56,8 @@
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
 			"x" : -3000,
-			"y" : -3000
+			"y" : -3000,
+			"scatter" : 2000
 		},
 		{
 			"type" : "Dart",
@@ -63,7 +65,8 @@
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
 			"x" : 0,
-			"y" : -6000
+			"y" : -6000,
+			"scatter" : 2000
 		}
 	]
 }

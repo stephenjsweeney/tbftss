@@ -26,6 +26,8 @@ void loadTestMission(char *filename)
 {
 	memset(&mission, 0, sizeof(Mission));
 	
+	STRNCPY(mission.filename, filename, MAX_DESCRIPTION_LENGTH);
+	
 	game.currentMission = &mission;
 	
 	initBattle();

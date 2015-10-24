@@ -96,7 +96,7 @@ void doPlayer(void)
 				app.keyboard[SDL_SCANCODE_RETURN] = 0;
 			}
 			
-			if (!player->target || player->target->health <= 0 || getDistance(player->x, player->y, player->target->x, player->target->y) > 1000)
+			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || getDistance(player->x, player->y, player->target->x, player->target->y) > 1000)
 			{
 				selectTarget();
 			}

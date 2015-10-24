@@ -157,8 +157,10 @@ static void loadFighterGroups(cJSON *node)
 {
 	Fighter *f;
 	char *type, *name;
-	int side, x, y;
+	int side, x, y, scatter;
 	int number, i;
+	
+	scatter = 1;
 	
 	if (node)
 	{
@@ -173,9 +175,17 @@ static void loadFighterGroups(cJSON *node)
 			y = cJSON_GetObjectItem(node, "y")->valueint;
 			name = cJSON_GetObjectItem(node, "name")->valuestring;
 			
+			if (cJSON_GetObjectItem(node, "scatter"))
+			{
+				scatter = cJSON_GetObjectItem(node, "scatter")->valueint;
+			}
+			
 			for (i = 0 ; i < number ; i++)
 			{
 				f = spawnFighter(type, x, y, side);
+				
+				f->x += (rand() % scatter) - (rand() % scatter);
+				f->y += (rand() % scatter) - (rand() % scatter);
 				
 				STRNCPY(f->name, name, MAX_NAME_LENGTH);
 			}

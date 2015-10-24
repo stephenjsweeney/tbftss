@@ -223,6 +223,7 @@ typedef struct {
 	int status;
 	int missionFinishedTimer;
 	int numObjectivesComplete, numObjectivesTotal;
+	Fighter *missionTarget;
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
 	Fighter fighterHead, *fighterTail;

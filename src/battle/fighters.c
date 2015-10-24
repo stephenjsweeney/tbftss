@@ -260,7 +260,7 @@ void doFighters(void)
 				if (f->alive == ALIVE_ALIVE)
 				{
 					updateObjective(f->name, TT_DISABLE);
-					battle.stats.disabled++;
+					battle.stats[STAT_DISABLED]++;
 				}
 			}
 		}
@@ -269,7 +269,7 @@ void doFighters(void)
 		{
 			if (f == player)
 			{
-				battle.stats.playerKilled++;
+				battle.stats[STAT_PLAYER_KILLED]++;
 			}
 			else if (player != NULL)
 			{
@@ -277,11 +277,11 @@ void doFighters(void)
 				{
 					if (f->side != player->side)
 					{
-						battle.stats.enemiesKilled++;
+						battle.stats[STAT_ENEMIES_KILLED]++;
 					}
 					else
 					{
-						battle.stats.alliesKilled++;
+						battle.stats[STAT_ALLIES_KILLED]++;
 						
 						addHudMessage(colors.red, "Ally has been killed");
 					}

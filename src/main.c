@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 			app.delegate.logic();
 			td -= LOGIC_RATE;
 			
-			game.stats.time++;
+			game.stats[STAT_TIME]++;
 		}
 
 		app.delegate.draw();

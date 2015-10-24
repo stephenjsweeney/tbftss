@@ -63,7 +63,7 @@ void doObjectives(void)
 			battle.status = MS_COMPLETE;
 			battle.missionFinishedTimer = FPS;
 			
-			game.stats.missionsCompleted++;
+			game.stats[STAT_MISSIONS_COMPLETED]++;
 			
 			completeConditions();
 			

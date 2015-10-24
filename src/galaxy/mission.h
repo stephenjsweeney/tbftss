@@ -38,3 +38,4 @@ extern long flagsToLong(char *flags);
 
 extern Battle battle;
 extern Fighter *player;
+extern Game game;

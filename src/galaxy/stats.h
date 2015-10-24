@@ -23,10 +23,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
+#define MAX_STAT_ITEMS 9
+
 extern void selectWidget(const char *name, const char *group);
 extern Widget *getWidget(const char *name, const char *group);
 extern void drawWidgets(char *groupName);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern void blit(SDL_Texture *texture, int x, int y, int centered);
+extern SDL_Texture *getTexture(char *filename);
 
 extern App app;
 extern Colors colors;

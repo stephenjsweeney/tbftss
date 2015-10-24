@@ -20,9 +20,51 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "stats.h"
 
+static char *statDescription[] = {
+	"Missions Started",
+	"Missons Completed",
+	"Shots Fired",
+	"Shots Hit",
+	"Missiles Fired",
+	"Missiles Hit",
+	"Enemies Killed",
+	"Enemies Killed (Player)",
+	"Allies Killed",
+	"Times Killed",
+	"Enemies Disabled",
+	"STAT_TIME"
+};
+
+static int page;
+static int maxPages;
+static SDL_Texture *pagePrev;
+static SDL_Texture *pageNext;
+
+void initStatsDisplay(void)
+{
+	page = 0;
+	maxPages = (STAT_MAX / MAX_STAT_ITEMS);
+	
+	pagePrev = getTexture("gfx/widgets/optionsLeft.png");
+	pageNext = getTexture("gfx/widgets/optionsRight.png");
+}
+
+void handleStatsKB(void)
+{
+	if (app.keyboard[SDL_SCANCODE_LEFT])
+	{
+		page = MIN(MAX(page - 1, 0), maxPages);
+	}
+	
+	if (app.keyboard[SDL_SCANCODE_RIGHT])
+	{
+		page = MIN(MAX(page + 1, 0), maxPages);
+	}
+}
+
 void drawStats(void)
 {
-	int y, hours, minutes, seconds;
+	int i, y, hours, minutes, seconds, startIndex;
 	SDL_Rect r;
 	char timePlayed[MAX_NAME_LENGTH];
 	
@@ -43,60 +85,41 @@ void drawStats(void)
 	
 	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, "Stats");
 	
-	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
-	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w, 120);
+	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, "Page %d / %d", page + 1, maxPages + 1);
 	
-	y = 140;
+	if (page > 0)
+	{
+		blit(pagePrev, (SCREEN_WIDTH / 2) - 100, 120, 1);
+	}
 	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Missions Started");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.missionsStarted);
-	y += 40;
+	if (page < maxPages)
+	{
+		blit(pageNext, (SCREEN_WIDTH / 2) + 100, 120, 1);
+	}
 	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Missions Completed");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.missionsCompleted);
-	y += 40;
+	y = 170;
 	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Shots Fired");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.shotsFired);
-	y += 40;
+	startIndex = (page * MAX_STAT_ITEMS);
 	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Shots Hit");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.shotsHit);
-	y += 40;
+	for (i = startIndex ; i < startIndex + MAX_STAT_ITEMS ; i++)
+	{
+		if (i < STAT_TIME)
+		{
+			drawText(r.x + 20, y, 18, TA_LEFT, colors.white, statDescription[i]);
+			drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats[i]);
+			y += 40;
+		}
+	}
 	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Missiles Fired");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.missilesFired);
-	y += 40;
-	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Missiles Hit");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.missilesHit);
-	y += 40;
-	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Enemies Killed (Player)");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.playerKills);
-	y += 40;
-	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Enemies Killed (All)");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.enemiesKilled);
-	y += 40;
-	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Allies Lost");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.alliesKilled);
-	y += 40;
-	
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Times Killed");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats.playerKilled);
-	y += 60;
-	
-	seconds = game.stats.time / FPS;
+	seconds = game.stats[STAT_TIME] / FPS;
 	minutes = (seconds / 60) % 60;
 	hours = seconds / (60 * 60);
 	
 	seconds %= 60;
 	
 	sprintf(timePlayed, "%dh:%02dm:%02ds", hours, minutes, seconds);
-	drawText(r.x + 20, y, 18, TA_LEFT, colors.white, "Time Played");
-	drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, timePlayed);
+	drawText(r.x + 20, 565, 18, TA_LEFT, colors.white, "Time Played");
+	drawText(r.x + r.w - 20, 565, 18, TA_RIGHT, colors.white, timePlayed);
 		
 	drawWidgets("stats");	
 }

@@ -63,7 +63,12 @@ void loadMission(char *filename)
 	
 	endSectionTransition();
 	
-	if (!battle.objectiveHead.next)
+	/* only increment num missions started if there are objectives (Free Flight excluded, for example) */
+	if (battle.objectiveHead.next)
+	{
+		game.stats[STAT_MISSIONS_STARTED]++;
+	}
+	else 
 	{
 		battle.status = MS_IN_PROGRESS;
 	}

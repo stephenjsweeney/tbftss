@@ -202,21 +202,6 @@ struct StarSystem {
 };
 
 typedef struct {
-	unsigned int missionsStarted;
-	unsigned int missionsCompleted;
-	unsigned int shotsFired;
-	unsigned int shotsHit;
-	unsigned int missilesFired;
-	unsigned int missilesHit;
-	unsigned int enemiesKilled;
-	unsigned int alliesKilled;
-	unsigned int playerKilled;
-	unsigned int playerKills;
-	unsigned int disabled;
-	unsigned int time;
-} Stats;
-
-typedef struct {
 	float ssx;
 	float ssy;
 	int numAllies;
@@ -231,13 +216,13 @@ typedef struct {
 	Bullet bulletHead, *bulletTail;
 	Effect effectHead, *effectTail;
 	Objective objectiveHead, *objectiveTail;
-	Stats stats;
+	unsigned int stats[STAT_MAX];
 } Battle;
 
 typedef struct {
 	StarSystem starSystemHead, *starSystemTail;
 	Mission *currentMission;
-	Stats stats;
+	unsigned int stats[STAT_MAX];
 } Game;
 
 struct Widget {

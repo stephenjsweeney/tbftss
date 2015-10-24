@@ -24,7 +24,6 @@ static void loadStats(cJSON *stats);
 static void loadStarSystems(cJSON *starSystemsJSON);
 static void loadMissions(StarSystem *starSystem, cJSON *missionsCJSON);
 static void loadChallenges(Mission *mission, cJSON *challengesCJSON);
-static int getStat(cJSON *stats, char *name);
 
 void loadGame(void)
 {
@@ -96,26 +95,10 @@ static void loadChallenges(Mission *mission, cJSON *challengesCJSON)
 
 static void loadStats(cJSON *stats)
 {
-	game.stats.missionsStarted = getStat(stats, "missionsStarted");
-	game.stats.missionsCompleted = getStat(stats, "missionsCompleted");
-	game.stats.shotsFired = getStat(stats, "shotsFired");
-	game.stats.shotsHit = getStat(stats, "shotsHit");
-	game.stats.missilesFired = getStat(stats, "missilesFired");
-	game.stats.missilesHit = getStat(stats, "missilesHit");
-	game.stats.enemiesKilled = getStat(stats, "enemiesKilled");
-	game.stats.alliesKilled = getStat(stats, "alliesKilled");
-	game.stats.playerKilled = getStat(stats, "playerKilled");
-	game.stats.playerKills = getStat(stats, "playerKills");
-	game.stats.disabled = getStat(stats, "disabled");
-	game.stats.time = getStat(stats, "time");
-}
-
-static int getStat(cJSON *stats, char *name)
-{
-	if (cJSON_GetObjectItem(stats, name))
-	{
-		return cJSON_GetObjectItem(stats, name)->valueint;
-	}
+	int i;
 	
-	return 0;
+	for (i = 0 ; i < STAT_MAX ; i++)
+	{
+		game.stats[i] = cJSON_GetObjectItem(stats, getLookupName("STAT_", i))->valueint;
+	}
 }

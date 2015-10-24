@@ -62,6 +62,8 @@ extern void initOptions(void (*returnFromOptions)(void));
 extern void drawStats(void);
 extern void playSound(int id);
 extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);
+extern void initStatsDisplay(void);
+extern void handleStatsKB(void);
 
 extern App app;
 extern Colors colors;

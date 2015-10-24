@@ -89,14 +89,14 @@ static void updateTimeChallenge(Challenge *c)
 	switch (c->type)
 	{
 		case CHALLENGE_TIME:
-			if (battle.stats.time / FPS <= c->targetValue)
+			if (battle.stats[STAT_TIME] / FPS <= c->targetValue)
 			{
 				c->passed = 1;
 			}
 			break;
 		
 		case CHALLENGE_TIME_MINS:
-			if ((battle.stats.time / FPS) / 60 <= c->targetValue)
+			if ((battle.stats[STAT_TIME] / FPS) / 60 <= c->targetValue)
 			{
 				c->passed = 1;
 			}
@@ -108,8 +108,8 @@ static void updateAccuracyChallenge(Challenge *c)
 {
 	float percent;
 	
-	percent = battle.stats.shotsHit;
-	percent /= battle.stats.shotsFired;
+	percent = battle.stats[STAT_SHOTS_HIT];
+	percent /= battle.stats[STAT_SHOTS_FIRED];
 	percent *= 100;
 	
 	if (percent >= c->targetValue)
@@ -136,7 +136,7 @@ static void updateLossesChallenge(Challenge *c)
 {
 	if (!c->passed)
 	{
-		c->passed = battle.stats.alliesKilled <= c->targetValue;
+		c->passed = battle.stats[STAT_ALLIES_KILLED] <= c->targetValue;
 	}
 }
 
@@ -144,7 +144,7 @@ static void updatePlayerKillsChallenge(Challenge *c)
 {
 	if (!c->passed)
 	{
-		c->passed = battle.stats.playerKills >= c->targetValue;
+		c->passed = battle.stats[STAT_ENEMIES_KILLED_PLAYER] >= c->targetValue;
 	}
 }
 
@@ -152,7 +152,7 @@ static void updateDisabledChallenge(Challenge *c)
 {
 	if (!c->passed)
 	{
-		c->passed = battle.stats.disabled >= c->targetValue;
+		c->passed = battle.stats[STAT_DISABLED] >= c->targetValue;
 	}
 }
 

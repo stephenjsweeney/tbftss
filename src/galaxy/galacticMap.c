@@ -558,7 +558,12 @@ static void handleKeyboard(void)
 			handleGalaxyKB();
 		}
 	}
-	else if (app.keyboard[SDL_SCANCODE_ESCAPE])
+	else if (show == SHOW_STATS)
+	{
+		handleStatsKB();
+	}
+	
+	if (app.keyboard[SDL_SCANCODE_ESCAPE])
 	{
 		switch (show)
 		{
@@ -743,6 +748,8 @@ static void stats(void)
 	selectWidget("ok", "stats");
 	
 	show = SHOW_STATS;
+	
+	initStatsDisplay();
 }
 
 static void statsOK(void)

@@ -33,7 +33,7 @@ void resetGame(void)
 	Mission *mission;
 	Challenge *challenge;
 	
-	memset(&game.stats, 0, sizeof(Stats));
+	memset(&game.stats, 0, sizeof(int) * STAT_MAX);
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{

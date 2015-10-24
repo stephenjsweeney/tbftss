@@ -111,7 +111,7 @@ static void checkCollisions(Bullet *b)
 			}
 			else if (b->owner == player)
 			{
-				battle.stats.shotsHit++;
+				battle.stats[STAT_SHOTS_HIT]++;
 			}
 			
 			damageFighter(f, b->damage, b->flags);
@@ -126,7 +126,12 @@ static void checkCollisions(Bullet *b)
 			/* assuming that health <= 0 will always mean killed */
 			if (f->health <= 0 && b->owner == player)
 			{
-				battle.stats.playerKills++;
+				battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
+			}
+			
+			if (b->owner == player && b->type == BT_MISSILE)
+			{
+				battle.stats[STAT_MISSILES_HIT]++;
 			}
 			
 			return;
@@ -257,7 +262,7 @@ void fireGuns(Fighter *owner)
 			
 			if (owner == player)
 			{
-				battle.stats.shotsFired++;
+				battle.stats[STAT_SHOTS_FIRED]++;
 			}
 		}
 	}
@@ -276,6 +281,11 @@ void fireMissile(Fighter *owner)
 	b->life = FPS * 30;
 	
 	owner->missiles.ammo--;
+	
+	if (owner == player)
+	{
+		battle.stats[STAT_MISSILES_FIRED]++;
+	}
 	
 	playBattleSound(b->sound, owner->x, owner->y);
 }

@@ -116,20 +116,14 @@ static cJSON *getChallengesJSON(Mission *mission)
 
 static void saveStats(cJSON *gameJSON)
 {
+	int i;
+	
 	cJSON *stats = cJSON_CreateObject();
 	
-	cJSON_AddNumberToObject(stats, "missionsStarted", game.stats.missionsStarted);
-	cJSON_AddNumberToObject(stats, "missionsCompleted", game.stats.missionsCompleted);
-	cJSON_AddNumberToObject(stats, "shotsFired", game.stats.shotsFired);
-	cJSON_AddNumberToObject(stats, "shotsHit", game.stats.shotsHit);
-	cJSON_AddNumberToObject(stats, "missilesFired", game.stats.missilesFired);
-	cJSON_AddNumberToObject(stats, "missilesHit", game.stats.missilesHit);
-	cJSON_AddNumberToObject(stats, "enemiesKilled", game.stats.enemiesKilled);
-	cJSON_AddNumberToObject(stats, "alliesKilled", game.stats.alliesKilled);
-	cJSON_AddNumberToObject(stats, "playerKilled", game.stats.playerKilled);
-	cJSON_AddNumberToObject(stats, "playerKills", game.stats.playerKills);
-	cJSON_AddNumberToObject(stats, "disabled", game.stats.disabled);
-	cJSON_AddNumberToObject(stats, "time", game.stats.time);
+	for (i = 0 ; i < STAT_MAX ; i++)
+	{
+		cJSON_AddNumberToObject(stats, getLookupName("STAT_", i), game.stats[i]);
+	}
 
 	cJSON_AddItemToObject(gameJSON, "stats", stats);
 }

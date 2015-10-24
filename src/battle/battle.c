@@ -73,12 +73,6 @@ void initBattle(void)
 	getWidget("quit", "battleLost")->action = quitBattle;
 	
 	selectWidget("ok", "startBattle");
-	
-	/* only increment the missions started if there are objectives (Free Flight) */
-	if (battle.objectiveHead.next)
-	{
-		game.stats.missionsStarted++;
-	}
 }
 
 static void logic(void)
@@ -297,15 +291,12 @@ static void quitBattle(void)
 
 static void postBattle(void)
 {
-	game.stats.shotsFired += battle.stats.shotsFired;
-	game.stats.shotsHit += battle.stats.shotsHit;
-	game.stats.missilesFired += battle.stats.missilesFired;
-	game.stats.missilesHit += battle.stats.missilesHit;
-	game.stats.enemiesKilled += battle.stats.enemiesKilled;
-	game.stats.alliesKilled += battle.stats.alliesKilled;
-	game.stats.playerKilled += battle.stats.playerKilled;
-	game.stats.playerKills += battle.stats.playerKills;
-	game.stats.time += battle.stats.time;
+	int i;
+	
+	for (i = 0 ; i < STAT_MAX ; i++)
+	{
+		game.stats[i] += battle.stats[i];
+	}
 	
 	if (game.currentMission && !game.currentMission->completed)
 	{

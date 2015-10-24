@@ -115,7 +115,13 @@ static void checkCollisions(Bullet *b)
 			}
 			
 			damageFighter(f, b->damage, b->flags);
+			
 			b->life = 0;
+			
+			if (b->flags & BF_EXPLODES)
+			{
+				addMissileExplosion(b);
+			}
 			
 			/* assuming that health <= 0 will always mean killed */
 			if (f->health <= 0 && b->owner == player)
@@ -142,6 +148,8 @@ static void faceTarget(Bullet *b)
 {
 	int dir;
 	int wantedAngle = getAngle(b->x, b->y, b->target->x, b->target->y);
+	int angleDiff, angleDist;
+	float brakeAmount;
 	
 	wantedAngle %= 360;
 	
@@ -153,9 +161,16 @@ static void faceTarget(Bullet *b)
 		
 		b->angle = mod(b->angle, 360);
 		
+		angleDiff = abs(b->angle - wantedAngle) % 360;
+		angleDist = angleDiff > 180 ? 360 - angleDiff : angleDiff;
+		
+		brakeAmount = angleDist;
+		brakeAmount /= 360;
+		brakeAmount = 0.7 - brakeAmount;
+		
 		/* halve your speed while you're not at the correct angle */
-		b->dx *= 0.5;
-		b->dy *= 0.5;
+		b->dx *= brakeAmount;
+		b->dy *= brakeAmount;
 	}
 }
 
@@ -261,6 +276,8 @@ void fireMissile(Fighter *owner)
 	b->life = FPS * 30;
 	
 	owner->missiles.ammo--;
+	
+	playBattleSound(b->sound, owner->x, owner->y);
 }
 
 void destroyBulletDefs(void)

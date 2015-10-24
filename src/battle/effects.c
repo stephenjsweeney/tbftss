@@ -170,6 +170,62 @@ void addFighterExplosion(void)
 	}
 }
 
+void addMissileExplosion(Bullet *b)
+{
+	int i;
+	Effect *e;
+	SDL_Texture *t = getTexture("gfx/battle/explosion.png");
+	
+	for (i = 0 ; i < 8 ; i++)
+	{
+		e = malloc(sizeof(Effect));
+		memset(e, 0, sizeof(Effect));
+		battle.effectTail->next = e;
+		battle.effectTail = e;
+		
+		e->type = EFFECT_TEXTURE;
+		
+		e->x = b->x;
+		e->y = b->y;
+		e->dx = (rand() % 25) - (rand() % 25);
+		e->dx *= 0.025;
+		e->dy = (rand() % 25) - (rand() % 25);
+		e->dy *= 0.025;
+		e->texture = t;
+		e->health = 0;
+		e->size = 32 + (rand() % 64);
+		e->r = 255;
+		
+		setRandomFlameHue(e);
+		
+		e->a = 128 + (rand() % 128);
+		
+		e->x -= e->size / 2;
+		e->y -= e->size / 2;
+	}
+	
+	for (i = 0 ; i < 24 ; i++)
+	{
+		e = malloc(sizeof(Effect));
+		memset(e, 0, sizeof(Effect));
+		battle.effectTail->next = e;
+		battle.effectTail = e;
+		
+		e->type = EFFECT_LINE;
+		e->x = b->x;
+		e->y = b->y;
+		e->dx = rand() % 64 - rand() % 64;
+		e->dx *= 0.1;
+		e->dy = rand() % 64 - rand() % 64;
+		e->dy *= 0.1;
+		e->health = FPS / 2;
+		
+		e->a = 128;
+		
+		setRandomFlameHue(e);
+	}
+}
+
 static void setRandomFlameHue(Effect *e)
 {
 	e->r = 255;

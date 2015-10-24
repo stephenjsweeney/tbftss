@@ -49,6 +49,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define BF_NONE				0
 #define BF_ENGINE			(2 << 0)
 #define BF_SYSTEM_DAMAGE	(2 << 1)
+#define BF_EXPLODES			(2 << 2)
 
 #define FF_NONE				0
 #define FF_NO_KILL			(2 << 0)
@@ -121,6 +122,7 @@ enum
 	SND_EXPLOSION_2,
 	SND_EXPLOSION_3,
 	SND_EXPLOSION_4,
+	SND_MISSILE,
 	SND_GUI_CLICK,
 	SND_GUI_SELECT,
 	SND_GUI_CLOSE,

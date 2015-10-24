@@ -38,6 +38,7 @@ extern char *readFile(char *filename);
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern void addMissileEngineEffect(Bullet *b);
 extern int mod(int n, int x);
+extern void addMissileExplosion(Bullet *b);
 
 extern Battle battle;
 extern Fighter *player;

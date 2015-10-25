@@ -1,0 +1,21 @@
+{
+	"name" : "Nymph",
+	"health" : 30,
+	"shield" : 25,
+	"speed" : 2.5,
+	"reloadTime" : 14,
+	"shieldRechargeRate" : 30,
+	"textureName" : "gfx/fighters/nymph.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : -2
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : -2
+		}
+	]
+}

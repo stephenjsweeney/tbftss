@@ -2,7 +2,7 @@
 	"name" : "ATAF",
 	"health" : 50,
 	"shield" : 9999,
-	"speed" : 3,
+	"speed" : 2.5,
 	"reloadTime" : 6,
 	"shieldRechargeRate" : 5,
 	"textureName" : "gfx/fighters/ataf.png",
@@ -37,5 +37,9 @@
 			"x" : -13,
 			"y" : -8
 		}
-	]
+	],
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 4
+	}
 }

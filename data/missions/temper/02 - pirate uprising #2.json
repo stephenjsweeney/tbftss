@@ -35,15 +35,15 @@
 	"fighterGroups" : [
 		{
 			"name" : "Ally",
-			"type" : "TAF",
+			"types" : "TAF",
 			"number" : 4,
 			"side" : "SIDE_ALLIES",
 			"x" : 0,
 			"y" : 0
 		},
 		{
-			"type" : "Dart",
 			"name" : "Dart",
+			"types" : "Dart",
 			"number" : 12,
 			"side" : "SIDE_PIRATE",
 			"x" : -3000,
@@ -51,8 +51,8 @@
 			"scatter" : 2000
 		},
 		{
-			"type" : "Dart",
 			"name" : "Dart",
+			"types" : "Dart",
 			"number" : 12,
 			"side" : "SIDE_PIRATE",
 			"x" : 4000,
@@ -60,8 +60,8 @@
 			"scatter" : 2000
 		},
 		{
-			"type" : "Dart",
 			"name" : "Dart",
+			"types" : "Dart",
 			"number" : 12,
 			"side" : "SIDE_PIRATE",
 			"x" : 0,

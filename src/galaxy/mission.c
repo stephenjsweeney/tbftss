@@ -25,6 +25,7 @@ static void loadPlayer(cJSON *node);
 static void loadFighters(cJSON *node);
 static void loadFighterGroups(cJSON *node);
 static unsigned long hashcode(const char *str);
+static char **toFighterTypeArray(char *types, int *numTypes);
 
 void loadMission(char *filename)
 {
@@ -161,9 +162,9 @@ static void loadFighters(cJSON *node)
 static void loadFighterGroups(cJSON *node)
 {
 	Fighter *f;
-	char *type, *name;
-	int side, x, y, scatter;
-	int number, i;
+	char **types, *name, *type;
+	int side, x, y, scatter, number;
+	int i, numTypes;
 	
 	scatter = 1;
 	
@@ -173,7 +174,7 @@ static void loadFighterGroups(cJSON *node)
 		
 		while (node)
 		{
-			type = cJSON_GetObjectItem(node, "type")->valuestring;
+			types = toFighterTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 			number = cJSON_GetObjectItem(node, "number")->valueint;
 			x = cJSON_GetObjectItem(node, "x")->valueint;
@@ -187,6 +188,8 @@ static void loadFighterGroups(cJSON *node)
 			
 			for (i = 0 ; i < number ; i++)
 			{
+				type = types[rand() % numTypes];
+				
 				f = spawnFighter(type, x, y, side);
 				
 				f->x += (rand() % scatter) - (rand() % scatter);
@@ -196,8 +199,42 @@ static void loadFighterGroups(cJSON *node)
 			}
 		
 			node = node->next;
+			
+			free(types);
 		}
 	}
+}
+
+static char **toFighterTypeArray(char *types, int *numTypes)
+{
+	int i;
+	char **typeArray, *type;
+	
+	*numTypes = 1;
+	
+	for (i = 0 ; i < strlen(types) ; i++)
+	{
+		if (types[i] == ';')
+		{
+			*numTypes = *numTypes + 1;
+		}
+	}
+
+	typeArray = malloc(*numTypes * sizeof(char*));
+	
+	i = 0;
+	type = strtok(types, ";");
+	while (type)
+	{
+		typeArray[i] = malloc(strlen(type) + 1);
+		strcpy(typeArray[i], type);
+		
+		type = strtok(NULL, ";");
+		
+		i++;
+	}
+	
+	return typeArray;
 }
 
 Mission *getMission(char *filename)

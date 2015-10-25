@@ -1,0 +1,96 @@
+{
+	"name" : "Coyote Assault #1",
+	"description" : "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/mythos.png",
+	"music" : "music/heroism.ogg",
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "Pandoran",
+			"targetValue" : 250,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Simon Dodds",
+		"squadron" : "White Knights"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"types" : "ATAF",
+			"number" : 4,
+			"side" : "SIDE_ALLIES",
+			"x" : 0,
+			"y" : 0,
+			"scatter" : 500
+		},
+		{
+			"name" : "Ally",
+			"types" : "TAF",
+			"number" : 2,
+			"side" : "SIDE_ALLIES",
+			"x" : 0,
+			"y" : 0,
+			"scatter" : 500
+		},
+		{
+			"name" : "Ally",
+			"types" : "Ray",
+			"number" : 2,
+			"side" : "SIDE_ALLIES",
+			"x" : 0,
+			"y" : 0,
+			"scatter" : 500
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx",
+			"number" : 50,
+			"side" : "SIDE_PANDORAN",
+			"x" : -5000,
+			"y" : 0,
+			"scatter" : 2000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx",
+			"number" : 50,
+			"side" : "SIDE_PANDORAN",
+			"x" : -5000,
+			"y" : 5000,
+			"scatter" : 2000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx",
+			"number" : 50,
+			"side" : "SIDE_PANDORAN",
+			"x" : -5000,
+			"y" : -5000,
+			"scatter" : 2000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx",
+			"number" : 50,
+			"side" : "SIDE_PANDORAN",
+			"x" : 5000,
+			"y" : 8000,
+			"scatter" : 2000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx",
+			"number" : 50,
+			"side" : "SIDE_PANDORAN",
+			"x" : 7000,
+			"y" : -4000,
+			"scatter" : 2000
+		}
+	]
+}
+ 

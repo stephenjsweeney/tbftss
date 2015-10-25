@@ -34,6 +34,7 @@ static void centerOnSelectedStarSystem(void);
 static void doStarSystems(void);
 void destroyGalacticMap(void);
 static void drawPulses(void);
+static void drawInfoBars(void);
 static void doPulses(void);
 static void addPulses(void);
 static void drawMenu(void);
@@ -257,6 +258,8 @@ static void draw(void)
 	
 	drawPulses();
 	
+	drawInfoBars();
+	
 	if (viewingSystem)
 	{
 		drawStarSystemDetail();
@@ -386,6 +389,11 @@ static void drawGalaxy(void)
 			}
 		}
 	}
+}
+
+static void drawInfoBars(void)
+{
+	SDL_Rect r;
 	
 	if (!viewingSystem && selectedStarSystem != NULL)
 	{

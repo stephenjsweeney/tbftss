@@ -142,7 +142,9 @@
         "side" : "SIDE_UNF",
         "x": 325,
         "y": 385,
-        "missions" : []
+        "missions" : [
+			"data/missions/coyote/01 - coyote assault #1.json"
+        ]
       },
       {
         "name": "Rothan",

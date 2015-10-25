@@ -54,15 +54,15 @@
 	"fighterGroups" : [
 		{
 			"name" : "Ally",
-			"type" : "TAF",
+			"types" : "TAF",
 			"number" : 2,
 			"side" : "SIDE_ALLIES",
 			"x" : 1600,
 			"y" : 400
 		},
 		{
-			"type" : "Dart",
 			"name" : "Dart",
+			"types" : "Dart",
 			"number" : 12,
 			"side" : "SIDE_PIRATE",
 			"x" : -5000,

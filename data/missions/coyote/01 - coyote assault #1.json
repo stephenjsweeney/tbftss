@@ -13,17 +13,11 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Do not lose any of the ATAFs",
+			"description" : "Do not lose any team mates",
 			"targetName" : "ATAF",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isCondition" : 1
-		}
-	],
-	"challenges" : [
-		{
-			"type" : "CHALLENGE_NO_LOSSES",
-			"targetValue" : 0
 		}
 	],
 	"player" : {
@@ -33,6 +27,14 @@
 		"squadron" : "White Knights"
 	},
 	"fighterGroups" : [
+		{
+			"name" : "ATAF",
+			"types" : "ATAF",
+			"number" : 4,
+			"side" : "SIDE_ALLIES",
+			"x" : 0,
+			"y" : 0
+		},
 		{
 			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Nymph",

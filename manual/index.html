@@ -1,22 +1,44 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
+<head>
+<style>
+body {background-color:#000; color: #fff; font-family: "sans"}
+h3 {background-color:#47c; padding:0.25em; color:#fff; margin-top:3em;}
+a {color: #0af}
+table.controls {border:1px solid #fff; padding: 0.5em; width:30em;}
+table.controls td:first-child {width: 50%; color:#8cf;}
+table.controls td:nth-child(2) {font-weight: bold;}
+</style>
+<title>TBFTSS - The Pandoran War</title>
+</head>
 <body>
 <h1>The Battle for the Solar System</h1>
 <h2>The Pandoran War</h2>
 
 <h3>Introduction</h3>
 <p>
-The Battle for the Solar System - The Pandoran War is a 2D space shooter, based on the space opera novels by Stephen J Sweeney.
+The Battle for the Solar System - The Pandoran War is a 2D space shooter, based on the space opera novels by <a href="http://www.twitter.com/stephenjsweeney">Stephen J Sweeney</a>.
 </p>
 <p>Note: this game is still under heavy development and will feature bugs, incomplete sections, and a numerous other issues until it reaches v1.0. Likewise, this gameplay manually will evolve over time, to become more detailed and helpful.</p>
 
-<h3>Galactic Map</h3>
+<h3>Title Screen</h3>
 <p>
-This is the main mission select screen. Here, you can move around and select star systems in which to undertake missions. Star Systems that have missions will emit red circles at regular intervals. Yellow circles will be emitted by star systems that have no active missions, but still have challenges that can be attempted.
+This is the first screen that you will see upon starting the game. You may select from the following options:
+<ul>
+<li>New Game - Start a new game (note: this will overight any game that is currently in progress)</li>
+<li>Continue - Continue the current game. This will be the default option if a save file is found.</li>
+<li>Options - Configure various configuration option. See the options section for more information.</li>
+<li>Quit - Exit the game</li>
+</ul>
 </p>
 
-<p>Controls</p>
-<table style="border:1px solid #000; width:20em;">
+<h3>Galactic Map</h3>
+<p>
+This is the main mission select screen. Here, you can move around and select star systems in which to undertake missions. Star Systems that have missions will emit red circles at regular intervals. Yellow circles will be emitted by star systems that have no active missions, but still have challenges that can be attempted. Green circles will emit from system that have missions and changes that are 100% completed. You may replay any of these missions, at any time.
+</p>
+
+<h4>Controls</h4>
+<table class="controls">
 <tr><td>Arrow keys</td><td>Scroll galactic map</td></tr>
 <tr><td>Return</td><td>Select Star System</td></tr>
 <tr><td>Escape</td><td>Menu</td></tr>
@@ -28,7 +50,7 @@ The Star System view shows a list of missions available for that star system. Mi
 </p>
 
 <p>Controls</p>
-<table style="border:1px solid #000; width:20em;">
+<table class="controls">
 <tr><td>Arrow keys</td><td>Scroll galactic map</td></tr>
 <tr><td>Return</td><td>Select Star System</td></tr>
 <tr><td>Escape</td><td>Menu</td></tr>
@@ -40,16 +62,40 @@ Each mission has various objectives that the player must finish in order to comp
 </p>
 
 <p>Controls</p>
-<table style="border:1px solid #000; width:20em;">
+<table class="controls">
 <tr><td>Left arrow</td><td>Rotate anti-clockwise</td></tr>
 <tr><td>Right arrow</td><td>Rotate clockwise</td></tr>
 <tr><td>Up arrow</td><td>Accelerate</td></tr>
 <tr><td>Down arrow</td><td>Decelerate</td></tr>
 <tr><td>Left control</td><td>Fire main cannons</td></tr>
+<tr><td>Left shift</td><td>Switch main cannons</td></tr>
 <tr><td>Return</td><td>Launch missile</td></tr>
 <tr><td>Tab</td><td>Display objectives</td></tr>
 <tr><td>Escape</td><td>Menu</td></tr>
 </table>
+
+<p>
+Most craft are equipped with offensive weaponry, with some fighters featuring more than one type of gun.
+<ul>
+<li>Plasma: a standard offensive weapon, that deals heavy levels of damage to shields and armour.</li>
+<li>Particle: a low-power weapon that deal small amounts of damage to shields and armour. Favoured mostly be pirates and insurgents.</li>
+<li>Mag: delivers an electro-magnetic charge to the target, draining its system power and rendering it helpless. Can be used to disable vessels.</li>
+<li>Missile: home in on target vessels, to deliver tremendous amounts of damage.</li>
+</ul>
+</p>
+
+<h3>Options</h3>
+<p>
+Various game options can be changed:
+<ul>
+<li>Window Size - change the size of the window the game is played in. Note that the game interally renders a resolution of 1280x720, and any changes to the window size will result in the game being scaled up or down.<sup>[1]</sup></li>
+<li>Sound Volume - Change the volume of the sounds effects in the game, from 0 (no sound) to 10 (loudest).</li>
+<li>Music Volume - Change the volume of the music in the game, from 0 (no sound) to 10 (loudest).</li>
+<li>Fullscreen - Whether or not to start the game in fullscreen mode. Note that changes to this option will take effect next time you start the game.<sup>[1]</sup></li>
+<li>VSync - Whether or not to enable VSync, to reduce screen tearing. Note that changes to this option will take effect next time you start the game.<sup>[1]</sup></li>
+</ul>
+<p style="font-size:8pt">[1] - changes to this option will take effect next time you start the game.</p>
+</p>
 
 <h3>About</h3>
 <p>
@@ -58,7 +104,13 @@ This game is based on the Battle for the Solar System novel trilogy by Stephen J
 
 <p><a href="http://www.battleforthesolarsystem.com/">www.battleforthesolarsystem.com</a></p>
 
-<p>The Battle for the Solar System and related related materials are Copyright ©2009-2015, Stephen J Sweeney. All Rights Reserved.</p>
+<p>The Battle for the Solar System and related related materials are Copyright &copy;2009-2015, Stephen J Sweeney. All Rights Reserved.</p>
+
+<h3>License</h3>
+
+<p>
+See the LICENSE and README.md files that came with this game for information on the various copyrights of the source code, graphics, sound, and data. Additionally, you may visit <a href="https://github.com/stephenjsweeney/tbftss">https://github.com/stephenjsweeney/tbftss</a> to get the source code itself, and view the files there.
+</p>
 
 </body>
 </html>

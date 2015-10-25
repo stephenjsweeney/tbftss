@@ -22,8 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b);
 static void drawPlayerTargeter(void);
-static void drawNumAllies(void);
-static void drawNumEnemies(void);
+static void drawNumFighters(void);
 static void drawHealthBars(void);
 static void drawWeaponInfo(void);
 static void drawObjectives(void);
@@ -35,7 +34,7 @@ static HudMessage *hudMessageTail;
 static SDL_Texture *targetPointer;
 static SDL_Texture *targetCircle;
 static SDL_Texture *smallFighter;
-
+static int numMessages;
 static int healthWarning;
 static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon"};
 
@@ -58,11 +57,15 @@ void doHud(void)
 	healthWarning++;
 	healthWarning %= FPS;
 	
+	numMessages = 0;
+	
 	prev = &hudMessageHead;
 	
 	for (hudMessage = hudMessageHead.next ; hudMessage != NULL ; hudMessage = hudMessage->next)
 	{
 		hudMessage->life--;
+		
+		numMessages++;
 		
 		if (hudMessage->life <= 0)
 		{
@@ -74,6 +77,8 @@ void doHud(void)
 			prev->next = hudMessage->next;
 			free(hudMessage);
 			hudMessage = prev;
+			
+			numMessages--;
 		}
 		
 		prev = hudMessage;
@@ -95,6 +100,17 @@ void addHudMessage(SDL_Color c, char *format, ...)
 	
 	hudMessage->color = c;
 	hudMessage->life = FPS * 5;
+	
+	numMessages++;
+	
+	while (numMessages > MAX_HUD_MESSAGES)
+	{
+		hudMessage = hudMessageHead.next;
+		hudMessageHead.next = hudMessage->next;
+		free(hudMessage);
+		
+		numMessages--;
+	}
 }
 
 void drawHud(void)
@@ -105,9 +121,7 @@ void drawHud(void)
 		
 		drawWeaponInfo();
 		
-		drawNumAllies();
-		
-		drawNumEnemies();
+		drawNumFighters();
 		
 		drawObjectives();
 		
@@ -231,22 +245,17 @@ static void drawPlayerTargeter(void)
 	}
 }
 
-static void drawNumAllies(void)
+static void drawNumFighters(void)
 {
+	/* Allies */
 	SDL_SetTextureColorMod(smallFighter, 150, 200, 255);
-	
 	blit(smallFighter, 400, 15, 0);
+	drawText(425, 11, 14, TA_LEFT, colors.white, "(%d)", battle.numAllies);
 	
-	drawText(435, 11, 14, TA_CENTER, colors.white, "(%d)", battle.numAllies);
-}
-
-static void drawNumEnemies(void)
-{
+	/* Enemies */
 	SDL_SetTextureColorMod(smallFighter, 255, 100, 100);
-	
 	blit(smallFighter, SCREEN_WIDTH - 410, 15, 0);
-	
-	drawText(SCREEN_WIDTH - 430, 11, 14, TA_CENTER, colors.white, "(%d)", battle.numEnemies);
+	drawText(SCREEN_WIDTH - 420, 11, 14, TA_RIGHT, colors.white, "(%d)", battle.numEnemies);
 }
 
 static void drawObjectives(void)

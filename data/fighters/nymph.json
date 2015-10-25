@@ -2,7 +2,7 @@
 	"name" : "Nymph",
 	"health" : 30,
 	"shield" : 25,
-	"speed" : 2.5,
+	"speed" : 2.1,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 30,
 	"textureName" : "gfx/fighters/nymph.png",

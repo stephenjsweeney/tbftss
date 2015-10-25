@@ -23,6 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
+#define MAX_HUD_MESSAGES	6
+
 extern SDL_Texture *getTexture(char *filename);
 extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);
 extern void blit(SDL_Texture *texture, int x, int y, int center);

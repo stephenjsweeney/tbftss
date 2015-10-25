@@ -202,6 +202,19 @@ static void addPulses(void)
 			pulseTail->next = pulse;
 			pulseTail = pulse;
 		}
+		else if (starSystem->totalMissions > 0 && pulseTimer % (FPS * 3) == 0)
+		{
+			pulse = malloc(sizeof(Pulse));
+			memset(pulse, 0, sizeof(Pulse));
+			
+			pulse->x = starSystem->x;
+			pulse->y = starSystem->y;
+			pulse->life = 255;
+			pulse->g = 255;
+			
+			pulseTail->next = pulse;
+			pulseTail = pulse;
+		}
 	}
 }
 

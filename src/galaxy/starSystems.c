@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadStarSystem(cJSON *starSystemJSON);
 static void loadMissionMeta(char *filename, StarSystem *starSystem);
+static int isAvailable(Mission *mission, Mission *prev);
 
 void initStarSystems(void)
 {
@@ -88,6 +89,11 @@ static void loadMissionMeta(char *filename, StarSystem *starSystem)
 	STRNCPY(mission->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 	STRNCPY(mission->description, cJSON_GetObjectItem(root, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
 	STRNCPY(mission->filename, filename, MAX_DESCRIPTION_LENGTH);
+	
+	if (cJSON_GetObjectItem(root, "requires"))
+	{
+		STRNCPY(mission->requires, cJSON_GetObjectItem(root, "requires")->valuestring, MAX_DESCRIPTION_LENGTH);
+	}
 	
 	node = cJSON_GetObjectItem(root, "player");
 	
@@ -172,6 +178,50 @@ void updateStarSystemDescriptions(void)
 		
 		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]  [ Challenges %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->totalMissions, starSystem->completedChallenges, starSystem->totalChallenges);
 	}
+}
+
+void updateStarSystemMissions(void)
+{
+	StarSystem *starSystem;
+	Mission *mission, *prev;
+	
+	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	{
+		starSystem->completedMissions = starSystem->totalMissions = 0;
+		
+		prev = &starSystem->missionHead;
+		
+		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+		{
+			starSystem->totalMissions++;
+			
+			if (mission->completed)
+			{
+				starSystem->completedMissions++;
+			}
+			
+			mission->available = isAvailable(mission, prev);
+			
+			prev = mission;
+		}
+	}
+}
+
+static int isAvailable(Mission *mission, Mission *prev)
+{
+	Mission *reqMission;
+	
+	if (mission->requires)
+	{
+		reqMission = getMission(mission->requires);
+			
+		if (reqMission != NULL)
+		{
+			return reqMission->completed;
+		}
+	}
+	
+	return prev->completed;
 }
 
 void destroyStarSystems(void)

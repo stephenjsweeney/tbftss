@@ -200,15 +200,19 @@ static void loadFighterGroups(cJSON *node)
 	}
 }
 
-Mission *getMission(StarSystem *starSystem, char *filename)
+Mission *getMission(char *filename)
 {
+	StarSystem *starSystem;
 	Mission *mission;
 	
-	for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		if (strcmp(mission->filename, filename) == 0)
+		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
-			return mission;
+			if (strcmp(mission->filename, filename) == 0)
+			{
+				return mission;
+			}
 		}
 	}
 	

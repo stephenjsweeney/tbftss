@@ -178,6 +178,7 @@ struct Mission {
 	char name[MAX_NAME_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
 	char filename[MAX_DESCRIPTION_LENGTH];
+	char requires[MAX_DESCRIPTION_LENGTH];
 	char pilot[MAX_NAME_LENGTH];
 	char squadron[MAX_NAME_LENGTH];
 	char craft[MAX_NAME_LENGTH];

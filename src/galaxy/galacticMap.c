@@ -108,6 +108,8 @@ void initGalacticMap(void)
 	
 	getWidget("ok", "stats")->action = statsOK;
 	
+	updateStarSystemMissions();
+	
 	endSectionTransition();
 	
 	playMusic("music/Pressure.ogg");
@@ -402,28 +404,6 @@ static void drawGalaxy(void)
 
 static void selectStarSystem(void)
 {
-	Mission *mission, *prev;
-	
-	selectedMission = selectedStarSystem->missionHead.next;
-	
-	selectedStarSystem->completedMissions = selectedStarSystem->totalMissions = 0;
-	
-	prev = &selectedStarSystem->missionHead;
-	
-	for (mission = selectedStarSystem->missionHead.next ; mission != NULL ; mission = mission->next)
-	{
-		selectedStarSystem->totalMissions++;
-		
-		if (mission->completed)
-		{
-			selectedStarSystem->completedMissions++;
-		}
-		
-		mission->available = prev->completed;
-		
-		prev = mission;
-	}
-	
 	missionListStart = 0;
 	selectedMissionIndex = 0;
 	

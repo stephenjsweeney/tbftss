@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadStats(cJSON *stats);
 static void loadStarSystems(cJSON *starSystemsJSON);
-static void loadMissions(StarSystem *starSystem, cJSON *missionsCJSON);
+static void loadMissions(cJSON *missionsCJSON);
 static void loadChallenges(Mission *mission, cJSON *challengesCJSON);
 
 void loadGame(void)
@@ -45,25 +45,22 @@ void loadGame(void)
 
 static void loadStarSystems(cJSON *starSystemsJSON)
 {
-	StarSystem *starSystem;
 	cJSON *starSystemJSON;
 	
 	for (starSystemJSON = starSystemsJSON->child ; starSystemJSON != NULL ; starSystemJSON = starSystemJSON->next)
 	{
-		starSystem = getStarSystem(cJSON_GetObjectItem(starSystemJSON, "name")->valuestring);
-		
-		loadMissions(starSystem, cJSON_GetObjectItem(starSystemJSON, "missions"));
+		loadMissions(cJSON_GetObjectItem(starSystemJSON, "missions"));
 	}
 }
 
-static void loadMissions(StarSystem *starSystem, cJSON *missionsCJSON)
+static void loadMissions(cJSON *missionsCJSON)
 {
 	Mission *mission;
 	cJSON *missionCJSON;
 	
 	for (missionCJSON = missionsCJSON->child ; missionCJSON != NULL ; missionCJSON = missionCJSON->next)
 	{
-		mission = getMission(starSystem, cJSON_GetObjectItem(missionCJSON, "filename")->valuestring);
+		mission = getMission(cJSON_GetObjectItem(missionCJSON, "filename")->valuestring);
 		
 		mission->completed = cJSON_GetObjectItem(missionCJSON, "completed")->valueint;
 		

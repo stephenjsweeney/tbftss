@@ -18,25 +18,47 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "SDL2/SDL.h"
-#include "time.h"
+#include "entities.h"
 
-#include "../defs.h"
-#include "../structs.h"
-#include "../json/cJSON.h"
+void doEntities(void)
+{
+	Entity *e, *prev;
+	
+	prev = &battle.entityHead;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		e->x += e->dx;
+		e->y += e->dy;
+		
+		e->x -= battle.ssx;
+		e->y -= battle.ssy;
+		
+		if (e->action != NULL)
+		{
+			if (--e->thinkTime <= 0)
+			{
+				e->action();
+			}
+		}
+		
+		if (e->health <= 0)
+		{
+			prev->next = e->next;
+			free(e);
+			e = prev;
+		}
+		
+		prev = e;
+	}
+}
 
-extern long lookup(char *name);
-extern char *readFile(char *filename);
-extern SDL_Texture *getTexture(char *filename);
-extern Fighter *spawnFighter(char *name, int x, int y, int side);
-extern void startSectionTransition(void);
-extern void endSectionTransition(void);
-extern void playMusic(char *filename);
-extern void stopMusic(void);
-extern void initPlayer(void);
-extern long flagsToLong(char *flags);
-extern Entity *spawnWaypoint(void);
-
-extern Battle battle;
-extern Fighter *player;
-extern Game game;
+void drawEntities(void)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		blitRotated(e->texture, e->x, e->y, e->angle);
+	}
+}

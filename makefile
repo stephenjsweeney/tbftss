@@ -19,7 +19,7 @@ OBJS += ai.o
 OBJS += battle.o bullets.o
 OBJS += challenges.o cJSON.o
 OBJS += draw.o
-OBJS += effects.o
+OBJS += effects.o entities.o
 OBJS += fighters.o fighterDefs.o
 OBJS += galacticMap.o game.o
 OBJS += hud.o
@@ -32,7 +32,7 @@ OBJS += radar.o
 OBJS += save.o sound.o starfield.o starSystems.o stats.o
 OBJS += testMission.o textures.o text.o title.o transition.o triggers.o
 OBJS += util.o
-OBJS += widgets.o
+OBJS += waypoints.o widgets.o
 
 # top-level rule to create the program.
 all: $(PROG)

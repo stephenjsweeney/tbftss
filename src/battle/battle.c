@@ -41,6 +41,7 @@ void initBattle(void)
 {
 	memset(&battle, 0, sizeof(Battle));
 	battle.bulletTail = &battle.bulletHead;
+	battle.entityTail = &battle.entityHead;
 	battle.fighterTail = &battle.fighterHead;
 	battle.effectTail = &battle.effectHead;
 	battle.objectiveTail = &battle.objectiveHead;
@@ -119,6 +120,8 @@ static void doBattle(void)
 	
 	doFighters();
 	
+	doEntities();
+	
 	doEffects();
 	
 	doPlayer();
@@ -160,6 +163,8 @@ static void draw(void)
 	drawBullets();
 	
 	drawFighters();
+	
+	drawEntities();
 	
 	drawEffects();
 	
@@ -316,6 +321,7 @@ static void postBattle(void)
 void destroyBattle(void)
 {
 	Fighter *f;
+	Entity *ent;
 	Bullet *b;
 	Effect *e;
 	Objective *o;
@@ -328,6 +334,14 @@ void destroyBattle(void)
 		free(f);
 	}
 	battle.fighterTail = &battle.fighterHead;
+	
+	while (battle.entityHead.next)
+	{
+		ent = battle.entityHead.next;
+		battle.entityHead.next = ent->next;
+		free(ent);
+	}
+	battle.entityTail = &battle.entityHead;
 	
 	while (battle.bulletHead.next)
 	{

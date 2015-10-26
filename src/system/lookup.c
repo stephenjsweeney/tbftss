@@ -30,6 +30,8 @@ void initLookups(void)
 	memset(&head, 0, sizeof(Lookup));
 	tail = &head;
 	
+	addLookup("ET_WAYPOINT", ET_WAYPOINT);
+	
 	addLookup("FF_NO_KILL", FF_NO_KILL);
 	addLookup("FF_DISABLE", FF_DISABLE);
 	addLookup("FF_IMMORTAL", FF_IMMORTAL);

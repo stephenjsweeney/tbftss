@@ -23,6 +23,7 @@ typedef struct Texture Texture;
 typedef struct Lookup Lookup;
 typedef struct Weapon Weapon;
 typedef struct Fighter Fighter;
+typedef struct Entity Entity;
 typedef struct Bullet Bullet;
 typedef struct Effect Effect;
 typedef struct Objective Objective;
@@ -66,6 +67,27 @@ struct Weapon {
 	int maxAmmo;
 	int x;
 	int y;
+};
+
+struct Entity {
+	int type;
+	char name[MAX_NAME_LENGTH];
+	int side;
+	float x;
+	float y;
+	float dx;
+	float dy;
+	int angle;
+	int health;
+	int maxHealth;
+	int shield;
+	int thinkTime;
+	long flags;
+	void (*action)(void);
+	void (*defaultAction)(void);
+	void (*die)(void);
+	SDL_Texture *texture;
+	Entity *next;
 };
 
 struct Fighter {
@@ -223,6 +245,7 @@ typedef struct {
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
 	Fighter fighterHead, *fighterTail;
+	Entity entityHead, *entityTail;
 	Bullet bulletHead, *bulletTail;
 	Effect effectHead, *effectTail;
 	Objective objectiveHead, *objectiveTail;

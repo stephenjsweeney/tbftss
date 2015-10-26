@@ -30,4 +30,3 @@ extern void failMission(void);
 
 extern Battle battle;
 extern Colors colors;
-extern Game game;

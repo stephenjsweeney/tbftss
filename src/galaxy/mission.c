@@ -25,6 +25,7 @@ static void loadTriggers(cJSON *node);
 static void loadPlayer(cJSON *node);
 static void loadFighters(cJSON *node);
 static void loadFighterGroups(cJSON *node);
+static void loadEntities(cJSON *node);
 static unsigned long hashcode(const char *str);
 static char **toFighterTypeArray(char *types, int *numTypes);
 
@@ -57,6 +58,8 @@ void loadMission(char *filename)
 	loadFighters(cJSON_GetObjectItem(root, "fighters"));
 	
 	loadFighterGroups(cJSON_GetObjectItem(root, "fighterGroups"));
+	
+	loadEntities(cJSON_GetObjectItem(root, "entities"));
 	
 	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_NAME_LENGTH);
 	
@@ -242,6 +245,40 @@ static void loadFighterGroups(cJSON *node)
 			node = node->next;
 			
 			free(types);
+		}
+	}
+}
+
+static void loadEntities(cJSON *node)
+{
+	Entity *e;
+	int type;
+	
+	if (node)
+	{
+		node = node->child;
+		
+		while (node)
+		{
+			type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+			
+			switch (type)
+			{
+				case ET_WAYPOINT:
+					e = spawnWaypoint();
+					break;
+			}
+					
+			STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+			e->x = cJSON_GetObjectItem(node, "x")->valueint;
+			e->y = cJSON_GetObjectItem(node, "y")->valueint;
+			
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				e->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
+		
+			node = node->next;
 		}
 	}
 }

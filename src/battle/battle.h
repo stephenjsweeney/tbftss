@@ -35,6 +35,8 @@ extern void drawBullets(void);
 extern void doStars(float dx, float dy);
 extern void drawStars(void);
 extern void doFighters(void);
+extern void doEntities(void);
+extern void drawEntities(void);
 extern void drawFighters(void);
 extern void initStars(void);
 extern void doPlayer(void);

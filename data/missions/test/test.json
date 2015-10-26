@@ -8,12 +8,12 @@
 		"type" : "Nymph",
 		"side" : "SIDE_CSN"
 	},
-	"triggers" : [
+	"entities" : [
 		{
-			"type" : "TRIGGER_TIME",
-			"targetName" : "TIME",
-			"targetValue" : 10,
-			"action" : "TA_COMPLETE_MISSION"
+			"name" : "Waypoint",
+			"type" : "ET_WAYPOINT",
+			"x" : 100,
+			"y" : 100
 		}
 	]
 }

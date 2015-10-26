@@ -22,13 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../defs.h"
 #include "../structs.h"
-#include "../json/cJSON.h"
 
-extern char *readFile(char *filename);
-extern Mission *getMission(char *filename);
-extern Challenge *getChallenge(Mission *mission, int type);
-extern int lookup(char *lookup);
-extern char *getSaveFilePath(char *filename);
-extern char *getLookupName(char *prefix, long num);
+extern void completeMission(void);
+extern void failMission(void);
+extern void addHudMessage(SDL_Color c, char *format, ...);
 
-extern Game game;
+extern Battle battle;
+extern Colors colors;

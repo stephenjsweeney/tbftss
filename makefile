@@ -30,7 +30,7 @@ OBJS += objectives.o options.o
 OBJS += player.o
 OBJS += radar.o
 OBJS += save.o sound.o starfield.o starSystems.o stats.o
-OBJS += testMission.o textures.o text.o title.o transition.o
+OBJS += testMission.o textures.o text.o title.o transition.o triggers.o
 OBJS += util.o
 OBJS += widgets.o
 

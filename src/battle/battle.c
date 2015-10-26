@@ -44,6 +44,7 @@ void initBattle(void)
 	battle.fighterTail = &battle.fighterHead;
 	battle.effectTail = &battle.effectHead;
 	battle.objectiveTail = &battle.objectiveHead;
+	battle.triggerTail = &battle.triggerHead;
 	
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
@@ -137,6 +138,12 @@ static void doBattle(void)
 				selectWidget("retry", "battleLost");
 			}
 		}
+	}
+	
+	battle.stats[STAT_TIME]++;
+	if (battle.stats[STAT_TIME] % FPS == 0)
+	{
+		checkTrigger("TIME", TRIGGER_TIME);
 	}
 }
 
@@ -293,7 +300,8 @@ static void postBattle(void)
 {
 	int i;
 	
-	for (i = 0 ; i < STAT_MAX ; i++)
+	/* we don't want to count the time when adding up stats */
+	for (i = 0 ; i < STAT_TIME ; i++)
 	{
 		game.stats[i] += battle.stats[i];
 	}
@@ -311,6 +319,7 @@ void destroyBattle(void)
 	Bullet *b;
 	Effect *e;
 	Objective *o;
+	Trigger *t;
 	
 	while (battle.fighterHead.next)
 	{
@@ -343,4 +352,12 @@ void destroyBattle(void)
 		free(o);
 	}
 	battle.objectiveTail = &battle.objectiveHead;
+	
+	while (battle.triggerHead.next)
+	{
+		t = battle.triggerHead.next;
+		battle.triggerHead.next = t->next;
+		free(t);
+	}
+	battle.triggerTail = &battle.triggerHead;
 }

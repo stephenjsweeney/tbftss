@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "mission.h"
 
 static void loadObjectives(cJSON *node);
+static void loadTriggers(cJSON *node);
 static void loadPlayer(cJSON *node);
 static void loadFighters(cJSON *node);
 static void loadFighterGroups(cJSON *node);
@@ -48,6 +49,8 @@ void loadMission(char *filename)
 	battle.planet.y = rand() % SCREEN_HEIGHT - rand() % SCREEN_HEIGHT;
 	
 	loadObjectives(cJSON_GetObjectItem(root, "objectives"));
+	
+	loadTriggers(cJSON_GetObjectItem(root, "triggers"));
 		
 	loadPlayer(cJSON_GetObjectItem(root, "player"));
 	
@@ -80,6 +83,20 @@ void loadMission(char *filename)
 	playMusic(music);
 }
 
+void completeMission(void)
+{
+	battle.status = MS_COMPLETE;
+	battle.missionFinishedTimer = FPS;
+	
+	game.stats[STAT_MISSIONS_COMPLETED]++;
+}
+
+void failMission(void)
+{
+	battle.status = MS_FAILED;
+	battle.missionFinishedTimer = FPS;
+}
+
 static void loadObjectives(cJSON *node)
 {
 	Objective *o;
@@ -92,6 +109,8 @@ static void loadObjectives(cJSON *node)
 		{
 			o = malloc(sizeof(Objective));
 			memset(o, 0, sizeof(Objective));
+			battle.objectiveTail->next = o;
+			battle.objectiveTail = o;
 			
 			STRNCPY(o->description, cJSON_GetObjectItem(node, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
 			STRNCPY(o->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
@@ -108,8 +127,30 @@ static void loadObjectives(cJSON *node)
 				o->isOptional = cJSON_GetObjectItem(node, "isOptional")->valueint;
 			}
 			
-			battle.objectiveTail->next = o;
-			battle.objectiveTail = o;
+			node = node->next;
+		}
+	}
+}
+
+static void loadTriggers(cJSON *node)
+{
+	Trigger *t;
+	
+	if (node)
+	{
+		node = node->child;
+		
+		while (node)
+		{
+			t = malloc(sizeof(Trigger));
+			memset(t, 0, sizeof(Trigger));
+			battle.triggerTail->next = t;
+			battle.triggerTail = t;
+			
+			t->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+			STRNCPY(t->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
+			t->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
+			t->action = lookup(cJSON_GetObjectItem(node, "action")->valuestring);
 			
 			node = node->next;
 		}

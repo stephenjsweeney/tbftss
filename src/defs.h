@@ -145,6 +145,18 @@ enum
 
 enum
 {
+	TRIGGER_TIME,
+	TRIGGER_KILLS
+};
+
+enum
+{
+	TA_COMPLETE_MISSION,
+	TA_FAIL_MISSION
+};
+
+enum
+{
 	MS_START,
 	MS_IN_PROGRESS,
 	MS_PAUSED,

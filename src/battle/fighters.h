@@ -37,6 +37,7 @@ extern void updateObjective(char *name, int type);
 extern void updateCondition(char *name, int type);
 extern Fighter *getFighterDef(char *name);
 extern void addHudMessage(SDL_Color c, char *format, ...);
+extern void checkTrigger(char *name, int type);
 
 extern App app;
 extern Battle battle;

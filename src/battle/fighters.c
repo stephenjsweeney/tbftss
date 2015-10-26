@@ -290,6 +290,8 @@ void doFighters(void)
 				updateObjective(f->name, TT_DESTROY);
 				
 				updateCondition(f->name, TT_DESTROY);
+				
+				checkTrigger(f->name, TRIGGER_KILLS);
 			}
 			
 			if (f == battle.fighterTail)

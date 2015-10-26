@@ -25,6 +25,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void updateChallenges(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);
+extern void completeMission(void);
+extern void failMission(void);
 
 extern Battle battle;
 extern Colors colors;

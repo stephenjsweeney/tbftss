@@ -7,5 +7,13 @@
 	"player" : {
 		"type" : "Nymph",
 		"side" : "SIDE_CSN"
-	}
+	},
+	"triggers" : [
+		{
+			"type" : "TRIGGER_TIME",
+			"targetName" : "TIME",
+			"targetValue" : 10,
+			"action" : "TA_COMPLETE_MISSION"
+		}
+	]
 }

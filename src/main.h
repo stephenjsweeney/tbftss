@@ -27,7 +27,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void cleanup(void);
 extern void initSDL(void);
-extern void initBattle(void);
 extern void initGameSystem(void);
 extern void initTitle(void);
 extern void loadTestMission(char *filename);

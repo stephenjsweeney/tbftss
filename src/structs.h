@@ -32,6 +32,7 @@ typedef struct Mission Mission;
 typedef struct Pulse Pulse;
 typedef struct Widget Widget;
 typedef struct HudMessage HudMessage;
+typedef struct Trigger Trigger;
 
 typedef struct {
 	float x;
@@ -174,6 +175,14 @@ struct Challenge {
 	Challenge *next;
 };
 
+struct Trigger {
+	int type;
+	char targetName[MAX_NAME_LENGTH];
+	int targetValue;
+	int action;
+	Trigger *next;
+};
+
 struct Mission {
 	char name[MAX_NAME_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
@@ -217,6 +226,7 @@ typedef struct {
 	Bullet bulletHead, *bulletTail;
 	Effect effectHead, *effectTail;
 	Objective objectiveHead, *objectiveTail;
+	Trigger triggerHead, *triggerTail;
 	unsigned int stats[STAT_MAX];
 } Battle;
 

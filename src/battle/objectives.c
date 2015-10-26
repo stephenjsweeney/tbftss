@@ -60,10 +60,7 @@ void doObjectives(void)
 	{
 		if (battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
 		{
-			battle.status = MS_COMPLETE;
-			battle.missionFinishedTimer = FPS;
-			
-			game.stats[STAT_MISSIONS_COMPLETED]++;
+			completeMission();
 			
 			completeConditions();
 			
@@ -72,8 +69,7 @@ void doObjectives(void)
 		
 		if (objectiveFailed)
 		{
-			battle.status = MS_FAILED;
-			battle.missionFinishedTimer = FPS;
+			failMission();
 			
 			failIncompleteObjectives();
 		}

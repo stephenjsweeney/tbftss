@@ -91,6 +91,12 @@ void initLookups(void)
 	addLookup("STAT_PLAYER_KILLED", STAT_PLAYER_KILLED);
 	addLookup("STAT_DISABLED", STAT_DISABLED);
 	addLookup("STAT_TIME", STAT_TIME);
+	
+	addLookup("TRIGGER_TIME", TRIGGER_TIME);
+	addLookup("TRIGGER_KILLS", TRIGGER_KILLS);
+	
+	addLookup("TA_COMPLETE_MISSION", TA_COMPLETE_MISSION);
+	addLookup("TA_FAIL_MISSION", TA_FAIL_MISSION);
 }
 
 static void addLookup(char *name, long value)

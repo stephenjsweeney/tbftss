@@ -22,7 +22,6 @@ typedef struct SDL_Texture SDL_Texture;
 typedef struct Texture Texture;
 typedef struct Lookup Lookup;
 typedef struct Weapon Weapon;
-typedef struct Fighter Fighter;
 typedef struct Entity Entity;
 typedef struct Bullet Bullet;
 typedef struct Effect Effect;
@@ -72,26 +71,6 @@ struct Weapon {
 struct Entity {
 	int type;
 	char name[MAX_NAME_LENGTH];
-	int side;
-	float x;
-	float y;
-	float dx;
-	float dy;
-	int angle;
-	int health;
-	int maxHealth;
-	int shield;
-	int thinkTime;
-	long flags;
-	void (*action)(void);
-	void (*defaultAction)(void);
-	void (*die)(void);
-	SDL_Texture *texture;
-	Entity *next;
-};
-
-struct Fighter {
-	char name[MAX_NAME_LENGTH];
 	int active;
 	int side;
 	float x;
@@ -100,7 +79,7 @@ struct Fighter {
 	float dy;
 	float thrust;
 	float speed;
-	int angle;
+	float angle;
 	int alive;
 	int health;
 	int maxHealth;
@@ -122,12 +101,12 @@ struct Fighter {
 	Weapon guns[MAX_FIGHTER_GUNS];
 	Weapon missiles;
 	long flags;
-	Fighter *target;
+	Entity *target;
 	void (*action)(void);
 	void (*defaultAction)(void);
 	void (*die)(void);
 	SDL_Texture *texture;
-	Fighter *next;
+	Entity *next;
 };
 
 struct Bullet {
@@ -142,8 +121,8 @@ struct Bullet {
 	int angle;
 	long flags;
 	SDL_Texture *texture;
-	Fighter *owner;
-	Fighter *target;
+	Entity *owner;
+	Entity *target;
 	Bullet *next;
 };
 
@@ -241,10 +220,9 @@ typedef struct {
 	int status;
 	int missionFinishedTimer;
 	int numObjectivesComplete, numObjectivesTotal;
-	Fighter *missionTarget;
+	Entity *missionTarget;
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
-	Fighter fighterHead, *fighterTail;
 	Entity entityHead, *entityTail;
 	Bullet bulletHead, *bulletTail;
 	Effect effectHead, *effectTail;

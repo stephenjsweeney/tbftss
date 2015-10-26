@@ -42,7 +42,6 @@ void initBattle(void)
 	memset(&battle, 0, sizeof(Battle));
 	battle.bulletTail = &battle.bulletHead;
 	battle.entityTail = &battle.entityHead;
-	battle.fighterTail = &battle.fighterHead;
 	battle.effectTail = &battle.effectHead;
 	battle.objectiveTail = &battle.objectiveHead;
 	battle.triggerTail = &battle.triggerHead;
@@ -118,8 +117,6 @@ static void doBattle(void)
 	
 	doBullets();
 	
-	doFighters();
-	
 	doEntities();
 	
 	doEffects();
@@ -161,8 +158,6 @@ static void draw(void)
 	blit(battle.planetTexture, battle.planet.x, battle.planet.y, 1);
 	
 	drawBullets();
-	
-	drawFighters();
 	
 	drawEntities();
 	
@@ -320,20 +315,11 @@ static void postBattle(void)
 
 void destroyBattle(void)
 {
-	Fighter *f;
 	Entity *ent;
 	Bullet *b;
 	Effect *e;
 	Objective *o;
 	Trigger *t;
-	
-	while (battle.fighterHead.next)
-	{
-		f = battle.fighterHead.next;
-		battle.fighterHead.next = f->next;
-		free(f);
-	}
-	battle.fighterTail = &battle.fighterHead;
 	
 	while (battle.entityHead.next)
 	{

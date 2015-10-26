@@ -28,4 +28,4 @@ extern SDL_Texture *getTexture(char *name);
 
 extern App app;
 extern Battle battle;
-extern Fighter *self;
+extern Entity *self;

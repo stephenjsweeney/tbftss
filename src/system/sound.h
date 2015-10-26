@@ -29,4 +29,4 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern int getDistance(int x1, int y1, int x2, int y2);
 
-extern Fighter *player;
+extern Entity *player;

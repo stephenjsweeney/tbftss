@@ -36,4 +36,4 @@ extern void drawRadar(void);
 extern App app;
 extern Battle battle;
 extern Colors colors;
-extern Fighter *player;
+extern Entity *player;

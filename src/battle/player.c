@@ -102,7 +102,7 @@ void doPlayer(void)
 			}
 		}
 		
-		player->angle = player->angle % 360;
+		player->angle = ((int)player->angle) % 360;
 		
 		player->x = SCREEN_WIDTH / 2;
 		player->y = SCREEN_HEIGHT / 2;
@@ -136,13 +136,13 @@ static void selectTarget(void)
 {
 	unsigned int closest = 65535;
 	unsigned int dist = 65535;
-	Fighter *f;
+	Entity *f;
 	
 	player->target = NULL;
 	
-	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
+	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
-		if (f != player && f->side != player->side && f->alive == ALIVE_ALIVE)
+		if (f != player && f->side != SIDE_NONE && f->side != player->side && f->alive == ALIVE_ALIVE)
 		{
 			dist = getDistance(self->x, self->y, f->x, f->y);
 			if (dist < closest)

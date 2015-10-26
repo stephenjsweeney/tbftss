@@ -32,10 +32,10 @@ void initLookups(void)
 	
 	addLookup("ET_WAYPOINT", ET_WAYPOINT);
 	
-	addLookup("FF_NO_KILL", FF_NO_KILL);
-	addLookup("FF_DISABLE", FF_DISABLE);
-	addLookup("FF_IMMORTAL", FF_IMMORTAL);
-	addLookup("FF_MISSION_TARGET", FF_MISSION_TARGET);
+	addLookup("EF_NO_KILL", EF_NO_KILL);
+	addLookup("EF_DISABLE", EF_DISABLE);
+	addLookup("EF_IMMORTAL", EF_IMMORTAL);
+	addLookup("EF_MISSION_TARGET", EF_MISSION_TARGET);
 	
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);

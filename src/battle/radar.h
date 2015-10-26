@@ -29,4 +29,4 @@ extern int getDistance(int x1, int y1, int x2, int y2);
 
 extern App app;
 extern Battle battle;
-extern Fighter *player;
+extern Entity *player;

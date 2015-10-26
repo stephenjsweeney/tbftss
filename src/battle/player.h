@@ -23,8 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
-extern void fireGuns(Fighter *owner);
-extern void fireMissile(Fighter *owner);
+extern void fireGuns(Entity *owner);
+extern void fireMissile(Entity *owner);
 extern void applyFighterThrust(void);
 extern void applyFighterBrakes(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
@@ -32,5 +32,5 @@ extern void failIncompleteObjectives(void);
 
 extern App app;
 extern Battle battle;
-extern Fighter *player;
-extern Fighter *self;
+extern Entity *player;
+extern Entity *self;

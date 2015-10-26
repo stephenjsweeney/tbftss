@@ -25,24 +25,24 @@ static void die(void);
 static void immediateDie(void);
 static void spinDie(void);
 static void straightDie(void);
-static void randomizeDart(Fighter *dart);
-static void randomizeDartGuns(Fighter *dart);
+static void randomizeDart(Entity *dart);
+static void randomizeDartGuns(Entity *dart);
 
-Fighter *spawnFighter(char *name, int x, int y, int side)
+Entity *spawnFighter(char *name, int x, int y, int side)
 {
-	Fighter *f, *def;
+	Entity *f, *def;
 	
-	f = malloc(sizeof(Fighter));
-	memset(f, 0, sizeof(Fighter));
+	f = malloc(sizeof(Entity));
+	memset(f, 0, sizeof(Entity));
 	
 	def = getFighterDef(name);
 	
-	memcpy(f, def, sizeof(Fighter));
+	memcpy(f, def, sizeof(Entity));
 	
 	f->next = NULL;
 	
-	battle.fighterTail->next = f;
-	battle.fighterTail = f;
+	battle.entityTail->next = f;
+	battle.entityTail = f;
 	
 	f->x = x;
 	f->y = y;
@@ -79,7 +79,7 @@ Fighter *spawnFighter(char *name, int x, int y, int side)
 	return f;
 }
 
-static void randomizeDart(Fighter *dart)
+static void randomizeDart(Entity *dart)
 {
 	char textureName[MAX_DESCRIPTION_LENGTH];
 	
@@ -111,7 +111,7 @@ static void randomizeDart(Fighter *dart)
 	dart->texture = getTexture(textureName);
 }
 
-static void randomizeDartGuns(Fighter *dart)
+static void randomizeDartGuns(Entity *dart)
 {
 	int i;
 	
@@ -153,163 +153,150 @@ static void randomizeDartGuns(Fighter *dart)
 	}
 }
 
-void doFighters(void)
+void doFighter(Entity *f, Entity *prev)
 {
-	Fighter *f, *prev;
-	
-	battle.numAllies = battle.numEnemies = 0;
-	
-	prev = &battle.fighterHead;
-	
-	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
+	if (player != NULL)
 	{
-		self = f;
-		
-		if (player != NULL)
+		if (f != player && f->health > 0)
 		{
-			if (f != player && f->health > 0)
-			{
-				separate();
-			}
+			separate();
+		}
+		
+		if (f->side == player->side)
+		{
+			battle.numAllies++;
+		}
+		else
+		{
+			battle.numEnemies++;
+		}
+	}
+	
+	if (self->target != NULL && self->target->health <= 0)
+	{
+		self->action = self->defaultAction;
+		self->target = NULL;
+	}
+	
+	if (!battle.missionTarget && f->flags & EF_MISSION_TARGET && f->health > 0)
+	{
+		battle.missionTarget = f;
+	}
+	
+	f->x += f->dx;
+	f->y += f->dy;
+	
+	if (f != player)
+	{
+		f->x -= battle.ssx;
+		f->y -= battle.ssy;
+	}
+	
+	if (f->health > 0)
+	{
+		f->reload = MAX(f->reload - 1, 0);
+		f->shieldRecharge = MAX(f->shieldRecharge - 1, 0);
+		f->armourHit = MAX(f->armourHit - 25, 0);
+		f->shieldHit = MAX(f->shieldHit - 5, 0);
+		f->systemHit = MAX(f->systemHit - 25, 0);
+		
+		if (self->thrust > 0.25)
+		{
+			addEngineEffect();
+		}
+		
+		if (!f->shieldRecharge)
+		{
+			f->shield = MIN(f->shield + 1, f->maxShield);
+			f->shieldRecharge = f->shieldRechargeRate;
+		}
+		
+		if (f->action == NULL && f->defaultAction != NULL)
+		{
+			f->action = f->defaultAction;
+		}
+	}
+	
+	if (f->action != NULL)
+	{
+		if (--f->thinkTime <= 0)
+		{
+			f->thinkTime = 0;
+			f->action();
+		}
+	}
+	
+	if (f->alive == ALIVE_ALIVE)
+	{
+		if (f->health <= 0)
+		{
+			f->health = 0;
+			f->alive = ALIVE_DYING;
+			f->die();
 			
-			if (f->side == player->side)
+			if (f == battle.missionTarget)
 			{
-				battle.numAllies++;
-			}
-			else
-			{
-				battle.numEnemies++;
+				battle.missionTarget = NULL;
 			}
 		}
-		
-		if (self->target != NULL && self->target->health <= 0)
+		else if (f->systemPower <= 0)
 		{
-			self->action = self->defaultAction;
-			self->target = NULL;
-		}
-		
-		if (!battle.missionTarget && f->flags & FF_MISSION_TARGET && f->health > 0)
-		{
-			battle.missionTarget = f;
-		}
-		
-		f->x += f->dx;
-		f->y += f->dy;
-		
-		if (f != player)
-		{
-			f->x -= battle.ssx;
-			f->y -= battle.ssy;
-		}
-		
-		if (f->health > 0)
-		{
-			f->reload = MAX(f->reload - 1, 0);
-			f->shieldRecharge = MAX(f->shieldRecharge - 1, 0);
-			f->armourHit = MAX(f->armourHit - 25, 0);
-			f->shieldHit = MAX(f->shieldHit - 5, 0);
-			f->systemHit = MAX(f->systemHit - 25, 0);
+			f->dx *= 0.99;
+			f->dy *= 0.99;
+			f->thrust = 0;
+			f->shield = f->maxShield = 0;
+			f->action = NULL;
 			
-			if (self->thrust > 0.25)
+			if (f->alive == ALIVE_ALIVE)
 			{
-				addEngineEffect();
-			}
-			
-			if (!f->shieldRecharge)
-			{
-				f->shield = MIN(f->shield + 1, f->maxShield);
-				f->shieldRecharge = f->shieldRechargeRate;
-			}
-			
-			if (f->action == NULL && f->defaultAction != NULL)
-			{
-				f->action = f->defaultAction;
+				updateObjective(f->name, TT_DISABLE);
+				battle.stats[STAT_DISABLED]++;
 			}
 		}
-		
-		if (f->action != NULL)
+	}
+	
+	if (f->alive == ALIVE_DEAD)
+	{
+		if (f == player)
 		{
-			if (--f->thinkTime <= 0)
-			{
-				f->thinkTime = 0;
-				f->action();
-			}
+			battle.stats[STAT_PLAYER_KILLED]++;
 		}
-		
-		if (f->alive == ALIVE_ALIVE)
+		else if (player != NULL)
 		{
-			if (f->health <= 0)
+			if (player->alive == ALIVE_ALIVE)
 			{
-				f->health = 0;
-				f->alive = ALIVE_DYING;
-				f->die();
-				
-				if (f == battle.missionTarget)
+				if (f->side != player->side)
 				{
-					battle.missionTarget = NULL;
+					battle.stats[STAT_ENEMIES_KILLED]++;
+				}
+				else
+				{
+					battle.stats[STAT_ALLIES_KILLED]++;
+					
+					addHudMessage(colors.red, "Ally has been killed");
 				}
 			}
-			else if (f->systemPower <= 0)
-			{
-				f->dx *= 0.99;
-				f->dy *= 0.99;
-				f->thrust = 0;
-				f->shield = f->maxShield = 0;
-				f->action = NULL;
-				
-				if (f->alive == ALIVE_ALIVE)
-				{
-					updateObjective(f->name, TT_DISABLE);
-					battle.stats[STAT_DISABLED]++;
-				}
-			}
+			
+			updateObjective(f->name, TT_DESTROY);
+			
+			updateCondition(f->name, TT_DESTROY);
+			
+			checkTrigger(f->name, TRIGGER_KILLS);
 		}
 		
-		if (f->alive == ALIVE_DEAD)
+		if (f == battle.entityTail)
 		{
-			if (f == player)
-			{
-				battle.stats[STAT_PLAYER_KILLED]++;
-			}
-			else if (player != NULL)
-			{
-				if (player->alive == ALIVE_ALIVE)
-				{
-					if (f->side != player->side)
-					{
-						battle.stats[STAT_ENEMIES_KILLED]++;
-					}
-					else
-					{
-						battle.stats[STAT_ALLIES_KILLED]++;
-						
-						addHudMessage(colors.red, "Ally has been killed");
-					}
-				}
-				
-				updateObjective(f->name, TT_DESTROY);
-				
-				updateCondition(f->name, TT_DESTROY);
-				
-				checkTrigger(f->name, TRIGGER_KILLS);
-			}
-			
-			if (f == battle.fighterTail)
-			{
-				battle.fighterTail = prev;
-			}
-			
-			if (f == player)
-			{
-				player = NULL;
-			}
-			
-			prev->next = f->next;
-			free(f);
-			f = prev;
+			battle.entityTail = prev;
 		}
 		
-		prev = f;
+		if (f == player)
+		{
+			player = NULL;
+		}
+		
+		prev->next = f->next;
+		free(f);
+		f = prev;
 	}
 }
 
@@ -319,13 +306,13 @@ static void separate(void)
 	int distance;
 	float dx, dy, force;
 	int count;
-	Fighter *f;
+	Entity *f;
 	
 	dx = dy = 0;
 	count = 0;
 	force = 0;
 	
-	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
+	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
 		if (f != self)
 		{
@@ -357,58 +344,54 @@ static void separate(void)
 	}
 }
 
-void drawFighters(void)
+void drawFighter(Entity *e)
 {
-	Fighter *f;
 	SDL_Rect r;
 	SDL_Texture *shieldHitTexture = getTexture("gfx/battle/shieldHit.png");
 	
-	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
+	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
+	
+	if (e->armourHit > 0)
 	{
-		SDL_SetTextureColorMod(f->texture, 255, 255, 255);
-		
-		if (f->armourHit > 0)
+		SDL_SetTextureColorMod(e->texture, 255, 255 - e->armourHit, 255 - e->armourHit);
+	}
+	
+	if (e->systemHit > 0)
+	{
+		SDL_SetTextureColorMod(e->texture, 255 - e->systemHit, 255, 255);
+	}
+	
+	blitRotated(e->texture, e->x, e->y, e->angle);
+	
+	if (e->shieldHit > 0)
+	{
+		SDL_SetTextureBlendMode(shieldHitTexture, SDL_BLENDMODE_BLEND);
+		SDL_SetTextureAlphaMod(shieldHitTexture, e->shieldHit);
+		blit(shieldHitTexture, e->x, e->y, 1);
+	}
+	
+	if (player != NULL)
+	{
+		if (e == player->target)
 		{
-			SDL_SetTextureColorMod(f->texture, 255, 255 - f->armourHit, 255 - f->armourHit);
-		}
-		
-		if (f->systemHit > 0)
-		{
-			SDL_SetTextureColorMod(f->texture, 255 - f->systemHit, 255, 255);
-		}
-		
-		blitRotated(f->texture, f->x, f->y, f->angle);
-		
-		if (f->shieldHit > 0)
-		{
-			SDL_SetTextureBlendMode(shieldHitTexture, SDL_BLENDMODE_BLEND);
-			SDL_SetTextureAlphaMod(shieldHitTexture, f->shieldHit);
-			blit(shieldHitTexture, f->x, f->y, 1);
-		}
-		
-		if (player != NULL)
-		{
-			if (f == player->target)
-			{
-				r.x = f->x - 32;
-				r.y = f->y - 32;
-				r.w = 64;
-				r.h = 64;
-				
-				SDL_SetRenderDrawColor(app.renderer, 255, 64, 0, 255);
-				SDL_RenderDrawRect(app.renderer, &r);
-			}
+			r.x = e->x - 32;
+			r.y = e->y - 32;
+			r.w = 64;
+			r.h = 64;
 			
-			if (f == battle.missionTarget)
-			{
-				r.x = f->x - 28;
-				r.y = f->y - 28;
-				r.w = 56;
-				r.h = 56;
-				
-				SDL_SetRenderDrawColor(app.renderer, 64, 255, 0, 255);
-				SDL_RenderDrawRect(app.renderer, &r);
-			}
+			SDL_SetRenderDrawColor(app.renderer, 255, 64, 0, 255);
+			SDL_RenderDrawRect(app.renderer, &r);
+		}
+		
+		if (e == battle.missionTarget)
+		{
+			r.x = e->x - 28;
+			r.y = e->y - 28;
+			r.w = 56;
+			r.h = 56;
+			
+			SDL_SetRenderDrawColor(app.renderer, 64, 255, 0, 255);
+			SDL_RenderDrawRect(app.renderer, &r);
 		}
 	}
 }
@@ -437,7 +420,7 @@ void applyFighterBrakes(void)
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 }
 
-void damageFighter(Fighter *f, int amount, long flags)
+void damageFighter(Entity *f, int amount, long flags)
 {
 	if (flags & BF_SYSTEM_DAMAGE)
 	{

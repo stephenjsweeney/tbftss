@@ -37,7 +37,7 @@ static SDL_Texture *logo;
 static SDL_Texture *pandoranWar;
 static SDL_Texture *earthTexture;
 static PointF earth;
-static Fighter fighters[NUM_FIGHTERS];
+static Entity fighters[NUM_FIGHTERS];
 static const char *fighterTextures[] = {"gfx/fighters/firefly.png", "gfx/fighters/hammerhead.png", "gfx/fighters/hyena.png", "gfx/fighters/khepri.png", "gfx/fighters/kingfisher.png", "gfx/fighters/leopard.png", "gfx/fighters/nymph.png", "gfx/fighters/ray.png", "gfx/fighters/rook.png", "gfx/fighters/taf.png"};
 static int showingOptions;
 
@@ -99,7 +99,7 @@ static void initFighters(void)
 	
 	numTextures = sizeof(fighterTextures) / sizeof(char*);
 	
-	memset(&fighters, 0, sizeof(Fighter) * NUM_FIGHTERS);
+	memset(&fighters, 0, sizeof(Entity) * NUM_FIGHTERS);
 	
 	for (i = 0 ; i < NUM_FIGHTERS ; i++)
 	{

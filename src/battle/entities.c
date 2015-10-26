@@ -20,37 +20,63 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "entities.h"
 
+static void drawEntity(Entity *e);
+static void doEntity(Entity *e, Entity *prev);
+
 void doEntities(void)
 {
 	Entity *e, *prev;
 	
 	prev = &battle.entityHead;
 	
+	battle.numAllies = battle.numEnemies = 0;
+	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		e->x += e->dx;
-		e->y += e->dy;
+		self = e;
 		
-		e->x -= battle.ssx;
-		e->y -= battle.ssy;
-		
-		if (e->action != NULL)
+		switch (e->type)
 		{
-			if (--e->thinkTime <= 0)
-			{
-				e->action();
-			}
+			case ET_FIGHTER:
+				doFighter(e, prev);
+				break;
+				
+			default:
+				doEntity(e, prev);
+				break;
 		}
-		
-		if (e->health <= 0)
-		{
-			prev->next = e->next;
-			free(e);
-			e = prev;
-		}
-		
-		prev = e;
 	}
+}
+
+static void doEntity(Entity *e, Entity *prev)
+{
+	e->x += e->dx;
+	e->y += e->dy;
+	
+	e->x -= battle.ssx;
+	e->y -= battle.ssy;
+	
+	if (e->action != NULL)
+	{
+		if (--e->thinkTime <= 0)
+		{
+			e->action();
+		}
+	}
+	
+	if (e->health <= 0)
+	{
+		if (e == battle.entityTail)
+		{
+			battle.entityTail = prev;
+		}
+		
+		prev->next = e->next;
+		free(e);
+		e = prev;
+	}
+	
+	prev = e;
 }
 
 void drawEntities(void)
@@ -59,6 +85,20 @@ void drawEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		blitRotated(e->texture, e->x, e->y, e->angle);
+		switch (e->type)
+		{
+			case ET_FIGHTER:
+				drawFighter(e);
+				break;
+				
+			default:
+				drawEntity(e);
+				break;
+		}
 	}
+}
+
+static void drawEntity(Entity *e)
+{
+	blitRotated(e->texture, e->x, e->y, e->angle);
 }

@@ -22,11 +22,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadFighterDef(char *filename);
 
-static Fighter defHead, *defTail;
+static Entity defHead, *defTail;
 
-Fighter *getFighterDef(char *name)
+Entity *getFighterDef(char *name)
 {
-	Fighter *f;
+	Entity *f;
 	
 	for (f = defHead.next ; f != NULL ; f = f->next)
 	{
@@ -48,7 +48,7 @@ void loadFighterDefs(void)
 	text = readFile("data/fighters/list.json");
 	root = cJSON_Parse(text);
 	
-	memset(&defHead, 0, sizeof(Fighter));
+	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
 	
 	for (node = root->child ; node != NULL ; node = node->next)
@@ -64,15 +64,15 @@ static void loadFighterDef(char *filename)
 {
 	cJSON *root, *node;
 	char *text;
-	Fighter *f;
+	Entity *f;
 	int i, w, h;
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 	
 	text = readFile(filename);
 	
-	f = malloc(sizeof(Fighter));
-	memset(f, 0, sizeof(Fighter));
+	f = malloc(sizeof(Entity));
+	memset(f, 0, sizeof(Entity));
 	defTail->next = f;
 	defTail = f;
 	
@@ -127,7 +127,7 @@ static void loadFighterDef(char *filename)
 
 void destroyFighterDefs(void)
 {
-	Fighter *f;
+	Entity *f;
 	
 	while (defHead.next)
 	{

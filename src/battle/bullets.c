@@ -94,47 +94,50 @@ void doBullets(void)
 
 static void checkCollisions(Bullet *b)
 {
-	Fighter *f;
+	Entity *f;
 	int bw, bh, ew, eh;
 	
 	SDL_QueryTexture(b->texture, NULL, NULL, &bw, &bh);
 	
-	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
+	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
-		SDL_QueryTexture(f->texture, NULL, NULL, &ew, &eh);
-		
-		if (b->owner != f && f->health > 0 && collision(b->x - bw / 2, b->y - bh / 2, bw, bh, f->x - ew / 2, f->y - eh / 2, ew, eh))
+		if (f->type == ET_FIGHTER)
 		{
-			if (b->owner->side == f->side)
+			SDL_QueryTexture(f->texture, NULL, NULL, &ew, &eh);
+			
+			if (b->owner != f && f->health > 0 && collision(b->x - bw / 2, b->y - bh / 2, bw, bh, f->x - ew / 2, f->y - eh / 2, ew, eh))
 			{
-				b->damage = 0;
+				if (b->owner->side == f->side)
+				{
+					b->damage = 0;
+				}
+				else if (b->owner == player)
+				{
+					battle.stats[STAT_SHOTS_HIT]++;
+				}
+				
+				damageFighter(f, b->damage, b->flags);
+				
+				b->life = 0;
+				
+				if (b->flags & BF_EXPLODES)
+				{
+					addMissileExplosion(b);
+				}
+				
+				/* assuming that health <= 0 will always mean killed */
+				if (f->health <= 0 && b->owner == player)
+				{
+					battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
+				}
+				
+				if (b->owner == player && b->type == BT_MISSILE)
+				{
+					battle.stats[STAT_MISSILES_HIT]++;
+				}
+				
+				return;
 			}
-			else if (b->owner == player)
-			{
-				battle.stats[STAT_SHOTS_HIT]++;
-			}
-			
-			damageFighter(f, b->damage, b->flags);
-			
-			b->life = 0;
-			
-			if (b->flags & BF_EXPLODES)
-			{
-				addMissileExplosion(b);
-			}
-			
-			/* assuming that health <= 0 will always mean killed */
-			if (f->health <= 0 && b->owner == player)
-			{
-				battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
-			}
-			
-			if (b->owner == player && b->type == BT_MISSILE)
-			{
-				battle.stats[STAT_MISSILES_HIT]++;
-			}
-			
-			return;
 		}
 	}
 }
@@ -213,7 +216,7 @@ static void huntTarget(Bullet *b)
 	}
 }
 
-Bullet *createBullet(int type, int x, int y, Fighter *owner)
+Bullet *createBullet(int type, int x, int y, Entity *owner)
 {
 	Bullet *b;
 	
@@ -238,7 +241,7 @@ Bullet *createBullet(int type, int x, int y, Fighter *owner)
 	return b;
 }
 
-void fireGuns(Fighter *owner)
+void fireGuns(Entity *owner)
 {
 	Bullet *b;
 	int i;
@@ -272,7 +275,7 @@ void fireGuns(Fighter *owner)
 	playBattleSound(b->sound, owner->x, owner->y);
 }
 
-void fireMissile(Fighter *owner)
+void fireMissile(Entity *owner)
 {
 	Bullet *b;
 	

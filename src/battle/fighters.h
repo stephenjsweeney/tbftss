@@ -35,12 +35,12 @@ extern void addSmallFighterExplosion(void);
 extern void playBattleSound(int id, int x, int y);
 extern void updateObjective(char *name, int type);
 extern void updateCondition(char *name, int type);
-extern Fighter *getFighterDef(char *name);
+extern Entity *getFighterDef(char *name);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void checkTrigger(char *name, int type);
 
 extern App app;
 extern Battle battle;
 extern Colors colors;
-extern Fighter *player;
-extern Fighter *self;
+extern Entity *player;
+extern Entity *self;

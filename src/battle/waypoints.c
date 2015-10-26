@@ -29,6 +29,7 @@ Entity *spawnWaypoint(void)
 	battle.entityTail->next = waypoint;
 	battle.entityTail = waypoint;
 	
+	waypoint->type = ET_WAYPOINT;
 	waypoint->health = waypoint->maxHealth = FPS;
 	waypoint->texture = getTexture("gfx/entities/waypoint.png");
 	waypoint->action = rotate;
@@ -38,5 +39,9 @@ Entity *spawnWaypoint(void)
 
 static void rotate(void)
 {
-	
+	self->angle += 0.1;
+	if (self->angle >= 360)
+	{
+		self -= 360;
+	}
 }

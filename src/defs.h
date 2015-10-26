@@ -51,14 +51,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define BF_SYSTEM_DAMAGE	(2 << 1)
 #define BF_EXPLODES			(2 << 2)
 
-#define FF_NONE				0
-#define FF_NO_KILL			(2 << 0)
-#define FF_DISABLE			(2 << 1)
-#define FF_IMMORTAL			(2 << 2)
-#define FF_MISSION_TARGET	(2 << 3)
+#define EF_NONE				0
+#define EF_NO_KILL			(2 << 0)
+#define EF_DISABLE			(2 << 1)
+#define EF_IMMORTAL			(2 << 2)
+#define EF_MISSION_TARGET	(2 << 3)
 
 enum
 {
+	ET_FIGHTER,
 	ET_WAYPOINT
 };
 

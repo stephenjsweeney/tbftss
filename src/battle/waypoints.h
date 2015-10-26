@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
-extern Battle battle;
-
 extern SDL_Texture *getTexture(char *filename);
+
+extern Battle battle;
+extern Entity *self;

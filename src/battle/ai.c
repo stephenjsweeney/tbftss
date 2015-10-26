@@ -29,8 +29,8 @@ static int aggression[][5] =
 	{5, 10, 15, 20, 25}
 };
 
-static void faceTarget(Fighter *f);
-static int isInFOV(Fighter *f, int fov);
+static void faceTarget(Entity *f);
+static int isInFOV(Entity *f, int fov);
 static void preAttack(void);
 static void huntTarget(void);
 static void huntAndAttackTarget(void);
@@ -43,7 +43,7 @@ static void boost(void);
 static void slow(void);
 static int targetOutOfRange(void);
 static void moveToPlayer(void);
-static int canAttack(Fighter *f);
+static int canAttack(Entity *f);
 static int selectWeapon(int type);
 
 void doAI(void)
@@ -142,13 +142,13 @@ static void huntAndAttackTarget(void)
 
 static void findTarget(void)
 {
-	Fighter *f;
+	Entity *f;
 	int closest = 2000;
 	int dist = 2000;
 	
 	self->target = NULL;
 	
-	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
+	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
 		if (f->side != self->side && f->health > 0 && canAttack(f))
 		{
@@ -162,11 +162,11 @@ static void findTarget(void)
 	}
 }
 
-static int canAttack(Fighter *f)
+static int canAttack(Entity *f)
 {
 	self->selectedGunType = self->guns[0].type;
 	
-	if (f->flags & FF_DISABLE)
+	if (f->flags & EF_DISABLE)
 	{
 		if (f->systemPower > 0)
 		{
@@ -176,7 +176,7 @@ static int canAttack(Fighter *f)
 		return 0;
 	}
 	
-	if (f->flags & FF_NO_KILL)
+	if (f->flags & EF_NO_KILL)
 	{
 		return selectWeapon(BT_LASER) || selectWeapon(BT_MAG);
 	}
@@ -200,7 +200,7 @@ static int selectWeapon(int type)
 	return 0;
 }
 
-static void faceTarget(Fighter *f)
+static void faceTarget(Entity *f)
 {
 	int dir;
 	int wantedAngle = getAngle(self->x, self->y, f->x, f->y);
@@ -209,7 +209,7 @@ static void faceTarget(Fighter *f)
 	
 	if (fabs(wantedAngle - self->angle) > TURN_THRESHOLD)
 	{
-		dir = (wantedAngle - self->angle + 360) % 360 > 180 ? -1 : 1;
+		dir = ((int)(wantedAngle - self->angle + 360)) % 360 > 180 ? -1 : 1;
 	
 		self->angle += dir * TURN_SPEED;
 		
@@ -219,7 +219,7 @@ static void faceTarget(Fighter *f)
 	}
 }
 
-static int isInFOV(Fighter *f, int fov)
+static int isInFOV(Entity *f, int fov)
 {
 	int angle, a, b;
 
@@ -249,13 +249,13 @@ static void slow(void)
 static int hasClearShot(void)
 {
 	int dist;
-	Fighter *f;
+	Entity *f;
 	
 	if (isInFOV(self->target, 4))
 	{
 		dist = getDistance(self->x, self->y, self->target->x, self->target->y);
 		
-		for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
+		for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 		{
 			if (f != self && f != self->target && (getDistance(self->x, self->y, f->x, f->y) < dist))
 			{
@@ -296,7 +296,7 @@ static void dodge(void)
 	
 	if (fabs(wantedAngle - self->angle) > TURN_THRESHOLD)
 	{
-		dir = (wantedAngle - self->angle + 360) % 360 > 180 ? -1 : 1;
+		dir = ((int)(wantedAngle - self->angle + 360)) % 360 > 180 ? -1 : 1;
 	
 		self->angle += dir * TURN_SPEED;
 		

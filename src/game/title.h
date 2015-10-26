@@ -60,4 +60,4 @@ extern App app;
 extern Battle battle;
 extern Colors colors;
 extern Game game;
-extern Fighter *self;
+extern Entity *self;

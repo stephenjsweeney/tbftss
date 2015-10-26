@@ -174,7 +174,7 @@ static void loadPlayer(cJSON *node)
 
 static void loadFighters(cJSON *node)
 {
-	Fighter *f;
+	Entity *f;
 	char *type;
 	int side, x, y;
 	
@@ -205,7 +205,7 @@ static void loadFighters(cJSON *node)
 
 static void loadFighterGroups(cJSON *node)
 {
-	Fighter *f;
+	Entity *f;
 	char **types, *name, *type;
 	int side, x, y, scatter, number;
 	int i, numTypes;

@@ -35,6 +35,6 @@ extern void saveScreenshot(void);
 App app;
 Colors colors;
 Battle battle;
-Fighter *self;
-Fighter *player;
+Entity *self;
+Entity *player;
 Game game;

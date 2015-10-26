@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern SDL_Texture *getTexture(char *filename);
 extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
-extern void damageFighter(Fighter *f, int damage, long flags);
+extern void damageFighter(Entity *f, int damage, long flags);
 extern void playBattleSound(int id, int x, int y);
 extern long flagsToLong(char *flags);
 extern long lookup(char *name);
@@ -41,4 +41,4 @@ extern int mod(int n, int x);
 extern void addMissileExplosion(Bullet *b);
 
 extern Battle battle;
-extern Fighter *player;
+extern Entity *player;

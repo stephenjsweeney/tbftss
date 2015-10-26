@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void drawRadar(void)
 {
 	SDL_Rect r;
-	Fighter *f;
+	Entity *f;
 	
 	drawFilledCircle(SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 75, 0, 128, 0, 32);
 	
@@ -34,7 +34,7 @@ void drawRadar(void)
 	
 	r.w = r.h = 3;
 	
-	for (f = battle.fighterHead.next ; f != NULL ; f = f->next)
+	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
 		if (getDistance(f->x, f->y, player->x, player->y) / RADAR_RANGE < 70)
 		{

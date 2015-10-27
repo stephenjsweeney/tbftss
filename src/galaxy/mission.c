@@ -26,6 +26,7 @@ static void loadPlayer(cJSON *node);
 static void loadFighters(cJSON *node);
 static void loadFighterGroups(cJSON *node);
 static void loadEntities(cJSON *node);
+static void loadEntityGroups(cJSON *node);
 static unsigned long hashcode(const char *str);
 static char **toFighterTypeArray(char *types, int *numTypes);
 
@@ -60,6 +61,8 @@ void loadMission(char *filename)
 	loadFighterGroups(cJSON_GetObjectItem(root, "fighterGroups"));
 	
 	loadEntities(cJSON_GetObjectItem(root, "entities"));
+	
+	loadEntityGroups(cJSON_GetObjectItem(root, "entityGroups"));
 	
 	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_NAME_LENGTH);
 	
@@ -276,6 +279,57 @@ static void loadEntities(cJSON *node)
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
 				e->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
+		
+			node = node->next;
+		}
+	}
+}
+
+static void loadEntityGroups(cJSON *node)
+{
+	Entity *e;
+	char *name;
+	int i, type, x, y, scatter, number;
+	long flags;
+	
+	scatter = 1;
+	flags = 0;
+	
+	if (node)
+	{
+		node = node->child;
+		
+		while (node)
+		{
+			type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+			name = cJSON_GetObjectItem(node, "name")->valuestring;
+			number = cJSON_GetObjectItem(node, "number")->valueint;
+			x = cJSON_GetObjectItem(node, "x")->valueint;
+			y = cJSON_GetObjectItem(node, "y")->valueint;
+			
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
+			
+			for (i = 0 ; i < number ; i++)
+			{
+				switch (type)
+				{
+					case ET_WAYPOINT:
+						e = spawnWaypoint();
+						break;
+				}
+						
+				STRNCPY(e->name, name, MAX_NAME_LENGTH);
+				e->id = battle.entId++;
+				e->x = x;
+				e->y = y;
+				e->flags = flags;
+				
+				e->x += (rand() % scatter) - (rand() % scatter);
+				e->y += (rand() % scatter) - (rand() % scatter);
 			}
 		
 			node = node->next;

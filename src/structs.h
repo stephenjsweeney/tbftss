@@ -71,7 +71,7 @@ struct Weapon {
 struct Entity {
 	int type;
 	char name[MAX_NAME_LENGTH];
-	int active;
+	int id;
 	int side;
 	float x;
 	float y;
@@ -213,6 +213,7 @@ struct StarSystem {
 };
 
 typedef struct {
+	int entId;
 	float ssx;
 	float ssy;
 	int numAllies;

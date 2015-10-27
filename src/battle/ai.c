@@ -150,7 +150,7 @@ static void findTarget(void)
 	
 	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
-		if (f->side != self->side && f->health > 0 && canAttack(f))
+		if (f->type == ET_FIGHTER && f->side != self->side && f->health > 0 && canAttack(f))
 		{
 			dist = getDistance(self->x, self->y, f->x, f->y);
 			if (dist < closest)

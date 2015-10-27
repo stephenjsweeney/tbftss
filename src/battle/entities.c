@@ -21,7 +21,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entities.h"
 
 static void drawEntity(Entity *e);
-static void doEntity(Entity *e, Entity *prev);
+static void doEntity(Entity *prev);
+
+Entity *spawnEntity(void)
+{
+	Entity *e = malloc(sizeof(Entity));
+	memset(e, 0, sizeof(Entity));
+	e->id = battle.entId++;
+	
+	battle.entityTail->next = e;
+	battle.entityTail = e;
+	
+	return e;
+}
 
 void doEntities(void)
 {
@@ -35,48 +47,63 @@ void doEntities(void)
 	{
 		self = e;
 		
+		if (self->target != NULL && self->target->health <= 0)
+		{
+			self->action = self->defaultAction;
+			self->target = NULL;
+		}
+		
+		self->x += self->dx;
+		self->y += self->dy;
+		
+		if (self != player)
+		{
+			self->x -= battle.ssx;
+			self->y -= battle.ssy;
+		}
+		
+		if (self->action != NULL)
+		{
+			if (--self->thinkTime <= 0)
+			{
+				self->thinkTime = 0;
+				self->action();
+			}
+		}
+		
 		switch (e->type)
 		{
 			case ET_FIGHTER:
-				doFighter(e, prev);
+				doFighter(prev);
 				break;
 				
 			default:
-				doEntity(e, prev);
+				doEntity(prev);
 				break;
 		}
+		
+		prev = self;
 	}
 }
 
-static void doEntity(Entity *e, Entity *prev)
+static void doEntity(Entity *prev)
 {
-	e->x += e->dx;
-	e->y += e->dy;
-	
-	e->x -= battle.ssx;
-	e->y -= battle.ssy;
-	
-	if (e->action != NULL)
+	if (self->health <= 0)
 	{
-		if (--e->thinkTime <= 0)
-		{
-			e->action();
-		}
-	}
-	
-	if (e->health <= 0)
-	{
-		if (e == battle.entityTail)
+		if (self == battle.entityTail)
 		{
 			battle.entityTail = prev;
 		}
 		
-		prev->next = e->next;
-		free(e);
-		e = prev;
+		if (self == battle.missionTarget)
+		{
+			battle.missionTarget = NULL;
+		}
+		
+		prev->next = self->next;
+		free(self);
+		self = prev;
 	}
-	
-	prev = e;
 }
 
 void drawEntities(void)

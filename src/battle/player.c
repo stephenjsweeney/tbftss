@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void selectTarget(void);
 static void switchGuns(void);
+static void selectMissionTarget(void);
 
 static int availableGuns[BT_MAX];
 
@@ -100,6 +101,11 @@ void doPlayer(void)
 			{
 				selectTarget();
 			}
+			
+			if (!battle.missionTarget)
+			{
+				selectMissionTarget();
+			}
 		}
 		
 		player->angle = ((int)player->angle) % 360;
@@ -136,19 +142,56 @@ static void selectTarget(void)
 {
 	unsigned int closest = 65535;
 	unsigned int dist = 65535;
-	Entity *f;
+	Entity *e;
 	
 	player->target = NULL;
 	
-	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (f != player && f->side != SIDE_NONE && f->side != player->side && f->alive == ALIVE_ALIVE)
+		if (e != player && e->type == ET_FIGHTER && e->side != player->side && e->alive == ALIVE_ALIVE)
 		{
-			dist = getDistance(self->x, self->y, f->x, f->y);
+			dist = getDistance(self->x, self->y, e->x, e->y);
 			if (dist < closest)
 			{
-				player->target = f;
+				player->target = e;
 				closest = dist;
+			}
+		}
+	}
+}
+
+static void selectMissionTarget(void)
+{
+	unsigned int closest = 65535;
+	unsigned int dist = 65535;
+	Entity *e;
+	
+	battle.missionTarget = NULL;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->flags & EF_MISSION_TARGET && e->alive == ALIVE_ALIVE)
+		{
+			if (battle.missionTarget == NULL)
+			{
+				battle.missionTarget = e;
+			}
+			else if (battle.missionTarget->type == ET_WAYPOINT && e->type != ET_WAYPOINT)
+			{
+				battle.missionTarget = e;
+			}
+			else if (battle.missionTarget->type != ET_WAYPOINT)
+			{
+				dist = getDistance(self->x, self->y, e->x, e->y);
+				if (dist < closest)
+				{
+					battle.missionTarget = e;
+					closest = dist;
+				}
+			}
+			else if (battle.missionTarget->type == ET_WAYPOINT && e->type == ET_WAYPOINT && e->id < battle.missionTarget->id)
+			{
+				battle.missionTarget = e;
 			}
 		}
 	}

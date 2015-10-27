@@ -32,17 +32,14 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 {
 	Entity *f, *def;
 	
-	f = malloc(sizeof(Entity));
-	memset(f, 0, sizeof(Entity));
+	f = spawnEntity();
 	
 	def = getFighterDef(name);
 	
 	memcpy(f, def, sizeof(Entity));
 	
+	f->id = battle.entId;
 	f->next = NULL;
-	
-	battle.entityTail->next = f;
-	battle.entityTail = f;
 	
 	f->x = x;
 	f->y = y;
@@ -153,16 +150,11 @@ static void randomizeDartGuns(Entity *dart)
 	}
 }
 
-void doFighter(Entity *f, Entity *prev)
+void doFighter(Entity *prev)
 {
 	if (player != NULL)
 	{
-		if (f != player && f->health > 0)
-		{
-			separate();
-		}
-		
-		if (f->side == player->side)
+		if (self->side == player->side)
 		{
 			battle.numAllies++;
 		}
@@ -172,92 +164,68 @@ void doFighter(Entity *f, Entity *prev)
 		}
 	}
 	
-	if (self->target != NULL && self->target->health <= 0)
+	if (self != player && self->health > 0)
 	{
-		self->action = self->defaultAction;
-		self->target = NULL;
+		separate();
 	}
 	
-	if (!battle.missionTarget && f->flags & EF_MISSION_TARGET && f->health > 0)
+	if (self->health > 0)
 	{
-		battle.missionTarget = f;
-	}
-	
-	f->x += f->dx;
-	f->y += f->dy;
-	
-	if (f != player)
-	{
-		f->x -= battle.ssx;
-		f->y -= battle.ssy;
-	}
-	
-	if (f->health > 0)
-	{
-		f->reload = MAX(f->reload - 1, 0);
-		f->shieldRecharge = MAX(f->shieldRecharge - 1, 0);
-		f->armourHit = MAX(f->armourHit - 25, 0);
-		f->shieldHit = MAX(f->shieldHit - 5, 0);
-		f->systemHit = MAX(f->systemHit - 25, 0);
+		self->reload = MAX(self->reload - 1, 0);
+		self->shieldRecharge = MAX(self->shieldRecharge - 1, 0);
+		self->armourHit = MAX(self->armourHit - 25, 0);
+		self->shieldHit = MAX(self->shieldHit - 5, 0);
+		self->systemHit = MAX(self->systemHit - 25, 0);
 		
 		if (self->thrust > 0.25)
 		{
 			addEngineEffect();
 		}
 		
-		if (!f->shieldRecharge)
+		if (!self->shieldRecharge)
 		{
-			f->shield = MIN(f->shield + 1, f->maxShield);
-			f->shieldRecharge = f->shieldRechargeRate;
+			self->shield = MIN(self->shield + 1, self->maxShield);
+			self->shieldRecharge = self->shieldRechargeRate;
 		}
 		
-		if (f->action == NULL && f->defaultAction != NULL)
+		if (self->action == NULL && self->defaultAction != NULL)
 		{
-			f->action = f->defaultAction;
+			self->action = self->defaultAction;
 		}
 	}
 	
-	if (f->action != NULL)
+	if (self->alive == ALIVE_ALIVE)
 	{
-		if (--f->thinkTime <= 0)
+		if (self->health <= 0)
 		{
-			f->thinkTime = 0;
-			f->action();
-		}
-	}
-	
-	if (f->alive == ALIVE_ALIVE)
-	{
-		if (f->health <= 0)
-		{
-			f->health = 0;
-			f->alive = ALIVE_DYING;
-			f->die();
+			self->health = 0;
+			self->alive = ALIVE_DYING;
+			self->die();
 			
-			if (f == battle.missionTarget)
+			if (self == battle.missionTarget)
 			{
 				battle.missionTarget = NULL;
 			}
 		}
-		else if (f->systemPower <= 0)
+		else if (self->systemPower <= 0)
 		{
-			f->dx *= 0.99;
-			f->dy *= 0.99;
-			f->thrust = 0;
-			f->shield = f->maxShield = 0;
-			f->action = NULL;
+			self->dx *= 0.99;
+			self->dy *= 0.99;
+			self->thrust = 0;
+			self->shield = self->maxShield = 0;
+			self->action = NULL;
 			
-			if (f->alive == ALIVE_ALIVE)
+			if (self->alive == ALIVE_ALIVE)
 			{
-				updateObjective(f->name, TT_DISABLE);
+				updateObjective(self->name, TT_DISABLE);
 				battle.stats[STAT_DISABLED]++;
 			}
 		}
 	}
 	
-	if (f->alive == ALIVE_DEAD)
+	if (self->alive == ALIVE_DEAD)
 	{
-		if (f == player)
+		if (self == player)
 		{
 			battle.stats[STAT_PLAYER_KILLED]++;
 		}
@@ -265,7 +233,7 @@ void doFighter(Entity *f, Entity *prev)
 		{
 			if (player->alive == ALIVE_ALIVE)
 			{
-				if (f->side != player->side)
+				if (self->side != player->side)
 				{
 					battle.stats[STAT_ENEMIES_KILLED]++;
 				}
@@ -277,26 +245,26 @@ void doFighter(Entity *f, Entity *prev)
 				}
 			}
 			
-			updateObjective(f->name, TT_DESTROY);
+			updateObjective(self->name, TT_DESTROY);
 			
-			updateCondition(f->name, TT_DESTROY);
+			updateCondition(self->name, TT_DESTROY);
 			
-			checkTrigger(f->name, TRIGGER_KILLS);
+			checkTrigger(self->name, TRIGGER_KILLS);
 		}
 		
-		if (f == battle.entityTail)
+		if (self == battle.entityTail)
 		{
 			battle.entityTail = prev;
 		}
 		
-		if (f == player)
+		if (self == player)
 		{
 			player = NULL;
 		}
 		
-		prev->next = f->next;
-		free(f);
-		f = prev;
+		prev->next = self->next;
+		free(self);
+		self = prev;
 	}
 }
 

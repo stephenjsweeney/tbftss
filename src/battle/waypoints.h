@@ -24,6 +24,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../structs.h"
 
 extern SDL_Texture *getTexture(char *filename);
+extern int getDistance(int x1, int y1, int x2, int y2);
+extern void addHudMessage(SDL_Color c, char *format, ...);
+extern Entity *spawnEntity(void);
 
 extern Battle battle;
+extern Colors colors;
 extern Entity *self;
+extern Entity *player;

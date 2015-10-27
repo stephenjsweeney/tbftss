@@ -20,28 +20,54 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "waypoints.h"
 
-static void rotate(void);
+static void think(void);
+static int teamMatesClose(void);
 
 Entity *spawnWaypoint(void)
 {
-	Entity *waypoint = malloc(sizeof(Entity));
-	memset(waypoint, 0, sizeof(Entity));
-	battle.entityTail->next = waypoint;
-	battle.entityTail = waypoint;
+	Entity *waypoint = spawnEntity();
 	
 	waypoint->type = ET_WAYPOINT;
 	waypoint->health = waypoint->maxHealth = FPS;
 	waypoint->texture = getTexture("gfx/entities/waypoint.png");
-	waypoint->action = rotate;
+	waypoint->flags = EF_MISSION_TARGET;
+	waypoint->action = think;
 	
 	return waypoint;
 }
 
-static void rotate(void)
+static void think(void)
 {
-	self->angle += 0.1;
+	self->thinkTime = 4;
+	
+	self->angle++;
 	if (self->angle >= 360)
 	{
 		self -= 360;
 	}
+	
+	if (getDistance(player->x, player->y, self->x, self->y) <= 32 && teamMatesClose())
+	{
+		self->health = 0;
+	}
+}
+
+static int teamMatesClose(void)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->type == ET_FIGHTER && e->side == player->side)
+		{
+			if (getDistance(player->x, player->y, e->x, e->y) > 350)
+			{
+				addHudMessage(colors.cyan, "Cannot activate waypoint - team mates too far away");
+				self->thinkTime = FPS;
+				return 0;
+			}
+		}
+	}
+	
+	return 1;
 }

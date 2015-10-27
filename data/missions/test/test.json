@@ -8,12 +8,23 @@
 		"type" : "Nymph",
 		"side" : "SIDE_CSN"
 	},
-	"entities" : [
+	"fighters" : [
+		{
+			"name" : "Dart",
+			"type" : "Dart",
+			"side" : "SIDE_CSN",
+			"x" : 1800,
+			"y" : 200
+		}
+	],
+	"entitiesGroups" : [
 		{
 			"name" : "Waypoint",
 			"type" : "ET_WAYPOINT",
-			"x" : 100,
-			"y" : 100
+			"number" : 10,
+			"x" : 640,
+			"y" : -10000,
+			"scatter" : 10000
 		}
 	]
 }

@@ -56,7 +56,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_DISABLE			(2 << 1)
 #define EF_IMMORTAL			(2 << 2)
 #define EF_MISSION_TARGET	(2 << 3)
-#define EF_INVISIBLE		(2 << 4)
 
 enum
 {
@@ -147,13 +146,15 @@ enum
 enum
 {
 	TT_DESTROY,
-	TT_DISABLE
+	TT_DISABLE,
+	TT_WAYPOINT
 };
 
 enum
 {
 	TRIGGER_TIME,
-	TRIGGER_KILLS
+	TRIGGER_KILLS,
+	TRIGGER_WAYPOINT
 };
 
 enum

@@ -36,6 +36,7 @@ extern void stopMusic(void);
 extern void initPlayer(void);
 extern long flagsToLong(char *flags);
 extern Entity *spawnWaypoint(void);
+extern void activateNextWaypoint(void);
 
 extern Battle battle;
 extern Entity *player;

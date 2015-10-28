@@ -27,6 +27,7 @@ static void drawHealthBars(void);
 static void drawWeaponInfo(void);
 static void drawObjectives(void);
 static void drawTargetDistance(void);
+static void drawMissionTargetDistance(void);
 static void drawHudMessages(void);
 
 static HudMessage hudMessageHead;
@@ -165,6 +166,11 @@ static void drawHealthBars(void)
 		drawHealthShieldBar(player->target->shield, player->target->maxShield, SCREEN_WIDTH - 260, 30, 0, 200, 255);
 		drawTargetDistance();
 	}
+	
+	if (battle.missionTarget)
+	{
+		drawMissionTargetDistance();
+	}
 }
 
 static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b)
@@ -214,6 +220,20 @@ static void drawPlayerTargeter(void)
 	float angle;
 	int x, y;
 	
+	if (player->target || battle.missionTarget)
+	{
+		if (player->target)
+		{
+			SDL_SetTextureColorMod(targetCircle, 255, 0, 0);
+		}
+		else
+		{
+			SDL_SetTextureColorMod(targetCircle, 0, 255, 0);
+		}
+		
+		blit(targetCircle, player->x, player->y, 1);
+	}
+	
 	if (player->target)
 	{
 		angle = getAngle(player->x, player->y, player->target->x, player->target->y);
@@ -224,10 +244,8 @@ static void drawPlayerTargeter(void)
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
 		SDL_SetTextureColorMod(targetPointer, 255, 0, 0);
-		SDL_SetTextureColorMod(targetCircle, 255, 0, 0);
 		
 		blitRotated(targetPointer, x, y, angle);
-		blitRotated(targetCircle, player->x, player->y, angle);
 	}
 	
 	if (battle.missionTarget)
@@ -277,6 +295,11 @@ static void drawTargetDistance(void)
 		
 		drawText(SCREEN_WIDTH - 15, 50, 14, TA_RIGHT, colors.red, "Target: %.2fkm", distance);
 	}
+}
+
+static void drawMissionTargetDistance(void)
+{
+	float distance;
 	
 	if (battle.missionTarget != NULL)
 	{

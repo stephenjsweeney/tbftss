@@ -28,6 +28,7 @@ Entity *spawnEntity(void)
 	Entity *e = malloc(sizeof(Entity));
 	memset(e, 0, sizeof(Entity));
 	e->id = battle.entId++;
+	e->active = 1;
 	
 	battle.entityTail->next = e;
 	battle.entityTail = e;
@@ -45,6 +46,11 @@ void doEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
+		if (!e->active)
+		{
+			continue;
+		}
+		
 		self = e;
 		
 		if (self->target != NULL && self->target->health <= 0)
@@ -71,7 +77,7 @@ void doEntities(void)
 			}
 		}
 		
-		switch (e->type)
+		switch (self->type)
 		{
 			case ET_FIGHTER:
 				doFighter(prev);
@@ -112,6 +118,11 @@ void drawEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
+		if (!e->active)
+		{
+			continue;
+		}
+		
 		switch (e->type)
 		{
 			case ET_FIGHTER:

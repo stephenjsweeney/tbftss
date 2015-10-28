@@ -36,7 +36,7 @@ void drawRadar(void)
 	
 	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
-		if (getDistance(f->x, f->y, player->x, player->y) / RADAR_RANGE < 70)
+		if (f->active && getDistance(f->x, f->y, player->x, player->y) / RADAR_RANGE < 70)
 		{
 			r.x = SCREEN_WIDTH - 85;
 			r.y = SCREEN_HEIGHT - 85;

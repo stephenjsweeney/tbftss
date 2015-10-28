@@ -282,7 +282,7 @@ static void separate(void)
 	
 	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
-		if (f != self)
+		if (f != self && f->active)
 		{
 			distance = getDistance(f->x, f->y, self->x, self->y);
 			

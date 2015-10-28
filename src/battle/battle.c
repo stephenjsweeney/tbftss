@@ -58,6 +58,8 @@ void initBattle(void)
 	
 	initMissionInfo();
 	
+	resetWaypoints();
+	
 	show = SHOW_BATTLE;
 	
 	getWidget("ok", "startBattle")->action = start;

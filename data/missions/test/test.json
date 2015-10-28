@@ -4,6 +4,14 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "",
+	"objectives" : [
+		{
+			"description" : "Reach Waypoints",
+			"targetName" : "Waypoint",
+			"targetValue" : 5,
+			"targetType" : "TT_WAYPOINT"
+		}
+	],
 	"player" : {
 		"type" : "Nymph",
 		"side" : "SIDE_CSN"
@@ -17,14 +25,13 @@
 			"y" : 200
 		}
 	],
-	"entitiesGroups" : [
+	"entityGroups" : [
 		{
-			"name" : "Waypoint",
 			"type" : "ET_WAYPOINT",
-			"number" : 10,
-			"x" : 640,
-			"y" : -10000,
-			"scatter" : 10000
+			"number" : 5,
+			"x" : 0,
+			"y" : 1000,
+			"scatter" : 1000
 		}
 	]
 }

@@ -150,7 +150,7 @@ static void findTarget(void)
 	
 	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
-		if (f->type == ET_FIGHTER && f->side != self->side && f->health > 0 && canAttack(f))
+		if (f->active && f->type == ET_FIGHTER && f->side != self->side && f->health > 0 && canAttack(f))
 		{
 			dist = getDistance(self->x, self->y, f->x, f->y);
 			if (dist < closest)
@@ -257,7 +257,7 @@ static int hasClearShot(void)
 		
 		for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 		{
-			if (f != self && f != self->target && (getDistance(self->x, self->y, f->x, f->y) < dist))
+			if (f->active && f != self && f != self->target && (getDistance(self->x, self->y, f->x, f->y) < dist))
 			{
 				if (isInFOV(f, 8))
 				{

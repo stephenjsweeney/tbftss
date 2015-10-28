@@ -83,6 +83,7 @@ void loadMission(char *filename)
 		battle.status = MS_IN_PROGRESS;
 	}
 	
+	activateNextWaypoint();
 	
 	initPlayer();
 	
@@ -271,8 +272,12 @@ static void loadEntities(cJSON *node)
 					e = spawnWaypoint();
 					break;
 			}
-					
-			STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+			
+			if (cJSON_GetObjectItem(node, "name"))
+			{
+				STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+			}
+			
 			e->x = cJSON_GetObjectItem(node, "x")->valueint;
 			e->y = cJSON_GetObjectItem(node, "y")->valueint;
 			
@@ -291,10 +296,8 @@ static void loadEntityGroups(cJSON *node)
 	Entity *e;
 	char *name;
 	int i, type, x, y, scatter, number;
-	long flags;
 	
 	scatter = 1;
-	flags = 0;
 	
 	if (node)
 	{
@@ -303,14 +306,18 @@ static void loadEntityGroups(cJSON *node)
 		while (node)
 		{
 			type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			name = cJSON_GetObjectItem(node, "name")->valuestring;
 			number = cJSON_GetObjectItem(node, "number")->valueint;
 			x = cJSON_GetObjectItem(node, "x")->valueint;
 			y = cJSON_GetObjectItem(node, "y")->valueint;
 			
-			if (cJSON_GetObjectItem(node, "flags"))
+			if (cJSON_GetObjectItem(node, "name"))
 			{
-				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+				name = cJSON_GetObjectItem(node, "name")->valuestring;
+			}
+			
+			if (cJSON_GetObjectItem(node, "scatter"))
+			{
+				scatter = cJSON_GetObjectItem(node, "scatter")->valueint;
 			}
 			
 			for (i = 0 ; i < number ; i++)
@@ -321,12 +328,15 @@ static void loadEntityGroups(cJSON *node)
 						e = spawnWaypoint();
 						break;
 				}
-						
-				STRNCPY(e->name, name, MAX_NAME_LENGTH);
+				
+				if (name)
+				{
+					STRNCPY(e->name, name, MAX_NAME_LENGTH);
+				}
+				
 				e->id = battle.entId++;
 				e->x = x;
 				e->y = y;
-				e->flags = flags;
 				
 				e->x += (rand() % scatter) - (rand() % scatter);
 				e->y += (rand() % scatter) - (rand() % scatter);

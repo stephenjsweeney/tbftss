@@ -148,6 +148,11 @@ static void selectTarget(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
+		if (!e->active)
+		{
+			continue;
+		}
+		
 		if (e != player && e->type == ET_FIGHTER && e->side != player->side && e->alive == ALIVE_ALIVE)
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
@@ -170,6 +175,11 @@ static void selectMissionTarget(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
+		if (!e->active)
+		{
+			continue;
+		}
+		
 		if (e->flags & EF_MISSION_TARGET && e->alive == ALIVE_ALIVE)
 		{
 			if (battle.missionTarget == NULL)

@@ -101,6 +101,11 @@ static void checkCollisions(Bullet *b)
 	
 	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
+		if (!f->active)
+		{
+			continue;
+		}
+		
 		if (f->type == ET_FIGHTER)
 		{
 			SDL_QueryTexture(f->texture, NULL, NULL, &ew, &eh);

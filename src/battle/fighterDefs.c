@@ -76,6 +76,8 @@ static void loadFighterDef(char *filename)
 	defTail->next = f;
 	defTail = f;
 	
+	f->active = 1;
+	
 	root = cJSON_Parse(text);
 	
 	STRNCPY(f->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);

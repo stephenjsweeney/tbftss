@@ -27,6 +27,8 @@ extern SDL_Texture *getTexture(char *filename);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern Entity *spawnEntity(void);
+extern void updateObjective(char *name, int type);
+extern void checkTrigger(char *name, int type);
 
 extern Battle battle;
 extern Colors colors;

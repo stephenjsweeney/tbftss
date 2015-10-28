@@ -2,7 +2,7 @@
 	"name" : "Ray",
 	"health" : 45,
 	"shield" : 45,
-	"speed" : 1.85,
+	"speed" : 1.75,
 	"reloadTime" : 16,
 	"shieldRechargeRate" : 60,
 	"textureName" : "gfx/fighters/ray.png",

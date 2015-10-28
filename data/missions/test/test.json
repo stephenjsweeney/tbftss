@@ -13,13 +13,20 @@
 		}
 	],
 	"player" : {
-		"type" : "Nymph",
+		"type" : "ATAF",
 		"side" : "SIDE_CSN"
 	},
 	"fighters" : [
 		{
-			"name" : "Dart",
-			"type" : "Dart",
+			"name" : "Sphinx",
+			"type" : "Sphinx",
+			"side" : "SIDE_CSN",
+			"x" : 1800,
+			"y" : 200
+		},
+		{
+			"name" : "Nymph",
+			"type" : "Nymph",
 			"side" : "SIDE_CSN",
 			"x" : 1800,
 			"y" : 200

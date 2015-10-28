@@ -2,7 +2,7 @@
 	"name" : "Sphinx",
 	"health" : 75,
 	"shield" : 50,
-	"speed" : 1.75,
+	"speed" : 1.5,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 60,
 	"textureName" : "gfx/fighters/sphinx.png",

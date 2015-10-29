@@ -160,6 +160,7 @@ struct Effect {
 };
 
 struct Objective {
+	int active;
 	char description[MAX_DESCRIPTION_LENGTH];
 	char targetName[MAX_NAME_LENGTH];
 	int targetType;
@@ -183,6 +184,7 @@ struct Trigger {
 	char targetName[MAX_NAME_LENGTH];
 	int targetValue;
 	int action;
+	char actionValue[MAX_NAME_LENGTH];
 	Trigger *next;
 };
 

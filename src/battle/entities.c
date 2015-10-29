@@ -46,68 +46,66 @@ void doEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		self = e;
-		
-		if (!e->active)
+		if (e->active)
 		{
-			continue;
-		}
+			self = e;
 		
-		if (e->target != NULL && e->target->health <= 0)
-		{
-			e->action = e->defaultAction;
-			e->target = NULL;
-		}
-		
-		e->x += e->dx;
-		e->y += e->dy;
-		
-		if (e != player)
-		{
-			e->x -= battle.ssx;
-			e->y -= battle.ssy;
-		}
-		
-		if (e->action != NULL)
-		{
-			if (--e->thinkTime <= 0)
+			if (e->target != NULL && e->target->health <= 0)
 			{
-				e->thinkTime = 0;
-				e->action();
+				e->action = e->defaultAction;
+				e->target = NULL;
 			}
-		}
-		
-		switch (e->type)
-		{
-			case ET_FIGHTER:
-				doFighter();
-				break;
+			
+			e->x += e->dx;
+			e->y += e->dy;
+			
+			if (e != player)
+			{
+				e->x -= battle.ssx;
+				e->y -= battle.ssy;
+			}
+			
+			if (e->action != NULL)
+			{
+				if (--e->thinkTime <= 0)
+				{
+					e->thinkTime = 0;
+					e->action();
+				}
+			}
+			
+			switch (e->type)
+			{
+				case ET_FIGHTER:
+					doFighter();
+					break;
+					
+				default:
+					doEntity();
+					break;
+			}
+			
+			if (e->alive == ALIVE_DEAD)
+			{
+				if (e == battle.entityTail)
+				{
+					battle.entityTail = prev;
+				}
 				
-			default:
-				doEntity();
-				break;
-		}
-		
-		if (e->alive == ALIVE_DEAD)
-		{
-			if (e == battle.entityTail)
-			{
-				battle.entityTail = prev;
+				if (e == battle.missionTarget)
+				{
+					battle.missionTarget = NULL;
+				}
+				
+				if (e == player)
+				{
+					player = NULL;
+				}
+				
+				prev->next = e->next;
+				free(e);
+				e = prev;
 			}
-			
-			if (e == battle.missionTarget)
-			{
-				battle.missionTarget = NULL;
-			}
-			
-			if (e == player)
-			{
-				player = NULL;
-			}
-			
-			prev->next = e->next;
-			free(e);
-			e = prev;
 		}
 		
 		prev = e;
@@ -149,4 +147,17 @@ void drawEntities(void)
 static void drawEntity(Entity *e)
 {
 	blitRotated(e->texture, e->x, e->y, e->angle);
+}
+
+void activateEntities(char *name)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (strcmp(e->name, name) == 0)
+		{
+			e->active = 1;
+		}
+	}
 }

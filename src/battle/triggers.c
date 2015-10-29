@@ -45,6 +45,9 @@ static int conditionMet(Trigger *trigger)
 			
 		case TRIGGER_KILLS:
 			return trigger->targetValue == battle.stats[STAT_ENEMIES_KILLED];
+			
+		case TRIGGER_WAYPOINT:
+			return 1;
 	}
 	
 	return 0;
@@ -62,6 +65,14 @@ static void fireTrigger(Trigger *trigger)
 		case TA_FAIL_MISSION:
 			addHudMessage(colors.red, "Mission Failed!");
 			failMission();
+			break;
+			
+		case TA_ACTIVE_ENTITY:
+			activateEntities(trigger->actionValue);
+			break;
+			
+		case TA_ACTIVE_OBJECTIVE:
+			activateObjective(atoi(trigger->actionValue));
 			break;
 	}
 }

@@ -119,10 +119,16 @@ static void loadObjectives(cJSON *node)
 			battle.objectiveTail->next = o;
 			battle.objectiveTail = o;
 			
+			o->active = 1;
 			STRNCPY(o->description, cJSON_GetObjectItem(node, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
 			STRNCPY(o->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
 			o->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
 			o->targetType = lookup(cJSON_GetObjectItem(node, "targetType")->valuestring);
+			
+			if (cJSON_GetObjectItem(node, "active"))
+			{
+				o->active = cJSON_GetObjectItem(node, "active")->valueint;
+			}
 			
 			if (cJSON_GetObjectItem(node, "isCondition"))
 			{
@@ -158,6 +164,11 @@ static void loadTriggers(cJSON *node)
 			STRNCPY(t->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
 			t->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
 			t->action = lookup(cJSON_GetObjectItem(node, "action")->valuestring);
+			
+			if (cJSON_GetObjectItem(node, "actionValue"))
+			{
+				STRNCPY(t->actionValue, cJSON_GetObjectItem(node, "actionValue")->valuestring, MAX_NAME_LENGTH);
+			}
 			
 			node = node->next;
 		}
@@ -201,6 +212,11 @@ static void loadFighters(cJSON *node)
 			{
 				f->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
 			}
+			
+			if (cJSON_GetObjectItem(node, "active"))
+			{
+				f->active = cJSON_GetObjectItem(node, "active")->valueint;
+			}
 		
 			node = node->next;
 		}
@@ -211,10 +227,11 @@ static void loadFighterGroups(cJSON *node)
 {
 	Entity *f;
 	char **types, *name, *type;
-	int side, x, y, scatter, number;
+	int side, x, y, scatter, number, active;
 	int i, numTypes;
 	
 	scatter = 1;
+	active = 1;
 	
 	if (node)
 	{
@@ -234,6 +251,11 @@ static void loadFighterGroups(cJSON *node)
 				scatter = cJSON_GetObjectItem(node, "scatter")->valueint;
 			}
 			
+			if (cJSON_GetObjectItem(node, "active"))
+			{
+				active = cJSON_GetObjectItem(node, "active")->valueint;
+			}
+			
 			for (i = 0 ; i < number ; i++)
 			{
 				type = types[rand() % numTypes];
@@ -242,6 +264,8 @@ static void loadFighterGroups(cJSON *node)
 				
 				f->x += (rand() % scatter) - (rand() % scatter);
 				f->y += (rand() % scatter) - (rand() % scatter);
+				
+				f->active = active;
 				
 				STRNCPY(f->name, name, MAX_NAME_LENGTH);
 			}
@@ -309,6 +333,7 @@ static void loadEntityGroups(cJSON *node)
 			number = cJSON_GetObjectItem(node, "number")->valueint;
 			x = cJSON_GetObjectItem(node, "x")->valueint;
 			y = cJSON_GetObjectItem(node, "y")->valueint;
+			name = NULL;
 			
 			if (cJSON_GetObjectItem(node, "name"))
 			{

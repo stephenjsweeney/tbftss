@@ -26,16 +26,25 @@ void failIncompleteObjectives(void);
 void doObjectives(void)
 {
 	int objectiveFailed;
+	int numHiddenObjectives;
 	Objective *o;
 	
 	battle.numObjectivesComplete = battle.numObjectivesTotal = 0;
 	objectiveFailed = 0;
+	numHiddenObjectives = 0;
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		if (!o->isCondition)
+		if (o->active)
 		{
-			battle.numObjectivesTotal++;
+			if (!o->isCondition)
+			{
+				battle.numObjectivesTotal++;
+			}
+		}
+		else
+		{
+			numHiddenObjectives++;
 		}
 		
 		if (o->currentValue == o->targetValue)
@@ -58,7 +67,7 @@ void doObjectives(void)
 	
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
+		if (numHiddenObjectives == 0 && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
 		{
 			completeMission();
 			
@@ -82,7 +91,7 @@ void updateObjective(char *name, int type)
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		if (!o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+		if (o->active && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 		{
 			o->currentValue++;
 			
@@ -110,7 +119,7 @@ void updateCondition(char *name, int type)
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		if (o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+		if (o->active && o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 		{
 			o->currentValue++;
 			
@@ -147,5 +156,23 @@ void failIncompleteObjectives(void)
 		{
 			o->status = OS_FAILED;
 		}
+	}
+}
+
+void activateObjective(int num)
+{
+	int i = 0;
+	Objective *o;
+	
+	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	{
+		if (i == num)
+		{
+			addHudMessage(colors.cyan, "New Objectives : %s", o->description);
+			o->active = 1;
+			return;
+		}
+		
+		i++;
 	}
 }

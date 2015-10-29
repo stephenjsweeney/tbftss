@@ -97,9 +97,12 @@ void initLookups(void)
 	
 	addLookup("TRIGGER_TIME", TRIGGER_TIME);
 	addLookup("TRIGGER_KILLS", TRIGGER_KILLS);
+	addLookup("TRIGGER_WAYPOINT", TRIGGER_WAYPOINT);
 	
 	addLookup("TA_COMPLETE_MISSION", TA_COMPLETE_MISSION);
 	addLookup("TA_FAIL_MISSION", TA_FAIL_MISSION);
+	addLookup("TA_ACTIVE_ENTITY", TA_ACTIVE_ENTITY);
+	addLookup("TA_ACTIVE_OBJECTIVE", TA_ACTIVE_OBJECTIVE);
 }
 
 static void addLookup(char *name, long value)

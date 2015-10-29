@@ -88,29 +88,32 @@ static void drawMissionSummary(SDL_Texture *header)
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		y += 50;
-		
-		switch (o->status)
+		if (o->active)
 		{
-			case OS_INCOMPLETE:
-				color = colors.white;
-				break;
-				
-			case OS_COMPLETE:
-				color = colors.green;
-				break;
-				
-			case OS_FAILED:
-				color = colors.red;
-				break;
+			y += 50;
+			
+			switch (o->status)
+			{
+				case OS_INCOMPLETE:
+					color = colors.white;
+					break;
+					
+				case OS_COMPLETE:
+					color = colors.green;
+					break;
+					
+				case OS_FAILED:
+					color = colors.red;
+					break;
+			}
+			
+			drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
+			if (o->targetValue > 1)
+			{
+				drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
+			}
+			drawText(SCREEN_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
 		}
-		
-		drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
-		if (o->targetValue > 1)
-		{
-			drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
-		}
-		drawText(SCREEN_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
 	}
 	
 	if (!battle.objectiveHead.next)

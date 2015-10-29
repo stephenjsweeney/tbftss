@@ -56,6 +56,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_DISABLE			(2 << 1)
 #define EF_IMMORTAL			(2 << 2)
 #define EF_MISSION_TARGET	(2 << 3)
+#define EF_FLEES			(2 << 4)
+#define EF_FLEEING			(2 << 5)
 
 enum
 {
@@ -154,7 +156,8 @@ enum
 {
 	TRIGGER_TIME,
 	TRIGGER_KILLS,
-	TRIGGER_WAYPOINT
+	TRIGGER_WAYPOINT,
+	TRIGGER_ESCAPES
 };
 
 enum
@@ -206,6 +209,8 @@ enum
 	STAT_ALLIES_KILLED,
 	STAT_PLAYER_KILLED,
 	STAT_DISABLED,
+	STAT_ENEMIES_ESCAPED,
+	STAT_ALLIES_ESCAPED,
 	STAT_TIME,
 	STAT_MAX
 };

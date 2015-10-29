@@ -6,33 +6,11 @@
 	"music" : "",
 	"objectives" : [
 		{
-			"description" : "Reach Waypoints",
-			"targetName" : "Waypoint",
-			"targetValue" : 1,
-			"targetType" : "TT_WAYPOINT"
-		},
-		{
 			"description" : "Destroy Fighters",
 			"targetName" : "Dart",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"active" : 0
-		}
-	],
-	"triggers" : [
-		{
-			"type" : "TRIGGER_WAYPOINT",
-			"targetName" : "Waypoint #1",
-			"targetValue" : "1",
-			"action" : "TA_ACTIVE_ENTITY",
-			"actionValue" : "Dart"
-		},
-		{
-			"type" : "TRIGGER_WAYPOINT",
-			"targetName" : "Waypoint #1",
-			"targetValue" : "1",
-			"action" : "TA_ACTIVE_OBJECTIVE",
-			"actionValue" : "1"
 		}
 	],
 	"player" : {
@@ -46,15 +24,17 @@
 			"side" : "SIDE_PIRATE",
 			"x" : 640,
 			"y" : 0,
-			"active" : 0
+			"flags" : "EF_FLEES+EF_MISSION_TARGET"
 		}
 	],
-	"entityGroups" : [
+	"fighterGroups" : [
 		{
-			"type" : "ET_WAYPOINT",
-			"number" : 1,
-			"x" : 0,
-			"y" : 1000
+			"name" : "Dart",
+			"types" : "UnarmedDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 640,
+			"y" : 0,
+			"number" : 5
 		}
 	]
 }

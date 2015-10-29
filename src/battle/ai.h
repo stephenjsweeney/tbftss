@@ -32,7 +32,9 @@ extern void fireGuns(Entity *owner);
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern void applyFighterThrust(void);
 extern void applyFighterBrakes(void);
+extern void addHudMessage(SDL_Color c, char *format, ...);
 
 extern Battle battle;
+extern Colors colors;
 extern Entity *self;
 extern Entity *player;

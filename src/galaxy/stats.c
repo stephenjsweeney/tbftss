@@ -32,6 +32,8 @@ static char *statDescription[] = {
 	"Allies Killed",
 	"Times Killed",
 	"Enemies Disabled",
+	"Enemies Escaped",
+	"Allies Escaped",
 	"STAT_TIME"
 };
 

@@ -38,11 +38,12 @@ Entity *spawnEntity(void)
 
 void doEntities(void)
 {
+	int numAllies, numEnemies;
 	Entity *e, *prev;
 	
 	prev = &battle.entityHead;
 	
-	battle.numAllies = battle.numEnemies = 0;
+	numAllies = numEnemies = 0;
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -56,15 +57,15 @@ void doEntities(void)
 		if (e->active)
 		{
 			self = e;
+			
+			e->x += e->dx;
+			e->y += e->dy;
 		
 			if (e->target != NULL && e->target->health <= 0)
 			{
 				e->action = e->defaultAction;
 				e->target = NULL;
 			}
-			
-			e->x += e->dx;
-			e->y += e->dy;
 			
 			if (e->action != NULL)
 			{
@@ -79,6 +80,19 @@ void doEntities(void)
 			{
 				case ET_FIGHTER:
 					doFighter();
+					
+					if (player != NULL)
+					{
+						if (self->side == player->side)
+						{
+							numAllies++;
+						}
+						else
+						{
+							numEnemies++;
+						}
+					}
+					
 					break;
 					
 				default:
@@ -111,6 +125,9 @@ void doEntities(void)
 		
 		prev = e;
 	}
+	
+	battle.numAllies = numAllies;
+	battle.numEnemies = numEnemies;
 }
 
 static void doEntity(void)

@@ -48,6 +48,9 @@ static int conditionMet(Trigger *trigger)
 			
 		case TRIGGER_WAYPOINT:
 			return 1;
+			
+		case TRIGGER_ESCAPES:
+			return trigger->targetValue == battle.stats[STAT_ENEMIES_ESCAPED];
 	}
 	
 	return 0;

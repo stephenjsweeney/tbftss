@@ -36,6 +36,7 @@ void initLookups(void)
 	addLookup("EF_DISABLE", EF_DISABLE);
 	addLookup("EF_IMMORTAL", EF_IMMORTAL);
 	addLookup("EF_MISSION_TARGET", EF_MISSION_TARGET);
+	addLookup("EF_FLEES", EF_FLEES);
 	
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);

@@ -27,6 +27,7 @@ static void spinDie(void);
 static void straightDie(void);
 static void randomizeDart(Entity *dart);
 static void randomizeDartGuns(Entity *dart);
+static void checkHasFled(void);
 
 Entity *spawnFighter(char *name, int x, int y, int side)
 {
@@ -152,18 +153,6 @@ static void randomizeDartGuns(Entity *dart)
 
 void doFighter(void)
 {
-	if (player != NULL)
-	{
-		if (self->side == player->side)
-		{
-			battle.numAllies++;
-		}
-		else
-		{
-			battle.numEnemies++;
-		}
-	}
-	
 	if (self != player && self->health > 0)
 	{
 		separate();
@@ -219,6 +208,13 @@ void doFighter(void)
 			{
 				updateObjective(self->name, TT_DISABLE);
 				battle.stats[STAT_DISABLED]++;
+			}
+		}
+		else
+		{
+			if (player != NULL && self->flags & EF_FLEEING && battle.stats[STAT_TIME] % FPS == 0)
+			{
+				checkHasFled();
 			}
 		}
 	}
@@ -479,5 +475,27 @@ static void straightDie(void)
 		self->alive = ALIVE_DEAD;
 		addFighterExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	}
+}
+
+static void checkHasFled(void)
+{
+	long distance = getDistance(self->x, self->y, player->x, player->y);
+	
+	if (distance > 5000)
+	{
+		if (self->side != player->side)
+		{
+			addHudMessage(colors.red, "Mission target has escaped.");
+			battle.stats[STAT_ENEMIES_ESCAPED]++;
+		}
+		else
+		{
+			battle.stats[STAT_ALLIES_ESCAPED]++;
+		}
+		
+		checkTrigger("ESCAPE", TRIGGER_ESCAPES);
+		
+		self->alive = ALIVE_DEAD;
 	}
 }

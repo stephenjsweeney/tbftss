@@ -45,11 +45,12 @@ static int targetOutOfRange(void);
 static void moveToPlayer(void);
 static int canAttack(Entity *f);
 static int selectWeapon(int type);
+static void flee(void);
 
 void doAI(void)
 {
 	int r;
-	
+
 	if (!self->target || targetOutOfRange() || self->target->systemPower <= 0)
 	{
 		findTarget();
@@ -60,10 +61,11 @@ void doAI(void)
 			{
 				moveToPlayer();
 			}
-			else
+			else if (!(self->flags & EF_FLEEING))
 			{
 				applyFighterBrakes();
 			}
+			
 			return;
 		}
 	}
@@ -99,6 +101,17 @@ void doAI(void)
 	{
 		self->action = huntAndAttackTarget;
 		self->aiActionTime = FPS * 1;
+	}
+	
+	if (player != NULL && battle.numEnemies <= 2 && self->flags & EF_FLEES)
+	{
+		self->action = flee;
+		self->aiActionTime = FPS * 3;
+		if (!(self->flags & EF_FLEEING) && (self->flags & EF_MISSION_TARGET) && self->side != player->side)
+		{
+			addHudMessage(colors.cyan, "Mission target is escaping!");
+			self->flags |= EF_FLEEING;
+		}
 	}
 }
 
@@ -291,6 +304,27 @@ static void dodge(void)
 {
 	int dir;
 	int wantedAngle = 180 + getAngle(self->x, self->y, self->target->x, self->target->y);
+	
+	wantedAngle %= 360;
+	
+	if (fabs(wantedAngle - self->angle) > TURN_THRESHOLD)
+	{
+		dir = ((int)(wantedAngle - self->angle + 360)) % 360 > 180 ? -1 : 1;
+	
+		self->angle += dir * TURN_SPEED;
+		
+		self->angle = mod(self->angle, 360);
+	}
+	
+	applyFighterThrust();
+
+	nextAction();
+}
+
+static void flee(void)
+{
+	int dir;
+	int wantedAngle = 180 + getAngle(self->x, self->y, player->x, player->y);
 	
 	wantedAngle %= 360;
 	

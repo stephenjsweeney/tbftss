@@ -1,0 +1,30 @@
+{
+	"name" : "Firefly",
+	"health" : 35,
+	"shield" : 35,
+	"speed" : 1.9,
+	"reloadTime" : 12,
+	"shieldRechargeRate" : 30,
+	"textureName" : "gfx/fighters/firefly.png",
+	"guns" : [
+		{
+			"type" : "BT_PARTICLE",
+			"x" : -12,
+			"y" : -2
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 12,
+			"y" : -2
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 0,
+			"y" : -4
+		}
+	],
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 3
+	}
+}

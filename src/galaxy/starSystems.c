@@ -22,7 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadStarSystem(cJSON *starSystemJSON);
 static void loadMissionMeta(char *filename, StarSystem *starSystem);
-static int isAvailable(Mission *mission, Mission *prev);
 
 void initStarSystems(void)
 {
@@ -193,35 +192,21 @@ void updateStarSystemMissions(void)
 		
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
-			starSystem->totalMissions++;
+			mission->available = isMissionAvailable(mission, prev);
 			
-			if (mission->completed)
+			if (mission->available)
 			{
-				starSystem->completedMissions++;
+				starSystem->totalMissions++;
+				
+				if (mission->completed)
+				{
+					starSystem->completedMissions++;
+				}
 			}
-			
-			mission->available = isAvailable(mission, prev);
 			
 			prev = mission;
 		}
 	}
-}
-
-static int isAvailable(Mission *mission, Mission *prev)
-{
-	Mission *reqMission;
-	
-	if (mission->requires)
-	{
-		reqMission = getMission(mission->requires);
-			
-		if (reqMission != NULL)
-		{
-			return reqMission->completed;
-		}
-	}
-	
-	return prev->completed;
 }
 
 void destroyStarSystems(void)

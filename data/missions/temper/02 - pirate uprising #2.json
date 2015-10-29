@@ -4,6 +4,7 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/battleThemeA.mp3",
+	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Eliminate Darts",

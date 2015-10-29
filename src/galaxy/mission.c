@@ -398,6 +398,30 @@ Mission *getMission(char *filename)
 	return NULL;
 }
 
+int isMissionAvailable(Mission *mission, Mission *prev)
+{
+	Mission *reqMission;
+	
+	if (mission->requires)
+	{
+		if (strcmp(mission->requires, "PREVIOUS") == 0)
+		{
+			return prev->completed;
+		}
+		else
+		{
+			reqMission = getMission(mission->requires);
+				
+			if (reqMission != NULL)
+			{
+				return reqMission->completed;
+			}
+		}
+	}
+	
+	return 1;
+}
+
 static unsigned long hashcode(const char *str)
 {
     unsigned long hash = 5381;

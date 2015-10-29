@@ -492,10 +492,6 @@ static void drawStarSystemDetail(void)
 			{
 				drawText(210, y, 24, TA_LEFT, mission->completed ? colors.white : colors.yellow, mission->name);
 			}
-			else
-			{
-				drawText(210, y, 24, TA_LEFT, colors.darkGrey, "[LOCKED]");
-			}
 			
 			y += 50;
 		}

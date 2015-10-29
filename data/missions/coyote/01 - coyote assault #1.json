@@ -4,7 +4,7 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/mythos.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "temper/03 - pirate uprising #3.json",
+	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
 	"objectives" : [
 		{
 			"description" : "Destroy all enemy targets",

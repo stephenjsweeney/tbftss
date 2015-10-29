@@ -114,7 +114,9 @@
         "side" : "SIDE_UNF",
         "x": 465,
         "y": 235,
-        "missions" : []
+        "missions" : [
+			"data/missions/alba/01 - patrol #1.json"
+        ]
       },
       {
         "name": "Aster",

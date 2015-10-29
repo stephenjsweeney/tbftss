@@ -7,10 +7,33 @@
 	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
-			"description" : "Check all Wayponts",
+			"description" : "Check all Waypoints",
 			"targetName" : "Waypoint",
 			"targetValue" : 5,
 			"targetType" : "TT_WAYPOINT"
+		},
+		{
+			"description" : "Destroy Pandoran fighters",
+			"targetName" : "Pandoran",
+			"targetValue" : 3,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"triggers" : [
+		{
+			"type" : "TRIGGER_WAYPOINT",
+			"targetName" : "Waypoint #5",
+			"targetValue" : "1",
+			"action" : "TA_ACTIVE_ENTITY",
+			"actionValue" : "Pandoran"
+		},
+		{
+			"type" : "TRIGGER_WAYPOINT",
+			"targetName" : "Waypoint #5",
+			"targetValue" : "1",
+			"action" : "TA_ACTIVE_OBJECTIVE",
+			"actionValue" : "1"
 		}
 	],
 	"player" : {
@@ -36,7 +59,8 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 640,
 			"y" : 1000,
-			"scatter" : 64
+			"scatter" : 64,
+			"active" : 0
 		}
 	],
 	"entityGroups" : [

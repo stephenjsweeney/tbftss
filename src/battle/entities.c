@@ -46,6 +46,13 @@ void doEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
+		/* must always be shifted, even if not active */
+		if (e != player)
+		{
+			e->x -= battle.ssx;
+			e->y -= battle.ssy;
+		}
+		
 		if (e->active)
 		{
 			self = e;
@@ -58,12 +65,6 @@ void doEntities(void)
 			
 			e->x += e->dx;
 			e->y += e->dy;
-			
-			if (e != player)
-			{
-				e->x -= battle.ssx;
-				e->y -= battle.ssy;
-			}
 			
 			if (e->action != NULL)
 			{

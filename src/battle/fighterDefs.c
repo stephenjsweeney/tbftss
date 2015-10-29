@@ -106,6 +106,11 @@ static void loadFighterDef(char *filename)
 				exit(1);
 			}
 		}
+		
+		if (cJSON_GetObjectItem(root, "combinedGuns"))
+		{
+			f->combinedGuns = cJSON_GetObjectItem(root, "combinedGuns")->valueint;
+		}
 	}
 	
 	if (cJSON_GetObjectItem(root, "missiles"))

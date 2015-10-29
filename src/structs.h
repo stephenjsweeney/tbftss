@@ -89,6 +89,7 @@ struct Entity {
 	int reload;
 	int reloadTime;
 	int selectedGunType;
+	int combinedGuns;
 	int shieldRecharge;
 	int shieldRechargeRate;
 	int systemPower;

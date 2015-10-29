@@ -101,12 +101,7 @@ static void checkCollisions(Bullet *b)
 	
 	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
-		if (!f->active)
-		{
-			continue;
-		}
-		
-		if (f->type == ET_FIGHTER)
+		if (f->active && f->type == ET_FIGHTER)
 		{
 			SDL_QueryTexture(f->texture, NULL, NULL, &ew, &eh);
 			
@@ -221,7 +216,7 @@ static void huntTarget(Bullet *b)
 	}
 }
 
-Bullet *createBullet(int type, int x, int y, Entity *owner)
+static Bullet *createBullet(int type, int x, int y, Entity *owner)
 {
 	Bullet *b;
 	
@@ -255,7 +250,7 @@ void fireGuns(Entity *owner)
 	
 	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
 	{
-		if (owner->guns[i].type == owner->selectedGunType)
+		if (owner->guns[i].type == owner->selectedGunType || (owner->guns[i].type != BT_NONE && owner->combinedGuns))
 		{
 			s = sin(TO_RAIDANS(owner->angle));
 			c = cos(TO_RAIDANS(owner->angle));

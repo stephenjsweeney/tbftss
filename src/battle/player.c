@@ -48,6 +48,8 @@ void initPlayer(void)
 			}
 		}
 	}
+	
+	STRNCPY(player->name, "Player", MAX_NAME_LENGTH);
 }
 
 void doPlayer(void)

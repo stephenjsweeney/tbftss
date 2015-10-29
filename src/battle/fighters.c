@@ -150,7 +150,7 @@ static void randomizeDartGuns(Entity *dart)
 	}
 }
 
-void doFighter(Entity *prev)
+void doFighter(void)
 {
 	if (player != NULL)
 	{
@@ -251,20 +251,6 @@ void doFighter(Entity *prev)
 			
 			checkTrigger(self->name, TRIGGER_KILLS);
 		}
-		
-		if (self == battle.entityTail)
-		{
-			battle.entityTail = prev;
-		}
-		
-		if (self == player)
-		{
-			player = NULL;
-		}
-		
-		prev->next = self->next;
-		free(self);
-		self = prev;
 	}
 }
 

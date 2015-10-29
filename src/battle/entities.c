@@ -21,7 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entities.h"
 
 static void drawEntity(Entity *e);
-static void doEntity(Entity *prev);
+static void doEntity(void);
 
 Entity *spawnEntity(void)
 {
@@ -46,69 +46,79 @@ void doEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
+		self = e;
+		
 		if (!e->active)
 		{
 			continue;
 		}
 		
-		self = e;
-		
-		if (self->target != NULL && self->target->health <= 0)
+		if (e->target != NULL && e->target->health <= 0)
 		{
-			self->action = self->defaultAction;
-			self->target = NULL;
+			e->action = e->defaultAction;
+			e->target = NULL;
 		}
 		
-		self->x += self->dx;
-		self->y += self->dy;
+		e->x += e->dx;
+		e->y += e->dy;
 		
-		if (self != player)
+		if (e != player)
 		{
-			self->x -= battle.ssx;
-			self->y -= battle.ssy;
+			e->x -= battle.ssx;
+			e->y -= battle.ssy;
 		}
 		
-		if (self->action != NULL)
+		if (e->action != NULL)
 		{
-			if (--self->thinkTime <= 0)
+			if (--e->thinkTime <= 0)
 			{
-				self->thinkTime = 0;
-				self->action();
+				e->thinkTime = 0;
+				e->action();
 			}
 		}
 		
-		switch (self->type)
+		switch (e->type)
 		{
 			case ET_FIGHTER:
-				doFighter(prev);
+				doFighter();
 				break;
 				
 			default:
-				doEntity(prev);
+				doEntity();
 				break;
 		}
 		
-		prev = self;
+		if (e->alive == ALIVE_DEAD)
+		{
+			if (e == battle.entityTail)
+			{
+				battle.entityTail = prev;
+			}
+			
+			if (e == battle.missionTarget)
+			{
+				battle.missionTarget = NULL;
+			}
+			
+			if (e == player)
+			{
+				player = NULL;
+			}
+			
+			prev->next = e->next;
+			free(e);
+			e = prev;
+		}
+		
+		prev = e;
 	}
 }
 
-static void doEntity(Entity *prev)
+static void doEntity(void)
 {
 	if (self->health <= 0)
 	{
-		if (self == battle.entityTail)
-		{
-			battle.entityTail = prev;
-		}
-		
-		if (self == battle.missionTarget)
-		{
-			battle.missionTarget = NULL;
-		}
-		
-		prev->next = self->next;
-		free(self);
-		self = prev;
+		self->alive = ALIVE_DEAD;
 	}
 }
 

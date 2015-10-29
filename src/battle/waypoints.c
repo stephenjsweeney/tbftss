@@ -56,7 +56,7 @@ static void think(void)
 		self->angle -= 360;
 	}
 	
-	if (getDistance(player->x, player->y, self->x, self->y) <= 32 && teamMatesClose())
+	if (player != NULL && getDistance(player->x, player->y, self->x, self->y) <= 32 && teamMatesClose())
 	{
 		self->health = 0;
 		

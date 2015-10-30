@@ -94,14 +94,23 @@ void doPlayer(void)
 			
 			if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles.ammo && player->target)
 			{
-				fireMissile(player);
+				if (getDistance(player->x, player->y, player->target->x, player->target->y) <= 1000)
+				{
+					fireMissile(player);
+				}
+				else
+				{
+					addHudMessage(colors.white, "Target not in range");
+				}
 				
 				app.keyboard[SDL_SCANCODE_RETURN] = 0;
 			}
 			
-			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || getDistance(player->x, player->y, player->target->x, player->target->y) > 1000)
+			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || app.keyboard[SDLK_t])
 			{
 				selectTarget();
+				
+				app.keyboard[SDLK_t] = 0;
 			}
 			
 			if (!battle.missionTarget)
@@ -150,12 +159,7 @@ static void selectTarget(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (!e->active)
-		{
-			continue;
-		}
-		
-		if (e != player && e->type == ET_FIGHTER && e->side != player->side && e->alive == ALIVE_ALIVE)
+		if (e->active && e != player && e->type == ET_FIGHTER && e->side != player->side && e->alive == ALIVE_ALIVE)
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			if (dist < closest)
@@ -177,12 +181,7 @@ static void selectMissionTarget(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (!e->active)
-		{
-			continue;
-		}
-		
-		if (e->flags & EF_MISSION_TARGET && e->alive == ALIVE_ALIVE)
+		if (e->active && e->flags & EF_MISSION_TARGET && e->alive == ALIVE_ALIVE)
 		{
 			if (battle.missionTarget == NULL)
 			{

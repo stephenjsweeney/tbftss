@@ -29,8 +29,10 @@ extern void applyFighterThrust(void);
 extern void applyFighterBrakes(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void failIncompleteObjectives(void);
+extern void addHudMessage(SDL_Color c, char *format, ...);
 
 extern App app;
 extern Battle battle;
+extern Colors colors;
 extern Entity *player;
 extern Entity *self;

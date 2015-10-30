@@ -289,11 +289,11 @@ static void preAttack(void)
 {
 	if (!self->reload)
 	{
-		if (self->missiles.ammo == 0 || (rand() % 50) > 0)
+		if (self->guns[0].type && (self->missiles.ammo == 0 || (rand() % 50) > 0))
 		{
 			fireGuns(self);
 		}
-		else
+		else if (self->missiles.ammo)
 		{
 			fireMissile(self);
 		}

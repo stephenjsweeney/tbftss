@@ -17,5 +17,9 @@
 			"x" : 8,
 			"y" : 0
 		}
-	]
+	],
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 2
+	}
 }

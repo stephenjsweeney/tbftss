@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern int mod(int n, int x);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void fireGuns(Entity *owner);
+extern void fireMissile(Entity *owner);
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern void applyFighterThrust(void);
 extern void applyFighterBrakes(void);

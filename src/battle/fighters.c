@@ -104,6 +104,8 @@ static void randomizeDart(Entity *dart)
 	
 	randomizeDartGuns(dart);
 	
+	dart->missiles.ammo = rand() % 3;
+	
 	sprintf(textureName, "gfx/fighters/dart0%d.png", 1 + rand() % 7);
 	
 	dart->texture = getTexture(textureName);

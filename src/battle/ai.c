@@ -287,9 +287,16 @@ static int hasClearShot(void)
 
 static void preAttack(void)
 {
-	if (!self->reload && self->guns[0].type)
+	if (!self->reload)
 	{
-		fireGuns(self);
+		if (self->missiles.ammo == 0 || (rand() % 50) > 0)
+		{
+			fireGuns(self);
+		}
+		else
+		{
+			fireMissile(self);
+		}
 	}
 }
 

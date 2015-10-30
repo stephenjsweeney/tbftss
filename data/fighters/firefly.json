@@ -8,12 +8,12 @@
 	"textureName" : "gfx/fighters/firefly.png",
 	"guns" : [
 		{
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"x" : -12,
 			"y" : -2
 		},
 		{
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"x" : 12,
 			"y" : -2
 		},
@@ -23,7 +23,6 @@
 			"y" : -4
 		}
 	],
-	"combinedGuns" : 1,
 	"missiles" : {
 		"type" : "MISSILE_MISSILE",
 		"ammo" : 3

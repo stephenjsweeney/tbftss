@@ -239,6 +239,7 @@ typedef struct {
 typedef struct {
 	StarSystem starSystemHead, *starSystemTail;
 	Mission *currentMission;
+	char selectedStarSystem[MAX_NAME_LENGTH];
 	unsigned int stats[STAT_MAX];
 } Game;
 

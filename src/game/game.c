@@ -25,6 +25,8 @@ void initGame(void)
 	memset(&game, 0, sizeof(Game));
 	
 	game.starSystemTail = &game.starSystemHead;
+	
+	STRNCPY(game.selectedStarSystem, "Sol", MAX_NAME_LENGTH);
 }
 
 void resetGame(void)
@@ -47,6 +49,8 @@ void resetGame(void)
 			}
 		}
 	}
+	
+	STRNCPY(game.selectedStarSystem, "Sol", MAX_NAME_LENGTH);
 }
 
 void destroyGame(void)

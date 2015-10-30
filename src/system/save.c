@@ -36,6 +36,8 @@ void saveGame(void)
 	gameJSON = cJSON_CreateObject();
 	cJSON_AddItemToObject(root, "game", gameJSON);
 	
+	cJSON_AddStringToObject(gameJSON, "selectedStarSystem", game.selectedStarSystem);
+	
 	saveStarSystems(gameJSON);
 
 	saveStats(gameJSON);

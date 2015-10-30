@@ -17,7 +17,7 @@
 	
 	{
 		"type" : "BT_MISSILE",
-		"damage" : 25,
+		"damage" : 75,
 		"textureName" : "gfx/bullets/missile.png",
 		"sound" : "SND_MISSILE",
 		"flags" : "BF_ENGINE+BF_EXPLODES"

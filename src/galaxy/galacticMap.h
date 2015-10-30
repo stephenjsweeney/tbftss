@@ -65,6 +65,7 @@ extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);
 extern void initStatsDisplay(void);
 extern void handleStatsKB(void);
 extern void updateStarSystemMissions(void);
+extern StarSystem *getStarSystem(char *name);
 
 extern App app;
 extern Colors colors;

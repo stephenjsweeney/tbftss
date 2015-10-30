@@ -27,17 +27,19 @@ static void loadChallenges(Mission *mission, cJSON *challengesCJSON);
 
 void loadGame(void)
 {
-	cJSON *root, *game;
+	cJSON *root, *gameJSON;
 	char *text;
 	
 	text = readFile(getSaveFilePath("game.save"));
 	root = cJSON_Parse(text);
 	
-	game = cJSON_GetObjectItem(root, "game");
+	gameJSON = cJSON_GetObjectItem(root, "game");
 	
-	loadStarSystems(cJSON_GetObjectItem(game, "starSystems"));
+	STRNCPY(game.selectedStarSystem, cJSON_GetObjectItem(gameJSON, "selectedStarSystem")->valuestring, MAX_NAME_LENGTH);
 	
-	loadStats(cJSON_GetObjectItem(game, "stats"));
+	loadStarSystems(cJSON_GetObjectItem(gameJSON, "starSystems"));
+	
+	loadStats(cJSON_GetObjectItem(gameJSON, "stats"));
 	
 	cJSON_Delete(root);
 	free(text);

@@ -78,10 +78,7 @@ void initGalacticMap(void)
 	
 	arrowTexture = getTexture("gfx/galaxy/arrow.png");
 	
-	if (!selectedStarSystem)
-	{
-		selectedStarSystem = game.starSystemHead.next;
-	}
+	selectedStarSystem = getStarSystem(game.selectedStarSystem);
 	
 	updateStarSystemDescriptions();
 	
@@ -428,7 +425,11 @@ static void selectStarSystem(void)
 	missionListStart = 0;
 	selectedMissionIndex = 0;
 	
-	viewingSystem = selectedStarSystem->totalMissions > 0;
+	if (selectedStarSystem->totalMissions > 0)
+	{
+		viewingSystem = 1;
+		STRNCPY(game.selectedStarSystem, selectedStarSystem->name, MAX_NAME_LENGTH);
+	}
 }
 
 static void drawStarSystemDetail(void)

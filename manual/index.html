@@ -4,16 +4,30 @@
 <style>
 body {background-color:#000; color: #fff; font-family: "sans"}
 h3 {background-color:#47c; padding:0.25em; color:#fff; margin-top:3em;}
-a {color: #0af}
+a {color: #0af; text-decoration: none;}
+a:hover {color: #0af; text-decoration: underline;}
 table.controls {border:1px solid #fff; padding: 0.5em; width:30em;}
 table.controls td:first-child {width: 50%; color:#8cf;}
 table.controls td:nth-child(2) {font-weight: bold;}
+img.screenshot {border: 1px #ccc solid; padding: 10px; width:800px;}
+div.annotation {font-size: 12px; position:absolute; background-color:#08f; color:#fff; padding:3px; font-weight:bold; border:2px #fff solid; border-radius: 5px; text-align:center}
 </style>
 <title>TBFTSS - The Pandoran War</title>
 </head>
 <body>
-<h1>The Battle for the Solar System</h1>
-<h2>The Pandoran War</h2>
+<div style="text-align:center">
+<p><img src="logo.png"></p>
+<p><img src="pandoran.png"></p>
+<p>Last updated: 30 Oct 2015</p>
+</div>
+
+<div>
+<p style="font-size: 14pt">
+Table of Contents
+<ul id="toc">
+</ul>
+</p>
+</div>
 
 <h3>Introduction</h3>
 <p>
@@ -31,11 +45,36 @@ This is the first screen that you will see upon starting the game. You may selec
 <li>Quit - Exit the game</li>
 </ul>
 </p>
+<img src="title.png" class="screenshot">
 
 <h3>Galactic Map</h3>
 <p>
 This is the main mission select screen. Here, you can move around and select star systems in which to undertake missions. Star Systems that have missions will emit red circles at regular intervals. Yellow circles will be emitted by star systems that have no active missions, but still have challenges that can be attempted. Green circles will emit from system that have missions and changes that are 100% completed. You may replay any of these missions, at any time.
 </p>
+
+<div style='position:relative'>
+	<div class="annotation" style="left:65px; top:65px;">1</div>
+	<div class="annotation" style="left:345px; top:35px;">2</div>
+	<div class="annotation" style="left:475px; top:35px;">3</div>
+	<div class="annotation" style="left:465px; top:170px;">4</div>
+	<div class="annotation" style="left:365px; top:250px;">5</div>
+	<div class="annotation" style="left:535px; top:435px;">6</div>
+</div>
+<img src="galaxy.png" class="screenshot">
+<ol>
+	<li>Mission indicator arrow - points in the direction of star systems with missions that are currently off screen.</li>
+	<li>Number of completed and total missions.</li>
+	<li>Number of completed and total challenges.</li>
+	<li>A star system.
+	<ol>
+		<li>Blue: CSN star system.</li>
+		<li>White: Independent star system.</li>
+		<li>Red: Pandoran-occupied star system.</li>
+	</ol>
+	</li>
+	<li>System select reticle.</li>
+	<li>Star system detail - shows details of the currently selected system.</li>
+</ol>
 
 <h4>Controls</h4>
 <table class="controls">
@@ -48,8 +87,21 @@ This is the main mission select screen. Here, you can move around and select sta
 <p>
 The Star System view shows a list of missions available for that star system. Missions must be played sequentially, with the next available mission being highlighted in yellow. The right-hand side of the star system view displays an overview of the mission, including the class of craft the player will be piloting, and the name of the pilot and their squadron.
 </p>
+<div style='position:relative'>
+	<div class="annotation" style="left:465px; top:55px;">1</div>
+	<div class="annotation" style="left:195px; top:355px;">2</div>
+	<div class="annotation" style="left:240px; top:105px;">3</div>
+	<div class="annotation" style="left:530px; top:215px;">4</div>
+</div>
+<img src="starsystem.png" class="screenshot">
+<ol>
+	<li>Star system name, and completed / total missions.</li>
+	<li>Available mission list.</li>
+	<li>Mission name (White: complete, Yellow: incomplete).</li>
+	<li>Mission detail.</li>
+</ol>
 
-<p>Controls</p>
+<h4>Controls</h4>
 <table class="controls">
 <tr><td>Arrow keys</td><td>Scroll galactic map</td></tr>
 <tr><td>Return</td><td>Select Star System</td></tr>
@@ -60,6 +112,46 @@ The Star System view shows a list of missions available for that star system. Mi
 <p>
 Each mission has various objectives that the player must finish in order to complete the mission successfully. The mission ends when the player either successfully completes all the objectives, or is killed. Note: there is no friendly fire between those on the same side (in other words, you need not worry about firing upon your team mates, or them hitting you - no damage will be taken).
 </p>
+
+<div style='position:relative'>
+	<div class="annotation" style="left:185px; top:10px;">1</div>
+	<div class="annotation" style="left:25px; top:60px;">2</div>
+	<div class="annotation" style="left:125px; top:60px;">3</div>
+	<div class="annotation" style="left:615px; top:15px;">4</div>
+	<div class="annotation" style="left:755px; top:65px;">5</div>
+	<div class="annotation" style="left:25px; top:385px;">6</div>
+	<div class="annotation" style="left:705px; top:385px;">7</div>
+	<div class="annotation" style="left:270px; top:35px;">8</div>
+	<div class="annotation" style="left:400px; top:35px;">9</div>
+	<div class="annotation" style="left:530px; top:35px;">10</div>	
+	<div class="annotation" style="left:430px; top:245px;">11</div>
+	<div class="annotation" style="left:400px; top:405px;">12</div>
+</div>
+<img src="mission.png" class="screenshot">
+<ol>
+	<li>Player armour and shield.</li>
+	<li>Selected weapon.</li>
+	<li>Number of missiles.</li>
+	<li>Target armour and shield.</li>
+	<li>Distances to target and mission objectives.</li>
+	<li>Messages.</li>
+	<li>Radar</li>
+		<ol>
+			<li>Green: friendly unit.</li>
+			<li>Yellow: current target.</li>
+			<li>Red: enemy unit.</li>
+			<li>White: mission target.</li>
+		</ol>
+	<li>Number of allied craft.</li>
+	<li>Number of complete / total objectives.</li>
+	<li>Number of opposing craft.</li>
+	<li>Player</li>
+		<ol>
+			<li>Red arrow: points in direction of current target.</li>
+			<li>Green arrow: points in direction of mission objective.</li>
+		</ol>
+	<li>Current target (boxed in red).</li>
+</ol>
 
 <p>Controls</p>
 <table class="controls">
@@ -111,6 +203,24 @@ This game is based on the Battle for the Solar System novel trilogy by Stephen J
 <p>
 See the LICENSE and README.md files that came with this game for information on the various copyrights of the source code, graphics, sound, and data. Additionally, you may visit <a href="https://github.com/stephenjsweeney/tbftss">https://github.com/stephenjsweeney/tbftss</a> to get the source code itself, and view the files there.
 </p>
+
+<script src='jquery-2.1.3.min.js'></script>
+
+<script>
+var toc = $('#toc');
+
+$('h3').each(function(i, e) {
+
+	var link = 'link' + i;
+	var a = $('<a>').attr('href', '#' + link).append(e.innerText);
+
+	$(e).before($('<a>').attr('name', link));
+
+	li = $('<li>').append(a);
+	toc.append(li);
+});
+
+</script>
 
 </body>
 </html>

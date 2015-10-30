@@ -47,4 +47,4 @@ $(PROG): $(OBJS)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	$(RM) $(OBJS) $(PROG) $(SERVEROBJS) $(SERVER)
+	$(RM) $(OBJS) $(PROG)

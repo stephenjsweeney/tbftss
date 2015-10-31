@@ -36,6 +36,7 @@ static void options(void);
 static void returnFromOptions(void);
 
 static int show;
+static float ssx, ssy;
 
 void initBattle(void)
 {
@@ -86,11 +87,11 @@ static void logic(void)
 		
 		if (show == SHOW_BATTLE)
 		{
-			if (!battle.epic || (battle.epic && player != NULL))
+			if (!battle.epic || (battle.epic && !battle.playerSelect))
 			{
 				doBattle();
 			}
-			else if (battle.epic && player == NULL)
+			else if (battle.epic && battle.playerSelect)
 			{
 				doPlayerSelect();
 			}
@@ -102,27 +103,26 @@ static void logic(void)
 
 static void doBattle(void)
 {
-	scrollBackground(-battle.ssx * 0.1, -battle.ssy * 0.1);
+	if (player != NULL)
+	{
+		battle.camera.x = player->x - (SCREEN_WIDTH / 2);
+		battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
+		
+		ssx = player->dx;
+		ssy = player->dy;
+	}
+	else
+	{
+		ssx = ssy = 0;
+	}
+	
+	scrollBackground(-ssx * 0.1, -ssy * 0.1);
 	
 	doHud();
 	
 	doObjectives();
 	
-	if (player != NULL)
-	{
-		battle.ssx = player->dx;
-		battle.ssy = player->dy;
-	}
-	else
-	{
-		battle.ssx *= 0.99;
-		battle.ssy *= 0.99;
-	}
-	
-	battle.planet.x -= (battle.ssx * 0.25);
-	battle.planet.y -= (battle.ssy * 0.25);
-	
-	doStars(battle.ssx, battle.ssy);
+	doStars(ssx, ssy);
 	
 	doBullets();
 	
@@ -164,7 +164,7 @@ static void draw(void)
 	
 	drawStars();
 	
-	blit(battle.planetTexture, battle.planet.x, battle.planet.y, 1);
+	blit(battle.planetTexture, battle.planet.x - battle.camera.x, battle.planet.y - battle.camera.y, 1);
 	
 	drawBullets();
 	

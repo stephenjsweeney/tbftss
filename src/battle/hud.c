@@ -29,6 +29,8 @@ static void drawObjectives(void);
 static void drawTargetDistance(void);
 static void drawMissionTargetDistance(void);
 static void drawHudMessages(void);
+static void drawPlayerSelect(void);
+static void drawTargetsRects(void);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
@@ -120,24 +122,36 @@ void drawHud(void)
 	{
 		drawHealthBars();
 		
+		drawPlayerTargeter();
+		
+		drawTargetsRects();
+		
 		drawWeaponInfo();
 		
 		drawNumFighters();
 		
 		drawObjectives();
 		
+		if (battle.missionTarget)
+		{
+			drawMissionTargetDistance();
+		}
+		
 		drawRadar();
 	}
 	
 	drawHudMessages();
+	
+	if (battle.playerSelect)
+	{
+		drawPlayerSelect();
+	}
 }
 
 static void drawHealthBars(void)
 {
 	float p;
 	int r, g, b;
-	
-	drawPlayerTargeter();
 	
 	r = g = b = 0;
 	p = player->health;
@@ -165,11 +179,6 @@ static void drawHealthBars(void)
 		drawHealthShieldBar(player->target->health, player->target->maxHealth, SCREEN_WIDTH - 260, 10, 0, 200, 0);
 		drawHealthShieldBar(player->target->shield, player->target->maxShield, SCREEN_WIDTH - 260, 30, 0, 200, 255);
 		drawTargetDistance();
-	}
-	
-	if (battle.missionTarget)
-	{
-		drawMissionTargetDistance();
 	}
 }
 
@@ -231,7 +240,7 @@ static void drawPlayerTargeter(void)
 			SDL_SetTextureColorMod(targetCircle, 0, 255, 0);
 		}
 		
-		blit(targetCircle, player->x, player->y, 1);
+		blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
 	}
 	
 	if (player->target)
@@ -245,7 +254,7 @@ static void drawPlayerTargeter(void)
 		
 		SDL_SetTextureColorMod(targetPointer, 255, 0, 0);
 		
-		blitRotated(targetPointer, x, y, angle);
+		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
 	
 	if (battle.missionTarget)
@@ -260,6 +269,33 @@ static void drawPlayerTargeter(void)
 		SDL_SetTextureColorMod(targetPointer, 0, 255, 0);
 		
 		blitRotated(targetPointer, x, y, angle);
+	}
+}
+
+static void drawTargetsRects(void)
+{
+	SDL_Rect r;
+	
+	if (player->target)
+	{
+		r.x = player->target->x - 32 - battle.camera.x;
+		r.y = player->target->y - 32 - battle.camera.y;
+		r.w = 64;
+		r.h = 64;
+		
+		SDL_SetRenderDrawColor(app.renderer, 255, 64, 0, 255);
+		SDL_RenderDrawRect(app.renderer, &r);
+	}
+	
+	if (battle.missionTarget)
+	{
+		r.x = battle.missionTarget->x - 28 - battle.camera.x;
+		r.y = battle.missionTarget->y - 28 - battle.camera.y;
+		r.w = 56;
+		r.h = 56;
+		
+		SDL_SetRenderDrawColor(app.renderer, 64, 255, 0, 255);
+		SDL_RenderDrawRect(app.renderer, &r);
 	}
 }
 
@@ -324,6 +360,20 @@ static void drawHudMessages(void)
 		
 		y -= 25;
 	}
+}
+
+static void drawPlayerSelect(void)
+{
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+	SDL_RenderFillRect(app.renderer, NULL);
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	
+	SDL_SetTextureColorMod(targetCircle, 0, 200, 255);
+	
+	blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
+	
+	drawText(SCREEN_WIDTH / 2, 500, 28, TA_CENTER, colors.white, "SELECT NEW FIGHTER");
 }
 
 void resetHud(void)

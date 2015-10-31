@@ -32,9 +32,6 @@ void doEffects(void)
 		e->x += e->dx;
 		e->y += e->dy;
 		
-		e->x -= battle.ssx;
-		e->y -= battle.ssy;
-		
 		e->health--;
 		
 		if (e->health <= 0)
@@ -72,12 +69,12 @@ void drawEffects(void)
 		switch (e->type)
 		{
 			case EFFECT_LINE:
-				SDL_RenderDrawLine(app.renderer, e->x, e->y, e->x + (e->dx * 3), e->y + (e->dy * 3));
+				SDL_RenderDrawLine(app.renderer, e->x - battle.camera.x, e->y - battle.camera.y, e->x + (e->dx * 3) - battle.camera.x, e->y + (e->dy * 3) - battle.camera.y);
 				break;
 				
 			case EFFECT_TEXTURE:
 				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
-				blitScaled(e->texture, e->x, e->y, e->size, e->size);
+				blitScaled(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->size, e->size);
 				break;
 				
 			case EFFECT_HALO:

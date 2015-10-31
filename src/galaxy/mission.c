@@ -189,7 +189,6 @@ static void loadPlayer(cJSON *node)
 	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 	
 	player = spawnFighter(type, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, side);
-	player->defaultAction = NULL;
 }
 
 static void loadFighters(cJSON *node)

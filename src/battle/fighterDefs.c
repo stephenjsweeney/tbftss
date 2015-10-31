@@ -113,6 +113,8 @@ static void loadFighterDef(char *filename)
 		}
 	}
 	
+	f->selectedGunType = f->guns[0].type;
+	
 	if (cJSON_GetObjectItem(root, "missiles"))
 	{
 		node = cJSON_GetObjectItem(root, "missiles");

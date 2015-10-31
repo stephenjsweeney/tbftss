@@ -64,9 +64,6 @@ void doBullets(void)
 		b->x += b->dx;
 		b->y += b->dy;
 		
-		b->x -= battle.ssx;
-		b->y -= battle.ssy;
-		
 		if (b->type == BT_MISSILE)
 		{
 			addMissileEngineEffect(b);
@@ -148,7 +145,7 @@ void drawBullets(void)
 	
 	for (b = battle.bulletHead.next ; b != NULL ; b = b->next)
 	{
-		blitRotated(b->texture, b->x, b->y, b->angle);
+		blitRotated(b->texture, b->x - battle.camera.x, b->y - battle.camera.y, b->angle);
 	}
 }
 

@@ -298,7 +298,6 @@ static void separate(void)
 
 void drawFighter(Entity *e)
 {
-	SDL_Rect r;
 	SDL_Texture *shieldHitTexture = getTexture("gfx/battle/shieldHit.png");
 	
 	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
@@ -313,38 +312,13 @@ void drawFighter(Entity *e)
 		SDL_SetTextureColorMod(e->texture, 255 - e->systemHit, 255, 255);
 	}
 	
-	blitRotated(e->texture, e->x, e->y, e->angle);
+	blitRotated(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->angle);
 	
 	if (e->shieldHit > 0)
 	{
 		SDL_SetTextureBlendMode(shieldHitTexture, SDL_BLENDMODE_BLEND);
 		SDL_SetTextureAlphaMod(shieldHitTexture, e->shieldHit);
-		blit(shieldHitTexture, e->x, e->y, 1);
-	}
-	
-	if (player != NULL)
-	{
-		if (e == player->target)
-		{
-			r.x = e->x - 32;
-			r.y = e->y - 32;
-			r.w = 64;
-			r.h = 64;
-			
-			SDL_SetRenderDrawColor(app.renderer, 255, 64, 0, 255);
-			SDL_RenderDrawRect(app.renderer, &r);
-		}
-		
-		if (e == battle.missionTarget)
-		{
-			r.x = e->x - 28;
-			r.y = e->y - 28;
-			r.w = 56;
-			r.h = 56;
-			
-			SDL_SetRenderDrawColor(app.renderer, 64, 255, 0, 255);
-			SDL_RenderDrawRect(app.renderer, &r);
-		}
+		blit(shieldHitTexture, e->x - battle.camera.x, e->y - battle.camera.y, 1);
 	}
 }
 
@@ -451,7 +425,7 @@ static void spinDie(void)
 		addSmallFighterExplosion();
 	}
 	
-	if (self->health <= -FPS)
+	if (self->health <= -(FPS * 1.5))
 	{
 		self->alive = ALIVE_DEAD;
 		addFighterExplosion();
@@ -472,7 +446,7 @@ static void straightDie(void)
 		addSmallFighterExplosion();
 	}
 	
-	if (self->health <= -FPS)
+	if (self->health <= -(FPS * 1.5))
 	{
 		self->alive = ALIVE_DEAD;
 		addFighterExplosion();

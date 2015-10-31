@@ -47,13 +47,6 @@ void doEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		/* must always be shifted, even if not active */
-		if (e != player)
-		{
-			e->x -= battle.ssx;
-			e->y -= battle.ssy;
-		}
-		
 		if (e->active)
 		{
 			self = e;
@@ -112,6 +105,8 @@ void doEntities(void)
 				if (e == player)
 				{
 					player = NULL;
+					
+					battle.playerSelect = battle.epic;
 				}
 				
 				prev->next = e->next;
@@ -159,7 +154,7 @@ void drawEntities(void)
 
 static void drawEntity(Entity *e)
 {
-	blitRotated(e->texture, e->x, e->y, e->angle);
+	blitRotated(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->angle);
 }
 
 void activateEntities(char *name)

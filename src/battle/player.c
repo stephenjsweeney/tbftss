@@ -54,6 +54,9 @@ void initPlayer(void)
 	}
 	
 	STRNCPY(player->name, "Player", MAX_NAME_LENGTH);
+	
+	player->action = NULL;
+	player->defaultAction = NULL;
 }
 
 void doPlayer(void)
@@ -125,23 +128,20 @@ void doPlayer(void)
 		
 		player->angle = ((int)player->angle) % 360;
 		
-		player->x = SCREEN_WIDTH / 2;
-		player->y = SCREEN_HEIGHT / 2;
-		
 		if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
 		{
-			if (!battle.epic || (battle.epic && battle.numAllies <= 1))
+			if (!battle.epic)
 			{
 				failIncompleteObjectives();
 				
 				battle.status = MS_FAILED;
 				battle.missionFinishedTimer = FPS;
 			}
+			else if (player->health == -FPS)
+			{
+				initPlayerSelect();
+			}
 		}
-	}
-	else
-	{
-		initPlayerSelect();
 	}
 }
 
@@ -161,9 +161,21 @@ void initPlayerSelect(void)
 		}
 	}
 	
-	selectedPlayerIndex = 0;
-	
-	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+	if (selectedPlayerIndex > 0)
+	{
+		battle.playerSelect = 1;
+		selectedPlayerIndex = 0;		
+		memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+	}
+	else
+	{
+		battle.epic = 0;
+		
+		failIncompleteObjectives();
+		
+		battle.status = MS_FAILED;
+		battle.missionFinishedTimer = FPS;
+	}
 }
 
 void doPlayerSelect(void)
@@ -184,10 +196,11 @@ void doPlayerSelect(void)
 	
 	if (app.keyboard[SDL_SCANCODE_RETURN])
 	{
-		player = availablePlayerUnits[selectedPlayerIndex];
+		battle.playerSelect = 0;
 		
-		player->action = NULL;
-		player->defaultAction = NULL;
+		initPlayer();
+		
+		app.keyboard[SDL_SCANCODE_RETURN] = 0;
 	}
 }
 
@@ -198,8 +211,13 @@ static void selectNewPlayer(int dir)
 		selectedPlayerIndex += dir;
 		
 		selectedPlayerIndex = mod(selectedPlayerIndex, MAX_SELECTABLE_PLAYERS);
+		
+		player = availablePlayerUnits[selectedPlayerIndex];
 	}
-	while (availablePlayerUnits[selectedPlayerIndex] == NULL);
+	while (player == NULL);
+	
+	battle.camera.x = player->x - (SCREEN_WIDTH / 2);
+	battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
 }
 
 static void switchGuns(void)

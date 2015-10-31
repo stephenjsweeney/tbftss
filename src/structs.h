@@ -218,12 +218,12 @@ struct StarSystem {
 
 typedef struct {
 	int entId;
-	float ssx;
-	float ssy;
+	SDL_Point camera;
 	int numAllies;
 	int numEnemies;
 	int status;
 	int epic;
+	int playerSelect;
 	int missionFinishedTimer;
 	int numObjectivesComplete, numObjectivesTotal;
 	Entity *missionTarget;

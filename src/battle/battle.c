@@ -86,7 +86,14 @@ static void logic(void)
 		
 		if (show == SHOW_BATTLE)
 		{
-			doBattle();
+			if (!battle.epic || (battle.epic && player != NULL))
+			{
+				doBattle();
+			}
+			else if (battle.epic && player == NULL)
+			{
+				doPlayerSelect();
+			}
 		}
 	}
 	

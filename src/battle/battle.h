@@ -62,6 +62,7 @@ extern void drawOptions(void);
 extern void playSound(int id);
 extern void checkTrigger(char *name, int type);
 extern void resetWaypoints(void);
+extern void doPlayerSelect(void);
 
 extern App app;
 extern Battle battle;

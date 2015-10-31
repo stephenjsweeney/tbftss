@@ -50,6 +50,11 @@ void loadMission(char *filename)
 	battle.planet.x = rand() % SCREEN_WIDTH - rand() % SCREEN_WIDTH;
 	battle.planet.y = rand() % SCREEN_HEIGHT - rand() % SCREEN_HEIGHT;
 	
+	if (cJSON_GetObjectItem(root, "epic"))
+	{
+		battle.epic = cJSON_GetObjectItem(root, "epic")->valueint;
+	}
+	
 	loadObjectives(cJSON_GetObjectItem(root, "objectives"));
 	
 	loadTriggers(cJSON_GetObjectItem(root, "triggers"));

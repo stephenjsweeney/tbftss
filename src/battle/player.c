@@ -23,8 +23,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void selectTarget(void);
 static void switchGuns(void);
 static void selectMissionTarget(void);
+static void selectNewPlayer(int dir);
+static void initPlayerSelect(void);
 
+static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
+static Entity *availablePlayerUnits[MAX_SELECTABLE_PLAYERS];
 
 void initPlayer(void)
 {
@@ -126,12 +130,76 @@ void doPlayer(void)
 		
 		if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
 		{
-			failIncompleteObjectives();
-			
-			battle.status = MS_FAILED;
-			battle.missionFinishedTimer = FPS;
+			if (!battle.epic || (battle.epic && battle.numAllies <= 1))
+			{
+				failIncompleteObjectives();
+				
+				battle.status = MS_FAILED;
+				battle.missionFinishedTimer = FPS;
+			}
 		}
 	}
+	else
+	{
+		initPlayerSelect();
+	}
+}
+
+void initPlayerSelect(void)
+{
+	Entity *e;
+	
+	memset(&availablePlayerUnits, 0, sizeof(Entity*) * MAX_SELECTABLE_PLAYERS);
+	
+	selectedPlayerIndex = 0;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->type == ET_FIGHTER && e->health > 0 && e->side == SIDE_ALLIES && selectedPlayerIndex < MAX_SELECTABLE_PLAYERS)
+		{
+			availablePlayerUnits[selectedPlayerIndex++] = e;
+		}
+	}
+	
+	selectedPlayerIndex = 0;
+	
+	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+}
+
+void doPlayerSelect(void)
+{
+	if (app.keyboard[SDL_SCANCODE_LEFT])
+	{
+		selectNewPlayer(-1);
+		
+		app.keyboard[SDL_SCANCODE_LEFT] = 0;
+	}
+	
+	if (app.keyboard[SDL_SCANCODE_RIGHT])
+	{
+		selectNewPlayer(1);
+		
+		app.keyboard[SDL_SCANCODE_RIGHT] = 0;
+	}
+	
+	if (app.keyboard[SDL_SCANCODE_RETURN])
+	{
+		player = availablePlayerUnits[selectedPlayerIndex];
+		
+		player->action = NULL;
+		player->defaultAction = NULL;
+	}
+}
+
+static void selectNewPlayer(int dir)
+{
+	do
+	{
+		selectedPlayerIndex += dir;
+		
+		selectedPlayerIndex = mod(selectedPlayerIndex, MAX_SELECTABLE_PLAYERS);
+	}
+	while (availablePlayerUnits[selectedPlayerIndex] == NULL);
 }
 
 static void switchGuns(void)

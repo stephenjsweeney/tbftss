@@ -23,6 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
+#define MAX_SELECTABLE_PLAYERS	8
+
 extern void fireGuns(Entity *owner);
 extern void fireMissile(Entity *owner);
 extern void applyFighterThrust(void);
@@ -30,6 +32,7 @@ extern void applyFighterBrakes(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void failIncompleteObjectives(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);
+extern int mod(int n, int x);
 
 extern App app;
 extern Battle battle;

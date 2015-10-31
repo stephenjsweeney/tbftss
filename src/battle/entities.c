@@ -81,16 +81,13 @@ void doEntities(void)
 				case ET_FIGHTER:
 					doFighter();
 					
-					if (player != NULL)
+					if (self->side == SIDE_ALLIES)
 					{
-						if (self->side == player->side)
-						{
-							numAllies++;
-						}
-						else
-						{
-							numEnemies++;
-						}
+						numAllies++;
+					}
+					else
+					{
+						numEnemies++;
 					}
 					
 					break;
@@ -144,20 +141,18 @@ void drawEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (!e->active)
+		if (e->active)
 		{
-			continue;
-		}
-		
-		switch (e->type)
-		{
-			case ET_FIGHTER:
-				drawFighter(e);
-				break;
-				
-			default:
-				drawEntity(e);
-				break;
+			switch (e->type)
+			{
+				case ET_FIGHTER:
+					drawFighter(e);
+					break;
+					
+				default:
+					drawEntity(e);
+					break;
+			}
 		}
 	}
 }

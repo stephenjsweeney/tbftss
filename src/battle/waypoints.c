@@ -74,7 +74,7 @@ static int teamMatesClose(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->active && e->type == ET_FIGHTER && e->side == player->side)
+		if (e->active && e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
 		{
 			if (getDistance(player->x, player->y, e->x, e->y) > 350)
 			{

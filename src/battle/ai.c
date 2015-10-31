@@ -57,7 +57,7 @@ void doAI(void)
 		
 		if (self->target == NULL)
 		{
-			if (player != NULL && self->side == player->side)
+			if (player != NULL && self->side == SIDE_ALLIES)
 			{
 				moveToPlayer();
 			}
@@ -107,7 +107,7 @@ void doAI(void)
 	{
 		self->action = flee;
 		self->aiActionTime = FPS * 3;
-		if (!(self->flags & EF_FLEEING) && (self->flags & EF_MISSION_TARGET) && self->side != player->side)
+		if (!(self->flags & EF_FLEEING) && (self->flags & EF_MISSION_TARGET) && self->side != SIDE_ALLIES)
 		{
 			addHudMessage(colors.cyan, "Mission target is escaping!");
 			self->flags |= EF_FLEEING;

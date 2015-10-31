@@ -231,7 +231,7 @@ void doFighter(void)
 		{
 			if (player->alive == ALIVE_ALIVE)
 			{
-				if (self->side != player->side)
+				if (self->side != SIDE_ALLIES)
 				{
 					battle.stats[STAT_ENEMIES_KILLED]++;
 				}
@@ -486,7 +486,7 @@ static void checkHasFled(void)
 	
 	if (distance > 5000)
 	{
-		if (self->side != player->side)
+		if (self->side != SIDE_ALLIES)
 		{
 			addHudMessage(colors.red, "Mission target has escaped.");
 			battle.stats[STAT_ENEMIES_ESCAPED]++;

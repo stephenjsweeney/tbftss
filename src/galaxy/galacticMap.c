@@ -510,15 +510,10 @@ static void drawStarSystemDetail(void)
 		drawText(525, 230, 22, TA_LEFT, colors.white, selectedMission->description);
 		limitTextWidth(0);
 	}
-	else
+	
+	if (selectedMission->epic)
 	{
-		drawText(525, 135, 18, TA_LEFT, colors.lightGrey, "Pilot: -");
-		drawText(525, 160, 18, TA_LEFT, colors.lightGrey, "Craft: -");
-		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, "Squadron: -");
-		
-		limitTextWidth(500);
-		drawText(525, 230, 22, TA_LEFT, colors.darkGrey, "You cannot play this mission yet. Complete the previous mission to unlock.");
-		limitTextWidth(0);
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, "Note: this is an Epic Mission.");
 	}
 	
 	if (selectedMission && selectedMission->available && selectedMission->challengeHead.next)

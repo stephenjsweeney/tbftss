@@ -94,6 +94,11 @@ static void loadMissionMeta(char *filename, StarSystem *starSystem)
 		STRNCPY(mission->requires, cJSON_GetObjectItem(root, "requires")->valuestring, MAX_DESCRIPTION_LENGTH);
 	}
 	
+	if (cJSON_GetObjectItem(root, "epic"))
+	{
+		mission->epic = 1;
+	}
+	
 	node = cJSON_GetObjectItem(root, "player");
 	
 	if (node)

@@ -199,6 +199,7 @@ struct Mission {
 	char craft[MAX_NAME_LENGTH];
 	int available;
 	int completed;
+	int epic;
 	Challenge challengeHead;
 	Mission *next;
 };

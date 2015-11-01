@@ -53,7 +53,9 @@ dist:
 	mkdir $(PROG)-$(VERSION)
 	cp -r $(DIST_FILES) $(PROG)-$(VERSION)
 	git log --oneline master..v$(VERSION) >$(PROG)-$(VERSION)/CHANGELOG
-	tar czf $(PROG)-$(VERSION).tar.gz $(PROG)-$(VERSION)
+	tar czf $(PROG)-$(VERSION)-src.tar.gz $(PROG)-$(VERSION)
+	mkdir dist
+	mv $(PROG)-$(VERSION)-src.tar.gz dist
 	$(RM) -rf $(PROG)-$(VERSION)
 
 # cleaning everything that can be automatically recreated with "make".

@@ -70,13 +70,16 @@ void doEntities(void)
 				case ET_FIGHTER:
 					doFighter();
 					
-					if (self->side == SIDE_ALLIES)
+					if (e->health > 0)
 					{
-						numActiveAllies++;
-					}
-					else
-					{
-						numActiveEnemies++;
+						if (e->side == SIDE_ALLIES)
+						{
+							numActiveAllies++;
+						}
+						else
+						{
+							numActiveEnemies++;
+						}
 					}
 					
 					break;

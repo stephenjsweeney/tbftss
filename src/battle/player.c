@@ -194,7 +194,7 @@ void doPlayerSelect(void)
 		app.keyboard[SDL_SCANCODE_RIGHT] = 0;
 	}
 	
-	if (app.keyboard[SDL_SCANCODE_RETURN])
+	if (app.keyboard[SDL_SCANCODE_RETURN] && player->health > 0)
 	{
 		battle.playerSelect = 0;
 		

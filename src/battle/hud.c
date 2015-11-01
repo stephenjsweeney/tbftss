@@ -37,6 +37,8 @@ static HudMessage *hudMessageTail;
 static SDL_Texture *targetPointer;
 static SDL_Texture *targetCircle;
 static SDL_Texture *smallFighter;
+static SDL_Texture *arrowLeft;
+static SDL_Texture *arrowRight;
 static int numMessages;
 static int healthWarning;
 static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon"};
@@ -51,6 +53,8 @@ void initHud(void)
 	targetPointer = getTexture("gfx/hud/targetPointer.png");
 	targetCircle = getTexture("gfx/hud/targetCircle.png");
 	smallFighter = getTexture("gfx/hud/smallFighter.png");
+	arrowLeft = getTexture("gfx/widgets/optionsLeft.png");
+	arrowRight = getTexture("gfx/widgets/optionsRight.png");
 }
 
 void doHud(void)
@@ -374,6 +378,14 @@ static void drawPlayerSelect(void)
 	blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
 	
 	drawText(SCREEN_WIDTH / 2, 500, 28, TA_CENTER, colors.white, "SELECT NEW FIGHTER");
+	
+	if (player->health > 0)
+	{
+		drawText(SCREEN_WIDTH / 2, 540, 20, TA_CENTER, colors.white, "%s (%d%% / %d%%)", player->defName, getPercent(player->health, player->maxHealth), getPercent(player->shield, player->maxShield));
+	}
+	
+	blit(arrowLeft, (SCREEN_WIDTH / 2) - 200, 520, 1);
+	blit(arrowRight, (SCREEN_WIDTH / 2) + 200, 520, 1);
 }
 
 void resetHud(void)

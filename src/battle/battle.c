@@ -105,9 +105,6 @@ static void doBattle(void)
 {
 	if (player != NULL)
 	{
-		battle.camera.x = player->x - (SCREEN_WIDTH / 2);
-		battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
-		
 		ssx = player->dx;
 		ssy = player->dy;
 	}
@@ -159,6 +156,9 @@ static void doBattle(void)
 static void draw(void)
 {
 	prepareScene();
+	
+	battle.camera.x = player->x - (SCREEN_WIDTH / 2);
+	battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
 	
 	drawBackground(battle.background);
 	

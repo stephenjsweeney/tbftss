@@ -372,4 +372,6 @@ void destroyBattle(void)
 		free(t);
 	}
 	battle.triggerTail = &battle.triggerHead;
+	
+	destroyGrid();
 }

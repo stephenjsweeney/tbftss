@@ -47,6 +47,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_FIGHTER_GUNS		12
 #define MAX_TARGET_RANGE		65536
 
+#define GRID_CELL_WIDTH			640
+#define GRID_CELL_HEIGHT		360
+#define GRID_SIZE				25
+#define MAX_GRID_CANDIDATES 	1024
+
 #define BF_NONE				0
 #define BF_ENGINE			(2 << 0)
 #define BF_SYSTEM_DAMAGE	(2 << 1)

@@ -1,6 +1,6 @@
 PROG = tbftss
 
-VERSION = 0.2
+VERSION = 0.3
 
 CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DUNIX=1
 CXXFLAGS += -DUNIX
@@ -21,7 +21,7 @@ OBJS += challenges.o cJSON.o
 OBJS += draw.o
 OBJS += effects.o entities.o
 OBJS += fighters.o fighterDefs.o
-OBJS += galacticMap.o game.o
+OBJS += galacticMap.o game.o grid.o
 OBJS += hud.o
 OBJS += init.o io.o
 OBJS += load.o lookup.o

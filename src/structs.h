@@ -33,6 +33,7 @@ typedef struct Pulse Pulse;
 typedef struct Widget Widget;
 typedef struct HudMessage HudMessage;
 typedef struct Trigger Trigger;
+typedef struct GridCell GridCell;
 
 typedef struct {
 	float x;
@@ -77,6 +78,8 @@ struct Entity {
 	int side;
 	float x;
 	float y;
+	int w;
+	int h;
 	float dx;
 	float dy;
 	float thrust;
@@ -218,6 +221,11 @@ struct StarSystem {
 	StarSystem *next;
 };
 
+struct GridCell {
+	Entity *entity;
+	GridCell *next;
+};
+
 typedef struct {
 	int entId;
 	SDL_Point camera;
@@ -238,6 +246,7 @@ typedef struct {
 	Objective objectiveHead, *objectiveTail;
 	Trigger triggerHead, *triggerTail;
 	unsigned int stats[STAT_MAX];
+	GridCell grid[GRID_SIZE][GRID_SIZE];
 } Battle;
 
 typedef struct {

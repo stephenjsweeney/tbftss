@@ -81,6 +81,7 @@ static void loadFighterDef(char *filename)
 	root = cJSON_Parse(text);
 	
 	STRNCPY(f->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
+	STRNCPY(f->defName, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 	f->health = f->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
 	f->shield = f->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
 	f->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;

@@ -34,6 +34,8 @@ OBJS += testMission.o textures.o text.o title.o transition.o triggers.o
 OBJS += util.o
 OBJS += waypoints.o widgets.o
 
+DIST_FILES = data gfx manual music sound src LICENSE makefile README.md
+
 # top-level rule to create the program.
 all: $(PROG)
 
@@ -44,7 +46,18 @@ all: $(PROG)
 # linking the program.
 $(PROG): $(OBJS)
 	$(CC)  -o $(PROG) $(OBJS) $(LIBS)
+	
+# prepare an archive for the program
+dist:
+	$(RM) -rf $(PROG)-$(VERSION)
+	mkdir $(PROG)-$(VERSION)
+	cp -r $(DIST_FILES) $(PROG)-$(VERSION)
+	git log --oneline master..v$(VERSION) >$(PROG)-$(VERSION)/CHANGELOG
+	tar czf $(PROG)-$(VERSION).tar.gz $(PROG)-$(VERSION)
+	$(RM) -rf $(PROG)-$(VERSION)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
 	$(RM) $(OBJS) $(PROG)
+
+.PHONY: dist

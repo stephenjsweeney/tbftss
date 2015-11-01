@@ -115,9 +115,12 @@ void doAI(void)
 	}
 }
 
+/*
+ * Don't chase your target forever
+ */
 static int targetOutOfRange(void)
 {
-	return getDistance(self->x, self->y, self->target->x, self->target->y) > 2000;
+	return getDistance(self->x, self->y, self->target->x, self->target->y) > SCREEN_HEIGHT;
 }
 
 static void huntTarget(void)
@@ -156,8 +159,9 @@ static void huntAndAttackTarget(void)
 static void findTarget(void)
 {
 	Entity *f;
-	int closest = 2000;
-	int dist = 2000;
+	unsigned int dist, closest;
+	
+	dist = closest = (!battle.epic) ? 2000 : MAX_TARGET_RANGE;
 	
 	self->target = NULL;
 	

@@ -157,8 +157,11 @@ static void draw(void)
 {
 	prepareScene();
 	
-	battle.camera.x = player->x - (SCREEN_WIDTH / 2);
-	battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
+	if (player != NULL)
+	{
+		battle.camera.x = player->x - (SCREEN_WIDTH / 2);
+		battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
+	}
 	
 	drawBackground(battle.background);
 	

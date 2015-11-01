@@ -1,5 +1,22 @@
 Changelog
 
+0.2
+
+	* Added Firefly, Nymph, Hyena, and Leopard fighters.
+	* Added Clarke and Iliad missions.
+	* Added Epic Missions - large skirmishes, with the ability for the player to swap fighter when their current one is destroyed.
+	* Allowed enemies to fire missiles.
+	* Allowed enemies to flee (if flagged to do so).
+	* Added mission triggers, to allow for events to take place (e.g. add a enemy squadron after 1 minute).
+	* Tweaking speeds of fighters - were too fast.
+	* Added Waypoints.
+	* Added ability to set mission availability dependencies.
+	* Improved stats processing. Added pages to stats screen.
+	* Player can now swap weapons (if fighter allows).
+	* Replaced missile bar with weapon info on HUD.
+	* Added objective target types, and conditional objectives.
+	* Added mag cannons and Ray.
+
 0.1
 
 	* Added initial missions, galactic map, and title screen. Game is playable in a most basic fashion, and a handful of missions are available. Loading and saving is supported (with -DUNIX, these will go to ~/.local/share/tbftss).

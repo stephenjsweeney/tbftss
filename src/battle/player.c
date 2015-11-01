@@ -237,8 +237,8 @@ static void switchGuns(void)
 
 static void selectTarget(void)
 {
-	unsigned int closest = 65535;
-	unsigned int dist = 65535;
+	unsigned int closest = MAX_TARGET_RANGE;
+	unsigned int dist = MAX_TARGET_RANGE;
 	Entity *e;
 	
 	player->target = NULL;
@@ -259,8 +259,8 @@ static void selectTarget(void)
 
 static void selectMissionTarget(void)
 {
-	unsigned int closest = 65535;
-	unsigned int dist = 65535;
+	unsigned int closest = MAX_TARGET_RANGE;
+	unsigned int dist = MAX_TARGET_RANGE;
 	Entity *e;
 	
 	battle.missionTarget = NULL;

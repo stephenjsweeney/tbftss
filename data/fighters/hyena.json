@@ -1,0 +1,35 @@
+{
+	"name" : "Hyena",
+	"health" : 60,
+	"shield" : 30,
+	"speed" : 1.7,
+	"reloadTime" : 15,
+	"shieldRechargeRate" : 40,
+	"textureName" : "gfx/fighters/hyena.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : -8,
+			"y" : -12
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : 8,
+			"y" : -12
+		}
+	],
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 4
+	}
+}

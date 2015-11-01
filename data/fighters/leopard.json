@@ -1,0 +1,31 @@
+{
+	"name" : "Leopard",
+	"health" : 100,
+	"shield" : 75,
+	"speed" : 1.6,
+	"reloadTime" : 16,
+	"shieldRechargeRate" : 70,
+	"textureName" : "gfx/fighters/leopard.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 0,
+			"y" : -16
+		}
+	],
+	"combinedGuns" : 1,
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 3
+	}
+}

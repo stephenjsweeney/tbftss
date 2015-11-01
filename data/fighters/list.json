@@ -9,5 +9,7 @@
 	"data/fighters/unarmedDart.json",
 	"data/fighters/ray.json",
 	"data/fighters/nymph.json",
-	"data/fighters/firefly.json"
+	"data/fighters/firefly.json",
+	"data/fighters/hyena.json",
+	"data/fighters/leopard.json"
 ]

@@ -55,12 +55,6 @@ void doEntities(void)
 			
 			e->x += e->dx;
 			e->y += e->dy;
-		
-			if (e->target != NULL && e->target->health <= 0)
-			{
-				e->action = e->defaultAction;
-				e->target = NULL;
-			}
 			
 			if (e->action != NULL)
 			{

@@ -50,6 +50,12 @@ static void flee(void);
 void doAI(void)
 {
 	int r;
+	
+	if (self->target != NULL && self->target->health <= 0)
+	{
+		self->action = self->defaultAction;
+		self->target = NULL;
+	}
 
 	if (!self->target || targetOutOfRange() || self->target->systemPower <= 0)
 	{

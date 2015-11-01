@@ -155,13 +155,13 @@ static void randomizeDartGuns(Entity *dart)
 
 void doFighter(void)
 {
-	if (self != player && self->health > 0)
+	if (self->alive == ALIVE_ALIVE)
 	{
-		separate();
-	}
-	
-	if (self->health > 0)
-	{
+		if (self != player)
+		{
+			separate();
+		}
+		
 		self->reload = MAX(self->reload - 1, 0);
 		self->shieldRecharge = MAX(self->shieldRecharge - 1, 0);
 		self->armourHit = MAX(self->armourHit - 25, 0);
@@ -183,10 +183,7 @@ void doFighter(void)
 		{
 			self->action = self->defaultAction;
 		}
-	}
-	
-	if (self->alive == ALIVE_ALIVE)
-	{
+		
 		if (self->health <= 0)
 		{
 			self->health = 0;
@@ -239,7 +236,10 @@ void doFighter(void)
 				{
 					battle.stats[STAT_ALLIES_KILLED]++;
 					
-					addHudMessage(colors.red, "Ally has been killed");
+					if (!battle.epic)
+					{
+						addHudMessage(colors.red, "Ally has been killed");
+					}
 				}
 			}
 			

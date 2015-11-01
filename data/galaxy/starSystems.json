@@ -130,7 +130,9 @@
         "side" : "SIDE_UNF",
         "x": 335,
         "y": 135,
-        "missions" : []
+        "missions" : [
+			"data/missions/iliad/01 - iliad defence #1.json"
+        ]
       },
       {
         "name": "Warro",
@@ -188,7 +190,9 @@
         "side" : "SIDE_UNF",
         "x": 398,
         "y": 84,
-        "missions" : []
+        "missions" : [
+			"data/missions/clarke/01 - clarke defence #1.json"
+        ]
       },
       {
         "name": "Adetton",

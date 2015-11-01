@@ -1,0 +1,45 @@
+{
+	"name" : "Illiad Defence #1",
+	"description" : "The Pandoran war machine has commenced its advancement beyond Mitikas space. We must prepare to defend Illiad from this powerful foe. Exercise caution: despite outnumbering the enemy units that have entered our space, the Pandorans are said to be relentless in battle, and this small number could well still test us.",
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/heroism.ogg",
+	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
+	"epic" : {
+		"fighterLimit" : 16
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "Pandoran",
+			"targetValue" : 50,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"player" : {
+		"type" : "Firefly",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph",
+			"side" : "SIDE_ALLIES",
+			"x" : 640,
+			"y" : 0,
+			"number" : 75,
+			"scatter" : 5000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal",
+			"side" : "SIDE_PANDORAN",
+			"x" : 7000,
+			"y" : 0,
+			"number" : 50,
+			"scatter" : 5000
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	"name" : "Clarke Defence #1",
+	"description" : "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today.",
+	"background" : "gfx/backgrounds/background04.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/heroism.ogg",
+	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
+	"epic" : {
+		"fighterLimit" : 16
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "Pandoran",
+			"targetValue" : 80,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"player" : {
+		"type" : "Firefly",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph;Leopard;Hyena",
+			"side" : "SIDE_ALLIES",
+			"x" : 640,
+			"y" : 0,
+			"number" : 100,
+			"scatter" : 5000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx",
+			"side" : "SIDE_PANDORAN",
+			"x" : 7000,
+			"y" : 0,
+			"number" : 80,
+			"scatter" : 5000
+		}
+	]
+}

@@ -29,6 +29,7 @@ static void loadEntities(cJSON *node);
 static void loadEntityGroups(cJSON *node);
 static unsigned long hashcode(const char *str);
 static char **toFighterTypeArray(char *types, int *numTypes);
+static void loadEpicData(cJSON *node);
 
 void loadMission(char *filename)
 {
@@ -50,11 +51,6 @@ void loadMission(char *filename)
 	battle.planet.x = rand() % SCREEN_WIDTH - rand() % SCREEN_WIDTH;
 	battle.planet.y = rand() % SCREEN_HEIGHT - rand() % SCREEN_HEIGHT;
 	
-	if (cJSON_GetObjectItem(root, "epic"))
-	{
-		battle.epic = cJSON_GetObjectItem(root, "epic")->valueint;
-	}
-	
 	loadObjectives(cJSON_GetObjectItem(root, "objectives"));
 	
 	loadTriggers(cJSON_GetObjectItem(root, "triggers"));
@@ -70,6 +66,11 @@ void loadMission(char *filename)
 	loadEntityGroups(cJSON_GetObjectItem(root, "entityGroups"));
 	
 	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_NAME_LENGTH);
+	
+	if (cJSON_GetObjectItem(root, "epic"))
+	{
+		loadEpicData(cJSON_GetObjectItem(root, "epic"));
+	}
 	
 	cJSON_Delete(root);
 	free(text);
@@ -406,6 +407,25 @@ static char **toFighterTypeArray(char *types, int *numTypes)
 	}
 	
 	return typeArray;
+}
+
+static void loadEpicData(cJSON *node)
+{
+	Entity *e;
+	int numFighters[SIDE_MAX];
+	memset(numFighters, 0, sizeof(int) * SIDE_MAX);
+	
+	battle.epic = 1;
+	
+	battle.epicFighterLimit = cJSON_GetObjectItem(node, "fighterLimit")->valueint;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->active && e->type == ET_FIGHTER && numFighters[e->side]++ >= battle.epicFighterLimit)
+		{
+			e->active = 0;
+		}
+	}
 }
 
 Mission *getMission(char *filename)

@@ -223,6 +223,7 @@ typedef struct {
 	int numEnemies;
 	int status;
 	int epic;
+	int epicFighterLimit;
 	int playerSelect;
 	int missionFinishedTimer;
 	int numObjectivesComplete, numObjectivesTotal;

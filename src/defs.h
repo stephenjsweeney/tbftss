@@ -87,7 +87,8 @@ enum
 	SIDE_PIRATE,
 	SIDE_CSN,
 	SIDE_INF,
-	SIDE_UNF
+	SIDE_UNF,
+	SIDE_MAX
 };
 
 enum

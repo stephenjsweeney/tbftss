@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void drawEntity(Entity *e);
 static void doEntity(void);
+static void activateEpicFighters(int n, int side);
 
 Entity *spawnEntity(void)
 {
@@ -39,11 +40,12 @@ Entity *spawnEntity(void)
 void doEntities(void)
 {
 	int numAllies, numEnemies;
+	int numActiveAllies, numActiveEnemies;
 	Entity *e, *prev;
 	
 	prev = &battle.entityHead;
 	
-	numAllies = numEnemies = 0;
+	numAllies = numEnemies = numActiveAllies = numActiveEnemies = 0;
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -76,11 +78,11 @@ void doEntities(void)
 					
 					if (self->side == SIDE_ALLIES)
 					{
-						numAllies++;
+						numActiveAllies++;
 					}
 					else
 					{
-						numEnemies++;
+						numActiveEnemies++;
 					}
 					
 					break;
@@ -115,11 +117,36 @@ void doEntities(void)
 			}
 		}
 		
+		if (e->type == ET_FIGHTER && (battle.epic || e->active))
+		{
+			if (self->side == SIDE_ALLIES)
+			{
+				numAllies++;
+			}
+			else
+			{
+				numEnemies++;
+			}
+		}
+		
 		prev = e;
 	}
 	
 	battle.numAllies = numAllies;
 	battle.numEnemies = numEnemies;
+	
+	if (battle.epic && battle.stats[STAT_TIME] % FPS == 0)
+	{
+		if (numAllies > battle.epicFighterLimit)
+		{
+			activateEpicFighters(battle.epicFighterLimit - numActiveAllies, SIDE_ALLIES);
+		}
+		
+		if (numEnemies > battle.epicFighterLimit)
+		{
+			activateEpicFighters(battle.epicFighterLimit - numActiveEnemies, SIDE_NONE);
+		}
+	}
 }
 
 static void doEntity(void)
@@ -166,6 +193,27 @@ void activateEntities(char *name)
 		if (strcmp(e->name, name) == 0)
 		{
 			e->active = 1;
+		}
+	}
+}
+
+static void activateEpicFighters(int n, int side)
+{
+	Entity *e;
+	
+	if (n > 0)
+	{
+		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+		{
+			if (!e->active && e->type == ET_FIGHTER && ((side == SIDE_ALLIES && e->side == SIDE_ALLIES) || (side != SIDE_ALLIES && e->side != SIDE_ALLIES)))
+			{
+				e->active = 1;
+				
+				if (--n <= 0)
+				{
+					return;
+				}
+			}
 		}
 	}
 }

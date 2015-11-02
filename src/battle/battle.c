@@ -134,18 +134,6 @@ static void doBattle(void)
 	if (battle.status != MS_IN_PROGRESS)
 	{
 		battle.missionFinishedTimer--;
-		
-		if (battle.missionFinishedTimer == 0)
-		{
-			if (battle.status == MS_COMPLETE)
-			{
-				selectWidget("continue", "battleWon");
-			}
-			else
-			{
-				selectWidget("retry", "battleLost");
-			}
-		}
 	}
 	
 	battle.stats[STAT_TIME]++;
@@ -247,6 +235,14 @@ static void handleKeyboard(void)
 	{
 		battle.status = MS_PAUSED;
 	}
+	
+	#if DEBUG
+	if (app.keyboard[SDL_SCANCODE_F10])
+	{
+		completeMission();
+		battle.missionFinishedTimer = -FPS;
+	}
+	#endif
 }
 
 static void start(void)

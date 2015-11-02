@@ -98,16 +98,24 @@ void loadMission(char *filename)
 
 void completeMission(void)
 {
-	battle.status = MS_COMPLETE;
-	battle.missionFinishedTimer = FPS;
-	
-	game.stats[STAT_MISSIONS_COMPLETED]++;
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		battle.status = MS_COMPLETE;
+		battle.missionFinishedTimer = FPS;
+		selectWidget("continue", "battleWon");
+		
+		game.stats[STAT_MISSIONS_COMPLETED]++;
+	}
 }
 
 void failMission(void)
 {
-	battle.status = MS_FAILED;
-	battle.missionFinishedTimer = FPS;
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		battle.status = MS_FAILED;
+		battle.missionFinishedTimer = FPS;
+		selectWidget("retry", "battleLost");
+	}
 }
 
 static void loadObjectives(cJSON *node)

@@ -37,6 +37,7 @@ extern void initPlayer(void);
 extern long flagsToLong(char *flags);
 extern Entity *spawnWaypoint(void);
 extern void activateNextWaypoint(void);
+extern void selectWidget(const char *name, const char *group);
 
 extern Battle battle;
 extern Entity *player;

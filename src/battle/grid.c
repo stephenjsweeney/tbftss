@@ -37,18 +37,21 @@ void addToGrid(Entity *e)
 	{
 		for (y = y1 ; y <= y2 ; y++)
 		{
-			prev = &battle.grid[x][y];
-			
-			for (cell = battle.grid[x][y].next ; cell != NULL ; cell = cell->next)
+			if (x >= 0 && y >= 0 && x < GRID_SIZE && y < GRID_SIZE)
 			{
-				prev = cell;
+				prev = &battle.grid[x][y];
+				
+				for (cell = battle.grid[x][y].next ; cell != NULL ; cell = cell->next)
+				{
+					prev = cell;
+				}
+				
+				cell = malloc(sizeof(GridCell));
+				memset(cell, 0, sizeof(GridCell));
+				prev->next = cell;
+				
+				cell->entity = e;
 			}
-			
-			cell = malloc(sizeof(GridCell));
-			memset(cell, 0, sizeof(GridCell));
-			prev->next = cell;
-			
-			cell->entity = e;
 		}
 	}
 }
@@ -67,18 +70,21 @@ void removeFromGrid(Entity *e)
 	{
 		for (y = y1 ; y <= y2 ; y++)
 		{
-			prev = &battle.grid[x][y];
-			
-			for (cell = battle.grid[x][y].next ; cell != NULL ; cell = cell->next)
+			if (x >= 0 && y >= 0 && x < GRID_SIZE && y < GRID_SIZE)
 			{
-				if (cell->entity == e)
-				{
-					prev->next = cell->next;
-					free(cell);
-					cell = prev;
-				}
+				prev = &battle.grid[x][y];
 				
-				prev = cell;
+				for (cell = battle.grid[x][y].next ; cell != NULL ; cell = cell->next)
+				{
+					if (cell->entity == e)
+					{
+						prev->next = cell->next;
+						free(cell);
+						cell = prev;
+					}
+					
+					prev = cell;
+				}
 			}
 		}
 	}
@@ -93,16 +99,22 @@ Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore)
 	
 	x1 = x / GRID_CELL_WIDTH;
 	y1 = y / GRID_CELL_HEIGHT;
-	x2 = w / GRID_CELL_WIDTH;
-	y2 = h / GRID_CELL_HEIGHT;
+	x2 = (x + w) / GRID_CELL_WIDTH;
+	y2 = (y + h) / GRID_CELL_HEIGHT;
 	
-	for (x = x1 ; x < x2 ; x++)
+	for (x = x1 ; x <= x2 ; x++)
 	{
-		for (y = y1 ; y < y2 ; y++)
+		for (y = y1 ; y <= y2 ; y++)
 		{
-			for (cell = battle.grid[x][y].next ; cell != NULL ; cell = cell->next)
+			if (x >= 0 && y >= 0 && x < GRID_SIZE && y < GRID_SIZE)
 			{
-				addCandidate(battle.grid[x][y].entity);
+				for (cell = battle.grid[x][y].next ; cell != NULL ; cell = cell->next)
+				{
+					if (cell->entity != ignore)
+					{
+						addCandidate(cell->entity);
+					}
+				}
 			}
 		}
 	}

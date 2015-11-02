@@ -49,7 +49,7 @@
 			"side" : "SIDE_PIRATE",
 			"x" : 12,
 			"y" : 25,
-			"flags" : "FF_NO_KILL+FF_DISABLE+FF_MISSION_TARGET"
+			"flags" : "EF_NO_KILL+EF_DISABLE+EF_MISSION_TARGET"
 		}
 	],
 	"fighterGroups" : [

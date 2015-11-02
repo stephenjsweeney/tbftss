@@ -258,29 +258,35 @@ static void separate(void)
 	int distance;
 	float dx, dy, force;
 	int count;
-	Entity *f;
+	Entity *e, **candidates;
+	int i;
 	
 	dx = dy = 0;
 	count = 0;
 	force = 0;
 	
-	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
+	candidates = getAllEntsWithin(self->x, self->y, self->w, self->h, self);
+	i = 0;
+	e = candidates[i];
+	
+	while (e)
 	{
-		if (f != self && f->active)
+		distance = getDistance(e->x, e->y, self->x, self->y);
+		
+		if (distance > 0 && distance < self->separationRadius)
 		{
-			distance = getDistance(f->x, f->y, self->x, self->y);
+			angle = getAngle(self->x, self->y, e->x, e->y);
 			
-			if (distance > 0 && distance < self->separationRadius)
-			{
-				angle = getAngle(self->x, self->y, f->x, f->y);
-				
-				dx += sin(TO_RAIDANS(angle));
-				dy += -cos(TO_RAIDANS(angle));
-				force += (self->separationRadius - distance) * 0.005;
-				
-				count++;
-			}
+			dx += sin(TO_RAIDANS(angle));
+			dy += -cos(TO_RAIDANS(angle));
+			force += (self->separationRadius - distance) * 0.005;
+			
+			count++;
 		}
+		
+		i++;
+		
+		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
 	}
 	
 	if (count > 0)

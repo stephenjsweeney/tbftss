@@ -38,6 +38,7 @@ extern void updateCondition(char *name, int type);
 extern Entity *getFighterDef(char *name);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void checkTrigger(char *name, int type);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern Entity *spawnEntity(void);
 
 extern App app;

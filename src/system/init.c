@@ -178,9 +178,6 @@ static void loadConfig(void)
 	else
 	{
 		text = readFile("data/app/config.json");
-		
-		/* so that the player doesn't get confused */
-		saveConfig();
 	}
 	
 	root = cJSON_Parse(text);
@@ -194,6 +191,9 @@ static void loadConfig(void)
 	
 	cJSON_Delete(root);
 	free(text);
+	
+	/* so that the player doesn't get confused if this is a new game */
+	saveConfig();
 }
 
 void saveConfig(void)

@@ -187,31 +187,37 @@ static void addPulses(void)
 			pulseTail->next = pulse;
 			pulseTail = pulse;
 		}
-		else if (starSystem->completedChallenges < starSystem->totalChallenges && pulseTimer % (FPS * 2) == 0)
+		else if (starSystem->completedChallenges < starSystem->totalChallenges)
 		{
-			pulse = malloc(sizeof(Pulse));
-			memset(pulse, 0, sizeof(Pulse));
-			
-			pulse->x = starSystem->x;
-			pulse->y = starSystem->y;
-			pulse->life = 255;
-			pulse->r = pulse->g = 255;
-			
-			pulseTail->next = pulse;
-			pulseTail = pulse;
+			if (pulseTimer % (FPS * 2) == 0)
+			{
+				pulse = malloc(sizeof(Pulse));
+				memset(pulse, 0, sizeof(Pulse));
+				
+				pulse->x = starSystem->x;
+				pulse->y = starSystem->y;
+				pulse->life = 255;
+				pulse->r = pulse->g = 255;
+				
+				pulseTail->next = pulse;
+				pulseTail = pulse;
+			}
 		}
-		else if (starSystem->totalMissions > 0 && pulseTimer % (FPS * 3) == 0)
+		else if (starSystem->totalMissions > 0)
 		{
-			pulse = malloc(sizeof(Pulse));
-			memset(pulse, 0, sizeof(Pulse));
-			
-			pulse->x = starSystem->x;
-			pulse->y = starSystem->y;
-			pulse->life = 255;
-			pulse->g = 255;
-			
-			pulseTail->next = pulse;
-			pulseTail = pulse;
+			if (pulseTimer % (FPS * 3) == 0)
+			{
+				pulse = malloc(sizeof(Pulse));
+				memset(pulse, 0, sizeof(Pulse));
+				
+				pulse->x = starSystem->x;
+				pulse->y = starSystem->y;
+				pulse->life = 255;
+				pulse->g = 255;
+				
+				pulseTail->next = pulse;
+				pulseTail = pulse;
+			}
 		}
 	}
 }

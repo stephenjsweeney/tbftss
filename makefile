@@ -1,8 +1,9 @@
 PROG = tbftss
 
 VERSION = 0.3
+DEBUG = 0
 
-CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DUNIX=1
+CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DUNIX=1 -DDEBUG=$(DEBUG)
 CXXFLAGS += -DUNIX
 CXXFLAGS += $(CFLAGS) -Wall -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence

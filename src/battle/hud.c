@@ -274,7 +274,7 @@ static void drawPlayerTargeter(void)
 		
 		SDL_SetTextureColorMod(targetPointer, 0, 255, 0);
 		
-		blitRotated(targetPointer, x, y, angle);
+		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
 }
 
@@ -293,7 +293,7 @@ static void drawTargetsRects(void)
 		SDL_RenderDrawRect(app.renderer, &r);
 	}
 	
-	if (battle.missionTarget)
+	if (battle.missionTarget && battle.missionTarget->type != ET_WAYPOINT)
 	{
 		r.x = battle.missionTarget->x - 28 - battle.camera.x;
 		r.y = battle.missionTarget->y - 28 - battle.camera.y;

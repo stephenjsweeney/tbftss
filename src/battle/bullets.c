@@ -93,15 +93,21 @@ void doBullets(void)
 
 static void checkCollisions(Bullet *b)
 {
-	Entity *f;
+	Entity *e, **candidates;
+	int i;
 	
-	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
+	candidates = getAllEntsWithin(b->x, b->y, b->w, b->h, NULL);
+	i = 0;
+	
+	e = candidates[i];
+	
+	while (e)
 	{
-		if (f->active && f->type == ET_FIGHTER)
+		if (e->type == ET_FIGHTER)
 		{
-			if (b->owner != f && f->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, f->x - f->w / 2, f->y - f->h / 2, f->w, f->h))
+			if (b->owner != e && e->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, e->x - e->w / 2, e->y - e->h / 2, e->w, e->h))
 			{
-				if (b->owner->side == f->side)
+				if (b->owner->side == e->side)
 				{
 					b->damage = 0;
 				}
@@ -110,7 +116,7 @@ static void checkCollisions(Bullet *b)
 					battle.stats[STAT_SHOTS_HIT]++;
 				}
 				
-				damageFighter(f, b->damage, b->flags);
+				damageFighter(e, b->damage, b->flags);
 				
 				b->life = 0;
 				
@@ -120,7 +126,7 @@ static void checkCollisions(Bullet *b)
 				}
 				
 				/* assuming that health <= 0 will always mean killed */
-				if (f->health <= 0 && b->owner == player)
+				if (e->health <= 0 && b->owner == player)
 				{
 					battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
 				}
@@ -133,6 +139,10 @@ static void checkCollisions(Bullet *b)
 				return;
 			}
 		}
+		
+		i++;
+		
+		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
 	}
 }
 

@@ -318,6 +318,8 @@ static void loadEntities(cJSON *node)
 			{
 				e->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
 			}
+			
+			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 		
 			node = node->next;
 		}
@@ -375,6 +377,8 @@ static void loadEntityGroups(cJSON *node)
 				
 				e->x += (rand() % scatter) - (rand() % scatter);
 				e->y += (rand() % scatter) - (rand() % scatter);
+				
+				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			}
 		
 			node = node->next;

@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void drawEntity(Entity *e);
 static void doEntity(void);
 static void activateEpicFighters(int n, int side);
+static void restrictToGrid(Entity *e);
 
 Entity *spawnEntity(void)
 {
@@ -88,6 +89,8 @@ void doEntities(void)
 					break;
 			}
 			
+			restrictToGrid(e);
+			
 			e->x += e->dx;
 			e->y += e->dy;
 			
@@ -147,6 +150,39 @@ void doEntities(void)
 		{
 			activateEpicFighters(battle.epicFighterLimit - numActiveEnemies, SIDE_NONE);
 		}
+	}
+}
+
+static void restrictToGrid(Entity *e)
+{
+	float force;
+	
+	if (e->x <= GRID_RESTRICTION_SIZE)
+	{
+		force = GRID_RESTRICTION_SIZE - e->x;
+		e->dx += force * 0.001;
+		e->dx *= 0.95;
+	}
+	
+	if (e->y <= GRID_RESTRICTION_SIZE)
+	{
+		force = GRID_RESTRICTION_SIZE - e->y;
+		e->dy += force * 0.001;
+		e->dy *= 0.95;
+	}
+	
+	if (e->x >= (GRID_SIZE * GRID_CELL_WIDTH) - GRID_RESTRICTION_SIZE)
+	{
+		force = e->x - ((GRID_SIZE * GRID_CELL_WIDTH) - GRID_RESTRICTION_SIZE);
+		e->dx -= force * 0.001;
+		e->dx *= 0.95;
+	}
+	
+	if (e->y >= (GRID_SIZE * GRID_CELL_HEIGHT) - GRID_RESTRICTION_SIZE)
+	{
+		force = e->y - ((GRID_SIZE * GRID_CELL_HEIGHT) - GRID_RESTRICTION_SIZE);
+		e->dy -= force * 0.001;
+		e->dy *= 0.95;
 	}
 }
 

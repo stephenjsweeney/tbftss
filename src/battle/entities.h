@@ -28,6 +28,7 @@ extern void drawFighter(Entity *e);
 extern void doFighter(void);
 extern void addToGrid(Entity *e);
 extern void removeFromGrid(Entity *e);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 
 extern Battle battle;
 extern Entity *self;

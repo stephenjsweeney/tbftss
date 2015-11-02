@@ -160,9 +160,14 @@ static void doEntity(void)
 
 void drawEntities(void)
 {
-	Entity *e;
+	Entity *e, **candidates;
+	int i;
 	
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
+	i = 0;
+	e = candidates[i];
+	
+	while (e)
 	{
 		if (e->active)
 		{
@@ -177,6 +182,10 @@ void drawEntities(void)
 					break;
 			}
 		}
+		
+		i++;
+		
+		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
 	}
 }
 

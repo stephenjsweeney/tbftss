@@ -92,8 +92,6 @@ void drawRadarRangeWarning(void)
 	y = (int)player->y / GRID_CELL_HEIGHT;
 	leaving = 0;
 	
-	drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 100, 14, TA_CENTER, colors.white, "%d,%d", x, y);
-	
 	if (x <= 4)
 	{
 		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 270);

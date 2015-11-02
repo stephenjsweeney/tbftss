@@ -28,10 +28,10 @@ void addToGrid(Entity *e)
 	GridCell *cell, *prev;
 	int x, y, x1, y1, x2, y2;
 	
-	x1 = e->x / GRID_CELL_WIDTH;
-	y1 = e->y / GRID_CELL_HEIGHT;
-	x2 = (e->x + e->w) / GRID_CELL_WIDTH;
-	y2 = (e->y + e->h) / GRID_CELL_HEIGHT;
+	x1 = (e->x - e->w / 2) / GRID_CELL_WIDTH;
+	y1 = (e->y - e->h / 2) / GRID_CELL_HEIGHT;
+	x2 = (e->x + e->w / 2) / GRID_CELL_WIDTH;
+	y2 = (e->y + e->h / 2) / GRID_CELL_HEIGHT;
 	
 	for (x = x1 ; x <= x2 ; x++)
 	{
@@ -61,10 +61,10 @@ void removeFromGrid(Entity *e)
 	GridCell *cell, *prev;
 	int x, y, x1, y1, x2, y2;
 	
-	x1 = e->x / GRID_CELL_WIDTH;
-	y1 = e->y / GRID_CELL_HEIGHT;
-	x2 = (e->x + e->w) / GRID_CELL_WIDTH;
-	y2 = (e->y + e->h) / GRID_CELL_HEIGHT;
+	x1 = (e->x - e->w / 2) / GRID_CELL_WIDTH;
+	y1 = (e->y - e->h / 2) / GRID_CELL_HEIGHT;
+	x2 = (e->x + e->w / 2) / GRID_CELL_WIDTH;
+	y2 = (e->y + e->h / 2) / GRID_CELL_HEIGHT;
 	
 	for (x = x1 ; x <= x2 ; x++)
 	{

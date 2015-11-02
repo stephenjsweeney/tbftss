@@ -48,6 +48,8 @@ void initBulletDefs(void)
 		def->texture = getTexture(cJSON_GetObjectItem(node, "textureName")->valuestring);
 		def->sound = lookup(cJSON_GetObjectItem(node, "sound")->valuestring);
 		def->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+		
+		SDL_QueryTexture(def->texture, NULL, NULL, &def->w, &def->h);
 	}
 	
 	cJSON_Delete(root);
@@ -92,17 +94,12 @@ void doBullets(void)
 static void checkCollisions(Bullet *b)
 {
 	Entity *f;
-	int bw, bh, ew, eh;
-	
-	SDL_QueryTexture(b->texture, NULL, NULL, &bw, &bh);
 	
 	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
 		if (f->active && f->type == ET_FIGHTER)
 		{
-			SDL_QueryTexture(f->texture, NULL, NULL, &ew, &eh);
-			
-			if (b->owner != f && f->health > 0 && collision(b->x - bw / 2, b->y - bh / 2, bw, bh, f->x - ew / 2, f->y - eh / 2, ew, eh))
+			if (b->owner != f && f->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, f->x - f->w / 2, f->y - f->h / 2, f->w, f->h))
 			{
 				if (b->owner->side == f->side)
 				{

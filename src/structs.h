@@ -119,6 +119,8 @@ struct Bullet {
 	int type;
 	float x;
 	float y;
+	int w;
+	int h;
 	float dx;
 	float dy;
 	int sound;

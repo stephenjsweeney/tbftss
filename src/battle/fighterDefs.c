@@ -65,7 +65,7 @@ static void loadFighterDef(char *filename)
 	cJSON *root, *node;
 	char *text;
 	Entity *f;
-	int i, w, h;
+	int i;
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 	
@@ -88,6 +88,8 @@ static void loadFighterDef(char *filename)
 	f->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
 	f->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 	f->texture = getTexture(cJSON_GetObjectItem(root, "textureName")->valuestring);
+	
+	SDL_QueryTexture(f->texture, NULL, NULL, &f->w, &f->h);
 	
 	if (cJSON_GetObjectItem(root, "guns"))
 	{
@@ -124,8 +126,7 @@ static void loadFighterDef(char *filename)
 		f->missiles.ammo = f->missiles.maxAmmo = cJSON_GetObjectItem(node, "ammo")->valueint;
 	}
 	
-	SDL_QueryTexture(f->texture, NULL, NULL, &w, &h);
-	f->separationRadius = MAX(w, h);
+	f->separationRadius = MAX(f->w, f->h);
 	f->separationRadius *= 2;
 	
 	/* all craft default to 100 system power */

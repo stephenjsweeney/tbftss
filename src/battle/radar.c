@@ -22,15 +22,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define RADAR_RANGE	20
 
+static SDL_Texture *radarTexture;
+static SDL_Texture *radarWarningTexture;
+
+void initRadar(void)
+{
+	radarTexture = getTexture("gfx/hud/radar.png");
+	radarWarningTexture = getTexture("gfx/hud/radarWarning.png");
+}
+
 void drawRadar(void)
 {
 	SDL_Rect r;
 	Entity *f;
 	
-	drawFilledCircle(SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 75, 0, 128, 0, 32);
-	
-	drawCircle(SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 25, 0, 255, 0, 64);
-	drawCircle(SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 50, 0, 255, 0, 64);
+	blit(radarTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 1);
 	
 	r.w = r.h = 3;
 	
@@ -76,6 +82,48 @@ void drawRadar(void)
 			SDL_RenderFillRect(app.renderer, &r);
 		}
 	}
+}
+
+void drawRadarRangeWarning(void)
+{
+	int x, y, leaving;
 	
-	drawCircle(SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 75, 0, 255, 0, 128);
+	x = (int)player->x / GRID_CELL_WIDTH;
+	y = (int)player->y / GRID_CELL_HEIGHT;
+	leaving = 0;
+	
+	drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 100, 14, TA_CENTER, colors.white, "%d,%d", x, y);
+	
+	if (x <= 4)
+	{
+		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 270);
+		
+		leaving = 1;
+	}
+	
+	if (y <= 4)
+	{
+		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 0);
+		
+		leaving = 1;
+	}
+	
+	if (x >= GRID_SIZE - 4)
+	{
+		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 90);
+		
+		leaving = 1;
+	}
+	
+	if (y >= GRID_SIZE - 4)
+	{
+		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 180);
+		
+		leaving = 1;
+	}
+	
+	if (leaving && battle.stats[STAT_TIME] % FPS < 40)
+	{
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 50, 14, TA_CENTER, colors.red, "WARNING: Leaving battle area - turn around!");
+	}
 }

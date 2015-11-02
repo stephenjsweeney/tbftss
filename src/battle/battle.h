@@ -44,6 +44,7 @@ extern void doEffects(void);
 extern void doObjectives(void);
 extern void blit(SDL_Texture *texture, int x, int y, int centered);
 extern void initHud(void);
+extern void initRadar(void);
 extern void initGalacticMap(void);
 extern void drawWidgets(char *groupName);
 extern void selectWidget(const char *name, const char *group);

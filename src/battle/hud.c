@@ -150,6 +150,8 @@ void drawHud(void)
 	{
 		drawPlayerSelect();
 	}
+	
+	drawRadarRangeWarning();
 }
 
 static void drawHealthBars(void)

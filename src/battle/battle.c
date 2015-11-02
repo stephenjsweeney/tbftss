@@ -57,6 +57,8 @@ void initBattle(void)
 	
 	initHud();
 	
+	initRadar();
+	
 	initMissionInfo();
 	
 	resetWaypoints();

@@ -26,7 +26,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a);
 extern void drawFilledCircle(int cx, int cy, int radius, int r, int g, int b, int a);
 extern int getDistance(int x1, int y1, int x2, int y2);
+extern void blit(SDL_Texture *texture, int x, int y, int center);
+extern SDL_Texture *getTexture(char *filename);
+extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);
+extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 
 extern App app;
 extern Battle battle;
+extern Colors colors;
 extern Entity *player;

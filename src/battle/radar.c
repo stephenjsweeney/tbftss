@@ -92,28 +92,28 @@ void drawRadarRangeWarning(void)
 	y = (int)player->y / GRID_CELL_HEIGHT;
 	leaving = 0;
 	
-	if (x <= 4)
+	if (x <= 4 && player->dx < 0)
 	{
 		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 270);
 		
 		leaving = 1;
 	}
 	
-	if (y <= 4)
+	if (y <= 4 && player->dy < 0)
 	{
 		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 0);
 		
 		leaving = 1;
 	}
 	
-	if (x >= GRID_SIZE - 4)
+	if (x >= GRID_SIZE - 4 && player->dx > 0)
 	{
 		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 90);
 		
 		leaving = 1;
 	}
 	
-	if (y >= GRID_SIZE - 4)
+	if (y >= GRID_SIZE - 4 && player->dy > 0)
 	{
 		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 180);
 		

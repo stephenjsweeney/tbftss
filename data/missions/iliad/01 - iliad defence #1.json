@@ -27,8 +27,8 @@
 			"name" : "ALLIES",
 			"types" : "Firefly;Nymph",
 			"side" : "SIDE_ALLIES",
-			"x" : 640,
-			"y" : 0,
+			"x" : 25,
+			"y" : 24,
 			"number" : 75,
 			"scatter" : 5000
 		},
@@ -36,8 +36,8 @@
 			"name" : "Pandoran",
 			"types" : "Jackal",
 			"side" : "SIDE_PANDORAN",
-			"x" : 7000,
-			"y" : 0,
+			"x" : 35,
+			"y" : 30,
 			"number" : 50,
 			"scatter" : 5000
 		}

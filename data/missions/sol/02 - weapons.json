@@ -23,8 +23,8 @@
 			"name" : "Dart",
 			"type" : "StaticDart",
 			"side" : "SIDE_PIRATE",
-			"x" : 800,
-			"y" : 200
+			"x" : 25.5,
+			"y" : 24.5
 		}
 	]
 }

@@ -25,8 +25,8 @@
 			"types" : "Firefly;Nymph",
 			"number" : 3,
 			"side" : "SIDE_ALLIES",
-			"x" : 640,
-			"y" : 1000,
+			"x" : 25,
+			"y" : 26,
 			"scatter" : 64
 		}
 	],
@@ -34,8 +34,8 @@
 		{
 			"type" : "ET_WAYPOINT",
 			"number" : 5,
-			"x" : 640,
-			"y" : 480,
+			"x" : 25,
+			"y" : 25,
 			"scatter" : 7500
 		}
 	]

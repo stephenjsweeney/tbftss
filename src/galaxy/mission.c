@@ -189,14 +189,17 @@ static void loadPlayer(cJSON *node)
 	type = cJSON_GetObjectItem(node, "type")->valuestring;
 	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 	
-	player = spawnFighter(type, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, side);
+	player = spawnFighter(type, 0, 0, side);
+	player->x = (GRID_SIZE * GRID_CELL_WIDTH) / 2;
+	player->y = (GRID_SIZE * GRID_CELL_HEIGHT) / 2;
 }
 
 static void loadFighters(cJSON *node)
 {
 	Entity *f;
 	char *type;
-	int side, x, y;
+	int side;
+	float x, y;
 	
 	if (node)
 	{
@@ -206,8 +209,8 @@ static void loadFighters(cJSON *node)
 		{
 			type = cJSON_GetObjectItem(node, "type")->valuestring;
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-			x = cJSON_GetObjectItem(node, "x")->valueint;
-			y = cJSON_GetObjectItem(node, "y")->valueint;
+			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
+			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
 			
 			f = spawnFighter(type, x, y, side);
 			
@@ -232,8 +235,9 @@ static void loadFighterGroups(cJSON *node)
 {
 	Entity *f;
 	char **types, *name, *type;
-	int side, x, y, scatter, number, active;
+	int side, scatter, number, active;
 	int i, numTypes;
+	float x, y;
 	
 	scatter = 1;
 	active = 1;
@@ -247,9 +251,9 @@ static void loadFighterGroups(cJSON *node)
 			types = toFighterTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 			number = cJSON_GetObjectItem(node, "number")->valueint;
-			x = cJSON_GetObjectItem(node, "x")->valueint;
-			y = cJSON_GetObjectItem(node, "y")->valueint;
 			name = cJSON_GetObjectItem(node, "name")->valuestring;
+			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
+			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
 			
 			if (cJSON_GetObjectItem(node, "scatter"))
 			{
@@ -307,8 +311,8 @@ static void loadEntities(cJSON *node)
 				STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 			}
 			
-			e->x = cJSON_GetObjectItem(node, "x")->valueint;
-			e->y = cJSON_GetObjectItem(node, "y")->valueint;
+			e->x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
+			e->y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
 			
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
@@ -324,7 +328,8 @@ static void loadEntityGroups(cJSON *node)
 {
 	Entity *e;
 	char *name;
-	int i, type, x, y, scatter, number;
+	int i, type, scatter, number;
+	float x, y;
 	
 	scatter = 1;
 	
@@ -336,8 +341,8 @@ static void loadEntityGroups(cJSON *node)
 		{
 			type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
 			number = cJSON_GetObjectItem(node, "number")->valueint;
-			x = cJSON_GetObjectItem(node, "x")->valueint;
-			y = cJSON_GetObjectItem(node, "y")->valueint;
+			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
+			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
 			name = NULL;
 			
 			if (cJSON_GetObjectItem(node, "name"))

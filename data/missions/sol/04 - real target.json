@@ -23,8 +23,8 @@
 			"name" : "Dart",
 			"type" : "SimpleDart",
 			"side" : "SIDE_PIRATE",
-			"x" : 640,
-			"y" : -1000
+			"x" : 25,
+			"y" : 24
 		}
 	]
 }

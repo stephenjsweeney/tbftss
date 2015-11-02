@@ -23,36 +23,25 @@
 			"name" : "TAF",
 			"type" : "TAF",
 			"side" : "SIDE_ALLIES",
-			"x" : 440,
-			"y" : 480
+			"x" : 24.9,
+			"y" : 25.5
 		},
 		{
 			"name" : "TAF",
 			"type" : "TAF",
 			"side" : "SIDE_ALLIES",
-			"x" : 840,
-			"y" : 480
-		},
+			"x" : 25.1,
+			"y" : 25.5
+		}
+	],
+	"fighterGroups" : [
 		{
 			"name" : "Dart",
-			"type" : "SimpleDart",
+			"types" : "SimpleDart",
 			"side" : "SIDE_PIRATE",
-			"x" : 2640,
-			"y" : -1500
-		},
-		{
-			"name" : "Dart",
-			"type" : "SimpleDart",
-			"side" : "SIDE_PIRATE",
-			"x" : 2640,
-			"y" : -1500
-		},
-		{
-			"name" : "Dart",
-			"type" : "SimpleDart",
-			"side" : "SIDE_PIRATE",
-			"x" : 2640,
-			"y" : -1500
+			"number" : 3,
+			"x" : 26,
+			"y" : 20
 		}
 	]
 }

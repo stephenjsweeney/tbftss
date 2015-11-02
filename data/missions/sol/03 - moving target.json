@@ -23,8 +23,8 @@
 			"name" : "Dart",
 			"type" : "UnarmedDart",
 			"side" : "SIDE_PIRATE",
-			"x" : 640,
-			"y" : 0
+			"x" : 25,
+			"y" : 24
 		}
 	]
 }

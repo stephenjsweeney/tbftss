@@ -38,16 +38,16 @@
 			"types" : "TAF",
 			"number" : 4,
 			"side" : "SIDE_ALLIES",
-			"x" : 0,
-			"y" : 0
+			"x" : 23,
+			"y" : 25
 		},
 		{
 			"name" : "Dart",
 			"types" : "SimpleDart",
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
-			"x" : 1000,
-			"y" : 5000,
+			"x" : 27,
+			"y" : 35,
 			"scatter" : 2000
 		},
 		{
@@ -55,8 +55,8 @@
 			"name" : "Dart",
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
-			"x" : -3000,
-			"y" : -3000,
+			"x" : 20,
+			"y" : 15,
 			"scatter" : 2000
 		},
 		{
@@ -64,8 +64,8 @@
 			"types" : "SimpleDart",
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
-			"x" : 0,
-			"y" : -6000,
+			"x" : 15,
+			"y" : 35,
 			"scatter" : 2000
 		}
 	]

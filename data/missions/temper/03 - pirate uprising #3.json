@@ -47,8 +47,8 @@
 			"name" : "Pirate Leader",
 			"type" : "Dart",
 			"side" : "SIDE_PIRATE",
-			"x" : -5000,
-			"y" : 0,
+			"x" : 12,
+			"y" : 25,
 			"flags" : "FF_NO_KILL+FF_DISABLE+FF_MISSION_TARGET"
 		}
 	],
@@ -58,16 +58,16 @@
 			"types" : "TAF",
 			"number" : 2,
 			"side" : "SIDE_ALLIES",
-			"x" : 1600,
-			"y" : 400
+			"x" : 27,
+			"y" : 25
 		},
 		{
 			"name" : "Dart",
 			"types" : "Dart",
 			"number" : 12,
 			"side" : "SIDE_PIRATE",
-			"x" : -5000,
-			"y" : 0,
+			"x" : 15,
+			"y" : 25,
 			"scatter" : 2000
 		}
 	]

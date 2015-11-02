@@ -32,16 +32,16 @@
 			"types" : "ATAF",
 			"number" : 4,
 			"side" : "SIDE_ALLIES",
-			"x" : 0,
-			"y" : 0
+			"x" : 26,
+			"y" : 25
 		},
 		{
 			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Nymph",
 			"number" : 20,
 			"side" : "SIDE_PANDORAN",
-			"x" : -5000,
-			"y" : 0,
+			"x" : 20,
+			"y" : 25,
 			"scatter" : 2000
 		},
 		{
@@ -49,8 +49,8 @@
 			"types" : "Jackal;Sphinx;Nymph",
 			"number" : 20,
 			"side" : "SIDE_PANDORAN",
-			"x" : -5000,
-			"y" : 5000,
+			"x" : 20,
+			"y" : 20,
 			"scatter" : 2000
 		},
 		{
@@ -58,8 +58,8 @@
 			"types" : "Jackal;Sphinx;Nymph",
 			"number" : 20,
 			"side" : "SIDE_PANDORAN",
-			"x" : -5000,
-			"y" : -5000,
+			"x" : 20,
+			"y" : 30,
 			"scatter" : 2000
 		},
 		{
@@ -67,8 +67,8 @@
 			"types" : "Nymph",
 			"number" : 20,
 			"side" : "SIDE_PANDORAN",
-			"x" : 5000,
-			"y" : 8000,
+			"x" : 30,
+			"y" : 40,
 			"scatter" : 2000
 		},
 		{
@@ -76,8 +76,8 @@
 			"types" : "Jackal;Sphinx",
 			"number" : 20,
 			"side" : "SIDE_PANDORAN",
-			"x" : 7000,
-			"y" : -4000,
+			"x" : 30,
+			"y" : 20,
 			"scatter" : 2000
 		}
 	]

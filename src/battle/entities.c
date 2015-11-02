@@ -53,8 +53,7 @@ void doEntities(void)
 		{
 			self = e;
 			
-			e->x += e->dx;
-			e->y += e->dy;
+			removeFromGrid(e);
 			
 			if (e->action != NULL)
 			{
@@ -88,6 +87,11 @@ void doEntities(void)
 					doEntity();
 					break;
 			}
+			
+			e->x += e->dx;
+			e->y += e->dy;
+			
+			addToGrid(e);
 			
 			if (e->alive == ALIVE_DEAD)
 			{

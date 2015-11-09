@@ -94,8 +94,6 @@ void doEntities(void)
 			e->x += e->dx;
 			e->y += e->dy;
 			
-			addToGrid(e);
-			
 			if (e->alive == ALIVE_DEAD)
 			{
 				if (e == battle.entityTail)
@@ -118,6 +116,10 @@ void doEntities(void)
 				prev->next = e->next;
 				free(e);
 				e = prev;
+			}
+			else
+			{
+				addToGrid(e);
 			}
 		}
 		

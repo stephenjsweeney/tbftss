@@ -24,6 +24,7 @@ static void drawEntity(Entity *e);
 static void doEntity(void);
 static void activateEpicFighters(int n, int side);
 static void restrictToGrid(Entity *e);
+static int drawComparator(const void *a, const void *b);
 
 Entity *spawnEntity(void)
 {
@@ -200,8 +201,21 @@ void drawEntities(void)
 {
 	Entity *e, **candidates;
 	int i;
-	
+
 	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
+	
+	i = 0;
+	e = candidates[i];
+	
+	while (e)
+	{
+		i++;
+		
+		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
+	}
+	
+	qsort(candidates, i, sizeof(Entity*), drawComparator);
+	
 	i = 0;
 	e = candidates[i];
 	
@@ -264,4 +278,12 @@ static void activateEpicFighters(int n, int side)
 			}
 		}
 	}
+}
+
+static int drawComparator(const void *a, const void *b)
+{
+	Entity *e1 = *((Entity**)a);
+	Entity *e2 = *((Entity**)b);
+	
+	return e2->type - e1->type;
 }

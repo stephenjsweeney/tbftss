@@ -293,7 +293,7 @@ static void drawTargetsRects(void)
 		SDL_RenderDrawRect(app.renderer, &r);
 	}
 	
-	if (battle.missionTarget && battle.missionTarget->type != ET_WAYPOINT)
+	if (battle.missionTarget && (battle.missionTarget->flags & EF_NO_MT_BOX) == 0)
 	{
 		r.x = battle.missionTarget->x - 28 - battle.camera.x;
 		r.y = battle.missionTarget->y - 28 - battle.camera.y;

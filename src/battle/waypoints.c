@@ -42,6 +42,7 @@ Entity *spawnWaypoint(void)
 	waypoint->texture = getTexture("gfx/entities/waypoint.png");
 	waypoint->flags = EF_MISSION_TARGET;
 	waypoint->action = think;
+	waypoint->flags |= EF_NO_MT_BOX;
 	
 	return waypoint;
 }

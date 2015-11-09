@@ -31,6 +31,7 @@ void initLookups(void)
 	tail = &head;
 	
 	addLookup("ET_WAYPOINT", ET_WAYPOINT);
+	addLookup("ET_EXTRACTION_POINT", ET_EXTRACTION_POINT);
 	
 	addLookup("EF_NO_KILL", EF_NO_KILL);
 	addLookup("EF_DISABLE", EF_DISABLE);

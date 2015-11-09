@@ -312,6 +312,10 @@ static void loadEntities(cJSON *node)
 				case ET_WAYPOINT:
 					e = spawnWaypoint();
 					break;
+					
+				case ET_EXTRACTION_POINT:
+					e = spawnExtractionPoint();
+					break;
 			}
 			
 			if (cJSON_GetObjectItem(node, "name"))

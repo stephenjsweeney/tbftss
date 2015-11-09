@@ -65,11 +65,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_MISSION_TARGET	(2 << 3)
 #define EF_FLEES			(2 << 4)
 #define EF_FLEEING			(2 << 5)
+#define EF_NO_MT_BOX		(2 << 6)
 
 enum
 {
 	ET_FIGHTER,
-	ET_WAYPOINT
+	ET_WAYPOINT,
+	ET_EXTRACTION_POINT
 };
 
 enum

@@ -19,27 +19,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "SDL2/SDL.h"
-#include "time.h"
 
 #include "../defs.h"
 #include "../structs.h"
-#include "../json/cJSON.h"
 
-extern long lookup(char *name);
-extern char *readFile(char *filename);
 extern SDL_Texture *getTexture(char *filename);
-extern Entity *spawnFighter(char *name, int x, int y, int side);
-extern void startSectionTransition(void);
-extern void endSectionTransition(void);
-extern void playMusic(char *filename);
-extern void stopMusic(void);
-extern void initPlayer(void);
-extern long flagsToLong(char *flags);
-extern Entity *spawnWaypoint(void);
-extern void activateNextWaypoint(void);
-extern void selectWidget(const char *name, const char *group);
-extern Entity *spawnExtractionPoint(void);
+extern Entity *spawnEntity(void);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern int getDistance(int x1, int y1, int x2, int y2);
 
-extern Battle battle;
-extern Entity *player;
-extern Game game;
+extern Entity *self;

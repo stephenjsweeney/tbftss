@@ -3,7 +3,7 @@
 	"health" : 35,
 	"shield" : 35,
 	"speed" : 1.9,
-	"reloadTime" : 12,
+	"reloadTime" : 25,
 	"shieldRechargeRate" : 30,
 	"textureName" : "gfx/fighters/firefly.png",
 	"guns" : [

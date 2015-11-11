@@ -240,6 +240,7 @@ typedef struct {
 	int missionFinishedTimer;
 	int numObjectivesComplete, numObjectivesTotal;
 	Entity *missionTarget;
+	Entity *extractionPoint;
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
 	Entity entityHead, *entityTail;

@@ -58,11 +58,17 @@ static void handleFleeingEntities(void)
 	candidates = getAllEntsWithin(self->x, self->y, self->w, self->h, self);
 	i = 0;
 	
-	for (e = candidates[i] ; (e != NULL && i < MAX_GRID_CANDIDATES) ; i++)
+	e = candidates[i];
+	
+	while (e)
 	{
 		if (e->health > 0 && e->flags & EF_FLEEING && getDistance(e->x, e->y, self->x, self->y) <= 64)
 		{
 			e->alive = ALIVE_DEAD;
 		}
+		
+		i++;
+		
+		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
 	}
 }

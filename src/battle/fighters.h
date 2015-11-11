@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern SDL_Texture *getTexture(char *filename);
 extern void doAI(void);
+extern void doCivilianAI(void);
 extern void blitRotated(SDL_Texture *t, int x, int y, int angle);
 extern void blit(SDL_Texture *t, int x, int y, int center);
 extern float getAngle(int x1, int y1, int x2, int y2);

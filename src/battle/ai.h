@@ -34,6 +34,7 @@ extern float getAngle(int x1, int y1, int x2, int y2);
 extern void applyFighterThrust(void);
 extern void applyFighterBrakes(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 
 extern Battle battle;
 extern Colors colors;

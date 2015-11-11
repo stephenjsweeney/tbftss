@@ -46,6 +46,10 @@ static void moveToPlayer(void);
 static int canAttack(Entity *f);
 static int selectWeapon(int type);
 static void flee(void);
+static int nearExtractionPoint(void);
+static int nearEnemies(void);
+static void lookForPlayer(void);
+static void moveToExtractionPoint(void);
 
 void doAI(void)
 {
@@ -383,4 +387,69 @@ static void moveToPlayer(void)
 		
 		applyFighterThrust();
 	}
+}
+
+/* ====== Civilian AI ======= */
+
+void doCivilianAI(void)
+{
+	if (!nearExtractionPoint() && !nearEnemies())
+	{
+		lookForPlayer();
+	}
+}
+
+static int nearExtractionPoint(void)
+{
+	Entity *e, **candidates;
+	int i;
+	
+	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	i = 0;
+	
+	e = candidates[i];
+	
+	self->target = NULL;
+	
+	while (e)
+	{
+		if (e->type == ET_EXTRACTION_POINT)
+		{
+			self->target = e;
+		}
+		
+		i++;
+		
+		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
+	}
+	
+	if (self->target != NULL)
+	{
+		self->action = moveToExtractionPoint;
+	}
+	
+	return self->target != NULL;
+}
+
+static int nearEnemies(void)
+{
+	return 0;
+}
+
+static void moveToExtractionPoint(void)
+{
+	faceTarget(self->target);
+		
+	applyFighterThrust();
+}
+
+static void lookForPlayer(void)
+{
+	if (getDistance(self->x, self->y, player->x, player->y) < 1000)
+	{
+		moveToPlayer();
+		return;
+	}
+	
+	applyFighterBrakes();
 }

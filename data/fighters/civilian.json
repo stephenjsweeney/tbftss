@@ -1,0 +1,10 @@
+{
+	"name" : "Civilian",
+	"health" : 10,
+	"shield" : 0,
+	"speed" : 2,
+	"reloadTime" : 0,
+	"shieldRechargeRate" : 0,
+	"textureName" : "gfx/craft/civilian01.png",
+	"flags" : "EF_CIVILIAN+EF_FLEEING"
+}

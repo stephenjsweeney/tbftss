@@ -71,7 +71,15 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 		randomizeDart(f);
 	}
 	
-	f->defaultAction = doAI;
+	if (f->flags & EF_CIVILIAN)
+	{
+		f->defaultAction = doCivilianAI;
+	}
+	else
+	{
+		f->defaultAction = doAI;
+	}
+	
 	f->die = die;
 	
 	return f;
@@ -271,17 +279,20 @@ static void separate(void)
 	
 	while (e)
 	{
-		distance = getDistance(e->x, e->y, self->x, self->y);
-		
-		if (distance > 0 && distance < self->separationRadius)
+		if (e->type == ET_FIGHTER)
 		{
-			angle = getAngle(self->x, self->y, e->x, e->y);
+			distance = getDistance(e->x, e->y, self->x, self->y);
 			
-			dx += sin(TO_RAIDANS(angle));
-			dy += -cos(TO_RAIDANS(angle));
-			force += (self->separationRadius - distance) * 0.005;
-			
-			count++;
+			if (distance > 0 && distance < self->separationRadius)
+			{
+				angle = getAngle(self->x, self->y, e->x, e->y);
+				
+				dx += sin(TO_RAIDANS(angle));
+				dy += -cos(TO_RAIDANS(angle));
+				force += (self->separationRadius - distance) * 0.005;
+				
+				count++;
+			}
 		}
 		
 		i++;

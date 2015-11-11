@@ -126,6 +126,11 @@ static void loadFighterDef(char *filename)
 		f->missiles.ammo = f->missiles.maxAmmo = cJSON_GetObjectItem(node, "ammo")->valueint;
 	}
 	
+	if (cJSON_GetObjectItem(root, "flags"))
+	{
+		f->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring);
+	}
+	
 	f->separationRadius = MAX(f->w, f->h);
 	f->separationRadius *= 2;
 	

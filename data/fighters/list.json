@@ -11,5 +11,6 @@
 	"data/fighters/nymph.json",
 	"data/fighters/firefly.json",
 	"data/fighters/hyena.json",
-	"data/fighters/leopard.json"
+	"data/fighters/leopard.json",
+	"data/fighters/civilian.json"
 ]

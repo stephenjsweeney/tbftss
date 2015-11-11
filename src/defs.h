@@ -66,6 +66,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_FLEES			(2 << 4)
 #define EF_FLEEING			(2 << 5)
 #define EF_NO_MT_BOX		(2 << 6)
+#define EF_CIVILIAN			(2 << 7)
 
 enum
 {

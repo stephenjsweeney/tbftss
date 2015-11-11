@@ -30,7 +30,6 @@ Entity *spawnExtractionPoint(void)
 	extractionPoint->type = ET_EXTRACTION_POINT;
 	extractionPoint->health = extractionPoint->maxHealth = FPS;
 	extractionPoint->texture = getTexture("gfx/entities/extractionPoint.png");
-	extractionPoint->flags = EF_MISSION_TARGET;
 	extractionPoint->action = think;
 	extractionPoint->flags |= EF_NO_MT_BOX;
 	
@@ -48,6 +47,8 @@ static void think(void)
 	}
 	
 	handleFleeingEntities();
+	
+	battle.extractionPoint = self;
 }
 
 static void handleFleeingEntities(void)

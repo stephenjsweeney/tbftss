@@ -276,6 +276,20 @@ static void drawPlayerTargeter(void)
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
+	
+	if (battle.extractionPoint)
+	{
+		angle = getAngle(player->x, player->y, battle.extractionPoint->x, battle.extractionPoint->y);
+		x = player->x;
+		y = player->y;
+		
+		x += sin(TO_RAIDANS(angle)) * 45;
+		y += -cos(TO_RAIDANS(angle)) * 45;
+		
+		SDL_SetTextureColorMod(targetPointer, 255, 255, 0);
+		
+		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
+	}
 }
 
 static void drawTargetsRects(void)

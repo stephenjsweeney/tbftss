@@ -226,6 +226,25 @@ void doFighter(void)
 		}
 	}
 	
+	if (self->alive == ALIVE_ESCAPED)
+	{
+		if (self->side != SIDE_ALLIES)
+		{
+			addHudMessage(colors.red, "Mission target has escaped.");
+			battle.stats[STAT_ENEMIES_ESCAPED]++;
+		}
+		else
+		{
+			battle.stats[STAT_ALLIES_ESCAPED]++;
+		}
+		
+		updateObjective(self->name, TT_ESCAPED);
+			
+		updateCondition(self->name, TT_ESCAPED);
+		
+		checkTrigger("ESCAPE", TRIGGER_ESCAPES);
+	}
+	
 	if (self->alive == ALIVE_DEAD)
 	{
 		if (self == player)
@@ -471,18 +490,6 @@ static void checkHasFled(void)
 	
 	if (distance > 5000)
 	{
-		if (self->side != SIDE_ALLIES)
-		{
-			addHudMessage(colors.red, "Mission target has escaped.");
-			battle.stats[STAT_ENEMIES_ESCAPED]++;
-		}
-		else
-		{
-			battle.stats[STAT_ALLIES_ESCAPED]++;
-		}
-		
-		checkTrigger("ESCAPE", TRIGGER_ESCAPES);
-		
-		self->alive = ALIVE_DEAD;
+		self->alive = ALIVE_ESCAPED;
 	}
 }

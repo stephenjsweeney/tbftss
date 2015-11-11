@@ -95,7 +95,7 @@ void doEntities(void)
 			e->x += e->dx;
 			e->y += e->dy;
 			
-			if (e->alive == ALIVE_DEAD)
+			if (e->alive == ALIVE_DEAD || e->alive == ALIVE_ESCAPED)
 			{
 				if (e == battle.entityTail)
 				{

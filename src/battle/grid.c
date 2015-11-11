@@ -119,6 +119,9 @@ Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore)
 		}
 	}
 	
+	/* NULL terminate, to allow us to loop through them more easily */
+	candidates[MAX_GRID_CANDIDATES - 1] = NULL;
+	
 	return candidates;
 }
 

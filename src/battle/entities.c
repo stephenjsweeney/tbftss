@@ -204,22 +204,14 @@ void drawEntities(void)
 
 	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
 	
-	i = 0;
-	e = candidates[i];
-	
-	while (e)
+	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
 	{
-		i++;
 		
-		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
 	}
 	
 	qsort(candidates, i, sizeof(Entity*), drawComparator);
 	
-	i = 0;
-	e = candidates[i];
-	
-	while (e)
+	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
 	{
 		if (e->active)
 		{
@@ -234,10 +226,6 @@ void drawEntities(void)
 					break;
 			}
 		}
-		
-		i++;
-		
-		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
 	}
 }
 

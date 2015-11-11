@@ -274,10 +274,8 @@ static void separate(void)
 	force = 0;
 	
 	candidates = getAllEntsWithin(self->x, self->y, self->w, self->h, self);
-	i = 0;
-	e = candidates[i];
 	
-	while (e)
+	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
 	{
 		if (e->type == ET_FIGHTER)
 		{
@@ -294,10 +292,6 @@ static void separate(void)
 				count++;
 			}
 		}
-		
-		i++;
-		
-		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
 	}
 	
 	if (count > 0)

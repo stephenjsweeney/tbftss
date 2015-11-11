@@ -401,26 +401,19 @@ void doCivilianAI(void)
 
 static int nearExtractionPoint(void)
 {
-	Entity *e, **candidates;
 	int i;
+	Entity *e, **candidates;
 	
 	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
-	i = 0;
-	
-	e = candidates[i];
 	
 	self->target = NULL;
 	
-	while (e)
+	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
 	{
 		if (e->type == ET_EXTRACTION_POINT)
 		{
 			self->target = e;
 		}
-		
-		i++;
-		
-		e = (i < MAX_GRID_CANDIDATES) ? candidates[i] : NULL;
 	}
 	
 	if (self->target != NULL)

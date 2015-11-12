@@ -26,8 +26,7 @@ static void drawNumFighters(void);
 static void drawHealthBars(void);
 static void drawWeaponInfo(void);
 static void drawObjectives(void);
-static void drawTargetDistance(void);
-static void drawMissionTargetDistance(void);
+static void drawDistancesInfo(void);
 static void drawHudMessages(void);
 static void drawPlayerSelect(void);
 static void drawTargetsRects(void);
@@ -136,12 +135,11 @@ void drawHud(void)
 		
 		drawObjectives();
 		
-		if (battle.missionTarget)
-		{
-			drawMissionTargetDistance();
-		}
+		drawDistancesInfo();
 		
 		drawRadar();
+		
+		drawRadarRangeWarning();
 	}
 	
 	drawHudMessages();
@@ -150,8 +148,6 @@ void drawHud(void)
 	{
 		drawPlayerSelect();
 	}
-	
-	drawRadarRangeWarning();
 }
 
 static void drawHealthBars(void)
@@ -179,13 +175,6 @@ static void drawHealthBars(void)
 	
 	drawHealthShieldBar(player->health, player->maxHealth, 10, 10, r, g, b);
 	drawHealthShieldBar(player->shield, player->maxShield, 10, 30, 0, 200, 255);
-	
-	if (player->target)
-	{
-		drawHealthShieldBar(player->target->health, player->target->maxHealth, SCREEN_WIDTH - 260, 10, 0, 200, 0);
-		drawHealthShieldBar(player->target->shield, player->target->maxShield, SCREEN_WIDTH - 260, 30, 0, 200, 255);
-		drawTargetDistance();
-	}
 }
 
 static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b)
@@ -337,9 +326,12 @@ static void drawObjectives(void)
 	drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, battle.numObjectivesTotal);
 }
 
-static void drawTargetDistance(void)
+static void drawDistancesInfo(void)
 {
+	int y;
 	float distance;
+	
+	y = 11;
 	
 	if (player->target != NULL)
 	{
@@ -349,13 +341,14 @@ static void drawTargetDistance(void)
 		distance = (int)distance;
 		distance /= 10;
 		
-		drawText(SCREEN_WIDTH - 15, 50, 14, TA_RIGHT, colors.red, "Target: %.2fkm", distance);
+		drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
+		
+		y += 30;
+		
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.red, "Target: %.2fkm", distance);
+		
+		y += 25;
 	}
-}
-
-static void drawMissionTargetDistance(void)
-{
-	float distance;
 	
 	if (battle.missionTarget != NULL)
 	{
@@ -365,7 +358,22 @@ static void drawMissionTargetDistance(void)
 		distance = (int)distance;
 		distance /= 10;
 		
-		drawText(SCREEN_WIDTH - 15, 75, 14, TA_RIGHT, colors.green, "Objective: %.2fkm", distance);
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.green, "Objective: %.2fkm", distance);
+		
+		y += 25;
+	}
+	
+	if (battle.extractionPoint != NULL)
+	{
+		distance = getDistance(player->x, player->y, battle.extractionPoint->x, battle.extractionPoint->y);
+		distance /= 50;
+		
+		distance = (int)distance;
+		distance /= 10;
+		
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, "Extraction Point: %.2fkm", distance);
+		
+		y += 25;
 	}
 }
 

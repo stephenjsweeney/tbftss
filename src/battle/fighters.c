@@ -27,7 +27,6 @@ static void spinDie(void);
 static void straightDie(void);
 static void randomizeDart(Entity *dart);
 static void randomizeDartGuns(Entity *dart);
-static void checkHasFled(void);
 
 Entity *spawnFighter(char *name, int x, int y, int side)
 {
@@ -220,13 +219,6 @@ void doFighter(void)
 			{
 				updateObjective(self->name, TT_DISABLE);
 				battle.stats[STAT_DISABLED]++;
-			}
-		}
-		else
-		{
-			if (player != NULL && self->flags & EF_FLEEING && battle.stats[STAT_TIME] % FPS == 0)
-			{
-				checkHasFled();
 			}
 		}
 	}
@@ -494,15 +486,5 @@ static void straightDie(void)
 		self->alive = ALIVE_DEAD;
 		addFighterExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
-	}
-}
-
-static void checkHasFled(void)
-{
-	long distance = getDistance(self->x, self->y, player->x, player->y);
-	
-	if (distance > 5000)
-	{
-		self->alive = ALIVE_ESCAPED;
 	}
 }

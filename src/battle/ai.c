@@ -62,7 +62,7 @@ void doAI(void)
 		self->target = NULL;
 	}
 
-	if (!self->target || targetOutOfRange() || self->target->systemPower <= 0)
+	if (!self->target || targetOutOfRange() || self->target->systemPower <= 0 || (self->target->flags & EF_CIVILIAN))
 	{
 		findTarget();
 		
@@ -441,7 +441,7 @@ static int nearEnemies(void)
 	int i, numEnemies;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	candidates = getAllEntsWithin(self->x - 1000, self->y - 1000, 2000, 2000, self);
 	
 	self->target = NULL;
 	self->targetLocation.x = self->targetLocation.y = 0;

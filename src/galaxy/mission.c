@@ -470,6 +470,7 @@ Mission *getMission(char *filename)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
+	#ifndef DEBUG
 	Mission *reqMission;
 	
 	if (mission->requires)
@@ -488,6 +489,7 @@ int isMissionAvailable(Mission *mission, Mission *prev)
 			}
 		}
 	}
+	#endif
 	
 	return 1;
 }

@@ -30,6 +30,7 @@ extern void addToGrid(Entity *e);
 extern void removeFromGrid(Entity *e);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 
+extern App app;
 extern Battle battle;
 extern Entity *self;
 extern Entity *player;

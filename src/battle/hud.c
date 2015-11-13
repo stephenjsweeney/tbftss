@@ -29,7 +29,6 @@ static void drawObjectives(void);
 static void drawDistancesInfo(void);
 static void drawHudMessages(void);
 static void drawPlayerSelect(void);
-static void drawTargetsRects(void);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
@@ -126,8 +125,6 @@ void drawHud(void)
 		drawHealthBars();
 		
 		drawPlayerTargeter();
-		
-		drawTargetsRects();
 		
 		drawWeaponInfo();
 		
@@ -282,33 +279,6 @@ static void drawPlayerTargeter(void)
 		SDL_SetTextureColorMod(targetPointer, 255, 255, 0);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
-	}
-}
-
-static void drawTargetsRects(void)
-{
-	SDL_Rect r;
-	
-	if (player->target)
-	{
-		r.x = player->target->x - 32 - battle.camera.x;
-		r.y = player->target->y - 32 - battle.camera.y;
-		r.w = 64;
-		r.h = 64;
-		
-		SDL_SetRenderDrawColor(app.renderer, 255, 64, 0, 255);
-		SDL_RenderDrawRect(app.renderer, &r);
-	}
-	
-	if (battle.missionTarget && (battle.missionTarget->flags & EF_NO_MT_BOX) == 0)
-	{
-		r.x = battle.missionTarget->x - 28 - battle.camera.x;
-		r.y = battle.missionTarget->y - 28 - battle.camera.y;
-		r.w = 56;
-		r.h = 56;
-		
-		SDL_SetRenderDrawColor(app.renderer, 64, 255, 0, 255);
-		SDL_RenderDrawRect(app.renderer, &r);
 	}
 }
 

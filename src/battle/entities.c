@@ -22,8 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void drawEntity(Entity *e);
 static void doEntity(void);
+static void drawEntity(Entity *e);
 static void activateEpicFighters(int n, int side);
 static void restrictToGrid(Entity *e);
+static void drawTargetRects(Entity *e);
 static int drawComparator(const void *a, const void *b);
 
 Entity *spawnEntity(void)
@@ -204,10 +206,8 @@ void drawEntities(void)
 
 	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
 	
-	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
-	{
-		
-	}
+	/* count number of candidates for use with qsort */
+	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i]) {}
 	
 	qsort(candidates, i, sizeof(Entity*), drawComparator);
 	
@@ -226,12 +226,41 @@ void drawEntities(void)
 					break;
 			}
 		}
+		
+		drawTargetRects(e);
 	}
 }
 
 static void drawEntity(Entity *e)
 {
 	blitRotated(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->angle);
+}
+
+static void drawTargetRects(Entity *e)
+{
+	SDL_Rect r;
+	
+	if (e == player->target)
+	{
+		r.x = e->x - 32 - battle.camera.x;
+		r.y = e->y - 32 - battle.camera.y;
+		r.w = 64;
+		r.h = 64;
+		
+		SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
+		SDL_RenderDrawRect(app.renderer, &r);
+	}
+	
+	if ((e == battle.missionTarget || e->flags & EF_MISSION_TARGET) && (e->flags & EF_NO_MT_BOX) == 0)
+	{
+		r.x = e->x - 28 - battle.camera.x;
+		r.y = e->y - 28 - battle.camera.y;
+		r.w = 56;
+		r.h = 56;
+		
+		SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
+		SDL_RenderDrawRect(app.renderer, &r);
+	}
 }
 
 void activateEntities(char *name)

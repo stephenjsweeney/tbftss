@@ -41,6 +41,7 @@ extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void checkTrigger(char *name, int type);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern Entity *spawnEntity(void);
+extern void adjustObjectiveTargetValue(char *name, int type, int amount);
 
 extern App app;
 extern Battle battle;

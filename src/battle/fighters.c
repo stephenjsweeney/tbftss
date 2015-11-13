@@ -270,12 +270,20 @@ void doFighter(void)
 					
 					if (!battle.epic)
 					{
-						addHudMessage(colors.red, "Ally has been killed");
+						if (self->flags & EF_CIVILIAN)
+						{
+							addHudMessage(colors.red, "Civilian has been killed");
+						}
+						else
+						{
+							addHudMessage(colors.red, "Ally has been killed");
+						}
 					}
 				}
 			}
 			
 			updateObjective(self->name, TT_DESTROY);
+			adjustObjectiveTargetValue(self->name, TT_ESCAPED, -1);
 			
 			updateCondition(self->name, TT_DESTROY);
 			

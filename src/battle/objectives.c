@@ -113,6 +113,26 @@ void updateObjective(char *name, int type)
 	}
 }
 
+void adjustObjectiveTargetValue(char *name, int type, int amount)
+{
+	Objective *o;
+	
+	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	{
+		if (o->active && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+		{
+			o->targetValue += amount;
+			o->currentValue = MIN(o->currentValue, o->targetValue);
+			
+			if (o->currentValue >= o->targetValue)
+			{
+				o->status = OS_COMPLETE;
+				addHudMessage(colors.green, "%s - Objective Complete!", o->description);
+			}
+		}
+	}
+}
+
 void updateCondition(char *name, int type)
 {
 	Objective *o;

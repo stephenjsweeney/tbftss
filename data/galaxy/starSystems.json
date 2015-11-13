@@ -139,7 +139,9 @@
         "side" : "SIDE_UNF",
         "x": 289,
         "y": 216,
-        "missions" : []
+        "missions" : [
+			"data/missions/warro/01 - Evacuation #1.json"
+        ]
       },
       {
         "name": "Coyote",

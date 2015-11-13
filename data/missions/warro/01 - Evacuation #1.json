@@ -1,0 +1,67 @@
+{
+	"name" : "Evacuation #1",
+	"description" : "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilation craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/oracleIX.png",
+	"music" : "music/determination.mp3",
+	"objectives" : [
+		{
+			"description" : "Rescue all civilians",
+			"targetName" : "Civilian",
+			"targetValue" : 36,
+			"targetType" : "TT_ESCAPED"
+		}
+	],
+	"player" : {
+		"pilot" : "Eliza Gaskin",
+		"squadron" : "The ABCs",
+		"type" : "Firefly",
+		"side" : "SIDE_ALLIES"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"number" : 3,
+			"types" : "Nymph",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 3000
+		},
+		{
+			"types" : "Civilian",
+			"number" : 12,
+			"name" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 18,
+			"y" : 20,
+			"scatter" : 5000
+		},
+		{
+			"types" : "Civilian",
+			"number" : 12,
+			"name" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 35,
+			"y" : 28,
+			"scatter" : 5000
+		},
+		{
+			"types" : "Civilian",
+			"number" : 12,
+			"name" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 20,
+			"y" : 12,
+			"scatter" : 5000
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Extraction Point",
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 22,
+			"y" : 24
+		}
+	]
+}

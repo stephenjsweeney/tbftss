@@ -8,7 +8,7 @@
 		{
 			"description" : "Rescue all civilians",
 			"targetName" : "Civilian",
-			"targetValue" : 36,
+			"targetValue" : 8,
 			"targetType" : "TT_ESCAPED"
 		}
 	],
@@ -30,38 +30,29 @@
 		},
 		{
 			"types" : "Civilian",
-			"number" : 12,
+			"number" : 4,
 			"name" : "Civilian",
 			"side" : "SIDE_ALLIES",
 			"x" : 18,
-			"y" : 20,
-			"scatter" : 5000
+			"y" : 25,
+			"scatter" : 1500
 		},
 		{
 			"types" : "Civilian",
-			"number" : 12,
+			"number" : 4,
 			"name" : "Civilian",
 			"side" : "SIDE_ALLIES",
-			"x" : 35,
-			"y" : 28,
-			"scatter" : 5000
-		},
-		{
-			"types" : "Civilian",
-			"number" : 12,
-			"name" : "Civilian",
-			"side" : "SIDE_ALLIES",
-			"x" : 20,
-			"y" : 12,
-			"scatter" : 5000
+			"x" : 32,
+			"y" : 25,
+			"scatter" : 1500
 		}
 	],
 	"entities" : [
 		{
 			"name" : "Extraction Point",
 			"type" : "ET_EXTRACTION_POINT",
-			"x" : 22,
-			"y" : 24
+			"x" : 25,
+			"y" : 25
 		}
 	]
 }

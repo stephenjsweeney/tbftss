@@ -49,6 +49,7 @@ static void flee(void);
 static int nearExtractionPoint(void);
 static int nearEnemies(void);
 static void lookForPlayer(void);
+static void fleeEnemies(void);
 static void moveToExtractionPoint(void);
 
 void doAI(void)
@@ -180,10 +181,14 @@ static void findTarget(void)
 		if (f->active && f->type == ET_FIGHTER && f->side != self->side && f->health > 0 && canAttack(f))
 		{
 			dist = getDistance(self->x, self->y, f->x, f->y);
+			
 			if (dist < closest)
 			{
-				self->target = f;
-				closest = dist;
+				if (self->target == NULL || ((self->target->flags & EF_CIVILIAN) == 0) || ((self->target->flags & EF_CIVILIAN) && rand() % 10) == 0)
+				{
+					self->target = f;
+					closest = dist;
+				}
 			}
 		}
 	}
@@ -424,11 +429,6 @@ static int nearExtractionPoint(void)
 	return self->target != NULL;
 }
 
-static int nearEnemies(void)
-{
-	return 0;
-}
-
 static void moveToExtractionPoint(void)
 {
 	faceTarget(self->target);
@@ -436,9 +436,67 @@ static void moveToExtractionPoint(void)
 	applyFighterThrust();
 }
 
+static int nearEnemies(void)
+{
+	int i, numEnemies;
+	Entity *e, **candidates;
+	
+	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	
+	self->target = NULL;
+	self->targetLocation.x = self->targetLocation.y = 0;
+	
+	numEnemies = 0;
+	
+	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
+	{
+		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
+		{
+			self->targetLocation.x += e->x;
+			self->targetLocation.y += e->y;
+			numEnemies++;
+		}
+	}
+	
+	if (numEnemies)
+	{
+		self->targetLocation.x /= numEnemies;
+		self->targetLocation.y /= numEnemies;
+		self->action = fleeEnemies;
+		self->aiActionTime = FPS * 3;
+		return 1;
+	}
+	
+	return 0;
+}
+
+static void fleeEnemies(void)
+{
+	int dir;
+	int wantedAngle = 180 + getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
+	
+	wantedAngle %= 360;
+	
+	if (fabs(wantedAngle - self->angle) > TURN_THRESHOLD)
+	{
+		dir = ((int)(wantedAngle - self->angle + 360)) % 360 > 180 ? -1 : 1;
+	
+		self->angle += dir * TURN_SPEED;
+		
+		self->angle = mod(self->angle, 360);
+	}
+	
+	applyFighterThrust();
+
+	if (--self->aiActionTime <= 0)
+	{
+		self->action = doCivilianAI;
+	}
+}
+
 static void lookForPlayer(void)
 {
-	if (getDistance(self->x, self->y, player->x, player->y) < 1000)
+	if (player != NULL && getDistance(self->x, self->y, player->x, player->y) < 1000)
 	{
 		moveToPlayer();
 		return;

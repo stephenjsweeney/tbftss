@@ -463,7 +463,7 @@ static int nearEnemies(void)
 		self->targetLocation.x /= numEnemies;
 		self->targetLocation.y /= numEnemies;
 		self->action = fleeEnemies;
-		self->aiActionTime = FPS * 3;
+		self->aiActionTime = FPS / 2;
 		return 1;
 	}
 	

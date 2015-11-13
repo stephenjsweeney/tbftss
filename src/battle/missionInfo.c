@@ -108,7 +108,7 @@ static void drawMissionSummary(SDL_Texture *header)
 			}
 			
 			drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
-			if (o->targetValue > 1)
+			if (o->targetValue > 1 && !o->isCondition)
 			{
 				drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
 			}

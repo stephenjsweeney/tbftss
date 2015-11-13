@@ -71,6 +71,11 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 		randomizeDart(f);
 	}
 	
+	if (strcmp(name, "Civilian") == 0 && rand() % 2 == 0)
+	{
+		f->texture = getTexture("gfx/craft/civilian02.png");
+	}
+	
 	if (f->flags & EF_CIVILIAN)
 	{
 		f->defaultAction = doCivilianAI;

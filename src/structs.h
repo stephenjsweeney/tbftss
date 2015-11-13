@@ -107,6 +107,7 @@ struct Entity {
 	Weapon guns[MAX_FIGHTER_GUNS];
 	Weapon missiles;
 	long flags;
+	SDL_Point targetLocation;
 	Entity *target;
 	void (*action)(void);
 	void (*defaultAction)(void);

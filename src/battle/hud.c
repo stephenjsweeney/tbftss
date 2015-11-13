@@ -224,15 +224,19 @@ static void drawPlayerTargeter(void)
 	float angle;
 	int x, y;
 	
-	if (player->target || battle.missionTarget)
+	if (player->target || battle.missionTarget || battle.extractionPoint)
 	{
 		if (player->target)
 		{
 			SDL_SetTextureColorMod(targetCircle, 255, 0, 0);
 		}
-		else
+		else if (battle.missionTarget)
 		{
 			SDL_SetTextureColorMod(targetCircle, 0, 255, 0);
+		}
+		else
+		{
+			SDL_SetTextureColorMod(targetCircle, 255, 255, 0);
 		}
 		
 		blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);

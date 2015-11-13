@@ -1,9 +1,9 @@
 {
 	"name" : "ATAF",
-	"health" : 50,
-	"shield" : 2000,
+	"health" : 75,
+	"shield" : 2500,
 	"speed" : 2.5,
-	"reloadTime" : 9,
+	"reloadTime" : 8,
 	"shieldRechargeRate" : 5,
 	"textureName" : "gfx/fighters/ataf.png",
 	"guns" : [

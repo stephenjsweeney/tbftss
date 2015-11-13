@@ -24,6 +24,7 @@ static void huntTarget(Bullet *b);
 static void checkCollisions(Bullet *b);
 
 static Bullet bulletDef[BT_MAX];
+static Bullet *bulletsToDraw[MAX_BULLETS_TO_DRAW];
 
 void initBulletDefs(void)
 {
@@ -58,8 +59,11 @@ void initBulletDefs(void)
 
 void doBullets(void)
 {
+	int i = 0;
 	Bullet *b;
 	Bullet *prev = &battle.bulletHead;
+	
+	memset(bulletsToDraw, 0, sizeof(Bullet*) * MAX_BULLETS_TO_DRAW);
 	
 	for (b = battle.bulletHead.next ; b != NULL ; b = b->next)
 	{
@@ -86,6 +90,18 @@ void doBullets(void)
 			free(b);
 			b = prev;
 		}
+		else
+		{
+			if (collision(b->x - b->w - battle.camera.x, b->y - b->h - battle.camera.y, b->w * 2, b->h * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+			{
+				bulletsToDraw[i++] = b;
+				if (i >= MAX_BULLETS_TO_DRAW)
+				{
+					printf("Too many bullets to draw\n");
+					exit(1);
+				}
+			}
+		}
 		
 		prev = b;
 	}
@@ -98,7 +114,7 @@ static void checkCollisions(Bullet *b)
 	
 	candidates = getAllEntsWithin(b->x, b->y, b->w, b->h, NULL);
 	
-	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if (e->type == ET_FIGHTER)
 		{
@@ -141,9 +157,10 @@ static void checkCollisions(Bullet *b)
 
 void drawBullets(void)
 {
+	int i;
 	Bullet *b;
 	
-	for (b = battle.bulletHead.next ; b != NULL ; b = b->next)
+	for (i = 0, b = bulletsToDraw[i] ; b != NULL ; b = bulletsToDraw[++i])
 	{
 		blitRotated(b->texture, b->x - battle.camera.x, b->y - battle.camera.y, b->angle);
 	}

@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define TURN_SPEED 			2
 #define TURN_THRESHOLD 		3
+#define MAX_BULLETS_TO_DRAW	512
 
 extern SDL_Texture *getTexture(char *filename);
 extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);

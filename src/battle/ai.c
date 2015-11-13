@@ -413,7 +413,7 @@ static int nearExtractionPoint(void)
 	
 	self->target = NULL;
 	
-	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if (e->type == ET_EXTRACTION_POINT)
 		{
@@ -448,7 +448,7 @@ static int nearEnemies(void)
 	
 	numEnemies = 0;
 	
-	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
 		{

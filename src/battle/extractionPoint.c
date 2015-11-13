@@ -58,7 +58,7 @@ static void handleFleeingEntities(void)
 	
 	candidates = getAllEntsWithin(self->x, self->y, self->w, self->h, self);
 	
-	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if (e->health > 0 && e->flags & EF_FLEEING && getDistance(e->x, e->y, self->x, self->y) <= 64)
 		{

@@ -299,7 +299,7 @@ static void separate(void)
 	
 	candidates = getAllEntsWithin(self->x, self->y, self->w, self->h, self);
 	
-	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if (e->type == ET_FIGHTER)
 		{

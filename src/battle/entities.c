@@ -207,11 +207,11 @@ void drawEntities(void)
 	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
 	
 	/* count number of candidates for use with qsort */
-	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i]) {}
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i]) {}
 	
 	qsort(candidates, i, sizeof(Entity*), drawComparator);
 	
-	for (i = 0, e = candidates[i] ; e != NULL ; i++, e = candidates[i])
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if (e->active)
 		{
@@ -240,7 +240,7 @@ static void drawTargetRects(Entity *e)
 {
 	SDL_Rect r;
 	
-	if (e == player->target)
+	if (player != NULL && e == player->target)
 	{
 		r.x = e->x - 32 - battle.camera.x;
 		r.y = e->y - 32 - battle.camera.y;

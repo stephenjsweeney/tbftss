@@ -140,7 +140,8 @@
         "x": 289,
         "y": 216,
         "missions" : [
-			"data/missions/warro/01 - Evacuation #1.json"
+			"data/missions/warro/01 - Evacuation #1.json",
+			"data/missions/warro/02 - Evacuation #2.json"
         ]
       },
       {

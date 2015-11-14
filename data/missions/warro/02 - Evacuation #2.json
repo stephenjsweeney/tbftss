@@ -1,0 +1,130 @@
+{
+	"name" : "Evacuation #2",
+	"description" : "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/oracleIX.png",
+	"music" : "music/determination.mp3",
+	"objectives" : [
+		{
+			"description" : "Rescue all civilians",
+			"targetName" : "Civilian",
+			"targetValue" : 12,
+			"targetType" : "TT_ESCAPED"
+		},
+		{
+			"description" : "Minimise civilian losses",
+			"targetName" : "Civilian",
+			"targetValue" : 2,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"pilot" : "Eliza Gaskin",
+		"squadron" : "The ABCs",
+		"type" : "Firefly",
+		"side" : "SIDE_ALLIES"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"number" : 3,
+			"types" : "Firefly",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 3000
+		},
+		{
+			"types" : "Civilian",
+			"number" : 4,
+			"name" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 35,
+			"scatter" : 1500
+		},
+		{
+			"types" : "Civilian",
+			"number" : 4,
+			"name" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 30,
+			"y" : 35,
+			"scatter" : 1500
+		},
+		{
+			"types" : "Civilian",
+			"number" : 4,
+			"name" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 35,
+			"y" : 35,
+			"scatter" : 1500
+		},
+		{
+			"types" : "Jackal",
+			"number" : 2,
+			"name" : "Pandoran",
+			"groupName" : "Pandoran-1",
+			"side" : "SIDE_PANDORAN",
+			"x" : 27,
+			"y" : 27,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"types" : "Jackal",
+			"number" : 2,
+			"name" : "Pandoran",
+			"groupName" : "Pandoran-2",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 33,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"types" : "Jackal",
+			"number" : 2,
+			"name" : "Pandoran",
+			"groupName" : "Pandoran-3",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 23,
+			"scatter" : 500,
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Extraction Point",
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 25,
+			"y" : 25
+		}
+	],
+	"triggers" : [
+		{
+			"type" : "TRIGGER_TIME",
+			"targetName" : "TIME",
+			"targetValue" : 60,
+			"action" : "TA_ACTIVE_ENTITY_GROUP",
+			"actionValue" : "Pandoran-1"
+		},
+		{
+			"type" : "TRIGGER_TIME",
+			"targetName" : "TIME",
+			"targetValue" : 120,
+			"action" : "TA_ACTIVE_ENTITY_GROUP",
+			"actionValue" : "Pandoran-2"
+		},
+		{
+			"type" : "TRIGGER_TIME",
+			"targetName" : "TIME",
+			"targetValue" : 180,
+			"action" : "TA_ACTIVE_ENTITY_GROUP",
+			"actionValue" : "Pandoran-3"
+		}
+	]
+}

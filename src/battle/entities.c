@@ -276,6 +276,19 @@ void activateEntities(char *name)
 	}
 }
 
+void activateEntityGroup(char *groupName)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (strcmp(e->groupName, groupName) == 0)
+		{
+			e->active = 1;
+		}
+	}
+}
+
 static void activateEpicFighters(int n, int side)
 {
 	Entity *e;

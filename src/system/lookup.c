@@ -110,6 +110,7 @@ void initLookups(void)
 	addLookup("TA_FAIL_MISSION", TA_FAIL_MISSION);
 	addLookup("TA_ACTIVE_ENTITY", TA_ACTIVE_ENTITY);
 	addLookup("TA_ACTIVE_OBJECTIVE", TA_ACTIVE_OBJECTIVE);
+	addLookup("TA_ACTIVE_ENTITY_GROUP", TA_ACTIVE_ENTITY_GROUP);
 }
 
 static void addLookup(char *name, long value)

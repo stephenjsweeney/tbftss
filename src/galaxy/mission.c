@@ -115,6 +115,8 @@ void failMission(void)
 		battle.status = MS_FAILED;
 		battle.missionFinishedTimer = FPS;
 		selectWidget("retry", "battleLost");
+		
+		failIncompleteObjectives();
 	}
 }
 
@@ -242,7 +244,7 @@ static void loadFighters(cJSON *node)
 static void loadFighterGroups(cJSON *node)
 {
 	Entity *f;
-	char **types, *name, *type;
+	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
 	int i, numTypes;
 	float x, y;
@@ -256,12 +258,19 @@ static void loadFighterGroups(cJSON *node)
 		
 		while (node)
 		{
+			groupName = NULL;
+			
 			types = toFighterTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 			number = cJSON_GetObjectItem(node, "number")->valueint;
 			name = cJSON_GetObjectItem(node, "name")->valuestring;
 			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
 			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
+			
+			if (cJSON_GetObjectItem(node, "groupName"))
+			{
+				groupName = cJSON_GetObjectItem(node, "groupName")->valuestring;
+			}
 			
 			if (cJSON_GetObjectItem(node, "scatter"))
 			{
@@ -285,6 +294,11 @@ static void loadFighterGroups(cJSON *node)
 				f->active = active;
 				
 				STRNCPY(f->name, name, MAX_NAME_LENGTH);
+				
+				if (groupName)
+				{
+					STRNCPY(f->groupName, groupName, MAX_NAME_LENGTH);
+				}
 			}
 		
 			node = node->next;
@@ -341,7 +355,7 @@ static void loadEntities(cJSON *node)
 static void loadEntityGroups(cJSON *node)
 {
 	Entity *e;
-	char *name;
+	char *name, *groupName;
 	int i, type, scatter, number;
 	float x, y;
 	
@@ -358,10 +372,16 @@ static void loadEntityGroups(cJSON *node)
 			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
 			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
 			name = NULL;
+			groupName = NULL;
 			
 			if (cJSON_GetObjectItem(node, "name"))
 			{
 				name = cJSON_GetObjectItem(node, "name")->valuestring;
+			}
+			
+			if (cJSON_GetObjectItem(node, "groupName"))
+			{
+				groupName = cJSON_GetObjectItem(node, "groupName")->valuestring;
 			}
 			
 			if (cJSON_GetObjectItem(node, "scatter"))
@@ -381,6 +401,11 @@ static void loadEntityGroups(cJSON *node)
 				if (name)
 				{
 					STRNCPY(e->name, name, MAX_NAME_LENGTH);
+				}
+				
+				if (groupName)
+				{
+					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
 				}
 				
 				e->id = battle.entId++;

@@ -74,6 +74,10 @@ static void fireTrigger(Trigger *trigger)
 			activateEntities(trigger->actionValue);
 			break;
 			
+		case TA_ACTIVE_ENTITY_GROUP:
+			activateEntityGroup(trigger->actionValue);
+			break;
+			
 		case TA_ACTIVE_OBJECTIVE:
 			activateObjective(atoi(trigger->actionValue));
 			break;

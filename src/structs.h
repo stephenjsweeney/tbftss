@@ -73,6 +73,7 @@ struct Entity {
 	int type;
 	char name[MAX_NAME_LENGTH];
 	char defName[MAX_NAME_LENGTH];
+	char groupName[MAX_NAME_LENGTH];
 	int active;
 	int id;
 	int side;

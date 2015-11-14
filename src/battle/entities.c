@@ -92,6 +92,8 @@ void doEntities(void)
 					break;
 			}
 			
+			doRope(e);
+			
 			restrictToGrid(e);
 			
 			e->x += e->dx;
@@ -228,6 +230,8 @@ void drawEntities(void)
 		}
 		
 		drawTargetRects(e);
+		
+		drawRope(e);
 	}
 }
 

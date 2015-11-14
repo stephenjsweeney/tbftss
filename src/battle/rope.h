@@ -23,16 +23,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
-extern void blitRotated(SDL_Texture *t, int x, int y, int angle);
-extern void drawFighter(Entity *e);
-extern void doFighter(void);
-extern void addToGrid(Entity *e);
-extern void removeFromGrid(Entity *e);
-extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
-extern void doRope(Entity *e);
-extern void drawRope(Entity *e);
+#define ROPE_DISTANCE	128
+
+extern float getAngle(int x1, int y1, int x2, int y2);
+extern int getDistance(int x1, int y1, int x2, int y2);
 
 extern App app;
 extern Battle battle;
-extern Entity *self;
-extern Entity *player;

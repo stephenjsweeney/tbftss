@@ -109,6 +109,7 @@ struct Entity {
 	Weapon missiles;
 	long flags;
 	SDL_Point targetLocation;
+	Entity *towing;
 	Entity *target;
 	void (*action)(void);
 	void (*defaultAction)(void);

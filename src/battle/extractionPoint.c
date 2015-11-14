@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void think(void);
 static void handleFleeingEntities(void);
+static void cutTowRope(Entity *e);
 
 Entity *spawnExtractionPoint(void)
 {
@@ -63,6 +64,21 @@ static void handleFleeingEntities(void)
 		if (e->health > 0 && e->flags & EF_FLEEING && getDistance(e->x, e->y, self->x, self->y) <= 64)
 		{
 			e->alive = ALIVE_ESCAPED;
+			
+			cutTowRope(e);
+		}
+	}
+}
+
+static void cutTowRope(Entity *attachment)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->towing == attachment)
+		{
+			e->towing = NULL;
 		}
 	}
 }

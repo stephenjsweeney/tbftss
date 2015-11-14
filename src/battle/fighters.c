@@ -27,6 +27,7 @@ static void spinDie(void);
 static void straightDie(void);
 static void randomizeDart(Entity *dart);
 static void randomizeDartGuns(Entity *dart);
+static void attachRope(void);
 
 Entity *spawnFighter(char *name, int x, int y, int side)
 {
@@ -174,6 +175,8 @@ void doFighter(void)
 			separate();
 		}
 		
+		attachRope();
+		
 		self->reload = MAX(self->reload - 1, 0);
 		self->shieldRecharge = MAX(self->shieldRecharge - 1, 0);
 		self->armourHit = MAX(self->armourHit - 25, 0);
@@ -207,7 +210,7 @@ void doFighter(void)
 				battle.missionTarget = NULL;
 			}
 		}
-		else if (self->systemPower <= 0)
+		else if (self->systemPower <= 0 || (self->flags & EF_DISABLED))
 		{
 			self->dx *= 0.99;
 			self->dy *= 0.99;
@@ -329,6 +332,30 @@ static void separate(void)
 		
 		self->dx -= dx;
 		self->dy -= dy;
+	}
+}
+
+static void attachRope(void)
+{
+	int i, distance;
+	Entity *e, **candidates;
+	
+	if ((self->flags & EF_HAS_ROPE) && self->towing == NULL)
+	{
+		candidates = getAllEntsWithin(self->x, self->y, self->w, self->h, self);
+	
+		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+		{
+			if ((e->flags & EF_DISABLED) && e->alive == ALIVE_ALIVE)
+			{
+				distance = getDistance(e->x, e->y, self->x, self->y);
+				
+				if (distance > 0 && distance <= 32)
+				{
+					self->towing = e;
+				}
+			}
+		}
 	}
 }
 

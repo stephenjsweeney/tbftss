@@ -215,8 +215,9 @@ void doFighter(void)
 			self->shield = self->maxShield = 0;
 			self->action = NULL;
 			
-			if (self->alive == ALIVE_ALIVE)
+			if ((self->flags & EF_DISABLED) == 0)
 			{
+				self->flags |= EF_DISABLED;
 				updateObjective(self->name, TT_DISABLE);
 				battle.stats[STAT_DISABLED]++;
 			}

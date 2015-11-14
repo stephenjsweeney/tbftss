@@ -26,7 +26,7 @@ static int aggression[][5] =
 	{50, 55, 60, 65, 70},
 	{40, 45, 50, 55, 60},
 	{30, 35, 40, 45, 50},
-	{20, 25, 30, 35, 40}
+	{15, 20, 25, 30, 35}
 };
 
 static void faceTarget(Entity *f);
@@ -192,7 +192,7 @@ static int canAttack(Entity *f)
 {
 	self->selectedGunType = self->guns[0].type;
 	
-	if (f->flags & EF_DISABLE)
+	if (f->flags & EF_DISABLED)
 	{
 		if (f->systemPower > 0)
 		{

@@ -34,7 +34,7 @@ void initLookups(void)
 	addLookup("ET_EXTRACTION_POINT", ET_EXTRACTION_POINT);
 	
 	addLookup("EF_NO_KILL", EF_NO_KILL);
-	addLookup("EF_DISABLE", EF_DISABLE);
+	addLookup("EF_DISABLED", EF_DISABLED);
 	addLookup("EF_IMMORTAL", EF_IMMORTAL);
 	addLookup("EF_MISSION_TARGET", EF_MISSION_TARGET);
 	addLookup("EF_FLEES", EF_FLEES);

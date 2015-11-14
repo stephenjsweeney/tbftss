@@ -48,7 +48,7 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 	switch (side)
 	{
 		case SIDE_ALLIES:
-			f->aggression = 1 + rand() % 3;
+			f->aggression = 2 + rand() % 3;
 			break;
 			
 		case SIDE_PIRATE:

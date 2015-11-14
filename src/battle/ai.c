@@ -22,11 +22,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static int aggression[][5] =
 {
-	{25, 35, 35, 40, 50},
-	{20, 30, 30, 35, 40},
-	{15, 20, 25, 30, 35},
-	{10, 15, 20, 25, 30},
-	{5, 10, 15, 20, 25}
+	{60, 65, 70, 75, 80},
+	{50, 55, 60, 65, 70},
+	{40, 45, 50, 55, 60},
+	{30, 35, 40, 45, 50},
+	{20, 25, 30, 35, 40}
 };
 
 static void faceTarget(Entity *f);
@@ -86,22 +86,22 @@ void doAI(void)
 	if (r <= aggression[self->aggression][0])
 	{
 		self->action = dodge;
-		self->aiActionTime = FPS * 2;
+		self->aiActionTime = FPS;
 	}
 	else if (r <= aggression[self->aggression][1])
 	{
 		self->action = boost;
-		self->aiActionTime = FPS * 1;
+		self->aiActionTime = FPS / 2;
 	}
 	else if (r <= aggression[self->aggression][2])
 	{
 		self->action = slow;
-		self->aiActionTime = FPS * 1;
+		self->aiActionTime = FPS / 2;
 	}
 	else if (r <= aggression[self->aggression][3])
 	{
 		self->action = flyStraight;
-		self->aiActionTime = FPS * 1;
+		self->aiActionTime = FPS;
 	}
 	else if (r <= aggression[self->aggression][4])
 	{
@@ -111,7 +111,7 @@ void doAI(void)
 	else
 	{
 		self->action = huntAndAttackTarget;
-		self->aiActionTime = FPS * 1;
+		self->aiActionTime = FPS;
 	}
 	
 	if (player != NULL && battle.numEnemies <= 2 && self->flags & EF_FLEES)
@@ -157,7 +157,6 @@ static void huntAndAttackTarget(void)
 	if (dist <= 250)
 	{
 		applyFighterBrakes();
-		self->aiActionTime = MIN(FPS, self->aiActionTime);
 	}
 	else
 	{
@@ -308,11 +307,11 @@ static void preAttack(void)
 {
 	if (!self->reload)
 	{
-		if (self->guns[0].type && (self->missiles.ammo == 0 || (rand() % 50) > 0))
+		if (self->guns[0].type && (self->missiles.ammo == 0 || rand() % 50 > 0))
 		{
 			fireGuns(self);
 		}
-		else if (self->missiles.ammo)
+		else if (self->missiles.ammo && (self->target != player || rand() % 10 == 0))
 		{
 			fireMissile(self);
 		}

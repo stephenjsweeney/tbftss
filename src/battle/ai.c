@@ -41,7 +41,6 @@ static void findTarget(void);
 static int hasClearShot(void);
 static void boost(void);
 static void slow(void);
-static int targetOutOfRange(void);
 static void moveToPlayer(void);
 static int canAttack(Entity *f);
 static int selectWeapon(int type);
@@ -56,13 +55,14 @@ void doAI(void)
 {
 	int r;
 	
-	if (self->target != NULL && self->target->health <= 0)
+	/* don't hold a grudge against current target */
+	if ((self->target != NULL && self->target->health <= 0) || rand() % 2 == 0)
 	{
 		self->action = self->defaultAction;
 		self->target = NULL;
 	}
 
-	if (!self->target || targetOutOfRange() || self->target->systemPower <= 0 || (self->target->flags & EF_CIVILIAN))
+	if (!self->target || self->target->systemPower <= 0)
 	{
 		findTarget();
 		
@@ -126,14 +126,6 @@ void doAI(void)
 	}
 }
 
-/*
- * Don't chase your target forever
- */
-static int targetOutOfRange(void)
-{
-	return getDistance(self->x, self->y, self->target->x, self->target->y) > SCREEN_HEIGHT;
-}
-
 static void huntTarget(void)
 {
 	faceTarget(self->target);
@@ -168,24 +160,27 @@ static void huntAndAttackTarget(void)
 
 static void findTarget(void)
 {
-	Entity *f;
+	int i;
+	Entity *e, **candidates;
 	unsigned int dist, closest;
 	
 	dist = closest = (!battle.epic) ? 2000 : MAX_TARGET_RANGE;
 	
+	candidates = getAllEntsWithin(self->x - dist / 2, self->y - dist / 2, self->w + dist, self->h + dist, self);
+	
 	self->target = NULL;
 	
-	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (f->active && f->type == ET_FIGHTER && f->side != self->side && f->health > 0 && canAttack(f))
+		if (e->active && e->type == ET_FIGHTER && e->side != self->side && e->health > 0 && canAttack(e))
 		{
-			dist = getDistance(self->x, self->y, f->x, f->y);
+			dist = getDistance(self->x, self->y, e->x, e->y);
 			
 			if (dist < closest)
 			{
 				if (self->target == NULL || ((self->target->flags & EF_CIVILIAN) == 0) || ((self->target->flags & EF_CIVILIAN) && rand() % 10) == 0)
 				{
-					self->target = f;
+					self->target = e;
 					closest = dist;
 				}
 			}

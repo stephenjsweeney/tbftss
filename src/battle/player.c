@@ -132,10 +132,7 @@ void doPlayer(void)
 		{
 			if (!battle.epic)
 			{
-				failIncompleteObjectives();
-				
-				battle.status = MS_FAILED;
-				battle.missionFinishedTimer = FPS;
+				failMission();
 			}
 			else if (player->health == -FPS)
 			{
@@ -171,10 +168,7 @@ void initPlayerSelect(void)
 	{
 		battle.epic = 0;
 		
-		failIncompleteObjectives();
-		
-		battle.status = MS_FAILED;
-		battle.missionFinishedTimer = FPS;
+		failMission();
 	}
 }
 

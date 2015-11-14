@@ -79,8 +79,6 @@ void doObjectives(void)
 		if (objectiveFailed)
 		{
 			failMission();
-			
-			failIncompleteObjectives();
 		}
 	}
 }

@@ -1,6 +1,8 @@
 # tbftss
 2D mission-based space shooter, based on the Battle for the Solar System space opera novel trilogy.
 
+The develop branch on GitHub (https://github.com/stephenjsweeney/tbftss) is where all the dev work happens. Stable(ish) releases will go in to master.
+
 Website: www.battleforthesolarsystem.com
 Email: stephenjsweeney@battleforthesolarsystem.com
 

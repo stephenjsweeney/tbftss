@@ -226,7 +226,7 @@ static void huntTarget(Bullet *b)
 	}
 	else
 	{
-		b->target = b->owner->target;
+		b->target = NULL;
 	}
 }
 

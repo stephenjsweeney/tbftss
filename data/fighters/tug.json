@@ -1,0 +1,17 @@
+{
+	"name" : "Tug",
+	"health" : 35,
+	"shield" : 10,
+	"speed" : 2.1,
+	"reloadTime" : 10,
+	"shieldRechargeRate" : 0,
+	"textureName" : "gfx/craft/tug.png",
+	"guns" : [
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 0,
+			"y" : 0
+		}
+	],
+	"flags" : "EF_HAS_ROPE"
+}

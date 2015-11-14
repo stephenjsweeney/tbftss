@@ -1,9 +1,10 @@
 PROG = tbftss
 
 VERSION = 0.3
+REVISION := $(shell git rev-list --count HEAD)
 DEBUG = 0
 
-CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DUNIX=1 -DDEBUG=$(DEBUG)
+CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DUNIX=1 -DDEBUG=$(DEBUG)
 CXXFLAGS += -DUNIX
 CXXFLAGS += $(CFLAGS) -Wall -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence
@@ -53,10 +54,10 @@ dist:
 	$(RM) -rf $(PROG)-$(VERSION)
 	mkdir $(PROG)-$(VERSION)
 	cp -r $(DIST_FILES) $(PROG)-$(VERSION)
-	git log --oneline master..v$(VERSION) >$(PROG)-$(VERSION)/CHANGELOG
-	tar czf $(PROG)-$(VERSION)-src.tar.gz $(PROG)-$(VERSION)
+	git log --oneline master..develop >$(PROG)-$(VERSION)/CHANGELOG
+	tar czf $(PROG)-$(VERSION).$(REVISION)-src.tar.gz $(PROG)-$(VERSION)
 	mkdir -p dist
-	mv $(PROG)-$(VERSION)-src.tar.gz dist
+	mv $(PROG)-$(VERSION).$(REVISION)-src.tar.gz dist
 	$(RM) -rf $(PROG)-$(VERSION)
 
 # cleaning everything that can be automatically recreated with "make".

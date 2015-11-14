@@ -495,7 +495,7 @@ Mission *getMission(char *filename)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
-	#ifndef DEBUG
+	#if !DEBUG
 	Mission *reqMission;
 	
 	if (mission->requires)

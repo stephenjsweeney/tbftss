@@ -141,7 +141,8 @@
         "y": 216,
         "missions" : [
 			"data/missions/warro/01 - evacuation #1.json",
-			"data/missions/warro/02 - evacuation #2.json"
+			"data/missions/warro/02 - evacuation #2.json",
+			"data/missions/warro/03 - evacuation #3.json"
         ]
       },
       {

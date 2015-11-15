@@ -1,0 +1,117 @@
+{
+	"name" : "Evacuation #3",
+	"description" : "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/oracleIX.png",
+	"music" : "music/determination.mp3",
+	"objectives" : [
+		{
+			"description" : "Rescue all civilians",
+			"targetName" : "Civilian",
+			"targetValue" : 4,
+			"targetType" : "TT_ESCAPED"
+		},
+		{
+			"description" : "Do not allow any civilians to be killed",
+			"targetName" : "Civilian",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"pilot" : "Preston Palmer",
+		"squadron" : "S&R",
+		"type" : "Tug",
+		"side" : "SIDE_ALLIES"
+	},
+	"fighters" : [
+		{
+			"name" : "Civilian",
+			"type" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 18,
+			"y" : 26,
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET+EF_FLEEING"
+		},
+		{
+			"name" : "Civilian",
+			"type" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 28,
+			"y" : 20,
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET+EF_FLEEING"
+		},
+		{
+			"name" : "Civilian",
+			"type" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 37,
+			"y" : 22,
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET+EF_FLEEING"
+		},
+		{
+			"name" : "Civilian",
+			"type" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 32,
+			"y" : 32,
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET+EF_FLEEING"
+		}
+	],
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"number" : 3,
+			"types" : "Nymph",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"name" : "Dart",
+			"number" : 8,
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 18,
+			"y" : 26,
+			"scatter" : 750
+		},
+		{
+			"name" : "Dart",
+			"number" : 8,
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 28,
+			"y" : 20,
+			"scatter" : 750
+		},
+		{
+			"name" : "Dart",
+			"number" : 8,
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 37,
+			"y" : 22,
+			"scatter" : 750
+		},
+		{
+			"name" : "Dart",
+			"number" : 8,
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 32,
+			"y" : 32,
+			"scatter" : 750
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Extraction Point",
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 25,
+			"y" : 25
+		}
+	]
+}

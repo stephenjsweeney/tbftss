@@ -26,6 +26,7 @@ static void selectMissionTarget(void);
 static void selectNewPlayer(int dir);
 static void initPlayerSelect(void);
 static void activateBoost(void);
+static void deactivateBoost(void);
 static void activateECM(void);
 
 static int selectedPlayerIndex;
@@ -67,11 +68,6 @@ void doPlayer(void)
 {
 	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
 	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
-	
-	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
-	{
-		applyFighterThrust();
-	}
 	
 	if (player != NULL)
 	{
@@ -164,6 +160,11 @@ void doPlayer(void)
 			}
 		}
 	}
+	
+	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
+	{
+		deactivateBoost();
+	}
 }
 
 void initPlayerSelect(void)
@@ -245,6 +246,23 @@ static void activateBoost(void)
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 	
 	battle.boostTimer = 0;
+}
+
+static void deactivateBoost(void)
+{
+	float v, thrust;
+	
+	thrust = -1;
+	
+	while (thrust != self->thrust)
+	{
+		thrust = self->thrust;
+		
+		v = (self->speed / sqrt(self->thrust));
+		self->dx = v * self->dx;
+		self->dy = v * self->dy;
+		self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
+	}
 }
 
 static void activateECM(void)

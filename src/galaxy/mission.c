@@ -247,6 +247,7 @@ static void loadFighterGroups(cJSON *node)
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
 	int i, numTypes;
+	long flags;
 	float x, y;
 	
 	scatter = 1;
@@ -259,6 +260,7 @@ static void loadFighterGroups(cJSON *node)
 		while (node)
 		{
 			groupName = NULL;
+			flags = -1;
 			
 			types = toFighterTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
@@ -282,6 +284,11 @@ static void loadFighterGroups(cJSON *node)
 				active = cJSON_GetObjectItem(node, "active")->valueint;
 			}
 			
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
+			
 			for (i = 0 ; i < number ; i++)
 			{
 				type = types[rand() % numTypes];
@@ -292,6 +299,11 @@ static void loadFighterGroups(cJSON *node)
 				f->y += (rand() % scatter) - (rand() % scatter);
 				
 				f->active = active;
+				
+				if (flags != -1)
+				{
+					f->flags = flags;
+				}
 				
 				STRNCPY(f->name, name, MAX_NAME_LENGTH);
 				

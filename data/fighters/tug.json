@@ -1,8 +1,8 @@
 {
 	"name" : "Tug",
 	"health" : 35,
-	"shield" : 10,
-	"speed" : 2.1,
+	"shield" : 0,
+	"speed" : 1.8,
 	"reloadTime" : 10,
 	"shieldRechargeRate" : 0,
 	"textureName" : "gfx/craft/tug.png",

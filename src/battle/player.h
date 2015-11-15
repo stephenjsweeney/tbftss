@@ -30,7 +30,6 @@ extern void fireMissile(Entity *owner);
 extern void applyFighterThrust(void);
 extern void applyFighterBrakes(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
-extern void failIncompleteObjectives(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern int mod(int n, int x);
 extern void failMission(void);

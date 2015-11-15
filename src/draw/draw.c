@@ -46,7 +46,9 @@ void prepareScene(void)
 
 void presentScene(void)
 {
-	/*drawText(SCREEN_WIDTH - 5, 35, 14, TA_RIGHT, colors.white, "FPS: %d", app.fps);*/
+	#if DEBUG
+	drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 25, 14, TA_CENTER, colors.white, "FPS: %d", app.fps);
+	#endif
 	
 	SDL_SetRenderTarget(app.renderer, NULL);
 	SDL_RenderCopy(app.renderer, app.backBuffer, NULL, NULL);

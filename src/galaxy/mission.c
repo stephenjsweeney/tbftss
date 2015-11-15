@@ -105,6 +105,8 @@ void completeMission(void)
 		selectWidget("continue", "battleWon");
 		
 		game.stats[STAT_MISSIONS_COMPLETED]++;
+		
+		fleeAllEnemies();
 	}
 }
 

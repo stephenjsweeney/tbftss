@@ -137,19 +137,19 @@ static int getActionChance(int type)
 	switch (type)
 	{
 		case AI_DODGE:
-			return 40 - (self->aggression * 5);
+			return 40 - (self->aggression * 3);
 		
 		case AI_BOOST:
-			return 50 - (self->aggression * 5);
+			return 50 - (self->aggression * 4);
 		
 		case AI_SLOW:
 			return 60 - (self->aggression * 5);
 		
 		case AI_STRAIGHT:
-			return 70 - (self->aggression * 5);
+			return 70 - (self->aggression * 6);
 		
 		case AI_HUNT:
-			return 80 - (self->aggression * 5);
+			return 80 - (self->aggression * 7);
 	}
 	
 	return 100;
@@ -335,7 +335,7 @@ static void preAttack(void)
 		{
 			fireGuns(self);
 		}
-		else if (self->missiles.ammo && (self->target != player || rand() % 10 == 0))
+		else if (self->missiles.ammo)
 		{
 			fireMissile(self);
 		}

@@ -3,7 +3,8 @@
 <head>
 <style>
 body {background-color:#000; color: #fff; font-family: "sans"}
-h3 {background-color:#47c; padding:0.25em; color:#fff; margin-top:3em;}
+h3 {background-color:#47c; padding:0.25em; color:#fff; margin-top:3em; border: 1px solid #fff;}
+h4 {background-color:#5ad; padding:0.25em; color:#fff; margin-top:3em; width: 50%; color:#000; border: 1px solid #fff;}
 a {color: #0af; text-decoration: none;}
 a:hover {color: #0af; text-decoration: underline;}
 table.controls {border:1px solid #fff; padding: 0.5em; width:30em;}
@@ -11,6 +12,7 @@ table.controls td:first-child {width: 50%; color:#8cf;}
 table.controls td:nth-child(2) {font-weight: bold;}
 img.screenshot {border: 1px #ccc solid; padding: 10px; width:800px;}
 div.annotation {font-size: 12px; position:absolute; background-color:#08f; color:#fff; padding:3px; font-weight:bold; border:2px #fff solid; border-radius: 5px; text-align:center}
+span.highlight {font-weight:bold; color: #0bf;}
 </style>
 <title>TBFTSS - The Pandoran War</title>
 </head>
@@ -33,23 +35,27 @@ Table of Contents
 <p>
 The Battle for the Solar System - The Pandoran War is a 2D space shooter, based on the space opera novels by <a href="http://www.twitter.com/stephenjsweeney">Stephen J Sweeney</a>. This game is set during the seven year period between <a href="http://www.battleforthesolarsystem.com/books/thirdside/">THE THIRD SIDE</a> and <a href="http://www.battleforthesolarsystem.com/books/attribute/">THE ATTRIBUTE OF THE STRONG</a>, the second and third novels in the trilogy, respectively.
 </p>
-<p>Note: this game is still under heavy development and will feature bugs, incomplete sections, and a numerous other issues until it reaches v1.0. Likewise, this gameplay manually will evolve over time, to become more detailed and helpful.</p>
+<p>
+Note: this game is still under heavy development and will feature bugs, incomplete sections, and a numerous other issues until it reaches v1.0. Likewise, this gameplay manually will evolve over time, to become more detailed and helpful. This manual can also be found online at <a href="www.battleforthesolarsystem.com/games/manual.html">www.battleforthesolarsystem.com/games/manual.html</a>.
+</p>
+<p>You can support development of this game by purchasing one of the books in the trilogy: <a href="http://www.battleforthesolarsystem.com/purchase/">www.battleforthesolarsystem.com/purchase/</a>
+</p>
 
 <h3>Title Screen</h3>
 <p>
 This is the first screen that you will see upon starting the game. You may select from the following options:
 <ul>
-<li>New Game - Start a new game (note: this will overight any game that is currently in progress)</li>
-<li>Continue - Continue the current game. This will be the default option if a save file is found.</li>
-<li>Options - Configure various configuration option. See the options section for more information.</li>
-<li>Quit - Exit the game</li>
+<li><span class="highlight">New Game</span> - Start a new game (note: this will overight any game that is currently in progress)</li>
+<li><span class="highlight">Continue</span> - Continue the current game. This will be the default option if a save file is found.</li>
+<li><span class="highlight">Options</span> - Configure various configuration option. See the options section for more information.</li>
+<li><span class="highlight">Quit</span> - Exit the game</li>
 </ul>
 </p>
 <img src="title.png" class="screenshot">
 
 <h3>Galactic Map</h3>
 <p>
-This is the main mission select screen. Here, you can move around and select star systems in which to undertake missions. Star Systems that have missions will emit red circles at regular intervals. Yellow circles will be emitted by star systems that have no active missions, but still have challenges that can be attempted. Green circles will emit from system that have missions and changes that are 100% completed. You may replay any of these missions, at any time.
+This is the main mission select screen. Here, you can move around and select star systems in which to undertake missions. Star Systems that have missions will emit red circles at regular intervals. Yellow circles will be emitted by star systems that have no active missions, but still have challenges that can be attempted. Green circles will emit from system that have missions and challenges that are 100% completed. You may replay any of these missions, at any time.
 </p>
 
 <div style='position:relative'>
@@ -153,7 +159,7 @@ Each mission has various objectives that the player must finish in order to comp
 	<li>Current target (boxed in red).</li>
 </ol>
 
-<p>Controls</p>
+<h4>Controls</h4>
 <table class="controls">
 <tr><td>Left arrow</td><td>Rotate anti-clockwise</td></tr>
 <tr><td>Right arrow</td><td>Rotate clockwise</td></tr>
@@ -162,34 +168,75 @@ Each mission has various objectives that the player must finish in order to comp
 <tr><td>Left control</td><td>Fire main cannons</td></tr>
 <tr><td>Left shift</td><td>Switch main cannons</td></tr>
 <tr><td>Return</td><td>Launch missile</td></tr>
+<tr><td>T</td><td>Switch targets</td></tr>
+<tr><td>E</td><td>ECM</td></tr>
+<tr><td>Space</td><td>Boost</td></tr>
 <tr><td>Tab</td><td>Display objectives</td></tr>
 <tr><td>Escape</td><td>Menu</td></tr>
 </table>
 
+<h4>Weaponry</h4>
 <p>
 Most craft are equipped with offensive weaponry, with some fighters featuring more than one type of gun.
 <ul>
-<li>Plasma: a standard offensive weapon, that deals heavy levels of damage to shields and armour.</li>
-<li>Particle: a low-power weapon that deal small amounts of damage to shields and armour. Favoured mostly be pirates and insurgents.</li>
-<li>Mag: delivers an electro-magnetic charge to the target, draining its system power and rendering it helpless. Can be used to disable vessels.</li>
-<li>Missile: home in on target vessels, to deliver tremendous amounts of damage.</li>
+<li><span class="highlight">Plasma</span>: a standard offensive weapon, that deals heavy levels of damage to shields and armour.</li>
+<li><span class="highlight">Particle</span>: a low-power weapon that deal small amounts of damage to shields and armour. Favoured mostly be pirates and insurgents.</li>
+<li><span class="highlight">Mag</span>: delivers an electro-magnetic charge to the target, draining its system power and rendering it helpless. Can be used to disable vessels.</li>
+<li><span class="highlight">Missile</span>: home in on target vessels, to deliver tremendous amounts of damage.</li>
 </ul>
 </p>
 
-<h3>Epic Missions</h3>
+<h4>Player Abilities</h4>
+<p>
+Unlike the AI craft in the game, the player has access to two special abilities: <span class="highlight">Boost</span> and <span class="highlight">Electronic Counter Measures (ECM)</span>. <span class="highlight">Boost</span> grants the player a sudden burst of speed, useful to escape situations where they might find themselves outgunned. The <span class="highlight">ECM</span> can be activated to destroy missiles that are targetting and homing in on the player. Both of these abilities have unlimited usage, however they must both recharge for a few seconds between use, so their advantages should not be squandered.
+</p>
+
+<h3>Types of Mission</h3>
+<p>
+As a 2D shooter, many missions will involve the player needing to gun down enemy craft. However, some missions will also have additional objectives and requirements that must be fulfilled in order for them to be completed. Missions may also come with certain conditions, that, if failed, cause the mission to be failed immediately. Some of the more common types of mission and objectives are described below.
+</p>
+
+<h4>Patrol Missions</h4>
+<p>
+These missions involve the player needing to visit a set number of waypoints. The waypoint is activated when the player passes over it. Any surviving team mates will also need to be nearby in order for the waypoint to be considered reached.
+</p>
+
+<h4>Capture Missions</h4>
+<p>
+For these missions, the player (or a possible team mate) will need to disable the target craft, using Mag cannons. Such a mission would usually come with the added condition that the targets are not destroyed (a mission failure would result immediately).
+</p>
+
+<h4>Escort Missions</h4>
+<p>
+Escort missions involve overseeing the safe journey of a craft from one point to another. The craft in question could be civilian ships, a tug, or a shuttle. A mission failure would immediately follow the destruction of the asset. In most cases, the player will be responsible for taking the targets to the Extraction point.
+</p>
+
+<h4>Rescue Missions</h4>
+<p>
+Rescue missions involve ensuring that a stranded or disabled craft is safely transported to an extraction point. The player may or may not be charged with controlling the tug responsible for the task. See the section on Tugs for more information.
+</p>
+
+<h4>Epic Missions</h4>
 <p>
 Epic Missions are special types of mission. Typically, if the player's craft is destroyed during play, the mission will be failed. However, in Epic Missions the player will be given the chance to select a new craft to pilot, upon the destruction of their current one. This will continue until no more craft are available to the player. Epic Missions are also characterised by the number of active participants. There may be dozens of craft battling at once, victory going to the side to eliminates all their opponents. Note that even though there may be over 100 craft available to each side, only a certain number of these (for example, 32) will be present in the battle. Other craft will arrive as each side takes losses, to shore up the numbers.
+</p>
+
+<h3>Misc gameplay details</h3>
+
+<h4>Tugs</h4>
+<p>
+Tugs are craft that are used to tow stranded or disabled vessels. When controlled by the player, the tug rope can be attached to the target craft by flying near to it. Note that only one craft can be towed at any one time, and that the tow cable cannot be manually detached. Tugs are very weak craft, having no shields and only a rapid fire particle cannon for protection.
 </p>
 
 <h3>Options</h3>
 <p>
 Various game options can be changed:
 <ul>
-<li>Window Size - change the size of the window the game is played in. Note that the game interally renders a resolution of 1280x720, and any changes to the window size will result in the game being scaled up or down.<sup>[1]</sup></li>
-<li>Sound Volume - Change the volume of the sounds effects in the game, from 0 (no sound) to 10 (loudest).</li>
-<li>Music Volume - Change the volume of the music in the game, from 0 (no sound) to 10 (loudest).</li>
-<li>Fullscreen - Whether or not to start the game in fullscreen mode. Note that changes to this option will take effect next time you start the game.<sup>[1]</sup></li>
-<li>VSync - Whether or not to enable VSync, to reduce screen tearing. Note that changes to this option will take effect next time you start the game.<sup>[1]</sup></li>
+<li><span class="highlight">Window Size</span> - change the size of the window the game is played in. Note that the game interally renders a resolution of 1280x720, and any changes to the window size will result in the game being scaled up or down.<sup>[1]</sup></li>
+<li><span class="highlight">Sound Volume</span> - Change the volume of the sounds effects in the game, from 0 (no sound) to 10 (loudest).</li>
+<li><span class="highlight">Music Volume</span> - Change the volume of the music in the game, from 0 (no sound) to 10 (loudest).</li>
+<li><span class="highlight">Fullscreen</span> - Whether or not to start the game in fullscreen mode.<sup>[1]</sup></li>
+<li><span class="highlight">VSync</span> - Whether or not to enable VSync, to reduce screen tearing.<sup>[1]</sup></li>
 </ul>
 <p style="font-size:8pt">[1] - changes to this option will take effect next time you start the game.</p>
 </p>

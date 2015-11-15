@@ -25,6 +25,8 @@ static void switchGuns(void);
 static void selectMissionTarget(void);
 static void selectNewPlayer(int dir);
 static void initPlayerSelect(void);
+static void activateBoost(void);
+static void activateECM(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -60,6 +62,14 @@ void initPlayer(void)
 
 void doPlayer(void)
 {
+	battle.boostTimer = MAX(battle.boostTimer - 1, 0);
+	battle.ecmTimer = MAX(battle.ecmTimer - 1, 0);
+	
+	if (battle.boostTimer == BOOST_FINISHED_TIME)
+	{
+		applyFighterThrust();
+	}
+	
 	if (player != NULL)
 	{
 		self = player;
@@ -76,7 +86,7 @@ void doPlayer(void)
 				player->angle += 4;
 			}
 			
-			if (app.keyboard[SDL_SCANCODE_UP])
+			if (app.keyboard[SDL_SCANCODE_UP] && battle.boostTimer < BOOST_FINISHED_TIME)
 			{
 				applyFighterThrust();
 			}
@@ -112,11 +122,21 @@ void doPlayer(void)
 				app.keyboard[SDL_SCANCODE_RETURN] = 0;
 			}
 			
-			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || app.keyboard[SDLK_t])
+			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || app.keyboard[SDL_SCANCODE_T])
 			{
 				selectTarget();
 				
 				app.keyboard[SDLK_t] = 0;
+			}
+			
+			if (app.keyboard[SDL_SCANCODE_SPACE] && !battle.boostTimer)
+			{
+				activateBoost();
+			}
+			
+			if (app.keyboard[SDL_SCANCODE_E] && !battle.ecmTimer)
+			{
+				activateECM();
 			}
 			
 			if (!battle.missionTarget)
@@ -211,6 +231,20 @@ static void selectNewPlayer(int dir)
 	
 	battle.camera.x = player->x - (SCREEN_WIDTH / 2);
 	battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
+}
+
+static void activateBoost(void)
+{
+	self->dx += sin(TO_RAIDANS(self->angle)) * 10;
+	self->dy += -cos(TO_RAIDANS(self->angle)) * 10;
+	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
+	
+	battle.boostTimer = BOOST_RECHARGE_TIME;
+}
+
+static void activateECM(void)
+{
+	battle.ecmTimer = ECM_RECHARGE_TIME;
 }
 
 static void switchGuns(void)

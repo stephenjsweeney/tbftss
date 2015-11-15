@@ -29,6 +29,8 @@ static void drawObjectives(void);
 static void drawDistancesInfo(void);
 static void drawHudMessages(void);
 static void drawPlayerSelect(void);
+static void drawAbilityBars(void);
+static void drawBoostECMBar(int x, int y, int r, int g, int b, int available);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
@@ -124,6 +126,8 @@ void drawHud(void)
 	{
 		drawHealthBars();
 		
+		drawAbilityBars();
+		
 		drawPlayerTargeter();
 		
 		drawWeaponInfo();
@@ -210,10 +214,44 @@ static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g
 	}
 }
 
+static void drawAbilityBars(void)
+{
+	drawBoostECMBar(10, 50, 128, 128, 255, battle.boostTimer == 0);
+	
+	drawBoostECMBar(160, 50, 255, 128, 0, battle.ecmTimer == 0);
+}
+
+static void drawBoostECMBar(int x, int y, int r, int g, int b, int available)
+{
+	SDL_Rect rect;
+	
+	rect.x = x;
+	rect.y = y;
+	rect.w = 100;
+	rect.h = 12;
+	
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
+	SDL_RenderFillRect(app.renderer, &rect);
+	
+	SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+	SDL_RenderDrawRect(app.renderer, &rect);
+	
+	if (available)
+	{
+		rect.x += 2;
+		rect.y += 2;
+		rect.w -= 4;
+		rect.h -= 4;
+		
+		SDL_SetRenderDrawColor(app.renderer, r, g, b, 255);
+		SDL_RenderFillRect(app.renderer, &rect);
+	}
+}
+
 static void drawWeaponInfo(void)
 {
-	drawText(10, 50, 14, TA_LEFT, colors.white, gunName[player->selectedGunType]);
-	drawText(260, 50, 14, TA_RIGHT, colors.white, "Missiles (%d)", player->missiles.ammo);
+	drawText(10, 70, 14, TA_LEFT, colors.white, gunName[player->selectedGunType]);
+	drawText(260, 70, 14, TA_RIGHT, colors.white, "Missiles (%d)", player->missiles.ammo);
 }
 
 static void drawPlayerTargeter(void)

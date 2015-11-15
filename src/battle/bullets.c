@@ -223,6 +223,12 @@ static void huntTarget(Bullet *b)
 		faceTarget(b);
 		
 		applyMissileThrust(b);
+		
+		if (b->target == player && battle.ecmTimer == ECM_RECHARGE_TIME)
+		{
+			b->life = 0;
+			addMissileExplosion(b);
+		}
 	}
 	else
 	{

@@ -74,6 +74,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_HAS_ROPE			(2 << 8)
 #define EF_ALWAYS_FLEES		(2 << 9)
 
+/* player abilities */
+#define BOOST_RECHARGE_TIME 	(FPS * 5)
+#define BOOST_FINISHED_TIME 	(BOOST_RECHARGE_TIME - FPS * 0.5)
+#define ECM_RECHARGE_TIME		(FPS * 5)
+
 enum
 {
 	ET_FIGHTER,

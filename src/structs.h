@@ -241,6 +241,8 @@ typedef struct {
 	int epicFighterLimit;
 	int playerSelect;
 	int missionFinishedTimer;
+	int boostTimer;
+	int ecmTimer;
 	int numObjectivesComplete, numObjectivesTotal;
 	Entity *missionTarget;
 	Entity *extractionPoint;

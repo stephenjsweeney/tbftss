@@ -58,6 +58,9 @@ void initPlayer(void)
 	STRNCPY(player->name, "Player", MAX_NAME_LENGTH);
 	
 	player->action = NULL;
+	
+	battle.boostTimer = 0;
+	battle.ecmTimer = 0;
 }
 
 void doPlayer(void)

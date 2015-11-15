@@ -20,15 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "ai.h"
 
-static int aggression[][5] =
-{
-	{60, 65, 70, 75, 80},
-	{50, 55, 60, 65, 70},
-	{40, 45, 50, 55, 60},
-	{30, 35, 40, 45, 50},
-	{15, 20, 25, 30, 35}
-};
-
 static void faceTarget(Entity *f);
 static int isInFOV(Entity *f, int fov);
 static void preAttack(void);
@@ -44,21 +35,36 @@ static void slow(void);
 static void moveToPlayer(void);
 static int canAttack(Entity *f);
 static int selectWeapon(int type);
-static void flee(void);
 static int nearExtractionPoint(void);
 static int nearEnemies(void);
 static void lookForPlayer(void);
 static void fleeEnemies(void);
 static void moveToExtractionPoint(void);
+static int getActionChance(int type);
+static void flee(void);
+static void doFighterAI(void);
+static void doCivilianAI(void);
 
 void doAI(void)
+{
+	if (self->flags & EF_CIVILIAN)
+	{
+		doCivilianAI();
+	}
+	else
+	{
+		doFighterAI();
+	}
+}
+
+static void doFighterAI(void)
 {
 	int r;
 	
 	/* don't hold a grudge against current target */
 	if ((self->target != NULL && self->target->health <= 0) || rand() % 2 == 0)
 	{
-		self->action = self->defaultAction;
+		self->action = doAI;
 		self->target = NULL;
 	}
 
@@ -83,27 +89,27 @@ void doAI(void)
 	
 	r = rand() % 100;
 	
-	if (r <= aggression[self->aggression][0])
+	if (r <= getActionChance(AI_DODGE))
 	{
 		self->action = dodge;
 		self->aiActionTime = FPS;
 	}
-	else if (r <= aggression[self->aggression][1])
+	else if (r <= getActionChance(AI_BOOST))
 	{
 		self->action = boost;
 		self->aiActionTime = FPS / 2;
 	}
-	else if (r <= aggression[self->aggression][2])
+	else if (r <= getActionChance(AI_SLOW))
 	{
 		self->action = slow;
 		self->aiActionTime = FPS / 2;
 	}
-	else if (r <= aggression[self->aggression][3])
+	else if (r <= getActionChance(AI_STRAIGHT))
 	{
 		self->action = flyStraight;
 		self->aiActionTime = FPS;
 	}
-	else if (r <= aggression[self->aggression][4])
+	else if (r <= getActionChance(AI_HUNT))
 	{
 		self->action = huntTarget;
 		self->aiActionTime = FPS * 2;
@@ -114,7 +120,7 @@ void doAI(void)
 		self->aiActionTime = FPS;
 	}
 	
-	if (player != NULL && battle.numEnemies <= 2 && self->flags & EF_FLEES)
+	if ((player != NULL && battle.numEnemies <= 2 && self->flags & EF_FLEES) || (self->flags & EF_ALWAYS_FLEES))
 	{
 		self->action = flee;
 		self->aiActionTime = FPS * 3;
@@ -124,6 +130,29 @@ void doAI(void)
 			self->flags |= EF_FLEEING;
 		}
 	}
+}
+
+static int getActionChance(int type)
+{
+	switch (type)
+	{
+		case AI_DODGE:
+			return 40 - (self->aggression * 5);
+		
+		case AI_BOOST:
+			return 50 - (self->aggression * 5);
+		
+		case AI_SLOW:
+			return 60 - (self->aggression * 5);
+		
+		case AI_STRAIGHT:
+			return 70 - (self->aggression * 5);
+		
+		case AI_HUNT:
+			return 80 - (self->aggression * 5);
+	}
+	
+	return 100;
 }
 
 static void huntTarget(void)
@@ -341,10 +370,61 @@ static void dodge(void)
 	nextAction();
 }
 
+static void nextAction(void)
+{
+	if (--self->aiActionTime <= 0)
+	{
+		self->action = doAI;
+	}
+}
+
 static void flee(void)
 {
+	if (!nearEnemies() && battle.extractionPoint)
+	{
+		self->target = battle.extractionPoint;
+		moveToExtractionPoint();
+	}
+}
+
+static int nearEnemies(void)
+{
+	int i, numEnemies;
+	Entity *e, **candidates;
+	
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - 1000, self->y - (self->h / 2) - 1000, 2000, 2000, self);
+	
+	self->target = NULL;
+	self->targetLocation.x = self->targetLocation.y = 0;
+	
+	numEnemies = 0;
+	
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	{
+		if (e->type == ET_FIGHTER && e->side != self->side)
+		{
+			self->targetLocation.x += e->x;
+			self->targetLocation.y += e->y;
+			numEnemies++;
+		}
+	}
+	
+	if (numEnemies)
+	{
+		self->targetLocation.x /= numEnemies;
+		self->targetLocation.y /= numEnemies;
+		self->action = fleeEnemies;
+		self->aiActionTime = FPS / 2;
+		return 1;
+	}
+	
+	return 0;
+}
+
+static void fleeEnemies(void)
+{
 	int dir;
-	int wantedAngle = 180 + getAngle(self->x, self->y, player->x, player->y);
+	int wantedAngle = 180 + getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
 	
 	wantedAngle %= 360;
 	
@@ -359,16 +439,13 @@ static void flee(void)
 	
 	applyFighterThrust();
 
-	nextAction();
-}
-
-static void nextAction(void)
-{
 	if (--self->aiActionTime <= 0)
 	{
 		self->action = doAI;
 	}
 }
+
+/* ====== Ally AI ======= */
 
 static void moveToPlayer(void)
 {
@@ -428,64 +505,6 @@ static void moveToExtractionPoint(void)
 	faceTarget(self->target);
 		
 	applyFighterThrust();
-}
-
-static int nearEnemies(void)
-{
-	int i, numEnemies;
-	Entity *e, **candidates;
-	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - 1000, self->y - (self->h / 2) - 1000, 2000, 2000, self);
-	
-	self->target = NULL;
-	self->targetLocation.x = self->targetLocation.y = 0;
-	
-	numEnemies = 0;
-	
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
-	{
-		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
-		{
-			self->targetLocation.x += e->x;
-			self->targetLocation.y += e->y;
-			numEnemies++;
-		}
-	}
-	
-	if (numEnemies)
-	{
-		self->targetLocation.x /= numEnemies;
-		self->targetLocation.y /= numEnemies;
-		self->action = fleeEnemies;
-		self->aiActionTime = FPS / 2;
-		return 1;
-	}
-	
-	return 0;
-}
-
-static void fleeEnemies(void)
-{
-	int dir;
-	int wantedAngle = 180 + getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
-	
-	wantedAngle %= 360;
-	
-	if (fabs(wantedAngle - self->angle) > TURN_THRESHOLD)
-	{
-		dir = ((int)(wantedAngle - self->angle + 360)) % 360 > 180 ? -1 : 1;
-	
-		self->angle += dir * TURN_SPEED;
-		
-		self->angle = mod(self->angle, 360);
-	}
-	
-	applyFighterThrust();
-
-	if (--self->aiActionTime <= 0)
-	{
-		self->action = doCivilianAI;
-	}
 }
 
 static void lookForPlayer(void)

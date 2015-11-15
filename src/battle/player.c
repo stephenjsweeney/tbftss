@@ -56,7 +56,6 @@ void initPlayer(void)
 	STRNCPY(player->name, "Player", MAX_NAME_LENGTH);
 	
 	player->action = NULL;
-	player->defaultAction = NULL;
 }
 
 void doPlayer(void)

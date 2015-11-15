@@ -75,15 +75,7 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 		f->texture = getTexture("gfx/craft/civilian02.png");
 	}
 	
-	if (f->flags & EF_CIVILIAN)
-	{
-		f->defaultAction = doCivilianAI;
-	}
-	else
-	{
-		f->defaultAction = doAI;
-	}
-	
+	f->action = doAI;
 	f->die = die;
 	
 	return f;
@@ -191,11 +183,6 @@ void doFighter(void)
 		{
 			self->shield = MIN(self->shield + 1, self->maxShield);
 			self->shieldRecharge = self->shieldRechargeRate;
-		}
-		
-		if (self->action == NULL && self->defaultAction != NULL)
-		{
-			self->action = self->defaultAction;
 		}
 		
 		if (self->health <= 0)
@@ -395,7 +382,7 @@ void damageFighter(Entity *f, int amount, long flags)
 		if (f->systemPower == 0)
 		{
 			f->shield = f->maxShield = 0;
-			f->action = f->defaultAction = NULL;
+			f->action = NULL;
 		}
 	}
 	else
@@ -489,5 +476,18 @@ static void straightDie(void)
 		self->alive = ALIVE_DEAD;
 		addFighterExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	}
+}
+
+void fleeAllEnemies(void)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
+		{
+			e->flags |= EF_ALWAYS_FLEES;
+		}
 	}
 }

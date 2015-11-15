@@ -113,7 +113,6 @@ struct Entity {
 	Entity *target;
 	Entity *owner;
 	void (*action)(void);
-	void (*defaultAction)(void);
 	void (*die)(void);
 	SDL_Texture *texture;
 	Entity *next;

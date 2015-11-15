@@ -30,7 +30,7 @@ static void drawDistancesInfo(void);
 static void drawHudMessages(void);
 static void drawPlayerSelect(void);
 static void drawAbilityBars(void);
-static void drawBoostECMBar(int x, int y, int r, int g, int b, int available);
+static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, int b);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
@@ -216,14 +216,17 @@ static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g
 
 static void drawAbilityBars(void)
 {
-	drawBoostECMBar(10, 50, 128, 128, 255, battle.boostTimer == 0);
+	drawBoostECMBar(battle.boostTimer, BOOST_RECHARGE_TIME, 10, 50, 128, 128, 255);
 	
-	drawBoostECMBar(160, 50, 255, 128, 0, battle.ecmTimer == 0);
+	drawBoostECMBar(battle.ecmTimer, ECM_RECHARGE_TIME, 160, 50, 255, 128, 0);
 }
 
-static void drawBoostECMBar(int x, int y, int r, int g, int b, int available)
+static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, int b)
 {
 	SDL_Rect rect;
+	
+	float percent = current;
+	percent /= max;
 	
 	rect.x = x;
 	rect.y = y;
@@ -236,16 +239,22 @@ static void drawBoostECMBar(int x, int y, int r, int g, int b, int available)
 	SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
 	SDL_RenderDrawRect(app.renderer, &rect);
 	
-	if (available)
+	rect.x += 2;
+	rect.y += 2;
+	rect.w -= 4;
+	rect.h -= 4;
+	
+	rect.w *= percent;
+	
+	if (current < max)
 	{
-		rect.x += 2;
-		rect.y += 2;
-		rect.w -= 4;
-		rect.h -= 4;
-		
-		SDL_SetRenderDrawColor(app.renderer, r, g, b, 255);
-		SDL_RenderFillRect(app.renderer, &rect);
+		r /= 2;
+		g /= 2;
+		b /= 2;
 	}
+	
+	SDL_SetRenderDrawColor(app.renderer, r, g, b, 255);
+	SDL_RenderFillRect(app.renderer, &rect);
 }
 
 static void drawWeaponInfo(void)

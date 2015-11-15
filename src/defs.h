@@ -76,7 +76,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 5)
-#define BOOST_FINISHED_TIME 	(BOOST_RECHARGE_TIME - FPS * 0.5)
+#define BOOST_FINISHED_TIME 	(FPS * 0.75)
 #define ECM_RECHARGE_TIME		(FPS * 5)
 
 enum
@@ -153,6 +153,7 @@ enum
 	SND_EXPLOSION_3,
 	SND_EXPLOSION_4,
 	SND_MISSILE,
+	SND_BOOST,
 	SND_GUI_CLICK,
 	SND_GUI_SELECT,
 	SND_GUI_CLOSE,

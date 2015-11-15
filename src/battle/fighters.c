@@ -355,11 +355,12 @@ void applyFighterThrust(void)
 	self->dy += -cos(TO_RAIDANS(self->angle)) * 0.1;
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 	
-	if (self->thrust > self->speed * self->speed)
+	while (self->thrust > self->speed * self->speed)
 	{
 		v = (self->speed / sqrt(self->thrust));
 		self->dx = v * self->dx;
 		self->dy = v * self->dy;
+		self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 	}
 }
 

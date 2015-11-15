@@ -32,6 +32,7 @@ extern void applyFighterBrakes(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern int mod(int n, int x);
+extern void playSound(int id);
 extern void failMission(void);
 
 extern App app;

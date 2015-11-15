@@ -59,16 +59,16 @@ void initPlayer(void)
 	
 	player->action = NULL;
 	
-	battle.boostTimer = 0;
-	battle.ecmTimer = 0;
+	battle.boostTimer = BOOST_RECHARGE_TIME;
+	battle.ecmTimer = ECM_RECHARGE_TIME;
 }
 
 void doPlayer(void)
 {
-	battle.boostTimer = MAX(battle.boostTimer - 1, 0);
-	battle.ecmTimer = MAX(battle.ecmTimer - 1, 0);
+	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
+	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
 	
-	if (battle.boostTimer == BOOST_FINISHED_TIME)
+	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
 	{
 		applyFighterThrust();
 	}
@@ -89,7 +89,7 @@ void doPlayer(void)
 				player->angle += 4;
 			}
 			
-			if (app.keyboard[SDL_SCANCODE_UP] && battle.boostTimer < BOOST_FINISHED_TIME)
+			if (app.keyboard[SDL_SCANCODE_UP] && battle.boostTimer > BOOST_FINISHED_TIME)
 			{
 				applyFighterThrust();
 			}
@@ -132,12 +132,14 @@ void doPlayer(void)
 				app.keyboard[SDLK_t] = 0;
 			}
 			
-			if (app.keyboard[SDL_SCANCODE_SPACE] && !battle.boostTimer)
+			if (app.keyboard[SDL_SCANCODE_SPACE] && battle.boostTimer == BOOST_RECHARGE_TIME)
 			{
+				playSound(SND_BOOST);
+				
 				activateBoost();
 			}
 			
-			if (app.keyboard[SDL_SCANCODE_E] && !battle.ecmTimer)
+			if (app.keyboard[SDL_SCANCODE_E] && battle.ecmTimer == ECM_RECHARGE_TIME)
 			{
 				activateECM();
 			}
@@ -242,12 +244,12 @@ static void activateBoost(void)
 	self->dy += -cos(TO_RAIDANS(self->angle)) * 10;
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 	
-	battle.boostTimer = BOOST_RECHARGE_TIME;
+	battle.boostTimer = 0;
 }
 
 static void activateECM(void)
 {
-	battle.ecmTimer = ECM_RECHARGE_TIME;
+	battle.ecmTimer = 0;
 }
 
 static void switchGuns(void)

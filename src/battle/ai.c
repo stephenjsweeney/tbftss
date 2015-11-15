@@ -166,7 +166,7 @@ static void findTarget(void)
 	
 	dist = closest = (!battle.epic) ? 2000 : MAX_TARGET_RANGE;
 	
-	candidates = getAllEntsWithin(self->x - dist / 2, self->y - dist / 2, self->w + dist, self->h + dist, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - (dist / 2), self->y - (self->h / 2) - (dist / 2), self->w + dist, self->h + dist, self);
 	
 	self->target = NULL;
 	
@@ -403,7 +403,7 @@ static int nearExtractionPoint(void)
 	int i;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - 500, self->y - (self->h / 2) - 500, 1000, 1000, self);
 	
 	self->target = NULL;
 	
@@ -435,7 +435,7 @@ static int nearEnemies(void)
 	int i, numEnemies;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - 1000, self->y - 1000, 2000, 2000, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - 1000, self->y - (self->h / 2) - 1000, 2000, 2000, self);
 	
 	self->target = NULL;
 	self->targetLocation.x = self->targetLocation.y = 0;

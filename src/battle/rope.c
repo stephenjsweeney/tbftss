@@ -27,7 +27,7 @@ void attachRope(void)
 	
 	if ((self->flags & EF_HAS_ROPE) && self->towing == NULL)
 	{
-		candidates = getAllEntsWithin(self->x, self->y, self->w, self->h, self);
+		candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
 	
 		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 		{

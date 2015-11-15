@@ -112,7 +112,7 @@ static void checkCollisions(Bullet *b)
 	Entity *e, **candidates;
 	int i;
 	
-	candidates = getAllEntsWithin(b->x, b->y, b->w, b->h, NULL);
+	candidates = getAllEntsWithin(b->x - (b->w / 2), b->y - (b->h / 2), b->w, b->h, NULL);
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{

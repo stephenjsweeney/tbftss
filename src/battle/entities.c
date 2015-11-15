@@ -118,6 +118,8 @@ void doEntities(void)
 					battle.playerSelect = battle.epic;
 				}
 				
+				cutRope(e);
+				
 				prev->next = e->next;
 				free(e);
 				e = prev;

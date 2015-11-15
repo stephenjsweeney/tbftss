@@ -27,6 +27,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern int getDistance(int x1, int y1, int x2, int y2);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern void addHudMessage(SDL_Color c, char *format, ...);
 
 extern App app;
 extern Battle battle;
+extern Colors colors;
+extern Entity *self;

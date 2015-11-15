@@ -111,6 +111,7 @@ struct Entity {
 	SDL_Point targetLocation;
 	Entity *towing;
 	Entity *target;
+	Entity *owner;
 	void (*action)(void);
 	void (*defaultAction)(void);
 	void (*die)(void);

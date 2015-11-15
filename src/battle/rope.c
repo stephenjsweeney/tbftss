@@ -20,6 +20,32 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "rope.h"
 
+void attachRope(void)
+{
+	int i, distance;
+	Entity *e, **candidates;
+	
+	if ((self->flags & EF_HAS_ROPE) && self->towing == NULL)
+	{
+		candidates = getAllEntsWithin(self->x, self->y, self->w, self->h, self);
+	
+		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+		{
+			if ((e->flags & EF_DISABLED) && e->alive == ALIVE_ALIVE)
+			{
+				distance = getDistance(e->x, e->y, self->x, self->y);
+				
+				if (distance > 0 && distance <= 64)
+				{
+					self->towing = e;
+					e->owner = self;
+					addHudMessage(colors.white, "Tow rope attached");
+				}
+			}
+		}
+	}
+}
+
 void doRope(Entity *owner)
 {
 	float dx, dy, angle, force;
@@ -53,5 +79,14 @@ void drawRope(Entity *owner)
 		SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, SDL_ALPHA_OPAQUE);
 	
 		SDL_RenderDrawLine(app.renderer, owner->x - battle.camera.x, owner->y - battle.camera.y, owner->towing->x - battle.camera.x, owner->towing->y - battle.camera.y);
+	}
+}
+
+void cutRope(Entity *e)
+{
+	if (e->owner && e->owner->towing == e)
+	{
+		e->owner->towing = NULL;
+		e->owner = NULL;
 	}
 }

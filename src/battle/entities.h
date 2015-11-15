@@ -31,6 +31,7 @@ extern void removeFromGrid(Entity *e);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern void doRope(Entity *e);
 extern void drawRope(Entity *e);
+extern void cutRope(Entity *e);
 
 extern App app;
 extern Battle battle;

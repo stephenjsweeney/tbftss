@@ -41,6 +41,7 @@ void initLookups(void)
 	addLookup("EF_FLEEING", EF_FLEEING);
 	addLookup("EF_CIVILIAN", EF_CIVILIAN);
 	addLookup("EF_HAS_ROPE", EF_HAS_ROPE);
+	addLookup("EF_COLLECTS_ITEMS", EF_COLLECTS_ITEMS);
 	
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);

@@ -1,0 +1,10 @@
+{
+	"name" : "Shuttle",
+	"health" : 10,
+	"shield" : 10,
+	"speed" : 2.25,
+	"reloadTime" : 0,
+	"shieldRechargeRate" : 60,
+	"textureName" : "gfx/craft/shuttle.png",
+	"flags" : "EF_COLLECTS_ITEMS"
+}

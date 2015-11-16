@@ -73,6 +73,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_CIVILIAN			(2 << 7)
 #define EF_HAS_ROPE			(2 << 8)
 #define EF_ALWAYS_FLEES		(2 << 9)
+#define EF_COLLECTS_ITEMS	(2 << 10)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)
@@ -83,7 +84,8 @@ enum
 {
 	ET_FIGHTER,
 	ET_WAYPOINT,
-	ET_EXTRACTION_POINT
+	ET_EXTRACTION_POINT,
+	ET_ITEM
 };
 
 enum

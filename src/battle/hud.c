@@ -40,13 +40,10 @@ static SDL_Texture *smallFighter;
 static SDL_Texture *arrowLeft;
 static SDL_Texture *arrowRight;
 static int numMessages;
-static int healthWarning;
 static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon"};
 
 void initHud(void)
 {
-	healthWarning = 0;
-	
 	memset(&hudMessageHead, 0, sizeof(HudMessage));
 	hudMessageTail = &hudMessageHead;
 	
@@ -60,9 +57,6 @@ void initHud(void)
 void doHud(void)
 {
 	HudMessage *hudMessage, *prev;
-	
-	healthWarning++;
-	healthWarning %= FPS;
 	
 	numMessages = 0;
 	
@@ -187,6 +181,11 @@ static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g
 	{
 		percent = current;
 		percent /= max;
+		
+		if (percent <= 0.25 && battle.stats[STAT_TIME] % FPS < 30)
+		{
+			percent = 0;
+		}
 	}
 		
 	rect.x = x;

@@ -246,12 +246,14 @@ static void drawTargetRects(Entity *e)
 {
 	SDL_Rect r;
 	
+	int size = MAX(e->w, e->h) + 16;
+	
 	if (player != NULL && e == player->target)
 	{
-		r.x = e->x - 32 - battle.camera.x;
-		r.y = e->y - 32 - battle.camera.y;
-		r.w = 64;
-		r.h = 64;
+		r.x = e->x - (size / 2) - battle.camera.x;
+		r.y = e->y - (size / 2) - battle.camera.y;
+		r.w = size;
+		r.h = size;
 		
 		SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
 		SDL_RenderDrawRect(app.renderer, &r);
@@ -259,10 +261,10 @@ static void drawTargetRects(Entity *e)
 	
 	if ((e == battle.missionTarget || e->flags & EF_MISSION_TARGET) && (e->flags & EF_NO_MT_BOX) == 0)
 	{
-		r.x = e->x - 28 - battle.camera.x;
-		r.y = e->y - 28 - battle.camera.y;
-		r.w = 56;
-		r.h = 56;
+		r.x = e->x - (size / 2) - battle.camera.x;
+		r.y = e->y - (size / 2) - battle.camera.y;
+		r.w = size;
+		r.h = size;
 		
 		SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
 		SDL_RenderDrawRect(app.renderer, &r);

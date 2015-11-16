@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../defs.h"
 #include "../structs.h"
+#include "../json/cJSON.h"
 
 extern SDL_Texture *getTexture(char *filename);
 extern void doAI(void);
@@ -42,6 +43,9 @@ extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern Entity *spawnEntity(void);
 extern void adjustObjectiveTargetValue(char *name, int type, int amount);
 extern void attachRope(void);
+extern char *readFile(char *filename);
+extern long lookup(char *name);
+extern long flagsToLong(char *flags);
 
 extern App app;
 extern Battle battle;

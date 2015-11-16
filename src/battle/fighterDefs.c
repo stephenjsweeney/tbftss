@@ -76,6 +76,7 @@ static void loadFighterDef(char *filename)
 	defTail->next = f;
 	defTail = f;
 	
+	f->type = ET_FIGHTER;
 	f->active = 1;
 	
 	root = cJSON_Parse(text);

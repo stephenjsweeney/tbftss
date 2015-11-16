@@ -1,7 +1,7 @@
 PROG = tbftss
 
 VERSION = 0.3
-REVISION := $(shell git rev-list --count HEAD)
+REVISION = $(shell date +"%y%m%d")
 DEBUG = 0
 
 CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DUNIX=1 -DDEBUG=$(DEBUG)

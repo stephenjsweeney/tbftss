@@ -221,7 +221,7 @@ static int canAttack(Entity *f)
 {
 	self->selectedGunType = self->guns[0].type;
 	
-	if (f->flags & EF_DISABLED)
+	if (f->flags & EF_MUST_DISABLE)
 	{
 		if (f->systemPower > 0)
 		{

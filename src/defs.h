@@ -74,6 +74,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_HAS_ROPE			(2 << 8)
 #define EF_ALWAYS_FLEES		(2 << 9)
 #define EF_COLLECTS_ITEMS	(2 << 10)
+#define EF_MUST_DISABLE		(2 << 11)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)

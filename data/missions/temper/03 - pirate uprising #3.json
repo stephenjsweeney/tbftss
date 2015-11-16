@@ -49,7 +49,7 @@
 			"side" : "SIDE_PIRATE",
 			"x" : 12,
 			"y" : 25,
-			"flags" : "EF_NO_KILL+EF_DISABLE+EF_MISSION_TARGET"
+			"flags" : "EF_NO_KILL+EF_MUST_DISABLE+EF_MISSION_TARGET"
 		}
 	],
 	"fighterGroups" : [
@@ -58,8 +58,9 @@
 			"types" : "TAF",
 			"number" : 2,
 			"side" : "SIDE_ALLIES",
-			"x" : 27,
-			"y" : 25
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 300
 		},
 		{
 			"name" : "Dart",
@@ -68,7 +69,7 @@
 			"side" : "SIDE_PIRATE",
 			"x" : 15,
 			"y" : 25,
-			"scatter" : 2000
+			"scatter" : 1000
 		}
 	]
 }

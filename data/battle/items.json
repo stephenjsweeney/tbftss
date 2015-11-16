@@ -1,6 +1,10 @@
 [
 	{
-		"name" : "smile",
-		"textureName" : "gfx/items/smile.png"
+		"name" : "crate",
+		"textureName" : "gfx/items/crate.png"
+	},
+	{
+		"name" : "smallCrate",
+		"textureName" : "gfx/items/smallCrate.png"
 	}
 ]

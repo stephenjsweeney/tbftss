@@ -295,7 +295,7 @@ static void selectTarget(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->active && e != player && e->type == ET_FIGHTER && e->side != player->side && e->alive == ALIVE_ALIVE)
+		if (e->active && e != player && e->type == ET_FIGHTER && e->side != player->side && e->alive == ALIVE_ALIVE && (!(e->flags & EF_DISABLED)))
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			if (dist < closest)

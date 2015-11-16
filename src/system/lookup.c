@@ -47,6 +47,7 @@ void initLookups(void)
 	addLookup("TT_DISABLE", TT_DISABLE);
 	addLookup("TT_WAYPOINT", TT_WAYPOINT);
 	addLookup("TT_ESCAPED", TT_ESCAPED);
+	addLookup("TT_ITEM", TT_ITEM);
 	
 	addLookup("WT_BUTTON", WT_BUTTON);
 	addLookup("WT_SELECT", WT_SELECT);

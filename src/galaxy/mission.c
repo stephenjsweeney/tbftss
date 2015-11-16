@@ -27,6 +27,8 @@ static void loadFighters(cJSON *node);
 static void loadFighterGroups(cJSON *node);
 static void loadEntities(cJSON *node);
 static void loadEntityGroups(cJSON *node);
+static void loadItems(cJSON *node);
+static void loadItemGroups(cJSON *node);
 static unsigned long hashcode(const char *str);
 static char **toFighterTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
@@ -64,6 +66,10 @@ void loadMission(char *filename)
 	loadEntities(cJSON_GetObjectItem(root, "entities"));
 	
 	loadEntityGroups(cJSON_GetObjectItem(root, "entityGroups"));
+	
+	loadItems(cJSON_GetObjectItem(root, "items"));
+	
+	loadItemGroups(cJSON_GetObjectItem(root, "itemGroups"));
 	
 	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_NAME_LENGTH);
 	
@@ -422,7 +428,87 @@ static void loadEntityGroups(cJSON *node)
 					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
 				}
 				
-				e->id = battle.entId++;
+				e->x = x;
+				e->y = y;
+				
+				e->x += (rand() % scatter) - (rand() % scatter);
+				e->y += (rand() % scatter) - (rand() % scatter);
+				
+				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+			}
+		
+			node = node->next;
+		}
+	}
+}
+
+static void loadItems(cJSON *node)
+{
+}
+
+static void loadItemGroups(cJSON *node)
+{
+	Entity *e;
+	char *name, *groupName, *type;
+	int i, scatter, number;
+	long flags;
+	float x, y;
+	
+	flags = -1;
+	scatter = 1;
+	
+	if (node)
+	{
+		node = node->child;
+		
+		while (node)
+		{
+			type = cJSON_GetObjectItem(node, "type")->valuestring;
+			number = cJSON_GetObjectItem(node, "number")->valueint;
+			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
+			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
+			name = NULL;
+			groupName = NULL;
+			
+			if (cJSON_GetObjectItem(node, "name"))
+			{
+				name = cJSON_GetObjectItem(node, "name")->valuestring;
+			}
+			
+			if (cJSON_GetObjectItem(node, "groupName"))
+			{
+				groupName = cJSON_GetObjectItem(node, "groupName")->valuestring;
+			}
+			
+			if (cJSON_GetObjectItem(node, "scatter"))
+			{
+				scatter = cJSON_GetObjectItem(node, "scatter")->valueint;
+			}
+			
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
+			
+			for (i = 0 ; i < number ; i++)
+			{
+				e = spawnItem(type);
+				
+				if (name)
+				{
+					STRNCPY(e->name, name, MAX_NAME_LENGTH);
+				}
+				
+				if (groupName)
+				{
+					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
+				}
+				
+				if (flags != -1)
+				{
+					e->flags = flags;
+				}
+				
 				e->x = x;
 				e->y = y;
 				

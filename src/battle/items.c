@@ -43,9 +43,13 @@ void loadItemDefs(void)
 		e = malloc(sizeof(Entity));
 		memset(e, 0, sizeof(Entity));
 		
+		e->type = ET_ITEM;
+		e->active = 1;
 		STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 		e->texture = getTexture(cJSON_GetObjectItem(node, "textureName")->valuestring);
+		
+		e->health = e->maxHealth = FPS;
 		
 		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 		
@@ -66,6 +70,10 @@ Entity *spawnItem(char *name)
 	
 	memcpy(item, def, sizeof(Entity));
 	
+	item->dx = rand() % 100 - rand() % 100;
+	item->dx *= 0.01;
+	item->dy = rand() % 100 - rand() % 100;
+	item->dy *= 0.01;
 	item->action = action;
 	
 	return item;
@@ -98,8 +106,13 @@ static void action(void)
 	{
 		if ((e->flags & EF_COLLECTS_ITEMS) && collision(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h))
 		{
-			e->alive = ALIVE_DEAD;
-			printf("Picked up an Item\n");
+			self->alive = ALIVE_DEAD;
+			playSound(SND_GET_ITEM);
+			addHudMessage(colors.white, "Picked up %s", self->name);
+			
+			updateObjective(self->name, TT_ITEM);
+		
+			checkTrigger(self->name, TRIGGER_ITEM);
 		}
 	}
 }

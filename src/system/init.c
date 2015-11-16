@@ -148,6 +148,8 @@ void initGameSystem(void)
 	
 	loadFighterDefs();
 	
+	loadItemDefs();
+	
 	initBulletDefs();
 	
 	initStarSystems();
@@ -246,6 +248,8 @@ void cleanup(void)
 	destroyFighterDefs();
 	
 	destroyBulletDefs();
+	
+	destroyItemDefs();
 	
 	destroyStarSystems();
 	

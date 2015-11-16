@@ -1,0 +1,44 @@
+{
+	"name" : "Suspect Packages #1",
+	"description" : "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/determination.mp3",
+	"requires" : "data/missions/coyote/01 - coyote assault #1.json",
+	"objectives" : [
+		{
+			"description" : "Retrieve all packages",
+			"targetName" : "package",
+			"targetValue" : 6,
+			"targetType" : "TT_ITEM"
+		}
+	],
+	"player" : {
+		"pilot" : "Daniel Carr",
+		"squadron" : "The ABCs",
+		"type" : "Shuttle",
+		"side" : "SIDE_ALLIES"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"number" : 2,
+			"types" : "TAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		}
+	],
+	"itemGroups" : [
+		{
+			"name" : "package",
+			"number" : 6,
+			"type" : "smallCrate",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 5000,
+			"flags" : "EF_MISSION_TARGET"
+		}
+	]
+}

@@ -68,7 +68,9 @@
         "side" : "SIDE_CSN",
         "x": 741,
         "y": 221,
-        "missions" : []
+        "missions" : [
+			"data/missions/granada/01 - suspicious packages #1.json"
+        ]
       },
       {
         "name": "Parish",

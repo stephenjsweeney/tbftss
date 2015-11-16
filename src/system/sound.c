@@ -99,7 +99,7 @@ static void loadSounds(void)
 	sounds[SND_BOOST] = Mix_LoadWAV("sound/18380__inferno__hvrl.ogg");
 	/*sounds[SND_ECM] = Mix_LoadWAV("sound/18380__inferno__hvrl.ogg");*/
 	sounds[SND_INCOMING] = Mix_LoadWAV("sound/242856__plasterbrain__nuclear-alarm.ogg");
-	sounds[SND_GET_ITEM] = Mix_LoadWAV("sound/56246__q-k__latch-04.ogg");
+	sounds[SND_GET_ITEM] = Mix_LoadWAV("sound/88275__s-dij__gbc-reload-06.ogg");
 	sounds[SND_EXPLOSION_1] = Mix_LoadWAV("sound/162265__qubodup__explosive.ogg");
 	sounds[SND_EXPLOSION_2] = Mix_LoadWAV("sound/207322__animationisaac__short-explosion.ogg");
 	sounds[SND_EXPLOSION_3] = Mix_LoadWAV("sound/254071__tb0y298__firework-explosion.ogg");

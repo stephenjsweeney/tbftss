@@ -224,7 +224,7 @@ static void huntTarget(Bullet *b)
 		
 		applyMissileThrust(b);
 		
-		if (b->target == player && battle.ecmTimer == ECM_RECHARGE_TIME)
+		if (b->target == player && battle.ecmTimer < FPS)
 		{
 			b->life = 0;
 			addMissileExplosion(b);

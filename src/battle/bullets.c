@@ -170,8 +170,6 @@ static void faceTarget(Bullet *b)
 {
 	int dir;
 	int wantedAngle = getAngle(b->x, b->y, b->target->x, b->target->y);
-	int angleDiff, angleDist;
-	float brakeAmount;
 	
 	wantedAngle %= 360;
 	
@@ -183,16 +181,9 @@ static void faceTarget(Bullet *b)
 		
 		b->angle = mod(b->angle, 360);
 		
-		angleDiff = abs(b->angle - wantedAngle) % 360;
-		angleDist = angleDiff > 180 ? 360 - angleDiff : angleDiff;
-		
-		brakeAmount = angleDist;
-		brakeAmount /= 360;
-		brakeAmount = 0.6 - brakeAmount;
-		
 		/* halve your speed while you're not at the correct angle */
-		b->dx *= brakeAmount;
-		b->dy *= brakeAmount;
+		b->dx *= 0.5;
+		b->dy *= 0.5;
 	}
 }
 

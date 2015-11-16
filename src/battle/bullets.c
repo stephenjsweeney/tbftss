@@ -25,6 +25,7 @@ static void checkCollisions(Bullet *b);
 
 static Bullet bulletDef[BT_MAX];
 static Bullet *bulletsToDraw[MAX_BULLETS_TO_DRAW];
+static int incomingMissile;
 
 void initBulletDefs(void)
 {
@@ -63,6 +64,8 @@ void doBullets(void)
 	Bullet *b;
 	Bullet *prev = &battle.bulletHead;
 	
+	incomingMissile = 0;
+	
 	memset(bulletsToDraw, 0, sizeof(Bullet*) * MAX_BULLETS_TO_DRAW);
 	
 	for (b = battle.bulletHead.next ; b != NULL ; b = b->next)
@@ -75,6 +78,11 @@ void doBullets(void)
 			addMissileEngineEffect(b);
 			
 			huntTarget(b);
+			
+			if (b->target == player && player != NULL && player->health > 0)
+			{
+				incomingMissile = 1;
+			}
 		}
 		
 		checkCollisions(b);
@@ -163,6 +171,11 @@ void drawBullets(void)
 	for (i = 0, b = bulletsToDraw[i] ; b != NULL ; b = bulletsToDraw[++i])
 	{
 		blitRotated(b->texture, b->x - battle.camera.x, b->y - battle.camera.y, b->angle);
+	}
+	
+	if (incomingMissile && battle.stats[STAT_TIME] % FPS < 40)
+	{
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, "WARNING: INCOMING MISSILE!");
 	}
 }
 
@@ -302,6 +315,11 @@ void fireMissile(Entity *owner)
 	}
 	
 	playBattleSound(b->sound, owner->x, owner->y);
+	
+	if (owner->target == player)
+	{
+		playSound(SND_INCOMING);
+	}
 }
 
 void destroyBulletDefs(void)

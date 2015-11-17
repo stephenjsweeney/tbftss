@@ -39,7 +39,12 @@ void attachRope(void)
 				{
 					self->towing = e;
 					e->owner = self;
-					addHudMessage(colors.white, "Tow rope attached");
+					
+					if (self == player)
+					{
+						battle.stats[STAT_NUM_TOWED]++;
+						addHudMessage(colors.white, "Tow rope attached");
+					}
 				}
 			}
 		}

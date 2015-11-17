@@ -152,7 +152,7 @@ static void updateDisabledChallenge(Challenge *c)
 {
 	if (!c->passed)
 	{
-		c->passed = battle.stats[STAT_DISABLED] >= c->targetValue;
+		c->passed = battle.stats[STAT_ENEMIES_DISABLED] >= c->targetValue;
 	}
 }
 

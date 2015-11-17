@@ -107,12 +107,17 @@ static void action(void)
 		if ((e->flags & EF_COLLECTS_ITEMS) && collision(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h))
 		{
 			self->alive = ALIVE_DEAD;
-			playSound(SND_GET_ITEM);
-			addHudMessage(colors.white, "Picked up %s", self->name);
+			playBattleSound(SND_GET_ITEM, self->x, self->y);
 			
 			updateObjective(self->name, TT_ITEM);
 		
 			checkTrigger(self->name, TRIGGER_ITEM);
+			
+			if (e == player)
+			{
+				addHudMessage(colors.white, "Picked up %s", self->name);
+				battle.stats[STAT_ITEMS_COLLECTED]++;
+			}
 		}
 	}
 }

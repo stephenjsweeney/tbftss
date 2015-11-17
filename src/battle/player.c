@@ -62,6 +62,10 @@ void initPlayer(void)
 	
 	battle.boostTimer = BOOST_RECHARGE_TIME;
 	battle.ecmTimer = ECM_RECHARGE_TIME;
+	
+	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
+	
+	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
 }
 
 void doPlayer(void)
@@ -246,6 +250,8 @@ static void activateBoost(void)
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 	
 	battle.boostTimer = 0;
+	
+	battle.stats[STAT_BOOST]++;
 }
 
 static void deactivateBoost(void)
@@ -268,6 +274,8 @@ static void deactivateBoost(void)
 static void activateECM(void)
 {
 	battle.ecmTimer = 0;
+	
+	battle.stats[STAT_ECM]++;
 }
 
 static void switchGuns(void)

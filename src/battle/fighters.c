@@ -211,7 +211,7 @@ void doFighter(void)
 			{
 				self->flags |= EF_DISABLED;
 				updateObjective(self->name, TT_DISABLE);
-				battle.stats[STAT_DISABLED]++;
+				battle.stats[STAT_ENEMIES_DISABLED]++;
 			}
 		}
 	}
@@ -223,9 +223,9 @@ void doFighter(void)
 			addHudMessage(colors.red, "Mission target has escaped.");
 			battle.stats[STAT_ENEMIES_ESCAPED]++;
 		}
-		else
+		else if (self->flags & EF_CIVILIAN)
 		{
-			battle.stats[STAT_ALLIES_ESCAPED]++;
+			battle.stats[STAT_CIVILIANS_RESCUED]++;
 		}
 		
 		updateObjective(self->name, TT_ESCAPED);
@@ -251,15 +251,18 @@ void doFighter(void)
 				}
 				else
 				{
-					battle.stats[STAT_ALLIES_KILLED]++;
-					
-					if (!battle.epic)
+					if (self->flags & EF_CIVILIAN)
 					{
-						if (self->flags & EF_CIVILIAN)
+						battle.stats[STAT_CIVILIANS_KILLED]++;
+						if (!battle.epic)
 						{
 							addHudMessage(colors.red, "Civilian has been killed");
 						}
-						else
+					}
+					else
+					{
+						battle.stats[STAT_ALLIES_KILLED]++;
+						if (!battle.epic)
 						{
 							addHudMessage(colors.red, "Ally has been killed");
 						}

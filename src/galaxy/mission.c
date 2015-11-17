@@ -210,6 +210,16 @@ static void loadPlayer(cJSON *node)
 	player = spawnFighter(type, 0, 0, side);
 	player->x = (GRID_SIZE * GRID_CELL_WIDTH) / 2;
 	player->y = (GRID_SIZE * GRID_CELL_HEIGHT) / 2;
+	
+	if (strcmp(type, "Tug") == 0)
+	{
+		battle.stats[STAT_TUG]++;
+	}
+	
+	if (strcmp(type, "Shuttle") == 0)
+	{
+		battle.stats[STAT_SHUTTLE]++;
+	}
 }
 
 static void loadFighters(cJSON *node)

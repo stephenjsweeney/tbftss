@@ -31,10 +31,12 @@ extern long flagsToLong(char *flags);
 extern Entity *spawnEntity(void);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
-extern void playSound(int id);
+extern void playBattleSound(int id, int x, int y);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void updateObjective(char *name, int type);
 extern void checkTrigger(char *name, int type);
 
+extern Battle battle;
 extern Entity *self;
+extern Entity *player;
 extern Colors colors;

@@ -33,7 +33,17 @@ static char *statDescription[] = {
 	"Times Killed",
 	"Enemies Disabled",
 	"Enemies Escaped",
-	"Allies Escaped",
+	"ECM Used",
+	"Boost Used",
+	"Missiles Evaded",
+	"Missiles Struck Player",
+	"Civilians Rescued",
+	"Civilians Killed",
+	"Times used Tug",
+	"Times used Shuttle",
+	"Craft Towed",
+	"Items Collected",
+	"Longest Epic Kill Streak",
 	"STAT_TIME"
 };
 

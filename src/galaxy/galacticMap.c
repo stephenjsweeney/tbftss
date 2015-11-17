@@ -422,8 +422,8 @@ static void drawInfoBars(void)
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	drawText((SCREEN_WIDTH / 2) - 50, 5, 18, TA_RIGHT, colors.white, "Missions %d / %d", completedMissions, totalMissions);
-	drawText((SCREEN_WIDTH / 2) + 50, 5, 18, TA_LEFT, colors.white, "Challenges %d / %d", completedChallenges, totalChallenges);
+	drawText((SCREEN_WIDTH / 2) - 50, 5, 18, TA_RIGHT, colors.white, "Missions: %d / %d", completedMissions, totalMissions);
+	drawText((SCREEN_WIDTH / 2) + 50, 5, 18, TA_LEFT, colors.white, "Challenges: %d / %d", completedChallenges, totalChallenges);
 }
 
 static void selectStarSystem(void)

@@ -310,10 +310,12 @@ static void postBattle(void)
 {
 	int i;
 	
-	/* we don't want to count the time when adding up stats */
-	for (i = 0 ; i < STAT_TIME ; i++)
+	for (i = 0 ; i < STAT_MAX ; i++)
 	{
-		game.stats[i] += battle.stats[i];
+		if (i != STAT_TIME && i != STAT_EPIC_KILL_STREAK)
+		{
+			game.stats[i] += battle.stats[i];
+		}
 	}
 	
 	if (game.currentMission && !game.currentMission->completed)

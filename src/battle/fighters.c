@@ -147,20 +147,28 @@ static void randomizeDartGuns(Entity *dart)
 		case 1:
 			dart->guns[0].type = BT_PLASMA;
 			dart->guns[1].type = BT_PLASMA;
-			
-			for (i = 2 ; i < MAX_FIGHTER_GUNS ; i++)
-			{
-				if (dart->guns[i].type)
-				{
-					dart->guns[i].type = BT_NONE;
-				}
-			}
 			break;
 		
 		/* Triple particle guns */
 		case 2:
 			dart->guns[2].type = BT_PARTICLE;
 			dart->guns[2].y = -10;
+			break;
+
+		
+		/* Plasma / Laser cannons */
+		case 3:
+			dart->guns[0].type = BT_PLASMA;
+			dart->guns[0].x = dart->guns[0].y = 0;
+			
+			dart->guns[1].type = BT_LASER;
+			dart->guns[1].x = dart->guns[1].y = 0;
+			break;
+
+		/* Dual Laser cannons */
+		case 4:
+			dart->guns[0].type = BT_LASER;
+			dart->guns[1].type = BT_LASER;
 			break;
 	}
 }

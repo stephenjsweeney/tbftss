@@ -1,0 +1,35 @@
+{
+	"name" : "Kingfisher",
+	"health" : 45,
+	"shield" : 45,
+	"speed" : 1.75,
+	"reloadTime" : 16,
+	"shieldRechargeRate" : 60,
+	"textureName" : "gfx/fighters/kingfisher.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : -8,
+			"y" : -12
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : 8,
+			"y" : -12
+		}
+	],
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 4
+	}
+}

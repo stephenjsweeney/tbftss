@@ -33,7 +33,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 18,
 			"y" : 26,
-			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET+EF_FLEEING"
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
 		},
 		{
 			"name" : "Civilian",
@@ -41,7 +41,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 28,
 			"y" : 20,
-			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET+EF_FLEEING"
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
 		},
 		{
 			"name" : "Civilian",
@@ -49,7 +49,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 37,
 			"y" : 22,
-			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET+EF_FLEEING"
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
 		},
 		{
 			"name" : "Civilian",
@@ -57,7 +57,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 32,
 			"y" : 32,
-			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET+EF_FLEEING"
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
 		}
 	],
 	"fighterGroups" : [

@@ -26,12 +26,12 @@ static void preAttack(void);
 static void huntTarget(void);
 static void huntAndAttackTarget(void);
 static void flyStraight(void);
-static void dodge(void);
+static void evade(void);
 static void nextAction(void);
 static void findTarget(void);
 static int hasClearShot(void);
 static void boost(void);
-static void slow(void);
+static void fallback(void);
 static void moveToPlayer(void);
 static int canAttack(Entity *f);
 static int selectWeapon(int type);
@@ -115,11 +115,21 @@ static void doFighterAI(void)
 		}
 	}
 	
+	/* don't start dodging, etc., if you're far from your target */
+	if (getDistance(self->x, self->y, self->target->x, self->target->y) > SCREEN_WIDTH)
+	{
+		self->action = huntTarget;
+		self->aiActionTime = FPS * 2;
+		return;
+	}
+	
 	r = rand() % 100;
 	
-	if (r <= getActionChance(AI_DODGE))
+	if (r <= getActionChance(AI_EVADE))
 	{
-		self->action = dodge;
+		self->targetLocation.x = self->target->x + rand() % 500 - rand() % 500;
+		self->targetLocation.y = self->target->y + rand() % 500 - rand() % 500;
+		self->action = evade;
 		self->aiActionTime = FPS;
 	}
 	else if (r <= getActionChance(AI_BOOST))
@@ -127,9 +137,9 @@ static void doFighterAI(void)
 		self->action = boost;
 		self->aiActionTime = FPS / 2;
 	}
-	else if (r <= getActionChance(AI_SLOW))
+	else if (r <= getActionChance(AI_FALLBACK))
 	{
-		self->action = slow;
+		self->action = fallback;
 		self->aiActionTime = FPS / 2;
 	}
 	else if (r <= getActionChance(AI_STRAIGHT))
@@ -153,20 +163,20 @@ static int getActionChance(int type)
 {
 	switch (type)
 	{
-		case AI_DODGE:
-			return 40 - (self->aiAggression * 3);
+		case AI_EVADE:
+			return 20 - (self->aiAggression * 3);
 		
 		case AI_BOOST:
-			return 50 - (self->aiAggression * 4);
+			return 30 - (self->aiAggression * 4);
 		
-		case AI_SLOW:
-			return 60 - (self->aiAggression * 5);
+		case AI_FALLBACK:
+			return 40 - (self->aiAggression * 5);
 		
 		case AI_STRAIGHT:
-			return 70 - (self->aiAggression * 6);
+			return 50 - (self->aiAggression * 6);
 		
 		case AI_HUNT:
-			return 80 - (self->aiAggression * 7);
+			return 60 - (self->aiAggression * 7);
 	}
 	
 	return 100;
@@ -253,6 +263,11 @@ static int canAttack(Entity *f)
 		return selectWeapon(BT_LASER) || selectWeapon(BT_MAG);
 	}
 	
+	if (f->shield > 0)
+	{
+		selectWeapon(BT_LASER);
+	}
+	
 	return 1;
 }
 
@@ -310,14 +325,6 @@ static void boost(void)
 	nextAction();
 }
 
-static void slow(void)
-{
-	self->dx *= 0.95;
-	self->dy *= 0.95;
-	
-	nextAction();
-}
-
 static int hasClearShot(void)
 {
 	int dist;
@@ -366,10 +373,9 @@ static void flyStraight(void)
 	nextAction();
 }
 
-static void dodge(void)
+static void turnAndFly(int wantedAngle)
 {
 	int dir;
-	int wantedAngle = 180 + getAngle(self->x, self->y, self->target->x, self->target->y);
 	
 	wantedAngle %= 360;
 	
@@ -385,6 +391,20 @@ static void dodge(void)
 	applyFighterThrust();
 
 	nextAction();
+}
+
+static void evade(void)
+{
+	int wantedAngle = 180 + getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
+	
+	turnAndFly(wantedAngle);
+}
+
+static void fallback(void)
+{
+	int wantedAngle = 180 + getAngle(self->x, self->y, self->target->x, self->target->y);
+	
+	turnAndFly(wantedAngle);
 }
 
 static void nextAction(void)
@@ -431,26 +451,9 @@ static int nearEnemies(void)
 
 static void fleeEnemies(void)
 {
-	int dir;
 	int wantedAngle = 180 + getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
 	
-	wantedAngle %= 360;
-	
-	if (fabs(wantedAngle - self->angle) > TURN_THRESHOLD)
-	{
-		dir = ((int)(wantedAngle - self->angle + 360)) % 360 > 180 ? -1 : 1;
-	
-		self->angle += dir * TURN_SPEED;
-		
-		self->angle = mod(self->angle, 360);
-	}
-	
-	applyFighterThrust();
-
-	if (--self->aiActionTime <= 0)
-	{
-		self->action = doAI;
-	}
+	turnAndFly(wantedAngle);
 }
 
 static void moveToPlayer(void)

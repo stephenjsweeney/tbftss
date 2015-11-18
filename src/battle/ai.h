@@ -23,9 +23,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
-#define AI_DODGE		0
+#define AI_EVADE		0
 #define AI_BOOST		1
-#define AI_SLOW			2
+#define AI_FALLBACK		2
 #define AI_STRAIGHT		3
 #define AI_HUNT			4
 

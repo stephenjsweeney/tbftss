@@ -103,11 +103,12 @@ struct Entity {
 	int systemHit;
 	int thinkTime;
 	int aiActionTime;
-	int aggression;
+	int aiAggression;
 	int separationRadius;
 	Weapon guns[MAX_FIGHTER_GUNS];
 	Weapon missiles;
 	long flags;
+	long aiFlags;
 	SDL_Point targetLocation;
 	Entity *towing;
 	Entity *target;

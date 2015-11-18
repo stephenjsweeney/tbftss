@@ -67,14 +67,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_DISABLED			(2 << 1)
 #define EF_IMMORTAL			(2 << 2)
 #define EF_MISSION_TARGET	(2 << 3)
-#define EF_FLEES			(2 << 4)
-#define EF_FLEEING			(2 << 5)
-#define EF_NO_MT_BOX		(2 << 6)
-#define EF_CIVILIAN			(2 << 7)
-#define EF_HAS_ROPE			(2 << 8)
-#define EF_ALWAYS_FLEES		(2 << 9)
-#define EF_COLLECTS_ITEMS	(2 << 10)
-#define EF_MUST_DISABLE		(2 << 11)
+#define EF_NO_MT_BOX		(2 << 4)
+#define EF_HAS_ROPE			(2 << 5)
+#define EF_COLLECTS_ITEMS	(2 << 6)
+#define EF_MUST_DISABLE		(2 << 7)
+#define EF_FLEEING			(2 << 8)
+
+#define AIF_NONE				0
+#define AIF_FOLLOWS_PLAYER		(2 << 0)
+#define AIF_UNLIMITED_RANGE		(2 << 1)
+#define AIF_COLLECTS_ITEMS		(2 << 2)
+#define AIF_TOWS				(2 << 3)
+#define AIF_RETREATS			(2 << 4)
+#define AIF_GOAL_EXTRACTION		(2 << 5)
+#define AIF_AVOIDS_COMBAT		(2 << 6)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)

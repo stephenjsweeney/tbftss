@@ -1,6 +1,6 @@
 PROG = tbftss
 
-VERSION = 0.3
+VERSION = 0.4
 REVISION = $(shell date +"%y%m%d")
 DEBUG = 0
 
@@ -57,6 +57,7 @@ dist:
 	git log --oneline --decorate >$(PROG)-$(VERSION)/CHANGELOG.raw
 	tar czf $(PROG)-$(VERSION).$(REVISION)-src.tar.gz $(PROG)-$(VERSION)
 	mkdir -p dist
+	$(RM) -rf dist
 	mv $(PROG)-$(VERSION).$(REVISION)-src.tar.gz dist
 	$(RM) -rf $(PROG)-$(VERSION)
 

@@ -51,21 +51,26 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 	switch (side)
 	{
 		case SIDE_ALLIES:
-			f->aggression = 2 + rand() % 3;
+			f->aiAggression = 2 + rand() % 3;
+			f->aiFlags |= AIF_FOLLOWS_PLAYER;
+			if (!(f->aiFlags & AIF_AVOIDS_COMBAT))
+			{
+				f->aiFlags |= AIF_UNLIMITED_RANGE;
+			}
 			break;
 			
 		case SIDE_PIRATE:
-			f->aggression = rand() % 3;
+			f->aiAggression = rand() % 3;
 			break;
 			
 		case SIDE_PANDORAN:
-			f->aggression = 3 + rand() % 2;
+			f->aiAggression = 3 + rand() % 2;
 			break;
 	}
 	
 	if (strcmp(name, "ATAF") == 0)
 	{
-		f->aggression = 4;
+		f->aiAggression = 4;
 	}
 	
 	if (strcmp(name, "Dart") == 0)
@@ -223,7 +228,7 @@ void doFighter(void)
 			addHudMessage(colors.red, "Mission target has escaped.");
 			battle.stats[STAT_ENEMIES_ESCAPED]++;
 		}
-		else if (self->flags & EF_CIVILIAN)
+		else if (strcmp(self->defName, "Civilian") == 0)
 		{
 			battle.stats[STAT_CIVILIANS_RESCUED]++;
 		}
@@ -251,7 +256,7 @@ void doFighter(void)
 				}
 				else
 				{
-					if (self->flags & EF_CIVILIAN)
+					if (strcmp(self->name, "Civilian") == 0)
 					{
 						battle.stats[STAT_CIVILIANS_KILLED]++;
 						if (!battle.epic)
@@ -494,7 +499,7 @@ void fleeAllEnemies(void)
 	{
 		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
 		{
-			e->flags |= EF_ALWAYS_FLEES;
+			e->aiFlags |= AIF_AVOIDS_COMBAT;
 		}
 	}
 }
@@ -605,6 +610,11 @@ static void loadFighterDef(char *filename)
 	if (cJSON_GetObjectItem(root, "flags"))
 	{
 		f->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring);
+	}
+	
+	if (cJSON_GetObjectItem(root, "aiFlags"))
+	{
+		f->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring);
 	}
 	
 	f->separationRadius = MAX(f->w, f->h);

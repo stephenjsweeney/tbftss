@@ -36,25 +36,53 @@ static void moveToPlayer(void);
 static int canAttack(Entity *f);
 static int selectWeapon(int type);
 static int nearExtractionPoint(void);
+static void moveToExtractionPoint(void);
 static int nearEnemies(void);
+static int nearItems(void);
+static void moveToItem(void);
+static int nearTowableCraft(void);
+static void moveToTowableCraft(void);
 static void lookForPlayer(void);
 static void fleeEnemies(void);
-static void moveToExtractionPoint(void);
 static int getActionChance(int type);
-static void flee(void);
 static void doFighterAI(void);
-static void doCivilianAI(void);
 
 void doAI(void)
 {
-	if (self->flags & EF_CIVILIAN)
+	if ((self->aiFlags & AIF_GOAL_EXTRACTION) && nearExtractionPoint())
 	{
-		doCivilianAI();
+		return;
 	}
-	else
+	
+	if ((self->aiFlags & AIF_AVOIDS_COMBAT) && nearEnemies())
+	{
+		return;
+	}
+	
+	if ((self->aiFlags & AIF_COLLECTS_ITEMS) && nearItems())
+	{
+		return;
+	}
+	
+	if ((self->aiFlags & AIF_TOWS) && nearTowableCraft())
+	{
+		return;
+	}
+	
+	if (!(self->aiFlags & AIF_AVOIDS_COMBAT))
 	{
 		doFighterAI();
+		return;
 	}
+	
+	if (self->aiFlags & AIF_FOLLOWS_PLAYER)
+	{
+		lookForPlayer();
+		return;
+	}
+	
+	/* no idea - just stay where you are */
+	applyFighterBrakes();
 }
 
 static void doFighterAI(void)
@@ -74,11 +102,11 @@ static void doFighterAI(void)
 		
 		if (self->target == NULL)
 		{
-			if (player != NULL && self->side == SIDE_ALLIES)
+			if (self->aiFlags & AIF_FOLLOWS_PLAYER)
 			{
 				moveToPlayer();
 			}
-			else if (!(self->flags & EF_FLEEING))
+			else
 			{
 				applyFighterBrakes();
 			}
@@ -119,17 +147,6 @@ static void doFighterAI(void)
 		self->action = huntAndAttackTarget;
 		self->aiActionTime = FPS;
 	}
-	
-	if ((player != NULL && battle.numEnemies <= 2 && self->flags & EF_FLEES) || (self->flags & EF_ALWAYS_FLEES))
-	{
-		self->action = flee;
-		self->aiActionTime = FPS * 3;
-		if (!(self->flags & EF_FLEEING) && (self->flags & EF_MISSION_TARGET) && self->side != SIDE_ALLIES)
-		{
-			addHudMessage(colors.cyan, "Mission target is escaping!");
-			self->flags |= EF_FLEEING;
-		}
-	}
 }
 
 static int getActionChance(int type)
@@ -137,19 +154,19 @@ static int getActionChance(int type)
 	switch (type)
 	{
 		case AI_DODGE:
-			return 40 - (self->aggression * 3);
+			return 40 - (self->aiAggression * 3);
 		
 		case AI_BOOST:
-			return 50 - (self->aggression * 4);
+			return 50 - (self->aiAggression * 4);
 		
 		case AI_SLOW:
-			return 60 - (self->aggression * 5);
+			return 60 - (self->aiAggression * 5);
 		
 		case AI_STRAIGHT:
-			return 70 - (self->aggression * 6);
+			return 70 - (self->aiAggression * 6);
 		
 		case AI_HUNT:
-			return 80 - (self->aggression * 7);
+			return 80 - (self->aiAggression * 7);
 	}
 	
 	return 100;
@@ -193,7 +210,7 @@ static void findTarget(void)
 	Entity *e, **candidates;
 	unsigned int dist, closest;
 	
-	dist = closest = (!battle.epic) ? 2000 : MAX_TARGET_RANGE;
+	dist = closest = (!battle.epic || (!(self->aiFlags & AIF_UNLIMITED_RANGE))) ? 2000 : MAX_TARGET_RANGE;
 	
 	candidates = getAllEntsWithin(self->x - (self->w / 2) - (dist / 2), self->y - (self->h / 2) - (dist / 2), self->w + dist, self->h + dist, self);
 	
@@ -207,7 +224,7 @@ static void findTarget(void)
 			
 			if (dist < closest)
 			{
-				if (self->target == NULL || ((self->target->flags & EF_CIVILIAN) == 0) || ((self->target->flags & EF_CIVILIAN) && rand() % 10) == 0)
+				if (self->target == NULL || ((self->target->aiFlags & AIF_AVOIDS_COMBAT) == 0) || ((self->target->aiFlags & AIF_AVOIDS_COMBAT) && rand() % 10) == 0)
 				{
 					self->target = e;
 					closest = dist;
@@ -378,15 +395,6 @@ static void nextAction(void)
 	}
 }
 
-static void flee(void)
-{
-	if (!nearEnemies() && battle.extractionPoint)
-	{
-		self->target = battle.extractionPoint;
-		moveToExtractionPoint();
-	}
-}
-
 static int nearEnemies(void)
 {
 	int i, numEnemies;
@@ -445,8 +453,6 @@ static void fleeEnemies(void)
 	}
 }
 
-/* ====== Ally AI ======= */
-
 static void moveToPlayer(void)
 {
 	int dist = getDistance(self->x, self->y, player->x, player->y);
@@ -465,22 +471,12 @@ static void moveToPlayer(void)
 	}
 }
 
-/* ====== Civilian AI ======= */
-
-void doCivilianAI(void)
-{
-	if (!nearExtractionPoint() && !nearEnemies())
-	{
-		lookForPlayer();
-	}
-}
-
 static int nearExtractionPoint(void)
 {
 	int i;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - 500, self->y - (self->h / 2) - 500, 1000, 1000, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), GRID_CELL_WIDTH, GRID_CELL_HEIGHT, self);
 	
 	self->target = NULL;
 	
@@ -507,9 +503,97 @@ static void moveToExtractionPoint(void)
 	applyFighterThrust();
 }
 
+static int nearItems(void)
+{
+	int i;
+	long closest, distance;
+	Entity *e, **candidates;
+	
+	closest = MAX_TARGET_RANGE;
+	
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - (GRID_CELL_WIDTH / 2), self->y - (self->h / 2) - (GRID_CELL_HEIGHT / 2), GRID_CELL_WIDTH, GRID_CELL_HEIGHT, self);
+	
+	self->target = NULL;
+	
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	{
+		if (e->type == ET_ITEM)
+		{
+			distance = getDistance(self->x, self->y, e->x, e->y);
+			
+			if (distance < closest)
+			{
+				self->target = e;
+				closest = distance;
+			}
+		}
+	}
+	
+	if (self->target != NULL)
+	{
+		self->action = moveToItem;
+	}
+	
+	return self->target != NULL;
+}
+
+static void moveToItem(void)
+{
+	if (self->target->alive == ALIVE_ALIVE)
+	{
+		faceTarget(self->target);		
+		applyFighterThrust();
+		return;
+	}
+	
+	self->target = NULL;
+	self->action = doAI;
+}
+
+static int nearTowableCraft(void)
+{
+	int i;
+	long closest, distance;
+	Entity *e, **candidates;
+	
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - (GRID_CELL_WIDTH / 2), self->y - (self->h / 2) - (GRID_CELL_HEIGHT / 2), GRID_CELL_WIDTH, GRID_CELL_HEIGHT, self);
+	
+	self->target = NULL;
+	
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	{
+		if (e->type == ET_FIGHTER && (e->flags & EF_DISABLED))
+		{
+			distance = getDistance(self->x, self->y, e->x, e->y);
+			
+			if (distance < closest)
+			{
+				self->target = e;
+				closest = distance;
+			}
+		}
+	}
+	
+	if (self->target != NULL)
+	{
+		self->action = moveToTowableCraft;
+	}
+	
+	return self->target != NULL;
+}
+
+static void moveToTowableCraft(void)
+{
+	faceTarget(self->target);
+		
+	applyFighterThrust();
+}
+
 static void lookForPlayer(void)
 {
-	if (player != NULL && getDistance(self->x, self->y, player->x, player->y) < 1000)
+	long range = (self->aiFlags & AIF_UNLIMITED_RANGE) ? MAX_TARGET_RANGE : 1000;
+	
+	if (player != NULL && getDistance(self->x, self->y, player->x, player->y) < range)
 	{
 		moveToPlayer();
 		return;

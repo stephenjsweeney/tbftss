@@ -13,5 +13,6 @@
 			"y" : 0
 		}
 	],
-	"flags" : "EF_HAS_ROPE"
+	"flags" : "EF_HAS_ROPE",
+	"aiFlags" : "AIF_AVOIDS_COMBAT"
 }

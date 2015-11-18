@@ -6,5 +6,6 @@
 	"reloadTime" : 0,
 	"shieldRechargeRate" : 60,
 	"textureName" : "gfx/craft/shuttle.png",
-	"flags" : "EF_COLLECTS_ITEMS"
+	"flags" : "EF_COLLECTS_ITEMS",
+	"aiFlags" : "AIF_AVOIDS_COMBAT+AIF_COLLECTS_ITEMS+AIF_UNLIMITED_RANGE"
 }

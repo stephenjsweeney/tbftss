@@ -6,5 +6,6 @@
 	"reloadTime" : 0,
 	"shieldRechargeRate" : 0,
 	"textureName" : "gfx/craft/civilian01.png",
-	"flags" : "EF_CIVILIAN+EF_FLEEING+EF_MISSION_TARGET"
+	"flags" : "EF_MISSION_TARGET+EF_FLEEING",
+	"aiFlags" : "AIF_GOAL_EXTRACTION+AIF_AVOIDS_COMBAT"
 }

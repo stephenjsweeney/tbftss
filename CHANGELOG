@@ -1,5 +1,18 @@
 Changelog
 
+0.3
+
+	* Added a few new missions.
+	* Added new stats.
+	* Flash health and shield bars when under 25%.
+	* Show warning message and play sound when a missile is launched, targetting the player.
+	* Added Boost and ECM abilities for player.
+	* Fixed a bug which messed up the config file saving.
+	* Added civilian rescue missions.
+	* New craft: Tug and Shuttle.
+	* Toned down the AI a bit, to make the battle less difficult and frantic.
+	* Now showing mission data on the right-hand side of the screen, in place of the target armour and shield.
+
 0.2
 
 	* Added Firefly, Nymph, Hyena, and Leopard fighters.

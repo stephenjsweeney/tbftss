@@ -36,7 +36,7 @@ OBJS += testMission.o textures.o text.o title.o transition.o triggers.o
 OBJS += util.o
 OBJS += waypoints.o widgets.o
 
-DIST_FILES = data gfx manual music sound src LICENSE makefile README.md
+DIST_FILES = data gfx manual music sound src LICENSE makefile README.md CHANGELOG
 
 # top-level rule to create the program.
 all: $(PROG)
@@ -54,7 +54,7 @@ dist:
 	$(RM) -rf $(PROG)-$(VERSION)
 	mkdir $(PROG)-$(VERSION)
 	cp -r $(DIST_FILES) $(PROG)-$(VERSION)
-	git log --oneline master..develop >$(PROG)-$(VERSION)/CHANGELOG
+	git log --oneline --decorate >$(PROG)-$(VERSION)/CHANGELOG.raw
 	tar czf $(PROG)-$(VERSION).$(REVISION)-src.tar.gz $(PROG)-$(VERSION)
 	mkdir -p dist
 	mv $(PROG)-$(VERSION).$(REVISION)-src.tar.gz dist

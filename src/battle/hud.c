@@ -20,7 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "hud.h"
 
-static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b);
 static void drawPlayerTargeter(void);
 static void drawNumFighters(void);
 static void drawHealthBars(void);
@@ -31,6 +30,7 @@ static void drawHudMessages(void);
 static void drawPlayerSelect(void);
 static void drawAbilityBars(void);
 static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, int b);
+static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b, int flashLow);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
@@ -168,11 +168,11 @@ static void drawHealthBars(void)
 		g = 200;
 	}
 	
-	drawHealthShieldBar(player->health, player->maxHealth, 10, 10, r, g, b);
-	drawHealthShieldBar(player->shield, player->maxShield, 10, 30, 0, 200, 255);
+	drawHealthShieldBar(player->health, player->maxHealth, 10, 10, r, g, b, 1);
+	drawHealthShieldBar(player->shield, player->maxShield, 10, 30, 0, 200, 255, 0);
 }
 
-static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b)
+static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b, int flashLow)
 {
 	SDL_Rect rect;
 	float percent = 0;
@@ -182,7 +182,7 @@ static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g
 		percent = current;
 		percent /= max;
 		
-		if (percent <= 0.25 && battle.stats[STAT_TIME] % FPS < 30)
+		if (flashLow && percent <= 0.25 && battle.stats[STAT_TIME] % FPS < 30)
 		{
 			percent = 0;
 		}

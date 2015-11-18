@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../structs.h"
 #include "../json/cJSON.h"
 
-#define MAX_BATTLE_SOUND_DISTANCE	3000
+#define MAX_BATTLE_SOUND_DISTANCE	1500
 
 extern int getDistance(int x1, int y1, int x2, int y2);
 

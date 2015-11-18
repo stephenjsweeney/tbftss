@@ -69,6 +69,7 @@ void initLookups(void)
 	
 	addLookup("SND_PARTICLE", SND_PARTICLE);
 	addLookup("SND_PLASMA", SND_PLASMA);
+	addLookup("SND_LASER", SND_LASER);
 	addLookup("SND_MAG", SND_MAG);
 	addLookup("SND_MISSILE", SND_MISSILE);
 	
@@ -82,6 +83,7 @@ void initLookups(void)
 	addLookup("BF_NONE", BF_NONE);
 	addLookup("BF_ENGINE", BF_ENGINE);
 	addLookup("BF_SYSTEM_DAMAGE", BF_SYSTEM_DAMAGE);
+	addLookup("BF_SHIELD_DAMAGE", BF_SHIELD_DAMAGE);
 	addLookup("BF_EXPLODES", BF_EXPLODES);
 	
 	addLookup("MISSILE_ROCKET", MISSILE_ROCKET);

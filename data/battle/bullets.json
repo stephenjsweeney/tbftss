@@ -29,5 +29,13 @@
 		"textureName" : "gfx/bullets/magBolt.png",
 		"sound" : "SND_MAG",
 		"flags" : "BF_SYSTEM_DAMAGE"
+	},
+	
+	{
+		"type" : "BT_LASER",
+		"damage" : 5,
+		"textureName" : "gfx/bullets/laser.png",
+		"sound" : "SND_LASER",
+		"flags" : "BF_SHIELD_DAMAGE"
 	}
 ]

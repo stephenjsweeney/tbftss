@@ -385,6 +385,8 @@ void applyFighterBrakes(void)
 
 void damageFighter(Entity *f, int amount, long flags)
 {
+	int prevShield = f->shield;
+	
 	if (flags & BF_SYSTEM_DAMAGE)
 	{
 		f->systemPower = MAX(0, f->systemPower - amount);
@@ -397,22 +399,36 @@ void damageFighter(Entity *f, int amount, long flags)
 			f->action = NULL;
 		}
 	}
+	else if (flags & BF_SHIELD_DAMAGE)
+	{
+		f->shield = MAX(-(FPS * 10), f->shield - amount);
+		
+		if (f->shield <= 0 && prevShield > 0)
+		{
+			playBattleSound(SND_SHIELD_BREAK, f->x, f->y);
+			addShieldSplinterEffect(f);
+		}
+	}
 	else
 	{
-		f->shield -= amount;
-		
-		if (f->shield < 0)
+		if (f->shield > 0)
 		{
-			f->health -= abs(f->shield);
-			f->shield = 0;
+			f->shield = MAX(0, f->shield - amount);
+		}
+		else
+		{
+			f->health -= amount;
 			f->armourHit = 255;
 			
 			playBattleSound(SND_ARMOUR_HIT, f->x, f->y);
 		}
-		else if (f->shield > 0)
-		{
-			f->shieldHit = 255;
-		}
+	}
+	
+	if (f->shield > 0)
+	{
+		f->shieldHit = 255;
+		
+		playBattleSound(SND_SHIELD_HIT, f->x, f->y);
 	}
 }
 

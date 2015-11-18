@@ -92,8 +92,11 @@ void playBattleSound(int id, int x, int y)
 static void loadSounds(void)
 {
 	sounds[SND_ARMOUR_HIT] = Mix_LoadWAV("sound/275151__bird-man__gun-shot.ogg");
+	sounds[SND_SHIELD_HIT] = Mix_LoadWAV("sound/49678__ejfortin__energy-short-sword-7.ogg");
 	sounds[SND_PLASMA] = Mix_LoadWAV("sound/268344__julien-matthey__jm-noiz-laser-01.ogg");
-	sounds[SND_MAG] = Mix_LoadWAV("sound/18382__inferno__hvylas.ogg");
+	sounds[SND_LASER] = Mix_LoadWAV("sound/18382__inferno__hvylas.ogg");
+	sounds[SND_MAG] = Mix_LoadWAV("sound/146725__fins__laser.ogg");
+	sounds[SND_SHIELD_BREAK] = Mix_LoadWAV("sound/322603__clippysounds__glass-break.ogg");
 	sounds[SND_PARTICLE] = Mix_LoadWAV("sound/77087__supraliminal__laser-short.ogg");
 	sounds[SND_MISSILE] = Mix_LoadWAV("sound/65787__iwilldstroyu__laserrocket.ogg");
 	sounds[SND_BOOST] = Mix_LoadWAV("sound/18380__inferno__hvrl.ogg");

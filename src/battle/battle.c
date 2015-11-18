@@ -55,6 +55,8 @@ void initBattle(void)
 	
 	initBackground();
 	
+	initEffects();
+	
 	initHud();
 	
 	initRadar();

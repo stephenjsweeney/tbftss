@@ -21,6 +21,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "effects.h"
 
 static void setRandomFlameHue(Effect *e);
+static void setRandomShieldHue(Effect *e);
+
+static SDL_Texture *explosionTexture;
+static SDL_Texture *shieldHitTexture;
+
+void initEffects(void)
+{
+	explosionTexture = getTexture("gfx/battle/explosion.png");
+	shieldHitTexture = getTexture("gfx/battle/shieldHit.png");
+}
 
 void doEffects(void)
 {
@@ -88,7 +98,6 @@ void drawEffects(void)
 void addSmallFighterExplosion(void)
 {
 	Effect *e;
-	SDL_Texture *t = getTexture("gfx/battle/explosion.png");
 	
 	e = malloc(sizeof(Effect));
 	memset(e, 0, sizeof(Effect));
@@ -99,7 +108,7 @@ void addSmallFighterExplosion(void)
 	
 	e->x = self->x + (rand() % 16 - rand() % 16);
 	e->y = self->y + (rand() % 16 - rand() % 16);
-	e->texture = t;
+	e->texture = explosionTexture;
 	e->health = 0;
 	e->size = 32;
 	
@@ -115,7 +124,6 @@ void addFighterExplosion(void)
 {
 	int i;
 	Effect *e;
-	SDL_Texture *t = getTexture("gfx/battle/explosion.png");
 	
 	for (i = 0 ; i < 32 ; i++)
 	{
@@ -132,7 +140,7 @@ void addFighterExplosion(void)
 		e->dx *= 0.025;
 		e->dy = (rand() % 25) - (rand() % 25);
 		e->dy *= 0.025;
-		e->texture = t;
+		e->texture = explosionTexture;
 		e->health = 0;
 		e->size = 32 + (rand() % 64);
 		e->r = 255;
@@ -171,7 +179,6 @@ void addMissileExplosion(Bullet *b)
 {
 	int i;
 	Effect *e;
-	SDL_Texture *t = getTexture("gfx/battle/explosion.png");
 	
 	for (i = 0 ; i < 8 ; i++)
 	{
@@ -188,7 +195,7 @@ void addMissileExplosion(Bullet *b)
 		e->dx *= 0.025;
 		e->dy = (rand() % 25) - (rand() % 25);
 		e->dy *= 0.025;
-		e->texture = t;
+		e->texture = explosionTexture;
 		e->health = 0;
 		e->size = 32 + (rand() % 64);
 		e->r = 255;
@@ -223,29 +230,6 @@ void addMissileExplosion(Bullet *b)
 	}
 }
 
-static void setRandomFlameHue(Effect *e)
-{
-	e->r = 255;
-	
-	switch (rand() % 4)
-	{
-		case 0:
-			break;
-			
-		case 1:
-			e->g = 128;
-			break;
-			
-		case 2:
-			e->g = 255;
-			break;
-			
-		case 3:
-			e->g = e->b = 255;
-			break;
-	}
-}
-
 void addEngineEffect(void)
 {
 	Effect *e;
@@ -266,7 +250,7 @@ void addEngineEffect(void)
 	e->x += rand() % 4;
 	e->x -= rand() % 4;
 	
-	e->texture = getTexture("gfx/battle/explosion.png");
+	e->texture = explosionTexture;
 	e->health = 0;
 	e->size = 16;
 	e->r = 128;
@@ -298,7 +282,7 @@ void addMissileEngineEffect(Bullet *b)
 	e->x += rand() % 4;
 	e->x -= rand() % 4;
 	
-	e->texture = getTexture("gfx/battle/explosion.png");
+	e->texture = explosionTexture;
 	e->health = 0;
 	e->size = 12;
 	setRandomFlameHue(e);
@@ -306,4 +290,77 @@ void addMissileEngineEffect(Bullet *b)
 	
 	e->x -= e->size / 2;
 	e->y -= e->size / 2;
+}
+
+void addShieldSplinterEffect(Entity *ent)
+{
+	int i;
+	Effect *e;
+	
+	for (i = 0 ; i < 48 ; i++)
+	{
+		e = malloc(sizeof(Effect));
+		memset(e, 0, sizeof(Effect));
+		battle.effectTail->next = e;
+		battle.effectTail = e;
+		
+		e->type = EFFECT_LINE;
+		e->x = ent->x;
+		e->y = ent->y;
+		e->dx = rand() % 64 - rand() % 64;
+		e->dx *= 0.1;
+		e->dy = rand() % 64 - rand() % 64;
+		e->dy *= 0.1;
+		
+		e->a = 255;
+		
+		setRandomShieldHue(e);
+	}
+}
+
+static void setRandomFlameHue(Effect *e)
+{
+	e->r = 255;
+	
+	switch (rand() % 4)
+	{
+		case 0:
+			break;
+			
+		case 1:
+			e->g = 128;
+			break;
+			
+		case 2:
+			e->g = 255;
+			break;
+			
+		case 3:
+			e->g = e->b = 255;
+			break;
+	}
+}
+
+static void setRandomShieldHue(Effect *e)
+{
+	e->b = 255;
+	
+	switch (rand() % 4)
+	{
+		case 0:
+			e->g = 128;
+			break;
+			
+		case 1:
+			e->g = 196;
+			break;
+			
+		case 2:
+			e->g = 255;
+			break;
+			
+		case 3:
+			e->r = e->g = 255;
+			break;
+	}
 }

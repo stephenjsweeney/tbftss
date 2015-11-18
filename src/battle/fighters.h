@@ -46,6 +46,7 @@ extern void attachRope(void);
 extern char *readFile(char *filename);
 extern long lookup(char *name);
 extern long flagsToLong(char *flags);
+extern void addShieldSplinterEffect(Entity *ent);
 
 extern App app;
 extern Battle battle;

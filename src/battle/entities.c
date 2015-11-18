@@ -197,9 +197,13 @@ static void restrictToGrid(Entity *e)
 
 static void doEntity(void)
 {
-	if (self->health <= 0)
+	if (self->alive == ALIVE_DYING)
 	{
 		self->alive = ALIVE_DEAD;
+	}
+	else if (self->health <= 0)
+	{
+		self->alive = ALIVE_DYING;
 	}
 }
 

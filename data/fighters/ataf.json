@@ -36,6 +36,26 @@
 			"type" : "BT_PLASMA",
 			"x" : -13,
 			"y" : -8
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : -5,
+			"y" : 0
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : 5,
+			"y" : 0
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : -5,
+			"y" : 0
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : 5,
+			"y" : 0
 		}
 	],
 	"missiles" : {

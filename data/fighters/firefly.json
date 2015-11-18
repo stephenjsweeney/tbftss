@@ -13,12 +13,12 @@
 			"y" : -2
 		},
 		{
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"x" : 12,
 			"y" : -2
 		},
 		{
-			"type" : "BT_PLASMA",
+			"type" : "BT_PARTICLE",
 			"x" : 0,
 			"y" : -4
 		}

@@ -15,19 +15,24 @@
 	],
 	"player" : {
 		"pilot" : "Daniel Carr",
-		"squadron" : "The ABCs",
-		"type" : "Shuttle",
+		"squadron" : "Iron Patriots",
+		"type" : "TAF",
 		"side" : "SIDE_ALLIES"
 	},
-	"fighterGroups" : [
+	"fighters" : [
 		{
 			"name" : "Ally",
-			"number" : 2,
-			"types" : "TAF",
+			"type" : "TAF",
 			"side" : "SIDE_ALLIES",
-			"x" : 25,
-			"y" : 25,
-			"scatter" : 500
+			"x" : 25.1,
+			"y" : 25
+		},
+		{
+			"name" : "Ally",
+			"type" : "Shuttle",
+			"side" : "SIDE_ALLIES",
+			"x" : 24.9,
+			"y" : 25
 		}
 	],
 	"itemGroups" : [

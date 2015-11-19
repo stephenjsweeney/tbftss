@@ -2,7 +2,7 @@
 	"name" : "Hyena-B",
 	"health" : 60,
 	"shield" : 30,
-	"speed" : 1.7,
+	"speed" : 1.85,
 	"reloadTime" : 15,
 	"shieldRechargeRate" : 40,
 	"textureName" : "gfx/fighters/hyena.png",

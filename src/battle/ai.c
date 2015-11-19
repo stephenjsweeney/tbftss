@@ -130,17 +130,17 @@ static void doFighterAI(void)
 		self->targetLocation.x = self->target->x + rand() % 500 - rand() % 500;
 		self->targetLocation.y = self->target->y + rand() % 500 - rand() % 500;
 		self->action = evade;
-		self->aiActionTime = FPS;
+		self->aiActionTime = FPS * 2;
 	}
 	else if (r <= getActionChance(AI_BOOST))
 	{
 		self->action = boost;
-		self->aiActionTime = FPS / 2;
+		self->aiActionTime = FPS;
 	}
 	else if (r <= getActionChance(AI_FALLBACK))
 	{
 		self->action = fallback;
-		self->aiActionTime = FPS / 2;
+		self->aiActionTime = FPS * 2;
 	}
 	else if (r <= getActionChance(AI_STRAIGHT))
 	{
@@ -155,7 +155,7 @@ static void doFighterAI(void)
 	else
 	{
 		self->action = huntAndAttackTarget;
-		self->aiActionTime = FPS;
+		self->aiActionTime = FPS * 3;
 	}
 }
 
@@ -164,19 +164,19 @@ static int getActionChance(int type)
 	switch (type)
 	{
 		case AI_EVADE:
-			return 20 - (self->aiAggression * 3);
+			return 25 - (self->aiAggression * 3);
 		
 		case AI_BOOST:
-			return 30 - (self->aiAggression * 4);
+			return 40 - (self->aiAggression * 4);
 		
 		case AI_FALLBACK:
-			return 40 - (self->aiAggression * 5);
+			return 55 - (self->aiAggression * 5);
 		
 		case AI_STRAIGHT:
-			return 50 - (self->aiAggression * 6);
+			return 70 - (self->aiAggression * 6);
 		
 		case AI_HUNT:
-			return 60 - (self->aiAggression * 7);
+			return 85 - (self->aiAggression * 7);
 	}
 	
 	return 100;

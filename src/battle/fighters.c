@@ -51,7 +51,7 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 	switch (side)
 	{
 		case SIDE_ALLIES:
-			f->aiAggression = 2 + rand() % 3;
+			f->aiAggression = rand() % 3;
 			f->aiFlags |= AIF_FOLLOWS_PLAYER;
 			if (!(f->aiFlags & AIF_AVOIDS_COMBAT))
 			{
@@ -421,7 +421,13 @@ void damageFighter(Entity *f, int amount, long flags)
 	{
 		if (f->shield > 0)
 		{
-			f->shield = MAX(0, f->shield - amount);
+			f->shield -= amount;
+			
+			if (f->shield < 0)
+			{
+				f->health += f->shield;
+				f->shield = 0;
+			}
 		}
 		else
 		{

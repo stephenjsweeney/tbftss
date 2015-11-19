@@ -1,0 +1,36 @@
+{
+	"name" : "Mantis",
+	"health" : 35,
+	"shield" : 50,
+	"speed" : 1.9,
+	"reloadTime" : 25,
+	"shieldRechargeRate" : 35,
+	"textureName" : "gfx/fighters/mantis.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : -2
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : -2
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : -2,
+			"y" : -4
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 2,
+			"y" : -4
+		}
+	],
+	"combinedGuns" : 1,
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 6
+	}
+}

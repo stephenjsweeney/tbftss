@@ -132,7 +132,7 @@ void doEntities(void)
 		
 		if (e->type == ET_FIGHTER && (battle.epic || e->active))
 		{
-			if (self->side == SIDE_ALLIES)
+			if (e->side == SIDE_ALLIES)
 			{
 				numAllies++;
 			}

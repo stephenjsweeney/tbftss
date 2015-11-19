@@ -1,0 +1,46 @@
+{
+	"name" : "Coyote Assault #2",
+	"description" : "The initial fight back against the Pandoran has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/mythos.png",
+	"music" : "music/heroism.ogg",
+	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
+	"epic" : {
+		"fighterLimit" : 16
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "Pandoran",
+			"targetValue" : 75,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph;TAF;Ray;Leopard;Hyena-A;Hyena-B;Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 75,
+			"scatter" : 5000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Mantis;Sphinx",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 25,
+			"number" : 75,
+			"scatter" : 5000
+		}
+	]
+}
+ 

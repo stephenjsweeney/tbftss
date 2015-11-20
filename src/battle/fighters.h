@@ -47,6 +47,7 @@ extern char *readFile(char *filename);
 extern long lookup(char *name);
 extern long flagsToLong(char *flags);
 extern void addShieldSplinterEffect(Entity *ent);
+extern void completeMission(void);
 
 extern App app;
 extern Battle battle;

@@ -227,10 +227,25 @@ void doFighter(void)
 				battle.stats[STAT_ENEMIES_DISABLED]++;
 			}
 		}
+		
+		if (self->target != NULL && self->target->alive != ALIVE_ALIVE)
+		{
+			self->target = NULL;
+			
+			if (self != player)
+			{
+				self->action = doAI;
+			}
+		}
 	}
 	
 	if (self->alive == ALIVE_ESCAPED)
 	{
+		if (self == player)
+		{
+			completeMission();
+		}
+		
 		if (self->side != SIDE_ALLIES)
 		{
 			addHudMessage(colors.red, "Mission target has escaped.");
@@ -279,6 +294,8 @@ void doFighter(void)
 						{
 							addHudMessage(colors.red, "Ally has been killed");
 						}
+						
+						checkTrigger("ALLIES_KILLED", TRIGGER_LOSSES);
 					}
 				}
 			}
@@ -530,6 +547,24 @@ void fleeAllEnemies(void)
 		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
 		{
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
+		}
+	}
+}
+
+void retreatAllies(void)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
+		{
+			e->flags |= EF_FLEEING;
+			
+			e->aiFlags |= AIF_AVOIDS_COMBAT;
+			e->aiFlags |= AIF_UNLIMITED_RANGE;
+			e->aiFlags |= AIF_GOAL_EXTRACTION;
+			e->aiFlags &= ~AIF_FOLLOWS_PLAYER;
 		}
 	}
 }

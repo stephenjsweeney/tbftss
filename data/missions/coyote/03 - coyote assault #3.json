@@ -1,0 +1,111 @@
+{
+	"name" : "Coyote Assault #3",
+	"description" : "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/mythos.png",
+	"music" : "music/heroism.ogg",
+	"requires" : "PREVIOUS",
+	"epic" : {
+		"fighterLimit" : 12
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "Pandoran",
+			"targetValue" : 250,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Retreat to Extraction Point",
+			"targetName" : "Player",
+			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED",
+			"active" : 0
+		}
+	],
+	"triggers" : [
+		{
+			"type" : "TRIGGER_LOSSES",
+			"targetName" : "ALLIES_KILLED",
+			"targetValue" : 100,
+			"action" : "TA_ACTIVE_OBJECTIVE",
+			"actionValue" : "1"
+		},
+		{
+			"type" : "TRIGGER_LOSSES",
+			"targetName" : "ALLIES_KILLED",
+			"targetValue" : 100,
+			"action" : "TA_RETREAT_ALLIES",
+			"actionValue" : "1"
+		},
+		{
+			"type" : "TRIGGER_LOSSES",
+			"targetName" : "ALLIES_KILLED",
+			"targetValue" : 100,
+			"action" : "TA_ACTIVE_ENTITY",
+			"actionValue" : "Extraction Point"
+		},
+		{
+			"type" : "TRIGGER_LOSSES",
+			"targetName" : "ALLIES_KILLED",
+			"targetValue" : 100,
+			"action" : "TA_ACTIVE_ENTITY",
+			"actionValue" : "ATAFs"
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)"
+	},
+	"fighterGroups" : [
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph;TAF;Ray;Leopard;Hyena-A;Hyena-B;Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 95,
+			"scatter" : 5000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Mantis;Sphinx",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 15,
+			"number" : 250,
+			"scatter" : 5000
+		},
+		{
+			"name" : "ATAFs",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 5,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph;TAF;Ray;Leopard;Hyena-A;Hyena-B;Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 25,
+			"scatter" : 5000
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Extraction Point",
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 25,
+			"y" : 25,
+			"active" : 0
+		}
+	]
+}
+ 

@@ -370,6 +370,11 @@ static void loadEntities(cJSON *node)
 			e->x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
 			e->y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
 			
+			if (cJSON_GetObjectItem(node, "active"))
+			{
+				e->active = cJSON_GetObjectItem(node, "active")->valueint;
+			}
+			
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
 				e->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);

@@ -186,7 +186,7 @@ void activateObjective(int num)
 	{
 		if (i == num)
 		{
-			addHudMessage(colors.cyan, "New Objectives : %s", o->description);
+			addHudMessage(colors.cyan, "New Objective : %s", o->description);
 			o->active = 1;
 			return;
 		}

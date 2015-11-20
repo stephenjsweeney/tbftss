@@ -1,0 +1,35 @@
+{
+	"name" : "Rook",
+	"health" : 75,
+	"shield" : 55,
+	"speed" : 1.6,
+	"reloadTime" : 12,
+	"shieldRechargeRate" : 45,
+	"textureName" : "gfx/fighters/rook.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -9,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 9,
+			"y" : 0
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : -5,
+			"y" : 0
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : 5,
+			"y" : 0
+		}
+	],
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 4
+	}
+}

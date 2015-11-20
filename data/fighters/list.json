@@ -17,5 +17,6 @@
 	"data/fighters/tug.json",
 	"data/fighters/shuttle.json",
 	"data/fighters/kingfisher.json",
-	"data/fighters/mantis.json"
+	"data/fighters/mantis.json",
+	"data/fighters/rook.json"
 ]

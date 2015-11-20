@@ -4,9 +4,9 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/mythos.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
+	"requires" : "PREVIOUS",
 	"epic" : {
-		"fighterLimit" : 16
+		"fighterLimit" : 12
 	},
 	"objectives" : [
 		{

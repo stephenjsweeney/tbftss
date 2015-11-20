@@ -6,7 +6,7 @@
 	"music" : "music/heroism.ogg",
 	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
 	"epic" : {
-		"fighterLimit" : 16
+		"fighterLimit" : 12
 	},
 	"objectives" : [
 		{

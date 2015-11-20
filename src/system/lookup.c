@@ -41,6 +41,7 @@ void initLookups(void)
 	addLookup("EF_FLEEING", EF_FLEEING);
 	addLookup("EF_HAS_ROPE", EF_HAS_ROPE);
 	addLookup("EF_COLLECTS_ITEMS", EF_COLLECTS_ITEMS);
+	addLookup("EF_NO_EPIC", EF_NO_EPIC);
 	
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_FOLLOWS_PLAYER", AIF_FOLLOWS_PLAYER);
@@ -55,6 +56,7 @@ void initLookups(void)
 	addLookup("TT_DISABLE", TT_DISABLE);
 	addLookup("TT_WAYPOINT", TT_WAYPOINT);
 	addLookup("TT_ESCAPED", TT_ESCAPED);
+	addLookup("TT_PLAYER_ESCAPED", TT_PLAYER_ESCAPED);
 	addLookup("TT_ITEM", TT_ITEM);
 	
 	addLookup("WT_BUTTON", WT_BUTTON);
@@ -127,6 +129,7 @@ void initLookups(void)
 	
 	addLookup("TRIGGER_TIME", TRIGGER_TIME);
 	addLookup("TRIGGER_KILLS", TRIGGER_KILLS);
+	addLookup("TRIGGER_LOSSES", TRIGGER_LOSSES);
 	addLookup("TRIGGER_WAYPOINT", TRIGGER_WAYPOINT);
 	
 	addLookup("TA_COMPLETE_MISSION", TA_COMPLETE_MISSION);
@@ -134,6 +137,7 @@ void initLookups(void)
 	addLookup("TA_ACTIVE_ENTITY", TA_ACTIVE_ENTITY);
 	addLookup("TA_ACTIVE_OBJECTIVE", TA_ACTIVE_OBJECTIVE);
 	addLookup("TA_ACTIVE_ENTITY_GROUP", TA_ACTIVE_ENTITY_GROUP);
+	addLookup("TA_RETREAT_ALLIES", TA_RETREAT_ALLIES);
 }
 
 static void addLookup(char *name, long value)

@@ -29,6 +29,7 @@ extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void activateEntities(char *name);
 extern void activateObjective(int num);
 extern void activateEntityGroup(char *groupName);
+extern void retreatAllies(void);
 
 extern Battle battle;
 extern Colors colors;

@@ -46,6 +46,9 @@ static int conditionMet(Trigger *trigger)
 		case TRIGGER_KILLS:
 			return trigger->targetValue == battle.stats[STAT_ENEMIES_KILLED];
 			
+		case TRIGGER_LOSSES:
+			return trigger->targetValue == battle.stats[STAT_ALLIES_KILLED];
+			
 		case TRIGGER_WAYPOINT:
 			return 1;
 			
@@ -80,6 +83,12 @@ static void fireTrigger(Trigger *trigger)
 			
 		case TA_ACTIVE_OBJECTIVE:
 			activateObjective(atoi(trigger->actionValue));
+			break;
+			
+		case TA_RETREAT_ALLIES:
+			battle.epic = 0;
+			addHudMessage(colors.red, "Mission Aborted! Retreat!");
+			retreatAllies();
 			break;
 	}
 }

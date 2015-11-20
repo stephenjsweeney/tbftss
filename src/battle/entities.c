@@ -59,15 +59,6 @@ void doEntities(void)
 			
 			removeFromGrid(e);
 			
-			if (e->action != NULL)
-			{
-				if (--e->thinkTime <= 0)
-				{
-					e->thinkTime = 0;
-					e->action();
-				}
-			}
-			
 			switch (e->type)
 			{
 				case ET_FIGHTER:
@@ -92,14 +83,27 @@ void doEntities(void)
 					break;
 			}
 			
-			doRope(e);
-			
-			restrictToGrid(e);
-			
-			e->x += e->dx;
-			e->y += e->dy;
-			
-			if (e->alive == ALIVE_DEAD || e->alive == ALIVE_ESCAPED)
+			if (e->alive == ALIVE_ALIVE || e->alive == ALIVE_DYING)
+			{
+				if (e->action != NULL)
+				{
+					if (--e->thinkTime <= 0)
+					{
+						e->thinkTime = 0;
+						e->action();
+					}
+				}
+				
+				doRope(e);
+				
+				restrictToGrid(e);
+				
+				e->x += e->dx;
+				e->y += e->dy;
+				
+				addToGrid(e);
+			}
+			else
 			{
 				if (e == battle.entityTail)
 				{
@@ -124,13 +128,9 @@ void doEntities(void)
 				free(e);
 				e = prev;
 			}
-			else
-			{
-				addToGrid(e);
-			}
 		}
 		
-		if (e->type == ET_FIGHTER && (battle.epic || e->active))
+		if (e->type == ET_FIGHTER && (battle.epic || e->active) && !(e->flags & EF_NO_EPIC))
 		{
 			if (e->side == SIDE_ALLIES)
 			{
@@ -309,7 +309,7 @@ static void activateEpicFighters(int n, int side)
 	{
 		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
-			if (!e->active && e->type == ET_FIGHTER && ((side == SIDE_ALLIES && e->side == SIDE_ALLIES) || (side != SIDE_ALLIES && e->side != SIDE_ALLIES)))
+			if (!e->active && e->type == ET_FIGHTER && !(e->flags & EF_NO_EPIC) && ((side == SIDE_ALLIES && e->side == SIDE_ALLIES) || (side != SIDE_ALLIES && e->side != SIDE_ALLIES)))
 			{
 				e->active = 1;
 				

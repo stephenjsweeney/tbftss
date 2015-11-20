@@ -113,7 +113,7 @@ void doPlayer(void)
 			
 			if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles.ammo && player->target)
 			{
-				if (getDistance(player->x, player->y, player->target->x, player->target->y) <= 1000)
+				if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
 				{
 					fireMissile(player);
 				}
@@ -125,7 +125,7 @@ void doPlayer(void)
 				app.keyboard[SDL_SCANCODE_RETURN] = 0;
 			}
 			
-			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || app.keyboard[SDL_SCANCODE_T])
+			if (!player->target || player->target->systemPower <= 0 || app.keyboard[SDL_SCANCODE_T])
 			{
 				selectTarget();
 				

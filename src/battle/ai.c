@@ -90,7 +90,7 @@ static void doFighterAI(void)
 	int r;
 	
 	/* don't hold a grudge against current target */
-	if ((self->target != NULL && self->target->health <= 0) || rand() % 2 == 0)
+	if ((self->target != NULL && self->target->health <= 0) || rand() % 5 == 0)
 	{
 		self->action = doAI;
 		self->target = NULL;
@@ -127,10 +127,10 @@ static void doFighterAI(void)
 	
 	if (r <= getActionChance(AI_EVADE))
 	{
-		self->targetLocation.x = self->target->x + rand() % 500 - rand() % 500;
-		self->targetLocation.y = self->target->y + rand() % 500 - rand() % 500;
+		self->targetLocation.x = self->target->x + (rand() % 150 - rand() % 150);
+		self->targetLocation.y = self->target->y + (rand() % 150 - rand() % 150);
 		self->action = evade;
-		self->aiActionTime = FPS * 2;
+		self->aiActionTime = FPS;
 	}
 	else if (r <= getActionChance(AI_BOOST))
 	{
@@ -355,6 +355,9 @@ static void preAttack(void)
 {
 	if (!self->reload)
 	{
+		/* force weapon selection, otherwise we'll keep using lasers / mag */
+		canAttack(self->target);
+		
 		if (self->guns[0].type && (self->missiles.ammo == 0 || rand() % 50 > 0))
 		{
 			fireGuns(self);
@@ -395,7 +398,7 @@ static void turnAndFly(int wantedAngle)
 
 static void evade(void)
 {
-	int wantedAngle = 180 + getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
+	int wantedAngle = getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
 	
 	turnAndFly(wantedAngle);
 }
@@ -476,24 +479,19 @@ static void moveToPlayer(void)
 
 static int nearExtractionPoint(void)
 {
-	int i;
-	Entity *e, **candidates;
-	
-	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), GRID_CELL_WIDTH, GRID_CELL_HEIGHT, self);
+	int dist;
 	
 	self->target = NULL;
 	
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	if (battle.extractionPoint)
 	{
-		if (e->type == ET_EXTRACTION_POINT)
+		dist = getDistance(self->x, self->y, battle.extractionPoint->x, battle.extractionPoint->y);
+		
+		if (dist <= 2000 || self->aiFlags & AIF_UNLIMITED_RANGE)
 		{
-			self->target = e;
+			self->target = battle.extractionPoint;
+			self->action = moveToExtractionPoint;
 		}
-	}
-	
-	if (self->target != NULL)
-	{
-		self->action = moveToExtractionPoint;
 	}
 	
 	return self->target != NULL;

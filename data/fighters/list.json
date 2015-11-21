@@ -19,5 +19,8 @@
 	"data/fighters/kingfisher.json",
 	"data/fighters/mantis.json",
 	"data/fighters/rook.json",
-	"data/fighters/thunderhead.json"
+	"data/fighters/thunderhead.json",
+	"data/fighters/scarab.json",
+	"data/fighters/hammerhead.json",
+	"data/fighters/khepri.json"
 ]

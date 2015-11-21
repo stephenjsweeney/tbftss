@@ -83,6 +83,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_RETREATS			(2 << 4)
 #define AIF_GOAL_EXTRACTION		(2 << 5)
 #define AIF_AVOIDS_COMBAT		(2 << 6)
+#define AIF_DEFENSIVE			(2 << 7)
+#define AIF_MISSILE_BOAT		(2 << 8)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)

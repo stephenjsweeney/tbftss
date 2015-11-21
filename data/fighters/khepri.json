@@ -27,6 +27,5 @@
 		"type" : "MISSILE_MISSILE",
 		"ammo" : 80
 	},
-	"flags" : "EF_AVOIDS_COMBAT",
-	"aiFlags" : "AIF_MISSILE_BOAT"
+	"aiFlags" : "AIF_MISSILE_BOAT+AIF_DEFENSIVE"
 }

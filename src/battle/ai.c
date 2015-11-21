@@ -55,6 +55,11 @@ void doAI(void)
 		return;
 	}
 	
+	if ((self->aiFlags & AIF_DEFENSIVE) && rand() % 50 && nearEnemies())
+	{
+		return;
+	}
+	
 	if ((self->aiFlags & AIF_GOAL_EXTRACTION) && nearExtractionPoint())
 	{
 		return;

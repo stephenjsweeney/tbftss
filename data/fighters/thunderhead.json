@@ -1,0 +1,41 @@
+{
+	"name" : "Thunderhead",
+	"health" : 60,
+	"shield" : 45,
+	"speed" : 1.5,
+	"reloadTime" : 12,
+	"shieldRechargeRate" : 65,
+	"textureName" : "gfx/fighters/thunderhead.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 0,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : -5,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 5,
+			"y" : 0
+		}
+	],
+	"combinedGuns" : 1,
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 4
+	}
+}

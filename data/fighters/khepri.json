@@ -1,0 +1,32 @@
+{
+	"name" : "Khepri",
+	"health" : 40,
+	"shield" : 35,
+	"speed" : 1.5,
+	"reloadTime" : 25,
+	"shieldRechargeRate" : 60,
+	"textureName" : "gfx/fighters/khepri.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 0,
+			"y" : 0
+		}
+	],
+	"missiles" : {
+		"type" : "MISSILE_MISSILE",
+		"ammo" : 80
+	},
+	"flags" : "EF_AVOIDS_COMBAT",
+	"aiFlags" : "AIF_MISSILE_BOAT"
+}

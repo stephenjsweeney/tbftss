@@ -113,6 +113,8 @@ void completeMission(void)
 		game.stats[STAT_MISSIONS_COMPLETED]++;
 		
 		retreatEnemies();
+		
+		player->flags |= EF_IMMORTAL;
 	}
 }
 
@@ -125,6 +127,8 @@ void failMission(void)
 		selectWidget("retry", "battleLost");
 		
 		failIncompleteObjectives();
+		
+		player->flags |= EF_IMMORTAL;
 	}
 }
 

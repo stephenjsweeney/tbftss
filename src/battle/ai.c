@@ -44,17 +44,18 @@ static int nearTowableCraft(void);
 static void moveToTowableCraft(void);
 static void lookForPlayer(void);
 static void fleeEnemies(void);
+static int isRetreating(void);
 static int getActionChance(int type);
 static void doFighterAI(void);
 
 void doAI(void)
 {
-	if ((self->aiFlags & AIF_GOAL_EXTRACTION) && nearExtractionPoint())
+	if ((self->aiFlags & AIF_AVOIDS_COMBAT) && nearEnemies())
 	{
 		return;
 	}
 	
-	if ((self->aiFlags & AIF_AVOIDS_COMBAT) && nearEnemies())
+	if ((self->aiFlags & AIF_GOAL_EXTRACTION) && nearExtractionPoint())
 	{
 		return;
 	}
@@ -65,6 +66,11 @@ void doAI(void)
 	}
 	
 	if ((self->aiFlags & AIF_TOWS) && nearTowableCraft())
+	{
+		return;
+	}
+	
+	if ((self->aiFlags & AIF_RETREATS) && (battle.stats[STAT_TIME] % 60 == 0) && isRetreating())
 	{
 		return;
 	}
@@ -134,8 +140,9 @@ static void doFighterAI(void)
 	}
 	else if (r <= getActionChance(AI_BOOST))
 	{
+		applyFighterThrust();
 		self->action = boost;
-		self->aiActionTime = FPS;
+		self->aiActionTime = FPS * 0.5;
 	}
 	else if (r <= getActionChance(AI_FALLBACK))
 	{
@@ -323,6 +330,11 @@ static void boost(void)
 	self->dy *= 1.001;
 	
 	nextAction();
+	
+	if (self->action == doAI)
+	{
+		applyFighterThrust();
+	}
 }
 
 static int hasClearShot(void)
@@ -418,12 +430,33 @@ static void nextAction(void)
 	}
 }
 
+static int isRetreating(void)
+{
+	if (!(self->flags & EF_RETREATING))
+	{
+		if (battle.numEnemies > 0 && rand() % (battle.numEnemies * 5) == 0)
+		{
+			self->flags |= EF_RETREATING;
+			
+			self->aiFlags |= AIF_AVOIDS_COMBAT;
+			self->aiFlags |= AIF_UNLIMITED_RANGE;
+			self->aiFlags |= AIF_GOAL_EXTRACTION;
+			
+			addHudMessage(colors.red, "%s is retreating!", self->name);
+			
+			return 1;
+		}
+	}
+	
+	return self->flags & EF_RETREATING;
+}
+
 static int nearEnemies(void)
 {
 	int i, numEnemies;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - 1000, self->y - (self->h / 2) - 1000, 2000, 2000, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - 500, self->y - (self->h / 2) - 500, 1000, 1000, self);
 	
 	self->target = NULL;
 	self->targetLocation.x = self->targetLocation.y = 0;
@@ -457,6 +490,8 @@ static void fleeEnemies(void)
 	int wantedAngle = 180 + getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
 	
 	turnAndFly(wantedAngle);
+	
+	nextAction();
 }
 
 static void moveToPlayer(void)
@@ -491,6 +526,7 @@ static int nearExtractionPoint(void)
 		{
 			self->target = battle.extractionPoint;
 			self->action = moveToExtractionPoint;
+			self->aiActionTime = FPS / 2;
 		}
 	}
 	
@@ -502,6 +538,8 @@ static void moveToExtractionPoint(void)
 	faceTarget(self->target);
 		
 	applyFighterThrust();
+	
+	nextAction();
 }
 
 static int nearItems(void)
@@ -533,6 +571,7 @@ static int nearItems(void)
 	if (self->target != NULL)
 	{
 		self->action = moveToItem;
+		self->aiActionTime = FPS / 2;
 	}
 	
 	return self->target != NULL;
@@ -578,6 +617,7 @@ static int nearTowableCraft(void)
 	if (self->target != NULL)
 	{
 		self->action = moveToTowableCraft;
+		self->aiActionTime = FPS / 2;
 	}
 	
 	return self->target != NULL;

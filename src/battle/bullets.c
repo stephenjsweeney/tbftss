@@ -143,7 +143,10 @@ static void checkCollisions(Bullet *b)
 					battle.stats[STAT_SHOTS_HIT]++;
 				}
 				
-				damageFighter(e, b->damage, b->flags);
+				if (!(e->flags & EF_IMMORTAL))
+				{
+					damageFighter(e, b->damage, b->flags);
+				}
 				
 				b->life = 0;
 				b->damage = 0;

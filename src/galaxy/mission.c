@@ -112,7 +112,7 @@ void completeMission(void)
 		
 		game.stats[STAT_MISSIONS_COMPLETED]++;
 		
-		fleeAllEnemies();
+		retreatEnemies();
 	}
 }
 
@@ -247,6 +247,11 @@ static void loadFighters(cJSON *node)
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
 				f->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
+			
+			if (cJSON_GetObjectItem(node, "aiFlags"))
+			{
+				f->aiFlags = flagsToLong(cJSON_GetObjectItem(node, "aiFlags")->valuestring);
 			}
 			
 			if (cJSON_GetObjectItem(node, "active"))

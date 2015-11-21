@@ -38,7 +38,7 @@ void initLookups(void)
 	addLookup("EF_MUST_DISABLE", EF_MUST_DISABLE);
 	addLookup("EF_IMMORTAL", EF_IMMORTAL);
 	addLookup("EF_MISSION_TARGET", EF_MISSION_TARGET);
-	addLookup("EF_FLEEING", EF_FLEEING);
+	addLookup("EF_RETREATING", EF_RETREATING);
 	addLookup("EF_HAS_ROPE", EF_HAS_ROPE);
 	addLookup("EF_COLLECTS_ITEMS", EF_COLLECTS_ITEMS);
 	addLookup("EF_NO_EPIC", EF_NO_EPIC);

@@ -41,7 +41,7 @@ extern void selectWidget(const char *name, const char *group);
 extern Entity *spawnExtractionPoint(void);
 extern Entity *spawnItem(char *type);
 extern void failIncompleteObjectives(void);
-extern void fleeAllEnemies(void);
+extern void retreatEnemies(void);
 
 extern Battle battle;
 extern Entity *player;

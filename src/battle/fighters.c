@@ -538,7 +538,7 @@ static void straightDie(void)
 	}
 }
 
-void fleeAllEnemies(void)
+void retreatEnemies(void)
 {
 	Entity *e;
 	
@@ -559,7 +559,7 @@ void retreatAllies(void)
 	{
 		if (e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
 		{
-			e->flags |= EF_FLEEING;
+			e->flags |= EF_RETREATING;
 			
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;

@@ -24,6 +24,13 @@
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isCondition" : 1
+		},
+		{
+			"description" : "Do not let Pirate Leader Escape",
+			"targetName" : "Pirate Leader",
+			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED",
+			"isCondition" : 1
 		}
 	],
 	"challenges" : [
@@ -49,7 +56,8 @@
 			"side" : "SIDE_PIRATE",
 			"x" : 12,
 			"y" : 25,
-			"flags" : "EF_NO_KILL+EF_MUST_DISABLE+EF_MISSION_TARGET"
+			"flags" : "EF_NO_KILL+EF_MUST_DISABLE+EF_MISSION_TARGET",
+			"aiFlags" : "AIF_RETREATS"
 		}
 	],
 	"fighterGroups" : [
@@ -70,6 +78,14 @@
 			"x" : 15,
 			"y" : 25,
 			"scatter" : 1000
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Extraction Point",
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 26,
+			"y" : 25
 		}
 	]
 }

@@ -99,54 +99,57 @@ void doPlayer(void)
 				applyFighterBrakes();
 			}
 			
-			if (app.keyboard[SDL_SCANCODE_LCTRL] && !player->reload && player->guns[0].type)
+			if (battle.status == MS_IN_PROGRESS)
 			{
-				fireGuns(player);
-			}
-			
-			if (app.keyboard[SDL_SCANCODE_LSHIFT])
-			{
-				switchGuns();
-				
-				app.keyboard[SDL_SCANCODE_LSHIFT] = 0;
-			}
-			
-			if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles.ammo && player->target)
-			{
-				if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
+				if (app.keyboard[SDL_SCANCODE_LCTRL] && !player->reload && player->guns[0].type)
 				{
-					fireMissile(player);
-				}
-				else
-				{
-					addHudMessage(colors.white, "Target not in range");
+					fireGuns(player);
 				}
 				
-				app.keyboard[SDL_SCANCODE_RETURN] = 0;
-			}
-			
-			if (!player->target || player->target->systemPower <= 0 || app.keyboard[SDL_SCANCODE_T])
-			{
-				selectTarget();
+				if (app.keyboard[SDL_SCANCODE_LSHIFT])
+				{
+					switchGuns();
+					
+					app.keyboard[SDL_SCANCODE_LSHIFT] = 0;
+				}
 				
-				app.keyboard[SDLK_t] = 0;
-			}
-			
-			if (app.keyboard[SDL_SCANCODE_SPACE] && battle.boostTimer == BOOST_RECHARGE_TIME)
-			{
-				playSound(SND_BOOST);
+				if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles.ammo && player->target)
+				{
+					if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
+					{
+						fireMissile(player);
+					}
+					else
+					{
+						addHudMessage(colors.white, "Target not in range");
+					}
+					
+					app.keyboard[SDL_SCANCODE_RETURN] = 0;
+				}
 				
-				activateBoost();
-			}
-			
-			if (app.keyboard[SDL_SCANCODE_E] && battle.ecmTimer == ECM_RECHARGE_TIME)
-			{
-				activateECM();
-			}
-			
-			if (!battle.missionTarget)
-			{
-				selectMissionTarget();
+				if (!player->target || player->target->systemPower <= 0 || app.keyboard[SDL_SCANCODE_T])
+				{
+					selectTarget();
+					
+					app.keyboard[SDLK_t] = 0;
+				}
+				
+				if (app.keyboard[SDL_SCANCODE_SPACE] && battle.boostTimer == BOOST_RECHARGE_TIME)
+				{
+					playSound(SND_BOOST);
+					
+					activateBoost();
+				}
+				
+				if (app.keyboard[SDL_SCANCODE_E] && battle.ecmTimer == ECM_RECHARGE_TIME)
+				{
+					activateECM();
+				}
+				
+				if (!battle.missionTarget)
+				{
+					selectMissionTarget();
+				}
 			}
 		}
 		

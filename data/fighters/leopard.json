@@ -23,8 +23,5 @@
 			"y" : -16
 		}
 	],
-	"missiles" : {
-		"type" : "MISSILE_MISSILE",
-		"ammo" : 3
-	}
+	"missiles" : 3
 }

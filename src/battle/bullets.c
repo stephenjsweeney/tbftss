@@ -73,7 +73,11 @@ void doBullets(void)
 		b->x += b->dx;
 		b->y += b->dy;
 		
-		if (b->type == BT_MISSILE)
+		if (b->type == BT_ROCKET)
+		{
+			addMissileEngineEffect(b);
+		}
+		else if (b->type == BT_MISSILE)
 		{
 			addMissileEngineEffect(b);
 			
@@ -315,15 +319,24 @@ void fireGuns(Entity *owner)
 	playBattleSound(b->sound, owner->x, owner->y);
 }
 
+void fireRocket(Entity *owner)
+{
+	Bullet *b;
+	
+	b = createBullet(BT_ROCKET, owner->x, owner->y, owner);
+	
+	playBattleSound(b->sound, owner->x, owner->y);
+}
+
 void fireMissile(Entity *owner)
 {
 	Bullet *b;
 	
-	b = createBullet(BT_ROCKET + owner->missiles.type, owner->x, owner->y, owner);
+	b = createBullet(BT_MISSILE, owner->x, owner->y, owner);
 	
 	b->life = FPS * 30;
 	
-	owner->missiles.ammo--;
+	owner->missiles--;
 	
 	if (owner == player)
 	{

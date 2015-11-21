@@ -113,7 +113,7 @@ void doPlayer(void)
 					app.keyboard[SDL_SCANCODE_LSHIFT] = 0;
 				}
 				
-				if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles.ammo && player->target)
+				if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles && player->target)
 				{
 					if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
 					{

@@ -116,7 +116,7 @@ static void randomizeDart(Entity *dart)
 	
 	randomizeDartGuns(dart);
 	
-	dart->missiles.ammo = rand() % 3;
+	dart->missiles = rand() % 3;
 	
 	sprintf(textureName, "gfx/fighters/dart0%d.png", 1 + rand() % 7);
 	
@@ -666,10 +666,7 @@ static void loadFighterDef(char *filename)
 	
 	if (cJSON_GetObjectItem(root, "missiles"))
 	{
-		node = cJSON_GetObjectItem(root, "missiles");
-		
-		f->missiles.type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-		f->missiles.ammo = f->missiles.maxAmmo = cJSON_GetObjectItem(node, "ammo")->valueint;
+		f->missiles = cJSON_GetObjectItem(root, "missiles")->valueint;
 	}
 	
 	if (cJSON_GetObjectItem(root, "flags"))

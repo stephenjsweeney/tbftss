@@ -259,7 +259,7 @@ static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, in
 static void drawWeaponInfo(void)
 {
 	drawText(10, 70, 14, TA_LEFT, colors.white, (player->selectedGunType != -1) ? gunName[player->selectedGunType] : "(None)");
-	drawText(260, 70, 14, TA_RIGHT, colors.white, "Missiles (%d)", player->missiles.ammo);
+	drawText(260, 70, 14, TA_RIGHT, colors.white, "Missiles (%d)", player->missiles);
 }
 
 static void drawPlayerTargeter(void)

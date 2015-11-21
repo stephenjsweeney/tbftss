@@ -16,11 +16,13 @@
 			"type" : "BT_PLASMA",
 			"x" : 12,
 			"y" : 0
+		},
+		{
+			"type" : "BT_ROCKET",
+			"x" : 0,
+			"y" : 0
 		}
 	],
-	"missiles" : {
-		"type" : "MISSILE_MISSILE",
-		"ammo" : 60
-	},
+	"missiles" : 6,
 	"aiFlags" : "AIF_MISSILE_BOAT+AIF_DEFENSIVE"
 }

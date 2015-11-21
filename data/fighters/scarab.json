@@ -23,9 +23,6 @@
 			"y" : 0
 		}
 	],
-	"missiles" : {
-		"type" : "MISSILE_MISSILE",
-		"ammo" : 8
-	},
+	"missiles" : 8,
 	"aiFlags" : "AIF_MISSILE_BOAT+AIF_DEFENSIVE"
 }

@@ -375,11 +375,11 @@ static void preAttack(void)
 		/* force weapon selection, otherwise we'll keep using lasers / mag */
 		canAttack(self->target);
 		
-		if (self->guns[0].type && (self->missiles.ammo == 0 || rand() % 50 > 0))
+		if (self->guns[0].type && (self->missiles == 0 || rand() % 50 > 0))
 		{
 			fireGuns(self);
 		}
-		else if (self->missiles.ammo)
+		else if (self->missiles)
 		{
 			fireMissile(self);
 		}

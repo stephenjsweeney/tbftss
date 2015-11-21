@@ -106,7 +106,7 @@ struct Entity {
 	int aiAggression;
 	int separationRadius;
 	Weapon guns[MAX_FIGHTER_GUNS];
-	Weapon missiles;
+	int missiles;
 	long flags;
 	long aiFlags;
 	SDL_Point targetLocation;

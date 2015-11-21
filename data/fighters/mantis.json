@@ -29,8 +29,5 @@
 		}
 	],
 	"combinedGuns" : 1,
-	"missiles" : {
-		"type" : "MISSILE_MISSILE",
-		"ammo" : 6
-	}
+	"missiles" : 6
 }

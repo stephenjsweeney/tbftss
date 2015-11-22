@@ -215,6 +215,12 @@ static void loadPlayer(cJSON *node)
 	player->x = (GRID_SIZE * GRID_CELL_WIDTH) / 2;
 	player->y = (GRID_SIZE * GRID_CELL_HEIGHT) / 2;
 	
+	if (cJSON_GetObjectItem(node, "x"))
+	{
+		player->x = (cJSON_GetObjectItem(node, "x")->valueint * GRID_CELL_WIDTH);
+		player->y = (cJSON_GetObjectItem(node, "y")->valueint * GRID_CELL_HEIGHT);
+	}
+	
 	if (strcmp(type, "Tug") == 0)
 	{
 		battle.stats[STAT_TUG]++;

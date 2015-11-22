@@ -330,9 +330,12 @@ static void selectMissionTarget(void)
 	{
 		if (e->active && e->flags & EF_MISSION_TARGET && e->alive == ALIVE_ALIVE)
 		{
+			dist = getDistance(self->x, self->y, e->x, e->y);
+			
 			if (battle.missionTarget == NULL)
 			{
 				battle.missionTarget = e;
+				closest = dist;
 			}
 			else if (battle.missionTarget->type == ET_WAYPOINT && e->type != ET_WAYPOINT)
 			{
@@ -340,7 +343,6 @@ static void selectMissionTarget(void)
 			}
 			else if (battle.missionTarget->type != ET_WAYPOINT)
 			{
-				dist = getDistance(self->x, self->y, e->x, e->y);
 				if (dist < closest)
 				{
 					battle.missionTarget = e;

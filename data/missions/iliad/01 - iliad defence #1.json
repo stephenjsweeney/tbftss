@@ -1,45 +1,94 @@
 {
 	"name" : "Illiad Defence #1",
-	"description" : "The Pandoran war machine has commenced its advancement beyond Mitikas space. We must prepare to defend Illiad from this powerful foe. Exercise caution: despite outnumbering the enemy units that have entered our space, the Pandorans are said to be relentless in battle, and this small number could well still test us.",
+	"description" : "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle.",
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
-	"music" : "music/heroism.ogg",
+	"music" : "music/track-3.mp3",
 	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
-	"epic" : {
-		"fighterLimit" : 12
-	},
 	"objectives" : [
 		{
-			"description" : "Destroy all enemy targets",
+			"description" : "Destroy incoming bombers",
+			"targetName" : "Scarab",
+			"targetValue" : 3,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate all other threats",
 			"targetName" : "Pandoran",
-			"targetValue" : 50,
+			"targetValue" : 18,
 			"targetType" : "TT_DESTROY"
 		}
 	],
 	"player" : {
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "(Multiple)",
-		"squadron" : "(Multiple)"
+		"pilot" : "Opal	Williams",
+		"squadron" : "Agamemnon's 1st",
+		"x" : 25,
+		"y" : 45
 	},
+	"fighters" : [
+		{
+			"name" : "Scarab",
+			"type" : "Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 27,
+			"y" : 35,
+			"flags" : "EF_MISSION_TARGET"
+		},
+		{
+			"name" : "Scarab",
+			"type" : "Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 20,
+			"y" : 30,
+			"flags" : "EF_MISSION_TARGET"
+		},
+		{
+			"name" : "Scarab",
+			"type" : "Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 25,
+			"flags" : "EF_MISSION_TARGET"
+		}
+	],
 	"fighterGroups" : [
 		{
 			"name" : "ALLIES",
-			"types" : "Firefly;Nymph",
+			"types" : "Firefly;Nymph;Leopard",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
-			"y" : 24,
-			"number" : 75,
-			"scatter" : 5000
+			"y" : 45,
+			"number" : 8,
+			"scatter" : 1000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal",
+			"side" : "SIDE_PANDORAN",
+			"x" : 27,
+			"y" : 35,
+			"number" : 3,
+			"scatter" : 1000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal",
+			"side" : "SIDE_PANDORAN",
+			"x" : 20,
+			"y" : 30,
+			"number" : 3,
+			"scatter" : 1000
 		},
 		{
 			"name" : "Pandoran",
 			"types" : "Jackal",
 			"side" : "SIDE_PANDORAN",
 			"x" : 35,
-			"y" : 30,
-			"number" : 50,
-			"scatter" : 5000
+			"y" : 25,
+			"number" : 3,
+			"scatter" : 1000
 		}
 	]
 }

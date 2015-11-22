@@ -270,10 +270,10 @@ static void drawTargetRects(Entity *e)
 	
 	if ((e == battle.missionTarget || e->flags & EF_MISSION_TARGET) && (e->flags & EF_NO_MT_BOX) == 0)
 	{
-		r.x = e->x - (size / 2) - battle.camera.x;
-		r.y = e->y - (size / 2) - battle.camera.y;
-		r.w = size;
-		r.h = size;
+		r.x = e->x - (size / 2) - battle.camera.x - 2;
+		r.y = e->y - (size / 2) - battle.camera.y - 2;
+		r.w = size + 4;
+		r.h = size + 4;
 		
 		SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
 		SDL_RenderDrawRect(app.renderer, &r);

@@ -95,6 +95,13 @@ void drawEffects(void)
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 }
 
+void drawShieldHitEffect(Entity *e)
+{
+	SDL_SetTextureBlendMode(shieldHitTexture, SDL_BLENDMODE_BLEND);
+	SDL_SetTextureAlphaMod(shieldHitTexture, e->shieldHit);
+	blit(shieldHitTexture, e->x - battle.camera.x, e->y - battle.camera.y, 1);
+}
+
 void addSmallFighterExplosion(void)
 {
 	Effect *e;

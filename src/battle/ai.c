@@ -25,12 +25,10 @@ static int isInFOV(Entity *f, int fov);
 static void preAttack(void);
 static void huntTarget(void);
 static void huntAndAttackTarget(void);
-static void flyStraight(void);
 static void evade(void);
 static void nextAction(void);
 static void findTarget(void);
 static int hasClearShot(void);
-static void boost(void);
 static void fallback(void);
 static void moveToPlayer(void);
 static int canAttack(Entity *f);
@@ -143,21 +141,10 @@ static void doFighterAI(void)
 		self->action = evade;
 		self->aiActionTime = FPS;
 	}
-	else if (r <= getActionChance(AI_BOOST))
-	{
-		applyFighterThrust();
-		self->action = boost;
-		self->aiActionTime = FPS * 0.5;
-	}
 	else if (r <= getActionChance(AI_FALLBACK))
 	{
 		self->action = fallback;
 		self->aiActionTime = FPS * 2;
-	}
-	else if (r <= getActionChance(AI_STRAIGHT))
-	{
-		self->action = flyStraight;
-		self->aiActionTime = FPS;
 	}
 	else if (r <= getActionChance(AI_HUNT))
 	{
@@ -178,14 +165,8 @@ static int getActionChance(int type)
 		case AI_EVADE:
 			return 25 - (self->aiAggression * 4);
 		
-		case AI_BOOST:
-			return 40 - (self->aiAggression * 4);
-		
 		case AI_FALLBACK:
 			return 55 - (self->aiAggression * 4);
-		
-		case AI_STRAIGHT:
-			return 70 - (self->aiAggression * 4);
 		
 		case AI_HUNT:
 			return 85 - (self->aiAggression * 4);
@@ -329,19 +310,6 @@ static int isInFOV(Entity *f, int fov)
 	return (a < b) ? (a <= angle && angle <= b) : (a <= angle || angle <= b);
 }
 
-static void boost(void)
-{
-	self->dx *= 1.001;
-	self->dy *= 1.001;
-	
-	nextAction();
-	
-	if (self->action == doAI)
-	{
-		applyFighterThrust();
-	}
-}
-
 static int hasClearShot(void)
 {
 	int dist;
@@ -401,13 +369,6 @@ static void preAttack(void)
 	}
 }
 
-static void flyStraight(void)
-{
-	applyFighterThrust();
-	
-	nextAction();
-}
-
 static void turnAndFly(int wantedAngle)
 {
 	int dir;
@@ -452,19 +413,28 @@ static void nextAction(void)
 
 static int isRetreating(void)
 {
+	float chance;
+	
 	if (!(self->flags & EF_RETREATING))
 	{
-		if (battle.numEnemies > 0 && rand() % (battle.numEnemies * 5) == 0)
+		if (battle.numInitialEnemies > 0)
 		{
-			self->flags |= EF_RETREATING;
+			chance = battle.numEnemies;
+			chance /= battle.numInitialEnemies;
+			chance *= 256;
 			
-			self->aiFlags |= AIF_AVOIDS_COMBAT;
-			self->aiFlags |= AIF_UNLIMITED_RANGE;
-			self->aiFlags |= AIF_GOAL_EXTRACTION;
-			
-			addHudMessage(colors.red, "%s is retreating!", self->name);
-			
-			return 1;
+			if (battle.numEnemies > 0 && rand() % 100 > chance)
+			{
+				self->flags |= EF_RETREATING;
+				
+				self->aiFlags |= AIF_AVOIDS_COMBAT;
+				self->aiFlags |= AIF_UNLIMITED_RANGE;
+				self->aiFlags |= AIF_GOAL_EXTRACTION;
+				
+				addHudMessage(colors.red, "%s is retreating!", self->name);
+				
+				return 1;
+			}
 		}
 	}
 	

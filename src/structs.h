@@ -237,6 +237,7 @@ typedef struct {
 	SDL_Point camera;
 	int numAllies;
 	int numEnemies;
+	int numInitialEnemies;
 	int status;
 	int epic;
 	int epicFighterLimit;

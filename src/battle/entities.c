@@ -148,6 +148,11 @@ void doEntities(void)
 	battle.numAllies = numAllies;
 	battle.numEnemies = numEnemies;
 	
+	if (!battle.numInitialEnemies)
+	{
+		battle.numInitialEnemies = battle.numEnemies;
+	}
+	
 	if (battle.epic && battle.stats[STAT_TIME] % FPS == 0)
 	{
 		if (numAllies > battle.epicFighterLimit)

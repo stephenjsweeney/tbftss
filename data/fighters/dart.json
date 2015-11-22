@@ -1,6 +1,6 @@
 {
 	"name" : "Dart",
-	"health" : 10,
+	"health" : 20,
 	"shield" : 0,
 	"speed" : 2.25,
 	"reloadTime" : 24,

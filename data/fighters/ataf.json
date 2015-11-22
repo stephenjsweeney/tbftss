@@ -1,6 +1,6 @@
 {
 	"name" : "ATAF",
-	"health" : 75,
+	"health" : 150,
 	"shield" : 2500,
 	"speed" : 2.5,
 	"reloadTime" : 8,

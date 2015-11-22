@@ -1,7 +1,7 @@
 {
 	"name" : "Hyena-A",
-	"health" : 60,
-	"shield" : 30,
+	"health" : 120,
+	"shield" : 60,
 	"speed" : 1.85,
 	"reloadTime" : 15,
 	"shieldRechargeRate" : 40,

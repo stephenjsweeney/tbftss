@@ -1,7 +1,7 @@
 {
 	"name" : "Khepri",
-	"health" : 40,
-	"shield" : 35,
+	"health" : 80,
+	"shield" : 70,
 	"speed" : 1.5,
 	"reloadTime" : 25,
 	"shieldRechargeRate" : 60,

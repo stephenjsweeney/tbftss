@@ -1,7 +1,7 @@
 {
 	"name" : "Shuttle",
-	"health" : 10,
-	"shield" : 10,
+	"health" : 20,
+	"shield" : 20,
 	"speed" : 1.9,
 	"reloadTime" : 0,
 	"shieldRechargeRate" : 60,

@@ -1,6 +1,6 @@
 {
 	"name" : "Tug",
-	"health" : 35,
+	"health" : 70,
 	"shield" : 0,
 	"speed" : 1.8,
 	"reloadTime" : 10,

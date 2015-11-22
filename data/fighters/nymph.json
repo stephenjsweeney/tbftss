@@ -1,7 +1,7 @@
 {
 	"name" : "Nymph",
-	"health" : 30,
-	"shield" : 25,
+	"health" : 60,
+	"shield" : 50,
 	"speed" : 2.1,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 30,

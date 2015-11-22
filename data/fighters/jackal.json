@@ -1,7 +1,7 @@
 {
 	"name" : "Jackal",
-	"health" : 50,
-	"shield" : 50,
+	"health" : 100,
+	"shield" : 100,
 	"speed" : 2,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 45,

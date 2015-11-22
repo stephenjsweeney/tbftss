@@ -1,6 +1,6 @@
 {
 	"name" : "StaticDart",
-	"health" : 10,
+	"health" : 20,
 	"shield" : 0,
 	"speed" : 0,
 	"reloadTime" : 24,

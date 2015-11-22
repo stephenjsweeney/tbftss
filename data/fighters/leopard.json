@@ -1,7 +1,7 @@
 {
 	"name" : "Leopard",
-	"health" : 100,
-	"shield" : 75,
+	"health" : 200,
+	"shield" : 150,
 	"speed" : 1.6,
 	"reloadTime" : 16,
 	"shieldRechargeRate" : 70,

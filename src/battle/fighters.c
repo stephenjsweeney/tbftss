@@ -680,7 +680,7 @@ static void loadFighterDef(char *filename)
 	}
 	
 	f->separationRadius = MAX(f->w, f->h);
-	f->separationRadius *= 2;
+	f->separationRadius *= 3;
 	
 	/* all craft default to 100 system power */
 	f->systemPower = 100;

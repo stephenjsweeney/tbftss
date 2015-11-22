@@ -87,7 +87,8 @@
 		"missions" : [
 			"data/missions/temper/01 - pirate uprising #1.json",
 			"data/missions/temper/02 - pirate uprising #2.json",
-			"data/missions/temper/03 - pirate uprising #3.json"
+			"data/missions/temper/03 - pirate uprising #3.json",
+			"data/missions/temper/04 - pirate uprising #4.json"
 		]
       },
       {
@@ -117,7 +118,8 @@
         "x": 465,
         "y": 235,
         "missions" : [
-			"data/missions/alba/01 - patrol #1.json"
+			"data/missions/alba/01 - patrol #1.json",
+			"data/missions/alba/02 - patrol #2.json"
         ]
       },
       {
@@ -133,7 +135,8 @@
         "x": 335,
         "y": 135,
         "missions" : [
-			"data/missions/iliad/01 - iliad defence #1.json"
+			"data/missions/iliad/01 - iliad defence #1.json",
+			"data/missions/iliad/02 - iliad defence #2.json"
         ]
       },
       {
@@ -153,7 +156,9 @@
         "x": 325,
         "y": 385,
         "missions" : [
-			"data/missions/coyote/01 - coyote assault #1.json"
+			"data/missions/coyote/01 - coyote assault #1.json",
+			"data/missions/coyote/02 - coyote assault #2.json",
+			"data/missions/coyote/03 - coyote assault #3.json"
         ]
       },
       {

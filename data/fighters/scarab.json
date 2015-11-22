@@ -1,8 +1,8 @@
 {
 	"name" : "Scarab",
-	"health" : 250,
-	"shield" : 70,
-	"speed" : 1.5,
+	"health" : 80,
+	"shield" : 65,
+	"speed" : 1.7,
 	"reloadTime" : 25,
 	"shieldRechargeRate" : 60,
 	"textureName" : "gfx/fighters/scarab.png",

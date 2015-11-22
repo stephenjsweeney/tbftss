@@ -1,8 +1,8 @@
 {
 	"name" : "Shuttle",
-	"health" : 20,
-	"shield" : 20,
-	"speed" : 1.9,
+	"health" : 15,
+	"shield" : 15,
+	"speed" : 2,
 	"reloadTime" : 0,
 	"shieldRechargeRate" : 60,
 	"textureName" : "gfx/craft/shuttle.png",

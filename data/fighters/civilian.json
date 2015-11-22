@@ -1,6 +1,6 @@
 {
 	"name" : "Civilian",
-	"health" : 20,
+	"health" : 15,
 	"shield" : 0,
 	"speed" : 2,
 	"reloadTime" : 0,

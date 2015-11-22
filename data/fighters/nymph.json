@@ -1,8 +1,8 @@
 {
 	"name" : "Nymph",
-	"health" : 60,
-	"shield" : 50,
-	"speed" : 2.1,
+	"health" : 45,
+	"shield" : 40,
+	"speed" : 2,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 30,
 	"textureName" : "gfx/fighters/nymph.png",

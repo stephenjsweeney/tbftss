@@ -1,8 +1,8 @@
 {
 	"name" : "Leopard",
-	"health" : 200,
-	"shield" : 150,
-	"speed" : 1.6,
+	"health" : 125,
+	"shield" : 75,
+	"speed" : 1.7,
 	"reloadTime" : 16,
 	"shieldRechargeRate" : 70,
 	"textureName" : "gfx/fighters/leopard.png",

@@ -1,8 +1,8 @@
 {
 	"name" : "Thunderhead",
-	"health" : 120,
-	"shield" : 90,
-	"speed" : 1.5,
+	"health" : 90,
+	"shield" : 65,
+	"speed" : 1.7,
 	"reloadTime" : 12,
 	"shieldRechargeRate" : 65,
 	"textureName" : "gfx/fighters/thunderhead.png",

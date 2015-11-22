@@ -1,8 +1,8 @@
 {
 	"name" : "Mantis",
-	"health" : 70,
-	"shield" : 100,
-	"speed" : 1.9,
+	"health" : 50,
+	"shield" : 75,
+	"speed" : 1.85,
 	"reloadTime" : 25,
 	"shieldRechargeRate" : 35,
 	"textureName" : "gfx/fighters/mantis.png",

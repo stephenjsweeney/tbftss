@@ -1,8 +1,8 @@
 {
 	"name" : "Kingfisher",
-	"health" : 90,
-	"shield" : 90,
-	"speed" : 1.75,
+	"health" : 65,
+	"shield" : 65,
+	"speed" : 1.85,
 	"reloadTime" : 16,
 	"shieldRechargeRate" : 60,
 	"textureName" : "gfx/fighters/kingfisher.png",

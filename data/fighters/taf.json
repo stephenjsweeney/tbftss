@@ -1,7 +1,7 @@
 {
 	"name" : "TAF",
-	"health" : 50,
-	"shield" : 50,
+	"health" : 35,
+	"shield" : 35,
 	"speed" : 2,
 	"reloadTime" : 16,
 	"shieldRechargeRate" : 50,

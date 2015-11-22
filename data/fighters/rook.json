@@ -1,8 +1,8 @@
 {
 	"name" : "Rook",
-	"health" : 150,
-	"shield" : 110,
-	"speed" : 1.6,
+	"health" : 110,
+	"shield" : 80,
+	"speed" : 1.7,
 	"reloadTime" : 12,
 	"shieldRechargeRate" : 45,
 	"textureName" : "gfx/fighters/rook.png",

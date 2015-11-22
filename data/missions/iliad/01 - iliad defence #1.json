@@ -15,7 +15,7 @@
 		{
 			"description" : "Eliminate all other threats",
 			"targetName" : "Pandoran",
-			"targetValue" : 18,
+			"targetValue" : 12,
 			"targetType" : "TT_DESTROY"
 		}
 	],

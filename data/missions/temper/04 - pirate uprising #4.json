@@ -1,0 +1,83 @@
+{
+	"name" : "Pirate Uprising #4",
+	"description" : "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/spirit.png",
+	"music" : "music/battleThemeA.mp3",
+	"requires" : "PREVIOUS",
+	"objectives" : [
+		{
+			"description" : "Eliminate Pirate Leaders",
+			"targetName" : "Pirate Leader",
+			"targetValue" : 4,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Destroy all remaining opposition",
+			"targetName" : "Dart",
+			"targetValue" : 30,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Do not let any Pirate Leaders escape",
+			"targetName" : "Pirate Leader",
+			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Katherine Strickland",
+		"squadron" : "Steel Bulls",
+		"x" : 10,
+		"y" : 25
+	},
+	"fighterGroups" : [
+		{
+			"name" : "Ally",
+			"types" : "TAF;Ray",
+			"number" : 5,
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 25,
+			"scatter" : 300
+		},
+		{
+			"name" : "Ally",
+			"types" : "Rook",
+			"number" : 3,
+			"side" : "SIDE_ALLIES",
+			"x" : 40,
+			"y" : 25
+		},
+		{
+			"name" : "Pirate Lieutenant",
+			"types" : "Nymph",
+			"number" : 4,
+			"side" : "SIDE_PIRATE",
+			"x" : 25,
+			"y" : 25,
+			"flags" : "EF_MISSION_TARGET",
+			"aiFlags" : "AIF_RETREATS"
+		},
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"number" : 26,
+			"side" : "SIDE_PIRATE",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 2250
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Extraction Point",
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 8,
+			"y" : 25
+		}
+	]
+}

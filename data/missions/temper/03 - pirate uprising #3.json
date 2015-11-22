@@ -1,14 +1,14 @@
 {
 	"name" : "Pirate Uprising #3",
-	"description" : "Allied intelligence have managed to locate one of the pirate ring leaders. We need to bring this man in alive, as he could provide us with further useful information that will allow us to eliminate other high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the leader's Dart.",
+	"description" : "Allied intelligence have managed to locate one of the pirate ring lieutenants. We need to bring this man in alive, as he could provide us with further useful information that will allow us to track down and eliminate high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the lieutenant's Dart.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/battleThemeA.mp3",
 	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
-			"description" : "Capture Pirate Leader",
-			"targetName" : "Pirate Leader",
+			"description" : "Capture Pirate Lieutenant",
+			"targetName" : "Pirate Lieutenant",
 			"targetValue" : 1,
 			"targetType" : "TT_DISABLE"
 		},
@@ -19,15 +19,15 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Do not kill Pirate Leader",
-			"targetName" : "Pirate Leader",
+			"description" : "Do not kill Pirate Lieutenant",
+			"targetName" : "Pirate Lieutenant",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isCondition" : 1
 		},
 		{
-			"description" : "Do not let Pirate Leader Escape",
-			"targetName" : "Pirate Leader",
+			"description" : "Do not let Pirate Lieutenant Escape",
+			"targetName" : "Pirate Lieutenant",
 			"targetValue" : 1,
 			"targetType" : "TT_ESCAPED",
 			"isCondition" : 1
@@ -51,7 +51,7 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Pirate Leader",
+			"name" : "Pirate Lieutenant",
 			"type" : "Dart",
 			"side" : "SIDE_PIRATE",
 			"x" : 12,

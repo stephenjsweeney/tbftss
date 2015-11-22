@@ -372,16 +372,31 @@ static void preAttack(void)
 {
 	if (!self->reload)
 	{
-		/* force weapon selection, otherwise we'll keep using lasers / mag */
-		canAttack(self->target);
-		
-		if (self->guns[0].type && (self->missiles == 0 || rand() % 50 > 0))
+		if (!(self->aiFlags & AIF_MISSILE_BOAT))
 		{
-			fireGuns(self);
+			/* force weapon selection, otherwise we'll keep using lasers / mag */
+			canAttack(self->target);
+			
+			if (self->guns[0].type && (self->missiles == 0 || rand() % 50 > 0))
+			{
+				fireGuns(self);
+			}
+			else if (self->missiles)
+			{
+				fireMissile(self);
+			}
 		}
-		else if (self->missiles)
+		else
 		{
-			fireMissile(self);
+			fireRocket(self);
+			
+			self->reload = FPS;
+			
+			/* don't constantly fire rockets like normal guns */
+			if (rand() % 5)
+			{
+				self->action = doAI;
+			}
 		}
 	}
 }

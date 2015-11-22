@@ -41,7 +41,7 @@ typedef struct {
 } PointF;
 
 struct Texture {
-	char name[MAX_NAME_LENGTH];
+	char name[MAX_DESCRIPTION_LENGTH];
 	long hash;
 	SDL_Texture *texture;
 	Texture *next;

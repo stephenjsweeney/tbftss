@@ -48,7 +48,7 @@ static void addTextureToCache(char *name, SDL_Texture *texture)
 	new = malloc(sizeof(Texture));
 	memset(new, 0, sizeof(Texture));
 
-	STRNCPY(new->name, name, MAX_NAME_LENGTH);
+	STRNCPY(new->name, name, MAX_DESCRIPTION_LENGTH);
 	new->texture = texture;
 
 	t->next = new;
@@ -83,6 +83,8 @@ SDL_Texture *getTexture(char *filename)
 			return t->texture;
 		}
 	}
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "%s not in texture cache", filename);
 	
 	return loadTexture(filename);
 }

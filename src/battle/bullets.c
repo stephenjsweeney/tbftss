@@ -158,6 +158,7 @@ static void checkCollisions(Bullet *b)
 				if (b->flags & BF_EXPLODES)
 				{
 					addMissileExplosion(b);
+					playBattleSound(SND_EXPLOSION_1, b->x, b->y);
 					
 					if (e == player)
 					{
@@ -252,6 +253,7 @@ static void huntTarget(Bullet *b)
 		{
 			b->life = 0;
 			addMissileExplosion(b);
+			playBattleSound(SND_EXPLOSION_1, b->x, b->y);
 		}
 	}
 	else

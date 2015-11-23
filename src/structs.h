@@ -291,6 +291,12 @@ struct HudMessage {
 };
 
 typedef struct {
+	int x;
+	int y;
+	int button[MAX_MOUSE_BUTTONS];
+} Mouse;
+
+typedef struct {
 	char saveDir[MAX_FILENAME_LENGTH];
 	int winWidth;
 	int winHeight;
@@ -301,6 +307,7 @@ typedef struct {
 	int soundVolume;
 	int vSync;
 	int fps;
+	Mouse mouse;
 	int keyboard[MAX_KEYBOARD_KEYS];
 	SDL_Texture *backBuffer;
 	SDL_Renderer *renderer;

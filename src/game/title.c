@@ -90,6 +90,8 @@ void initTitle(void)
 	
 	endSectionTransition();
 	
+	SDL_WarpMouseInWindow(app.window, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 100);
+	
 	playMusic("music/Rise of spirit.ogg");
 }
 

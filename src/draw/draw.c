@@ -50,6 +50,8 @@ void presentScene(void)
 	drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 25, 14, TA_CENTER, colors.white, "FPS: %d", app.fps);
 	#endif
 	
+	drawMouse();
+	
 	SDL_SetRenderTarget(app.renderer, NULL);
 	SDL_RenderCopy(app.renderer, app.backBuffer, NULL, NULL);
 	SDL_RenderPresent(app.renderer);

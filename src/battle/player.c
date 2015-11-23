@@ -28,6 +28,9 @@ static void initPlayerSelect(void);
 static void activateBoost(void);
 static void deactivateBoost(void);
 static void activateECM(void);
+static void handleKeyboard(void);
+static void faceMouse(void);
+static void handleMouse(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -79,78 +82,9 @@ void doPlayer(void)
 		
 		if (player->alive == ALIVE_ALIVE)
 		{
-			if (app.keyboard[SDL_SCANCODE_LEFT])
-			{
-				player->angle -= 4;
-			}
+			handleKeyboard();
 			
-			if (app.keyboard[SDL_SCANCODE_RIGHT])
-			{
-				player->angle += 4;
-			}
-			
-			if (app.keyboard[SDL_SCANCODE_UP] && battle.boostTimer > BOOST_FINISHED_TIME)
-			{
-				applyFighterThrust();
-			}
-			
-			if (app.keyboard[SDL_SCANCODE_DOWN])
-			{
-				applyFighterBrakes();
-			}
-			
-			if (battle.status == MS_IN_PROGRESS)
-			{
-				if (app.keyboard[SDL_SCANCODE_LCTRL] && !player->reload && player->guns[0].type)
-				{
-					fireGuns(player);
-				}
-				
-				if (app.keyboard[SDL_SCANCODE_LSHIFT])
-				{
-					switchGuns();
-					
-					app.keyboard[SDL_SCANCODE_LSHIFT] = 0;
-				}
-				
-				if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles && player->target)
-				{
-					if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
-					{
-						fireMissile(player);
-					}
-					else
-					{
-						addHudMessage(colors.white, "Target not in range");
-					}
-					
-					app.keyboard[SDL_SCANCODE_RETURN] = 0;
-				}
-				
-				if (!player->target || player->target->systemPower <= 0 || app.keyboard[SDL_SCANCODE_T])
-				{
-					selectTarget();
-					
-					app.keyboard[SDL_SCANCODE_T] = 0;
-				}
-				
-				if (app.keyboard[SDL_SCANCODE_SPACE] && battle.boostTimer == BOOST_RECHARGE_TIME)
-				{
-					playSound(SND_BOOST);
-					
-					activateBoost();
-				}
-				
-				if (app.keyboard[SDL_SCANCODE_E] && battle.ecmTimer == ECM_RECHARGE_TIME)
-				{
-					activateECM();
-				}
-				
-				if (!battle.missionTarget)
-				{
-					selectMissionTarget();
-				}
-			}
+			handleMouse();
 		}
 		
 		player->angle = ((int)player->angle) % 360;
@@ -166,11 +100,147 @@ void doPlayer(void)
 				initPlayerSelect();
 			}
 		}
+		
+		if (battle.status == MS_IN_PROGRESS)
+		{
+			selectMissionTarget();
+		}
 	}
 	
 	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
 	{
 		deactivateBoost();
+	}
+}
+
+static void handleKeyboard(void)
+{
+	if (app.keyboard[SDL_SCANCODE_LEFT])
+	{
+		player->angle -= 4;
+	}
+	
+	if (app.keyboard[SDL_SCANCODE_RIGHT])
+	{
+		player->angle += 4;
+	}
+	
+	if (app.keyboard[SDL_SCANCODE_UP] && battle.boostTimer > BOOST_FINISHED_TIME)
+	{
+		applyFighterThrust();
+	}
+	
+	if (app.keyboard[SDL_SCANCODE_DOWN])
+	{
+		applyFighterBrakes();
+	}
+	
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		if (app.keyboard[SDL_SCANCODE_LCTRL] && !player->reload && player->guns[0].type)
+		{
+			fireGuns(player);
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_LSHIFT])
+		{
+			switchGuns();
+			
+			app.keyboard[SDL_SCANCODE_LSHIFT] = 0;
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles && player->target)
+		{
+			if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
+			{
+				fireMissile(player);
+			}
+			else
+			{
+				addHudMessage(colors.white, "Target not in range");
+			}
+			
+			app.keyboard[SDL_SCANCODE_RETURN] = 0;
+		}
+		
+		if (!player->target || player->target->systemPower <= 0 || app.keyboard[SDL_SCANCODE_T])
+		{
+			selectTarget();
+			
+			app.keyboard[SDL_SCANCODE_T] = 0;
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_SPACE] && battle.boostTimer == BOOST_RECHARGE_TIME)
+		{
+			playSound(SND_BOOST);
+			
+			activateBoost();
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_E] && battle.ecmTimer == ECM_RECHARGE_TIME)
+		{
+			activateECM();
+		}
+	}
+}
+
+static void handleMouse(void)
+{
+	faceMouse();
+	
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		if (app.mouse.button[SDL_BUTTON_LEFT] && !player->reload && player->guns[0].type)
+		{
+			fireGuns(player);
+		}
+		
+		if (app.mouse.button[SDL_BUTTON_RIGHT])
+		{
+			if (battle.boostTimer > BOOST_FINISHED_TIME)
+			{
+				applyFighterThrust();
+			}
+		}
+		else
+		{
+			applyFighterBrakes();
+		}
+		
+		if (app.mouse.button[SDL_BUTTON_MIDDLE] && player->missiles && player->target)
+		{
+			if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
+			{
+				fireMissile(player);
+			}
+			else
+			{
+				addHudMessage(colors.white, "Target not in range");
+			}
+			
+			app.mouse.button[SDL_BUTTON_MIDDLE] = 0;
+		}
+	}
+}
+
+static void faceMouse(void)
+{
+	int dir;
+	int x, y, wantedAngle;
+	
+	x = player->x - battle.camera.x;
+	y = player->y - battle.camera.y;
+	wantedAngle = getAngle(x, y, app.mouse.x, app.mouse.y);
+	
+	wantedAngle %= 360;
+	
+	if (fabs(wantedAngle - player->angle) > 2)
+	{
+		dir = ((int)(wantedAngle - player->angle + 360)) % 360 > 180 ? -1 : 1;
+	
+		player->angle += dir * 4;
+		
+		player->angle = mod(player->angle, 360);
 	}
 }
 
@@ -305,6 +375,7 @@ static void selectTarget(void)
 	Entity *targets[MAX_SELECTABLE_TARGETS];
 	
 	i = 0;
+	near = NULL;
 	memset(targets, 0, sizeof(Entity*) * MAX_SELECTABLE_TARGETS);
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)

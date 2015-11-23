@@ -138,6 +138,8 @@ void initGameSystem(void)
 	initColor(&colors.lightGrey, 192, 192, 192);
 	initColor(&colors.darkGrey, 128, 128, 128);
 	
+	initInput();
+	
 	initLookups();
 	
 	initFonts();

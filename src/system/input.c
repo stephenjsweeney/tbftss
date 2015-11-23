@@ -18,26 +18,40 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "SDL2/SDL.h"
-#include "time.h"
-#include "locale.h"
+#include "input.h"
 
-#include "defs.h"
-#include "structs.h"
+static SDL_Texture *mousePointer;
 
-extern void cleanup(void);
-extern void initSDL(void);
-extern void initGameSystem(void);
-extern void initTitle(void);
-extern void loadTestMission(char *filename);
-extern void saveScreenshot(void);
-extern void doMouseDown(SDL_MouseButtonEvent *event);
-extern void doMouseUp(SDL_MouseButtonEvent *event);
-extern void doMouseMove(SDL_MouseMotionEvent *event);
+void initInput(void)
+{
+	memset(&app.mouse, 0, sizeof(Mouse));
+	
+	mousePointer = getTexture("gfx/input/mousePointer.png");
+}
 
-App app;
-Colors colors;
-Battle battle;
-Entity *self;
-Entity *player;
-Game game;
+void doMouseDown(SDL_MouseButtonEvent *event)
+{
+	app.mouse.button[event->button] = 1;
+}
+
+void doMouseUp(SDL_MouseButtonEvent *event)
+{
+	app.mouse.button[event->button] = 0;
+}
+
+void doMouseMove(SDL_MouseMotionEvent *event)
+{
+	
+}
+
+void drawMouse(void)
+{
+	int x, y;
+	
+	SDL_GetMouseState(&x, &y);
+	
+	app.mouse.x = x * app.scaleX;
+	app.mouse.y = y * app.scaleY;
+	
+	blit(mousePointer, app.mouse.x, app.mouse.y, 1);
+}

@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void loadWidgets(char *filename);
 static void loadWidgetSet(char *filename);
 static void handleKeyboard(void);
+static void handleMouse(void);
 static void createOptions(Widget *w, char *options);
 
 static Widget head;
@@ -53,6 +54,8 @@ void doWidgets(void)
 	if (drawingWidgets)
 	{
 		handleKeyboard();
+		
+		handleMouse();
 	}
 	
 	drawingWidgets = 0;
@@ -82,6 +85,7 @@ void selectWidget(const char *name, const char *group)
 
 void drawWidgets(const char *group)
 {
+	int mouseOver;
 	Widget *w;
 	
 	drawingWidgets = 1;
@@ -90,6 +94,14 @@ void drawWidgets(const char *group)
 	{
 		if (w->visible && strcmp(w->group, group) == 0)
 		{
+			mouseOver = (w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.mouse.x, app.mouse.y, 1, 1));
+			
+			if (mouseOver && selectedWidget != w)
+			{
+				playSound(SND_GUI_CLICK);
+				selectedWidget = w;
+			}
+			
 			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 			SDL_RenderFillRect(app.renderer, &w->rect);
 			
@@ -261,11 +273,22 @@ static void handleKeyboard(void)
 	if (app.keyboard[SDL_SCANCODE_RETURN] && selectedWidget->action)
 	{
 		playSound(SND_GUI_SELECT);
-		
 		selectedWidget->action();
 	}
 	
 	memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+}
+
+static void handleMouse(void)
+{
+	if (selectedWidget && selectedWidget->action && app.mouse.button[SDL_BUTTON_LEFT])
+	{
+		if (collision(selectedWidget->rect.x, selectedWidget->rect.y, selectedWidget->rect.w, selectedWidget->rect.h, app.mouse.x, app.mouse.y, 1, 1))
+		{
+			playSound(SND_GUI_SELECT);
+			selectedWidget->action();
+		}
+	}
 }
 
 static void loadWidgets(char *filename)

@@ -19,25 +19,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "SDL2/SDL.h"
-#include "time.h"
-#include "locale.h"
 
-#include "defs.h"
-#include "structs.h"
+#include "../defs.h"
+#include "../structs.h"
 
-extern void cleanup(void);
-extern void initSDL(void);
-extern void initGameSystem(void);
-extern void initTitle(void);
-extern void loadTestMission(char *filename);
-extern void saveScreenshot(void);
-extern void doMouseDown(SDL_MouseButtonEvent *event);
-extern void doMouseUp(SDL_MouseButtonEvent *event);
-extern void doMouseMove(SDL_MouseMotionEvent *event);
+extern SDL_Texture *getTexture(char *filename);
+extern void blit(SDL_Texture *texture, int x, int y, int centered);
 
-App app;
-Colors colors;
-Battle battle;
-Entity *self;
-Entity *player;
-Game game;
+extern App app;

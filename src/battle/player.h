@@ -35,6 +35,7 @@ extern void addHudMessage(SDL_Color c, char *format, ...);
 extern int mod(int n, int x);
 extern void playSound(int id);
 extern void failMission(void);
+extern float getAngle(int x1, int y1, int x2, int y2);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 
 extern App app;

@@ -62,6 +62,18 @@ int main(int argc, char *argv[])
 		{
 			switch (event.type)
 			{
+				case SDL_MOUSEBUTTONDOWN:
+					doMouseDown(&event.button);
+					break;
+
+				case SDL_MOUSEBUTTONUP:
+					doMouseUp(&event.button);
+					break;
+
+				case SDL_MOUSEMOTION:
+					doMouseMove(&event.motion);
+					break;
+				
 				case SDL_KEYDOWN:
 					if (event.key.keysym.scancode >= 0 && event.key.keysym.scancode < MAX_KEYBOARD_KEYS)
 					{

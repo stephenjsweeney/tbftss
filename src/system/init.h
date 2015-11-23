@@ -61,6 +61,7 @@ extern void destroyTextures(void);
 extern void destroyGalacticMap(void);
 extern void destroyWidgets(void);
 extern void expireTexts(void);
+extern void initInput(void);
 
 extern App app;
 extern Colors colors;

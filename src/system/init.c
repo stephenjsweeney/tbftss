@@ -21,7 +21,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "init.h"
 
 
+#if UNIX
 static void createSaveFolder(void);
+#endif
 static void loadConfig(void);
 void saveConfig(void);
 static void initColor(SDL_Color *c, int r, int g, int b);

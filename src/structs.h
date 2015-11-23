@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-typedef struct SDL_Texture SDL_Texture;
+struct SDL_Texture;
 typedef struct Texture Texture;
 typedef struct Lookup Lookup;
 typedef struct Weapon Weapon;
@@ -43,7 +43,7 @@ typedef struct {
 struct Texture {
 	char name[MAX_DESCRIPTION_LENGTH];
 	long hash;
-	SDL_Texture *texture;
+	struct SDL_Texture *texture;
 	Texture *next;
 };
 
@@ -115,7 +115,7 @@ struct Entity {
 	Entity *owner;
 	void (*action)(void);
 	void (*die)(void);
-	SDL_Texture *texture;
+	struct SDL_Texture *texture;
 	Entity *next;
 };
 

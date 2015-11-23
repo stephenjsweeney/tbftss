@@ -181,7 +181,7 @@ char *getLookupName(char *prefix, long num)
 		}
 	}
 	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "No such lookup value %d, prefix=%s", num, prefix);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "No such lookup value %ld, prefix=%s", num, prefix);
 	
 	exit(1);
 	

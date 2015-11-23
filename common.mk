@@ -4,9 +4,8 @@ VERSION = 0.4
 REVISION = $(shell date +"%y%m%d")
 DEBUG = 0
 
-CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DUNIX=1 -DDEBUG=$(DEBUG)
-CXXFLAGS += -DUNIX
-CXXFLAGS += $(CFLAGS) -Wall -ansi -pedantic -Werror -Wstrict-prototypes
+CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDEBUG=$(DEBUG)
+CXXFLAGS += -Wall -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence
 
 LIBS = `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
@@ -43,12 +42,12 @@ all: $(PROG)
 
 # compiling other source files.
 %.o: %.c %.h $(DEPS)
-	$(CC) $(CXXFLAGS) -c $<
+	$(CC) $(CFLAGS) $(CXXFLAGS) -c $<
 
 # linking the program.
 $(PROG): $(OBJS)
 	$(CC)  -o $(PROG) $(OBJS) $(LIBS)
-	
+
 # prepare an archive for the program
 dist:
 	$(RM) -rf $(PROG)-$(VERSION)

@@ -131,7 +131,7 @@ void doPlayer(void)
 				{
 					selectTarget();
 					
-					app.keyboard[SDLK_t] = 0;
+					app.keyboard[SDL_SCANCODE_T] = 0;
 				}
 				
 				if (app.keyboard[SDL_SCANCODE_SPACE] && battle.boostTimer == BOOST_RECHARGE_TIME)
@@ -300,9 +300,12 @@ static void selectTarget(void)
 {
 	unsigned int closest = MAX_TARGET_RANGE;
 	unsigned int dist = MAX_TARGET_RANGE;
-	Entity *e;
+	int i, total;
+	Entity *e, *near;
+	Entity *targets[MAX_SELECTABLE_TARGETS];
 	
-	player->target = NULL;
+	i = 0;
+	memset(targets, 0, sizeof(Entity*) * MAX_SELECTABLE_TARGETS);
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -311,10 +314,42 @@ static void selectTarget(void)
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			if (dist < closest)
 			{
-				player->target = e;
+				near = e;
 				closest = dist;
 			}
+			
+			if (collision(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, e->x - battle.camera.x - (e->w / 2), e->y - battle.camera.y - (e->h / 2), e->w, e->h))
+			{
+				targets[i++] = e;
+			}
+			else if (e == player->target)
+			{
+				player->target = NULL;
+			}
 		}
+	}
+	
+	total = i;
+	
+	for (i = 0 ; i < total ; i++)
+	{
+		if (targets[i] == player->target)
+		{
+			if (i + 1 < MAX_SELECTABLE_TARGETS && targets[i + 1])
+			{
+				player->target = targets[i + 1];
+				return;
+			}
+			else
+			{
+				player->target = targets[0];
+			}
+		}
+	}
+	
+	if (player->target == NULL || !targets[0])
+	{
+		player->target = near;
 	}
 }
 

@@ -7,5 +7,6 @@
 	"data/widgets/battleLost.json",
 	"data/widgets/title.json",
 	"data/widgets/options.json",
-	"data/widgets/stats.json"
+	"data/widgets/stats.json",
+	"data/widgets/starSystem.json"
 ]

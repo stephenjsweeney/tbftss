@@ -1,0 +1,12 @@
+[
+	{
+		"name" : "startMission",
+		"group" : "starSystem",
+		"type" : "WT_BUTTON",
+		"text" : "Start Mission",
+		"x" : 350,
+		"y" : 635,
+		"w" : 280,
+		"h": 34
+	}
+]

@@ -51,6 +51,7 @@ static int page;
 static int maxPages;
 static SDL_Texture *pagePrev;
 static SDL_Texture *pageNext;
+static SDL_Rect left, right;
 
 void initStatsDisplay(void)
 {
@@ -59,6 +60,32 @@ void initStatsDisplay(void)
 	
 	pagePrev = getTexture("gfx/widgets/optionsLeft.png");
 	pageNext = getTexture("gfx/widgets/optionsRight.png");
+	
+	left.x = (SCREEN_WIDTH / 2) - 100;
+	left.y = 120;
+	SDL_QueryTexture(pagePrev, NULL, NULL, &left.w, &left.h);
+	
+	right.x = (SCREEN_WIDTH / 2) + 100;
+	right.y = 120;
+	SDL_QueryTexture(pageNext, NULL, NULL, &right.w, &right.h);
+}
+
+void doStats(void)
+{
+	if (app.mouse.button[SDL_BUTTON_LEFT])
+	{
+		if (collision(app.mouse.x - (app.mouse.w / 2), app.mouse.y - (app.mouse.h / 2), app.mouse.w, app.mouse.h, left.x - (left.w / 2), left.y - (left.h / 2), left.w, left.h))
+		{
+			page = MAX(0, page - 1);
+			app.mouse.button[SDL_BUTTON_LEFT] = 0;
+		}
+		
+		if (collision(app.mouse.x - (app.mouse.w / 2), app.mouse.y - (app.mouse.h / 2), app.mouse.w, app.mouse.h, right.x - (right.w / 2), right.y - (right.h / 2), right.w, right.h))
+		{
+			page = MIN(page + 1, maxPages);
+			app.mouse.button[SDL_BUTTON_LEFT] = 0;
+		}
+	}
 }
 
 void drawStats(void)
@@ -88,12 +115,12 @@ void drawStats(void)
 	
 	if (page > 0)
 	{
-		blit(pagePrev, (SCREEN_WIDTH / 2) - 100, 120, 1);
+		blit(pagePrev, left.x, left.y, 1);
 	}
 	
 	if (page < maxPages)
 	{
-		blit(pageNext, (SCREEN_WIDTH / 2) + 100, 120, 1);
+		blit(pageNext, right.x, right.y, 1);
 	}
 	
 	y = 170;

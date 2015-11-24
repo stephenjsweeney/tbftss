@@ -129,6 +129,10 @@ static void logic(void)
 		case SHOW_STAR_SYSTEM:
 			doStarSystemView();
 			break;
+			
+		case SHOW_STATS:
+			doStats();
+			break;
 	}
 	
 	doPulses();

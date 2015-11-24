@@ -65,6 +65,7 @@ extern void initStatsDisplay(void);
 extern void updateStarSystemMissions(void);
 extern StarSystem *getStarSystem(char *name);
 extern int getDistance(int x1, int y1, int x2, int y2);
+extern void doStats(void);
 
 extern App app;
 extern Colors colors;

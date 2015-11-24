@@ -27,6 +27,8 @@ void initInput(void)
 	memset(&app.mouse, 0, sizeof(Mouse));
 	
 	mousePointer = getTexture("gfx/input/mousePointer.png");
+	
+	SDL_QueryTexture(mousePointer, NULL, NULL, &app.mouse.w, &app.mouse.h);
 }
 
 void doMouseDown(SDL_MouseButtonEvent *event)
@@ -39,9 +41,17 @@ void doMouseUp(SDL_MouseButtonEvent *event)
 	app.mouse.button[event->button] = 0;
 }
 
-void doMouseMove(SDL_MouseMotionEvent *event)
+void doMouseWheel(SDL_MouseWheelEvent *event)
 {
+	if (event->y == -1)
+	{
+		app.mouse.button[SDL_BUTTON_X1] = 1;
+	}
 	
+	if (event->y == 1)
+	{
+		app.mouse.button[SDL_BUTTON_X2] = 1;
+	}
 }
 
 void drawMouse(void)

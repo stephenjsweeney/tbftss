@@ -23,12 +23,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
-#define CAMERA_SPEED 8
-
-#define SHOW_GALAXY		0
-#define SHOW_MENU		1
-#define SHOW_OPTIONS	2
-#define SHOW_STATS		3
+#define SHOW_GALAXY			0
+#define SHOW_STAR_SYSTEM	1
+#define SHOW_MENU			2
+#define SHOW_OPTIONS		3
+#define SHOW_STATS			4
 
 extern void prepareScene(void);
 extern void presentScene(void);
@@ -63,9 +62,9 @@ extern void drawStats(void);
 extern void playSound(int id);
 extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);
 extern void initStatsDisplay(void);
-extern void handleStatsKB(void);
 extern void updateStarSystemMissions(void);
 extern StarSystem *getStarSystem(char *name);
+extern int getDistance(int x1, int y1, int x2, int y2);
 
 extern App app;
 extern Colors colors;

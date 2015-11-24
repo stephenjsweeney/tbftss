@@ -61,19 +61,6 @@ void initStatsDisplay(void)
 	pageNext = getTexture("gfx/widgets/optionsRight.png");
 }
 
-void handleStatsKB(void)
-{
-	if (app.keyboard[SDL_SCANCODE_LEFT])
-	{
-		page = MIN(MAX(page - 1, 0), maxPages);
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_RIGHT])
-	{
-		page = MIN(MAX(page + 1, 0), maxPages);
-	}
-}
-
 void drawStats(void)
 {
 	int i, y, hours, minutes, seconds, startIndex;

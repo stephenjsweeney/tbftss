@@ -62,16 +62,16 @@ int main(int argc, char *argv[])
 		{
 			switch (event.type)
 			{
+				case SDL_MOUSEWHEEL:
+					doMouseWheel(&event.wheel);
+					break;
+				
 				case SDL_MOUSEBUTTONDOWN:
 					doMouseDown(&event.button);
 					break;
 
 				case SDL_MOUSEBUTTONUP:
 					doMouseUp(&event.button);
-					break;
-
-				case SDL_MOUSEMOTION:
-					doMouseMove(&event.motion);
 					break;
 				
 				case SDL_KEYDOWN:

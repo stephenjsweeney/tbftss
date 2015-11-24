@@ -209,6 +209,7 @@ struct Mission {
 	int available;
 	int completed;
 	int epic;
+	SDL_Rect rect;
 	Challenge challengeHead;
 	Mission *next;
 };
@@ -293,6 +294,8 @@ struct HudMessage {
 typedef struct {
 	int x;
 	int y;
+	int w;
+	int h;
 	int button[MAX_MOUSE_BUTTONS];
 } Mouse;
 

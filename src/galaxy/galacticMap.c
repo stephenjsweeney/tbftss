@@ -23,13 +23,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void logic(void);
 static void draw(void);
 static void handleKeyboard(void);
+static void handleMouse(void);
+static void scrollGalaxy(void);
 static void drawStarSystemDetail(void);
-static void prevMission(void);
-static void nextMission(void);
 static void selectStarSystem(void);
 static void drawGalaxy(void);
-static void handleGalaxyKB(void);
-static void handleSelectedSystemKB(void);
 static void centerOnSelectedStarSystem(void);
 static void doStarSystems(void);
 void destroyGalacticMap(void);
@@ -43,16 +41,16 @@ static void stats(void);
 static void options(void);
 static void statsOK(void);
 static void quit(void);
+static void startMission(void);
 static void returnFromOptions(void);
+static void doStarSystemView(void);
 
 static StarSystem *selectedStarSystem;
 static Mission *selectedMission = {0};
-static int missionListStart, selectedMissionIndex;
 static SDL_Texture *background;
 static SDL_Texture *starSystemTexture;
 static SDL_Texture *arrowTexture;
 static SDL_Point camera;
-static int viewingSystem;
 static Pulse pulseHead = {0};
 static Pulse *pulseTail;
 static int pulseTimer;
@@ -86,8 +84,6 @@ void initGalacticMap(void)
 	
 	saveGame();
 	
-	viewingSystem = 0;
-	
 	pulseTimer = 0;
 	
 	arrowPulse = 0;
@@ -98,6 +94,8 @@ void initGalacticMap(void)
 	destroyGalacticMap();
 	
 	initBackground();
+	
+	getWidget("startMission", "starSystem")->action = startMission;
 	
 	getWidget("resume", "galacticMap")->action = resume;
 	getWidget("stats", "galacticMap")->action = stats;
@@ -117,13 +115,23 @@ static void logic(void)
 {
 	handleKeyboard();
 	
-	doStarSystems();
+	handleMouse();
 	
-	scrollBackground(-ssx, -ssy);
+	switch (show)
+	{
+		case SHOW_GALAXY:
+			doStarSystems();
+			scrollGalaxy();
+			scrollBackground(-ssx, -ssy);
+			doStars(ssx, ssy);
+			break;
+			
+		case SHOW_STAR_SYSTEM:
+			doStarSystemView();
+			break;
+	}
 	
 	doPulses();
-	
-	doStars(ssx, ssy);
 	
 	if (pulseTimer % FPS == 0)
 	{
@@ -145,8 +153,8 @@ static void doStarSystems(void)
 	
 	completedMissions = totalMissions = completedChallenges = totalChallenges = 0;
 	
-	cx = (camera.x + SCREEN_WIDTH / 2) - 32;
-	cy = (camera.y + SCREEN_HEIGHT / 2) - 32;
+	cx = app.mouse.x - app.mouse.w / 2;
+	cy = app.mouse.y - app.mouse.h / 2;
 	
 	selectedStarSystem = NULL;
 	
@@ -157,12 +165,77 @@ static void doStarSystems(void)
 		completedChallenges += starSystem->completedChallenges;
 		totalChallenges += starSystem->totalChallenges;
 		
-		if (starSystem->totalMissions > 0 && collision(cx, cy, 64, 64, starSystem->x, starSystem->y, 4, 4))
+		if (starSystem->totalMissions > 0 && collision(cx, cy, app.mouse.w, app.mouse.y, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
 		{
 			if (selectedStarSystem != starSystem)
 			{
 				selectedStarSystem = starSystem;
+				
+				if (app.mouse.button[SDL_BUTTON_LEFT])
+				{
+					selectStarSystem();
+					
+					app.mouse.button[SDL_BUTTON_LEFT] = 0;
+				}
 			}
+		}
+	}
+}
+
+static void scrollGalaxy(void)
+{
+	int dist;
+	float dx, dy;
+	int lastX, lastY;
+	
+	lastX = camera.x;
+	lastY = camera.y;
+	
+	ssx = ssy = 0;
+	
+	dist = getDistance(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, app.mouse.x, app.mouse.y);
+	if (dist > 196)
+	{
+		dx = (SCREEN_WIDTH / 2) - app.mouse.x;
+		dy = (SCREEN_HEIGHT / 2) - app.mouse.y;
+		
+		dx /= 35;
+		dy /= 35;
+		
+		camera.x -= dx;
+		camera.y -= dy;
+		
+		ssx = -(dx / 5);
+		ssy = -(dy / 5);
+		
+		camera.x = MAX(-800, MIN(camera.x, 2464));
+		camera.y = MAX(-475, MIN(camera.y, 1235));
+	}
+	
+	if (lastX == camera.x)
+	{
+		ssx = 0;
+	}
+	
+	if (lastY == camera.y)
+	{
+		ssy = 0;
+	}
+}
+
+static void doStarSystemView(void)
+{
+	Mission *mission;
+	
+	for (mission = selectedStarSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+	{
+		if (mission->available && app.mouse.button[SDL_BUTTON_LEFT] && collision(app.mouse.x - app.mouse.w / 2, app.mouse.y - app.mouse.h / 2, app.mouse.w, app.mouse.h, mission->rect.x, mission->rect.y, mission->rect.w, mission->rect.h))
+		{
+			if (selectedMission != mission)
+			{
+				playSound(SND_GUI_CLICK);
+			}
+			selectedMission = mission;
 		}
 	}
 }
@@ -263,14 +336,10 @@ static void draw(void)
 	
 	drawInfoBars();
 	
-	if (viewingSystem)
-	{
-		drawStarSystemDetail();
-	}
-	
 	switch (show)
 	{
-		case SHOW_GALAXY:
+		case SHOW_STAR_SYSTEM:
+			drawStarSystemDetail();
 			break;
 			
 		case SHOW_MENU:
@@ -314,19 +383,6 @@ static void drawGalaxy(void)
 	StarSystem *starSystem;
 	SDL_Color color;
 	float ax, ay, aa;
-	
-	r.w = r.h = 64;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
-	
-	if (selectedStarSystem)
-	{
-		SDL_SetRenderDrawColor(app.renderer, 64, 100, 128, 255);
-		SDL_RenderFillRect(app.renderer, &r);
-	}
-	
-	SDL_SetRenderDrawColor(app.renderer, 128, 200, 255, 255);
-	SDL_RenderDrawRect(app.renderer, &r);
 	
 	arrowPulse += 0.1;
 	
@@ -398,7 +454,7 @@ static void drawInfoBars(void)
 {
 	SDL_Rect r;
 	
-	if (!viewingSystem && selectedStarSystem != NULL)
+	if (show != SHOW_STAR_SYSTEM && selectedStarSystem != NULL)
 	{
 		r.x = 0;
 		r.y = SCREEN_HEIGHT - 35;
@@ -428,19 +484,18 @@ static void drawInfoBars(void)
 
 static void selectStarSystem(void)
 {
-	missionListStart = 0;
-	selectedMissionIndex = 0;
-	
 	if (selectedStarSystem->totalMissions > 0)
 	{
-		viewingSystem = 1;
+		show = SHOW_STAR_SYSTEM;
 		STRNCPY(game.selectedStarSystem, selectedStarSystem->name, MAX_NAME_LENGTH);
+		selectedMission = selectedStarSystem->missionHead.next;
+		playSound(SND_GUI_SELECT);
 	}
 }
 
 static void drawStarSystemDetail(void)
 {
-	int y, i;
+	int y;
 	Mission *mission;
 	Challenge *challenge;
 	SDL_Rect r;
@@ -461,7 +516,7 @@ static void drawStarSystemDetail(void)
 	
 	y = 70;
 	
-	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.cyan, "%s (%d / %d)", selectedStarSystem->name, selectedStarSystem->completedMissions, selectedStarSystem->totalMissions);
+	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.cyan, "%s", selectedStarSystem->name);
 	
 	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w, 120);
 	
@@ -469,41 +524,28 @@ static void drawStarSystemDetail(void)
 	
 	y += 80;
 	
-	r.x = 200;
-	r.w = 300;
-	r.h = 40;
-	
-	i = 0;
-	
 	for (mission = selectedStarSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 	{
-		if (i == selectedMissionIndex)
+		mission->rect.x = 200;
+		mission->rect.y = y - 2;
+		mission->rect.w = 300;
+		mission->rect.h = 40;
+		
+		if (mission == selectedMission)
 		{
-			selectedMission = mission;
+			SDL_SetRenderDrawColor(app.renderer, 32, 64, 128, 255);
+			SDL_RenderFillRect(app.renderer, &mission->rect);
+			
+			SDL_SetRenderDrawColor(app.renderer, 64, 96, 196, 255);
+			SDL_RenderDrawRect(app.renderer, &mission->rect);
 		}
 		
-		if (i >= missionListStart && i < missionListStart + 10)
+		if (mission->available)
 		{
-			if (mission == selectedMission)
-			{
-				r.y = y - 2;
-				
-				SDL_SetRenderDrawColor(app.renderer, 32, 64, 128, 255);
-				SDL_RenderFillRect(app.renderer, &r);
-				
-				SDL_SetRenderDrawColor(app.renderer, 64, 96, 196, 255);
-				SDL_RenderDrawRect(app.renderer, &r);
-			}
-			
-			if (mission->available)
-			{
-				drawText(210, y, 24, TA_LEFT, mission->completed ? colors.white : colors.yellow, mission->name);
-			}
-			
-			y += 50;
+			drawText(210, y, 24, TA_LEFT, mission->completed ? colors.white : colors.yellow, mission->name);
 		}
 		
-		i++;
+		y += 50;
 	}
 	
 	if (selectedMission->available)
@@ -542,30 +584,27 @@ static void drawStarSystemDetail(void)
 			y += 25;
 		}
 	}
+	
+	drawWidgets("starSystem");
 }
 
 static void handleKeyboard(void)
 {
-	if (show == SHOW_GALAXY)
-	{
-		if (viewingSystem)
-		{
-			handleSelectedSystemKB();
-		}
-		else
-		{
-			handleGalaxyKB();
-		}
-	}
-	else if (show == SHOW_STATS)
-	{
-		handleStatsKB();
-	}
-	
 	if (app.keyboard[SDL_SCANCODE_ESCAPE])
 	{
 		switch (show)
 		{
+			case SHOW_GALAXY:
+				selectWidget("resume", "galacticMap");
+				show = SHOW_MENU;
+				memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+				playSound(SND_GUI_CLOSE);
+				break;
+				
+			case SHOW_STAR_SYSTEM:
+				show = SHOW_GALAXY;
+				break;
+			
 			case SHOW_MENU:
 				show = SHOW_GALAXY;
 				memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
@@ -580,132 +619,27 @@ static void handleKeyboard(void)
 		}
 		
 		playSound(SND_GUI_CLOSE);
-	}
-}
-
-static void handleGalaxyKB(void)
-{
-	int lastX, lastY;
-	
-	lastX = camera.x;
-	lastY = camera.y;
-	
-	ssx = ssy = 0;
-	
-	if (app.keyboard[SDL_SCANCODE_LEFT])
-	{
-		ssx = -1;
-		camera.x -= CAMERA_SPEED;
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_RIGHT])
-	{
-		ssx = 1;
-		camera.x += CAMERA_SPEED;
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_UP])
-	{
-		ssy = -1;
-		camera.y -= CAMERA_SPEED;
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_DOWN])
-	{
-		ssy = 1;
-		camera.y += CAMERA_SPEED;
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_RETURN] && selectedStarSystem)
-	{
-		playSound(SND_GUI_SELECT);
-		selectStarSystem();
+		
 		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 	}
-	
-	camera.x = MAX(-800, MIN(camera.x, 2464));
-	camera.y = MAX(-475, MIN(camera.y, 1235));
-	
-	if (lastX == camera.x)
+}
+
+static void handleMouse(void)
+{
+	switch (show)
 	{
-		ssx = 0;
-	}
-	
-	if (lastY == camera.y)
-	{
-		ssy = 0;
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_ESCAPE])
-	{
-		selectWidget("resume", "galacticMap");
-		show = SHOW_MENU;
-		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-		
-		playSound(SND_GUI_CLOSE);
+		case SHOW_STATS:
+			break;
 	}
 }
 
-static void handleSelectedSystemKB(void)
+static void startMission(void)
 {
-	if (app.keyboard[SDL_SCANCODE_UP])
-	{
-		prevMission();
-	}
+	playSound(SND_GUI_SELECT);
 	
-	if (app.keyboard[SDL_SCANCODE_DOWN])
-	{
-		nextMission();
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_RETURN])
-	{
-		if (selectedMission->available)
-		{
-			playSound(SND_GUI_SELECT);
-			
-			initBattle();
-			game.currentMission = selectedMission;
-			loadMission(selectedMission->filename);
-		}
-		else
-		{
-			playSound(SND_GUI_DENIED);
-		}
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_ESCAPE])
-	{
-		viewingSystem = 0;
-		
-		playSound(SND_GUI_CLOSE);
-	}
-	
-	memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-}
-
-static void prevMission(void)
-{
-	selectedMissionIndex = MAX(0, selectedMissionIndex - 1);
-	
-	if (selectedMissionIndex <= missionListStart + 3)
-	{
-		missionListStart = MAX(0, missionListStart - 1);
-	}
-	
-	selectedMission = NULL;
-}
-
-static void nextMission(void)
-{
-	selectedMissionIndex = MIN(selectedMissionIndex + 1, selectedStarSystem->totalMissions - 1);
-	
-	if (selectedMissionIndex >= missionListStart + 5)
-	{
-		missionListStart = MIN(missionListStart + 1, selectedStarSystem->totalMissions - 9);
-	}
-	
-	selectedMission = NULL;
+	initBattle();
+	game.currentMission = selectedMission;
+	loadMission(selectedMission->filename);
 }
 
 static void drawMenu(void)

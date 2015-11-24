@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void selectTarget(void);
 static void switchGuns(void);
+static void cycleRadarZoom(void);
 static void selectMissionTarget(void);
 static void selectNewPlayer(int dir);
 static void initPlayerSelect(void);
@@ -85,6 +86,11 @@ void doPlayer(void)
 			handleKeyboard();
 			
 			handleMouse();
+			
+			if (!player->target || player->target->systemPower <= 0)
+			{
+				selectTarget();
+			}
 		}
 		
 		player->angle = ((int)player->angle) % 360;
@@ -115,71 +121,29 @@ void doPlayer(void)
 
 static void handleKeyboard(void)
 {
-	if (app.keyboard[SDL_SCANCODE_LEFT])
-	{
-		player->angle -= 4;
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_RIGHT])
-	{
-		player->angle += 4;
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_UP] && battle.boostTimer > BOOST_FINISHED_TIME)
-	{
-		applyFighterThrust();
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_DOWN])
-	{
-		applyFighterBrakes();
-	}
-	
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (app.keyboard[SDL_SCANCODE_LCTRL] && !player->reload && player->guns[0].type)
+		if (app.keyboard[SDL_SCANCODE_W])
 		{
-			fireGuns(player);
-		}
-		
-		if (app.keyboard[SDL_SCANCODE_LSHIFT])
-		{
-			switchGuns();
+			cycleRadarZoom(); 
 			
-			app.keyboard[SDL_SCANCODE_LSHIFT] = 0;
+			app.keyboard[SDL_SCANCODE_W] = 0;
 		}
 		
-		if (app.keyboard[SDL_SCANCODE_RETURN] && player->missiles && player->target)
-		{
-			if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
-			{
-				fireMissile(player);
-			}
-			else
-			{
-				addHudMessage(colors.white, "Target not in range");
-			}
-			
-			app.keyboard[SDL_SCANCODE_RETURN] = 0;
-		}
-		
-		if (!player->target || player->target->systemPower <= 0 || app.keyboard[SDL_SCANCODE_T])
-		{
-			selectTarget();
-			
-			app.keyboard[SDL_SCANCODE_T] = 0;
-		}
-		
-		if (app.keyboard[SDL_SCANCODE_SPACE] && battle.boostTimer == BOOST_RECHARGE_TIME)
+		if (app.keyboard[SDL_SCANCODE_D] && battle.boostTimer == BOOST_RECHARGE_TIME)
 		{
 			playSound(SND_BOOST);
 			
 			activateBoost();
+			
+			app.keyboard[SDL_SCANCODE_D] = 0;
 		}
 		
-		if (app.keyboard[SDL_SCANCODE_E] && battle.ecmTimer == ECM_RECHARGE_TIME)
+		if (app.keyboard[SDL_SCANCODE_S] && battle.ecmTimer == ECM_RECHARGE_TIME)
 		{
 			activateECM();
+			
+			app.keyboard[SDL_SCANCODE_S] = 0;
 		}
 	}
 }
@@ -202,10 +166,6 @@ static void handleMouse(void)
 				applyFighterThrust();
 			}
 		}
-		else
-		{
-			applyFighterBrakes();
-		}
 		
 		if (app.mouse.button[SDL_BUTTON_MIDDLE] && player->missiles && player->target)
 		{
@@ -219,6 +179,20 @@ static void handleMouse(void)
 			}
 			
 			app.mouse.button[SDL_BUTTON_MIDDLE] = 0;
+		}
+		
+		if (app.mouse.button[SDL_BUTTON_X1])
+		{
+			switchGuns();
+			
+			app.mouse.button[SDL_BUTTON_X1] = 0;
+		}
+		
+		if (app.mouse.button[SDL_BUTTON_X2])
+		{
+			selectTarget();
+			
+			app.mouse.button[SDL_BUTTON_X2] = 0;
 		}
 	}
 }
@@ -461,4 +435,8 @@ static void selectMissionTarget(void)
 			}
 		}
 	}
+}
+
+static void cycleRadarZoom(void)
+{
 }

@@ -22,9 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadWidgets(char *filename);
 static void loadWidgetSet(char *filename);
-static void handleKeyboard(void);
 static void handleMouse(void);
 static void createOptions(Widget *w, char *options);
+static void changeSelectedValue(int dir);
 
 static Widget head;
 static Widget *tail;
@@ -53,8 +53,6 @@ void doWidgets(void)
 {
 	if (drawingWidgets)
 	{
-		handleKeyboard();
-		
 		handleMouse();
 	}
 	
@@ -80,7 +78,7 @@ Widget *getWidget(const char *name, const char *group)
 
 void selectWidget(const char *name, const char *group)
 {
-	selectedWidget = getWidget(name, group);
+	/*selectedWidget = getWidget(name, group);*/
 }
 
 void drawWidgets(const char *group)
@@ -89,17 +87,21 @@ void drawWidgets(const char *group)
 	Widget *w;
 	
 	drawingWidgets = 1;
+	mouseOver = 0;
 	
 	for (w = head.next; w != NULL ; w = w->next)
 	{
 		if (w->visible && strcmp(w->group, group) == 0)
 		{
-			mouseOver = (w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.mouse.x, app.mouse.y, 1, 1));
-			
-			if (mouseOver && selectedWidget != w)
+			if (!mouseOver)
 			{
-				playSound(SND_GUI_CLICK);
-				selectedWidget = w;
+				mouseOver = (w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.mouse.x, app.mouse.y, 1, 1));
+				
+				if (mouseOver && selectedWidget != w)
+				{
+					playSound(SND_GUI_CLICK);
+					selectedWidget = w;
+				}
 			}
 			
 			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
@@ -128,17 +130,8 @@ void drawWidgets(const char *group)
 				case WT_SELECT:
 					drawText(w->rect.x + 10, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
 					drawText(w->rect.x + w->rect.w - 10, w->rect.y + 2, 20, TA_RIGHT, colors.white, w->options[w->currentOption]);
-					
-					if (w->currentOption != 0)
-					{
-						blit(optionsLeft, w->rect.x - 24, w->rect.y + 16, 1);
-					}
-					
-					if (w->currentOption != w->numOptions - 1)
-					{
-						blit(optionsRight, w->rect.x + w->rect.w + 24, w->rect.y + 16, 1);
-					}
-					
+					blit(optionsLeft, w->rect.x - 24, w->rect.y + 16, 1);
+					blit(optionsRight, w->rect.x + w->rect.w + 24, w->rect.y + 16, 1);
 					break;
 			}
 
@@ -151,6 +144,11 @@ void drawWidgets(const char *group)
 			}
 		}
 	}
+	
+	if (!mouseOver)
+	{
+		selectedWidget = NULL;
+	}
 }
 
 void drawConfirmMessage(char *message)
@@ -158,49 +156,7 @@ void drawConfirmMessage(char *message)
 	drawWidgets("okCancel");
 }
 
-static void gotoWidget(int dx, int dy)
-{
-	Widget *w, *closest;
-	int distance;
-	int curDistance = -1;
-	
-	closest = selectedWidget;
-	
-	for (w = head.next; w != NULL ; w = w->next)
-	{
-		if (w == selectedWidget || 
-			!w->enabled ||
-			!w->visible ||
-			strcmp(w->group, selectedWidget->group) != 0 ||
-			(dx == -1 && w->rect.x > selectedWidget->rect.x) ||
-			(dx == 1 && w->rect.x < selectedWidget->rect.x) ||
-			(dx != 0 && w->rect.x == selectedWidget->rect.x) ||
-			(dy == -1 && w->rect.y > selectedWidget->rect.y) ||
-			(dy == 1 && w->rect.y < selectedWidget->rect.y) ||
-			(dy != 0 && w->rect.y == selectedWidget->rect.y)
-		)
-		{
-			continue;
-		}
-		
-		distance = getDistance(w->rect.x, w->rect.y, selectedWidget->rect.x, selectedWidget->rect.y);
-		
-		if (curDistance == -1 || distance < curDistance)
-		{
-			curDistance = distance;
-			closest = w;
-		}
-	}
-	
-	if (selectedWidget != closest)
-	{
-		playSound(SND_GUI_CLICK);
-			
-		selectedWidget = closest;
-	}
-}
-
-static void changeSelectValue(int dir)
+static void changeSelectedValue(int dir)
 {
 	int oldOption = selectedWidget->currentOption;
 	
@@ -234,59 +190,34 @@ void setWidgetOption(const char *name, const char *group, const char *value)
 	}
 }
 
-static void handleKeyboard(void)
-{
-	if (app.keyboard[SDL_SCANCODE_UP])
-	{
-		gotoWidget(0, -1);
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_DOWN])
-	{
-		gotoWidget(0, 1);
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_LEFT])
-	{
-		if (selectedWidget->type != WT_SELECT)
-		{
-			gotoWidget(-1, 0);
-		}
-		else
-		{
-			changeSelectValue(-1);
-		}
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_RIGHT])
-	{
-		if (selectedWidget->type != WT_SELECT)
-		{
-			gotoWidget(1, 0);
-		}
-		else
-		{
-			changeSelectValue(1);
-		}
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_RETURN] && selectedWidget->action)
-	{
-		playSound(SND_GUI_SELECT);
-		selectedWidget->action();
-	}
-	
-	memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-}
-
 static void handleMouse(void)
 {
-	if (selectedWidget && selectedWidget->action && app.mouse.button[SDL_BUTTON_LEFT])
+	if (selectedWidget && collision(selectedWidget->rect.x, selectedWidget->rect.y, selectedWidget->rect.w, selectedWidget->rect.h, app.mouse.x, app.mouse.y, 1, 1))
 	{
-		if (collision(selectedWidget->rect.x, selectedWidget->rect.y, selectedWidget->rect.w, selectedWidget->rect.h, app.mouse.x, app.mouse.y, 1, 1))
+		if (app.mouse.button[SDL_BUTTON_LEFT])
 		{
-			playSound(SND_GUI_SELECT);
-			selectedWidget->action();
+			switch (selectedWidget->type)
+			{
+				case WT_BUTTON:
+					if (selectedWidget->action)
+					{
+						playSound(SND_GUI_SELECT);
+						selectedWidget->action();	
+						app.mouse.button[SDL_BUTTON_LEFT] = 0;
+					}
+					break;
+					
+				case WT_SELECT:
+					changeSelectedValue(-1);
+					app.mouse.button[SDL_BUTTON_LEFT] = 0;
+					break;
+			}
+		}
+		
+		if (app.mouse.button[SDL_BUTTON_RIGHT] && selectedWidget->type == WT_SELECT)
+		{
+			changeSelectedValue(1);
+			app.mouse.button[SDL_BUTTON_RIGHT] = 0;
 		}
 	}
 }

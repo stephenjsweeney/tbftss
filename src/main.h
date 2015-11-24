@@ -33,7 +33,7 @@ extern void loadTestMission(char *filename);
 extern void saveScreenshot(void);
 extern void doMouseDown(SDL_MouseButtonEvent *event);
 extern void doMouseUp(SDL_MouseButtonEvent *event);
-extern void doMouseMove(SDL_MouseMotionEvent *event);
+extern void doMouseWheel(SDL_MouseWheelEvent *event);
 
 App app;
 Colors colors;

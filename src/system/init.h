@@ -27,13 +27,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../structs.h"
 #include "../json/cJSON.h"
 
-#if UNIX
-	#include <sys/stat.h>
-	#include <pwd.h>
-	#include <unistd.h>
-	#include <errno.h>
-#endif
-
 extern int fileExists(char *filename);
 extern char *readFile(char *filename);
 extern int writeFile(char *filename, char *data);
@@ -62,6 +55,7 @@ extern void destroyGalacticMap(void);
 extern void destroyWidgets(void);
 extern void expireTexts(void);
 extern void initInput(void);
+extern void createSaveFolder(void);
 
 extern App app;
 extern Colors colors;

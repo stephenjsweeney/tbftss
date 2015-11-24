@@ -1,6 +1,6 @@
 PROG = tbftss
 
-TARGET=$(PROG)$(EXEEXT)
+TARGET = $(PROG)$(EXEEXT)
 
 VERSION = 0.4
 REVISION = $(shell date +"%y%m%d")

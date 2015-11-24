@@ -1,4 +1,7 @@
-EXEEXT=.exe
-CC=x86_64-w64-mingw32-gcc
+EXEEXT = .exe
+CC = x86_64-w64-mingw32-gcc
+
+SEARCHPATH += src/plat/win32
+OBJS += win32Init.o
 
 include common.mk

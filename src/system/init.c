@@ -20,14 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "init.h"
 
-#ifndef _WIN32
-#define UNIX 1
-#endif
-
-
-#if UNIX
-static void createSaveFolder(void);
-#endif
 static void loadConfig(void);
 void saveConfig(void);
 static void initColor(SDL_Color *c, int r, int g, int b);
@@ -39,9 +31,8 @@ void initSDL(void)
 	/* do this here, so we don't destroy the save dir stored in app */
 	memset(&app, 0, sizeof(App));
 	
-	#if UNIX
+	/* done in src/plat/ */
 	createSaveFolder();
-	#endif
 	
 	rendererFlags = SDL_RENDERER_ACCELERATED;
 	windowFlags = 0;
@@ -100,33 +91,6 @@ void initSDL(void)
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Game scale factor: %.2f,%.2f\n", app.scaleX, app.scaleY);
 }
-
-#ifdef UNIX
-static void createSaveFolder(void)
-{
-	char *userHome;
-	char dir[MAX_FILENAME_LENGTH];
-	
-	userHome = getenv("HOME");
-	
-	if (!userHome)
-	{
-		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Unable to determine user save folder. Will save to current dir.");
-		return;
-	}
-	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "User home = %s", userHome);
-	
-	sprintf(dir, "%s/.local/share/tbftss", userHome);
-	if (mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0 && errno != EEXIST)
-	{
-		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Failed to create save dir '%s'. Will save to current dir.", dir);
-		return;
-	}
-	
-	STRNCPY(app.saveDir, dir, MAX_FILENAME_LENGTH);
-}
-#endif
 
 void initGameSystem(void)
 {

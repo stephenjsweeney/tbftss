@@ -1,5 +1,7 @@
 PROG = tbftss
 
+TARGET=$(PROG)$(EXEEXT)
+
 VERSION = 0.4
 REVISION = $(shell date +"%y%m%d")
 DEBUG = 0
@@ -8,7 +10,7 @@ CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -
 CXXFLAGS += -Wall -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence
 
-LIBS = `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
+LIBS := `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 
 SEARCHPATH += src/ src/battle src/draw src/game src/galaxy src/json src/system src/test
 vpath %.c $(SEARCHPATH)
@@ -38,15 +40,15 @@ OBJS += waypoints.o widgets.o
 DIST_FILES = data gfx manual music sound src LICENSE makefile README.md CHANGELOG
 
 # top-level rule to create the program.
-all: $(PROG)
+all: $(TARGET)
 
 # compiling other source files.
 %.o: %.c %.h $(DEPS)
 	$(CC) $(CFLAGS) $(CXXFLAGS) -c $<
 
 # linking the program.
-$(PROG): $(OBJS)
-	$(CC)  -o $(PROG) $(OBJS) $(LIBS)
+$(TARGET): $(OBJS)
+	$(CC)  -o $@ $(OBJS) $(LIBS)
 
 # prepare an archive for the program
 dist:
@@ -62,6 +64,6 @@ dist:
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	$(RM) $(OBJS) $(PROG)
+	$(RM) $(OBJS) $(TARGET)
 
 .PHONY: dist

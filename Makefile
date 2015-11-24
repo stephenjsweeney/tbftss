@@ -1,5 +1,4 @@
-PROG = tbftss
-CC = gcc
-CXXFLAGS += -DUNIX
+CC=gcc
+EXEEXT=
 
 include common.mk

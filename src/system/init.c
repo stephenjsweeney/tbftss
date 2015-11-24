@@ -20,6 +20,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "init.h"
 
+#ifndef _WIN32
+#define UNIX 1
+#endif
+
 
 #if UNIX
 static void createSaveFolder(void);
@@ -97,7 +101,7 @@ void initSDL(void)
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Game scale factor: %.2f,%.2f\n", app.scaleX, app.scaleY);
 }
 
-#if UNIX
+#ifdef UNIX
 static void createSaveFolder(void)
 {
 	char *userHome;

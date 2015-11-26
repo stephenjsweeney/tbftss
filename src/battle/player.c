@@ -446,4 +446,6 @@ static void selectMissionTarget(void)
 
 static void cycleRadarZoom(void)
 {
+	battle.radarRange++;
+	battle.radarRange %= 3;
 }

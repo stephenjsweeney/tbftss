@@ -246,6 +246,7 @@ typedef struct {
 	int missionFinishedTimer;
 	int boostTimer;
 	int ecmTimer;
+	int radarRange;
 	int numObjectivesComplete, numObjectivesTotal;
 	Entity *missionTarget;
 	Entity *extractionPoint;

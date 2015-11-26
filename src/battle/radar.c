@@ -20,10 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "radar.h"
 
-#define RADAR_RANGE	20
-
 static SDL_Texture *radarTexture;
 static SDL_Texture *radarWarningTexture;
+static int radarRanges[] = {20, 40, 60};
 
 void initRadar(void)
 {
@@ -38,17 +37,19 @@ void drawRadar(void)
 	
 	blit(radarTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 1);
 	
+	drawText(SCREEN_WIDTH - 160, SCREEN_HEIGHT - 30, 14, TA_RIGHT, colors.white, "%dx", battle.radarRange + 1);
+	
 	r.w = r.h = 3;
 	
 	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
 	{
-		if (f->active && getDistance(f->x, f->y, player->x, player->y) / RADAR_RANGE < 70)
+		if (f->active && getDistance(f->x, f->y, player->x, player->y) / radarRanges[battle.radarRange] < 70)
 		{
 			r.x = SCREEN_WIDTH - 85;
 			r.y = SCREEN_HEIGHT - 85;
 			
-			r.x -= (player->x - f->x) / RADAR_RANGE;
-			r.y -= (player->y - f->y) / RADAR_RANGE;
+			r.x -= (player->x - f->x) / radarRanges[battle.radarRange];
+			r.y -= (player->y - f->y) / radarRanges[battle.radarRange];
 			
 			r.x--;
 			r.y--;

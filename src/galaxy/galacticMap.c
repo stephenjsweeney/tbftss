@@ -129,10 +129,6 @@ static void logic(void)
 		case SHOW_STAR_SYSTEM:
 			doStarSystemView();
 			break;
-			
-		case SHOW_STATS:
-			doStats();
-			break;
 	}
 	
 	doPulses();
@@ -606,6 +602,7 @@ static void handleKeyboard(void)
 				break;
 				
 			case SHOW_STAR_SYSTEM:
+				setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 				show = SHOW_GALAXY;
 				break;
 			

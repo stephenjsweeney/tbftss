@@ -222,7 +222,9 @@ enum
 enum
 {
 	WT_BUTTON,
-	WT_SELECT
+	WT_IMG_BUTTON,
+	WT_SELECT,
+	WT_SELECT_BUTTON
 };
 
 enum

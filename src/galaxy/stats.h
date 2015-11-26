@@ -30,6 +30,7 @@ extern void drawText(int x, int y, int size, int align, SDL_Color c, const char 
 extern void blit(SDL_Texture *texture, int x, int y, int centered);
 extern SDL_Texture *getTexture(char *filename);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+extern Widget *getWidget(const char *name, const char *group);
 
 extern App app;
 extern Colors colors;

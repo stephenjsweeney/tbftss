@@ -63,6 +63,7 @@ void initLookups(void)
 	
 	addLookup("WT_BUTTON", WT_BUTTON);
 	addLookup("WT_SELECT", WT_SELECT);
+	addLookup("WT_IMG_BUTTON", WT_IMG_BUTTON);
 	
 	addLookup("SIDE_ALLIES", SIDE_ALLIES);
 	addLookup("SIDE_PIRATE", SIDE_PIRATE);

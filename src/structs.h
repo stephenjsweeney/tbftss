@@ -279,8 +279,10 @@ struct Widget {
 	int visible;
 	int enabled;
 	SDL_Rect rect;
+	SDL_Texture *texture;
 	void (*action)(void);
 	void (*onChange)(char *value);
+	Widget *parent;
 	Widget *next;
 };
 

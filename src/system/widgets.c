@@ -24,7 +24,8 @@ static void loadWidgets(char *filename);
 static void loadWidgetSet(char *filename);
 static void handleMouse(void);
 static void createOptions(Widget *w, char *options);
-static void changeSelectedValue(int dir);
+static void changeSelectedValue(Widget *w, int dir);
+static void createSelectButtons(Widget *w);
 
 static Widget head;
 static Widget *tail;
@@ -41,12 +42,12 @@ void initWidgets(void)
 	
 	selectedWidget = NULL;
 	
+	optionsLeft = getTexture("gfx/widgets/optionsLeft.png");
+	optionsRight = getTexture("gfx/widgets/optionsRight.png");
+	
 	loadWidgets("data/widgets/list.json");
 	
 	drawingWidgets = 0;
-	
-	optionsLeft = getTexture("gfx/widgets/optionsLeft.png");
-	optionsRight = getTexture("gfx/widgets/optionsRight.png");
 }
 
 void doWidgets(void)
@@ -104,20 +105,27 @@ void drawWidgets(const char *group)
 				}
 			}
 			
-			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-			SDL_RenderFillRect(app.renderer, &w->rect);
-			
-			if (w == selectedWidget)
+			if (w->texture)
 			{
-				SDL_SetRenderDrawColor(app.renderer, 64, 128, 200, SDL_ALPHA_OPAQUE);
-				SDL_RenderFillRect(app.renderer, &w->rect);
-				SDL_SetRenderDrawColor(app.renderer, 128, 192, 255, SDL_ALPHA_OPAQUE);
-				SDL_RenderDrawRect(app.renderer, &w->rect);
+				blit(w->texture , w->rect.x, w->rect.y, 0);
 			}
 			else
 			{
-				SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
-				SDL_RenderDrawRect(app.renderer, &w->rect);
+				SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+				SDL_RenderFillRect(app.renderer, &w->rect);
+				
+				if (w == selectedWidget)
+				{
+					SDL_SetRenderDrawColor(app.renderer, 64, 128, 200, SDL_ALPHA_OPAQUE);
+					SDL_RenderFillRect(app.renderer, &w->rect);
+					SDL_SetRenderDrawColor(app.renderer, 128, 192, 255, SDL_ALPHA_OPAQUE);
+					SDL_RenderDrawRect(app.renderer, &w->rect);
+				}
+				else
+				{
+					SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
+					SDL_RenderDrawRect(app.renderer, &w->rect);
+				}
 			}
 			
 			switch (w->type)
@@ -130,8 +138,6 @@ void drawWidgets(const char *group)
 				case WT_SELECT:
 					drawText(w->rect.x + 10, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
 					drawText(w->rect.x + w->rect.w - 10, w->rect.y + 2, 20, TA_RIGHT, colors.white, w->options[w->currentOption]);
-					blit(optionsLeft, w->rect.x - 24, w->rect.y + 16, 1);
-					blit(optionsRight, w->rect.x + w->rect.w + 24, w->rect.y + 16, 1);
 					break;
 			}
 
@@ -156,17 +162,17 @@ void drawConfirmMessage(char *message)
 	drawWidgets("okCancel");
 }
 
-static void changeSelectedValue(int dir)
+static void changeSelectedValue(Widget *w, int dir)
 {
-	int oldOption = selectedWidget->currentOption;
+	int oldOption = w->currentOption;
 	
-	selectedWidget->currentOption += dir;
+	w->currentOption += dir;
 	
-	selectedWidget->currentOption = MIN(MAX(0, selectedWidget->currentOption), selectedWidget->numOptions - 1);
+	w->currentOption = MIN(MAX(0, w->currentOption), w->numOptions - 1);
 	
-	selectedWidget->onChange(selectedWidget->options[selectedWidget->currentOption]);
+	w->onChange(w->options[w->currentOption]);
 	
-	if (oldOption != selectedWidget->currentOption)
+	if (oldOption != w->currentOption)
 	{
 		playSound(SND_GUI_CLICK);
 	}
@@ -199,6 +205,7 @@ static void handleMouse(void)
 			switch (selectedWidget->type)
 			{
 				case WT_BUTTON:
+				case WT_IMG_BUTTON:
 					if (selectedWidget->action)
 					{
 						playSound(SND_GUI_SELECT);
@@ -207,17 +214,11 @@ static void handleMouse(void)
 					}
 					break;
 					
-				case WT_SELECT:
-					changeSelectedValue(-1);
+				case WT_SELECT_BUTTON:
+					changeSelectedValue(selectedWidget->parent, selectedWidget->value);
 					app.mouse.button[SDL_BUTTON_LEFT] = 0;
 					break;
 			}
-		}
-		
-		if (app.mouse.button[SDL_BUTTON_RIGHT] && selectedWidget->type == WT_SELECT)
-		{
-			changeSelectedValue(1);
-			app.mouse.button[SDL_BUTTON_RIGHT] = 0;
 		}
 	}
 }
@@ -260,8 +261,6 @@ static void loadWidgetSet(char *filename)
 		STRNCPY(w->group, cJSON_GetObjectItem(node, "group")->valuestring, MAX_NAME_LENGTH);
 		w->rect.x = cJSON_GetObjectItem(node, "x")->valueint;
 		w->rect.y = cJSON_GetObjectItem(node, "y")->valueint;
-		w->rect.w = cJSON_GetObjectItem(node, "w")->valueint;
-		w->rect.h = cJSON_GetObjectItem(node, "h")->valueint;
 		w->enabled = 1;
 		w->visible = 1;
 		
@@ -274,18 +273,28 @@ static void loadWidgetSet(char *filename)
 		{
 			case WT_BUTTON:
 				STRNCPY(w->text, cJSON_GetObjectItem(node, "text")->valuestring, MAX_NAME_LENGTH);
+				w->rect.w = cJSON_GetObjectItem(node, "w")->valueint;
+				w->rect.h = cJSON_GetObjectItem(node, "h")->valueint;
 				w->rect.x -= w->rect.w / 2;
 				w->rect.y -= (w->rect.h / 2) + 8;
 				break;
 				
+			case WT_IMG_BUTTON:
+				w->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
+				SDL_QueryTexture(w->texture, NULL, NULL, &w->rect.w, &w->rect.h);
+				break;
+				
 			case WT_SELECT:
 				STRNCPY(w->text, cJSON_GetObjectItem(node, "text")->valuestring, MAX_NAME_LENGTH);
+				w->rect.w = cJSON_GetObjectItem(node, "w")->valueint;
+				w->rect.h = cJSON_GetObjectItem(node, "h")->valueint;
 				w->rect.x -= w->rect.w / 2;
 				w->rect.y -= (w->rect.h / 2) + 8;
+				createSelectButtons(w);
 				createOptions(w, cJSON_GetObjectItem(node, "options")->valuestring);
 				break;
 		}
-	
+		
 		tail->next = w;
 		tail = w;
 	}
@@ -321,6 +330,40 @@ static void createOptions(Widget *w, char *options)
 		option = strtok(NULL, ";");
 		
 		i++;
+	}
+}
+
+static void createSelectButtons(Widget *w)
+{
+	int i;
+	Widget *btn;
+	
+	for (i = 0 ; i < 2 ; i++)
+	{
+		btn = malloc(sizeof(Widget));
+		memcpy(btn, w, sizeof(Widget));
+		strcpy(btn->name, "");
+		
+		btn->type = WT_SELECT_BUTTON;
+		btn->parent = w;
+		
+		if (i == 0)
+		{
+			btn->value = -1;
+			btn->rect.x -= 32;
+			btn->rect.y += 4;
+			btn->texture = optionsLeft;
+		}
+		else
+		{
+			btn->value = 1;
+			btn->rect.x += btn->rect.w + 8;
+			btn->rect.y += 4;
+			btn->texture = optionsRight;
+		}
+		
+		tail->next = btn;
+		tail = btn;
 	}
 }
 

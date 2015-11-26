@@ -21,20 +21,18 @@
 	"fighters" : [
 		{
 			"name" : "TAF",
-			"type" : "TAF",
+			"types" : "TAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 24.9,
 			"y" : 25.5
 		},
 		{
 			"name" : "TAF",
-			"type" : "TAF",
+			"types" : "TAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25.1,
 			"y" : 25.5
-		}
-	],
-	"fighterGroups" : [
+		},
 		{
 			"name" : "Dart",
 			"types" : "SimpleDart",

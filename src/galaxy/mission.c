@@ -24,11 +24,8 @@ static void loadObjectives(cJSON *node);
 static void loadTriggers(cJSON *node);
 static void loadPlayer(cJSON *node);
 static void loadFighters(cJSON *node);
-static void loadFighterGroups(cJSON *node);
 static void loadEntities(cJSON *node);
-static void loadEntityGroups(cJSON *node);
 static void loadItems(cJSON *node);
-static void loadItemGroups(cJSON *node);
 static unsigned long hashcode(const char *str);
 static char **toFighterTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
@@ -61,15 +58,9 @@ void loadMission(char *filename)
 	
 	loadFighters(cJSON_GetObjectItem(root, "fighters"));
 	
-	loadFighterGroups(cJSON_GetObjectItem(root, "fighterGroups"));
-	
 	loadEntities(cJSON_GetObjectItem(root, "entities"));
 	
-	loadEntityGroups(cJSON_GetObjectItem(root, "entityGroups"));
-	
 	loadItems(cJSON_GetObjectItem(root, "items"));
-	
-	loadItemGroups(cJSON_GetObjectItem(root, "itemGroups"));
 	
 	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_NAME_LENGTH);
 	
@@ -235,56 +226,11 @@ static void loadPlayer(cJSON *node)
 static void loadFighters(cJSON *node)
 {
 	Entity *f;
-	char *type;
-	int side;
-	float x, y;
-	
-	if (node)
-	{
-		node = node->child;
-		
-		while (node)
-		{
-			type = cJSON_GetObjectItem(node, "type")->valuestring;
-			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
-			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
-			
-			f = spawnFighter(type, x, y, side);
-			
-			STRNCPY(f->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
-			
-			if (cJSON_GetObjectItem(node, "flags"))
-			{
-				f->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
-			}
-			
-			if (cJSON_GetObjectItem(node, "aiFlags"))
-			{
-				f->aiFlags = flagsToLong(cJSON_GetObjectItem(node, "aiFlags")->valuestring);
-			}
-			
-			if (cJSON_GetObjectItem(node, "active"))
-			{
-				f->active = cJSON_GetObjectItem(node, "active")->valueint;
-			}
-		
-			node = node->next;
-		}
-	}
-}
-
-static void loadFighterGroups(cJSON *node)
-{
-	Entity *f;
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
 	int i, numTypes;
 	long flags;
 	float x, y;
-	
-	scatter = 1;
-	active = 1;
 	
 	if (node)
 	{
@@ -294,10 +240,12 @@ static void loadFighterGroups(cJSON *node)
 		{
 			groupName = NULL;
 			flags = -1;
+			scatter = 1;
+			active = 1;
+			number = 1;
 			
 			types = toFighterTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-			number = cJSON_GetObjectItem(node, "number")->valueint;
 			name = cJSON_GetObjectItem(node, "name")->valuestring;
 			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
 			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
@@ -305,6 +253,11 @@ static void loadFighterGroups(cJSON *node)
 			if (cJSON_GetObjectItem(node, "groupName"))
 			{
 				groupName = cJSON_GetObjectItem(node, "groupName")->valuestring;
+			}
+			
+			if (cJSON_GetObjectItem(node, "number"))
+			{
+				number = cJSON_GetObjectItem(node, "number")->valueint;
 			}
 			
 			if (cJSON_GetObjectItem(node, "scatter"))
@@ -356,55 +309,6 @@ static void loadFighterGroups(cJSON *node)
 static void loadEntities(cJSON *node)
 {
 	Entity *e;
-	int type;
-	
-	if (node)
-	{
-		node = node->child;
-		
-		while (node)
-		{
-			type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			
-			switch (type)
-			{
-				case ET_WAYPOINT:
-					e = spawnWaypoint();
-					break;
-					
-				case ET_EXTRACTION_POINT:
-					e = spawnExtractionPoint();
-					break;
-			}
-			
-			if (cJSON_GetObjectItem(node, "name"))
-			{
-				STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
-			}
-			
-			e->x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
-			e->y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
-			
-			if (cJSON_GetObjectItem(node, "active"))
-			{
-				e->active = cJSON_GetObjectItem(node, "active")->valueint;
-			}
-			
-			if (cJSON_GetObjectItem(node, "flags"))
-			{
-				e->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
-			}
-			
-			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
-		
-			node = node->next;
-		}
-	}
-}
-
-static void loadEntityGroups(cJSON *node)
-{
-	Entity *e;
 	char *name, *groupName;
 	int i, type, scatter, number;
 	float x, y;
@@ -417,12 +321,13 @@ static void loadEntityGroups(cJSON *node)
 		
 		while (node)
 		{
+			e = NULL;
 			type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			number = cJSON_GetObjectItem(node, "number")->valueint;
 			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
 			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
 			name = NULL;
 			groupName = NULL;
+			number = 1;
 			
 			if (cJSON_GetObjectItem(node, "name"))
 			{
@@ -432,6 +337,11 @@ static void loadEntityGroups(cJSON *node)
 			if (cJSON_GetObjectItem(node, "groupName"))
 			{
 				groupName = cJSON_GetObjectItem(node, "groupName")->valuestring;
+			}
+			
+			if (cJSON_GetObjectItem(node, "number"))
+			{
+				number = cJSON_GetObjectItem(node, "number")->valueint;
 			}
 			
 			if (cJSON_GetObjectItem(node, "scatter"))
@@ -445,6 +355,15 @@ static void loadEntityGroups(cJSON *node)
 				{
 					case ET_WAYPOINT:
 						e = spawnWaypoint();
+						break;
+						
+					case ET_EXTRACTION_POINT:
+						e = spawnExtractionPoint();
+						break;
+						
+					default:
+						printf("Error: Unhandled entity type: %s\n", cJSON_GetObjectItem(node, "type")->valuestring);
+						exit(1);
 						break;
 				}
 				
@@ -474,13 +393,9 @@ static void loadEntityGroups(cJSON *node)
 
 static void loadItems(cJSON *node)
 {
-}
-
-static void loadItemGroups(cJSON *node)
-{
 	Entity *e;
 	char *name, *groupName, *type;
-	int i, scatter, number;
+	int i, scatter, number, active;
 	long flags;
 	float x, y;
 	
@@ -494,11 +409,12 @@ static void loadItemGroups(cJSON *node)
 		while (node)
 		{
 			type = cJSON_GetObjectItem(node, "type")->valuestring;
-			number = cJSON_GetObjectItem(node, "number")->valueint;
 			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
 			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
 			name = NULL;
 			groupName = NULL;
+			number = 1;
+			active = 1;
 			
 			if (cJSON_GetObjectItem(node, "name"))
 			{
@@ -510,6 +426,11 @@ static void loadItemGroups(cJSON *node)
 				groupName = cJSON_GetObjectItem(node, "groupName")->valuestring;
 			}
 			
+			if (cJSON_GetObjectItem(node, "number"))
+			{
+				number = cJSON_GetObjectItem(node, "number")->valueint;
+			}
+			
 			if (cJSON_GetObjectItem(node, "scatter"))
 			{
 				scatter = cJSON_GetObjectItem(node, "scatter")->valueint;
@@ -518,6 +439,11 @@ static void loadItemGroups(cJSON *node)
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
+			
+			if (cJSON_GetObjectItem(node, "active"))
+			{
+				active = cJSON_GetObjectItem(node, "active")->valueint;
 			}
 			
 			for (i = 0 ; i < number ; i++)
@@ -541,6 +467,7 @@ static void loadItemGroups(cJSON *node)
 				
 				e->x = x;
 				e->y = y;
+				e->active = active;
 				
 				e->x += (rand() % scatter) - (rand() % scatter);
 				e->y += (rand() % scatter) - (rand() % scatter);

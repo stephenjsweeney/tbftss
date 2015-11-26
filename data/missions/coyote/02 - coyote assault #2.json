@@ -22,7 +22,7 @@
 		"pilot" : "(Multiple)",
 		"squadron" : "(Multiple)"
 	},
-	"fighterGroups" : [
+	"fighters" : [
 		{
 			"name" : "ALLIES",
 			"types" : "Firefly;Nymph;TAF;Ray;Leopard;Hyena-A;Hyena-B;Kingfisher",

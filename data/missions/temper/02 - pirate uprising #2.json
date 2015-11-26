@@ -33,7 +33,7 @@
 		"pilot" : "Katherine Strickland",
 		"squadron" : "Steel Bulls"
 	},
-	"fighterGroups" : [
+	"fighters" : [
 		{
 			"name" : "Ally",
 			"types" : "TAF",

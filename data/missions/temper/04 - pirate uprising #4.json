@@ -15,7 +15,7 @@
 		{
 			"description" : "Destroy all remaining opposition",
 			"targetName" : "Dart",
-			"targetValue" : 30,
+			"targetValue" : 26,
 			"targetType" : "TT_DESTROY"
 		},
 		{
@@ -34,7 +34,7 @@
 		"x" : 10,
 		"y" : 25
 	},
-	"fighterGroups" : [
+	"fighters" : [
 		{
 			"name" : "Ally",
 			"types" : "TAF;Ray",

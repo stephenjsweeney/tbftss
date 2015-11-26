@@ -52,15 +52,13 @@
 	"fighters" : [
 		{
 			"name" : "Pirate Lieutenant",
-			"type" : "Dart",
+			"types" : "Dart",
 			"side" : "SIDE_PIRATE",
 			"x" : 12,
 			"y" : 25,
 			"flags" : "EF_NO_KILL+EF_MUST_DISABLE+EF_MISSION_TARGET",
 			"aiFlags" : "AIF_RETREATS"
-		}
-	],
-	"fighterGroups" : [
+		},
 		{
 			"name" : "Ally",
 			"types" : "TAF",

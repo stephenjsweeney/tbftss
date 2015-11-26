@@ -30,7 +30,7 @@
 	"fighters" : [
 		{
 			"name" : "Scarab",
-			"type" : "Scarab",
+			"types" : "Scarab",
 			"side" : "SIDE_PANDORAN",
 			"x" : 27,
 			"y" : 35,
@@ -38,7 +38,7 @@
 		},
 		{
 			"name" : "Scarab",
-			"type" : "Scarab",
+			"types" : "Scarab",
 			"side" : "SIDE_PANDORAN",
 			"x" : 20,
 			"y" : 30,
@@ -46,14 +46,12 @@
 		},
 		{
 			"name" : "Scarab",
-			"type" : "Scarab",
+			"types" : "Scarab",
 			"side" : "SIDE_PANDORAN",
 			"x" : 35,
 			"y" : 25,
 			"flags" : "EF_MISSION_TARGET"
-		}
-	],
-	"fighterGroups" : [
+		},
 		{
 			"name" : "ALLIES",
 			"types" : "Firefly;Nymph;Leopard",

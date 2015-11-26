@@ -32,7 +32,7 @@
 		"pilot" : "Jim Goddard",
 		"squadron" : "Midnight Runners"
 	},
-	"fighterGroups" : [
+	"fighters" : [
 		{
 			"name" : "Dart",
 			"types" : "SimpleDart",

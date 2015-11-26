@@ -42,7 +42,7 @@
 		"pilot" : "Curtis Rice",
 		"squadron" : "Eightballers"
 	},
-	"fighterGroups" : [
+	"fighters" : [
 		{
 			"name" : "Ally",
 			"types" : "Firefly;Nymph",
@@ -63,7 +63,7 @@
 			"active" : 0
 		}
 	],
-	"entityGroups" : [
+	"entities" : [
 		{
 			"type" : "ET_WAYPOINT",
 			"number" : 5,

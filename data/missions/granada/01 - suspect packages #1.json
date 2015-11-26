@@ -22,20 +22,20 @@
 	"fighters" : [
 		{
 			"name" : "Ally",
-			"type" : "TAF",
+			"types" : "TAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25.1,
 			"y" : 25
 		},
 		{
 			"name" : "Ally",
-			"type" : "Shuttle",
+			"types" : "Shuttle",
 			"side" : "SIDE_ALLIES",
 			"x" : 24.9,
 			"y" : 25
 		}
 	],
-	"itemGroups" : [
+	"items" : [
 		{
 			"name" : "package",
 			"number" : 6,

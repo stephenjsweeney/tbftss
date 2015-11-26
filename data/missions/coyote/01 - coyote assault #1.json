@@ -26,7 +26,7 @@
 		"pilot" : "Simon Dodds",
 		"squadron" : "White Knights"
 	},
-	"fighterGroups" : [
+	"fighters" : [
 		{
 			"name" : "ATAF",
 			"types" : "ATAF",

@@ -18,7 +18,7 @@
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES"
 	},
-	"fighterGroups" : [
+	"fighters" : [
 		{
 			"name" : "Ally",
 			"number" : 3,

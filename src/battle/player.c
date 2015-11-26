@@ -190,14 +190,14 @@ static void handleMouse(void)
 		
 		if (app.mouse.button[SDL_BUTTON_X1])
 		{
-			switchGuns();
+			cycleRadarZoom();
 			
 			app.mouse.button[SDL_BUTTON_X1] = 0;
 		}
 		
 		if (app.mouse.button[SDL_BUTTON_X2])
 		{
-			cycleRadarZoom();
+			switchGuns();
 			
 			app.mouse.button[SDL_BUTTON_X2] = 0;
 		}

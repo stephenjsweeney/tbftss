@@ -455,7 +455,7 @@ static int nearEnemies(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->type == ET_FIGHTER && e->side != self->side)
+		if (e->type == ET_FIGHTER && e->side != self->side && !(e->flags & EF_DISABLED))
 		{
 			self->targetLocation.x += e->x;
 			self->targetLocation.y += e->y;

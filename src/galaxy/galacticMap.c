@@ -153,8 +153,8 @@ static void doStarSystems(void)
 	
 	completedMissions = totalMissions = completedChallenges = totalChallenges = 0;
 	
-	cx = app.mouse.x - app.mouse.w / 2;
-	cy = app.mouse.y - app.mouse.h / 2;
+	cx = app.mouse.x - 32;
+	cy = app.mouse.y - 32;
 	
 	selectedStarSystem = NULL;
 	
@@ -165,7 +165,7 @@ static void doStarSystems(void)
 		completedChallenges += starSystem->completedChallenges;
 		totalChallenges += starSystem->totalChallenges;
 		
-		if (starSystem->totalMissions > 0 && collision(cx, cy, app.mouse.w, app.mouse.y, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
+		if (starSystem->totalMissions > 0 && collision(cx, cy, 64, 64, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
 		{
 			if (selectedStarSystem != starSystem)
 			{

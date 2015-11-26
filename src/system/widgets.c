@@ -96,11 +96,14 @@ void drawWidgets(const char *group)
 		{
 			if (!mouseOver)
 			{
-				mouseOver = (w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.mouse.x, app.mouse.y, 1, 1));
+				mouseOver = (w->type != WT_SELECT && w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.mouse.x, app.mouse.y, 1, 1));
 				
 				if (mouseOver && selectedWidget != w)
 				{
-					playSound(SND_GUI_CLICK);
+					if (w->type == WT_BUTTON)
+					{
+						playSound(SND_GUI_CLICK);
+					}
 					selectedWidget = w;
 				}
 			}

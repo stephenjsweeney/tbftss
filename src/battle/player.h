@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void fireGuns(Entity *owner);
 extern void fireMissile(Entity *owner);
 extern void applyFighterThrust(void);
+extern void applyFighterBrakes(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern int mod(int n, int x);
@@ -36,6 +37,7 @@ extern void playSound(int id);
 extern void failMission(void);
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+extern void setMouse(int x, int y);
 
 extern App app;
 extern Battle battle;

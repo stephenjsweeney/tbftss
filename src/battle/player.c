@@ -70,6 +70,8 @@ void initPlayer(void)
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
 	
 	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
+	
+	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 }
 
 void doPlayer(void)
@@ -123,27 +125,32 @@ static void handleKeyboard(void)
 {
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (app.keyboard[SDL_SCANCODE_W])
-		{
-			cycleRadarZoom(); 
-			
-			app.keyboard[SDL_SCANCODE_W] = 0;
-		}
-		
-		if (app.keyboard[SDL_SCANCODE_D] && battle.boostTimer == BOOST_RECHARGE_TIME)
+		if (app.keyboard[SDL_SCANCODE_W] && battle.boostTimer == BOOST_RECHARGE_TIME)
 		{
 			playSound(SND_BOOST);
 			
 			activateBoost();
+			
+			app.keyboard[SDL_SCANCODE_W] = 0;
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_A])
+		{
+			selectTarget();
+			
+			app.keyboard[SDL_SCANCODE_A] = 0;
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_D])
+		{
+			activateECM();
 			
 			app.keyboard[SDL_SCANCODE_D] = 0;
 		}
 		
 		if (app.keyboard[SDL_SCANCODE_S] && battle.ecmTimer == ECM_RECHARGE_TIME)
 		{
-			activateECM();
-			
-			app.keyboard[SDL_SCANCODE_S] = 0;
+			applyFighterBrakes();
 		}
 	}
 }
@@ -190,7 +197,7 @@ static void handleMouse(void)
 		
 		if (app.mouse.button[SDL_BUTTON_X2])
 		{
-			selectTarget();
+			cycleRadarZoom();
 			
 			app.mouse.button[SDL_BUTTON_X2] = 0;
 		}

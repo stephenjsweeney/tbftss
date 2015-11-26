@@ -14,5 +14,5 @@
 		}
 	],
 	"flags" : "EF_HAS_ROPE",
-	"aiFlags" : "AIF_AVOIDS_COMBAT"
+	"aiFlags" : "AIF_AVOIDS_COMBAT+AIF_TOWS"
 }

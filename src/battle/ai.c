@@ -68,9 +68,12 @@ void doAI(void)
 		return;
 	}
 	
-	if ((self->aiFlags & AIF_TOWS) && nearTowableCraft())
+	if (self->aiFlags & AIF_TOWS)
 	{
-		return;
+		if (!self->towing && nearTowableCraft())
+		{
+			return;
+		}
 	}
 	
 	if ((self->aiFlags & AIF_RETREATS) && (battle.stats[STAT_TIME] % 60 == 0) && isRetreating())
@@ -592,7 +595,7 @@ static int nearTowableCraft(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->type == ET_FIGHTER && (e->flags & EF_DISABLED))
+		if (e->type == ET_FIGHTER && (e->flags & (EF_DISABLED|EF_MISSION_TARGET)) == (EF_DISABLED|EF_MISSION_TARGET))
 		{
 			distance = getDistance(self->x, self->y, e->x, e->y);
 			
@@ -618,6 +621,8 @@ static void moveToTowableCraft(void)
 	faceTarget(self->target);
 		
 	applyFighterThrust();
+	
+	nextAction();
 }
 
 static void lookForPlayer(void)

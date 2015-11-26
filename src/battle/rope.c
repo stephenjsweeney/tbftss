@@ -40,6 +40,10 @@ void attachRope(void)
 					self->towing = e;
 					e->owner = self;
 					
+					self->aiFlags |= AIF_GOAL_EXTRACTION;
+					
+					e->flags |= EF_RETREATING;
+					
 					if (self == player)
 					{
 						battle.stats[STAT_NUM_TOWED]++;
@@ -92,6 +96,7 @@ void cutRope(Entity *e)
 	if (e->owner && e->owner->towing == e)
 	{
 		e->owner->towing = NULL;
+		e->owner->aiFlags &= ~AIF_GOAL_EXTRACTION;
 		e->owner = NULL;
 	}
 }

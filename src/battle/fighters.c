@@ -246,7 +246,7 @@ void doFighter(void)
 			completeMission();
 		}
 		
-		if (self->side != SIDE_ALLIES)
+		if (self->side != SIDE_ALLIES && (!(self->flags & EF_DISABLED)))
 		{
 			addHudMessage(colors.red, "Mission target has escaped.");
 			battle.stats[STAT_ENEMIES_ESCAPED]++;

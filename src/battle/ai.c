@@ -519,7 +519,7 @@ static int nearExtractionPoint(void)
 		{
 			self->target = battle.extractionPoint;
 			self->action = moveToExtractionPoint;
-			self->aiActionTime = FPS / 2;
+			self->aiActionTime = (!self->towing) ? FPS / 2 : FPS * 2;
 		}
 	}
 	

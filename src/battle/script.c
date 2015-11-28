@@ -25,7 +25,6 @@ static void executeNextLine(ScriptRunner *runner);
 static cJSON *scriptJSON;
 static ScriptRunner head;
 static ScriptRunner *tail;
-static char funcNameBuffer[MAX_NAME_LENGTH];
 
 void initScript(cJSON *scriptNode)
 {
@@ -71,6 +70,7 @@ void runScriptFunction(const char *format, ...)
 	ScriptRunner *scriptRunner;
 	cJSON *function;
 	char *functionName;
+	char funcNameBuffer[MAX_NAME_LENGTH];
 	va_list args;
 
 	memset(&funcNameBuffer, '\0', sizeof(funcNameBuffer));
@@ -95,7 +95,7 @@ void runScriptFunction(const char *format, ...)
 			tail->next = scriptRunner;
 			tail = scriptRunner;
 			
-			printf("Running script '%s'\n", funcNameBuffer);
+			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
 		}
 		
 		function = function->next;
@@ -117,6 +117,11 @@ static void executeNextLine(ScriptRunner *runner)
 	{
 		sscanf(line, "%*s %[^\n]", strParam[0]);
 		activateEntities(strParam[0]);
+	}
+	else if (strcmp(command, "ACTIVATE_ENTITY_GROUP") == 0)
+	{
+		sscanf(line, "%*s %[^\n]", strParam[0]);
+		activateEntityGroup(strParam[0]);
 	}
 	else if (strcmp(command, "ACTIVATE_OBJECTIVE") == 0)
 	{

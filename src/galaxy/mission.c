@@ -278,7 +278,7 @@ static void loadEntities(cJSON *node)
 {
 	Entity *e;
 	char *name, *groupName;
-	int i, type, scatter, number;
+	int i, type, scatter, number, active;
 	float x, y;
 	
 	scatter = 1;
@@ -296,6 +296,7 @@ static void loadEntities(cJSON *node)
 			name = NULL;
 			groupName = NULL;
 			number = 1;
+			active = 1;
 			
 			if (cJSON_GetObjectItem(node, "name"))
 			{
@@ -310,6 +311,11 @@ static void loadEntities(cJSON *node)
 			if (cJSON_GetObjectItem(node, "number"))
 			{
 				number = cJSON_GetObjectItem(node, "number")->valueint;
+			}
+			
+			if (cJSON_GetObjectItem(node, "active"))
+			{
+				active = cJSON_GetObjectItem(node, "active")->valueint;
 			}
 			
 			if (cJSON_GetObjectItem(node, "scatter"))
@@ -350,6 +356,8 @@ static void loadEntities(cJSON *node)
 				
 				e->x += (rand() % scatter) - (rand() % scatter);
 				e->y += (rand() % scatter) - (rand() % scatter);
+				
+				e->active = active;
 				
 				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			}

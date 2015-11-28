@@ -9,5 +9,15 @@
 		"side" : "SIDE_ALLIES",
 		"pilot" : "Jim Goddard",
 		"squadron" : "Midnight Runners"
-	}
+	},
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Earth Orbital #1;Welcome to free flight.",
+				"MSG_BOX Earth Orbital #1;Practice turning, accelerating, and braking.",
+				"MSG_BOX Earth Orbital #1;Don't forget about your Boost, either. That can be a life saver in certain situations."
+			]
+		}
+	]
 }

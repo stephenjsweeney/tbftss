@@ -26,5 +26,13 @@
 			"x" : 25.5,
 			"y" : 24.5
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Earth Orbital #1;The Dart won't attack you, so when you're ready, you can blow the thing to pieces."
+			]
+		}
 	]
 }

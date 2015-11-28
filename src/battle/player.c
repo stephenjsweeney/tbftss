@@ -141,14 +141,14 @@ static void handleKeyboard(void)
 			app.keyboard[SDL_SCANCODE_A] = 0;
 		}
 		
-		if (app.keyboard[SDL_SCANCODE_D])
+		if (app.keyboard[SDL_SCANCODE_D] && battle.ecmTimer == ECM_RECHARGE_TIME)
 		{
 			activateECM();
 			
 			app.keyboard[SDL_SCANCODE_D] = 0;
 		}
 		
-		if (app.keyboard[SDL_SCANCODE_S] && battle.ecmTimer == ECM_RECHARGE_TIME)
+		if (app.keyboard[SDL_SCANCODE_S])
 		{
 			applyFighterBrakes();
 		}

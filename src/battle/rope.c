@@ -35,7 +35,7 @@ void attachRope(void)
 			{
 				distance = getDistance(e->x, e->y, self->x, self->y);
 				
-				if (distance > 0 && distance <= 64)
+				if (distance > 0 && distance <= self->separationRadius)
 				{
 					self->towing = e;
 					e->owner = self;
@@ -43,6 +43,8 @@ void attachRope(void)
 					self->aiFlags |= AIF_GOAL_EXTRACTION;
 					
 					e->flags |= EF_RETREATING;
+					
+					runScriptFunction("TOWING %s", e->name);
 					
 					if (self == player)
 					{

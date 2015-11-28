@@ -29,6 +29,7 @@ extern float getAngle(int x1, int y1, int x2, int y2);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern void addHudMessage(SDL_Color c, char *format, ...);
+extern void runScriptFunction(char *format, ...);
 
 extern App app;
 extern Battle battle;

@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void think(void);
 static int teamMatesClose(void);
+static int isCurrentObjective(void);
 void activateNextWaypoint(int id);
 
 static int waypointId;
@@ -57,7 +58,7 @@ static void think(void)
 		self->angle -= 360;
 	}
 	
-	if (player != NULL && getDistance(player->x, player->y, self->x, self->y) <= 64 && teamMatesClose())
+	if (player != NULL && getDistance(player->x, player->y, self->x, self->y) <= 64 && isCurrentObjective() && teamMatesClose())
 	{
 		self->health = 0;
 		
@@ -67,6 +68,20 @@ static void think(void)
 		
 		activateNextWaypoint(self->id);
 	}
+}
+
+static int isCurrentObjective(void)
+{
+	int numActiveObjectives = battle.numObjectivesTotal - battle.numObjectivesComplete;
+	
+	if (numActiveObjectives > 1)
+	{
+		addHudMessage(colors.cyan, "Cannot activate waypoint - outstanding objectives not yet complete");
+		self->thinkTime = FPS;
+		return 0;
+	}
+	
+	return 1;
 }
 
 static int teamMatesClose(void)

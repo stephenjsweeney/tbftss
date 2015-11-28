@@ -9,9 +9,10 @@
 			"data/missions/sol/01 - free flight.json",
 			"data/missions/sol/02 - weapons.json",
 			"data/missions/sol/03 - moving target.json",
-			"data/missions/sol/04 - real target.json",
-			"data/missions/sol/05 - wingmates.json",
-			"data/missions/sol/06 - final.json"
+			"data/missions/sol/04 - armed target.json",
+			"data/missions/sol/05 - ecm.json",
+			"data/missions/sol/06 - wingmates.json",
+			"data/missions/sol/07 - final.json"
 		]
       },
       {

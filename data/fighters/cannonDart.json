@@ -1,0 +1,21 @@
+{
+	"name" : "CannonDart",
+	"health" : 15,
+	"shield" : 0,
+	"speed" : 2.1,
+	"reloadTime" : 24,
+	"shieldRechargeRate" : 0,
+	"textureName" : "gfx/fighters/dart01.png",
+	"guns" : [
+		{
+			"type" : "BT_PARTICLE",
+			"x" : -8,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 8,
+			"y" : 0
+		}
+	]
+}

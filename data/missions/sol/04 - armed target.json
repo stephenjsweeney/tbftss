@@ -1,0 +1,30 @@
+{
+	"name" : "Active Target",
+	"description" : "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/earth.png",
+	"music" : "music/Battle in the winter.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate Dart",
+			"targetName" : "Dart",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Jim Goddard",
+		"squadron" : "Midnight Runners"
+	},
+	"fighters" : [
+		{
+			"name" : "Dart",
+			"types" : "CannonDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 25,
+			"y" : 24
+		}
+	]
+}

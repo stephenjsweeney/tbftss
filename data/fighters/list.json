@@ -22,5 +22,7 @@
 	"data/fighters/thunderhead.json",
 	"data/fighters/scarab.json",
 	"data/fighters/hammerhead.json",
-	"data/fighters/khepri.json"
+	"data/fighters/khepri.json",
+	"data/fighters/cannonDart.json",
+	"data/fighters/missileDart.json"
 ]

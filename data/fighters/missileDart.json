@@ -1,0 +1,10 @@
+{
+	"name" : "MissileDart",
+	"health" : 15,
+	"shield" : 0,
+	"speed" : 2.1,
+	"reloadTime" : 24,
+	"shieldRechargeRate" : 0,
+	"textureName" : "gfx/fighters/dart01.png",
+	"missiles" : 999
+}

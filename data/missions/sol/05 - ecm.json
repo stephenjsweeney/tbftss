@@ -1,6 +1,6 @@
 {
-	"name" : "Active Target",
-	"description" : "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge.",
+	"name" : "ECM Training",
+	"description" : "Practice using your ECM in the next encounter. The Dart here is equipped with missiles, which will home in on you. You can thwart these attacks by careful use of your ECM. Once you are done practicing, you can destroy the Dart and move on.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/earth.png",
 	"music" : "music/Battle in the winter.mp3",
@@ -21,7 +21,7 @@
 	"fighters" : [
 		{
 			"name" : "Dart",
-			"types" : "SimpleDart",
+			"types" : "MissileDart",
 			"side" : "SIDE_PIRATE",
 			"x" : 25,
 			"y" : 24

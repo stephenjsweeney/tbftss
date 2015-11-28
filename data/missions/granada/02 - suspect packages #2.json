@@ -1,0 +1,153 @@
+{
+	"name" : "Suspect Packages #2",
+	"description" : "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/determination.mp3",
+	"requires" : "PREVIOUS",
+	"objectives" : [
+		{
+			"description" : "Check all Wayponts",
+			"targetName" : "Waypoint",
+			"targetValue" : 4,
+			"targetType" : "TT_WAYPOINT"
+		},
+		{
+			"description" : "Retrieve packages",
+			"targetName" : "package",
+			"targetValue" : 2,
+			"targetType" : "TT_ITEM",
+			"active" : 0
+		},
+		{
+			"description" : "Bring in Stranded Dart",
+			"targetName" : "Stranded Dart",
+			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy Intercepting Darts",
+			"targetName" : "Dart",
+			"targetValue" : 7,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"player" : {
+		"pilot" : "Lt. Daniel Carr",
+		"squadron" : "Iron Patriots",
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"x" : 10,
+		"y" : 8
+	},
+	"fighters" : [
+		{
+			"name" : "Ally",
+			"types" : "TAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 9.5,
+			"y" : 8,
+			"number" : 3,
+			"scatter" : 500
+		},
+		{
+			"name" : "Ally",
+			"types" : "Shuttle",
+			"side" : "SIDE_ALLIES",
+			"x" : 10.5,
+			"y" : 8
+		},
+		{
+			"name" : "Stranded Dart",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 25,
+			"y" : 25,
+			"flags" : "EF_NO_KILL+EF_MISSION_TARGET+EF_DISABLED",
+			"active" : 0
+		},
+		{
+			"name" : "Tug",
+			"types" : "Tug",
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 8,
+			"active" : 0
+		},
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 10,
+			"y" : 8,
+			"number" : 7,
+			"scatter" : 1000,
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"number" : 4,
+			"x" : 10,
+			"y" : 18,
+			"scatter" : 10000
+		},
+		{
+			"name" : "Extraction Point",
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 10,
+			"y" : 8,
+			"active" : 0
+		}
+	],
+	"items" : [
+		{
+			"name" : "package",
+			"number" : 2,
+			"type" : "smallCrate",
+			"x" : 10,
+			"y" : 18,
+			"scatter" : 1000,
+			"flags" : "EF_MISSION_TARGET",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "Waypoint #2",
+			"lines" : [
+				"MSG_BOX 5 Alexandria Orbital;Patrol, we're again identifying a handful of crates drifting close to your current position. Please effect pick up.",
+				"ACTIVATE_ENTITY package",
+				"ACTIVATE_OBJECTIVE 1"
+			]
+		},
+		{
+			"function" : "Waypoint #4",
+			"lines" : [
+				"MSG_BOX 8 Alexandria Orbital;Patrol, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location.",
+				"MSG_BOX 4 1st Lt Carr;Know anything about the occupant, or affiliation?",
+				"MSG_BOX 6 Alexandria Orbital;Negative, Lieutenant. We'll know more once it's brought in.",
+				"ACTIVATE_ENTITY Stranded Dart",
+				"ACTIVATE_ENTITY Tug",
+				"ACTIVATE_OBJECTIVE 2"
+			]
+		},
+		{
+			"function" : "TOWING Stranded Dart",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX 4 Tug;Tow cable attached. Ready to head home.",
+				"MSG_BOX 4 1st Lt Carr;We're done here. Let's bring our mystery guest in.",
+				"ACTIVATE_ENTITY Extraction Point",
+				"WAIT 20",
+				"ACTIVATE_ENTITY Dart",
+				"ACTIVATE_OBJECTIVE 3",
+				"MSG_BOX 4 TAF Pilot;Dan, we've got enemy vessels inbound. More Darts.",
+				"MSG_BOX 4 1st Lt Carr;Prepare to engage. Protect the asset!"
+			]
+		}
+	]
+}

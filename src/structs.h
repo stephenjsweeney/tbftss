@@ -255,6 +255,7 @@ typedef struct {
 struct ScriptRunner {
 	struct cJSON *line;
 	long delay;
+	int waitForMessageBox;
 	ScriptRunner *next;
 };
 

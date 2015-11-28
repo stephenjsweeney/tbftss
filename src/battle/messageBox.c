@@ -29,12 +29,18 @@ void initMessageBox(void)
 	tail = &head;
 }
 
-void addMessageBox(int time, char *title, char *body)
+void addMessageBox(char *title, char *body)
 {
-	MessageBox *msg = malloc(sizeof(MessageBox));
+	MessageBox *msg;
+	float time;
+	
+	msg = malloc(sizeof(MessageBox));
 	memset(msg, 0, sizeof(MessageBox));
 	tail->next = msg;
 	tail = msg;
+	
+	time = 0.075 * strlen(body);
+	time = MIN(MAX(time, 3), 7);
 	
 	STRNCPY(msg->title, title, MAX_NAME_LENGTH);
 	STRNCPY(msg->body, body, MAX_DESCRIPTION_LENGTH);
@@ -64,6 +70,11 @@ void doMessageBox(void)
 		
 		prev = msg;
 	}
+}
+
+int showingMessageBoxes(void)
+{
+	return head.next != NULL;
 }
 
 void drawMessageBox(void)

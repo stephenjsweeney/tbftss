@@ -44,7 +44,12 @@ void doScript(void)
 	{
 		runner->delay = MAX(0, runner->delay - 1);
 		
-		if (!runner->delay)
+		if (runner->waitForMessageBox)
+		{
+			runner->waitForMessageBox = showingMessageBoxes();
+		}
+		
+		if (!runner->delay && !runner->waitForMessageBox)
 		{
 			executeNextLine(runner);
 			
@@ -133,13 +138,17 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "MSG_BOX") == 0)
 	{
-		sscanf(line, "%*s %d %[^;]%*c%[^\n]", &intParam[0], strParam[0], strParam[1]);
-		addMessageBox(intParam[0], strParam[0], strParam[1]);
+		sscanf(line, "%*s %[^;]%*c%[^\n]", strParam[0], strParam[1]);
+		addMessageBox(strParam[0], strParam[1]);
 	}
 	else if (strcmp(command, "WAIT") == 0)
 	{
 		sscanf(line, "%*s %d", &intParam[0]);
 		runner->delay = intParam[0] * FPS;
+	}
+	else if (strcmp(command, "WAIT_MSG_BOX") == 0)
+	{
+		runner->waitForMessageBox = 1;
 	}
 	else if (strcmp(command, "COMPLETE_MISSION") == 0)
 	{

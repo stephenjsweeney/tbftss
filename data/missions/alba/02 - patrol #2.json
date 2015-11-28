@@ -63,7 +63,7 @@
 			"lines" : [
 				"ACTIVATE_ENTITY Pandoran",
 				"ACTIVATE_OBJECTIVE 1",
-				"MSG_BOX 6 Alba Control;Patrol A-82, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
+				"MSG_BOX Alba Control;Patrol A-82, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
 			]
 		}
 	]

@@ -120,7 +120,7 @@
 		{
 			"function" : "Waypoint #2",
 			"lines" : [
-				"MSG_BOX 5 Alexandria Orbital;Patrol, we're again identifying a handful of crates drifting close to your current position. Please effect pick up.",
+				"MSG_BOX Alexandria Orbital;Patrol, we're again identifying a handful of crates drifting close to your current position. Please effect pick up.",
 				"ACTIVATE_ENTITY package",
 				"ACTIVATE_OBJECTIVE 1"
 			]
@@ -128,9 +128,9 @@
 		{
 			"function" : "Waypoint #4",
 			"lines" : [
-				"MSG_BOX 8 Alexandria Orbital;Patrol, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location.",
-				"MSG_BOX 4 1st Lt Carr;Know anything about the occupant, or affiliation?",
-				"MSG_BOX 6 Alexandria Orbital;Negative, Lieutenant. We'll know more once it's brought in.",
+				"MSG_BOX Alexandria Orbital;Patrol, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location.",
+				"MSG_BOX 1st Lt Carr;Know anything about the occupant, or affiliation?",
+				"MSG_BOX Alexandria Orbital;Negative, Lieutenant. We'll know more once it's brought in.",
 				"ACTIVATE_ENTITY Stranded Dart",
 				"ACTIVATE_ENTITY Tug",
 				"ACTIVATE_OBJECTIVE 2"
@@ -140,14 +140,14 @@
 			"function" : "TOWING Stranded Dart",
 			"lines" : [
 				"WAIT 2",
-				"MSG_BOX 4 Tug;Tow cable attached. Ready to head home.",
-				"MSG_BOX 4 1st Lt Carr;We're done here. Let's bring our mystery guest in.",
+				"MSG_BOX Tug;Tow cable attached. Ready to head home.",
+				"MSG_BOX 1st Lt Carr;We're done here. Let's bring our mystery guest in.",
 				"ACTIVATE_ENTITY Extraction Point",
 				"WAIT 20",
 				"ACTIVATE_ENTITY Dart",
 				"ACTIVATE_OBJECTIVE 3",
-				"MSG_BOX 4 TAF Pilot;Dan, we've got enemy vessels inbound. More Darts.",
-				"MSG_BOX 4 1st Lt Carr;Prepare to engage. Protect the asset!"
+				"MSG_BOX TAF Pilot;Dan, we've got enemy vessels inbound. More Darts.",
+				"MSG_BOX 1st Lt Carr;Prepare to engage. Protect the asset!"
 			]
 		}
 	]

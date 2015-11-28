@@ -23,36 +23,6 @@
 			"active" : 0
 		}
 	],
-	"triggers" : [
-		{
-			"type" : "TRIGGER_LOSSES",
-			"targetName" : "ALLIES_KILLED",
-			"targetValue" : 100,
-			"action" : "TA_ACTIVE_OBJECTIVE",
-			"actionValue" : "1"
-		},
-		{
-			"type" : "TRIGGER_LOSSES",
-			"targetName" : "ALLIES_KILLED",
-			"targetValue" : 100,
-			"action" : "TA_RETREAT_ALLIES",
-			"actionValue" : "1"
-		},
-		{
-			"type" : "TRIGGER_LOSSES",
-			"targetName" : "ALLIES_KILLED",
-			"targetValue" : 100,
-			"action" : "TA_ACTIVE_ENTITY",
-			"actionValue" : "Extraction Point"
-		},
-		{
-			"type" : "TRIGGER_LOSSES",
-			"targetName" : "ALLIES_KILLED",
-			"targetValue" : 100,
-			"action" : "TA_ACTIVE_ENTITY",
-			"actionValue" : "ATAFs"
-		}
-	],
 	"player" : {
 		"type" : "TAF",
 		"side" : "SIDE_ALLIES",
@@ -105,6 +75,34 @@
 			"x" : 25,
 			"y" : 25,
 			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "ALLIES_KILLED 70",
+			"lines" : [
+				"MSG_BOX 4 UNF Pilot #1;We're getting our arses kicked here! Any chance of any backup?!"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 80",
+			"lines" : [
+				"MSG_BOX 4 UNF Pilot #2;The White Knights are here! Finally!",
+				"ACTIVATE_ENTITY ATAFs"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 90",
+			"lines" : [
+				"MSG_BOX 6 UNF Talos;All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the extraction point.",
+				"MSG_BOX 4 Cdr de Winter;You all heard the Captain - fall back, we'll cover the retreat.",
+				"WAIT 8",
+				"MSG_BOX 4 Lt Cdr Dodds;Estelle, we've got this. We can take them.",
+				"MSG_BOX 4 Cdr de Winter;We're taking too many losses, Dodds. Fall back now, that's an order.",
+				"WAIT 8",
+				"ACTIVATE_ENTITY Extraction Point",
+				"RETREAT_ALLIES"
+			]
 		}
 	]
 }

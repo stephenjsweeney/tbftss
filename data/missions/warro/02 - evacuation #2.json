@@ -105,27 +105,24 @@
 			"y" : 25
 		}
 	],
-	"triggers" : [
+	"script"  : [
 		{
-			"type" : "TRIGGER_TIME",
-			"targetName" : "TIME",
-			"targetValue" : 60,
-			"action" : "TA_ACTIVE_ENTITY_GROUP",
-			"actionValue" : "Pandoran-1"
+			"function" : "TIME 60",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUP Pandoran-1"
+			]
 		},
 		{
-			"type" : "TRIGGER_TIME",
-			"targetName" : "TIME",
-			"targetValue" : 120,
-			"action" : "TA_ACTIVE_ENTITY_GROUP",
-			"actionValue" : "Pandoran-2"
+			"function" : "TIME 120",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUP Pandoran-2"
+			]
 		},
 		{
-			"type" : "TRIGGER_TIME",
-			"targetName" : "TIME",
-			"targetValue" : 180,
-			"action" : "TA_ACTIVE_ENTITY_GROUP",
-			"actionValue" : "Pandoran-3"
+			"function" : "TIME 180",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUP Pandoran-3"
+			]
 		}
 	]
 }

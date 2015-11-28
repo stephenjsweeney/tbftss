@@ -9,7 +9,7 @@
 		{
 			"description" : "Check all Waypoints",
 			"targetName" : "Waypoint",
-			"targetValue" : 5,
+			"targetValue" : 3,
 			"targetType" : "TT_WAYPOINT"
 		},
 		{
@@ -18,22 +18,6 @@
 			"targetValue" : 3,
 			"targetType" : "TT_DESTROY",
 			"active" : 0
-		}
-	],
-	"triggers" : [
-		{
-			"type" : "TRIGGER_WAYPOINT",
-			"targetName" : "Waypoint #5",
-			"targetValue" : "1",
-			"action" : "TA_ACTIVE_ENTITY",
-			"actionValue" : "Pandoran"
-		},
-		{
-			"type" : "TRIGGER_WAYPOINT",
-			"targetName" : "Waypoint #5",
-			"targetValue" : "1",
-			"action" : "TA_ACTIVE_OBJECTIVE",
-			"actionValue" : "1"
 		}
 	],
 	"player" : {
@@ -66,10 +50,20 @@
 	"entities" : [
 		{
 			"type" : "ET_WAYPOINT",
-			"number" : 5,
+			"number" : 3,
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 7500
+		}
+	],
+	"script" : [
+		{
+			"function" : "Waypoint #3",
+			"lines" : [
+				"ACTIVATE_ENTITY Pandoran",
+				"ACTIVATE_OBJECTIVE 1",
+				"MSG_BOX 6 Alba Control;Patrol A-82, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
+			]
 		}
 	]
 }

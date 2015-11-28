@@ -53,7 +53,8 @@
 			"number" : 3,
 			"x" : 25,
 			"y" : 25,
-			"scatter" : 7500
+			"scatter" : 7500,
+			"active" : 0
 		}
 	],
 	"script" : [

@@ -93,7 +93,8 @@
 			"number" : 4,
 			"x" : 10,
 			"y" : 18,
-			"scatter" : 10000
+			"scatter" : 10000,
+			"active" : 0
 		},
 		{
 			"name" : "Extraction Point",

@@ -52,11 +52,6 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 	{
 		case SIDE_ALLIES:
 			f->aiAggression = rand() % 3;
-			f->aiFlags |= AIF_FOLLOWS_PLAYER;
-			if (!(f->aiFlags & AIF_AVOIDS_COMBAT))
-			{
-				f->aiFlags |= AIF_UNLIMITED_RANGE;
-			}
 			break;
 			
 		case SIDE_PIRATE:
@@ -557,6 +552,7 @@ void retreatAllies(void)
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
 			e->aiFlags |= AIF_GOAL_EXTRACTION;
 			e->aiFlags &= ~AIF_FOLLOWS_PLAYER;
+			e->aiFlags &= ~AIF_MOVES_TO_PLAYER;
 		}
 	}
 }

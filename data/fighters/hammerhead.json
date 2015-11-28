@@ -24,5 +24,5 @@
 		}
 	],
 	"missiles" : 6,
-	"aiFlags" : "AIF_MISSILE_BOAT+AIF_DEFENSIVE"
+	"aiFlags" : "AIF_MISSILE_BOAT+AIF_DEFENSIVE+AIF_MOVES_TO_PLAYER"
 }

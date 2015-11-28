@@ -87,7 +87,7 @@ void doAI(void)
 		return;
 	}
 	
-	if (self->aiFlags & AIF_FOLLOWS_PLAYER)
+	if (self->aiFlags & (AIF_FOLLOWS_PLAYER|AIF_MOVES_TO_PLAYER))
 	{
 		lookForPlayer();
 		return;
@@ -114,7 +114,7 @@ static void doFighterAI(void)
 		
 		if (self->target == NULL)
 		{
-			if (self->aiFlags & AIF_FOLLOWS_PLAYER && player != NULL)
+			if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
 			{
 				moveToPlayer();
 			}
@@ -627,7 +627,7 @@ static void moveToTowableCraft(void)
 
 static void lookForPlayer(void)
 {
-	long range = (self->aiFlags & AIF_UNLIMITED_RANGE) ? MAX_TARGET_RANGE : 1000;
+	int range = (self->aiFlags & AIF_MOVES_TO_PLAYER) ? MAX_TARGET_RANGE : 2000;
 	
 	if (player != NULL && getDistance(self->x, self->y, player->x, player->y) < range)
 	{

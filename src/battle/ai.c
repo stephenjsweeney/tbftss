@@ -352,9 +352,11 @@ static void preAttack(void)
 			{
 				fireGuns(self);
 			}
-			else if (self->missiles)
+			else if (self->missiles && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
 			{
 				fireMissile(self);
+				
+				self->action = doAI;
 			}
 		}
 		else

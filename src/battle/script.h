@@ -22,14 +22,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../defs.h"
 #include "../structs.h"
+#include "../json/cJSON.h"
 
 extern void completeMission(void);
 extern void failMission(void);
+extern void retreatEnemies(void);
+extern void retreatAllies(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);
+extern void addMessageBox(int time, char *title, char *format, ...);
 extern void activateEntities(char *name);
 extern void activateObjective(int num);
-extern void activateEntityGroup(char *groupName);
-extern void retreatAllies(void);
 
 extern Battle battle;
 extern Colors colors;

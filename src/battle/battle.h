@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../defs.h"
 #include "../structs.h"
+#include "../json/cJSON.h"
 
 #define SHOW_BATTLE			0
 #define SHOW_MENU			1
@@ -61,12 +62,18 @@ extern void scrollBackground(float x, float y);
 extern void initOptions(void (*returnFromOptions)(void));
 extern void drawOptions(void);
 extern void playSound(int id);
-extern void checkTrigger(char *name, int type);
 extern void resetWaypoints(void);
 extern void doPlayerSelect(void);
 extern void destroyGrid(void);
 extern void completeMission(void);
 extern void initEffects(void);
+extern void doScript(void);
+extern void destroyScript(void);
+extern void runScriptFunction(char *format, ...);
+extern void initMessageBox(void);
+extern void doMessageBox(void);
+extern void drawMessageBox(void);
+extern void resetMessageBox(void);
 
 extern App app;
 extern Battle battle;

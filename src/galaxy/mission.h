@@ -42,6 +42,7 @@ extern Entity *spawnExtractionPoint(void);
 extern Entity *spawnItem(char *type);
 extern void failIncompleteObjectives(void);
 extern void retreatEnemies(void);
+extern void initScript(cJSON *missionJSON);
 
 extern Battle battle;
 extern Entity *player;

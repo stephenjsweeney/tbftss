@@ -23,14 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../defs.h"
 #include "../structs.h"
 
-extern SDL_Texture *getTexture(char *filename);
-extern int getDistance(int x1, int y1, int x2, int y2);
-extern void addHudMessage(SDL_Color c, char *format, ...);
-extern Entity *spawnEntity(void);
-extern void updateObjective(char *name, int type);
-extern void runScriptFunction(char *format, ...);
+extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern void limitTextWidth(int width);
 
-extern Battle battle;
+extern App app;
 extern Colors colors;
-extern Entity *self;
-extern Entity *player;

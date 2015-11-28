@@ -18,7 +18,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-struct SDL_Texture;
 typedef struct Texture Texture;
 typedef struct Lookup Lookup;
 typedef struct Weapon Weapon;
@@ -32,8 +31,9 @@ typedef struct Mission Mission;
 typedef struct Pulse Pulse;
 typedef struct Widget Widget;
 typedef struct HudMessage HudMessage;
-typedef struct Trigger Trigger;
+typedef struct MessageBox MessageBox;
 typedef struct GridCell GridCell;
+typedef struct ScriptRunner ScriptRunner;
 
 typedef struct {
 	float x;
@@ -43,7 +43,7 @@ typedef struct {
 struct Texture {
 	char name[MAX_DESCRIPTION_LENGTH];
 	long hash;
-	struct SDL_Texture *texture;
+	SDL_Texture *texture;
 	Texture *next;
 };
 
@@ -115,7 +115,7 @@ struct Entity {
 	Entity *owner;
 	void (*action)(void);
 	void (*die)(void);
-	struct SDL_Texture *texture;
+	SDL_Texture *texture;
 	Entity *next;
 };
 
@@ -189,15 +189,6 @@ struct Challenge {
 	Challenge *next;
 };
 
-struct Trigger {
-	int type;
-	char targetName[MAX_NAME_LENGTH];
-	int targetValue;
-	int action;
-	char actionValue[MAX_NAME_LENGTH];
-	Trigger *next;
-};
-
 struct Mission {
 	char name[MAX_NAME_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
@@ -256,10 +247,16 @@ typedef struct {
 	Bullet bulletHead, *bulletTail;
 	Effect effectHead, *effectTail;
 	Objective objectiveHead, *objectiveTail;
-	Trigger triggerHead, *triggerTail;
+	struct cJSON *missionJSON;
 	unsigned int stats[STAT_MAX];
 	GridCell grid[GRID_SIZE][GRID_SIZE];
 } Battle;
+
+struct ScriptRunner {
+	struct cJSON *line;
+	long delay;
+	ScriptRunner *next;
+};
 
 typedef struct {
 	StarSystem starSystemHead, *starSystemTail;
@@ -292,6 +289,13 @@ struct HudMessage {
 	SDL_Color color;
 	int life;
 	HudMessage *next;
+};
+
+struct MessageBox {
+	char title[MAX_NAME_LENGTH];
+	char body[MAX_DESCRIPTION_LENGTH];
+	int time;
+	MessageBox *next;
 };
 
 typedef struct {

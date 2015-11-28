@@ -21,7 +21,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "mission.h"
 
 static void loadObjectives(cJSON *node);
-static void loadTriggers(cJSON *node);
 static void loadPlayer(cJSON *node);
 static void loadFighters(cJSON *node);
 static void loadEntities(cJSON *node);
@@ -51,8 +50,6 @@ void loadMission(char *filename)
 	battle.planet.y = ((200 + rand() % 100) / 10) * GRID_CELL_HEIGHT;
 	
 	loadObjectives(cJSON_GetObjectItem(root, "objectives"));
-	
-	loadTriggers(cJSON_GetObjectItem(root, "triggers"));
 		
 	loadPlayer(cJSON_GetObjectItem(root, "player"));
 	
@@ -69,7 +66,8 @@ void loadMission(char *filename)
 		loadEpicData(cJSON_GetObjectItem(root, "epic"));
 	}
 	
-	cJSON_Delete(root);
+	initScript(cJSON_GetObjectItem(root, "script"));
+	
 	free(text);
 	
 	srand(time(NULL));
@@ -157,36 +155,6 @@ static void loadObjectives(cJSON *node)
 			if (cJSON_GetObjectItem(node, "isOptional"))
 			{
 				o->isOptional = cJSON_GetObjectItem(node, "isOptional")->valueint;
-			}
-			
-			node = node->next;
-		}
-	}
-}
-
-static void loadTriggers(cJSON *node)
-{
-	Trigger *t;
-	
-	if (node)
-	{
-		node = node->child;
-		
-		while (node)
-		{
-			t = malloc(sizeof(Trigger));
-			memset(t, 0, sizeof(Trigger));
-			battle.triggerTail->next = t;
-			battle.triggerTail = t;
-			
-			t->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			STRNCPY(t->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
-			t->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
-			t->action = lookup(cJSON_GetObjectItem(node, "action")->valuestring);
-			
-			if (cJSON_GetObjectItem(node, "actionValue"))
-			{
-				STRNCPY(t->actionValue, cJSON_GetObjectItem(node, "actionValue")->valuestring, MAX_NAME_LENGTH);
 			}
 			
 			node = node->next;

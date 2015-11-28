@@ -110,8 +110,6 @@ static void action(void)
 			playBattleSound(SND_GET_ITEM, self->x, self->y);
 			
 			updateObjective(self->name, TT_ITEM);
-		
-			checkTrigger(self->name, TRIGGER_ITEM);
 			
 			if (e == player)
 			{

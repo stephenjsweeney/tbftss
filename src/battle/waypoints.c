@@ -63,7 +63,7 @@ static void think(void)
 		
 		updateObjective("Waypoint", TT_WAYPOINT);
 		
-		checkTrigger(self->name, TRIGGER_WAYPOINT);
+		runScriptFunction(self->name);
 		
 		activateNextWaypoint(self->id);
 	}

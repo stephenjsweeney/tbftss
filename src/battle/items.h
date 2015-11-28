@@ -32,7 +32,6 @@ extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int
 extern void playBattleSound(int id, int x, int y);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void updateObjective(char *name, int type);
-extern void checkTrigger(char *name, int type);
 
 extern Battle battle;
 extern Entity *self;

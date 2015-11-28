@@ -259,8 +259,6 @@ void doFighter(void)
 		updateObjective(self->name, TT_ESCAPED);
 			
 		updateCondition(self->name, TT_ESCAPED);
-		
-		checkTrigger("ESCAPE", TRIGGER_ESCAPES);
 	}
 	
 	if (self->alive == ALIVE_DEAD)
@@ -295,7 +293,7 @@ void doFighter(void)
 							addHudMessage(colors.red, "Ally has been killed");
 						}
 						
-						checkTrigger("ALLIES_KILLED", TRIGGER_LOSSES);
+						runScriptFunction("ALLIES_KILLED %d", battle.stats[STAT_ALLIES_KILLED]);
 					}
 				}
 			}
@@ -304,8 +302,6 @@ void doFighter(void)
 			adjustObjectiveTargetValue(self->name, TT_ESCAPED, -1);
 			
 			updateCondition(self->name, TT_DESTROY);
-			
-			checkTrigger(self->name, TRIGGER_KILLS);
 		}
 	}
 }

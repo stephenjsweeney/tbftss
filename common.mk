@@ -28,12 +28,12 @@ OBJS += galacticMap.o game.o grid.o
 OBJS += hud.o
 OBJS += init.o input.o io.o items.o
 OBJS += load.o lookup.o
-OBJS += main.o mission.o missionInfo.o
+OBJS += main.o messageBox.o mission.o missionInfo.o
 OBJS += objectives.o options.o
 OBJS += player.o
 OBJS += radar.o rope.o
-OBJS += save.o sound.o starfield.o starSystems.o stats.o
-OBJS += testMission.o textures.o text.o title.o transition.o triggers.o
+OBJS += save.o script.o sound.o starfield.o starSystems.o stats.o
+OBJS += testMission.o textures.o text.o title.o transition.o
 OBJS += util.o
 OBJS += waypoints.o widgets.o
 

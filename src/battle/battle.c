@@ -45,7 +45,6 @@ void initBattle(void)
 	battle.entityTail = &battle.entityHead;
 	battle.effectTail = &battle.effectHead;
 	battle.objectiveTail = &battle.objectiveHead;
-	battle.triggerTail = &battle.triggerHead;
 	
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
@@ -60,6 +59,8 @@ void initBattle(void)
 	initHud();
 	
 	initRadar();
+	
+	initMessageBox();
 	
 	initMissionInfo();
 	
@@ -133,16 +134,23 @@ static void doBattle(void)
 	
 	doPlayer();
 	
-	if (battle.status != MS_IN_PROGRESS)
+	doMessageBox();
+	
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		doScript();
+	}
+	else
 	{
 		battle.missionFinishedTimer--;
 	}
 	
-	battle.stats[STAT_TIME]++;
 	if (battle.stats[STAT_TIME] % FPS == 0)
 	{
-		checkTrigger("TIME", TRIGGER_TIME);
+		runScriptFunction("TIME %d", battle.stats[STAT_TIME] / 60);
 	}
+	
+	battle.stats[STAT_TIME]++;
 }
 
 static void draw(void)
@@ -168,6 +176,8 @@ static void draw(void)
 	drawEffects();
 	
 	drawHud();
+	
+	drawMessageBox();
 	
 	drawMissionInfo();
 	
@@ -265,8 +275,6 @@ static void continueGame(void)
 	
 	destroyBattle();
 	
-	resetHud();
-	
 	initGalacticMap();
 }
 
@@ -290,8 +298,6 @@ static void retry(void)
 	
 	destroyBattle();
 	
-	resetHud();
-	
 	initBattle();
 	
 	loadMission(game.currentMission->filename);
@@ -302,8 +308,6 @@ static void quitBattle(void)
 	postBattle();
 	
 	destroyBattle();
-	
-	resetHud();
 	
 	initGalacticMap();
 }
@@ -333,7 +337,6 @@ void destroyBattle(void)
 	Bullet *b;
 	Effect *e;
 	Objective *o;
-	Trigger *t;
 	
 	while (battle.entityHead.next)
 	{
@@ -367,13 +370,13 @@ void destroyBattle(void)
 	}
 	battle.objectiveTail = &battle.objectiveHead;
 	
-	while (battle.triggerHead.next)
-	{
-		t = battle.triggerHead.next;
-		battle.triggerHead.next = t->next;
-		free(t);
-	}
-	battle.triggerTail = &battle.triggerHead;
+	cJSON_Delete(battle.missionJSON);
+	
+	resetHud();
+	
+	resetMessageBox();
+	
+	destroyScript();
 	
 	destroyGrid();
 }

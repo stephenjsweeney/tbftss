@@ -52,6 +52,11 @@ void doMessageBox(void)
 	{
 		if (--msg->time <= -FPS)
 		{
+			if (msg == tail)
+			{
+				tail = prev;
+			}
+			
 			prev->next = msg->next;
 			free(msg);
 			msg = prev;
@@ -82,7 +87,7 @@ void drawMessageBox(void)
 		
 		drawText(r.x + 10, r.y + 5, 18, TA_LEFT, colors.cyan, msg->title);
 		
-		limitTextWidth(600);
+		limitTextWidth(550);
 		
 		drawText(r.x + 10, r.y + 30, 18, TA_LEFT, colors.white, msg->body);
 		

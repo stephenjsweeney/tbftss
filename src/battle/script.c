@@ -73,32 +73,35 @@ void runScriptFunction(const char *format, ...)
 	char funcNameBuffer[MAX_NAME_LENGTH];
 	va_list args;
 
-	memset(&funcNameBuffer, '\0', sizeof(funcNameBuffer));
-
-	va_start(args, format);
-	vsprintf(funcNameBuffer, format, args);
-	va_end(args);
-	
-	function = scriptJSON->child;
-	
-	while (function)
+	if (scriptJSON)
 	{
-		functionName = cJSON_GetObjectItem(function, "function")->valuestring;
+		memset(&funcNameBuffer, '\0', sizeof(funcNameBuffer));
+
+		va_start(args, format);
+		vsprintf(funcNameBuffer, format, args);
+		va_end(args);
 		
-		if (strcmp(functionName, funcNameBuffer) == 0)
+		function = scriptJSON->child;
+		
+		while (function)
 		{
-			scriptRunner = malloc(sizeof(ScriptRunner));
-			memset(scriptRunner, 0, sizeof(ScriptRunner));
+			functionName = cJSON_GetObjectItem(function, "function")->valuestring;
 			
-			scriptRunner->line = cJSON_GetObjectItem(function, "lines")->child;
+			if (strcmp(functionName, funcNameBuffer) == 0)
+			{
+				scriptRunner = malloc(sizeof(ScriptRunner));
+				memset(scriptRunner, 0, sizeof(ScriptRunner));
+				
+				scriptRunner->line = cJSON_GetObjectItem(function, "lines")->child;
+				
+				tail->next = scriptRunner;
+				tail = scriptRunner;
+				
+				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
+			}
 			
-			tail->next = scriptRunner;
-			tail = scriptRunner;
-			
-			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
+			function = function->next;
 		}
-		
-		function = function->next;
 	}
 }
 

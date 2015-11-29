@@ -289,8 +289,6 @@ static void loadEntities(cJSON *node)
 	int i, type, scatter, number, active;
 	float x, y;
 	
-	scatter = 1;
-	
 	if (node)
 	{
 		node = node->child;
@@ -305,6 +303,7 @@ static void loadEntities(cJSON *node)
 			groupName = NULL;
 			number = 1;
 			active = 1;
+			scatter = 1;
 			
 			if (cJSON_GetObjectItem(node, "name"))
 			{

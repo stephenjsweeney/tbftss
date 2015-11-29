@@ -75,6 +75,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_MUST_DISABLE		(2 << 7)
 #define EF_RETREATING		(2 << 8)
 #define EF_NO_EPIC			(2 << 9)
+#define EF_STATIC			(2 << 10)
 
 #define AIF_NONE				0
 #define AIF_FOLLOWS_PLAYER		(2 << 0)

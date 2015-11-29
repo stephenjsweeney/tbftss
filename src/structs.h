@@ -160,7 +160,8 @@ struct Effect {
 	float dx;
 	float dy;
 	float health;
-	int size;
+	float size;
+	float scaleAmount;
 	int r;
 	int g;
 	int b;

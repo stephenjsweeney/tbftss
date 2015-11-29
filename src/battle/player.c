@@ -329,6 +329,8 @@ static void activateECM(void)
 {
 	battle.ecmTimer = 0;
 	
+	addECMEffect(player);
+	
 	battle.stats[STAT_ECM]++;
 }
 

@@ -25,11 +25,13 @@ static void setRandomShieldHue(Effect *e);
 
 static SDL_Texture *explosionTexture;
 static SDL_Texture *shieldHitTexture;
+static SDL_Texture *haloTexture;
 
 void initEffects(void)
 {
-	explosionTexture = getTexture("gfx/battle/explosion.png");
-	shieldHitTexture = getTexture("gfx/battle/shieldHit.png");
+	explosionTexture = getTexture("gfx/effects/explosion.png");
+	shieldHitTexture = getTexture("gfx/effects/shieldHit.png");
+	haloTexture = getTexture("gfx/effects/halo.png");
 }
 
 void doEffects(void)
@@ -44,9 +46,13 @@ void doEffects(void)
 		
 		e->health--;
 		
+		e->size += e->scaleAmount;
+		
 		if (e->health <= 0)
 		{
-			if (--e->a <= 0)
+			e->a -= (e->type != EFFECT_ECM) ? 1 : 3;
+			
+			if (e->a <= 0)
 			{
 				if (e == battle.effectTail)
 				{
@@ -88,6 +94,13 @@ void drawEffects(void)
 				break;
 				
 			case EFFECT_HALO:
+				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
+				blitScaled(e->texture, e->x - battle.camera.x - (e->size / 2), e->y - battle.camera.y - (e->size / 2), e->size, e->size);
+				break;
+				
+			case EFFECT_ECM:
+				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
+				blitScaled(e->texture, SCREEN_WIDTH / 2 - (e->size / 2), SCREEN_HEIGHT / 2 - (e->size / 2), e->size, e->size);
 				break;
 		}
 	}
@@ -322,6 +335,33 @@ void addShieldSplinterEffect(Entity *ent)
 		e->a = 255;
 		
 		setRandomShieldHue(e);
+	}
+}
+
+void addECMEffect(Entity *ent)
+{
+	int i;
+	Effect *e;
+	
+	for (i = 0 ; i < 3 ; i++)
+	{
+		e = malloc(sizeof(Effect));
+		
+		memset(e, 0, sizeof(Effect));
+		battle.effectTail->next = e;
+		battle.effectTail = e;
+				
+		e->type = EFFECT_ECM;
+		e->x = ent->x;
+		e->y = ent->y;
+		e->size = i * 4;
+		e->scaleAmount = 5;
+		e->texture = haloTexture;
+			
+		e->r = 128;
+		e->g = 128 + (i * 64);
+		e->b = 255;
+		e->a = 255;
 	}
 }
 

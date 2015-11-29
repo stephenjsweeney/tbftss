@@ -101,6 +101,8 @@ void completeMission(void)
 		
 		game.stats[STAT_MISSIONS_COMPLETED]++;
 		
+		completeConditions();
+		
 		retreatEnemies();
 		
 		player->flags |= EF_IMMORTAL;

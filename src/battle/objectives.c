@@ -20,9 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "objectives.h"
 
-void completeConditions(void);
-void failIncompleteObjectives(void);
-
 void doObjectives(void)
 {
 	int objectiveFailed;
@@ -70,8 +67,6 @@ void doObjectives(void)
 		if (numHiddenObjectives == 0 && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
 		{
 			completeMission();
-			
-			completeConditions();
 			
 			updateChallenges();
 		}

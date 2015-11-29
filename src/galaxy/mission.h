@@ -41,6 +41,7 @@ extern void selectWidget(const char *name, const char *group);
 extern Entity *spawnExtractionPoint(void);
 extern Entity *spawnItem(char *type);
 extern void failIncompleteObjectives(void);
+extern void completeConditions(void);
 extern void retreatEnemies(void);
 extern void initScript(cJSON *missionJSON);
 

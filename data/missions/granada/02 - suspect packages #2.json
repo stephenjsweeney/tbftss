@@ -40,6 +40,13 @@
 			"targetValue" : 7,
 			"targetType" : "TT_DESTROY",
 			"active" : 0
+		},
+		{
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
 		}
 	],
 	"player" : {
@@ -99,7 +106,7 @@
 		{
 			"type" : "ET_WAYPOINT",
 			"number" : 4,
-			"x" : 10,
+			"x" : 12,
 			"y" : 18,
 			"scatter" : 10000,
 			"active" : 0
@@ -128,16 +135,19 @@
 		{
 			"function" : "Waypoint #2",
 			"lines" : [
-				"MSG_BOX Alexandria Orbital;Patrol, we're again identifying a handful of crates drifting close to your current position. Please effect pick up.",
+				"WAIT 1",
+				"MSG_BOX Alexandria Orbital;Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up.",
 				"ACTIVATE_ENTITIES package",
-				"ACTIVATE_OBJECTIVES 1"
+				"ACTIVATE_OBJECTIVES 1",
+				"MSG_BOX Carr;Got it. Heading to the first one now"
 			]
 		},
 		{
 			"function" : "Waypoint #4",
 			"lines" : [
-				"MSG_BOX Alexandria Orbital;Patrol, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location.",
-				"MSG_BOX 1st Lt Carr;Know anything about the occupant, or affiliation?",
+				"WAIT 1",
+				"MSG_BOX Alexandria Orbital;Iron Patriots, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location.",
+				"MSG_BOX Carr;Know anything about the occupant, or affiliation?",
 				"MSG_BOX Alexandria Orbital;Negative, Lieutenant. We'll know more once it's brought in.",
 				"ACTIVATE_ENTITIES Stranded Dart;Tug",
 				"ACTIVATE_OBJECTIVES 2;3"
@@ -148,13 +158,23 @@
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Tug;Tow cable attached. Ready to head home.",
-				"MSG_BOX 1st Lt Carr;We're done here. Let's bring our mystery guest in.",
+				"MSG_BOX Carr;We're done here. Let's bring our mystery guest in.",
 				"ACTIVATE_ENTITIES Extraction Point",
 				"WAIT 20",
 				"ACTIVATE_ENTITIES Dart",
 				"ACTIVATE_OBJECTIVES 4",
-				"MSG_BOX TAF Pilot;Dan, we've got enemy vessels inbound. More Darts.",
-				"MSG_BOX 1st Lt Carr;Prepare to engage. Protect the asset!"
+				"MSG_BOX TAF Pilot;Dan, we've got hostile vessels inbound. More Darts.",
+				"MSG_BOX Carr;Prepare to engage. Protect the asset!"
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 4",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Carr;Alexandria, packaged delivered.",
+				"MSG_BOX Carr;Excellent work, Lieutenant. Let's see what all this tell us. Come on home.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
 			]
 		}
 	]

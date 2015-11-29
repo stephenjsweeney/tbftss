@@ -62,6 +62,7 @@ void drawRadar(void)
 					
 				case SIDE_PIRATE:
 				case SIDE_PANDORAN:
+				case SIDE_REBEL:
 					SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
 					break;
 					

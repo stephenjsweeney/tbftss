@@ -95,9 +95,9 @@
 			"function" : "ALLIES_KILLED 90",
 			"lines" : [
 				"MSG_BOX UNF Talos;All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the extraction point.",
-				"MSG_BOX Cdr de Winter;You all heard the Captain - fall back, we'll cover the retreat.",
-				"MSG_BOX Lt Cdr Dodds;Estelle, we've got this. We can take them.",
-				"MSG_BOX Cdr de Winter;We're taking too many losses, Dodds. Fall back now, that's an order.",
+				"MSG_BOX de Winter;You all heard the Captain - fall back, we'll cover the retreat.",
+				"MSG_BOX Dodds;Estelle, we've got this. We can take them.",
+				"MSG_BOX de Winter;We're taking too many losses, Dodds. Fall back now, that's an order.",
 				"WAIT_MSG_BOX",
 				"ACTIVATE_ENTITIES Extraction Point",
 				"RETREAT_ALLIES"

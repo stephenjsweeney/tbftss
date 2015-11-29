@@ -33,16 +33,6 @@
 			"isCondition" : 1
 		}
 	],
-	"challenges" : [
-		{
-			"type" : "CHALLENGE_TIME_MINS",
-			"targetValue" : 3
-		},
-		{
-			"type" : "CHALLENGE_DISABLE",
-			"targetValue" : 3
-		}
-	],
 	"player" : {
 		"type" : "Ray",
 		"side" : "SIDE_ALLIES",

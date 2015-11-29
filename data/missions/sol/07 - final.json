@@ -12,20 +12,6 @@
 			"targetType" : "TT_DESTROY"
 		}
 	],
-	"challenges" : [
-		{
-			"type" : "CHALLENGE_ARMOUR",
-			"targetValue" : 100
-		},
-		{
-			"type" : "CHALLENGE_TIME",
-			"targetValue" : 30
-		},
-		{
-			"type" : "CHALLENGE_ACCURACY",
-			"targetValue" : 25
-		}
-	],
 	"player" : {
 		"type" : "TAF",
 		"side" : "SIDE_ALLIES",

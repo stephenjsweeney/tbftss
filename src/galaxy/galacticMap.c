@@ -58,7 +58,6 @@ static float ssx, ssy;
 static float arrowPulse;
 static int show;
 static int completedMissions, totalMissions;
-static int completedChallenges, totalChallenges;
 
 void initGalacticMap(void)
 {
@@ -151,7 +150,7 @@ static void doStarSystems(void)
 	StarSystem *starSystem;
 	int cx, cy;
 	
-	completedMissions = totalMissions = completedChallenges = totalChallenges = 0;
+	completedMissions = totalMissions = 0;
 	
 	cx = app.mouse.x - 32;
 	cy = app.mouse.y - 32;
@@ -162,8 +161,6 @@ static void doStarSystems(void)
 	{
 		completedMissions += starSystem->completedMissions;
 		totalMissions += starSystem->totalMissions;
-		completedChallenges += starSystem->completedChallenges;
-		totalChallenges += starSystem->totalChallenges;
 		
 		if (starSystem->totalMissions > 0 && collision(cx, cy, 64, 64, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
 		{
@@ -259,22 +256,6 @@ static void addPulses(void)
 			
 			pulseTail->next = pulse;
 			pulseTail = pulse;
-		}
-		else if (starSystem->completedChallenges < starSystem->totalChallenges)
-		{
-			if (pulseTimer % (FPS * 2) == 0)
-			{
-				pulse = malloc(sizeof(Pulse));
-				memset(pulse, 0, sizeof(Pulse));
-				
-				pulse->x = starSystem->x;
-				pulse->y = starSystem->y;
-				pulse->life = 255;
-				pulse->r = pulse->g = 255;
-				
-				pulseTail->next = pulse;
-				pulseTail = pulse;
-			}
 		}
 		else if (starSystem->totalMissions > 0)
 		{
@@ -478,8 +459,7 @@ static void drawInfoBars(void)
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	drawText((SCREEN_WIDTH / 2) - 50, 5, 18, TA_RIGHT, colors.white, "Missions: %d / %d", completedMissions, totalMissions);
-	drawText((SCREEN_WIDTH / 2) + 50, 5, 18, TA_LEFT, colors.white, "Challenges: %d / %d", completedChallenges, totalChallenges);
+	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, "Missions: %d / %d", completedMissions, totalMissions);
 }
 
 static void selectStarSystem(void)
@@ -497,7 +477,6 @@ static void drawStarSystemDetail(void)
 {
 	int y;
 	Mission *mission;
-	Challenge *challenge;
 	SDL_Rect r;
 	
 	r.w = 900;
@@ -562,27 +541,6 @@ static void drawStarSystemDetail(void)
 	if (selectedMission->epic)
 	{
 		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, "Note: this is an Epic Mission.");
-	}
-	
-	if (selectedMission && selectedMission->available && selectedMission->challengeHead.next)
-	{
-		y = SCREEN_HEIGHT - 100;
-		
-		for (challenge = selectedMission->challengeHead.next ; challenge != NULL ; challenge = challenge->next)
-		{
-			y -= 25;
-		}
-		
-		drawText(525, y, 22, TA_LEFT, colors.yellow, "Challenges");
-		
-		y += 30;
-		
-		for (challenge = selectedMission->challengeHead.next ; challenge != NULL ; challenge = challenge->next)
-		{
-			drawText(525, y, 18, TA_LEFT, challenge->passed ? colors.green : colors.lightGrey, "%s%s", getChallengeDescription(challenge), challenge->passed ? " - COMPLETE" : "");
-			
-			y += 25;
-		}
 	}
 	
 	drawWidgets("starSystem");

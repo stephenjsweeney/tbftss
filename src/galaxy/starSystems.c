@@ -154,11 +154,10 @@ void updateStarSystemDescriptions(void)
 {
 	StarSystem *starSystem;
 	Mission *mission;
-	Challenge *challenge;
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		starSystem->completedMissions = starSystem->totalMissions = starSystem->completedChallenges = starSystem->totalChallenges = 0;
+		starSystem->completedMissions = starSystem->totalMissions;
 		
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
@@ -168,19 +167,9 @@ void updateStarSystemDescriptions(void)
 			{
 				starSystem->completedMissions++;
 			}
-			
-			for (challenge = mission->challengeHead.next ; challenge != NULL ; challenge = challenge->next)
-			{
-				starSystem->totalChallenges++;
-				
-				if (challenge->passed)
-				{
-					starSystem->completedChallenges++;
-				}
-			}
 		}
 		
-		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]  [ Challenges %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->totalMissions, starSystem->completedChallenges, starSystem->totalChallenges);
+		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->totalMissions);
 	}
 }
 

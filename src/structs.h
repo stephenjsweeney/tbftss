@@ -214,8 +214,6 @@ struct StarSystem {
 	int y;
 	int completedMissions;
 	int totalMissions;
-	int completedChallenges;
-	int totalChallenges;
 	Mission missionHead, *missionTail;
 	StarSystem *next;
 };

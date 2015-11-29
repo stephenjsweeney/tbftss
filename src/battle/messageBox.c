@@ -34,6 +34,11 @@ void addMessageBox(char *title, char *body)
 	MessageBox *msg;
 	float time;
 	
+	if (tail == &head)
+	{
+		playSound(SND_RADIO);
+	}
+	
 	msg = malloc(sizeof(MessageBox));
 	memset(msg, 0, sizeof(MessageBox));
 	tail->next = msg;
@@ -49,10 +54,9 @@ void addMessageBox(char *title, char *body)
 
 void doMessageBox(void)
 {
-	MessageBox *msg, *prev;
+	MessageBox *msg;
 	
 	msg = head.next;
-	prev = &head;
 	
 	if (msg)
 	{
@@ -60,15 +64,18 @@ void doMessageBox(void)
 		{
 			if (msg == tail)
 			{
-				tail = prev;
+				tail = &head;
 			}
 			
-			prev->next = msg->next;
+			head.next = msg->next;
 			free(msg);
-			msg = prev;
+			msg = &head;
+			
+			if (head.next)
+			{
+				playSound(SND_RADIO);
+			}
 		}
-		
-		prev = msg;
 	}
 }
 

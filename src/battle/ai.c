@@ -224,7 +224,7 @@ static void findTarget(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->active && e->type == ET_FIGHTER && e->side != self->side && e->health > 0 && canAttack(e))
+		if (e->active && e->type == ET_FIGHTER && (!(e->flags & EF_DISABLED)) && e->side != self->side && e->health > 0 && canAttack(e))
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			

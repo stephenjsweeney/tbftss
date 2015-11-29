@@ -206,6 +206,7 @@ static void loadFighters(cJSON *node)
 		
 		while (node)
 		{
+			name = NULL;
 			groupName = NULL;
 			flags = -1;
 			scatter = 1;
@@ -214,9 +215,13 @@ static void loadFighters(cJSON *node)
 			
 			types = toFighterTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-			name = cJSON_GetObjectItem(node, "name")->valuestring;
 			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
 			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
+			
+			if (cJSON_GetObjectItem(node, "name"))
+			{
+				name = cJSON_GetObjectItem(node, "name")->valuestring;
+			}
 			
 			if (cJSON_GetObjectItem(node, "groupName"))
 			{
@@ -259,7 +264,10 @@ static void loadFighters(cJSON *node)
 					f->flags = flags;
 				}
 				
-				STRNCPY(f->name, name, MAX_NAME_LENGTH);
+				if (name)
+				{
+					STRNCPY(f->name, name, MAX_NAME_LENGTH);
+				}
 				
 				if (groupName)
 				{

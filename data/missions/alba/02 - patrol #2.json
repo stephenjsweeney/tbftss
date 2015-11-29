@@ -23,7 +23,7 @@
 	"player" : {
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Curtis Rice",
+		"pilot" : "1st Lt. Curtis Rice",
 		"squadron" : "Eightballers"
 	},
 	"fighters" : [
@@ -61,8 +61,8 @@
 		{
 			"function" : "Waypoint #3",
 			"lines" : [
-				"ACTIVATE_ENTITY Pandoran",
-				"ACTIVATE_OBJECTIVE 1",
+				"ACTIVATE_ENTITIES Pandoran",
+				"ACTIVATE_OBJECTIVES 1",
 				"MSG_BOX Alba Control;Patrol A-82, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
 			]
 		}

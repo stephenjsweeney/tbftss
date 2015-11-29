@@ -21,7 +21,7 @@
 		}
 	],
 	"player" : {
-		"pilot" : "Eliza Gaskin",
+		"pilot" : "1st Lt. Eliza Gaskin",
 		"squadron" : "The ABCs",
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES"
@@ -109,19 +109,19 @@
 		{
 			"function" : "TIME 60",
 			"lines" : [
-				"ACTIVATE_ENTITY_GROUP Pandoran-1"
+				"ACTIVATE_ENTITY_GROUPS Pandoran-1"
 			]
 		},
 		{
 			"function" : "TIME 120",
 			"lines" : [
-				"ACTIVATE_ENTITY_GROUP Pandoran-2"
+				"ACTIVATE_ENTITY_GROUPS Pandoran-2"
 			]
 		},
 		{
 			"function" : "TIME 180",
 			"lines" : [
-				"ACTIVATE_ENTITY_GROUP Pandoran-3"
+				"ACTIVATE_ENTITY_GROUPS Pandoran-3"
 			]
 		}
 	]

@@ -31,8 +31,8 @@ extern void retreatAllies(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void addMessageBox(char *title, char *format, ...);
 extern void activateEntities(char *name);
-extern void activateEntityGroup(char *groupName);
-extern void activateObjective(int num);
+extern void activateEntityGroups(char *groupName);
+void activateObjectives(char *objectives);
 extern int showingMessageBoxes(void);
 
 extern Battle battle;

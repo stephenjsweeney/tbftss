@@ -106,6 +106,8 @@ void updateObjective(char *name, int type)
 			{
 				o->status = OS_COMPLETE;
 				addHudMessage(colors.green, "%s - Objective Complete!", o->description);
+				
+				runScriptFunction("OBJECTIVES_COMPLETE %d", battle.numObjectivesComplete + 1);
 			}
 		}
 	}
@@ -177,20 +179,30 @@ void failIncompleteObjectives(void)
 	}
 }
 
-void activateObjective(int num)
+void activateObjectives(char *objectives)
 {
-	int i = 0;
+	char *token;
+	int i, num;
 	Objective *o;
 	
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	token = strtok(objectives, ";");
+	
+	while (token)
 	{
-		if (i == num)
+		i = 0;
+		num = atoi(token);
+		
+		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 		{
-			addHudMessage(colors.cyan, "New Objective : %s", o->description);
-			o->active = 1;
-			return;
+			if (i == num)
+			{
+				addHudMessage(colors.cyan, "New Objective : %s", o->description);
+				o->active = 1;
+			}
+			
+			i++;
 		}
 		
-		i++;
+		token = strtok(NULL, ";");
 	}
 }

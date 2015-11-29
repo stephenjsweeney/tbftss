@@ -16,7 +16,7 @@
 	"player" : {
 		"type" : "TAF",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Katherine Strickland",
+		"pilot" : "Cdr. Katherine Strickland",
 		"squadron" : "Steel Bulls"
 	},
 	"fighters" : [

@@ -121,20 +121,20 @@ static void executeNextLine(ScriptRunner *runner)
 	
 	sscanf(line, "%s", command);
 
-	if (strcmp(command, "ACTIVATE_ENTITY") == 0)
+	if (strcmp(command, "ACTIVATE_ENTITIES") == 0)
 	{
 		sscanf(line, "%*s %[^\n]", strParam[0]);
 		activateEntities(strParam[0]);
 	}
-	else if (strcmp(command, "ACTIVATE_ENTITY_GROUP") == 0)
+	else if (strcmp(command, "ACTIVATE_ENTITY_GROUPS") == 0)
 	{
 		sscanf(line, "%*s %[^\n]", strParam[0]);
-		activateEntityGroup(strParam[0]);
+		activateEntityGroups(strParam[0]);
 	}
-	else if (strcmp(command, "ACTIVATE_OBJECTIVE") == 0)
+	else if (strcmp(command, "ACTIVATE_OBJECTIVES") == 0)
 	{
-		sscanf(line, "%*s %d", &intParam[0]);
-		activateObjective(intParam[0]);
+		sscanf(line, "%*s %s", strParam[0]);
+		activateObjectives(strParam[0]);
 	}
 	else if (strcmp(command, "MSG_BOX") == 0)
 	{

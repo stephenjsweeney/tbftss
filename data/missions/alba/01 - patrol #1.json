@@ -16,7 +16,7 @@
 	"player" : {
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Curtis Rice",
+		"pilot" : "1st Lt. Curtis Rice",
 		"squadron" : "Eightballers"
 	},
 	"fighters" : [

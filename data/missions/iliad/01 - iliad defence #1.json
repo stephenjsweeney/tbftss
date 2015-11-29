@@ -22,7 +22,7 @@
 	"player" : {
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Opal	Williams",
+		"pilot" : "1st Lt. Opal Williams",
 		"squadron" : "Agamemnon's 1st",
 		"x" : 25,
 		"y" : 45

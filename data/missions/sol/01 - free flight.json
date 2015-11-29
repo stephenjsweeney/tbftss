@@ -7,7 +7,7 @@
 	"player" : {
 		"type" : "TAF",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Jim Goddard",
+		"pilot" : "2nd Lt. Jim Goddard",
 		"squadron" : "Midnight Runners"
 	},
 	"script" : [

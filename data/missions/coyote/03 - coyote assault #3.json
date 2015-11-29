@@ -88,7 +88,7 @@
 			"function" : "ALLIES_KILLED 80",
 			"lines" : [
 				"MSG_BOX UNF Pilot #2;The White Knights are here! Finally!",
-				"ACTIVATE_ENTITY ATAFs"
+				"ACTIVATE_ENTITIES ATAFs"
 			]
 		},
 		{
@@ -99,7 +99,7 @@
 				"MSG_BOX Lt Cdr Dodds;Estelle, we've got this. We can take them.",
 				"MSG_BOX Cdr de Winter;We're taking too many losses, Dodds. Fall back now, that's an order.",
 				"WAIT_MSG_BOX",
-				"ACTIVATE_ENTITY Extraction Point",
+				"ACTIVATE_ENTITIES Extraction Point",
 				"RETREAT_ALLIES"
 			]
 		}

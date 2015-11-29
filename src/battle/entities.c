@@ -293,16 +293,24 @@ void activateEntities(char *name)
 	}
 }
 
-void activateEntityGroup(char *groupName)
+void activateEntityGroups(char *groupNames)
 {
 	Entity *e;
+	char *groupName;
 	
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	groupName = strtok(groupNames, ";");
+	
+	while (groupName)
 	{
-		if (strcmp(e->groupName, groupName) == 0)
+		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
-			e->active = 1;
+			if (strcmp(e->groupName, groupName) == 0)
+			{
+				e->active = 1;
+			}
 		}
+		
+		groupName = strtok(NULL, ";");
 	}
 }
 

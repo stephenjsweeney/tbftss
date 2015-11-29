@@ -1,0 +1,159 @@
+{
+	"name" : "Suspect Packages #3",
+	"description" : "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Nation of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/determination.mp3",
+	"requires" : "PREVIOUS",
+	"player" : {
+		"pilot" : "Lt. Cdr. Daniel Carr",
+		"squadron" : "Iron Patriots",
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES"
+	},
+	"objectives" : [
+		{
+			"description" : "Check all Waypoints",
+			"targetName" : "Waypoint",
+			"targetValue" : 1,
+			"targetType" : "TT_WAYPOINT"
+		},
+		{
+			"description" : "Disable Pirate Commander",
+			"targetName" : "Pirate Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE",
+			"active" : 0
+		},
+		{
+			"description" : "Disable Tzac Commander",
+			"targetName" : "Tzac Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy all other opponents",
+			"targetName" : "skirmishGroup",
+			"targetValue" : 32,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Do not allow Pirate Commander to be killed",
+			"targetName" : "Pirate Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0,
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not allow Tzac Commander to be killed",
+			"targetName" : "Tzac Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0,
+			"isCondition" : 1
+		},
+		{
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Ally",
+			"types" : "TAF;Ray",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 5,
+			"scatter" : 500
+		},
+		{
+			"name" : "Ally",
+			"types" : "Shuttle",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"name" : "Pirate Commander",
+			"groupName" : "skirmishGroup",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 15,
+			"y" : 40,
+			"flags" : "EF_NO_KILL+EF_MISSION_TARGET",
+			"active" : 0
+		},
+		{
+			"groupName" : "skirmishGroup",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"number" : 24,
+			"x" : 15,
+			"y" : 40,
+			"active" : 0,
+			"scatter" : 5000
+		},
+		{
+			"name" : "Tzac Commander",
+			"groupName" : "skirmishGroup",
+			"types" : "Firefly",
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : 40,
+			"flags" : "EF_NO_KILL+EF_MISSION_TARGET",
+			"active" : 0
+		},
+		{
+			"groupName" : "skirmishGroup",
+			"types" : "Firefly;Nymph",
+			"side" : "SIDE_REBEL",
+			"number" : 8,
+			"x" : 15,
+			"y" : 40,
+			"active" : 0,
+			"scatter" : 5000
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"number" : 1,
+			"x" : 28,
+			"y" : 28,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "Waypoint #1",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Alexandria Orbital;Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies.",
+				"MSG_BOX Carr;Pirates? Insurgents? Nation of Tzac?",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES 1;2;3;4;5",
+				"ACTIVATE_ENTITY_GROUPS skirmishGroup",
+				"MSG_BOX Alexandria Orbital;Too early to speculate. We want you to disable and bring in one craft from each side. The rest, you can eliminate.",
+				"MSG_BOX Carr;On it."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 5",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Carr;This is Carr, reporting operation successful. Bagged us two squadron commanders.",
+				"MSG_BOX Alexandria Orbital;Good work, Commander. Dispatching tugs to bring them in.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

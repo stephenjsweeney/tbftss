@@ -294,6 +294,8 @@ void doFighter(void)
 			}
 			
 			updateObjective(self->name, TT_DESTROY);
+			updateObjective(self->groupName, TT_DESTROY);
+			
 			adjustObjectiveTargetValue(self->name, TT_ESCAPED, -1);
 			
 			updateCondition(self->name, TT_DESTROY);

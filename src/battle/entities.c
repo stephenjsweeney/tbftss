@@ -98,6 +98,11 @@ void doEntities(void)
 				
 				restrictToGrid(e);
 				
+				if (e->flags & EF_STATIC)
+				{
+					e->dx = e->dy = 0;
+				}
+				
 				e->x += e->dx;
 				e->y += e->dy;
 				
@@ -280,16 +285,24 @@ static void drawTargetRects(Entity *e)
 	}
 }
 
-void activateEntities(char *name)
+void activateEntities(char *names)
 {
 	Entity *e;
+	char *name;
 	
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	name = strtok(names, ";");
+	
+	while (name)
 	{
-		if (strcmp(e->name, name) == 0)
+		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
-			e->active = 1;
+			if (strcmp(e->name, name) == 0)
+			{
+				e->active = 1;
+			}
 		}
+		
+		name = strtok(NULL, ";");
 	}
 }
 

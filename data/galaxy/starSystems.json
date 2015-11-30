@@ -156,6 +156,7 @@
         "side" : "SIDE_UNF",
         "x": 325,
         "y": 385,
+        "fallsToPandorans" : 1,
         "missions" : [
 			"data/missions/coyote/01 - coyote assault #1.json",
 			"data/missions/coyote/02 - coyote assault #2.json",

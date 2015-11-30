@@ -55,6 +55,11 @@ static void loadStarSystem(cJSON *starSystemJSON)
 	starSystem->x = cJSON_GetObjectItem(starSystemJSON, "x")->valueint;
 	starSystem->y = cJSON_GetObjectItem(starSystemJSON, "y")->valueint;
 	
+	if (cJSON_GetObjectItem(starSystemJSON, "fallsToPandorans"))
+	{
+		starSystem->fallsToPandorans = cJSON_GetObjectItem(starSystemJSON, "fallsToPandorans")->valueint;
+	}
+	
 	starSystem->missionHead.completed = 1;
 	starSystem->missionTail = &starSystem->missionHead;
 	

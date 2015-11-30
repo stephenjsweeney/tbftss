@@ -62,6 +62,7 @@ static void saveStarSystems(cJSON *gameJSON)
 		starSystemJSON = cJSON_CreateObject();
 		
 		cJSON_AddStringToObject(starSystemJSON, "name", starSystem->name);
+		cJSON_AddStringToObject(starSystemJSON, "side", getLookupName("SIDE_", starSystem->side));
 		cJSON_AddItemToObject(starSystemJSON, "missions", getMissionsJSON(starSystem));
 		
 		cJSON_AddItemToArray(starSystemsJSON, starSystemJSON);

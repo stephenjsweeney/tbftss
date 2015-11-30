@@ -176,6 +176,11 @@ static void doStarSystems(void)
 				}
 			}
 		}
+		
+		if (starSystem->side != SIDE_PANDORAN && starSystem->fallsToPandorans && starSystem->completedMissions == starSystem->totalMissions && starSystem->totalMissions > 0)
+		{
+			starSystem->side = SIDE_PANDORAN;
+		}
 	}
 }
 

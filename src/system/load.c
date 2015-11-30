@@ -47,10 +47,15 @@ void loadGame(void)
 
 static void loadStarSystems(cJSON *starSystemsJSON)
 {
+	StarSystem *starSystem;
 	cJSON *starSystemJSON;
 	
 	for (starSystemJSON = starSystemsJSON->child ; starSystemJSON != NULL ; starSystemJSON = starSystemJSON->next)
 	{
+		starSystem = getStarSystem(cJSON_GetObjectItem(starSystemJSON, "name")->valuestring);
+		
+		starSystem->side = lookup(cJSON_GetObjectItem(starSystemJSON, "side")->valuestring);
+		
 		loadMissions(cJSON_GetObjectItem(starSystemJSON, "missions"));
 	}
 }

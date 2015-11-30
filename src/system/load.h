@@ -30,5 +30,6 @@ extern Challenge *getChallenge(Mission *mission, int type);
 extern int lookup(char *lookup);
 extern char *getSaveFilePath(char *filename);
 extern char *getLookupName(char *prefix, long num);
+extern StarSystem *getStarSystem(char *name);
 
 extern Game game;

@@ -1,0 +1,18 @@
+{
+	"name" : "RocketTurret",
+	"health" : 125,
+	"shield" : 25,
+	"speed" : 0,
+	"reloadTime" : 8,
+	"shieldRechargeRate" : 30,
+	"textureName" : "gfx/cannons/rocketTurret.png",
+	"guns" : [
+		{
+			"type" : "BT_ROCKET",
+			"x" : 0,
+			"y" : 0
+		}
+	],
+	"flags" : "EF_STATIC",
+	"aiFlags" : "AIF_MISSILE_BOAT+AIF_AGGRESSIVE+AIF_INSTANT_DIE"
+}

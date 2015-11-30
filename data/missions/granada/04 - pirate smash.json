@@ -47,7 +47,16 @@
 			"y" : 25,
 			"side" : "SIDE_ALLIES",
 			"scatter" : 1000,
-			"number": 16
+			"number": 8
+		},
+		{
+			"types" : "Rook;TAF;Ray;Hammerhead",
+			"groupName" : "reinforcements",
+			"x" : 10,
+			"y" : 25,
+			"side" : "SIDE_ALLIES",
+			"number": 4,
+			"active" : 0
 		},
 		{
 			"types" : "Dart",
@@ -88,6 +97,14 @@
 			"function" : "TIME 2",
 			"lines" : [
 				"MSG_BOX Carr;Right, people, let's finish this. Engage at will. Leave nothing standing."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 3",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS reinforcements",
+				"MSG_BOX Carr;Alexandria: opposition stronger than expected. Requesting reinforcements.",
+				"MSG_BOX Alexandria Orbital;Acknowledged. They're on their way."
 			]
 		},
 		{

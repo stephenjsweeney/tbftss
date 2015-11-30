@@ -102,6 +102,8 @@ void updateObjective(char *name, int type)
 				o->status = OS_COMPLETE;
 				addHudMessage(colors.green, "%s - Objective Complete!", o->description);
 				
+				runScriptFunction(o->description);
+				
 				runScriptFunction("OBJECTIVES_COMPLETE %d", battle.numObjectivesComplete + 1);
 			}
 		}

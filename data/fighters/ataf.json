@@ -7,7 +7,6 @@
 	"shieldRechargeRate" : 5,
 	"textureName" : "gfx/fighters/ataf.png",
 	"flags" : "EF_NO_EPIC",
-	"aiFlags" : "AIF_MOVES_TO_PLAYER",
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",

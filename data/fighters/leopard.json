@@ -23,6 +23,5 @@
 			"y" : -16
 		}
 	],
-	"missiles" : 3,
-	"aiFlags" : "AIF_MOVES_TO_PLAYER"
+	"missiles" : 3
 }

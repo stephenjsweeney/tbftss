@@ -52,6 +52,10 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 	{
 		case SIDE_ALLIES:
 			f->aiAggression = rand() % 3;
+			if (!(f->aiFlags & AIF_FOLLOWS_PLAYER))
+			{
+				f->aiFlags |= AIF_MOVES_TO_PLAYER;
+			}
 			break;
 			
 		case SIDE_PIRATE:

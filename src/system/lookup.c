@@ -42,6 +42,7 @@ void initLookups(void)
 	addLookup("EF_HAS_ROPE", EF_HAS_ROPE);
 	addLookup("EF_COLLECTS_ITEMS", EF_COLLECTS_ITEMS);
 	addLookup("EF_NO_EPIC", EF_NO_EPIC);
+	addLookup("EF_STATIC", EF_STATIC);
 	
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);
@@ -54,6 +55,8 @@ void initLookups(void)
 	addLookup("AIF_AVOIDS_COMBAT", AIF_AVOIDS_COMBAT);
 	addLookup("AIF_DEFENSIVE", AIF_DEFENSIVE);
 	addLookup("AIF_MISSILE_BOAT", AIF_MISSILE_BOAT);
+	addLookup("AIF_AGGRESSIVE", AIF_AGGRESSIVE);
+	addLookup("AIF_INSTANT_DIE", AIF_INSTANT_DIE);
 	
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);

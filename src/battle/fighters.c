@@ -78,6 +78,11 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 		f->texture = getTexture("gfx/craft/civilian02.png");
 	}
 	
+	if (f->aiFlags & AIF_AGGRESSIVE)
+	{
+		f->aiAggression = 4;
+	}
+	
 	f->action = doAI;
 	f->die = die;
 	
@@ -458,6 +463,10 @@ static void die(void)
 	if (self == player)
 	{
 		n = rand() % 2;
+	}
+	else if (self->aiFlags & AIF_INSTANT_DIE)
+	{
+		n = 2;
 	}
 	
 	switch (n)

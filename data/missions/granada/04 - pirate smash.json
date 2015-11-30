@@ -1,0 +1,125 @@
+{
+	"name" : "Pirate Smash",
+	"description" : "We finally have all the information we need to help safeguard the Confederation in these turbulent times. By smashing the pirate ring involved in the supplying of arms to Tzac, we can regain control of our internal security matters, and refocus on the war against the Pandorans. All targets must be destroyed, but be advised that the pirates have acquired rocket cannons, that could prove costly if underestimated.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/track-4.mp3",
+	"requires" : "PREVIOUS",
+	"player" : {
+		"pilot" : "Lt. Cdr. Daniel Carr",
+		"squadron" : "Iron Patriots",
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"x" : 10,
+		"y" : 24
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate Pirate Captains",
+			"targetName" : "Pirate Captain",
+			"targetValue" : 3,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate Sentry Cannons",
+			"targetName" : "Rocket Turret",
+			"targetValue" : 8,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate all other opponents",
+			"targetName" : "Dart",
+			"targetValue" : 48,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"fighters" : [
+		{
+			"types" : "Rook;TAF;Ray;Hammerhead",
+			"x" : 10,
+			"y" : 25,
+			"side" : "SIDE_ALLIES",
+			"scatter" : 1000,
+			"number": 16
+		},
+		{
+			"types" : "Dart",
+			"x" : 20,
+			"y" : 25,
+			"side" : "SIDE_PIRATE",
+			"scatter" : 1000,
+			"number": 16
+		},
+		{
+			"name" : "Rocket Turret",
+			"types" : "RocketTurret",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_PIRATE",
+			"scatter" : 3000,
+			"number": 8
+		},
+		{
+			"types" : "Dart",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_PIRATE",
+			"scatter" : 3000,
+			"number": 32
+		},
+		{
+			"name" : "Pirate Captain",
+			"types" : "Nymph",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_PIRATE",
+			"number": 3
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Carr;Right, people, let's finish this. Engage at will. Leave nothing standing."
+			]
+		},
+		{
+			"function" : "Eliminate Pirate Captains",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Carr;Alexandria: reporting all captain vessels destroyed."
+			]
+		},
+		{
+			"function" : "Eliminate Sentry Cannons",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Carr;Alexandria: sentry cannons eliminated."
+			]
+		},
+		{
+			"function" : "Eliminate all other opponents",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Carr;Alexandria: reporting all enemy fighters destroyed."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 3",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Carr;This is Carr. Reporting threat eliminated, operation successful.",
+				"MSG_BOX Alexandria Orbital;Excellent work, Commander. We'll get a few frosty ones ready for your return.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

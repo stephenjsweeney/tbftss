@@ -366,7 +366,7 @@ static void preAttack(void)
 			self->reload = FPS;
 			
 			/* don't constantly fire rockets like normal guns */
-			if (rand() % 5)
+			if (rand() % 3)
 			{
 				self->action = doAI;
 			}

@@ -73,3 +73,17 @@ char *getSaveFilePath(char *filename)
 	
 	return path;
 }
+
+char *getFileLocation(char *filename)
+{
+	static char path[MAX_FILENAME_LENGTH];
+	
+	if (fileExists(filename))
+	{
+		return filename;
+	}
+	
+	sprintf(path, "%s/%s\n", DATA_DIR, filename);
+	
+	return path;
+}

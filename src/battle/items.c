@@ -31,7 +31,7 @@ void loadItemDefs(void)
 	char *text;
 	Entity *e;
 	
-	text = readFile("data/battle/items.json");
+	text = readFile(getFileLocation("data/battle/items.json"));
 	
 	root = cJSON_Parse(text);
 	

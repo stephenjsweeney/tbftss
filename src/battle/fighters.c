@@ -597,7 +597,7 @@ void loadFighterDefs(void)
 	cJSON *root, *node;
 	char *text;
 	
-	text = readFile("data/fighters/list.json");
+	text = readFile(getFileLocation("data/fighters/list.json"));
 	root = cJSON_Parse(text);
 	
 	memset(&defHead, 0, sizeof(Entity));
@@ -621,7 +621,7 @@ static void loadFighterDef(char *filename)
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 	
-	text = readFile(filename);
+	text = readFile(getFileLocation(filename));
 	
 	f = malloc(sizeof(Entity));
 	memset(f, 0, sizeof(Entity));

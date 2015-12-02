@@ -49,6 +49,7 @@ extern void addShieldSplinterEffect(Entity *ent);
 extern void completeMission(void);
 extern void drawShieldHitEffect(Entity *e);
 extern void runScriptFunction(char *format, ...);
+extern char *getFileLocation(char *filename);
 
 extern App app;
 extern Battle battle;

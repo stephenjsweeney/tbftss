@@ -45,7 +45,7 @@ void initWidgets(void)
 	optionsLeft = getTexture("gfx/widgets/optionsLeft.png");
 	optionsRight = getTexture("gfx/widgets/optionsRight.png");
 	
-	loadWidgets("data/widgets/list.json");
+	loadWidgets(getFileLocation("data/widgets/list.json"));
 	
 	drawingWidgets = 0;
 }
@@ -231,12 +231,12 @@ static void loadWidgets(char *filename)
 	cJSON *root, *node;
 	char *text;
 	
-	text = readFile(filename);
+	text = readFile(getFileLocation(filename));
 	root = cJSON_Parse(text);
 	
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
-		loadWidgetSet(node->valuestring);
+		loadWidgetSet(getFileLocation(node->valuestring));
 	}
 	
 	cJSON_Delete(root);
@@ -251,7 +251,7 @@ static void loadWidgetSet(char *filename)
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
-	text = readFile(filename);
+	text = readFile(getFileLocation(filename));
 	root = cJSON_Parse(text);
 
 	for (node = root->child ; node != NULL ; node = node->next)

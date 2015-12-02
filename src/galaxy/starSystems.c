@@ -28,7 +28,7 @@ void initStarSystems(void)
 	cJSON *root, *node;
 	char *text;
 	
-	text = readFile("data/galaxy/starSystems.json");
+	text = readFile(getFileLocation("data/galaxy/starSystems.json"));
 	root = cJSON_Parse(text);
 	
 	for (node = cJSON_GetObjectItem(root, "starSystems")->child ; node != NULL ; node = node->next)
@@ -81,7 +81,7 @@ static void loadMissionMeta(char *filename, StarSystem *starSystem)
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 	
-	text = readFile(filename);
+	text = readFile(getFileLocation(filename));
 	
 	root = cJSON_Parse(text);
 	

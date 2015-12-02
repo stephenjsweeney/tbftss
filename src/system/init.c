@@ -151,7 +151,7 @@ static void loadConfig(void)
 	}
 	else
 	{
-		text = readFile("data/app/config.json");
+		text = readFile(getFileLocation("data/app/config.json"));
 	}
 	
 	root = cJSON_Parse(text);

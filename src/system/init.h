@@ -56,6 +56,7 @@ extern void destroyWidgets(void);
 extern void expireTexts(void);
 extern void initInput(void);
 extern void createSaveFolder(void);
+extern char *getFileLocation(char *filename);
 
 extern App app;
 extern Colors colors;

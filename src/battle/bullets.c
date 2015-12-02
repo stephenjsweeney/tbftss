@@ -36,7 +36,7 @@ void initBulletDefs(void)
 	
 	memset(&bulletDef, 0, sizeof(Bullet) * BT_MAX);
 	
-	text = readFile("data/battle/bullets.json");
+	text = readFile(getFileLocation("data/battle/bullets.json"));
 	
 	root = cJSON_Parse(text);
 	

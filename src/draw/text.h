@@ -25,5 +25,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../structs.h"
 
 extern void blit(SDL_Texture *texture, int x, int y, int centered);
+extern char *getFileLocation(char *filename);
 
 extern App app;

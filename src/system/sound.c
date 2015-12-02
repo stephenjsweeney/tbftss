@@ -91,28 +91,27 @@ void playBattleSound(int id, int x, int y)
 
 static void loadSounds(void)
 {
-	sounds[SND_ARMOUR_HIT] = Mix_LoadWAV("sound/275151__bird-man__gun-shot.ogg");
-	sounds[SND_SHIELD_HIT] = Mix_LoadWAV("sound/49678__ejfortin__energy-short-sword-7.ogg");
-	sounds[SND_PLASMA] = Mix_LoadWAV("sound/268344__julien-matthey__jm-noiz-laser-01.ogg");
-	sounds[SND_LASER] = Mix_LoadWAV("sound/18382__inferno__hvylas.ogg");
-	sounds[SND_MAG] = Mix_LoadWAV("sound/146725__fins__laser.ogg");
-	sounds[SND_SHIELD_BREAK] = Mix_LoadWAV("sound/322603__clippysounds__glass-break.ogg");
-	sounds[SND_PARTICLE] = Mix_LoadWAV("sound/77087__supraliminal__laser-short.ogg");
-	sounds[SND_MISSILE] = Mix_LoadWAV("sound/65787__iwilldstroyu__laserrocket.ogg");
-	sounds[SND_BOOST] = Mix_LoadWAV("sound/18380__inferno__hvrl.ogg");
-	/*sounds[SND_ECM] = Mix_LoadWAV("sound/18380__inferno__hvrl.ogg");*/
-	sounds[SND_RADIO] = Mix_LoadWAV("sound/321906__bruce965__walkie-talkie-roger-beep.ogg");
-	sounds[SND_INCOMING] = Mix_LoadWAV("sound/242856__plasterbrain__nuclear-alarm.ogg");
-	sounds[SND_GET_ITEM] = Mix_LoadWAV("sound/88275__s-dij__gbc-reload-06.ogg");
-	sounds[SND_EXPLOSION_1] = Mix_LoadWAV("sound/162265__qubodup__explosive.ogg");
-	sounds[SND_EXPLOSION_2] = Mix_LoadWAV("sound/207322__animationisaac__short-explosion.ogg");
-	sounds[SND_EXPLOSION_3] = Mix_LoadWAV("sound/254071__tb0y298__firework-explosion.ogg");
-	sounds[SND_EXPLOSION_4] = Mix_LoadWAV("sound/47252__nthompson__bad-explosion.ogg");
+	sounds[SND_ARMOUR_HIT] = Mix_LoadWAV(getFileLocation("sound/275151__bird-man__gun-shot.ogg"));
+	sounds[SND_SHIELD_HIT] = Mix_LoadWAV(getFileLocation("sound/49678__ejfortin__energy-short-sword-7.ogg"));
+	sounds[SND_PLASMA] = Mix_LoadWAV(getFileLocation("sound/268344__julien-matthey__jm-noiz-laser-01.ogg"));
+	sounds[SND_LASER] = Mix_LoadWAV(getFileLocation("sound/18382__inferno__hvylas.ogg"));
+	sounds[SND_MAG] = Mix_LoadWAV(getFileLocation("sound/146725__fins__laser.ogg"));
+	sounds[SND_SHIELD_BREAK] = Mix_LoadWAV(getFileLocation("sound/322603__clippysounds__glass-break.ogg"));
+	sounds[SND_PARTICLE] = Mix_LoadWAV(getFileLocation("sound/77087__supraliminal__laser-short.ogg"));
+	sounds[SND_MISSILE] = Mix_LoadWAV(getFileLocation("sound/65787__iwilldstroyu__laserrocket.ogg"));
+	sounds[SND_BOOST] = Mix_LoadWAV(getFileLocation("sound/18380__inferno__hvrl.ogg"));
+	sounds[SND_RADIO] = Mix_LoadWAV(getFileLocation("sound/321906__bruce965__walkie-talkie-roger-beep.ogg"));
+	sounds[SND_INCOMING] = Mix_LoadWAV(getFileLocation("sound/242856__plasterbrain__nuclear-alarm.ogg"));
+	sounds[SND_GET_ITEM] = Mix_LoadWAV(getFileLocation("sound/88275__s-dij__gbc-reload-06.ogg"));
+	sounds[SND_EXPLOSION_1] = Mix_LoadWAV(getFileLocation("sound/162265__qubodup__explosive.ogg"));
+	sounds[SND_EXPLOSION_2] = Mix_LoadWAV(getFileLocation("sound/207322__animationisaac__short-explosion.ogg"));
+	sounds[SND_EXPLOSION_3] = Mix_LoadWAV(getFileLocation("sound/254071__tb0y298__firework-explosion.ogg"));
+	sounds[SND_EXPLOSION_4] = Mix_LoadWAV(getFileLocation("sound/47252__nthompson__bad-explosion.ogg"));
 	
-	sounds[SND_GUI_CLICK] = Mix_LoadWAV("sound/257786__xtrgamr__mouse-click.ogg");
-	sounds[SND_GUI_SELECT] = Mix_LoadWAV("sound/321104__nsstudios__blip2.ogg");
-	sounds[SND_GUI_CLOSE] = Mix_LoadWAV("sound/178064__jorickhoofd__slam-door-shut.ogg");
-	sounds[SND_GUI_DENIED] = Mix_LoadWAV("sound/249300__suntemple__access-denied.ogg");
+	sounds[SND_GUI_CLICK] = Mix_LoadWAV(getFileLocation("sound/257786__xtrgamr__mouse-click.ogg"));
+	sounds[SND_GUI_SELECT] = Mix_LoadWAV(getFileLocation("sound/321104__nsstudios__blip2.ogg"));
+	sounds[SND_GUI_CLOSE] = Mix_LoadWAV(getFileLocation("sound/178064__jorickhoofd__slam-door-shut.ogg"));
+	sounds[SND_GUI_DENIED] = Mix_LoadWAV(getFileLocation("sound/249300__suntemple__access-denied.ogg"));
 }
 
 void destroySounds(void)

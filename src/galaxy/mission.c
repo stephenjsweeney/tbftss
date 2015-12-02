@@ -38,7 +38,7 @@ void loadMission(char *filename)
 	
 	stopMusic();
 	
-	text = readFile(filename);
+	text = readFile(getFileLocation(filename));
 	
 	srand(hashcode(filename));
 	

@@ -1,0 +1,137 @@
+{
+	"name" : "Pirate Uprising #5",
+	"description" : "",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/spirit.png",
+	"music" : "music/battleThemeA.mp3",
+	"requires" : "PREVIOUS",
+	"objectives" : [
+		{
+			"description" : "Destroy all pirate forces",
+			"targetName" : "Dart",
+			"targetValue" : 88,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Cdr Katherine Strickland",
+		"squadron" : "Steel Bulls",
+		"x" : 20,
+		"y" : 20
+	},
+	"fighters" : [
+		{
+			"name" : "Ally",
+			"types" : "TAF;Ray;Rook;Hammerhead",
+			"number" : 12,
+			"side" : "SIDE_ALLIES",
+			"x" : 18,
+			"y" : 20,
+			"scatter" : 1000
+		},
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"groupName" : "group1",
+			"number" : 22,
+			"side" : "SIDE_PIRATE",
+			"x" : 30,
+			"y" : 30,
+			"scatter" : 1000,
+			"active" : 0,
+			"aiFlags" : "AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"groupName" : "group2",
+			"number" : 22,
+			"side" : "SIDE_PIRATE",
+			"x" : 40,
+			"y" : 20,
+			"scatter" : 1000,
+			"active" : 0,
+			"aiFlags" : "AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"groupName" : "group3",
+			"number" : 22,
+			"side" : "SIDE_PIRATE",
+			"x" : 10,
+			"y" : 10,
+			"scatter" : 1000,
+			"active" : 0,
+			"aiFlags" : "AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"groupName" : "group4",
+			"number" : 22,
+			"side" : "SIDE_PIRATE",
+			"x" : 40,
+			"y" : 40,
+			"scatter" : 1000,
+			"active" : 0,
+			"aiFlags" : "AIF_UNLIMITED_RANGE"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS group1",
+				"WAIT 1",
+				"MSG_BOX Heywood;Enemy forces sighted.",
+				"MSG_BOX Strickland;This is it, boys and girls, let's stick it to 'em. Break and attack!"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 18",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS group2",
+				"WAIT 3",
+				"MSG_BOX Heywood;Looks like we touched a nerve. We've got more Darts incoming."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 36",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS group3",
+				"WAIT 3",
+				"MSG_BOX Heywood;Another group just arrived.",
+				"MSG_BOX Strickland;They'll keep lining 'em up, and we'll keep knocking them down."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 60",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS group4",
+				"WAIT 3",
+				"MSG_BOX Strickland; Another group. That tallies with the numbers we were expecting."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 1",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Strickland; Looks like that was the last of 'em.",
+				"MSG_BOX Strickland; Spirit, this is Commander Strickland. Opposing forces have been defeated.",
+				"MSG_BOX Spirit Orbital;Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

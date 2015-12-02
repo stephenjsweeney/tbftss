@@ -22,16 +22,30 @@ CC BY-NC-SA 3.0, with the following attribution: Copyright 2015, Stephen J Sween
 
 SOUND
 
-35677__jobro__laser1.ogg - Laser 1, by jobro - https://freesound.org/people/jobro/sounds/35677/
+18380__inferno__hvrl.ogg - hvrl, by inferno - https://freesound.org/people/inferno/sounds/18380/
+18382__inferno__hvylas.ogg - hvylas, by inferno - https://freesound.org/people/inferno/sounds/18382/
 42106__marcuslee__laser-wrath-4.ogg - Laser Wrath 4, by marcusless - https://freesound.org/people/marcuslee/sounds/42106/
 47252__nthompson__bad-explosion.ogg - bad explosion, by nthompson - https://freesound.org/people/nthompson/sounds/47252/
+49678__ejfortin__energy-short-sword-7.ogg - Energy Short Sword, by ejfortin - https://freesound.org/people/ejfortin/sounds/49678/
+56246__q-k__latch-04.ogg - Latch_04, by Q.K. - https://freesound.org/people/Q.K./sounds/56246/
+65787__iwilldstroyu__laserrocket.ogg - laserrocket, by iwilldstroyu - https://freesound.org/people/iwilldstroyu/sounds/65787/
 77087__supraliminal__laser-short.ogg - Laser short, by Supraliminal - https://freesound.org/people/Supraliminal/sounds/77087/
+88275__s-dij__gbc-reload-06.ogg - GBC_Reload_06, by S_Dij - https://freesound.org/people/S_Dij/sounds/88275/
+146725__fins__laser.ogg - laser, by fins - https://freesound.org/people/fins/sounds/146725/
 162265__qubodup__explosive.ogg - Explosive, by qubodup - https://freesound.org/people/qubodup/sounds/162265/
+178064__jorickhoofd__slam-door-shut.ogg - Slam door shut, by jorickhoofd - https://freesound.org/people/jorickhoofd/sounds/178064/
 207322__animationisaac__short-explosion.ogg - Short explosion, by animationIsaac - https://freesound.org/people/animationIsaac/sounds/207322/
+242856__plasterbrain__nuclear-alarm.ogg - Nuclear Alarm, by plasterbrain - https://freesound.org/people/plasterbrain/sounds/242856/
+249300__suntemple__access-denied.ogg - Access Denied, by suntemple - https://freesound.org/people/suntemple/sounds/249300/
 254071__tb0y298__firework-explosion.ogg - Firework Explosion, by TB0Y298 - https://freesound.org/people/TB0Y298/sounds/254071/
+257786__xtrgamr__mouse-click.ogg - Mouse click, by xtrgamr - https://freesound.org/people/xtrgamr/sounds/257786/
 263621__jamesabdulrahman__permission-to-panic.ogg - Permission to panic?, by jamesabdulrahman - https://freesound.org/people/jamesabdulrahman/sounds/263621/
 268344__julien-matthey__jm-noiz-laser-01.ogg - JM_NOIZ_Laser 01.wav, by Julien Matthey - https://freesound.org/people/Julien%20Matthey/sounds/268344/
 275151__bird-man__gun-shot.ogg - Gun Shot.wav, by Bird_man - https://freesound.org/people/Bird_man/sounds/275151/
+321104__nsstudios__blip2.ogg - blip2, by nsstudios - https://freesound.org/people/nsstudios/sounds/321104/
+321906__bruce965__walkie-talkie-roger-beep.ogg - Walkie Talkie - Roger Beep, by bruce965 - https://freesound.org/people/bruce965/sounds/321906/
+322603__clippysounds__glass-break.ogg - Glass Break, by clippysounds - https://freesound.org/people/clippysounds/sounds/322603/
+
 
 MUSIC
 
@@ -39,6 +53,10 @@ Battle in the winter.mp3, by Johan Brodd - http://opengameart.org/content/battle
 battleThemeA.mp3, by cynicmusic.com | pixelsphere.org - http://opengameart.org/content/battle-theme-a
 determination.mp3, by artisticdude - http://opengameart.org/content/determination
 heroism.ogg, by Edward J. Blakeley (http://www.edwardblakeley.com/) - http://opengameart.org/content/heroism
+InnerCore_Low.ogg - Gundatsch - https://soundcloud.com/gundatsch
 Pressure.ogg, by yd - http://opengameart.org/content/pressure
 Rise of Spirit, by Alexandr Zhelanov - https://soundcloud.com/alexandr-zhelanov
 Showdown.mp3, by el-corleo - http://opengameart.org/content/showdown
+track-1.mp3, by Alexandr Zhelanov - https://soundcloud.com/alexandr-zhelanov
+track-3.mp3, by Alexandr Zhelanov - https://soundcloud.com/alexandr-zhelanov
+track-4.mp3, by Alexandr Zhelanov - https://soundcloud.com/alexandr-zhelanov

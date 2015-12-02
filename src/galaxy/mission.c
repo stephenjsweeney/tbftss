@@ -199,7 +199,7 @@ static void loadFighters(cJSON *node)
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
 	int i, numTypes;
-	long flags;
+	long flags, aiFlags;
 	float x, y;
 	
 	if (node)
@@ -211,6 +211,7 @@ static void loadFighters(cJSON *node)
 			name = NULL;
 			groupName = NULL;
 			flags = -1;
+			aiFlags = -1;
 			scatter = 1;
 			active = 1;
 			number = 1;
@@ -250,6 +251,11 @@ static void loadFighters(cJSON *node)
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
 			}
 			
+			if (cJSON_GetObjectItem(node, "aiFlags"))
+			{
+				aiFlags = flagsToLong(cJSON_GetObjectItem(node, "aiFlags")->valuestring);
+			}
+			
 			for (i = 0 ; i < number ; i++)
 			{
 				type = types[rand() % numTypes];
@@ -264,6 +270,11 @@ static void loadFighters(cJSON *node)
 				if (flags != -1)
 				{
 					f->flags = flags;
+				}
+				
+				if (aiFlags != -1)
+				{
+					f->aiFlags = aiFlags;
 				}
 				
 				if (name)

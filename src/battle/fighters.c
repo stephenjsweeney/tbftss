@@ -278,6 +278,8 @@ void doFighter(void)
 				if (self->side != SIDE_ALLIES)
 				{
 					battle.stats[STAT_ENEMIES_KILLED]++;
+					
+					runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
 				}
 				else
 				{
@@ -379,6 +381,8 @@ void drawFighter(Entity *e)
 	{
 		drawShieldHitEffect(e);
 	}
+	
+	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
 }
 
 void applyFighterThrust(void)

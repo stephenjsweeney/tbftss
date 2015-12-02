@@ -216,7 +216,7 @@ static void findTarget(void)
 	Entity *e, **candidates;
 	unsigned int dist, closest;
 	
-	dist = closest = (!battle.epic || (!(self->aiFlags & AIF_UNLIMITED_RANGE))) ? 2000 : MAX_TARGET_RANGE;
+	dist = closest = (battle.epic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 2000;
 	
 	candidates = getAllEntsWithin(self->x - (self->w / 2) - (dist / 2), self->y - (self->h / 2) - (dist / 2), self->w + dist, self->h + dist, self);
 	

@@ -163,7 +163,7 @@
 				"WAIT 20",
 				"ACTIVATE_ENTITIES Dart",
 				"ACTIVATE_OBJECTIVES 4",
-				"MSG_BOX TAF Pilot;Dan, we've got hostile vessels inbound. More Darts.",
+				"MSG_BOX Wingmate;Dan, we've got hostile vessels inbound. More Darts.",
 				"MSG_BOX Carr;Prepare to engage. Protect the asset!"
 			]
 		},

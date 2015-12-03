@@ -196,7 +196,7 @@ static void scrollGalaxy(void)
 	ssx = ssy = 0;
 	
 	dist = getDistance(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, app.mouse.x, app.mouse.y);
-	if (dist > 196)
+	if (dist > 256)
 	{
 		dx = (SCREEN_WIDTH / 2) - app.mouse.x;
 		dy = (SCREEN_HEIGHT / 2) - app.mouse.y;

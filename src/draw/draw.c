@@ -203,7 +203,7 @@ void saveScreenshot(void)
 	char filename[MAX_NAME_LENGTH];
 	SDL_Surface *sshot;
 	
-	sprintf(filename, "/tmp/tbftss/%d.bmp", ++i);
+	sprintf(filename, "dev/screenshots/tmp/%d.bmp", ++i);
 	
 	sshot = SDL_CreateRGBSurface(0, SCREEN_WIDTH, SCREEN_HEIGHT, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
 	SDL_RenderReadPixels(app.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, sshot->pixels, sshot->pitch);

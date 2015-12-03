@@ -38,7 +38,6 @@ extern SDL_Texture *getTexture(char *filename);
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
 extern void saveGame(void);
-extern char *getChallengeDescription(Challenge *c);
 extern void blit(SDL_Texture *t, int x, int y, int centered);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void updateStarSystemDescriptions(void);

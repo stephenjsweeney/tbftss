@@ -1,0 +1,11 @@
+Source: tbftss
+Package: tbftss
+Version: ${version}
+Section: games
+Priority: optional
+Installed-Size: ${size}
+Architecture: all
+Depends: libsdl2-2.0-0, libsdl2-image-2.0-0, libsdl2-mixer-2.0-0, libsdl2-ttf-2.0-0
+Maintainer: stephenjsweeney@battleforthesolarsystem.com
+Description: 2D mission-based space shooter, based on the Battle for the Solar System space opera novel trilogy. 
+Homepage: www.battleforthesolarsystem.com/games/pw

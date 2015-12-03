@@ -8,9 +8,11 @@ SIZE=0
 
 cd ..
 
-#make clean
-#make
-#make dist
+rm -rf dist/*
+
+make clean
+make
+make dist
 
 mkdir -p $BUILDROOT
 rm -rf $BUILDROOT/*
@@ -39,6 +41,9 @@ cd build
 
 dpkg-deb --build tbftss
 
-mv tbftss.deb ../dist/tbftss-${VERSION}-${REVISION}_i386.deb
+mv tbftss.deb tbftss-${VERSION}-${REVISION}.i386.deb
+alien -r --bump=0 tbftss-${VERSION}-${REVISION}.i386.deb
+
+mv *.deb *.rpm ../dist
 
 rm -rf tbftss

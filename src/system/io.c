@@ -66,6 +66,7 @@ int writeFile(char *filename, char *data)
 char *getSaveFilePath(char *filename)
 {
 	static char path[MAX_FILENAME_LENGTH];
+	memset(path, '\0', MAX_FILENAME_LENGTH);
 	
 	sprintf(path, "%s/%s", app.saveDir, filename);
 	
@@ -77,13 +78,14 @@ char *getSaveFilePath(char *filename)
 char *getFileLocation(char *filename)
 {
 	static char path[MAX_FILENAME_LENGTH];
-	
+	memset(path, '\0', MAX_FILENAME_LENGTH);
+
 	if (fileExists(filename))
 	{
 		return filename;
 	}
 	
-	sprintf(path, "%s/%s\n", DATA_DIR, filename);
+	sprintf(path, DATA_DIR"/%s", filename);
 	
 	return path;
 }

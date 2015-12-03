@@ -6,7 +6,7 @@ VERSION = 0.4
 REVISION = $(shell date +"%y%m%d")
 DEBUG = 0
 
-CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDEBUG=$(DEBUG)
+CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDEBUG=$(DEBUG) -DDATA_DIR=\"$(DATA_DIR)\"
 CXXFLAGS += -Wall -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence
 

@@ -45,7 +45,7 @@ void initWidgets(void)
 	optionsLeft = getTexture("gfx/widgets/optionsLeft.png");
 	optionsRight = getTexture("gfx/widgets/optionsRight.png");
 	
-	loadWidgets(getFileLocation("data/widgets/list.json"));
+	loadWidgets("data/widgets/list.json");
 	
 	drawingWidgets = 0;
 }
@@ -236,7 +236,7 @@ static void loadWidgets(char *filename)
 	
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
-		loadWidgetSet(getFileLocation(node->valuestring));
+		loadWidgetSet(node->valuestring);
 	}
 	
 	cJSON_Delete(root);

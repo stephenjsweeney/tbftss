@@ -46,7 +46,7 @@ void playMusic(char *filename)
 		music = NULL;
 	}
 	
-	music = Mix_LoadMUS(filename);
+	music = Mix_LoadMUS(getFileLocation(filename));
 	
     Mix_PlayMusic(music, -1);
 }

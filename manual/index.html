@@ -20,7 +20,7 @@ span.highlight {font-weight:bold; color: #0bf;}
 <div style="text-align:center">
 <p><img src="logo.png"></p>
 <p><img src="pandoran.png"></p>
-<p>Last updated: 16 Nov 2015</p>
+<p>Last updated: 6th Dec 2015</p>
 </div>
 
 <div>
@@ -69,6 +69,8 @@ This is the main mission select screen. Here, you can move around and select sta
 You can scroll around the galactic map by moving the mouse cursor away from the center of the screen. To stop scrolling, simply move the cursor back towards the middle. To access missions, simply click on a star system that is emitting red pulses.
 </p>
 
+<p>&nbsp;</p>
+
 <div style='position:relative'>
 	<div class="annotation" style="left:65px; top:65px;">1</div>
 	<div class="annotation" style="left:400px; top:35px;">2</div>
@@ -82,9 +84,9 @@ You can scroll around the galactic map by moving the mouse cursor away from the 
 	<li>Number of completed and total missions.</li>
 	<li>A star system:
 	<ol>
-		<li>Blue: CSN star system.</li>
-		<li>White: Independent star system.</li>
-		<li>Red: Pandoran-occupied star system.</li>
+		<li><span style="color:#8cf; font-weight:bold;">Blue</span>: CSN star system.</li>
+		<li><span style="font-weight:bold;">White</span>: Independent star system.</li>
+		<li><span style="color:#f00; font-weight:bold;">Red</span>: Pandoran-occupied star system.</li>
 	</ol>
 	</li>
 	<li>A star system with missions available.</li>
@@ -100,8 +102,11 @@ You can scroll around the galactic map by moving the mouse cursor away from the 
 
 <h3>Star Systems</h3>
 <p>
-The Star System view shows a list of missions available for that star system. In many cases, missions are unlocked as the related or previous missions are completed. The right-hand side of the star system view displays an overview of the mission, including the class of craft the player will be piloting, and the name of the pilot (if applicable), and the squadron to which they belong. To play a mission, highlight it, and then click on "Start Mission".
+The Star System view shows a list of missions available for that star system. In many cases, missions are unlocked as the related or previous missions are completed. The right-hand side of the star system view displays an overview of the mission, including the class of craft the player will be piloting, and the name of the pilot (if applicable), and the squadron to which they belong. To play a mission, highlight it, and then click on <span class="highlight">Start Mission</span>.
 </p>
+
+<p>&nbsp;</p>
+
 <div style='position:relative'>
 	<div class="annotation" style="left:465px; top:55px;">1</div>
 	<div class="annotation" style="left:240px; top:105px;">2</div>
@@ -113,8 +118,8 @@ The Star System view shows a list of missions available for that star system. In
 	<li>Star system name.</li>
 	<li>
 		Available mission list.
-		<ol>Yellow: missions not completed.</ol>
-		<ol>White: missions completed.</ol>
+		<ol><span style="color:#ff0; font-weight:bold;">Yellow</span>: missions not completed.</ol>
+		<ol><span style="font-weight:bold;">White</span>: missions completed.</ol>
 	</li>
 	<li>Start Mission button.</li>
 	<li>Mission detail.</li>
@@ -136,7 +141,7 @@ Mission objectives can be viewed at any time during play by pressing Tab. Object
 </p>
 
 <p>
-The player controls their craft by using the mouse. The fighter will orientate itself in the direction of the mouse cursor. Pressing the right mouse button will cause the craft to accelerate in the direction it is facing. Note that it is possible to turn and face a direction, while retaining the present course. As such, the player is able to strafe. To brake, press S on the keyboard.
+The player controls their craft by using the mouse. The fighter will orientate itself in the direction of the mouse cursor. Pressing the right mouse button will cause the craft to accelerate in the direction it is facing. Note that it is possible to turn and face a direction, while retaining the present course. As such, the player is able to strafe. To brake, press <span class="highlight">[S]</span> on the keyboard.
 </p>
 
 <p>
@@ -147,9 +152,7 @@ To fire the craft's guns (should it be equipped with some), press the left mouse
 From time to time, message boxes will appear. These will carry important communication messages, progress updates, and chatter from your fellow pilots, regarding recent events. They're all worth paying attention to.
 </p>
 
-<p>
-The 
-</p>
+<p>&nbsp;</p>
 
 <div style='position:relative'>
 	<div class="annotation" style="left:430px; top:245px;">1</div>
@@ -165,20 +168,29 @@ The
 	<li>Mouse pointer.</li>
 	<li>
 	Player attributes:
-		<ol>Green: Armour</ol>
-		<ol>Blue: Shield</ol>
-		<ol>Purple: Boost</ol>
-		<ol>Orange: ECM</ol>
+		<ol><span style="color:#0f0; font-weight:bold;">Green</span>: Armour</ol>
+		<ol><span style="color:#8cf; font-weight:bold;">Blue</span>: Shield</ol>
+		<ol><span style="color:#f0f; font-weight:bold;">Purple</span>: Boost</ol>
+		<ol><span style="color:#fa0; font-weight:bold;">Orange</span>: ECM</ol>
 	</li>
 	<li>Selected weapon.</li>
 	<li>Number of missiles.</li>
 	<li>Message box.</li>
 </ol>
 
+<h4>Controls</h4>
+<table class="controls">
+<tr><td>Mouse cursor</td><td>Orientate craft</td></tr>
+<tr><td>Right mouse</td><td>Accelerate</td></tr>
+<tr><td>S</td><td>Brake</td></tr>
+<tr><td>Tab</td><td>Display objectives</td></tr>
+<tr><td>Escape</td><td>Menu</td></tr>
+</table>
+
 <h3>Combat</h3>
 
 <p>
-It is rare for missions not to involve any combat. The player will automatically lock on to the closest enemy to them, switching to a new target if the current one is destroyed. The player can also press A to cycle targets.
+It is rare for missions not to involve any combat. The player will automatically lock on to the closest enemy to them, switching to a new target if the current one is destroyed. The player can also press <span class="highlight">[A]</span> to cycle targets.
 </p>
 
 <p>
@@ -194,14 +206,22 @@ Most fighters, including the player's, are equipped with an energy shield. Unlik
 <h4>Missiles</h4>
 
 <p>
-Missiles are fast, and chase after their targets for quite some time, finally causing a tremendous amount of damage on impact. A missile can only be fired if the player has missiles remaining, and the target is within range. When their route is clear, missiles rarely fail to hit their target, which can be very troublesome for the player if one is loosed against them. The player can instantly destroy any incoming missiles by using their ECM (activated by pressing D). The ECM must recharge whenever it is used (a duration lasting several seconds), and therefore should only be used when it is needed.
+Missiles are fast, and chase after their targets for quite some time, finally causing a tremendous amount of damage on impact. A missile can only be fired if the player has missiles remaining, and the target is within range. When their route is clear, missiles rarely fail to hit their target, which can be very troublesome for the player if one is loosed against them. The player can instantly destroy any incoming missiles by using their <span class="highlight">ECM</span> (activated by pressing <span class="highlight">[D]</span>). The ECM must recharge whenever it is used (a duration lasting several seconds), and therefore should only be used when it is needed.
 </p>
 
 <h4>Boost</h4>
 
 <p>
-Unlike the AI craft in the game, the player has the ability to Boost (unrestricted by craft type). Boosting provides a temporary sudden burst of speed, lasting less than one second. It is highly useful for escaping dangerous situations, and, on occassion, outrunning a missile for long enough to allow the ECM to recharge. Once used, the Boost must spend several seconds recharging.
+Unlike the AI craft in the game, the player has the ability to Boost (unrestricted by craft type). Boosting provides a temporary sudden burst of speed, lasting less than one second. It is highly useful for escaping dangerous situations, and, on occassion, outrunning a missile for long enough to allow the ECM to recharge. Once used, the Boost must spend several seconds recharging. Boost is activated by pressing <span class="highlight">[W]</span>.
 </p>
+
+<h4>Radar</h4>
+
+<p>
+The radar displays a number of coloured blips, with the player in the center. There are three levels of zoom available. The radar zoom can be cycled by pushing down on the mouse wheel.
+</p>
+
+<p>&nbsp;</p>
 
 <div style='position:relative'>
 	<div class="annotation" style="left:400px; top:185px;">1</div>
@@ -221,10 +241,10 @@ Unlike the AI craft in the game, the player has the ability to Boost (unrestrict
 	<li>Target detail:</li>
 	<li>Battle messages</li>
 	<li>Radar:</li>
-		<ol>Green: friendly unit.</ol>
-		<ol>Yellow: current target.</ol>
-		<ol>Red: enemy unit.</ol>
-		<ol>White: mission target.</ol>
+		<ol><span style="color:#0f0; font-weight:bold;">Green</span>: friendly unit.</ol>
+		<ol><span style="color:#ff0; font-weight:bold;">Yellow</span>: current target.</ol>
+		<ol><span style="color:#f00; font-weight:bold;">Red</span>: enemy unit.</ol>
+		<ol><span style="font-weight:bold;">White</span>: mission target.</ol>
 	<li>Radar zoom amount.</li>
 	<li>Number of allied craft.</li>
 	<li>Number of complete / total objectives.</li>
@@ -233,18 +253,12 @@ Unlike the AI craft in the game, the player has the ability to Boost (unrestrict
 
 <h4>Controls</h4>
 <table class="controls">
-<tr><td>Left arrow</td><td>Rotate anti-clockwise</td></tr>
-<tr><td>Right arrow</td><td>Rotate clockwise</td></tr>
-<tr><td>Up arrow</td><td>Accelerate</td></tr>
-<tr><td>Down arrow</td><td>Decelerate</td></tr>
-<tr><td>Left control</td><td>Fire main cannons</td></tr>
-<tr><td>Left shift</td><td>Switch main cannons</td></tr>
-<tr><td>Return</td><td>Launch missile</td></tr>
-<tr><td>T</td><td>Switch targets</td></tr>
-<tr><td>E</td><td>ECM</td></tr>
-<tr><td>Space</td><td>Boost</td></tr>
-<tr><td>Tab</td><td>Display objectives</td></tr>
-<tr><td>Escape</td><td>Menu</td></tr>
+<tr><td>Left mouse</td><td>Fire primary guns</td></tr>
+<tr><td>Mouse wheel up</td><td>Switch main cannons</td></tr>
+<tr><td>Middle mouse button</td><td>Cycle radar zoom</td></tr>
+<tr><td>W</td><td>Boost</td></tr>
+<tr><td>A</td><td>Cycle targets</td></tr>
+<tr><td>D</td><td>ECM</td></tr>
 </table>
 
 <h4>Weaponry</h4>
@@ -254,13 +268,8 @@ Most craft are equipped with offensive weaponry, with some fighters featuring mo
 <li><span class="highlight">Plasma</span>: a standard offensive weapon, that deals heavy levels of damage to shields and armour.</li>
 <li><span class="highlight">Particle</span>: a low-power weapon that deal small amounts of damage to shields and armour. Favoured mostly be pirates and insurgents.</li>
 <li><span class="highlight">Mag</span>: delivers an electro-magnetic charge to the target, draining its system power and rendering it helpless. Can be used to disable vessels.</li>
-<li><span class="highlight">Missile</span>: home in on target vessels, to deliver tremendous amounts of damage.</li>
+<li><span class="highlight">Missile</span>: homes in on target vessels, to deliver tremendous amounts of damage.</li>
 </ul>
-</p>
-
-<h4>Player Abilities</h4>
-<p>
-Unlike the AI craft in the game, the player has access to two special abilities: <span class="highlight">Boost</span> and <span class="highlight">Electronic Counter Measures (ECM)</span>. <span class="highlight">Boost</span> grants the player a sudden burst of speed, useful to escape situations where they might find themselves outgunned. The <span class="highlight">ECM</span> can be activated to destroy missiles that are targetting and homing in on the player. Both of these abilities have unlimited usage, however they must both recharge for a few seconds between use, so their advantages should not be squandered.
 </p>
 
 <h3>Types of Mission</h3>
@@ -295,9 +304,14 @@ Epic Missions are special types of mission. Typically, if the player's craft is 
 
 <h3>Misc gameplay details</h3>
 
+<h4>Shuttles</h4>
+<p>
+Shuttles are unarmed craft that are used to pick up objects found floating around the battle area. Only shuttles have the ability to do this, and some missions will require the player to escort a shuttle to a collection point and back. Being unarmed, they require protection, but will seek to avoid combat and flee on sight of enemy craft. The shuttle may be either player or AI controlled.
+</p>
+
 <h4>Tugs</h4>
 <p>
-Tugs are craft that are used to tow stranded or disabled vessels. When controlled by the player, the tug rope can be attached to the target craft by flying near to it. Note that only one craft can be towed at any one time, and that the tow cable cannot be manually detached. Tugs are very weak craft, having no shields and only a rapid fire particle cannon for protection.
+Tugs are craft that are used to tow stranded or disabled vessels. A tow cable can be attached to the target craft by flying near to it. Note that only one craft can be towed at any one time, and that the tow cable cannot be manually detached. Tugs are very weak craft, having no shields, and only a rapid fire particle cannon for protection. The tug may be either player or AI controlled.
 </p>
 
 <h3>Options</h3>
@@ -332,6 +346,7 @@ See the LICENSE and README.md files that came with this game for information on 
 
 <script>
 var toc = $('#toc');
+var i = 1;
 
 $('h3,h4').each(function(i, e) {
 
@@ -342,12 +357,12 @@ $('h3,h4').each(function(i, e) {
 
 	if (e.tagName == 'H3')
 	{
-		toc.append("<a href=''>" +  + "</a>");
+		toc.append("&blacksquare; <a href='#" + link + "'>" + e.innerText + "</a><br>");
 	}
 	
 	if (e.tagName == 'H4')
 	{
-		toc.append("Hello");
+		toc.append("<span style='text-indent: 50px; display: inline-block'>&#9643 <a href='#" + link + "'>" + e.innerText + "</a></span><br>");
 	}
 });
 

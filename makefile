@@ -41,7 +41,6 @@ dist:
 	git log --oneline --decorate >$(PROG)-$(VERSION)/CHANGELOG.raw
 	tar czf $(PROG)-$(VERSION)-$(REVISION).src.tar.gz $(PROG)-$(VERSION)
 	mkdir -p dist
-	$(RM) -rf dist/*
 	mv $(PROG)-$(VERSION)-$(REVISION).src.tar.gz dist
 	$(RM) -rf $(PROG)-$(VERSION)
 

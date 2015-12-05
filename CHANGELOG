@@ -1,5 +1,21 @@
 Changelog
 
+0.4
+	
+	* Added mouse + keyboard controls (replaces keyboard-only method)
+	* Added new craft: Kingfisher, Mantis, Rook, Hammerhead, Khepri, Scarab, Thunderhead, Shuttle, and Tug
+	* Added laser cannon - highly effective against shields
+	* Tweaks to AI system, to make the game easier, use laser cannons, and updates for Shuttles and Tugs
+	* Added several new missions
+	* Added rockets - straight-firing missiles, that don't home in. Bombers (Hammerhead, Khepri, and Scarab) have unlimited rockets
+	* New AI flags to tell craft to avoid combat all together, or to mostly avoid it.
+	* Messages boxes are now shown during missions, to give the player more information
+	* All craft have had their armour and shield ratings doubled, to make battles last longer
+	* Added remote rocket turrets
+	* Added ECM training mission
+	* Added Windows makefile
+	* Added Linux and Windows binary build scripts
+
 0.3
 
 	* Added a few new missions.

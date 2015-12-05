@@ -1,7 +1,19 @@
-EXEEXT = .exe
+PROG = tbftss.exe
 CC = x86_64-w64-mingw32-gcc
+SDLC = /usr/x86_64-w64-mingw32/bin/sdl2-config
+LIBPATH = /usr/x86_64-w64-mingw32/lib
 
 SEARCHPATH += src/plat/win32
 OBJS += win32Init.o
 
+CXXFLAGS += `$(SDLC) --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDEBUG=$(DEBUG) -DDATA_DIR=\"$(DATA_DIR)\"
+CXXFLAGS += -Wall -ansi -pedantic -Werror -Wstrict-prototypes
+CXXFLAGS += -g -lefence
+
+LFLAGS = `$(SDLC) --libs` -lm -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lSDL2main
+
 include common.mk
+
+# linking the program.
+$(PROG): $(OBJS)
+	$(CC) -o $@ $(OBJS) $(LFLAGS) -L$(LIBPATH)

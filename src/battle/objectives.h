@@ -18,10 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "SDL2/SDL.h"
-
-#include "../defs.h"
-#include "../structs.h"
+#include "../common.h"
 
 extern void updateChallenges(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);

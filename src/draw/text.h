@@ -18,11 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_ttf.h"
+#include "../common.h"
 
-#include "../defs.h"
-#include "../structs.h"
+#include "SDL2/SDL_ttf.h"
 
 extern void blit(SDL_Texture *texture, int x, int y, int centered);
 extern char *getFileLocation(char *filename);

@@ -18,10 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "SDL2/SDL.h"
-
-#include "../defs.h"
-#include "../structs.h"
+#include "../common.h"
 
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void blit(SDL_Texture *texture, int x, int y, int center);

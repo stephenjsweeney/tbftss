@@ -18,10 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "SDL2/SDL.h"
-
-#include "../defs.h"
-#include "../structs.h"
+#include "../common.h"
 
 #define SHOW_GALAXY			0
 #define SHOW_STAR_SYSTEM	1

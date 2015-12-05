@@ -18,10 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "SDL2/SDL.h"
+#include "../common.h"
 
-#include "../defs.h"
-#include "../structs.h"
 #include "../json/cJSON.h"
 
 extern SDL_Texture *getTexture(char *filename);

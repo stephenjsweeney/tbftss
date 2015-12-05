@@ -3,7 +3,7 @@ Changelog
 0.4
 	
 	* Added mouse + keyboard controls (replaces keyboard-only method)
-	* Added new craft: Kingfisher, Mantis, Rook, Hammerhead, Khepri, Scarab, Thunderhead, Shuttle, and Tug
+	* Added new craft: Kingfisher, Mantis, Rook, Hammerhead, Khepri, Scarab, Thunderhead.
 	* Added laser cannon - highly effective against shields
 	* Tweaks to AI system, to make the game easier, use laser cannons, and updates for Shuttles and Tugs
 	* Added several new missions

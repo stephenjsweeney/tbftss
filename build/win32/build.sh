@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+cd `dirname $0`
+
 BUILDROOT="build/win32"
 OUT="$BUILDROOT/tbftss"
 
@@ -22,12 +24,15 @@ cp -r gfx $OUT
 cp -r music $OUT
 cp -r sound $OUT
 cp -r manual $OUT
+cp CHANGELOG
+cp LICENSE
+cp README.md
 
 cp /usr/x86_64-w64-mingw32/bin/*.dll $OUT
 
 cd $BUILDROOT
 
-zip -r tbftss-${VERSION}-${REVISION}.zip tbftss
+zip -r tbftss-${VERSION}-${REVISION}.win32.zip tbftss
 
 mv *.zip ../../dist
 

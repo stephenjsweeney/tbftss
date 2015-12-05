@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+cd `dirname $0`
+
 BUILDROOT="build/linux"
 OUT="$BUILDROOT/tbftss"
 

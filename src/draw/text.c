@@ -142,6 +142,38 @@ static void drawTextSplit(int x, int y, int size, int align, SDL_Color c, char *
 	drawTextNormal(x, y, size, align, c, drawTextBuffer);
 }
 
+int getWrappedTextHeight(char *text, int size)
+{
+	char textBuffer[MAX_DESCRIPTION_LENGTH];
+	char *token;
+	int w, h, currentWidth;
+	int y;
+	
+	STRNCPY(textBuffer, text, MAX_DESCRIPTION_LENGTH);
+	
+	token = strtok(textBuffer, " ");
+	
+	y = 0;
+	currentWidth = 0;
+	
+	while (token)
+	{
+		textSize(token, size, &w, &h);
+		
+		if (currentWidth + w > maxWidth)
+		{
+			currentWidth = 0;
+			y += h;
+		}
+		
+		currentWidth += w;
+		
+		token = strtok(NULL, " ");
+	}
+	
+	return y + h;
+}
+
 static void textSize(char *text, int size, int *w, int *h)
 {
 	if (!font[size])

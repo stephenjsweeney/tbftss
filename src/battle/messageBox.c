@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "messageBox.h"
 
+static void calculateMessageBoxHeight(MessageBox *msg);
+
 static MessageBox head;
 static MessageBox *tail;
 
@@ -79,6 +81,15 @@ void doMessageBox(void)
 	}
 }
 
+static void calculateMessageBoxHeight(MessageBox *msg)
+{
+	limitTextWidth(575);
+	
+	msg->height = getWrappedTextHeight(msg->body, 18);
+	
+	limitTextWidth(0);
+}
+
 int showingMessageBoxes(void)
 {
 	return head.next != NULL;
@@ -91,9 +102,14 @@ void drawMessageBox(void)
 	
 	if (msg && msg->time > 0)
 	{
+		if (!msg->height)
+		{
+			calculateMessageBoxHeight(msg);
+		}
+		
 		r.y = 50;
 		r.w = 650;
-		r.h = 110;
+		r.h = msg->height + 40;
 		r.x = (SCREEN_WIDTH - r.w) / 2;
 		
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -105,7 +121,7 @@ void drawMessageBox(void)
 		
 		drawText(r.x + 10, r.y + 5, 18, TA_LEFT, colors.cyan, msg->title);
 		
-		limitTextWidth(550);
+		limitTextWidth(575);
 		
 		drawText(r.x + 10, r.y + 30, 18, TA_LEFT, colors.white, msg->body);
 		

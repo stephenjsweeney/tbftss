@@ -138,7 +138,7 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "MSG_BOX") == 0)
 	{
-		sscanf(line, "%*s %[^;]%*c%[^\n]", strParam[0], strParam[1]);
+		sscanf(line, "%*s %255[^;]%*c%255[^\n]", strParam[0], strParam[1]);
 		addMessageBox(strParam[0], strParam[1]);
 	}
 	else if (strcmp(command, "WAIT") == 0)

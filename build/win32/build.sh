@@ -24,9 +24,9 @@ cp -r gfx $OUT
 cp -r music $OUT
 cp -r sound $OUT
 cp -r manual $OUT
-cp CHANGELOG
-cp LICENSE
-cp README.md
+cp CHANGELOG $OUT
+cp LICENSE $OUT
+cp README.md $OUT
 
 cp /usr/x86_64-w64-mingw32/bin/*.dll $OUT
 

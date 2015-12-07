@@ -79,6 +79,8 @@ struct Entity {
 	int side;
 	float x;
 	float y;
+	int offsetX;
+	int offsetY;
 	int w;
 	int h;
 	float dx;

@@ -80,6 +80,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_RETREATING		(2 << 8)
 #define EF_NO_EPIC			(2 << 9)
 #define EF_STATIC			(2 << 10)
+#define EF_TAKES_DAMAGE		(2 << 11)
 
 #define AIF_NONE				0
 #define AIF_FOLLOWS_PLAYER		(2 << 0)
@@ -105,7 +106,10 @@ enum
 	ET_FIGHTER,
 	ET_ITEM,
 	ET_WAYPOINT,
-	ET_EXTRACTION_POINT
+	ET_EXTRACTION_POINT,
+	ET_CAPITAL_SHIP_COMPONENT,
+	ET_CAPITAL_SHIP_GUN,
+	ET_CAPITAL_SHIP
 };
 
 enum

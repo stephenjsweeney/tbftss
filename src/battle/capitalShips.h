@@ -20,32 +20,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#include "time.h"
-
 #include "../json/cJSON.h"
 
-extern long lookup(char *name);
-extern char *readFile(char *filename);
+extern Entity *spawnEntity(void);
+extern void addSmallExplosion(void);
+extern void playBattleSound(int id, int x, int y);
 extern SDL_Texture *getTexture(char *filename);
-extern Entity *spawnFighter(char *name, int x, int y, int side);
-extern Entity *spawnCapitalShip(char *name, int x, int y, int side);
-extern void startSectionTransition(void);
-extern void endSectionTransition(void);
-extern void playMusic(char *filename);
-extern void stopMusic(void);
-extern void initPlayer(void);
-extern long flagsToLong(char *flags);
-extern Entity *spawnWaypoint(void);
-extern void activateNextWaypoint(void);
-extern void selectWidget(const char *name, const char *group);
-extern Entity *spawnExtractionPoint(void);
-extern Entity *spawnItem(char *type);
-extern void failIncompleteObjectives(void);
-extern void completeConditions(void);
-extern void retreatEnemies(void);
-extern void initScript(cJSON *missionJSON);
+extern char *readFile(char *filename);
 extern char *getFileLocation(char *filename);
+extern long flagsToLong(char *flags);
 
 extern Battle battle;
-extern Entity *player;
-extern Game game;
+extern Entity *self;

@@ -32,6 +32,7 @@ void initLookups(void)
 	
 	addLookup("ET_WAYPOINT", ET_WAYPOINT);
 	addLookup("ET_EXTRACTION_POINT", ET_EXTRACTION_POINT);
+	addLookup("ET_CAPITAL_SHIP", ET_CAPITAL_SHIP);
 	
 	addLookup("EF_NO_KILL", EF_NO_KILL);
 	addLookup("EF_DISABLED", EF_DISABLED);
@@ -43,6 +44,7 @@ void initLookups(void)
 	addLookup("EF_COLLECTS_ITEMS", EF_COLLECTS_ITEMS);
 	addLookup("EF_NO_EPIC", EF_NO_EPIC);
 	addLookup("EF_STATIC", EF_STATIC);
+	addLookup("EF_TAKES_DAMAGE", EF_TAKES_DAMAGE);
 	
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);

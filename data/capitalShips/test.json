@@ -1,0 +1,46 @@
+{
+	"name" : "Test Frigate",
+	"health" : 1,
+	"shield" : 500,
+	"shieldRechargeRate" : 60,
+	"texture" : "gfx/capitalShips/test/body.png",
+	"components" : [
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/test/core.png",
+			"x" : 0,
+			"y" : -100,
+			"flags" : "EF_TAKES_DAMAGE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/test/engine1.png",
+			"x" : -112,
+			"y" : 281,
+			"flags" : "EF_TAKES_DAMAGE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/test/engine1.png",
+			"x" : 112,
+			"y" : 281,
+			"flags" : "EF_TAKES_DAMAGE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/test/engine2.png",
+			"x" : -34,
+			"y" : 268,
+			"flags" : "EF_TAKES_DAMAGE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/test/engine2.png",
+			"x" : 34,
+			"y" : 268,
+			"flags" : "EF_TAKES_DAMAGE"
+		}
+	],
+	"guns" : [
+	]
+}

@@ -120,6 +120,8 @@ void initGameSystem(void)
 	
 	loadFighterDefs();
 	
+	loadCapitalShipDefs();
+	
 	loadItemDefs();
 	
 	initBulletDefs();
@@ -218,6 +220,8 @@ void cleanup(void)
 	destroyGame();
 	
 	destroyFighterDefs();
+	
+	destroyCapitalShipDefs();
 	
 	destroyBulletDefs();
 	

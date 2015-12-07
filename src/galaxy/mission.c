@@ -23,10 +23,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void loadObjectives(cJSON *node);
 static void loadPlayer(cJSON *node);
 static void loadFighters(cJSON *node);
+static void loadCapitalShips(cJSON *node);
 static void loadEntities(cJSON *node);
 static void loadItems(cJSON *node);
 static unsigned long hashcode(const char *str);
-static char **toFighterTypeArray(char *types, int *numTypes);
+static char **toTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
 
 void loadMission(char *filename)
@@ -54,6 +55,8 @@ void loadMission(char *filename)
 	loadPlayer(cJSON_GetObjectItem(root, "player"));
 	
 	loadFighters(cJSON_GetObjectItem(root, "fighters"));
+	
+	loadCapitalShips(cJSON_GetObjectItem(root, "capitalShips"));
 	
 	loadEntities(cJSON_GetObjectItem(root, "entities"));
 	
@@ -216,7 +219,7 @@ static void loadFighters(cJSON *node)
 			active = 1;
 			number = 1;
 			
-			types = toFighterTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
+			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
 			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
@@ -262,8 +265,11 @@ static void loadFighters(cJSON *node)
 				
 				f = spawnFighter(type, x, y, side);
 				
-				f->x += (rand() % scatter) - (rand() % scatter);
-				f->y += (rand() % scatter) - (rand() % scatter);
+				if (scatter > 1)
+				{
+					f->x += (rand() % scatter) - (rand() % scatter);
+					f->y += (rand() % scatter) - (rand() % scatter);
+				}
 				
 				f->active = active;
 				
@@ -285,6 +291,88 @@ static void loadFighters(cJSON *node)
 				if (groupName)
 				{
 					STRNCPY(f->groupName, groupName, MAX_NAME_LENGTH);
+				}
+			}
+		
+			node = node->next;
+			
+			free(types);
+		}
+	}
+}
+
+static void loadCapitalShips(cJSON *node)
+{
+	Entity *e;
+	char **types, *name, *groupName, *type;
+	int side, scatter, number, active;
+	int i, numTypes;
+	float x, y;
+	
+	if (node)
+	{
+		node = node->child;
+		
+		while (node)
+		{
+			name = NULL;
+			groupName = NULL;
+			scatter = 1;
+			active = 1;
+			number = 1;
+			
+			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
+			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
+			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
+			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
+			
+			if (cJSON_GetObjectItem(node, "name"))
+			{
+				name = cJSON_GetObjectItem(node, "name")->valuestring;
+			}
+			
+			if (cJSON_GetObjectItem(node, "groupName"))
+			{
+				groupName = cJSON_GetObjectItem(node, "groupName")->valuestring;
+			}
+			
+			if (cJSON_GetObjectItem(node, "number"))
+			{
+				number = cJSON_GetObjectItem(node, "number")->valueint;
+			}
+			
+			if (cJSON_GetObjectItem(node, "scatter"))
+			{
+				scatter = cJSON_GetObjectItem(node, "scatter")->valueint;
+			}
+			
+			if (cJSON_GetObjectItem(node, "active"))
+			{
+				active = cJSON_GetObjectItem(node, "active")->valueint;
+			}
+			
+			for (i = 0 ; i < number ; i++)
+			{
+				type = types[rand() % numTypes];
+				
+				e = spawnCapitalShip(type, x, y, side);
+				
+				if (scatter > 1)
+				{
+					e->x += (rand() % scatter) - (rand() % scatter);
+					e->y += (rand() % scatter) - (rand() % scatter);
+				}
+				
+				e->active = active;
+				
+				if (name)
+				{
+					STRNCPY(e->name, name, MAX_NAME_LENGTH);
+				}
+				
+				if (groupName)
+				{
+					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
 				}
 			}
 		
@@ -374,8 +462,11 @@ static void loadEntities(cJSON *node)
 				e->x = x;
 				e->y = y;
 				
-				e->x += (rand() % scatter) - (rand() % scatter);
-				e->y += (rand() % scatter) - (rand() % scatter);
+				if (scatter > 1)
+				{
+					e->x += (rand() % scatter) - (rand() % scatter);
+					e->y += (rand() % scatter) - (rand() % scatter);
+				}
 				
 				e->active = active;
 				
@@ -465,8 +556,11 @@ static void loadItems(cJSON *node)
 				e->y = y;
 				e->active = active;
 				
-				e->x += (rand() % scatter) - (rand() % scatter);
-				e->y += (rand() % scatter) - (rand() % scatter);
+				if (scatter > 1)
+				{
+					e->x += (rand() % scatter) - (rand() % scatter);
+					e->y += (rand() % scatter) - (rand() % scatter);
+				}
 				
 				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			}
@@ -476,7 +570,7 @@ static void loadItems(cJSON *node)
 	}
 }
 
-static char **toFighterTypeArray(char *types, int *numTypes)
+static char **toTypeArray(char *types, int *numTypes)
 {
 	int i;
 	char **typeArray, *type;

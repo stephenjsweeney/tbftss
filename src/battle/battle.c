@@ -169,9 +169,9 @@ static void draw(void)
 	
 	blit(battle.planetTexture, battle.planet.x - battle.camera.x, battle.planet.y - battle.camera.y, 1);
 	
-	drawBullets();
-	
 	drawEntities();
+	
+	drawBullets();
 	
 	drawEffects();
 	

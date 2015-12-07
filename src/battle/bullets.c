@@ -134,7 +134,7 @@ static void checkCollisions(Bullet *b)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->type == ET_FIGHTER)
+		if (e->flags & EF_TAKES_DAMAGE)
 		{
 			if (b->owner != e && e->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, e->x - e->w / 2, e->y - e->h / 2, e->w, e->h))
 			{

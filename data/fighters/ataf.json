@@ -6,7 +6,6 @@
 	"reloadTime" : 8,
 	"shieldRechargeRate" : 5,
 	"textureName" : "gfx/fighters/ataf.png",
-	"flags" : "EF_NO_EPIC",
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",
@@ -59,5 +58,6 @@
 			"y" : 0
 		}
 	],
-	"missiles" : 4
+	"missiles" : 4,
+	"flags" : "EF_NO_EPIC+EF_TAKES_DAMAGE"
 }

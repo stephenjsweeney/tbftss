@@ -13,6 +13,6 @@
 			"y" : 0
 		}
 	],
-	"flags" : "EF_HAS_ROPE",
+	"flags" : "EF_HAS_ROPE+EF_TAKES_DAMAGE",
 	"aiFlags" : "AIF_AVOIDS_COMBAT+AIF_TOWS"
 }

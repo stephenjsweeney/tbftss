@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void drawEntity(Entity *e);
 static void doEntity(void);
+static void alignComponents(void);
 static void drawEntity(Entity *e);
 static void activateEpicFighters(int n, int side);
 static void restrictToGrid(Entity *e);
@@ -59,6 +60,12 @@ void doEntities(void)
 			
 			removeFromGrid(e);
 			
+			e->reload = MAX(e->reload - 1, 0);
+			e->shieldRecharge = MAX(e->shieldRecharge - 1, 0);
+			e->armourHit = MAX(e->armourHit - 25, 0);
+			e->shieldHit = MAX(e->shieldHit - 5, 0);
+			e->systemHit = MAX(e->systemHit - 25, 0);
+			
 			switch (e->type)
 			{
 				case ET_FIGHTER:
@@ -75,7 +82,6 @@ void doEntities(void)
 							numActiveEnemies++;
 						}
 					}
-					
 					break;
 					
 				default:
@@ -170,6 +176,8 @@ void doEntities(void)
 			activateEpicFighters(battle.epicFighterLimit - numActiveEnemies, SIDE_NONE);
 		}
 	}
+	
+	alignComponents();
 }
 
 static void restrictToGrid(Entity *e)
@@ -207,13 +215,60 @@ static void restrictToGrid(Entity *e)
 
 static void doEntity(void)
 {
-	if (self->alive == ALIVE_DYING)
+	if (self->die)
 	{
-		self->alive = ALIVE_DEAD;
+		if (self->health <= 0 && self->die && self->alive == ALIVE_ALIVE)
+		{
+			self->health = 0;
+			self->alive = ALIVE_DYING;
+			self->die();
+			
+			if (self == battle.missionTarget)
+			{
+				battle.missionTarget = NULL;
+			}
+		}
 	}
-	else if (self->health <= 0)
+	else
 	{
-		self->alive = ALIVE_DYING;
+		if (self->alive == ALIVE_DYING)
+		{
+			self->alive = ALIVE_DEAD;
+		}
+		else if (self->health <= 0)
+		{
+			self->alive = ALIVE_DYING;
+		}
+	}
+}
+
+static void alignComponents(void)
+{
+	Entity *e;
+	float x, y;
+	float c, s;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->type == ET_CAPITAL_SHIP_COMPONENT || e->type == ET_CAPITAL_SHIP_GUN)
+		{
+			s = sin(TO_RAIDANS(e->owner->angle));
+			c = cos(TO_RAIDANS(e->owner->angle));
+			
+			x = (e->offsetX * c) - (e->offsetY * s);
+			y = (e->offsetX * s) + (e->offsetY * c);
+			
+			x += e->owner->x;
+			y += e->owner->y;
+			
+			e->x = x;
+			e->y = y;
+			
+			if (e->owner->alive == ALIVE_DYING)
+			{
+				e->alive = ALIVE_DEAD;
+			}
+		}
 	}
 }
 
@@ -233,16 +288,7 @@ void drawEntities(void)
 	{
 		if (e->active)
 		{
-			switch (e->type)
-			{
-				case ET_FIGHTER:
-					drawFighter(e);
-					break;
-					
-				default:
-					drawEntity(e);
-					break;
-			}
+			drawEntity(e);
 		}
 		
 		drawTargetRects(e);
@@ -253,7 +299,26 @@ void drawEntities(void)
 
 static void drawEntity(Entity *e)
 {
+	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
+	
+	if (e->armourHit > 0)
+	{
+		SDL_SetTextureColorMod(e->texture, 255, 255 - e->armourHit, 255 - e->armourHit);
+	}
+	
+	if (e->systemHit > 0)
+	{
+		SDL_SetTextureColorMod(e->texture, 255 - e->systemHit, 255, 255);
+	}
+	
 	blitRotated(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->angle);
+	
+	if (e->shieldHit > 0)
+	{
+		drawShieldHitEffect(e);
+	}
+	
+	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
 }
 
 static void drawTargetRects(Entity *e)

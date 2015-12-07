@@ -21,7 +21,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 
 extern void blitRotated(SDL_Texture *t, int x, int y, int angle);
-extern void drawFighter(Entity *e);
 extern void doFighter(void);
 extern void addToGrid(Entity *e);
 extern void removeFromGrid(Entity *e);
@@ -29,6 +28,7 @@ extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern void doRope(Entity *e);
 extern void drawRope(Entity *e);
 extern void cutRope(Entity *e);
+extern void drawShieldHitEffect(Entity *e);
 
 extern App app;
 extern Battle battle;

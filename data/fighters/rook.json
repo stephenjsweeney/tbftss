@@ -28,5 +28,6 @@
 			"y" : 0
 		}
 	],
-	"missiles" : 4
+	"missiles" : 4,
+	"flags" : "EF_TAKES_DAMAGE"
 }

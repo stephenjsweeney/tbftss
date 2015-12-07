@@ -29,5 +29,6 @@
 		}
 	],
 	"combinedGuns" : 1,
-	"missiles" : 6
+	"missiles" : 6,
+	"flags" : "EF_TAKES_DAMAGE"
 }

@@ -140,7 +140,7 @@ void addSmallFighterExplosion(void)
 	e->y -= e->size / 2;
 }
 
-void addFighterExplosion(void)
+void addSmallExplosion(void)
 {
 	int i;
 	Effect *e;

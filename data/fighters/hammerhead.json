@@ -24,5 +24,6 @@
 		}
 	],
 	"missiles" : 6,
+	"flags" : "EF_TAKES_DAMAGE",
 	"aiFlags" : "AIF_MISSILE_BOAT+AIF_DEFENSIVE"
 }

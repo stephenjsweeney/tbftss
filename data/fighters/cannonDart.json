@@ -17,5 +17,6 @@
 			"x" : 8,
 			"y" : 0
 		}
-	]
+	],
+	"flags" : "EF_TAKES_DAMAGE"
 }

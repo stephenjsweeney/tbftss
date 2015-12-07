@@ -28,6 +28,7 @@ static void straightDie(void);
 static void randomizeDart(Entity *dart);
 static void randomizeDartGuns(Entity *dart);
 static void loadFighterDef(char *filename);
+static Entity *getFighterDef(char *name);
 
 static Entity defHead, *defTail;
 
@@ -187,12 +188,6 @@ void doFighter(void)
 		}
 		
 		attachRope();
-		
-		self->reload = MAX(self->reload - 1, 0);
-		self->shieldRecharge = MAX(self->shieldRecharge - 1, 0);
-		self->armourHit = MAX(self->armourHit - 25, 0);
-		self->shieldHit = MAX(self->shieldHit - 5, 0);
-		self->systemHit = MAX(self->systemHit - 25, 0);
 		
 		if (self->thrust > 0.25)
 		{
@@ -361,30 +356,6 @@ static void separate(void)
 	}
 }
 
-void drawFighter(Entity *e)
-{
-	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
-	
-	if (e->armourHit > 0)
-	{
-		SDL_SetTextureColorMod(e->texture, 255, 255 - e->armourHit, 255 - e->armourHit);
-	}
-	
-	if (e->systemHit > 0)
-	{
-		SDL_SetTextureColorMod(e->texture, 255 - e->systemHit, 255, 255);
-	}
-	
-	blitRotated(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->angle);
-	
-	if (e->shieldHit > 0)
-	{
-		drawShieldHitEffect(e);
-	}
-	
-	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
-}
-
 void applyFighterThrust(void)
 {
 	float v;
@@ -496,7 +467,7 @@ static void die(void)
 static void immediateDie(void)
 {
 	self->alive = ALIVE_DEAD;
-	addFighterExplosion();
+	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 }
 
@@ -518,7 +489,7 @@ static void spinDie(void)
 	if (self->health <= -(FPS * 1.5))
 	{
 		self->alive = ALIVE_DEAD;
-		addFighterExplosion();
+		addSmallExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	}
 }
@@ -539,7 +510,7 @@ static void straightDie(void)
 	if (self->health <= -(FPS * 1.5))
 	{
 		self->alive = ALIVE_DEAD;
-		addFighterExplosion();
+		addSmallExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	}
 }
@@ -576,7 +547,7 @@ void retreatAllies(void)
 	}
 }
 
-Entity *getFighterDef(char *name)
+static Entity *getFighterDef(char *name)
 {
 	Entity *f;
 	
@@ -634,7 +605,7 @@ static void loadFighterDef(char *filename)
 	root = cJSON_Parse(text);
 	
 	STRNCPY(f->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
-	STRNCPY(f->defName, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
+	STRNCPY(f->defName, f->name, MAX_NAME_LENGTH);
 	f->health = f->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
 	f->shield = f->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
 	f->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;

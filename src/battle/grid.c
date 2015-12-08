@@ -56,40 +56,6 @@ void addToGrid(Entity *e)
 	}
 }
 
-void removeFromGrid(Entity *e)
-{
-	GridCell *cell, *prev;
-	int x, y, x1, y1, x2, y2;
-	
-	x1 = (e->x - e->w / 2) / GRID_CELL_WIDTH;
-	y1 = (e->y - e->h / 2) / GRID_CELL_HEIGHT;
-	x2 = (e->x + e->w / 2) / GRID_CELL_WIDTH;
-	y2 = (e->y + e->h / 2) / GRID_CELL_HEIGHT;
-	
-	for (x = x1 ; x <= x2 ; x++)
-	{
-		for (y = y1 ; y <= y2 ; y++)
-		{
-			if (x >= 0 && y >= 0 && x < GRID_SIZE && y < GRID_SIZE)
-			{
-				prev = &battle.grid[x][y];
-				
-				for (cell = battle.grid[x][y].next ; cell != NULL ; cell = cell->next)
-				{
-					if (cell->entity == e)
-					{
-						prev->next = cell->next;
-						free(cell);
-						cell = prev;
-					}
-					
-					prev = cell;
-				}
-			}
-		}
-	}
-}
-
 Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore)
 {
 	GridCell *cell;

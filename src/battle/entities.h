@@ -29,6 +29,7 @@ extern void doRope(Entity *e);
 extern void drawRope(Entity *e);
 extern void cutRope(Entity *e);
 extern void drawShieldHitEffect(Entity *e);
+extern void destroyGrid(void);
 
 extern App app;
 extern Battle battle;

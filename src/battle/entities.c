@@ -52,13 +52,13 @@ void doEntities(void)
 	
 	numAllies = numEnemies = numActiveAllies = numActiveEnemies = 0;
 	
+	destroyGrid();
+	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->active)
 		{
 			self = e;
-			
-			removeFromGrid(e);
 			
 			e->reload = MAX(e->reload - 1, 0);
 			e->shieldRecharge = MAX(e->shieldRecharge - 1, 0);

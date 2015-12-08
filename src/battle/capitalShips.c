@@ -65,10 +65,13 @@ static void componentDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	
+	self->owner->health--;
 }
 
 static void die(void)
 {
+	self->alive = ALIVE_DEAD;
 }
 
 void loadCapitalShipDefs(void)
@@ -135,6 +138,8 @@ static void loadComponents(Entity *parent, cJSON *components)
 	Entity *e;
 	cJSON *component;
 	
+	parent->health = 0;
+	
 	if (components)
 	{
 		component = components->child;
@@ -166,6 +171,8 @@ static void loadComponents(Entity *parent, cJSON *components)
 			e->die = componentDie;
 			
 			component = component->next;
+			
+			parent->health++;
 		}
 	}
 }

@@ -95,6 +95,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_MISSILE_BOAT		(2 << 9)
 #define AIF_AGGRESSIVE			(2 << 10)
 #define AIF_INSTANT_DIE			(2 << 11)
+#define AIF_LONG_RANGE_FIRE		(2 << 12)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)

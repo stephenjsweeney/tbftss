@@ -58,6 +58,14 @@ void doEntities(void)
 	{
 		if (e->active)
 		{
+			addToGrid(e);
+		}
+	}
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->active)
+		{
 			self = e;
 			
 			e->reload = MAX(e->reload - 1, 0);
@@ -111,8 +119,6 @@ void doEntities(void)
 				
 				e->x += e->dx;
 				e->y += e->dy;
-				
-				addToGrid(e);
 			}
 			else
 			{
@@ -263,6 +269,11 @@ static void alignComponents(void)
 			
 			e->x = x;
 			e->y = y;
+			
+			if (e->type == ET_CAPITAL_SHIP_COMPONENT)
+			{
+				e->angle = e->owner->angle;
+			}
 			
 			if (e->owner->alive == ALIVE_DYING)
 			{

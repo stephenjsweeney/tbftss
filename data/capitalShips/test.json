@@ -1,46 +1,106 @@
 {
 	"name" : "Test Frigate",
-	"health" : 1,
+	"health" : 0,
 	"shield" : 500,
 	"shieldRechargeRate" : 60,
 	"texture" : "gfx/capitalShips/test/body.png",
 	"components" : [
 		{
-			"health" : 100,
+			"health" : 350,
 			"texture" : "gfx/capitalShips/test/core.png",
 			"x" : 0,
-			"y" : -100,
-			"flags" : "EF_TAKES_DAMAGE"
+			"y" : -125,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 100,
+			"health" : 200,
 			"texture" : "gfx/capitalShips/test/engine1.png",
 			"x" : -112,
 			"y" : 281,
-			"flags" : "EF_TAKES_DAMAGE"
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 100,
+			"health" : 200,
 			"texture" : "gfx/capitalShips/test/engine1.png",
 			"x" : 112,
 			"y" : 281,
-			"flags" : "EF_TAKES_DAMAGE"
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 100,
+			"health" : 200,
 			"texture" : "gfx/capitalShips/test/engine2.png",
 			"x" : -34,
 			"y" : 268,
-			"flags" : "EF_TAKES_DAMAGE"
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 100,
+			"health" : 200,
 			"texture" : "gfx/capitalShips/test/engine2.png",
 			"x" : 34,
 			"y" : 268,
-			"flags" : "EF_TAKES_DAMAGE"
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		}
 	],
 	"guns" : [
+		{
+			"health" : 100,
+			"texture" : "gfx/cannons/rocketTurret.png",
+			"x" : -110,
+			"y" : 20,
+			"reloadTime" : 10,
+			"type" : "BT_PARTICLE",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/cannons/rocketTurret.png",
+			"x" : -110,
+			"y" : 100,
+			"reloadTime" : 10,
+			"type" : "BT_PARTICLE",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/cannons/rocketTurret.png",
+			"x" : -110,
+			"y" : 180,
+			"reloadTime" : 10,
+			"type" : "BT_PARTICLE",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/cannons/rocketTurret.png",
+			"x" : 110,
+			"y" : 20,
+			"reloadTime" : 10,
+			"type" : "BT_PARTICLE",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/cannons/rocketTurret.png",
+			"x" : 110,
+			"y" : 100,
+			"reloadTime" : 10,
+			"type" : "BT_PARTICLE",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/cannons/rocketTurret.png",
+			"x" : 110,
+			"y" : 180,
+			"reloadTime" : 10,
+			"type" : "BT_PARTICLE",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+		}
 	]
 }

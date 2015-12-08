@@ -59,6 +59,7 @@ void initLookups(void)
 	addLookup("AIF_MISSILE_BOAT", AIF_MISSILE_BOAT);
 	addLookup("AIF_AGGRESSIVE", AIF_AGGRESSIVE);
 	addLookup("AIF_INSTANT_DIE", AIF_INSTANT_DIE);
+	addLookup("AIF_LONG_RANGE_FIRE", AIF_LONG_RANGE_FIRE);
 	
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);

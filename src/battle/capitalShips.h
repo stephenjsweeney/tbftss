@@ -29,6 +29,8 @@ extern SDL_Texture *getTexture(char *filename);
 extern char *readFile(char *filename);
 extern char *getFileLocation(char *filename);
 extern long flagsToLong(char *flags);
+extern long lookup(char *name);
+extern void doAI(void);
 
 extern Battle battle;
 extern Entity *self;

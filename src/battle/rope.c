@@ -83,13 +83,13 @@ void doRope(Entity *owner)
 	}
 }
 
-void drawRope(Entity *owner)
+void drawRope(Entity *e)
 {
-	if (owner->towing)
+	if (e->towing)
 	{
 		SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, SDL_ALPHA_OPAQUE);
 	
-		SDL_RenderDrawLine(app.renderer, owner->x - battle.camera.x, owner->y - battle.camera.y, owner->towing->x - battle.camera.x, owner->towing->y - battle.camera.y);
+		SDL_RenderDrawLine(app.renderer, e->x - battle.camera.x, e->y - battle.camera.y, e->towing->x - battle.camera.x, e->towing->y - battle.camera.y);
 	}
 }
 

@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "capitalShips.h"
 
+static void think(void);
+static void gunThink(void);
 static void componentDie(void);
 static void loadCapitalShipDef(char *filename);
 static void loadComponents(Entity *parent, cJSON *components);
@@ -58,6 +60,16 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 	}
 	
 	return capitalShip;
+}
+
+static void think(void)
+{
+	
+}
+
+static void gunThink(void)
+{
+	doAI();
 }
 
 static void componentDie(void)
@@ -121,6 +133,7 @@ static void loadCapitalShipDef(char *filename)
 	e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 	e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
 	
+	e->action = think;
 	e->die = die;
 	
 	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
@@ -163,6 +176,11 @@ static void loadComponents(Entity *parent, cJSON *components)
 			
 			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			
+			if (cJSON_GetObjectItem(component, "aiFlags"))
+			{
+				e->aiFlags = flagsToLong(cJSON_GetObjectItem(component, "aiFlags")->valuestring);
+			}
+			
 			if (cJSON_GetObjectItem(component, "flags"))
 			{
 				e->flags = flagsToLong(cJSON_GetObjectItem(component, "flags")->valuestring);
@@ -179,6 +197,54 @@ static void loadComponents(Entity *parent, cJSON *components)
 
 static void loadGuns(Entity *parent, cJSON *guns)
 {
+	Entity *e;
+	cJSON *gun;
+	
+	parent->health = 0;
+	
+	if (guns)
+	{
+		gun = guns->child;
+		
+		while (gun)
+		{
+			e = malloc(sizeof(Entity));
+			memset(e, 0, sizeof(Entity));
+			defTail->next = e;
+			defTail = e;
+			
+			e->active = 1;
+	
+			e->type = ET_CAPITAL_SHIP_GUN;
+			STRNCPY(e->name, parent->name, MAX_NAME_LENGTH);
+			STRNCPY(e->defName, parent->defName, MAX_NAME_LENGTH);
+			e->health = e->maxHealth = cJSON_GetObjectItem(gun, "health")->valueint;
+			e->reloadTime = cJSON_GetObjectItem(gun, "reloadTime")->valueint;
+			e->offsetX = cJSON_GetObjectItem(gun, "x")->valueint;
+			e->offsetY = cJSON_GetObjectItem(gun, "y")->valueint;
+			e->texture = getTexture(cJSON_GetObjectItem(gun, "texture")->valuestring);
+			e->guns[0].type = lookup(cJSON_GetObjectItem(gun, "type")->valuestring);
+			
+			if (cJSON_GetObjectItem(gun, "aiFlags"))
+			{
+				e->aiFlags = flagsToLong(cJSON_GetObjectItem(gun, "aiFlags")->valuestring);
+			}
+			
+			if (cJSON_GetObjectItem(gun, "flags"))
+			{
+				e->flags = flagsToLong(cJSON_GetObjectItem(gun, "flags")->valuestring);
+			}
+			
+			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+			
+			e->action = gunThink;
+			e->die = componentDie;
+			
+			gun = gun->next;
+			
+			parent->health++;
+		}
+	}
 }
 
 void destroyCapitalShipDefs(void)

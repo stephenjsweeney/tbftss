@@ -190,10 +190,11 @@ static void huntTarget(void)
 static void huntAndAttackTarget(void)
 {
 	int dist = getDistance(self->x, self->y, self->target->x, self->target->y);
+	int range = self->aiFlags & AIF_LONG_RANGE_FIRE ? 1250 : 625;
 	
 	faceTarget(self->target);
 	
-	if (dist <= 500 && hasClearShot())
+	if (dist <= range && hasClearShot())
 	{
 		preAttack();
 	}
@@ -224,7 +225,7 @@ static void findTarget(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->active && e->type == ET_FIGHTER && (!(e->flags & EF_DISABLED)) && e->side != self->side && e->health > 0 && canAttack(e))
+		if (e->active && (e->flags & EF_TAKES_DAMAGE) && (!(e->flags & EF_DISABLED)) && e->side != self->side && e->health > 0 && canAttack(e))
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			
@@ -316,17 +317,17 @@ static int isInFOV(Entity *f, int fov)
 static int hasClearShot(void)
 {
 	int dist;
-	Entity *f;
+	Entity *e;
 	
 	if (isInFOV(self->target, 4))
 	{
 		dist = getDistance(self->x, self->y, self->target->x, self->target->y);
 		
-		for (f = battle.entityHead.next ; f != NULL ; f = f->next)
+		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
-			if (f->active && f != self && f != self->target && (getDistance(self->x, self->y, f->x, f->y) < dist))
+			if (e->active && e != self && e != self->owner && e != self->target && (getDistance(self->x, self->y, e->x, e->y) < dist))
 			{
-				if (isInFOV(f, 8))
+				if (isInFOV(e, 8))
 				{
 					return 0;
 				}
@@ -460,7 +461,7 @@ static int nearEnemies(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->type == ET_FIGHTER && e->side != self->side && !(e->flags & EF_DISABLED))
+		if ((e->flags & EF_TAKES_DAMAGE) && e->side != self->side && !(e->flags & EF_DISABLED))
 		{
 			self->targetLocation.x += e->x;
 			self->targetLocation.y += e->y;
@@ -597,7 +598,7 @@ static int nearTowableCraft(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->type == ET_FIGHTER && (e->flags & (EF_DISABLED|EF_MISSION_TARGET)) == (EF_DISABLED|EF_MISSION_TARGET))
+		if ((e->flags & (EF_DISABLED|EF_MISSION_TARGET)) == (EF_DISABLED|EF_MISSION_TARGET))
 		{
 			distance = getDistance(self->x, self->y, e->x, e->y);
 			

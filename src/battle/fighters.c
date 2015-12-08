@@ -326,7 +326,7 @@ static void separate(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->type == ET_FIGHTER)
+		if (e->flags & EF_TAKES_DAMAGE)
 		{
 			distance = getDistance(e->x, e->y, self->x, self->y);
 			

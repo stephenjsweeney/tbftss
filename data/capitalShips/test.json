@@ -48,7 +48,7 @@
 			"x" : -110,
 			"y" : 20,
 			"reloadTime" : 10,
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
@@ -58,7 +58,7 @@
 			"x" : -110,
 			"y" : 100,
 			"reloadTime" : 10,
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
@@ -68,7 +68,7 @@
 			"x" : -110,
 			"y" : 180,
 			"reloadTime" : 10,
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
@@ -78,7 +78,7 @@
 			"x" : 110,
 			"y" : 20,
 			"reloadTime" : 10,
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
@@ -88,7 +88,7 @@
 			"x" : 110,
 			"y" : 100,
 			"reloadTime" : 10,
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
@@ -98,7 +98,7 @@
 			"x" : 110,
 			"y" : 180,
 			"reloadTime" : 10,
-			"type" : "BT_PARTICLE",
+			"type" : "BT_PLASMA",
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		}

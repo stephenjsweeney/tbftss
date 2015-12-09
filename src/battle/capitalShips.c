@@ -35,7 +35,7 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 	
 	for (def = defHead.next ; def != NULL ; def = def->next)
 	{
-		if (strcmp(def->name, name) == 0)
+		if ((strcmp(def->name, name) == 0) || (def->owner != NULL && strcmp(def->owner->name, name) == 0))
 		{
 			e = spawnEntity();
 	
@@ -69,7 +69,7 @@ static void think(void)
 
 static void gunThink(void)
 {
-	doAI();
+	/*doAI();*/
 }
 
 static void componentDie(void)
@@ -78,7 +78,10 @@ static void componentDie(void)
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	
-	self->owner->health--;
+	if (self->type == ET_CAPITAL_SHIP_COMPONENT)
+	{
+		self->owner->health--;
+	}
 }
 
 static void die(void)
@@ -167,8 +170,8 @@ static void loadComponents(Entity *parent, cJSON *components)
 			e->active = 1;
 	
 			e->type = ET_CAPITAL_SHIP_COMPONENT;
-			STRNCPY(e->name, parent->name, MAX_NAME_LENGTH);
-			STRNCPY(e->defName, parent->defName, MAX_NAME_LENGTH);
+			sprintf(e->name, "%s (Component)", parent->name);
+			sprintf(e->defName, "%s (Component)", parent->defName);
 			e->health = e->maxHealth = cJSON_GetObjectItem(component, "health")->valueint;
 			e->offsetX = cJSON_GetObjectItem(component, "x")->valueint;
 			e->offsetY = cJSON_GetObjectItem(component, "y")->valueint;
@@ -186,7 +189,11 @@ static void loadComponents(Entity *parent, cJSON *components)
 				e->flags = flagsToLong(cJSON_GetObjectItem(component, "flags")->valuestring);
 			}
 			
+			e->systemPower = 100;
+			
 			e->die = componentDie;
+			
+			e->owner = parent;
 			
 			component = component->next;
 			
@@ -199,8 +206,6 @@ static void loadGuns(Entity *parent, cJSON *guns)
 {
 	Entity *e;
 	cJSON *gun;
-	
-	parent->health = 0;
 	
 	if (guns)
 	{
@@ -216,8 +221,8 @@ static void loadGuns(Entity *parent, cJSON *guns)
 			e->active = 1;
 	
 			e->type = ET_CAPITAL_SHIP_GUN;
-			STRNCPY(e->name, parent->name, MAX_NAME_LENGTH);
-			STRNCPY(e->defName, parent->defName, MAX_NAME_LENGTH);
+			sprintf(e->name, "%s (Cannon)", parent->name);
+			sprintf(e->defName, "%s (Cannon)", parent->defName);
 			e->health = e->maxHealth = cJSON_GetObjectItem(gun, "health")->valueint;
 			e->reloadTime = cJSON_GetObjectItem(gun, "reloadTime")->valueint;
 			e->offsetX = cJSON_GetObjectItem(gun, "x")->valueint;
@@ -237,12 +242,14 @@ static void loadGuns(Entity *parent, cJSON *guns)
 			
 			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			
+			e->systemPower = 100;
+			
 			e->action = gunThink;
 			e->die = componentDie;
 			
-			gun = gun->next;
+			e->owner = parent;
 			
-			parent->health++;
+			gun = gun->next;
 		}
 	}
 }

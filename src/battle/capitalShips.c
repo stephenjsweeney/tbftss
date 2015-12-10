@@ -64,12 +64,41 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 
 static void think(void)
 {
+	float dir;
+	int wantedAngle;
 	
+	if (--self->aiActionTime <= 0)
+	{
+		self->targetLocation.x = rand() % GRID_SIZE;
+		self->targetLocation.x *= GRID_CELL_WIDTH;
+		
+		self->targetLocation.y = rand() % GRID_SIZE;
+		self->targetLocation.y *= GRID_CELL_HEIGHT;
+		
+		self->aiActionTime = FPS * (30 + (rand() % 120));
+	}
+	
+	wantedAngle = getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
+	
+	wantedAngle %= 360;
+	
+	if (fabs(wantedAngle - self->angle) > TURN_THRESHOLD)
+	{
+		dir = ((int)(wantedAngle - self->angle + 360)) % 360 > 180 ? -1 : 1;
+		
+		dir *= TURN_SPEED;
+		
+		self->angle += dir;
+		
+		self->angle = fmod(self->angle, 360);
+	}
+	
+	applyFighterThrust();
 }
 
 static void gunThink(void)
 {
-	/*doAI();*/
+	doAI();
 }
 
 static void componentDie(void)
@@ -86,7 +115,17 @@ static void componentDie(void)
 
 static void die(void)
 {
+	Entity *e;
+	
 	self->alive = ALIVE_DEAD;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->owner == self)
+		{
+			e->health = 0;
+		}
+	}
 }
 
 void loadCapitalShipDefs(void)
@@ -135,6 +174,7 @@ static void loadCapitalShipDef(char *filename)
 	e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
 	e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 	e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
+	e->speed = 1;
 	
 	e->action = think;
 	e->die = die;

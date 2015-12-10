@@ -136,6 +136,11 @@ static void checkCollisions(Bullet *b)
 	{
 		if (e->flags & EF_TAKES_DAMAGE)
 		{
+			if (b->owner->owner != NULL && b->owner->owner == e->owner)
+			{
+				continue;
+			}
+			
 			if (b->owner != e && e->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, e->x - e->w / 2, e->y - e->h / 2, e->w, e->h))
 			{
 				if (b->owner->side == e->side)

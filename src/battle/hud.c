@@ -346,6 +346,20 @@ static void drawObjectives(void)
 	drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, battle.numObjectivesTotal);
 }
 
+static float distanceToKM(int x1, int y1, int x2, int y2)
+{
+	float distance;
+	
+	distance = getDistance(player->x, player->y, player->target->x, player->target->y);
+	
+	/* 2px = 1m approx */
+	distance /= 2;
+	distance = (int)distance;
+	distance /= 1000;
+	
+	return distance;
+}
+
 static void drawDistancesInfo(void)
 {
 	int y;
@@ -355,15 +369,11 @@ static void drawDistancesInfo(void)
 	
 	if (player->target != NULL)
 	{
-		distance = getDistance(player->x, player->y, player->target->x, player->target->y);
-		distance /= 50;
-		
-		distance = (int)distance;
-		distance /= 10;
-		
 		drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
 		
 		y += 30;
+		
+		distance = distanceToKM(player->x, player->y, player->target->x, player->target->y);
 		
 		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.red, "Target: %.2fkm", distance);
 		
@@ -372,11 +382,7 @@ static void drawDistancesInfo(void)
 	
 	if (battle.missionTarget != NULL)
 	{
-		distance = getDistance(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
-		distance /= 50;
-		
-		distance = (int)distance;
-		distance /= 10;
+		distance = distanceToKM(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
 		
 		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.green, "Objective: %.2fkm", distance);
 		
@@ -385,11 +391,7 @@ static void drawDistancesInfo(void)
 	
 	if (battle.extractionPoint != NULL)
 	{
-		distance = getDistance(player->x, player->y, battle.extractionPoint->x, battle.extractionPoint->y);
-		distance /= 50;
-		
-		distance = (int)distance;
-		distance /= 10;
+		distance = distanceToKM(player->x, player->y, battle.extractionPoint->x, battle.extractionPoint->y);
 		
 		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, "Extraction Point: %.2fkm", distance);
 		

@@ -29,7 +29,7 @@ extern void applyFighterThrust(void);
 extern void applyFighterBrakes(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void addHudMessage(SDL_Color c, char *format, ...);
-extern int mod(int n, int x);
+extern float mod(float n, float x);
 extern void playSound(int id);
 extern void failMission(void);
 extern float getAngle(int x1, int y1, int x2, int y2);

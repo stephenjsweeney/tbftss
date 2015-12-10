@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern char *readFile(char *filename);
 extern long lookup(char *name);
-extern int mod(int n, int x);
+extern float mod(float n, float x);
 extern void blit(SDL_Texture *texture, int x, int y, int centered);
 extern SDL_Texture *getTexture(char *filename);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);

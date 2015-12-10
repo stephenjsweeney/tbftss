@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TURN_SPEED 		4
 #define TURN_THRESHOLD 	2
 
-extern int mod(int n, int x);
+extern float mod(float n, float x);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void fireGuns(Entity *owner);
 extern void fireMissile(Entity *owner);

@@ -16,14 +16,14 @@
 			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : -32,
-			"y" : -250,
+			"y" : -200,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : 32,
-			"y" : -250,
+			"y" : -200,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
@@ -96,11 +96,31 @@
 		{
 			"health" : 250,
 			"texture" : "gfx/cannons/rocketTurret.png",
+			"x" : -30,
+			"y" : -250,
+			"reloadTime" : 40,
+			"type" : "BT_ROCKET",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+		},
+		{
+			"health" : 250,
+			"texture" : "gfx/cannons/rocketTurret.png",
+			"x" : 30,
+			"y" : -250,
+			"reloadTime" : 40,
+			"type" : "BT_ROCKET",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+		},
+		{
+			"health" : 250,
+			"texture" : "gfx/cannons/rocketTurret.png",
 			"x" : -110,
 			"y" : 20,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"flags" : "EF_TAKES_DAMAGE",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -110,7 +130,7 @@
 			"y" : 100,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"flags" : "EF_TAKES_DAMAGE",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -120,7 +140,7 @@
 			"y" : 180,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"flags" : "EF_TAKES_DAMAGE",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -130,7 +150,7 @@
 			"y" : 20,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"flags" : "EF_TAKES_DAMAGE",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -140,7 +160,7 @@
 			"y" : 100,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"flags" : "EF_TAKES_DAMAGE",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -150,7 +170,7 @@
 			"y" : 180,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"flags" : "EF_TAKES_DAMAGE",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		}
 	]

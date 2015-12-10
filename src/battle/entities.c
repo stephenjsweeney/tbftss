@@ -20,6 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "entities.h"
 
+static Entity deadHead;
+static Entity *deadTail;
+
 static void drawEntity(Entity *e);
 static void doEntity(void);
 static void alignComponents(void);
@@ -28,6 +31,13 @@ static void activateEpicFighters(int n, int side);
 static void restrictToGrid(Entity *e);
 static void drawTargetRects(Entity *e);
 static int drawComparator(const void *a, const void *b);
+
+void initEntities(void)
+{
+	memset(&deadHead, 0, sizeof(Entity));
+	
+	deadTail = &deadHead;
+}
 
 Entity *spawnEntity(void)
 {
@@ -56,7 +66,7 @@ void doEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->active)
+		if (e->active && e->alive != ALIVE_DEAD)
 		{
 			addToGrid(e);
 		}
@@ -97,7 +107,7 @@ void doEntities(void)
 					break;
 			}
 			
-			if (e->alive == ALIVE_ALIVE || e->alive == ALIVE_DYING)
+			if (e->alive != ALIVE_DEAD)
 			{
 				if (e->action != NULL)
 				{
@@ -142,7 +152,12 @@ void doEntities(void)
 				cutRope(e);
 				
 				prev->next = e->next;
-				free(e);
+				
+				/* move to dead list */
+				e->next = NULL;
+				deadTail->next = e;
+				deadTail = e;
+				
 				e = prev;
 			}
 		}
@@ -430,4 +445,18 @@ static int drawComparator(const void *a, const void *b)
 	Entity *e2 = *((Entity**)b);
 	
 	return e2->type - e1->type;
+}
+
+void destroyEntities(void)
+{
+	Entity *e;
+	
+	while (deadHead.next)
+	{
+		e = deadHead.next;
+		deadHead.next = e->next;
+		free(e);
+	}
+	
+	deadTail = &deadHead;
 }

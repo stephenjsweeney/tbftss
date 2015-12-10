@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void think(void);
 static void gunThink(void);
+static void gunDie(void);
 static void componentDie(void);
 static void engineDie(void);
 static void loadCapitalShipDef(char *filename);
@@ -110,6 +111,13 @@ static void componentDie(void)
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	
 	self->owner->health--;
+}
+
+static void gunDie(void)
+{
+	self->alive = ALIVE_DEAD;
+	addSmallExplosion();
+	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 }
 
 static void engineDie(void)
@@ -308,7 +316,7 @@ static void loadGuns(Entity *parent, cJSON *guns)
 			e->systemPower = 100;
 			
 			e->action = gunThink;
-			e->die = componentDie;
+			e->die = gunDie;
 			
 			e->owner = parent;
 			

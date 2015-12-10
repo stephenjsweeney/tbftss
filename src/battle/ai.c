@@ -45,6 +45,7 @@ static void fleeEnemies(void);
 static int isRetreating(void);
 static int getActionChance(int type);
 static void doFighterAI(void);
+static void doGunAI(void);
 
 void doAI(void)
 {
@@ -83,7 +84,14 @@ void doAI(void)
 	
 	if (!(self->aiFlags & AIF_AVOIDS_COMBAT))
 	{
-		doFighterAI();
+		if (!(self->flags & EF_STATIC))
+		{
+			doFighterAI();
+		}
+		else
+		{
+			doGunAI();
+		}
 		return;
 	}
 	
@@ -112,7 +120,7 @@ static void doFighterAI(void)
 	{
 		findTarget();
 		
-		if (self->target == NULL)
+		if (!self->target)
 		{
 			if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
 			{
@@ -158,6 +166,41 @@ static void doFighterAI(void)
 	{
 		self->action = huntAndAttackTarget;
 		self->aiActionTime = FPS * 3;
+	}
+}
+
+static void doGunAI(void)
+{
+	int r;
+	
+	/* don't hold a grudge against current target */
+	if ((self->target != NULL && self->target->health <= 0) || rand() % 5 == 0)
+	{
+		self->action = doAI;
+		self->target = NULL;
+	}
+
+	if (!self->target || self->target->systemPower <= 0)
+	{
+		findTarget();
+		
+		if (!self->target)
+		{
+			return;
+		}
+	}
+	
+	r = rand() % 100;
+	
+	if (r <= 50)
+	{
+		self->action = huntTarget;
+		self->aiActionTime = FPS * 3;
+	}
+	else
+	{
+		self->action = huntAndAttackTarget;
+		self->aiActionTime = FPS;
 	}
 }
 
@@ -231,7 +274,7 @@ static void findTarget(void)
 			
 			if (dist < closest)
 			{
-				if (self->target == NULL || ((self->target->aiFlags & AIF_AVOIDS_COMBAT) == 0) || ((self->target->aiFlags & AIF_AVOIDS_COMBAT) && rand() % 10) == 0)
+				if (!self->target || ((self->target->aiFlags & AIF_AVOIDS_COMBAT) == 0) || ((self->target->aiFlags & AIF_AVOIDS_COMBAT) && rand() % 10) == 0)
 				{
 					self->target = e;
 					closest = dist;
@@ -325,6 +368,11 @@ static int hasClearShot(void)
 		
 		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
+			if (self->owner != NULL && self->owner == e->owner)
+			{
+				continue;
+			}
+			
 			if (e->active && e != self && e != self->owner && e != self->target && (getDistance(self->x, self->y, e->x, e->y) < dist))
 			{
 				if (isInFOV(e, 8))

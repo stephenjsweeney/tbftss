@@ -255,6 +255,16 @@ static void huntAndAttackTarget(void)
 	nextAction();
 }
 
+static int attackSecondaryTarget(Entity *e)
+{
+	if (self->target->aiFlags & AIF_AVOIDS_COMBAT || self->target->flags & EF_SECONDARY_TARGET)
+	{
+		return rand() % 4 == 0;
+	}
+	
+	return 1;
+}
+
 static void findTarget(void)
 {
 	int i;
@@ -275,7 +285,7 @@ static void findTarget(void)
 			
 			if (dist < closest)
 			{
-				if (!self->target || ((self->target->aiFlags & AIF_AVOIDS_COMBAT) == 0) || ((self->target->aiFlags & AIF_AVOIDS_COMBAT) && rand() % 10) == 0)
+				if (!self->target || attackSecondaryTarget(e))
 				{
 					self->target = e;
 					closest = dist;

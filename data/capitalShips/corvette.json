@@ -100,7 +100,7 @@
 			"y" : -250,
 			"reloadTime" : 40,
 			"type" : "BT_ROCKET",
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -110,7 +110,7 @@
 			"y" : -250,
 			"reloadTime" : 40,
 			"type" : "BT_ROCKET",
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC",
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -120,7 +120,7 @@
 			"y" : 20,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE",
+			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -130,7 +130,7 @@
 			"y" : 100,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE",
+			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -140,7 +140,7 @@
 			"y" : 180,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE",
+			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -150,7 +150,7 @@
 			"y" : 20,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE",
+			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -160,7 +160,7 @@
 			"y" : 100,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE",
+			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -170,7 +170,7 @@
 			"y" : 180,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE",
+			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		}
 	]

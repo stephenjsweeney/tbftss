@@ -44,7 +44,6 @@ Entity *spawnWaypoint(void)
 	waypoint->flags = EF_MISSION_TARGET;
 	waypoint->action = think;
 	waypoint->flags |= EF_NO_MT_BOX;
-	waypoint->flags |= EF_STATIC;
 	
 	return waypoint;
 }

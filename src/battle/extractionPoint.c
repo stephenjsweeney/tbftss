@@ -32,7 +32,6 @@ Entity *spawnExtractionPoint(void)
 	extractionPoint->texture = getTexture("gfx/entities/extractionPoint.png");
 	extractionPoint->action = think;
 	extractionPoint->flags |= EF_NO_MT_BOX;
-	extractionPoint->flags |= EF_STATIC;
 	
 	return extractionPoint;
 }

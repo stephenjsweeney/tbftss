@@ -110,7 +110,7 @@ void doEntities(void)
 				
 				restrictToGrid(e);
 				
-				if (e->flags & EF_STATIC)
+				if (!e->speed)
 				{
 					e->dx = e->dy = 0;
 				}
@@ -283,7 +283,7 @@ static void alignComponents(void)
 			e->x = x;
 			e->y = y;
 			
-			if (e->type == ET_CAPITAL_SHIP_COMPONENT || e->type == ET_CAPITAL_SHIP_ENGINE)
+			if (e->flags & EF_STATIC)
 			{
 				e->angle = e->owner->angle;
 			}

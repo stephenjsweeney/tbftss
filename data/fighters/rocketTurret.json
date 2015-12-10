@@ -13,6 +13,6 @@
 			"y" : 0
 		}
 	],
-	"flags" : "EF_STATIC+EF_TAKES_DAMAGE",
+	"flags" : "EF_TAKES_DAMAGE",
 	"aiFlags" : "AIF_MISSILE_BOAT+AIF_AGGRESSIVE+AIF_INSTANT_DIE+AIF_LONG_RANGE_FIRE"
 }

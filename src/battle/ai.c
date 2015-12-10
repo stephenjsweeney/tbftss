@@ -84,7 +84,7 @@ void doAI(void)
 	
 	if (!(self->aiFlags & AIF_AVOIDS_COMBAT))
 	{
-		if (!(self->flags & EF_STATIC))
+		if (self->speed)
 		{
 			doFighterAI();
 		}
@@ -92,6 +92,7 @@ void doAI(void)
 		{
 			doGunAI();
 		}
+		
 		return;
 	}
 	

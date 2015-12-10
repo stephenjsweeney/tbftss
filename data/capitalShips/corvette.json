@@ -6,84 +6,86 @@
 	"texture" : "gfx/capitalShips/test/body.png",
 	"components" : [
 		{
-			"health" : 350,
+			"health" : 150,
 			"texture" : "gfx/capitalShips/test/core.png",
 			"x" : 0,
 			"y" : -125,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 350,
+			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : -32,
 			"y" : -250,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 350,
+			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : 32,
 			"y" : -250,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 350,
+			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : -110,
 			"y" : -30,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 350,
+			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : 110,
 			"y" : -30,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 350,
+			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : 0,
 			"y" : 0,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 350,
+			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : 0,
 			"y" : 50,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 350,
+			"health" : 50,
 			"texture" : "gfx/capitalShips/test/component.png",
 			"x" : 0,
 			"y" : 100,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
-		},
+		}
+	],
+	"engines" : [
 		{
-			"health" : 250,
+			"health" : 100,
 			"texture" : "gfx/capitalShips/test/engine1.png",
 			"x" : -112,
 			"y" : 281,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 250,
+			"health" : 100,
 			"texture" : "gfx/capitalShips/test/engine1.png",
 			"x" : 112,
 			"y" : 281,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 250,
+			"health" : 100,
 			"texture" : "gfx/capitalShips/test/engine2.png",
 			"x" : -34,
 			"y" : 268,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 250,
+			"health" : 100,
 			"texture" : "gfx/capitalShips/test/engine2.png",
 			"x" : 34,
 			"y" : 268,

@@ -23,9 +23,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void think(void);
 static void gunThink(void);
 static void componentDie(void);
+static void engineDie(void);
 static void loadCapitalShipDef(char *filename);
 static void loadComponents(Entity *parent, cJSON *components);
 static void loadGuns(Entity *parent, cJSON *guns);
+static void loadEngines(Entity *parent, cJSON *engines);
 
 static Entity defHead, *defTail;
 
@@ -107,10 +109,29 @@ static void componentDie(void)
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	
-	if (self->type == ET_CAPITAL_SHIP_COMPONENT)
+	self->owner->health--;
+}
+
+static void engineDie(void)
+{
+	Entity *e;
+	
+	self->alive = ALIVE_DEAD;
+	addSmallExplosion();
+	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		self->owner->health--;
+		if (e != self && e->owner == self->owner && e->type == ET_CAPITAL_SHIP_ENGINE)
+		{
+			return;
+		}
 	}
+	
+	/* no more engines - stop moving */
+	self->owner->speed = 0;
+	self->owner->action = NULL;
+	self->owner->dx = self->owner->dy = 0;
 }
 
 static void die(void)
@@ -184,6 +205,8 @@ static void loadCapitalShipDef(char *filename)
 	loadComponents(e, cJSON_GetObjectItem(root, "components"));
 	
 	loadGuns(e, cJSON_GetObjectItem(root, "guns"));
+	
+	loadEngines(e, cJSON_GetObjectItem(root, "engines"));
 	
 	cJSON_Delete(root);
 	free(text);
@@ -290,6 +313,50 @@ static void loadGuns(Entity *parent, cJSON *guns)
 			e->owner = parent;
 			
 			gun = gun->next;
+		}
+	}
+}
+
+static void loadEngines(Entity *parent, cJSON *engines)
+{
+	Entity *e;
+	cJSON *engine;
+	
+	if (engines)
+	{
+		engine = engines->child;
+		
+		while (engine)
+		{
+			e = malloc(sizeof(Entity));
+			memset(e, 0, sizeof(Entity));
+			defTail->next = e;
+			defTail = e;
+			
+			e->active = 1;
+	
+			e->type = ET_CAPITAL_SHIP_ENGINE;
+			sprintf(e->name, "%s (Engine)", parent->name);
+			sprintf(e->defName, "%s (Engine)", parent->defName);
+			e->health = e->maxHealth = cJSON_GetObjectItem(engine, "health")->valueint;
+			e->offsetX = cJSON_GetObjectItem(engine, "x")->valueint;
+			e->offsetY = cJSON_GetObjectItem(engine, "y")->valueint;
+			e->texture = getTexture(cJSON_GetObjectItem(engine, "texture")->valuestring);
+			
+			if (cJSON_GetObjectItem(engine, "flags"))
+			{
+				e->flags = flagsToLong(cJSON_GetObjectItem(engine, "flags")->valuestring);
+			}
+			
+			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+			
+			e->systemPower = 100;
+			
+			e->die = engineDie;
+			
+			e->owner = parent;
+			
+			engine = engine->next;
 		}
 	}
 }

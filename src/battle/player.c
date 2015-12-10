@@ -89,7 +89,7 @@ void doPlayer(void)
 			
 			handleMouse();
 			
-			if (!player->target || player->target->systemPower <= 0)
+			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0)
 			{
 				selectTarget();
 			}
@@ -401,7 +401,7 @@ static void selectTarget(void)
 		}
 	}
 	
-	if (player->target == NULL || !targets[0])
+	if (!player->target || !targets[0])
 	{
 		player->target = near;
 	}

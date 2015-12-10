@@ -88,18 +88,6 @@ void doEntities(void)
 			{
 				case ET_FIGHTER:
 					doFighter();
-					
-					if (e->health > 0)
-					{
-						if (e->side == SIDE_ALLIES)
-						{
-							numActiveAllies++;
-						}
-						else
-						{
-							numActiveEnemies++;
-						}
-					}
 					break;
 					
 				default:
@@ -162,15 +150,25 @@ void doEntities(void)
 			}
 		}
 		
-		if (e->type == ET_FIGHTER && (battle.epic || e->active) && !(e->flags & EF_NO_EPIC))
+		if (e->type == ET_FIGHTER || e->type == ET_CAPITAL_SHIP)
 		{
 			if (e->side == SIDE_ALLIES)
 			{
 				numAllies++;
+				
+				if (e->health > 0 && (battle.epic || e->active) && !(e->flags & EF_NO_EPIC))
+				{
+					numActiveAllies++;
+				}
 			}
 			else
 			{
 				numEnemies++;
+				
+				if (e->health > 0 && (battle.epic || e->active) && !(e->flags & EF_NO_EPIC))
+				{
+					numActiveEnemies++;
+				}
 			}
 		}
 		
@@ -271,7 +269,7 @@ static void alignComponents(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->type == ET_CAPITAL_SHIP_COMPONENT || e->type == ET_CAPITAL_SHIP_GUN)
+		if (e->type == ET_CAPITAL_SHIP_COMPONENT || e->type == ET_CAPITAL_SHIP_GUN || e->type == ET_CAPITAL_SHIP_ENGINE)
 		{
 			s = sin(TO_RAIDANS(e->owner->angle));
 			c = cos(TO_RAIDANS(e->owner->angle));
@@ -285,14 +283,9 @@ static void alignComponents(void)
 			e->x = x;
 			e->y = y;
 			
-			if (e->type == ET_CAPITAL_SHIP_COMPONENT)
+			if (e->type == ET_CAPITAL_SHIP_COMPONENT || e->type == ET_CAPITAL_SHIP_ENGINE)
 			{
 				e->angle = e->owner->angle;
-			}
-			
-			if (e->owner->alive == ALIVE_DYING)
-			{
-				e->alive = ALIVE_DEAD;
 			}
 		}
 	}

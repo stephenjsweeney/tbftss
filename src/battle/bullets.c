@@ -27,6 +27,13 @@ static Bullet bulletDef[BT_MAX];
 static Bullet *bulletsToDraw[MAX_BULLETS_TO_DRAW];
 static int incomingMissile;
 
+void initBullets(void)
+{
+	incomingMissile = 0;
+	
+	memset(bulletsToDraw, 0, sizeof(Bullet*) * MAX_BULLETS_TO_DRAW);
+}
+
 void initBulletDefs(void)
 {
 	cJSON *root, *node;

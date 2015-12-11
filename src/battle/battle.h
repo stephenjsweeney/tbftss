@@ -72,6 +72,7 @@ extern void initMessageBox(void);
 extern void doMessageBox(void);
 extern void drawMessageBox(void);
 extern void resetMessageBox(void);
+extern void initBullets(void);
 
 extern App app;
 extern Battle battle;

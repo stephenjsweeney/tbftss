@@ -1,4 +1,4 @@
-VERSION = 0.4
+VERSION = 0.41
 REVISION = $(shell date +"%y%m%d")
 DEBUG = 0
 

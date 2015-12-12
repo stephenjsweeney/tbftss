@@ -6,59 +6,59 @@
 	"texture" : "gfx/capitalShips/corvette/body.png",
 	"components" : [
 		{
-			"health" : 150,
-			"texture" : "gfx/capitalShips/corvette/core.png",
-			"x" : 0,
-			"y" : -125,
+			"health" : 50,
+			"texture" : "gfx/capitalShips/corvette/component1.png",
+			"x" : -42,
+			"y" : -36,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 50,
-			"texture" : "gfx/capitalShips/corvette/component.png",
-			"x" : -32,
-			"y" : -200,
+			"texture" : "gfx/capitalShips/corvette/component1.png",
+			"x" : 42,
+			"y" : -36,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 50,
-			"texture" : "gfx/capitalShips/corvette/component.png",
-			"x" : 32,
-			"y" : -200,
+			"texture" : "gfx/capitalShips/corvette/component2.png",
+			"x" : -40,
+			"y" : -8,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 50,
-			"texture" : "gfx/capitalShips/corvette/component.png",
-			"x" : -110,
-			"y" : -30,
+			"texture" : "gfx/capitalShips/corvette/component2.png",
+			"x" : 40,
+			"y" : -8,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 50,
-			"texture" : "gfx/capitalShips/corvette/component.png",
-			"x" : 110,
-			"y" : -30,
+			"texture" : "gfx/capitalShips/corvette/component3.png",
+			"x" : -40,
+			"y" : 68,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 50,
-			"texture" : "gfx/capitalShips/corvette/component.png",
-			"x" : 0,
-			"y" : 0,
+			"texture" : "gfx/capitalShips/corvette/component4.png",
+			"x" : 40,
+			"y" : 68,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 50,
-			"texture" : "gfx/capitalShips/corvette/component.png",
-			"x" : 0,
-			"y" : 50,
+			"texture" : "gfx/capitalShips/corvette/component5.png",
+			"x" : -40,
+			"y" : 128,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 50,
-			"texture" : "gfx/capitalShips/corvette/component.png",
-			"x" : 0,
-			"y" : 100,
+			"texture" : "gfx/capitalShips/corvette/component5.png",
+			"x" : 40,
+			"y" : 128,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		}
 	],

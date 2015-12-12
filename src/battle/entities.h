@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void blitRotated(SDL_Texture *t, int x, int y, int angle);
 extern void doFighter(void);
+extern void doCapitalShip(void);
 extern void addToGrid(Entity *e);
 extern void removeFromGrid(Entity *e);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);

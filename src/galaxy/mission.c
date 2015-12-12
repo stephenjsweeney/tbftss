@@ -307,6 +307,7 @@ static void loadCapitalShips(cJSON *node)
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
 	int i, numTypes;
+	long flags;
 	float x, y;
 	
 	if (node)
@@ -320,6 +321,7 @@ static void loadCapitalShips(cJSON *node)
 			scatter = 1;
 			active = 1;
 			number = 1;
+			flags = -1;
 			
 			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
@@ -351,6 +353,11 @@ static void loadCapitalShips(cJSON *node)
 				active = cJSON_GetObjectItem(node, "active")->valueint;
 			}
 			
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+			}
+			
 			for (i = 0 ; i < number ; i++)
 			{
 				type = types[rand() % numTypes];
@@ -373,6 +380,11 @@ static void loadCapitalShips(cJSON *node)
 				if (groupName)
 				{
 					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
+				}
+				
+				if (flags != -1)
+				{
+					e->flags = flags;
 				}
 			}
 		

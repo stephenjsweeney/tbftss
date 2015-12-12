@@ -46,6 +46,7 @@ void initLookups(void)
 	addLookup("EF_STATIC", EF_STATIC);
 	addLookup("EF_TAKES_DAMAGE", EF_TAKES_DAMAGE);
 	addLookup("EF_SECONDARY_TARGET", EF_SECONDARY_TARGET);
+	addLookup("EF_AI_TARGET", EF_AI_TARGET);
 	
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);

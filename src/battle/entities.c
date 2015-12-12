@@ -90,6 +90,10 @@ void doEntities(void)
 					doFighter();
 					break;
 					
+				case ET_CAPITAL_SHIP:
+					doCapitalShip();
+					break;
+					
 				default:
 					doEntity();
 					break;
@@ -236,7 +240,7 @@ static void doEntity(void)
 {
 	if (self->die)
 	{
-		if (self->health <= 0 && self->die && self->alive == ALIVE_ALIVE)
+		if (self->health <= 0 && self->alive == ALIVE_ALIVE)
 		{
 			self->health = 0;
 			self->alive = ALIVE_DYING;

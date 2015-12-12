@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *spawnEntity(void);
 extern void addSmallExplosion(void);
 extern void playBattleSound(int id, int x, int y);
+extern float getAngle(int x1, int y1, int x2, int y2);
 extern SDL_Texture *getTexture(char *filename);
 extern char *readFile(char *filename);
 extern char *getFileLocation(char *filename);
@@ -38,6 +39,8 @@ extern float getAngle(int x1, int y1, int x2, int y2);
 extern float mod(float n, float x);
 extern void applyFighterThrust(void);
 extern void addLargeEngineEffect(void);
+extern int getDistance(int x1, int y1, int x2, int y2);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 
 extern Battle battle;
 extern Entity *self;

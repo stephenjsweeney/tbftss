@@ -20,12 +20,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "capitalShips.h"
 
+static void separate(void);
 static void think(void);
 static void gunThink(void);
 static void gunDie(void);
 static void componentDie(void);
 static void engineThink(void);
 static void engineDie(void);
+static void findAITarget(void);
 static void loadCapitalShipDef(char *filename);
 static void loadComponents(Entity *parent, cJSON *components);
 static void loadGuns(Entity *parent, cJSON *guns);
@@ -66,6 +68,26 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 	return capitalShip;
 }
 
+void doCapitalShip(void)
+{
+	if (self->alive == ALIVE_ALIVE)
+	{
+		separate();
+		
+		if (self->health <= 0)
+		{
+			self->health = 0;
+			self->alive = ALIVE_DYING;
+			self->die();
+			
+			if (self == battle.missionTarget)
+			{
+				battle.missionTarget = NULL;
+			}
+		}
+	}
+}
+
 static void think(void)
 {
 	float dir;
@@ -73,13 +95,7 @@ static void think(void)
 	
 	if (--self->aiActionTime <= 0)
 	{
-		self->targetLocation.x = rand() % GRID_SIZE;
-		self->targetLocation.x *= GRID_CELL_WIDTH;
-		
-		self->targetLocation.y = rand() % GRID_SIZE;
-		self->targetLocation.y *= GRID_CELL_HEIGHT;
-		
-		self->aiActionTime = FPS * (30 + (rand() % 120));
+		findAITarget();
 	}
 	
 	wantedAngle = getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
@@ -98,6 +114,94 @@ static void think(void)
 	}
 	
 	applyFighterThrust();
+}
+
+static void findAITarget(void)
+{
+	Entity *e;
+	unsigned int dist, closest;
+	
+	self->target = NULL;
+	dist = closest = MAX_TARGET_RANGE;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->active && e->side != self->side && e->flags & EF_AI_TARGET)
+		{
+			dist = getDistance(self->x, self->y, e->x, e->y);
+			
+			if (!self->target || dist < closest)
+			{
+				self->target = e;
+				closest = dist;
+			}
+		}
+	}
+	
+	if (self->target)
+	{
+		self->targetLocation.x = self->target->x + (rand() % 1000 - rand() % 1000);
+		self->targetLocation.y = self->target->y + (rand() % 1000 - rand() % 1000);
+		
+		self->aiActionTime = FPS * 15;
+	}
+	else
+	{
+		self->targetLocation.x = 5 + (rand() % (GRID_SIZE - 10));
+		self->targetLocation.x *= GRID_CELL_WIDTH;
+		
+		self->targetLocation.y = 5 + (rand() % (GRID_SIZE - 10));
+		self->targetLocation.y *= GRID_CELL_HEIGHT;
+		
+		self->aiActionTime = FPS * (30 + (rand() % 120));
+	}
+}
+
+static void separate(void)
+{
+	int angle;
+	int distance;
+	float dx, dy, force;
+	int count;
+	Entity *e, **candidates;
+	int i;
+	
+	dx = dy = 0;
+	count = 0;
+	force = 0;
+	
+	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	{
+		if (e->type == ET_CAPITAL_SHIP)
+		{
+			distance = getDistance(e->x, e->y, self->x, self->y);
+			
+			if (distance > 0 && distance < self->separationRadius)
+			{
+				angle = getAngle(self->x, self->y, e->x, e->y);
+				
+				dx += sin(TO_RAIDANS(angle));
+				dy += -cos(TO_RAIDANS(angle));
+				force += (self->separationRadius - distance) * 0.005;
+				
+				count++;
+			}
+		}
+	}
+	
+	if (count > 0)
+	{
+		dx /= count;
+		dy /= count;
+		
+		dx *= force;
+		dy *= force;
+		
+		self->dx -= dx;
+		self->dy -= dy;
+	}
 }
 
 static void gunThink(void)
@@ -215,6 +319,9 @@ static void loadCapitalShipDef(char *filename)
 	e->die = die;
 	
 	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+	e->separationRadius = MAX(e->w, e->h) * 3;
+	
+	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 	
 	loadComponents(e, cJSON_GetObjectItem(root, "components"));
 	
@@ -306,6 +413,11 @@ static void loadGuns(Entity *parent, cJSON *guns)
 			e->offsetY = cJSON_GetObjectItem(gun, "y")->valueint;
 			e->texture = getTexture(cJSON_GetObjectItem(gun, "texture")->valuestring);
 			e->guns[0].type = lookup(cJSON_GetObjectItem(gun, "type")->valuestring);
+			
+			if (cJSON_GetObjectItem(gun, "missiles"))
+			{
+				e->missiles = cJSON_GetObjectItem(gun, "missiles")->valueint;
+			}
 			
 			if (cJSON_GetObjectItem(gun, "aiFlags"))
 			{

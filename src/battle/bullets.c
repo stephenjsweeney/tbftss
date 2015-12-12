@@ -56,7 +56,7 @@ void initBulletDefs(void)
 		def->damage = cJSON_GetObjectItem(node, "damage")->valueint;
 		def->texture = getTexture(cJSON_GetObjectItem(node, "textureName")->valuestring);
 		def->sound = lookup(cJSON_GetObjectItem(node, "sound")->valuestring);
-		def->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+		def->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, NULL);
 		
 		SDL_QueryTexture(def->texture, NULL, NULL, &def->w, &def->h);
 	}

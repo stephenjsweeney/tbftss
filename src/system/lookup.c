@@ -215,12 +215,17 @@ char *getFlagValues(char *prefix, long flags)
 	return flagStr;
 }
 
-long flagsToLong(char *flags)
+long flagsToLong(char *flags, int *add)
 {
 	char *flag;
 	long total;
 	
 	total = 0;
+	
+	if (add)
+	{
+		*add = (flags[0] == '+');
+	}
 	
 	flag = strtok(flags, "+");
 	while (flag)

@@ -39,7 +39,7 @@ extern void adjustObjectiveTargetValue(char *name, int type, int amount);
 extern void attachRope(void);
 extern char *readFile(char *filename);
 extern long lookup(char *name);
-extern long flagsToLong(char *flags);
+extern long flagsToLong(char *flags, int *add);
 extern void addShieldSplinterEffect(Entity *ent);
 extern void completeMission(void);
 extern void runScriptFunction(char *format, ...);

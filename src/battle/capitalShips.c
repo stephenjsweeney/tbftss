@@ -363,14 +363,14 @@ static void loadComponents(Entity *parent, cJSON *components)
 			
 			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			
-			if (cJSON_GetObjectItem(component, "aiFlags"))
-			{
-				e->aiFlags = flagsToLong(cJSON_GetObjectItem(component, "aiFlags")->valuestring);
-			}
-			
 			if (cJSON_GetObjectItem(component, "flags"))
 			{
-				e->flags = flagsToLong(cJSON_GetObjectItem(component, "flags")->valuestring);
+				e->flags = flagsToLong(cJSON_GetObjectItem(component, "flags")->valuestring, NULL);
+			}
+			
+			if (cJSON_GetObjectItem(component, "aiFlags"))
+			{
+				e->aiFlags = flagsToLong(cJSON_GetObjectItem(component, "aiFlags")->valuestring, NULL);
 			}
 			
 			e->systemPower = 100;
@@ -419,14 +419,14 @@ static void loadGuns(Entity *parent, cJSON *guns)
 				e->missiles = cJSON_GetObjectItem(gun, "missiles")->valueint;
 			}
 			
-			if (cJSON_GetObjectItem(gun, "aiFlags"))
-			{
-				e->aiFlags = flagsToLong(cJSON_GetObjectItem(gun, "aiFlags")->valuestring);
-			}
-			
 			if (cJSON_GetObjectItem(gun, "flags"))
 			{
-				e->flags = flagsToLong(cJSON_GetObjectItem(gun, "flags")->valuestring);
+				e->flags = flagsToLong(cJSON_GetObjectItem(gun, "flags")->valuestring, NULL);
+			}
+			
+			if (cJSON_GetObjectItem(gun, "aiFlags"))
+			{
+				e->aiFlags = flagsToLong(cJSON_GetObjectItem(gun, "aiFlags")->valuestring, NULL);
 			}
 			
 			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
@@ -471,7 +471,7 @@ static void loadEngines(Entity *parent, cJSON *engines)
 			
 			if (cJSON_GetObjectItem(engine, "flags"))
 			{
-				e->flags = flagsToLong(cJSON_GetObjectItem(engine, "flags")->valuestring);
+				e->flags = flagsToLong(cJSON_GetObjectItem(engine, "flags")->valuestring, NULL);
 			}
 			
 			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);

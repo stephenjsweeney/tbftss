@@ -649,12 +649,12 @@ static void loadFighterDef(char *filename)
 	
 	if (cJSON_GetObjectItem(root, "flags"))
 	{
-		f->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring);
+		f->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring, NULL);
 	}
 	
 	if (cJSON_GetObjectItem(root, "aiFlags"))
 	{
-		f->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring);
+		f->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring, NULL);
 	}
 	
 	f->separationRadius = MAX(f->w, f->h);

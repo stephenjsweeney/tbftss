@@ -32,7 +32,7 @@ extern float getAngle(int x1, int y1, int x2, int y2);
 extern SDL_Texture *getTexture(char *filename);
 extern char *readFile(char *filename);
 extern char *getFileLocation(char *filename);
-extern long flagsToLong(char *flags);
+extern long flagsToLong(char *flags, int *add);
 extern long lookup(char *name);
 extern void doAI(void);
 extern float getAngle(int x1, int y1, int x2, int y2);

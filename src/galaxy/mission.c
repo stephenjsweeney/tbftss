@@ -201,7 +201,7 @@ static void loadFighters(cJSON *node)
 	Entity *f;
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
-	int i, numTypes;
+	int i, numTypes, addFlags, addAIFlags;
 	long flags, aiFlags;
 	float x, y;
 	
@@ -251,12 +251,12 @@ static void loadFighters(cJSON *node)
 			
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
-				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
 			}
 			
 			if (cJSON_GetObjectItem(node, "aiFlags"))
 			{
-				aiFlags = flagsToLong(cJSON_GetObjectItem(node, "aiFlags")->valuestring);
+				aiFlags = flagsToLong(cJSON_GetObjectItem(node, "aiFlags")->valuestring, &addAIFlags);
 			}
 			
 			for (i = 0 ; i < number ; i++)
@@ -275,12 +275,30 @@ static void loadFighters(cJSON *node)
 				
 				if (flags != -1)
 				{
-					f->flags = flags;
+					if (addFlags)
+					{
+						f->flags |= flags;
+					}
+					else
+					{
+						f->flags = flags;
+						
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", f->name, f->defName);
+					}
 				}
 				
 				if (aiFlags != -1)
 				{
-					f->aiFlags = aiFlags;
+					if (addAIFlags)
+					{
+						f->aiFlags |= aiFlags;
+					}
+					else
+					{
+						f->aiFlags = aiFlags;
+						
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "AI Flags for '%s' (%s) replaced", f->name, f->defName);
+					}
 				}
 				
 				if (name)
@@ -306,7 +324,7 @@ static void loadCapitalShips(cJSON *node)
 	Entity *e;
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
-	int i, numTypes;
+	int i, numTypes, addFlags;
 	long flags;
 	float x, y;
 	
@@ -355,7 +373,7 @@ static void loadCapitalShips(cJSON *node)
 			
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
-				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
 			}
 			
 			for (i = 0 ; i < number ; i++)
@@ -384,7 +402,16 @@ static void loadCapitalShips(cJSON *node)
 				
 				if (flags != -1)
 				{
-					e->flags = flags;
+					if (addFlags)
+					{
+						e->flags |= flags;
+					}
+					else
+					{
+						e->flags = flags;
+						
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
+					}
 				}
 			}
 		
@@ -494,7 +521,7 @@ static void loadItems(cJSON *node)
 {
 	Entity *e;
 	char *name, *groupName, *type;
-	int i, scatter, number, active;
+	int i, scatter, number, active, addFlags;
 	long flags;
 	float x, y;
 	
@@ -537,7 +564,7 @@ static void loadItems(cJSON *node)
 			
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
-				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring);
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
 			}
 			
 			if (cJSON_GetObjectItem(node, "active"))
@@ -561,7 +588,16 @@ static void loadItems(cJSON *node)
 				
 				if (flags != -1)
 				{
-					e->flags = flags;
+					if (addFlags)
+					{
+						e->flags |= flags;
+					}
+					else
+					{
+						e->flags = flags;
+						
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
+					}
 				}
 				
 				e->x = x;

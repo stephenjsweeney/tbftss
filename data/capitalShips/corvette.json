@@ -6,6 +6,13 @@
 	"texture" : "gfx/capitalShips/corvette/body.png",
 	"components" : [
 		{
+			"health" : 150,
+			"texture" : "gfx/capitalShips/corvette/core.png",
+			"x" : 0,
+			"y" : -100,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
 			"health" : 50,
 			"texture" : "gfx/capitalShips/corvette/component1.png",
 			"x" : -42,
@@ -95,7 +102,7 @@
 	"guns" : [
 		{
 			"health" : 250,
-			"texture" : "gfx/cannons/rocketTurret.png",
+			"texture" : "gfx/capitalShips/corvette/cannon.png",
 			"x" : -30,
 			"y" : -250,
 			"reloadTime" : 40,
@@ -105,7 +112,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/cannons/rocketTurret.png",
+			"texture" : "gfx/capitalShips/corvette/cannon.png",
 			"x" : 30,
 			"y" : -250,
 			"reloadTime" : 40,
@@ -115,7 +122,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/cannons/rocketTurret.png",
+			"texture" : "gfx/capitalShips/corvette/cannon.png",
 			"x" : -110,
 			"y" : 20,
 			"reloadTime" : 10,
@@ -125,7 +132,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/cannons/rocketTurret.png",
+			"texture" : "gfx/capitalShips/corvette/cannon.png",
 			"x" : -110,
 			"y" : 100,
 			"reloadTime" : 10,
@@ -135,7 +142,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/cannons/rocketTurret.png",
+			"texture" : "gfx/capitalShips/corvette/cannon.png",
 			"x" : -110,
 			"y" : 180,
 			"reloadTime" : 10,
@@ -145,7 +152,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/cannons/rocketTurret.png",
+			"texture" : "gfx/capitalShips/corvette/cannon.png",
 			"x" : 110,
 			"y" : 20,
 			"reloadTime" : 10,
@@ -155,7 +162,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/cannons/rocketTurret.png",
+			"texture" : "gfx/capitalShips/corvette/cannon.png",
 			"x" : 110,
 			"y" : 100,
 			"reloadTime" : 10,
@@ -165,7 +172,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/cannons/rocketTurret.png",
+			"texture" : "gfx/capitalShips/corvette/cannon.png",
 			"x" : 110,
 			"y" : 180,
 			"reloadTime" : 10,

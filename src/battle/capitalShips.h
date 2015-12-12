@@ -37,6 +37,7 @@ extern void doAI(void);
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern float mod(float n, float x);
 extern void applyFighterThrust(void);
+extern void addLargeEngineEffect(void);
 
 extern Battle battle;
 extern Entity *self;

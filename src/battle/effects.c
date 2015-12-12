@@ -282,6 +282,38 @@ void addEngineEffect(void)
 	e->y -= e->size / 2;
 }
 
+void addLargeEngineEffect(void)
+{
+	Effect *e;
+	
+	e = malloc(sizeof(Effect));
+	memset(e, 0, sizeof(Effect));
+	battle.effectTail->next = e;
+	battle.effectTail = e;
+	
+	e->type = EFFECT_TEXTURE;
+	
+	e->x = self->x;
+	e->y = self->y;
+	
+	e->x -= sin(TO_RAIDANS(self->angle)) * 16;
+	e->y -= -cos(TO_RAIDANS(self->angle)) * 16;
+	
+	e->x += rand() % 4;
+	e->x -= rand() % 4;
+	
+	e->texture = explosionTexture;
+	e->health = 0;
+	e->size = 64;
+	e->r = 128;
+	e->g = 128;
+	e->b = 255;
+	e->a = 64;
+	
+	e->x -= e->size / 2;
+	e->y -= e->size / 2;
+}
+
 void addMissileEngineEffect(Bullet *b)
 {
 	Effect *e;

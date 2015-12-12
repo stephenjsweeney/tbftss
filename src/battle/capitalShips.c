@@ -24,6 +24,7 @@ static void think(void);
 static void gunThink(void);
 static void gunDie(void);
 static void componentDie(void);
+static void engineThink(void);
 static void engineDie(void);
 static void loadCapitalShipDef(char *filename);
 static void loadComponents(Entity *parent, cJSON *components);
@@ -118,6 +119,11 @@ static void gunDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+}
+
+static void engineThink(void)
+{
+	addLargeEngineEffect();
 }
 
 static void engineDie(void)
@@ -360,6 +366,7 @@ static void loadEngines(Entity *parent, cJSON *engines)
 			
 			e->systemPower = 100;
 			
+			e->action = engineThink;
 			e->die = engineDie;
 			
 			e->owner = parent;

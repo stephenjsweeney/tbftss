@@ -350,7 +350,7 @@ static float distanceToKM(int x1, int y1, int x2, int y2)
 {
 	float distance;
 	
-	distance = getDistance(player->x, player->y, player->target->x, player->target->y);
+	distance = getDistance(x1, y1, x2, y2);
 	
 	/* 2px = 1m approx */
 	distance /= 2;

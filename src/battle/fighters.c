@@ -52,7 +52,7 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 	switch (side)
 	{
 		case SIDE_ALLIES:
-			f->aiAggression = rand() % 3;
+			f->aiAggression = 2 + rand() % 2;
 			if (!(f->aiFlags & AIF_FOLLOWS_PLAYER))
 			{
 				f->aiFlags |= AIF_MOVES_TO_PLAYER;
@@ -65,6 +65,10 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 			
 		case SIDE_PANDORAN:
 			f->aiAggression = 3 + rand() % 2;
+			break;
+			
+		case SIDE_REBEL:
+			f->aiAggression = 1 + rand() % 3;
 			break;
 	}
 	
@@ -469,7 +473,7 @@ static void immediateDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
-	addDebris(self->x, self->y, 8);
+	addDebris(self->x, self->y, rand() % 5);
 }
 
 static void spinDie(void)
@@ -492,7 +496,7 @@ static void spinDie(void)
 		self->alive = ALIVE_DEAD;
 		addSmallExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
-		addDebris(self->x, self->y, 8);
+		addDebris(self->x, self->y, rand() % 5);
 	}
 }
 
@@ -514,7 +518,7 @@ static void straightDie(void)
 		self->alive = ALIVE_DEAD;
 		addSmallExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
-		addDebris(self->x, self->y, 8);
+		addDebris(self->x, self->y, rand() % 5);
 	}
 }
 

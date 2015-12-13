@@ -140,6 +140,31 @@ void addSmallFighterExplosion(void)
 	e->y -= e->size / 2;
 }
 
+void addDebrisFire(int x, int y)
+{
+	Effect *e;
+	
+	e = malloc(sizeof(Effect));
+	memset(e, 0, sizeof(Effect));
+	battle.effectTail->next = e;
+	battle.effectTail = e;
+	
+	e->type = EFFECT_TEXTURE;
+	
+	e->x = x + (rand() % 8 - rand() % 8);
+	e->y = y + (rand() % 8 - rand() % 8);
+	e->texture = explosionTexture;
+	e->health = 0;
+	e->size = 8 + rand() % 9;
+	
+	setRandomFlameHue(e);
+	
+	e->a = rand() % 256;
+	
+	e->x -= e->size / 2;
+	e->y -= e->size / 2;
+}
+
 void addSmallExplosion(void)
 {
 	int i;

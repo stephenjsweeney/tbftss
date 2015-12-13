@@ -42,6 +42,7 @@ void initBattle(void)
 {
 	memset(&battle, 0, sizeof(Battle));
 	battle.bulletTail = &battle.bulletHead;
+	battle.debrisTail = &battle.debrisHead;
 	battle.entityTail = &battle.entityHead;
 	battle.effectTail = &battle.effectHead;
 	battle.objectiveTail = &battle.objectiveHead;
@@ -67,6 +68,8 @@ void initBattle(void)
 	initMessageBox();
 	
 	initMissionInfo();
+	
+	initDebris();
 	
 	resetWaypoints();
 	
@@ -136,6 +139,8 @@ static void doBattle(void)
 	
 	doEffects();
 	
+	doDebris();
+	
 	doPlayer();
 	
 	doMessageBox();
@@ -176,6 +181,8 @@ static void draw(void)
 	drawEntities();
 	
 	drawBullets();
+	
+	drawDebris();
 	
 	drawEffects();
 	
@@ -339,6 +346,7 @@ void destroyBattle(void)
 {
 	Entity *ent;
 	Bullet *b;
+	Debris *d;
 	Effect *e;
 	Objective *o;
 	
@@ -357,6 +365,14 @@ void destroyBattle(void)
 		free(b);
 	}
 	battle.bulletTail = &battle.bulletHead;
+	
+	while (battle.debrisHead.next)
+	{
+		d = battle.debrisHead.next;
+		battle.debrisHead.next = d->next;
+		free(d);
+	}
+	battle.debrisTail = &battle.debrisHead;
 	
 	while (battle.effectHead.next)
 	{

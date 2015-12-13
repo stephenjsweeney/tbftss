@@ -23,6 +23,7 @@ typedef struct Lookup Lookup;
 typedef struct Weapon Weapon;
 typedef struct Entity Entity;
 typedef struct Bullet Bullet;
+typedef struct Debris Debris;
 typedef struct Effect Effect;
 typedef struct Objective Objective;
 typedef struct StarSystem StarSystem;
@@ -140,6 +141,18 @@ struct Bullet {
 	Bullet *next;
 };
 
+struct Debris {
+	float x;
+	float y;
+	float dx;
+	float dy;
+	int health;
+	int thinkTime;
+	float angle;
+	SDL_Texture *texture;
+	Debris *next;
+};
+
 typedef struct {
 	float x;
 	float y;
@@ -247,6 +260,7 @@ typedef struct {
 	PointF planet;
 	Entity entityHead, *entityTail;
 	Bullet bulletHead, *bulletTail;
+	Debris debrisHead, *debrisTail;
 	Effect effectHead, *effectTail;
 	Objective objectiveHead, *objectiveTail;
 	struct cJSON *missionJSON;

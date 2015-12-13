@@ -469,6 +469,7 @@ static void immediateDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	addDebris(self->x, self->y, 8);
 }
 
 static void spinDie(void)
@@ -491,6 +492,7 @@ static void spinDie(void)
 		self->alive = ALIVE_DEAD;
 		addSmallExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+		addDebris(self->x, self->y, 8);
 	}
 }
 
@@ -512,6 +514,7 @@ static void straightDie(void)
 		self->alive = ALIVE_DEAD;
 		addSmallExplosion();
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+		addDebris(self->x, self->y, 8);
 	}
 }
 

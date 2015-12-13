@@ -214,8 +214,14 @@ static void componentDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	addDebris(self->x, self->y, rand() % 4);
 	
 	self->owner->health--;
+	
+	if (self->owner->health > 0)
+	{
+		runScriptFunction("CAP_HEALTH %s %d", self->owner->name, self->owner->health);
+	}
 }
 
 static void gunDie(void)
@@ -223,6 +229,7 @@ static void gunDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	addDebris(self->x, self->y, rand() % 4);
 }
 
 static void engineThink(void)
@@ -237,6 +244,7 @@ static void engineDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	addDebris(self->x, self->y, 4 + rand() % 9);
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -247,9 +255,14 @@ static void engineDie(void)
 	}
 	
 	/* no more engines - stop moving */
-	self->owner->speed = 0;
-	self->owner->action = NULL;
-	self->owner->dx = self->owner->dy = 0;
+	if (self->owner->health > 0)
+	{
+		self->owner->speed = 0;
+		self->owner->action = NULL;
+		self->owner->dx = self->owner->dy = 0;
+		
+		runScriptFunction("CAP_ENGINES_DESTROYED %s", self->owner->name);
+	}
 }
 
 static void die(void)
@@ -257,6 +270,8 @@ static void die(void)
 	Entity *e;
 	
 	self->alive = ALIVE_DEAD;
+	
+	addDebris(self->x, self->y, 50);
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{

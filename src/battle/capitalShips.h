@@ -41,6 +41,8 @@ extern void applyFighterThrust(void);
 extern void addLargeEngineEffect(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern void addDebris(int x, int y, int amount);
+extern void runScriptFunction(char *format, ...);
 
 extern Battle battle;
 extern Entity *self;

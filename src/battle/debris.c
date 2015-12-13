@@ -51,9 +51,9 @@ void addDebris(int x, int y, int amount)
 	
 		d->x = x;
 		d->y = y;
-		d->dx = rand() % 500 - rand() % 500;
+		d->dx = rand() % 1000 - rand() % 1000;
 		d->dx *= 0.01;
-		d->dy = rand() % 500 - rand() % 500;
+		d->dy = rand() % 1000 - rand() % 1000;
 		d->dy *= 0.01;
 		d->health = FPS + (FPS * (rand() % 3));
 		

@@ -100,7 +100,6 @@ void doBullets(void)
 		
 		if (--b->life <= 0)
 		{
-			
 			if (player != NULL && player->alive == ALIVE_ALIVE && b->type == BT_MISSILE && b->damage > 0 && b->target == player)
 			{
 				battle.stats[STAT_MISSILES_EVADED]++;
@@ -117,7 +116,7 @@ void doBullets(void)
 		}
 		else
 		{
-			if (collision(b->x - b->w - battle.camera.x, b->y - b->h - battle.camera.y, b->w * 2, b->h * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+			if (collision(b->x - (b->w / 2) - battle.camera.x, b->y - (b->h / 2) - battle.camera.y, b->w * 2, b->h * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
 			{
 				bulletsToDraw[i++] = b;
 				if (i >= MAX_BULLETS_TO_DRAW)

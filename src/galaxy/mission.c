@@ -198,7 +198,7 @@ static void loadPlayer(cJSON *node)
 
 static void loadFighters(cJSON *node)
 {
-	Entity *f;
+	Entity *e;
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
 	int i, numTypes, addFlags, addAIFlags;
@@ -263,27 +263,27 @@ static void loadFighters(cJSON *node)
 			{
 				type = types[rand() % numTypes];
 				
-				f = spawnFighter(type, x, y, side);
+				e = spawnFighter(type, x, y, side);
 				
 				if (scatter > 1)
 				{
-					f->x += (rand() % scatter) - (rand() % scatter);
-					f->y += (rand() % scatter) - (rand() % scatter);
+					e->x += (rand() % scatter) - (rand() % scatter);
+					e->y += (rand() % scatter) - (rand() % scatter);
 				}
 				
-				f->active = active;
+				e->active = active;
 				
 				if (flags != -1)
 				{
 					if (addFlags)
 					{
-						f->flags |= flags;
+						e->flags |= flags;
 					}
 					else
 					{
-						f->flags = flags;
+						e->flags = flags;
 						
-						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", f->name, f->defName);
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
 					}
 				}
 				
@@ -291,24 +291,24 @@ static void loadFighters(cJSON *node)
 				{
 					if (addAIFlags)
 					{
-						f->aiFlags |= aiFlags;
+						e->aiFlags |= aiFlags;
 					}
 					else
 					{
-						f->aiFlags = aiFlags;
+						e->aiFlags = aiFlags;
 						
-						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "AI Flags for '%s' (%s) replaced", f->name, f->defName);
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "AI Flags for '%s' (%s) replaced", e->name, e->defName);
 					}
 				}
 				
 				if (name)
 				{
-					STRNCPY(f->name, name, MAX_NAME_LENGTH);
+					STRNCPY(e->name, name, MAX_NAME_LENGTH);
 				}
 				
 				if (groupName)
 				{
-					STRNCPY(f->groupName, groupName, MAX_NAME_LENGTH);
+					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
 				}
 			}
 		

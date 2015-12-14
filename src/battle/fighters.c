@@ -34,68 +34,68 @@ static Entity defHead, *defTail;
 
 Entity *spawnFighter(char *name, int x, int y, int side)
 {
-	Entity *f, *def;
+	Entity *e, *def;
 	
-	f = spawnEntity();
+	e = spawnEntity();
 	
 	def = getFighterDef(name);
 	
-	memcpy(f, def, sizeof(Entity));
+	memcpy(e, def, sizeof(Entity));
 	
-	f->id = battle.entId;
-	f->next = NULL;
+	e->id = battle.entId;
+	e->next = NULL;
 	
-	f->x = x;
-	f->y = y;
-	f->side = side;
+	e->x = x;
+	e->y = y;
+	e->side = side;
 	
 	switch (side)
 	{
 		case SIDE_ALLIES:
-			f->aiAggression = 2 + rand() % 2;
-			if (!(f->aiFlags & AIF_FOLLOWS_PLAYER))
+			e->aiAggression = 2 + rand() % 2;
+			if (!(e->aiFlags & AIF_FOLLOWS_PLAYER))
 			{
-				f->aiFlags |= AIF_MOVES_TO_PLAYER;
+				e->aiFlags |= AIF_MOVES_TO_PLAYER;
 			}
 			break;
 			
 		case SIDE_PIRATE:
-			f->aiAggression = rand() % 3;
+			e->aiAggression = rand() % 3;
 			break;
 			
 		case SIDE_PANDORAN:
-			f->aiAggression = 3 + rand() % 2;
+			e->aiAggression = 3 + rand() % 2;
 			break;
 			
 		case SIDE_REBEL:
-			f->aiAggression = 1 + rand() % 3;
+			e->aiAggression = 1 + rand() % 3;
 			break;
 	}
 	
 	if (strcmp(name, "ATAF") == 0)
 	{
-		f->aiAggression = 4;
+		e->aiAggression = 4;
 	}
 	
 	if (strcmp(name, "Dart") == 0)
 	{
-		randomizeDart(f);
+		randomizeDart(e);
 	}
 	
 	if (strcmp(name, "Civilian") == 0 && rand() % 2 == 0)
 	{
-		f->texture = getTexture("gfx/craft/civilian02.png");
+		e->texture = getTexture("gfx/craft/civilian02.png");
 	}
 	
-	if (f->aiFlags & AIF_AGGRESSIVE)
+	if (e->aiFlags & AIF_AGGRESSIVE)
 	{
-		f->aiAggression = 4;
+		e->aiAggression = 4;
 	}
 	
-	f->action = doAI;
-	f->die = die;
+	e->action = doAI;
+	e->die = die;
 	
-	return f;
+	return e;
 }
 
 static void randomizeDart(Entity *dart)
@@ -385,58 +385,58 @@ void applyFighterBrakes(void)
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 }
 
-void damageFighter(Entity *f, int amount, long flags)
+void damageFighter(Entity *e, int amount, long flags)
 {
-	int prevShield = f->shield;
+	int prevShield = e->shield;
 	
 	if (flags & BF_SYSTEM_DAMAGE)
 	{
-		f->systemPower = MAX(0, f->systemPower - amount);
+		e->systemPower = MAX(0, e->systemPower - amount);
 		
-		f->systemHit = 255;
+		e->systemHit = 255;
 	
-		if (f->systemPower == 0)
+		if (e->systemPower == 0)
 		{
-			f->shield = f->maxShield = 0;
-			f->action = NULL;
+			e->shield = e->maxShield = 0;
+			e->action = NULL;
 		}
 	}
 	else if (flags & BF_SHIELD_DAMAGE)
 	{
-		f->shield = MAX(-(FPS * 10), f->shield - amount);
+		e->shield = MAX(-(FPS * 10), e->shield - amount);
 		
-		if (f->shield <= 0 && prevShield > 0)
+		if (e->shield <= 0 && prevShield > 0)
 		{
-			playBattleSound(SND_SHIELD_BREAK, f->x, f->y);
-			addShieldSplinterEffect(f);
+			playBattleSound(SND_SHIELD_BREAK, e->x, e->y);
+			addShieldSplinterEffect(e);
 		}
 	}
 	else
 	{
-		if (f->shield > 0)
+		if (e->shield > 0)
 		{
-			f->shield -= amount;
+			e->shield -= amount;
 			
-			if (f->shield < 0)
+			if (e->shield < 0)
 			{
-				f->health += f->shield;
-				f->shield = 0;
+				e->health += e->shield;
+				e->shield = 0;
 			}
 		}
 		else
 		{
-			f->health -= amount;
-			f->armourHit = 255;
+			e->health -= amount;
+			e->armourHit = 255;
 			
-			playBattleSound(SND_ARMOUR_HIT, f->x, f->y);
+			playBattleSound(SND_ARMOUR_HIT, e->x, e->y);
 		}
 	}
 	
-	if (f->shield > 0)
+	if (e->shield > 0)
 	{
-		f->shieldHit = 255;
+		e->shieldHit = 255;
 		
-		playBattleSound(SND_SHIELD_HIT, f->x, f->y);
+		playBattleSound(SND_SHIELD_HIT, e->x, e->y);
 	}
 }
 
@@ -556,13 +556,13 @@ void retreatAllies(void)
 
 static Entity *getFighterDef(char *name)
 {
-	Entity *f;
+	Entity *e;
 	
-	for (f = defHead.next ; f != NULL ; f = f->next)
+	for (e = defHead.next ; e != NULL ; e = e->next)
 	{
-		if (strcmp(f->name, name) == 0)
+		if (strcmp(e->name, name) == 0)
 		{
-			return f;
+			return e;
 		}
 	}
 	
@@ -594,33 +594,33 @@ static void loadFighterDef(char *filename)
 {
 	cJSON *root, *node;
 	char *text;
-	Entity *f;
+	Entity *e;
 	int i;
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 	
 	text = readFile(getFileLocation(filename));
 	
-	f = malloc(sizeof(Entity));
-	memset(f, 0, sizeof(Entity));
-	defTail->next = f;
-	defTail = f;
+	e = malloc(sizeof(Entity));
+	memset(e, 0, sizeof(Entity));
+	defTail->next = e;
+	defTail = e;
 	
-	f->type = ET_FIGHTER;
-	f->active = 1;
+	e->type = ET_FIGHTER;
+	e->active = 1;
 	
 	root = cJSON_Parse(text);
 	
-	STRNCPY(f->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
-	STRNCPY(f->defName, f->name, MAX_NAME_LENGTH);
-	f->health = f->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
-	f->shield = f->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
-	f->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;
-	f->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
-	f->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
-	f->texture = getTexture(cJSON_GetObjectItem(root, "textureName")->valuestring);
+	STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
+	STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
+	e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
+	e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
+	e->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;
+	e->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
+	e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
+	e->texture = getTexture(cJSON_GetObjectItem(root, "textureName")->valuestring);
 	
-	SDL_QueryTexture(f->texture, NULL, NULL, &f->w, &f->h);
+	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 	
 	if (cJSON_GetObjectItem(root, "guns"))
 	{
@@ -628,9 +628,9 @@ static void loadFighterDef(char *filename)
 		
 		for (node = cJSON_GetObjectItem(root, "guns")->child ; node != NULL ; node = node->next)
 		{
-			f->guns[i].type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			f->guns[i].x = cJSON_GetObjectItem(node, "x")->valueint;
-			f->guns[i].y = cJSON_GetObjectItem(node, "y")->valueint;
+			e->guns[i].type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+			e->guns[i].x = cJSON_GetObjectItem(node, "x")->valueint;
+			e->guns[i].y = cJSON_GetObjectItem(node, "y")->valueint;
 			
 			i++;
 			
@@ -643,32 +643,32 @@ static void loadFighterDef(char *filename)
 		
 		if (cJSON_GetObjectItem(root, "combinedGuns"))
 		{
-			f->combinedGuns = cJSON_GetObjectItem(root, "combinedGuns")->valueint;
+			e->combinedGuns = cJSON_GetObjectItem(root, "combinedGuns")->valueint;
 		}
 	}
 	
-	f->selectedGunType = f->guns[0].type;
+	e->selectedGunType = e->guns[0].type;
 	
 	if (cJSON_GetObjectItem(root, "missiles"))
 	{
-		f->missiles = cJSON_GetObjectItem(root, "missiles")->valueint;
+		e->missiles = cJSON_GetObjectItem(root, "missiles")->valueint;
 	}
 	
 	if (cJSON_GetObjectItem(root, "flags"))
 	{
-		f->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring, NULL);
+		e->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring, NULL);
 	}
 	
 	if (cJSON_GetObjectItem(root, "aiFlags"))
 	{
-		f->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring, NULL);
+		e->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring, NULL);
 	}
 	
-	f->separationRadius = MAX(f->w, f->h);
-	f->separationRadius *= 3;
+	e->separationRadius = MAX(e->w, e->h);
+	e->separationRadius *= 3;
 	
 	/* all craft default to 100 system power */
-	f->systemPower = 100;
+	e->systemPower = 100;
 	
 	cJSON_Delete(root);
 	free(text);
@@ -676,12 +676,12 @@ static void loadFighterDef(char *filename)
 
 void destroyFighterDefs(void)
 {
-	Entity *f;
+	Entity *e;
 	
 	while (defHead.next)
 	{
-		f = defHead.next;
-		defHead.next = f->next;
-		free(f);
+		e = defHead.next;
+		defHead.next = e->next;
+		free(e);
 	}
 }

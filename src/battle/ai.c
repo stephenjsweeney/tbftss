@@ -20,8 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "ai.h"
 
-static void faceTarget(Entity *f);
-static int isInFOV(Entity *f, int fov);
+static void faceTarget(Entity *e);
+static int isInFOV(Entity *e, int fov);
 static void preAttack(void);
 static void huntTarget(void);
 static void huntAndAttackTarget(void);
@@ -31,7 +31,7 @@ static void findTarget(void);
 static int hasClearShot(void);
 static void fallback(void);
 static void moveToPlayer(void);
-static int canAttack(Entity *f);
+static int canAttack(Entity *e);
 static int selectWeapon(int type);
 static int nearExtractionPoint(void);
 static void moveToExtractionPoint(void);
@@ -295,13 +295,13 @@ static void findTarget(void)
 	}
 }
 
-static int canAttack(Entity *f)
+static int canAttack(Entity *e)
 {
 	self->selectedGunType = self->guns[0].type;
 	
-	if (f->flags & EF_MUST_DISABLE)
+	if (e->flags & EF_MUST_DISABLE)
 	{
-		if (f->systemPower > 0)
+		if (e->systemPower > 0)
 		{
 			return selectWeapon(BT_MAG);
 		}
@@ -309,12 +309,12 @@ static int canAttack(Entity *f)
 		return 0;
 	}
 	
-	if (f->flags & EF_NO_KILL)
+	if (e->flags & EF_NO_KILL)
 	{
 		return selectWeapon(BT_LASER) || selectWeapon(BT_MAG);
 	}
 	
-	if (f->shield > 0)
+	if (e->shield > 0)
 	{
 		selectWeapon(BT_LASER);
 	}
@@ -338,10 +338,10 @@ static int selectWeapon(int type)
 	return 0;
 }
 
-static void faceTarget(Entity *f)
+static void faceTarget(Entity *e)
 {
 	int dir;
-	int wantedAngle = getAngle(self->x, self->y, f->x, f->y);
+	int wantedAngle = getAngle(self->x, self->y, e->x, e->y);
 	
 	wantedAngle %= 360;
 	
@@ -357,13 +357,13 @@ static void faceTarget(Entity *f)
 	}
 }
 
-static int isInFOV(Entity *f, int fov)
+static int isInFOV(Entity *e, int fov)
 {
 	int angle, a, b;
 
 	a = mod(self->angle - fov, 360);
 	b = mod(self->angle + fov, 360);
-	angle = getAngle(self->x, self->y, f->x, f->y);
+	angle = getAngle(self->x, self->y, e->x, e->y);
 	
 	return (a < b) ? (a <= angle && angle <= b) : (a <= angle || angle <= b);
 }

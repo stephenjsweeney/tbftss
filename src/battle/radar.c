@@ -33,7 +33,7 @@ void initRadar(void)
 void drawRadar(void)
 {
 	SDL_Rect r;
-	Entity *f;
+	Entity *e;
 	
 	blit(radarTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 1);
 	
@@ -41,20 +41,20 @@ void drawRadar(void)
 	
 	r.w = r.h = 3;
 	
-	for (f = battle.entityHead.next ; f != NULL ; f = f->next)
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (f->active && getDistance(f->x, f->y, player->x, player->y) / radarRanges[battle.radarRange] < 70)
+		if (e->active && getDistance(e->x, e->y, player->x, player->y) / radarRanges[battle.radarRange] < 70)
 		{
 			r.x = SCREEN_WIDTH - 85;
 			r.y = SCREEN_HEIGHT - 85;
 			
-			r.x -= (player->x - f->x) / radarRanges[battle.radarRange];
-			r.y -= (player->y - f->y) / radarRanges[battle.radarRange];
+			r.x -= (player->x - e->x) / radarRanges[battle.radarRange];
+			r.y -= (player->y - e->y) / radarRanges[battle.radarRange];
 			
 			r.x--;
 			r.y--;
 			
-			switch (f->side)
+			switch (e->side)
 			{
 				case SIDE_ALLIES:
 					SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
@@ -71,12 +71,12 @@ void drawRadar(void)
 					break;
 			}
 			
-			if (f == player->target)
+			if (e == player->target)
 			{
 				SDL_SetRenderDrawColor(app.renderer, 255, 255, 0, 255);
 			}
 			
-			if (f == battle.missionTarget)
+			if (e == battle.missionTarget)
 			{
 				SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
 			}

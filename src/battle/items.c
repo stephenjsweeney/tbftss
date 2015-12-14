@@ -124,12 +124,12 @@ static void action(void)
 
 void destroyItemDefs(void)
 {
-	Entity *f;
+	Entity *e;
 	
 	while (defHead.next)
 	{
-		f = defHead.next;
-		defHead.next = f->next;
-		free(f);
+		e = defHead.next;
+		defHead.next = e->next;
+		free(e);
 	}
 }

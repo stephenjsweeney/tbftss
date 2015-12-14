@@ -32,6 +32,7 @@ static void activateECM(void);
 static void handleKeyboard(void);
 static void faceMouse(void);
 static void handleMouse(void);
+static void preFireMissile(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -152,6 +153,27 @@ static void handleKeyboard(void)
 		{
 			applyFighterBrakes();
 		}
+		
+		if (app.keyboard[SDL_SCANCODE_Z])
+		{
+			switchGuns();
+			
+			app.keyboard[SDL_SCANCODE_Z] = 0;
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_X])
+		{
+			cycleRadarZoom();
+			
+			app.keyboard[SDL_SCANCODE_X] = 0;
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_SPACE])
+		{
+			preFireMissile();
+			
+			app.keyboard[SDL_SCANCODE_SPACE] = 0;
+		}
 	}
 }
 
@@ -174,16 +196,9 @@ static void handleMouse(void)
 			}
 		}
 		
-		if (app.mouse.button[SDL_BUTTON_MIDDLE] && player->missiles && player->target)
+		if (app.mouse.button[SDL_BUTTON_MIDDLE])
 		{
-			if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
-			{
-				fireMissile(player);
-			}
-			else
-			{
-				addHudMessage(colors.white, "Target not in range");
-			}
+			preFireMissile();
 			
 			app.mouse.button[SDL_BUTTON_MIDDLE] = 0;
 		}
@@ -222,6 +237,21 @@ static void faceMouse(void)
 		player->angle += dir * 4;
 		
 		player->angle = mod(player->angle, 360);
+	}
+}
+
+static void preFireMissile(void)
+{
+	if (player->missiles && player->target)
+	{
+		if (getDistance(player->x, player->y, player->target->x, player->target->y) <= SCREEN_WIDTH)
+		{
+			fireMissile(player);
+		}
+		else
+		{
+			addHudMessage(colors.white, "Target not in range");
+		}
 	}
 }
 

@@ -105,6 +105,8 @@ void initGalacticMap(void)
 	
 	updateStarSystemMissions();
 	
+	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+	
 	endSectionTransition();
 	
 	playMusic("music/Pressure.ogg");

@@ -57,6 +57,8 @@ void initBattle(void)
 	
 	initStars();
 	
+	initBullets();
+	
 	initBackground();
 	
 	initEffects();

@@ -198,12 +198,6 @@ void doFighter(void)
 			addEngineEffect();
 		}
 		
-		if (!self->shieldRecharge)
-		{
-			self->shield = MIN(self->shield + 1, self->maxShield);
-			self->shieldRecharge = self->shieldRechargeRate;
-		}
-		
 		if (self->health <= 0)
 		{
 			self->health = 0;
@@ -403,13 +397,16 @@ void damageFighter(Entity *e, int amount, long flags)
 	}
 	else if (flags & BF_SHIELD_DAMAGE)
 	{
-		e->shield = MAX(-(FPS * 10), e->shield - amount);
+		e->shield -= amount;
 		
 		if (e->shield <= 0 && prevShield > 0)
 		{
 			playBattleSound(SND_SHIELD_BREAK, e->x, e->y);
 			addShieldSplinterEffect(e);
+			e->shield = -(FPS * 10);
 		}
+		
+		e->shield = MAX(-(FPS * 10), e->shield);
 	}
 	else
 	{
@@ -435,6 +432,9 @@ void damageFighter(Entity *e, int amount, long flags)
 	if (e->shield > 0)
 	{
 		e->shieldHit = 255;
+		
+		/* don't allow the shield to recharge immediately after taking a hit */
+		e->shieldRecharge = e->shieldRechargeRate;
 		
 		playBattleSound(SND_SHIELD_HIT, e->x, e->y);
 	}

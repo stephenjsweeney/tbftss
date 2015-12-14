@@ -79,7 +79,24 @@ void doEntities(void)
 			self = e;
 			
 			e->reload = MAX(e->reload - 1, 0);
-			e->shieldRecharge = MAX(e->shieldRecharge - 1, 0);
+			
+			if (e->shieldRechargeRate)
+			{
+				if (e->shield >= 0)
+				{
+					if (--e->shieldRecharge <= 0)
+					{
+						e->shield = MIN(e->shield + 1, e->maxShield);
+						
+						e->shieldRecharge = e->shieldRechargeRate;
+					}
+				}
+				else
+				{
+					e->shield++;
+				}
+			}
+			
 			e->armourHit = MAX(e->armourHit - 25, 0);
 			e->shieldHit = MAX(e->shieldHit - 5, 0);
 			e->systemHit = MAX(e->systemHit - 25, 0);

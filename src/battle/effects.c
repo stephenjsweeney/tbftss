@@ -155,7 +155,7 @@ void addDebrisFire(int x, int y)
 	e->y = y + (rand() % 8 - rand() % 8);
 	e->texture = explosionTexture;
 	e->health = 0;
-	e->size = 8 + rand() % 9;
+	e->size = 4 + rand() % 12;
 	
 	setRandomFlameHue(e);
 	

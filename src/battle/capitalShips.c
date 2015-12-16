@@ -39,6 +39,8 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 {
 	Entity *def, *e, *capitalShip;
 	
+	capitalShip = NULL;
+	
 	for (def = defHead.next ; def != NULL ; def = def->next)
 	{
 		if ((strcmp(def->name, name) == 0) || (def->owner != NULL && strcmp(def->owner->name, name) == 0))
@@ -63,6 +65,12 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 				e->owner = capitalShip;
 			}
 		}
+	}
+	
+	if (!capitalShip)
+	{
+		printf("Error: no such capital ship '%s'\n", name);
+		exit(1);
 	}
 	
 	return capitalShip;
@@ -324,7 +332,6 @@ static void loadCapitalShipDef(char *filename)
 	
 	STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 	STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
-	e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
 	e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
 	e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 	e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
@@ -353,7 +360,7 @@ static void loadComponents(Entity *parent, cJSON *components)
 	Entity *e;
 	cJSON *component;
 	
-	parent->health = 0;
+	parent->health = 1;
 	
 	if (components)
 	{

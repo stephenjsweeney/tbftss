@@ -1,0 +1,7 @@
+{
+	"name" : "INF Corvette 01",
+	"health" : 0,
+	"shield" : 500,
+	"shieldRechargeRate" : 60,
+	"texture" : "gfx/capitalShips/infCorvette01/body.png"
+}

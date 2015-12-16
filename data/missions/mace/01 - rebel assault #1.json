@@ -13,7 +13,7 @@
 	"capitalShips" : [
 		{
 			"name" : "CSN Corvette",
-			"types" : "Corvette",
+			"types" : "UNF Corvette 01",
 			"side" : "SIDE_ALLIES",
 			"x" : 11,
 			"y" : 11,
@@ -21,7 +21,7 @@
 		},
 		{
 			"name" : "Rebel Corvette",
-			"types" : "Corvette",
+			"types" : "UNF Corvette 01",
 			"side" : "SIDE_REBEL",
 			"x" : 25,
 			"y" : 25,

@@ -102,7 +102,7 @@
 	"guns" : [
 		{
 			"health" : 250,
-			"texture" : "gfx/capitalShips/common/cannon.png",
+			"texture" : "gfx/capitalShips/common/cannon01.png",
 			"x" : -30,
 			"y" : -250,
 			"reloadTime" : 40,
@@ -113,7 +113,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/capitalShips/common/cannon.png",
+			"texture" : "gfx/capitalShips/common/cannon01.png",
 			"x" : 30,
 			"y" : -250,
 			"reloadTime" : 40,
@@ -124,7 +124,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/capitalShips/common/cannon.png",
+			"texture" : "gfx/capitalShips/common/cannon01.png",
 			"x" : -110,
 			"y" : 20,
 			"reloadTime" : 10,
@@ -134,7 +134,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/capitalShips/common/cannon.png",
+			"texture" : "gfx/capitalShips/common/cannon01.png",
 			"x" : 110,
 			"y" : 20,
 			"reloadTime" : 10,
@@ -144,7 +144,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/capitalShips/common/cannon.png",
+			"texture" : "gfx/capitalShips/common/cannon01.png",
 			"x" : -110,
 			"y" : 100,
 			"reloadTime" : 10,
@@ -155,7 +155,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/capitalShips/common/cannon.png",
+			"texture" : "gfx/capitalShips/common/cannon01.png",
 			"x" : 110,
 			"y" : 100,
 			"reloadTime" : 10,
@@ -166,7 +166,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/capitalShips/common/cannon.png",
+			"texture" : "gfx/capitalShips/common/cannon01.png",
 			"x" : 110,
 			"y" : 180,
 			"reloadTime" : 10,
@@ -176,7 +176,7 @@
 		},
 		{
 			"health" : 250,
-			"texture" : "gfx/capitalShips/common/cannon.png",
+			"texture" : "gfx/capitalShips/common/cannon01.png",
 			"x" : -110,
 			"y" : 180,
 			"reloadTime" : 10,

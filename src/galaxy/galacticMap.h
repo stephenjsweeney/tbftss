@@ -56,7 +56,7 @@ extern void drawOptions(void);
 extern void initOptions(void (*returnFromOptions)(void));
 extern void drawStats(void);
 extern void playSound(int id);
-extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);
+extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void initStatsDisplay(void);
 extern void updateStarSystemMissions(void);
 extern StarSystem *getStarSystem(char *name);

@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void blit(SDL_Texture *texture, int x, int y, int center);
 extern SDL_Texture *getTexture(char *filename);
-extern void blitRotated(SDL_Texture *texture, int x, int y, int angle);
+extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 
 extern App app;

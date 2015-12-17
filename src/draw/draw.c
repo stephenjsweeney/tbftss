@@ -86,7 +86,7 @@ void blitScaled(SDL_Texture *texture, int x, int y, int w, int h)
 	SDL_RenderCopy(app.renderer, texture, NULL, &dstRect);
 }
 
-void blitRotated(SDL_Texture *texture, int x, int y, int angle)
+void blitRotated(SDL_Texture *texture, int x, int y, float angle)
 {
 	SDL_Rect dstRect;
 	

@@ -360,7 +360,7 @@ static void loadComponents(Entity *parent, cJSON *components)
 	Entity *e;
 	cJSON *component;
 	
-	parent->health = 1;
+	parent->health = 0;
 	
 	if (components)
 	{

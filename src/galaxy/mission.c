@@ -413,6 +413,8 @@ static void loadCapitalShips(cJSON *node)
 						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
 					}
 				}
+				
+				updateCapitalShipComponentNames(e);
 			}
 		
 			node = node->next;

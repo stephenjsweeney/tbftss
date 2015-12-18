@@ -45,6 +45,7 @@ extern void completeConditions(void);
 extern void retreatEnemies(void);
 extern void initScript(cJSON *missionJSON);
 extern char *getFileLocation(char *filename);
+extern void updateCapitalShipComponentNames(Entity *parent);
 
 extern Battle battle;
 extern Entity *player;

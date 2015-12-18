@@ -222,7 +222,7 @@ static void componentDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
-	addDebris(self->x, self->y, rand() % 4);
+	addDebris(self->x, self->y, 3 + rand() % 4);
 	
 	self->owner->health--;
 	
@@ -237,7 +237,7 @@ static void gunDie(void)
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
-	addDebris(self->x, self->y, rand() % 4);
+	addDebris(self->x, self->y, 3 + rand() % 4);
 }
 
 static void engineThink(void)
@@ -288,6 +288,10 @@ static void die(void)
 			e->health = 0;
 		}
 	}
+	
+	updateObjective(self->name, TT_DESTROY);
+			
+	updateObjective(self->groupName, TT_DESTROY);
 }
 
 void loadCapitalShipDefs(void)
@@ -376,8 +380,6 @@ static void loadComponents(Entity *parent, cJSON *components)
 			e->active = 1;
 	
 			e->type = ET_CAPITAL_SHIP_COMPONENT;
-			sprintf(e->name, "%s (Component)", parent->name);
-			sprintf(e->defName, "%s (Component)", parent->defName);
 			e->health = e->maxHealth = cJSON_GetObjectItem(component, "health")->valueint;
 			e->offsetX = cJSON_GetObjectItem(component, "x")->valueint;
 			e->offsetY = cJSON_GetObjectItem(component, "y")->valueint;
@@ -429,8 +431,6 @@ static void loadGuns(Entity *parent, cJSON *guns)
 			e->active = 1;
 	
 			e->type = ET_CAPITAL_SHIP_GUN;
-			sprintf(e->name, "%s (Cannon)", parent->name);
-			sprintf(e->defName, "%s (Cannon)", parent->defName);
 			e->health = e->maxHealth = cJSON_GetObjectItem(gun, "health")->valueint;
 			e->reloadTime = cJSON_GetObjectItem(gun, "reloadTime")->valueint;
 			e->offsetX = cJSON_GetObjectItem(gun, "x")->valueint;
@@ -486,8 +486,6 @@ static void loadEngines(Entity *parent, cJSON *engines)
 			e->active = 1;
 	
 			e->type = ET_CAPITAL_SHIP_ENGINE;
-			sprintf(e->name, "%s (Engine)", parent->name);
-			sprintf(e->defName, "%s (Engine)", parent->defName);
 			e->health = e->maxHealth = cJSON_GetObjectItem(engine, "health")->valueint;
 			e->offsetX = cJSON_GetObjectItem(engine, "x")->valueint;
 			e->offsetY = cJSON_GetObjectItem(engine, "y")->valueint;
@@ -508,6 +506,32 @@ static void loadEngines(Entity *parent, cJSON *engines)
 			e->owner = parent;
 			
 			engine = engine->next;
+		}
+	}
+}
+
+void updateCapitalShipComponentNames(Entity *parent)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->owner == parent)
+		{
+			switch (e->type)
+			{
+				case ET_CAPITAL_SHIP_ENGINE:
+					sprintf(e->name, "%s (Engine)", parent->name);
+					break;
+					
+				case ET_CAPITAL_SHIP_COMPONENT:
+					sprintf(e->name, "%s (Component)", parent->name);
+					break;
+					
+				case ET_CAPITAL_SHIP_GUN:
+					sprintf(e->name, "%s (Gun)", parent->name);
+					break;
+			}
 		}
 	}
 }

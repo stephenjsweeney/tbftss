@@ -19,10 +19,17 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Eliminate remaining Pandoran forces",
-			"targetName" : "ENEMY",
-			"targetValue" : 1,
+			"description" : "Eliminate Escorts",
+			"targetName" : "Pandoran",
+			"targetValue" : 8,
 			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate Reinforcements",
+			"targetName" : "Reinforcements",
+			"targetValue" : 6,
+			"targetType" : "TT_DESTROY",
+			"active": 0
 		},
 		{
 			"description" : "DUMMY",
@@ -35,16 +42,18 @@
 	"player" : {
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "",
-		"squadron" : ""
+		"pilot" : "Angus Carlyle",
+		"squadron" : "",
+		"x" : 45,
+		"y" : 45
 	},
 	"fighters" : [
 		{
 			"name" : "ALLIES",
 			"types" : "Firefly;Nymph;Leopard;Hyena-A;Hyena-B",
 			"side" : "SIDE_ALLIES",
-			"x" : 25,
-			"y" : 25,
+			"x" : 45,
+			"y" : 45,
 			"number" : 8,
 			"scatter" : 500
 		},
@@ -52,8 +61,8 @@
 			"name" : "ALLIES",
 			"types" : "Khepri",
 			"side" : "SIDE_ALLIES",
-			"x" : 25,
-			"y" : 25,
+			"x" : 45,
+			"y" : 45,
 			"number" : 4,
 			"scatter" : 500
 		},
@@ -61,9 +70,9 @@
 			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
-			"x" : 12,
-			"y" : 12,
-			"number" : 6,
+			"x" : 40,
+			"y" : 40,
+			"number" : 4,
 			"scatter" : 1000,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
@@ -71,11 +80,23 @@
 			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
-			"x" : 35,
-			"y" : 35,
-			"number" : 6,
+			"x" : 30,
+			"y" : 30,
+			"number" : 4,
 			"scatter" : 1000,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "Reinforcements",
+			"types" : "Jackal;Sphinx;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 45,
+			"number" : 6,
+			"scatter" : 0,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
 		}
 	],
 	"capitalShips" : [
@@ -83,49 +104,50 @@
 			"name" : "INF Dirk",
 			"types" : "INF Corvette 01",
 			"side" : "SIDE_PANDORAN",
-			"x" : 11,
-			"y" : 11,
+			"x" : 39,
+			"y" : 39,
 			"flags" : "EF_AI_LEADER"
 		},
 		{
 			"name" : "INF Blackjack",
 			"types" : "INF Corvette 01",
 			"side" : "SIDE_PANDORAN",
-			"x" : 36,
-			"y" : 36,
+			"x" : 29,
+			"y" : 29,
 			"flags" : "EF_AI_LEADER"
 		}
 	],
 	"script" : [
 		{
-			"function" : "OBJECTIVES_COMPLETE 2",
+			"function" : "ENEMIES_KILLED 5",
 			"lines" : [
-				"WAIT 1",
-				"MSG_BOX UNF Pilot;Commander, enemy reinforcements are enroute. Looks like more INF fighters.",
-				"MSG_BOX UNF Pilot;Dammit! Let's make sure we fry these cap ships before any more turn up."
+				"ACTIVATE_ENTITY_GROUPS Reinforcements",
+				"ACTIVATE_OBJECTIVES Eliminate Reinforcements",
+				"MSG_BOX Wingmate;Commander, enemy reinforcements are enroute. Looks like more INF fighters.",
+				"MSG_BOX Carlyle;Dammit! Let's make sure we fry these cap ships before any more turn up."
 			]
 		},
 		{
 			"function" : "Destroy INF Dirk",
 			"lines" : [
 				"WAIT 1",
-				"MSG_BOX Pilot;INF Dirk is down."
+				"MSG_BOX Carlyle;INF Dirk is down."
 			]
 		},
 		{
 			"function" : "Destroy INF Blackjack",
 			"lines" : [
 				"WAIT 1",
-				"MSG_BOX Pilot;INF Blackjack has been destroyed."
+				"MSG_BOX Carlyle;INF Blackjack has been destroyed."
 			]
 		},
 		{
 			"function" : "OBJECTIVES_COMPLETE 3",
 			"lines" : [
 				"WAIT 1",
-				"MSG_BOX Pilot;This is Pilot. Blackjack and Dirk have been destroyed. All other fighters scratched.",
-				"MSG_BOX Control;That's good work, Pilot. We're preparing to engage more enemies, so we can't put our feet up just yet.",
-				"MSG_BOX Pilot;Hell. Okay, we'll return momentarily. Pilot out.",
+				"MSG_BOX Carlyle;This is Carlyle. Blackjack and Dirk have been destroyed. All other fighters scratched.",
+				"MSG_BOX Control;That's good work, Commander. We're preparing to engage more enemies, so we can't put our feet up just yet.",
+				"MSG_BOX Carlyle;Hell. Okay, we'll return momentarily. Carlyle out.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"
 			]

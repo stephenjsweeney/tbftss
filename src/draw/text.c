@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "text.h"
 
+void expireTexts(void);
 static void loadFont(int size);
 static SDL_Texture *getCachedText(unsigned long hash);
 static void cacheText(unsigned long hash, SDL_Texture *t);
@@ -32,6 +33,7 @@ static char drawTextBuffer[MAX_DESCRIPTION_LENGTH];
 static TTF_Font *font[MAX_FONTS];
 static Texture textures[NUM_TEXT_BUCKETS]; 
 static int maxWidth = 0;
+static int cacheSize = 0;
 
 void initFonts(void)
 {
@@ -86,6 +88,11 @@ static void drawTextNormal(int x, int y, int size, int align, SDL_Color c, char 
 		surface = TTF_RenderText_Blended(font[size], text, c);
 		t = SDL_CreateTextureFromSurface(app.renderer, surface);
 		SDL_FreeSurface(surface);
+		
+		if (cacheSize >= TEXT_CACHE_SIZE)
+		{
+			expireTexts();
+		}
 		
 		cacheText(hash, t);
 	}
@@ -231,6 +238,8 @@ static void cacheText(unsigned long hash, SDL_Texture *texture)
 	new->texture = texture;
 
 	t->next = new;
+	
+	cacheSize++;
 }
 
 void expireTexts(void)
@@ -254,6 +263,8 @@ void expireTexts(void)
 
 		textures[i].next = NULL;
 	}
+	
+	cacheSize = 0;
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Expired %d texts", n);
 }

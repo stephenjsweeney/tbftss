@@ -1,0 +1,134 @@
+{
+	"name" : "Clarke Defence #2",
+	"description" : "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down two of their corvettes: INF Dirk and INF Blackjack. Ensure the Khepri-class bombers can get in close enough to delivery a strike.",
+	"background" : "gfx/backgrounds/background04.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/heroism.ogg",
+	"requires" : "PREVIOUS",
+	"objectives" : [
+		{
+			"description" : "Destroy INF Dirk",
+			"targetName" : "INF Dirk",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Destroy INF Blackjack",
+			"targetName" : "INF Blackjack",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate remaining Pandoran forces",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "Firefly",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "",
+		"squadron" : ""
+	},
+	"fighters" : [
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph;Leopard;Hyena-A;Hyena-B",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 8,
+			"scatter" : 500
+		},
+		{
+			"name" : "ALLIES",
+			"types" : "Khepri",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 4,
+			"scatter" : 500
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x" : 12,
+			"y" : 12,
+			"number" : 6,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 35,
+			"number" : 6,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "INF Dirk",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 11,
+			"y" : 11,
+			"flags" : "EF_AI_LEADER"
+		},
+		{
+			"name" : "INF Blackjack",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 36,
+			"y" : 36,
+			"flags" : "EF_AI_LEADER"
+		}
+	],
+	"script" : [
+		{
+			"function" : "OBJECTIVES_COMPLETE 2",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX UNF Pilot;Commander, enemy reinforcements are enroute. Looks like more INF fighters.",
+				"MSG_BOX UNF Pilot;Dammit! Let's make sure we fry these cap ships before any more turn up."
+			]
+		},
+		{
+			"function" : "Destroy INF Dirk",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Pilot;INF Dirk is down."
+			]
+		},
+		{
+			"function" : "Destroy INF Blackjack",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Pilot;INF Blackjack has been destroyed."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 3",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Pilot;This is Pilot. Blackjack and Dirk have been destroyed. All other fighters scratched.",
+				"MSG_BOX Control;That's good work, Pilot. We're preparing to engage more enemies, so we can't put our feet up just yet.",
+				"MSG_BOX Pilot;Hell. Okay, we'll return momentarily. Pilot out.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

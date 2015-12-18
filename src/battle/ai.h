@@ -40,5 +40,6 @@ extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 
 extern Battle battle;
 extern Colors colors;
+extern Dev dev;
 extern Entity *self;
 extern Entity *player;

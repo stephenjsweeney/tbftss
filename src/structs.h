@@ -37,6 +37,17 @@ typedef struct GridCell GridCell;
 typedef struct ScriptRunner ScriptRunner;
 
 typedef struct {
+	int takeScreenshots;
+	int noAIWeapons;
+	int showFPS;
+	int playerImmortal;
+	int playerUnlimitedMissiles;
+	int noEntityActions;
+	int allImmortal;
+	int fps;
+} Dev;
+
+typedef struct {
 	float x;
 	float y;
 } PointF;
@@ -334,7 +345,6 @@ typedef struct {
 	int musicVolume;
 	int soundVolume;
 	int vSync;
-	int fps;
 	Mouse mouse;
 	int keyboard[MAX_KEYBOARD_KEYS];
 	SDL_Texture *backBuffer;

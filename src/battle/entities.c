@@ -72,8 +72,20 @@ void doEntities(void)
 		}
 	}
 	
+	if (dev.playerImmortal)
+	{
+		player->health = player->maxHealth;
+		player->shield = player->maxShield;
+	}
+	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
+		if (dev.allImmortal)
+		{
+			e->health = e->maxHealth;
+			e->shield = e->maxShield;
+		}
+		
 		if (e->active)
 		{
 			self = e;
@@ -120,6 +132,11 @@ void doEntities(void)
 			{
 				if (e->action != NULL)
 				{
+					if (dev.noEntityActions)
+					{
+						e->thinkTime = 2;
+					}
+					
 					if (--e->thinkTime <= 0)
 					{
 						e->thinkTime = 0;

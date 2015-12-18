@@ -410,11 +410,17 @@ static void preAttack(void)
 			
 			if (self->guns[0].type && (self->missiles == 0 || rand() % 50 > 0))
 			{
-				fireGuns(self);
+				if (!dev.noAIWeapons)
+				{
+					fireGuns(self);
+				}
 			}
 			else if (self->missiles && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
 			{
-				fireMissile(self);
+				if (!dev.noAIWeapons)
+				{
+					fireMissile(self);
+				}
 				
 				self->action = doAI;
 			}

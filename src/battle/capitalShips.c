@@ -406,6 +406,8 @@ static void loadComponents(Entity *parent, cJSON *components)
 			parent->health++;
 		}
 	}
+	
+	parent->maxHealth = parent->health;
 }
 
 static void loadGuns(Entity *parent, cJSON *guns)

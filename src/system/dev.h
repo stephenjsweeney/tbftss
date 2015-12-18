@@ -20,9 +20,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern void drawMouse(void);
-
 extern App app;
-extern Colors colors;
 extern Dev dev;

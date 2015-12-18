@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	SDL_Event event;
 	
 	memset(&app, 0, sizeof(App));
+	memset(&dev, 0, sizeof(Dev));
 	
 	atexit(cleanup);
 
@@ -48,7 +49,7 @@ int main(int argc, char *argv[])
 		initTitle();
 	}
 	
-	app.fps = frames = td = 0;
+	dev.fps = frames = td = 0;
 	then = SDL_GetTicks();
 	lastFrameTime = SDL_GetTicks() + 1000;
 	
@@ -104,15 +105,20 @@ int main(int argc, char *argv[])
 
 		app.delegate.draw();
 		
+		doDevKeys();
+		
 		frames++;
 		
 		if (SDL_GetTicks() > lastFrameTime)
 		{
-			app.fps = frames;
+			dev.fps = frames;
 			frames = 0;
 			lastFrameTime = SDL_GetTicks() + 1000;
 			
-			/*saveScreenshot();*/
+			if (dev.takeScreenshots)
+			{
+				saveScreenshot();
+			}
 		}
 
 		SDL_Delay(1);

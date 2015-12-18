@@ -121,6 +121,11 @@ void doPlayer(void)
 		{
 			selectMissionTarget();
 		}
+		
+		if (dev.playerUnlimitedMissiles)
+		{
+			player->missiles = 999;
+		}
 	}
 	
 	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)

@@ -34,10 +34,12 @@ extern void saveScreenshot(void);
 extern void doMouseDown(SDL_MouseButtonEvent *event);
 extern void doMouseUp(SDL_MouseButtonEvent *event);
 extern void doMouseWheel(SDL_MouseWheelEvent *event);
+extern void doDevKeys(void);
 
 App app;
 Colors colors;
 Battle battle;
+Dev dev;
 Entity *self;
 Entity *player;
 Game game;

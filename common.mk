@@ -1,6 +1,6 @@
 VERSION = 0.5
 REVISION = $(shell date +"%y%m%d")
-DEBUG = 0
+DEBUG = $(shell stat dev 1>/dev/null 2>&1 && echo 1 || echo 0)
 
 SEARCHPATH += src/ src/battle src/draw src/game src/galaxy src/json src/system src/test
 vpath %.c $(SEARCHPATH)
@@ -11,7 +11,7 @@ DEPS += defs.h structs.h
 OBJS += ai.o
 OBJS += battle.o bullets.o
 OBJS += capitalShips.o challenges.o cJSON.o
-OBJS += debris.o draw.o
+OBJS += debris.o dev.o draw.o
 OBJS += effects.o entities.o extractionPoint.o
 OBJS += fighters.o
 OBJS += galacticMap.o game.o grid.o

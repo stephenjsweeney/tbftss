@@ -34,5 +34,6 @@ extern void destroyGrid(void);
 
 extern App app;
 extern Battle battle;
+extern Dev dev;
 extern Entity *self;
 extern Entity *player;

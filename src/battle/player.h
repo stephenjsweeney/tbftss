@@ -40,6 +40,7 @@ extern void addECMEffect(Entity *ent);
 extern App app;
 extern Battle battle;
 extern Colors colors;
+extern Dev dev;
 extern Entity *player;
 extern Entity *self;
 extern Game game;

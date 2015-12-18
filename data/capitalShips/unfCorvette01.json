@@ -71,28 +71,28 @@
 	],
 	"engines" : [
 		{
-			"health" : 1000,
+			"health" : 150,
 			"texture" : "gfx/capitalShips/unfCorvette01/engine1.png",
 			"x" : -112,
 			"y" : 281,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 1000,
+			"health" : 150,
 			"texture" : "gfx/capitalShips/unfCorvette01/engine1.png",
 			"x" : 112,
 			"y" : 281,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 1000,
+			"health" : 150,
 			"texture" : "gfx/capitalShips/unfCorvette01/engine2.png",
 			"x" : -34,
 			"y" : 268,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 1000,
+			"health" : 150,
 			"texture" : "gfx/capitalShips/unfCorvette01/engine2.png",
 			"x" : 34,
 			"y" : 268,

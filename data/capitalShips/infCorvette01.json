@@ -64,21 +64,21 @@
 	],
 	"engines" : [
 		{
-			"health" : 1000,
+			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/engine1.png",
 			"x" : -50,
 			"y" : 285,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 1000,
+			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/engine1.png",
 			"x" : 50,
 			"y" : 285,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
-			"health" : 1000,
+			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/engine2.png",
 			"x" : 0,
 			"y" : 280,

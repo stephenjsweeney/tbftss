@@ -47,6 +47,7 @@ void initLookups(void)
 	addLookup("EF_TAKES_DAMAGE", EF_TAKES_DAMAGE);
 	addLookup("EF_SECONDARY_TARGET", EF_SECONDARY_TARGET);
 	addLookup("EF_AI_TARGET", EF_AI_TARGET);
+	addLookup("EF_AI_LEADER", EF_AI_LEADER);
 	
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);
@@ -62,6 +63,7 @@ void initLookups(void)
 	addLookup("AIF_AGGRESSIVE", AIF_AGGRESSIVE);
 	addLookup("AIF_INSTANT_DIE", AIF_INSTANT_DIE);
 	addLookup("AIF_LONG_RANGE_FIRE", AIF_LONG_RANGE_FIRE);
+	addLookup("AIF_MOVES_TO_LEADER", AIF_MOVES_TO_LEADER);
 	
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);

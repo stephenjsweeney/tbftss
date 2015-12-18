@@ -41,11 +41,13 @@ static void moveToItem(void);
 static int nearTowableCraft(void);
 static void moveToTowableCraft(void);
 static void lookForPlayer(void);
+static int lookForLeader(void);
 static void fleeEnemies(void);
 static int isRetreating(void);
 static int getActionChance(int type);
 static void doFighterAI(void);
 static void doGunAI(void);
+static void moveToLeader(void);
 
 void doAI(void)
 {
@@ -123,7 +125,15 @@ static void doFighterAI(void)
 		
 		if (!self->target)
 		{
-			if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
+			/* takes priority over move to player */
+			if (self->aiFlags & AIF_MOVES_TO_LEADER)
+			{
+				if (!lookForLeader())
+				{
+					applyFighterBrakes();
+				}
+			}
+			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
 			{
 				moveToPlayer();
 			}
@@ -659,6 +669,8 @@ static int nearTowableCraft(void)
 	
 	candidates = getAllEntsWithin(self->x - (self->w / 2) - (GRID_CELL_WIDTH / 2), self->y - (self->h / 2) - (GRID_CELL_HEIGHT / 2), GRID_CELL_WIDTH, GRID_CELL_HEIGHT, self);
 	
+	closest = MAX_TARGET_RANGE;
+	
 	self->target = NULL;
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
@@ -704,4 +716,52 @@ static void lookForPlayer(void)
 	}
 	
 	applyFighterBrakes();
+}
+
+static int lookForLeader(void)
+{
+	long closest, distance;
+	Entity *e;
+	
+	self->leader = NULL;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->active && e->flags & EF_AI_LEADER)
+		{
+			distance = getDistance(self->x, self->y, e->x, e->y);
+			
+			if (distance < closest)
+			{
+				self->leader = e;
+				closest = distance;
+			}
+		}
+	}
+	
+	if (self->leader)
+	{
+		moveToLeader();
+		return 1;
+	}
+	
+	return 0;
+}
+
+static void moveToLeader(void)
+{
+	int dist = getDistance(self->x, self->y, self->leader->x, self->leader->y);
+	
+	if (dist <= 250)
+	{
+		applyFighterBrakes();
+		
+		self->aiActionTime = MIN(FPS, self->aiActionTime);
+	}
+	else
+	{
+		faceTarget(self->leader);
+		
+		applyFighterThrust();
+	}
 }

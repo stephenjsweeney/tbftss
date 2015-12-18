@@ -179,25 +179,19 @@ void failIncompleteObjectives(void)
 void activateObjectives(char *objectives)
 {
 	char *token;
-	int i, num;
 	Objective *o;
 	
 	token = strtok(objectives, ";");
 	
 	while (token)
 	{
-		i = 0;
-		num = atoi(token);
-		
 		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 		{
-			if (i == num)
+			if (strcmp(token, o->description) == 0)
 			{
 				addHudMessage(colors.cyan, "New Objective : %s", o->description);
 				o->active = 1;
 			}
-			
-			i++;
 		}
 		
 		token = strtok(NULL, ";");

@@ -62,7 +62,7 @@
 			"function" : "Waypoint #3",
 			"lines" : [
 				"ACTIVATE_ENTITIES Pandoran",
-				"ACTIVATE_OBJECTIVES 1",
+				"ACTIVATE_OBJECTIVES Destroy Pandoran fighters",
 				"MSG_BOX Alba Control;Patrol A-82, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
 			]
 		}

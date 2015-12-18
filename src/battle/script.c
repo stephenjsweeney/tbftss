@@ -133,7 +133,7 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "ACTIVATE_OBJECTIVES") == 0)
 	{
-		sscanf(line, "%*s %s", strParam[0]);
+		sscanf(line, "%*s %[^\n]", strParam[0]);
 		activateObjectives(strParam[0]);
 	}
 	else if (strcmp(command, "MSG_BOX") == 0)

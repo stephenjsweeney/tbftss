@@ -139,7 +139,11 @@
 				"MSG_BOX Alexandria Orbital;Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies.",
 				"MSG_BOX Carr;Pirates? Insurgents? Nation of Tzac?",
 				"WAIT_MSG_BOX",
-				"ACTIVATE_OBJECTIVES 1;2;3;4;5",
+				"ACTIVATE_OBJECTIVES Disable Pirate Commander",
+				"ACTIVATE_OBJECTIVES Disable Tzac Commander",
+				"ACTIVATE_OBJECTIVES Destroy all other opponents",
+				"ACTIVATE_OBJECTIVES Do not allow Pirate Commander to be killed",
+				"ACTIVATE_OBJECTIVES Do not allow Tzac Commander to be killed",
 				"ACTIVATE_ENTITY_GROUPS skirmishGroup",
 				"MSG_BOX Alexandria Orbital;Too early to speculate. We want you to disable and bring in one craft from each side. The rest, you can eliminate.",
 				"MSG_BOX Carr;On it."

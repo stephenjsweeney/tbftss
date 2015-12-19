@@ -91,8 +91,8 @@
 			"groupName" : "Reinforcements",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
-			"x" : 45,
-			"y" : 45,
+			"x" : 35,
+			"y" : 35,
 			"number" : 6,
 			"scatter" : 0,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER",
@@ -142,7 +142,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 3",
+			"function" : "OBJECTIVES_COMPLETE 4",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Carlyle;This is Carlyle. Blackjack and Dirk have been destroyed. All other fighters scratched.",

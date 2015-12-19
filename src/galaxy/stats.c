@@ -47,6 +47,8 @@ static char *statDescription[] = {
 	"Craft Towed",
 	"Items Collected",
 	"Longest Epic Kill Streak",
+	"Capital Ships Destroyed",
+	"Capital Ships Lost",
 	"STAT_TIME"
 };
 

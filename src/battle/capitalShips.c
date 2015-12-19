@@ -92,6 +92,15 @@ void doCapitalShip(void)
 			{
 				battle.missionTarget = NULL;
 			}
+			
+			if (self->side == SIDE_ALLIES)
+			{
+				battle.stats[STAT_CAPITAL_SHIPS_LOST]++;
+			}
+			else
+			{
+				battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]++;
+			}
 		}
 	}
 }
@@ -345,7 +354,7 @@ static void loadCapitalShipDef(char *filename)
 	e->die = die;
 	
 	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
-	e->separationRadius = MAX(e->w, e->h) * 3;
+	e->separationRadius = MAX(e->w, e->h);
 	
 	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 	

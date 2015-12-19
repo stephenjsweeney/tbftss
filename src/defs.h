@@ -265,6 +265,8 @@ enum
 	STAT_NUM_TOWED,
 	STAT_ITEMS_COLLECTED,
 	STAT_EPIC_KILL_STREAK,
+	STAT_CAPITAL_SHIPS_DESTROYED,
+	STAT_CAPITAL_SHIPS_LOST,
 	/* add stats before here, so as not to mess up the stats screen */
 	STAT_TIME,
 	STAT_MAX

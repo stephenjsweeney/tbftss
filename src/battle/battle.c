@@ -145,11 +145,17 @@ static void doBattle(void)
 	
 	doPlayer();
 	
-	doMessageBox();
+	if (player != NULL)
+	{
+		doMessageBox();
+	}
 	
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		doScript();
+		if (player != NULL)
+		{
+			doScript();
+		}
 	}
 	else
 	{
@@ -190,7 +196,10 @@ static void draw(void)
 	
 	drawHud();
 	
-	drawMessageBox();
+	if (player != NULL)
+	{
+		drawMessageBox();
+	}
 	
 	drawMissionInfo();
 	

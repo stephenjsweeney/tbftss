@@ -727,7 +727,7 @@ static int lookForLeader(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->active && e->flags & EF_AI_LEADER)
+		if (e->active && e->flags & EF_AI_LEADER && e->side == self->side)
 		{
 			distance = getDistance(self->x, self->y, e->x, e->y);
 			

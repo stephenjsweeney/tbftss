@@ -11,6 +11,55 @@
 			"x" : 0,
 			"y" : -140,
 			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/csnCorvette01/component1.png",
+			"x" : 0,
+			"y" : -200,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/csnCorvette01/component2.png",
+			"x" : -34,
+			"y" : 25,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/csnCorvette01/component2.png",
+			"x" : 34,
+			"y" : 25,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/csnCorvette01/component2.png",
+			"x" : -16,
+			"y" : 25,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/csnCorvette01/component2.png",
+			"x" : 16,
+			"y" : 25,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/csnCorvette01/component3.png",
+			"x" : -23,
+			"y" : 242,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/csnCorvette01/component3.png",
+			"x" : 23,
+			"y" : 242,
+			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
 		}
 	],
 	"engines" : [

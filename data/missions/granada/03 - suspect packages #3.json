@@ -13,20 +13,20 @@
 	},
 	"objectives" : [
 		{
-			"description" : "Check all Waypoints",
+			"description" : "Check all waypoints",
 			"targetName" : "Waypoint",
 			"targetValue" : 1,
 			"targetType" : "TT_WAYPOINT"
 		},
 		{
-			"description" : "Disable Pirate Commander",
+			"description" : "Disable pirate commander",
 			"targetName" : "Pirate Commander",
 			"targetValue" : 1,
 			"targetType" : "TT_DISABLE",
 			"active" : 0
 		},
 		{
-			"description" : "Disable Tzac Commander",
+			"description" : "Disable Tzac commander",
 			"targetName" : "Tzac Commander",
 			"targetValue" : 1,
 			"targetType" : "TT_DISABLE",
@@ -40,7 +40,7 @@
 			"active" : 0
 		},
 		{
-			"description" : "Do not allow Pirate Commander to be killed",
+			"description" : "Do not allow pirate commander to be killed",
 			"targetName" : "Pirate Commander",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
@@ -48,7 +48,7 @@
 			"isCondition" : 1
 		},
 		{
-			"description" : "Do not allow Tzac Commander to be killed",
+			"description" : "Do not allow Tzac commander to be killed",
 			"targetName" : "Tzac Commander",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",

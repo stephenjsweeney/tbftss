@@ -7,7 +7,7 @@
 	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
 	"objectives" : [
 		{
-			"description" : "Check all Wayponts",
+			"description" : "Check all wayponts",
 			"targetName" : "Waypoint",
 			"targetValue" : 5,
 			"targetType" : "TT_WAYPOINT"

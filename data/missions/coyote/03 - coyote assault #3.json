@@ -16,7 +16,7 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Retreat to Extraction Point",
+			"description" : "Retreat to extraction point",
 			"targetName" : "Player",
 			"targetValue" : 1,
 			"targetType" : "TT_ESCAPED",

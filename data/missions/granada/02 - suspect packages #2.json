@@ -7,7 +7,7 @@
 	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
-			"description" : "Check all Wayponts",
+			"description" : "Check all wayponts",
 			"targetName" : "Waypoint",
 			"targetValue" : 4,
 			"targetType" : "TT_WAYPOINT"
@@ -20,14 +20,14 @@
 			"active" : 0
 		},
 		{
-			"description" : "Bring in Stranded Dart",
+			"description" : "Bring in stranded Dart",
 			"targetName" : "Stranded Dart",
 			"targetValue" : 1,
 			"targetType" : "TT_ESCAPED",
 			"active" : 0
 		},
 		{
-			"description" : "Do not destroy Stranded Dart",
+			"description" : "Do not destroy stranded Dart",
 			"targetName" : "Stranded Dart",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",

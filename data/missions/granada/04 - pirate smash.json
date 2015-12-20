@@ -15,13 +15,13 @@
 	},
 	"objectives" : [
 		{
-			"description" : "Eliminate Pirate Captains",
+			"description" : "Eliminate pirate captains",
 			"targetName" : "Pirate Captain",
 			"targetValue" : 3,
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Eliminate Sentry Cannons",
+			"description" : "Eliminate sentry cannons",
 			"targetName" : "Rocket Turret",
 			"targetValue" : 8,
 			"targetType" : "TT_DESTROY"
@@ -108,14 +108,14 @@
 			]
 		},
 		{
-			"function" : "Eliminate Pirate Captains",
+			"function" : "Eliminate pirate captains",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Carr;Alexandria: reporting all captain vessels destroyed."
 			]
 		},
 		{
-			"function" : "Eliminate Sentry Cannons",
+			"function" : "Eliminate sentry cannons",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Carr;Alexandria: sentry cannons eliminated."

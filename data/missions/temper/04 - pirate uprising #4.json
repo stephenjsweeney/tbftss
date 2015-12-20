@@ -7,7 +7,7 @@
 	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
-			"description" : "Eliminate Pirate Leaders",
+			"description" : "Eliminate pirate leaders",
 			"targetName" : "Pirate Leader",
 			"targetValue" : 4,
 			"targetType" : "TT_DESTROY"
@@ -19,7 +19,7 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Do not let any Pirate Leaders escape",
+			"description" : "Do not let any pirate leaders escape",
 			"targetName" : "Pirate Leader",
 			"targetValue" : 1,
 			"targetType" : "TT_ESCAPED",

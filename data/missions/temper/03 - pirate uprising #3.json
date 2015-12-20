@@ -7,7 +7,7 @@
 	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
-			"description" : "Capture Pirate Lieutenant",
+			"description" : "Capture pirate lieutenant",
 			"targetName" : "Pirate Lieutenant",
 			"targetValue" : 1,
 			"targetType" : "TT_DISABLE"
@@ -19,14 +19,14 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Do not kill Pirate Lieutenant",
+			"description" : "Do not kill pirate lieutenant",
 			"targetName" : "Pirate Lieutenant",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isCondition" : 1
 		},
 		{
-			"description" : "Do not let Pirate Lieutenant Escape",
+			"description" : "Do not let pirate lieutenant escape",
 			"targetName" : "Pirate Lieutenant",
 			"targetValue" : 1,
 			"targetType" : "TT_ESCAPED",

@@ -37,6 +37,7 @@ typedef struct GridCell GridCell;
 typedef struct ScriptRunner ScriptRunner;
 
 typedef struct {
+	int debug;
 	int takeScreenshots;
 	int noAIWeapons;
 	int showFPS;

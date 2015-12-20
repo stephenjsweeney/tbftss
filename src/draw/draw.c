@@ -46,13 +46,14 @@ void prepareScene(void)
 
 void presentScene(void)
 {
-	#if DEBUG
-	drawText(5, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "DEBUG MODE");
-	if (dev.showFPS)
+	if (dev.debug)
 	{
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 25, 14, TA_CENTER, colors.white, "FPS: %d", dev.fps);
+		drawText(5, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "DEBUG MODE");
+		if (dev.showFPS)
+		{
+			drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 25, 14, TA_CENTER, colors.white, "FPS: %d", dev.fps);
+		}
 	}
-	#endif
 	
 	drawMouse();
 	

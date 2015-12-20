@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "main.h"
 
+static void handleArguments(int argc, char *argv[]);
+
 int main(int argc, char *argv[])
 {
 	float td;
@@ -40,14 +42,7 @@ int main(int argc, char *argv[])
 	
 	initGameSystem();
 	
-	if (argc > 1)
-	{
-		loadTestMission(argv[1]);
-	}
-	else
-	{
-		initTitle();
-	}
+	handleArguments(argc, argv);
 	
 	dev.fps = frames = td = 0;
 	then = SDL_GetTicks();
@@ -125,4 +120,33 @@ int main(int argc, char *argv[])
 	}
 
 	return 0;
+}
+
+static void handleArguments(int argc, char *argv[])
+{
+	int i;
+	int testingMission = 0;
+	
+	for (i = 1 ; i < argc ; i++)
+	{
+		/* assume this is filename for testing */
+		if (argv[i][0] != '-')
+		{
+			loadTestMission(argv[i]);
+			
+			testingMission = 1;
+		}
+		else
+		{
+			if (strcmp(argv[i], "-debug") == 0)
+			{
+				dev.debug = 1;
+			}
+		}
+	}
+	
+	if (!testingMission)
+	{
+		initTitle();
+	}
 }

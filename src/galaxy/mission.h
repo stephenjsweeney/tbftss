@@ -48,5 +48,6 @@ extern char *getFileLocation(char *filename);
 extern void updateCapitalShipComponentNames(Entity *parent);
 
 extern Battle battle;
+extern Dev dev;
 extern Entity *player;
 extern Game game;

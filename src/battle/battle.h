@@ -81,5 +81,6 @@ extern void drawDebris(void);
 
 extern App app;
 extern Battle battle;
+extern Dev dev;
 extern Entity *player;
 extern Game game;

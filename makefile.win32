@@ -6,7 +6,7 @@ LIBPATH = /usr/x86_64-w64-mingw32/lib
 SEARCHPATH += src/plat/win32
 OBJS += win32Init.o
 
-CXXFLAGS += `$(SDLC) --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDEBUG=$(DEBUG) -DDATA_DIR=\"$(DATA_DIR)\"
+CXXFLAGS += `$(SDLC) --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\"
 CXXFLAGS += -Wall -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence
 

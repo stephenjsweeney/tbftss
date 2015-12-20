@@ -22,54 +22,55 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void doDevKeys(void)
 {
-	#if DEBUG
-	if (app.keyboard[SDL_SCANCODE_1])
+	if (dev.debug)
 	{
-		dev.playerImmortal = !dev.playerImmortal;
-		app.keyboard[SDL_SCANCODE_1] = 0;
-		printf("DEBUG: dev.playerImmortal=%d\n", dev.playerImmortal);
+		if (app.keyboard[SDL_SCANCODE_1])
+		{
+			dev.playerImmortal = !dev.playerImmortal;
+			app.keyboard[SDL_SCANCODE_1] = 0;
+			printf("DEBUG: dev.playerImmortal=%d\n", dev.playerImmortal);
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_2])
+		{
+			dev.playerUnlimitedMissiles = !dev.playerUnlimitedMissiles;
+			app.keyboard[SDL_SCANCODE_2] = 0;
+			printf("DEBUG: dev.playerUnlimitedMissiles=%d\n", dev.playerUnlimitedMissiles);
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_3])
+		{
+			dev.noAIWeapons = !dev.noAIWeapons;
+			app.keyboard[SDL_SCANCODE_3] = 0;
+			printf("DEBUG: dev.noAIWeapons=%d\n", dev.noAIWeapons);
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_4])
+		{
+			dev.noEntityActions = !dev.noEntityActions;
+			app.keyboard[SDL_SCANCODE_4] = 0;
+			printf("DEBUG: dev.noEntityActions=%d\n", dev.noEntityActions);
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_5])
+		{
+			dev.allImmortal = !dev.allImmortal;
+			app.keyboard[SDL_SCANCODE_5] = 0;
+			printf("DEBUG: dev.allImmortal=%d\n", dev.allImmortal);
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_9])
+		{
+			dev.showFPS = !dev.showFPS;
+			app.keyboard[SDL_SCANCODE_9] = 0;
+			printf("DEBUG: dev.showFPS=%d\n", dev.showFPS);
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_0])
+		{
+			dev.takeScreenshots = !dev.takeScreenshots;
+			app.keyboard[SDL_SCANCODE_0] = 0;
+			printf("DEBUG: dev.takeScreenshots=%d\n", dev.takeScreenshots);
+		}
 	}
-	
-	if (app.keyboard[SDL_SCANCODE_2])
-	{
-		dev.playerUnlimitedMissiles = !dev.playerUnlimitedMissiles;
-		app.keyboard[SDL_SCANCODE_2] = 0;
-		printf("DEBUG: dev.playerUnlimitedMissiles=%d\n", dev.playerUnlimitedMissiles);
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_3])
-	{
-		dev.noAIWeapons = !dev.noAIWeapons;
-		app.keyboard[SDL_SCANCODE_3] = 0;
-		printf("DEBUG: dev.noAIWeapons=%d\n", dev.noAIWeapons);
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_4])
-	{
-		dev.noEntityActions = !dev.noEntityActions;
-		app.keyboard[SDL_SCANCODE_4] = 0;
-		printf("DEBUG: dev.noEntityActions=%d\n", dev.noEntityActions);
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_5])
-	{
-		dev.allImmortal = !dev.allImmortal;
-		app.keyboard[SDL_SCANCODE_5] = 0;
-		printf("DEBUG: dev.allImmortal=%d\n", dev.allImmortal);
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_9])
-	{
-		dev.showFPS = !dev.showFPS;
-		app.keyboard[SDL_SCANCODE_9] = 0;
-		printf("DEBUG: dev.showFPS=%d\n", dev.showFPS);
-	}
-	
-	if (app.keyboard[SDL_SCANCODE_0])
-	{
-		dev.takeScreenshots = !dev.takeScreenshots;
-		app.keyboard[SDL_SCANCODE_0] = 0;
-		printf("DEBUG: dev.takeScreenshots=%d\n", dev.takeScreenshots);
-	}
-	#endif
 }

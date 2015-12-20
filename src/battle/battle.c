@@ -270,13 +270,11 @@ static void handleKeyboard(void)
 		battle.status = MS_PAUSED;
 	}
 	
-	#if DEBUG
-	if (app.keyboard[SDL_SCANCODE_F10])
+	if (dev.debug && app.keyboard[SDL_SCANCODE_F10])
 	{
 		completeMission();
 		battle.missionFinishedTimer = -FPS;
 	}
-	#endif
 }
 
 static void start(void)

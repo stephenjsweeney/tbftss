@@ -1,6 +1,5 @@
 VERSION = 0.5
 REVISION = $(shell date +"%y%m%d")
-DEBUG = $(shell stat dev 1>/dev/null 2>&1 && echo 1 || echo 0)
 
 SEARCHPATH += src/ src/battle src/draw src/game src/galaxy src/json src/system src/test
 vpath %.c $(SEARCHPATH)

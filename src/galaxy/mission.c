@@ -702,26 +702,27 @@ Mission *getMission(char *filename)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
-	#if !DEBUG
 	Mission *reqMission;
 	
-	if (mission->requires)
+	if (!dev.debug)
 	{
-		if (strcmp(mission->requires, "PREVIOUS") == 0)
+		if (mission->requires)
 		{
-			return prev->completed;
-		}
-		else
-		{
-			reqMission = getMission(mission->requires);
-				
-			if (reqMission != NULL)
+			if (strcmp(mission->requires, "PREVIOUS") == 0)
 			{
-				return reqMission->completed;
+				return prev->completed;
+			}
+			else
+			{
+				reqMission = getMission(mission->requires);
+					
+				if (reqMission != NULL)
+				{
+					return reqMission->completed;
+				}
 			}
 		}
 	}
-	#endif
 	
 	return 1;
 }

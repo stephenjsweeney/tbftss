@@ -201,7 +201,7 @@ void doEntities(void)
 			{
 				numAllies++;
 				
-				if (e->health > 0 && (battle.epic || e->active) && !(e->flags & EF_NO_EPIC))
+				if (e->health > 0 && e->active && !(e->flags & EF_NO_EPIC))
 				{
 					numActiveAllies++;
 				}
@@ -210,7 +210,7 @@ void doEntities(void)
 			{
 				numEnemies++;
 				
-				if (e->health > 0 && (battle.epic || e->active) && !(e->flags & EF_NO_EPIC))
+				if (e->health > 0 && e->active && !(e->flags & EF_NO_EPIC))
 				{
 					numActiveEnemies++;
 				}
@@ -220,8 +220,8 @@ void doEntities(void)
 		prev = e;
 	}
 	
-	battle.numAllies = numActiveAllies;
-	battle.numEnemies = numActiveEnemies;
+	battle.numAllies = (battle.epic) ? numAllies : numActiveAllies;
+	battle.numEnemies = (battle.epic) ? numEnemies : numActiveEnemies;
 	
 	if (!battle.numInitialEnemies)
 	{

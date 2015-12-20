@@ -53,13 +53,13 @@
 			"y" : 25
 		},
 		{
-			"name" : "Pirate Lieutenant",
+			"name" : "Pirate Leader",
 			"types" : "Nymph",
 			"number" : 4,
 			"side" : "SIDE_PIRATE",
 			"x" : 25,
 			"y" : 25,
-			"flags" : "EF_MISSION_TARGET",
+			"flags" : "+EF_MISSION_TARGET",
 			"aiFlags" : "AIF_RETREATS"
 		},
 		{

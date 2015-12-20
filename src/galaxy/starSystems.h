@@ -26,5 +26,6 @@ extern char *readFile(char *filename);
 extern long lookup(char *name);
 extern int isMissionAvailable(Mission *mission, Mission *prev);
 extern char *getFileLocation(char *filename);
+extern char **getFileList(char *dir, int *count);
 
 extern Game game;

@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "io.h"
 
+static int stringComparator(const void *a, const void *b);
+
 int fileExists(char *filename)
 {
 	struct stat buffer;
@@ -89,3 +91,49 @@ char *getFileLocation(char *filename)
 	
 	return path;
 }
+
+char **getFileList(char *dir, int *count)
+{
+	DIR *d;
+	struct dirent *ent;
+	int i;
+	char **filenames;
+	
+	filenames = malloc(sizeof(char*) * MAX_LISTED_FILES);
+	memset(filenames, 0, sizeof(char*) * MAX_LISTED_FILES);
+	
+	i = 0;
+	
+	if ((d = opendir(dir)) != NULL)
+	{
+		while ((ent = readdir(d)) != NULL)
+		{
+			if (ent->d_name[0] != '.')
+			{
+				filenames[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
+				
+				STRNCPY(filenames[i], ent->d_name, MAX_FILENAME_LENGTH);
+				
+				if (++i >= MAX_LISTED_FILES)
+				{
+					break;
+				}
+			}
+		}
+		
+		closedir(d);
+	}
+	
+	*count = i;
+	
+	qsort(filenames, i, sizeof(char*), stringComparator);
+	
+	return filenames;
+}
+
+static int stringComparator(const void *a, const void *b)
+{ 
+    char **s1 = (char **)a;
+    char **s2 = (char **)b;
+    return strcmp(*s1, *s2);
+} 

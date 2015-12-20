@@ -4,299 +4,230 @@
         "name": "Sol",
         "side" : "SIDE_CSN",
         "x": 840,
-        "y": 425,
-		"missions" : [
-			"data/missions/sol/01 - free flight.json",
-			"data/missions/sol/02 - weapons.json",
-			"data/missions/sol/03 - moving target.json",
-			"data/missions/sol/04 - armed target.json",
-			"data/missions/sol/05 - ecm.json",
-			"data/missions/sol/06 - wingmates.json",
-			"data/missions/sol/07 - final.json"
-		]
+        "y": 425
       },
       {
         "name": "Alpha Centauri",
         "side" : "SIDE_CSN",
         "x": 860,
-        "y": 404,
-        "missions" : []
+        "y": 404
       },
       {
         "name": "Ecuador Minor",
         "side" : "SIDE_CSN",
         "x": 831,
-        "y": 333,
-        "missions" : []
+        "y": 333
       },
       {
         "name": "Angel",
         "side" : "SIDE_CSN",
         "x": 690,
-        "y": 305,
-        "missions" : []
+        "y": 305
       },
       {
         "name": "Indigo",
         "side" : "SIDE_CSN",
         "x": 760,
-        "y": 270,
-        "missions" : []
+        "y": 270
       },
       {
         "name": "Rex",
         "side" : "SIDE_CSN",
         "x": 834,
-        "y": 276,
-        "missions" : []
+        "y": 276
       },
       {
         "name": "Gabriel",
         "side" : "SIDE_CSN",
         "x": 860,
-        "y": 170,
-        "missions" : []
+        "y": 170
       },
       {
         "name": "Darlon",
         "side" : "SIDE_CSN",
         "x": 808,
-        "y": 190,
-        "missions" : []
+        "y": 190
       },
       {
         "name": "Granada",
         "side" : "SIDE_CSN",
         "x": 741,
-        "y": 221,
-        "missions" : [
-			"data/missions/granada/01 - suspect packages #1.json"
-        ]
+        "y": 221
       },
       {
         "name": "Parish",
         "side" : "SIDE_CSN",
         "x": 666,
-        "y": 261,
-        "missions" : []
+        "y": 261
       },
       {
         "name": "Temper",
         "side" : "SIDE_CSN",
         "x": 595,
-        "y": 260,
-		"missions" : [
-			"data/missions/temper/01 - pirate uprising #1.json",
-			"data/missions/temper/02 - pirate uprising #2.json",
-			"data/missions/temper/03 - pirate uprising #3.json",
-			"data/missions/temper/04 - pirate uprising #4.json"
-		]
+        "y": 260
       },
       {
         "name": "Lenon",
         "side" : "SIDE_CSN",
         "x": 655,
-        "y": 180,
-        "missions" : []
+        "y": 180
       },
       {
         "name": "HD 21563010",
         "side" : "SIDE_CSN",
         "x": 813,
-        "y": 54,
-        "missions" : []
+        "y": 54
       },
       {
         "name": "Trilliack",
         "side" : "SIDE_UNF",
         "x": 501,
-        "y": 312,
-        "missions" : []
+        "y": 312
       },
       {
         "name": "Alba",
         "side" : "SIDE_UNF",
         "x": 465,
-        "y": 235,
-        "missions" : [
-			"data/missions/alba/01 - patrol #1.json",
-			"data/missions/alba/02 - patrol #2.json"
-        ]
+        "y": 235
       },
       {
         "name": "Aster",
         "side" : "SIDE_UNF",
         "x": 445,
-        "y": 145,
-        "missions" : []
+        "y": 145
       },
       {
         "name": "Iliad",
         "side" : "SIDE_UNF",
         "x": 335,
-        "y": 135,
-        "missions" : [
-			"data/missions/iliad/01 - iliad defence #1.json",
-			"data/missions/iliad/02 - iliad defence #2.json"
-        ]
+        "y": 135
       },
       {
         "name": "Warro",
         "side" : "SIDE_UNF",
         "x": 289,
-        "y": 216,
-        "missions" : [
-			"data/missions/warro/01 - evacuation #1.json",
-			"data/missions/warro/02 - evacuation #2.json",
-			"data/missions/warro/03 - evacuation #3.json"
-        ]
+        "y": 216
       },
       {
         "name": "Coyote",
         "side" : "SIDE_UNF",
         "x": 325,
         "y": 385,
-        "fallsToPandorans" : 1,
-        "missions" : [
-			"data/missions/coyote/01 - coyote assault #1.json",
-			"data/missions/coyote/02 - coyote assault #2.json",
-			"data/missions/coyote/03 - coyote assault #3.json"
-        ]
+        "fallsToPandorans" : 1
       },
       {
         "name": "Rothan",
         "side" : "SIDE_UNF",
         "x": 366,
-        "y": 298,
-        "missions" : []
+        "y": 298
       },
       {
         "name": "Donesta",
         "side" : "SIDE_UNF",
         "x": 527,
-        "y": 161,
-        "missions" : []
+        "y": 161
       },
       {
         "name": "India",
         "side" : "SIDE_UNF",
         "x": 539,
-        "y": 427,
-        "missions" : []
+        "y": 427
       },
       {
         "name": "Antomis",
         "side" : "SIDE_UNF",
         "x": 582,
-        "y": 115,
-        "missions" : []
+        "y": 115
       },
       {
         "name": "Mace",
         "side" : "SIDE_UNF",
         "x": 444,
-        "y": 359,
-        "missions" : []
+        "y": 359
       },
       {
         "name": "Clarke",
         "side" : "SIDE_UNF",
         "x": 398,
-        "y": 84,
-        "missions" : [
-			"data/missions/clarke/01 - clarke defence #1.json"
-        ]
+        "y": 84
       },
       {
         "name": "Adetton",
         "side" : "SIDE_INF",
         "x": 228,
-        "y": 228,
-        "missions" : []
+        "y": 228
       },
       {
         "name": "Atlante",
         "side" : "SIDE_INF",
         "x": 212,
-        "y": 85,
-        "missions" : []
+        "y": 85
       },
       {
         "name": "Carthege",
         "side" : "SIDE_INF",
         "x": 163,
-        "y": 122,
-        "missions" : []
+        "y": 122
       },
       {
         "name": "Codexa",
         "side" : "SIDE_INF",
         "x": 195,
-        "y": 101,
-        "missions" : []
+        "y": 101
       },
       {
         "name": "Haylahe",
         "side" : "SIDE_INF",
         "x": 204,
-        "y": 132,
-        "missions" : []
+        "y": 132
       },
       {
         "name": "Kethlan",
         "side" : "SIDE_INF",
         "x": 95,
-        "y": 95,
-        "missions" : []
+        "y": 95
       },
       {
         "name": "Krasst",
         "side" : "SIDE_INF",
         "x": 135,
-        "y": 305,
-        "missions" : []
+        "y": 305
       },
       {
         "name": "Mekel",
         "side" : "SIDE_INF",
         "x": 228,
-        "y": 113,
-        "missions" : []
+        "y": 113
       },
       {
         "name": "Phylent",
         "side" : "SIDE_INF",
         "x": 275,
-        "y": 165,
-        "missions" : []
+        "y": 165
       },
       {
         "name": "Sampi-Persei VII",
         "side" : "SIDE_INF",
         "x": 342,
-        "y": 182,
-        "missions" : []
+        "y": 182
       },
       {
         "name": "Tigris",
         "side" : "SIDE_INF",
         "x": 269,
-        "y": 274,
-        "missions" : []
+        "y": 274
       },
       {
         "name": "Troy",
         "side" : "SIDE_INF",
         "x": 107,
-        "y": 269,
-        "missions" : []
+        "y": 269
       },
       {
         "name": "Pearl",
         "side" : "SIDE_INF",
         "x": 133,
-        "y": 215,
-        "missions" : []
+        "y": 215
       }
     ]
 }

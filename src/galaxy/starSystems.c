@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "starSystems.h"
 
+static void loadMissions(StarSystem *starSystem);
 static void loadStarSystem(cJSON *starSystemJSON);
 static void loadMissionMeta(char *filename, StarSystem *starSystem);
 
@@ -42,7 +43,6 @@ void initStarSystems(void)
 
 static void loadStarSystem(cJSON *starSystemJSON)
 {
-	cJSON *node;
 	StarSystem *starSystem;
 	
 	starSystem = malloc(sizeof(StarSystem));
@@ -63,13 +63,40 @@ static void loadStarSystem(cJSON *starSystemJSON)
 	starSystem->missionHead.completed = 1;
 	starSystem->missionTail = &starSystem->missionHead;
 	
-	for (node = cJSON_GetObjectItem(starSystemJSON, "missions")->child ; node != NULL ; node = node->next)
-	{
-		loadMissionMeta(node->valuestring, starSystem);
-	}
+	loadMissions(starSystem);
 	
 	starSystem->x *= 3;
 	starSystem->y *= 3;
+}
+
+static void loadMissions(StarSystem *starSystem)
+{
+	int i, count;
+	char name[MAX_NAME_LENGTH];
+	char path[MAX_FILENAME_LENGTH];
+	char **filenames;
+	
+	STRNCPY(name, starSystem->name, MAX_NAME_LENGTH);
+	
+	for (i = 0 ; name[i] ; i++)
+	{
+		name[i] = tolower(name[i]);
+	}
+	
+	sprintf(path, "data/missions/%s", name);
+	
+	filenames = getFileList(path, &count);
+	
+	for (i = 0 ; i < count ; i++)
+	{
+		sprintf(path, "data/missions/%s/%s", name, filenames[i]);
+		
+		loadMissionMeta(path, starSystem);
+		
+		free(filenames[i]);
+	}
+	
+	free(filenames);
 }
 
 static void loadMissionMeta(char *filename, StarSystem *starSystem)

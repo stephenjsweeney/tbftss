@@ -299,27 +299,27 @@ void initPlayerSelect(void)
 
 void doPlayerSelect(void)
 {
-	if (app.keyboard[SDL_SCANCODE_LEFT])
+	if (app.keyboard[SDL_SCANCODE_A] || app.mouse.button[SDL_BUTTON_X1])
 	{
 		selectNewPlayer(-1);
 		
-		app.keyboard[SDL_SCANCODE_LEFT] = 0;
+		app.mouse.button[SDL_BUTTON_X1] = app.keyboard[SDL_SCANCODE_A] = 0;
 	}
 	
-	if (app.keyboard[SDL_SCANCODE_RIGHT])
+	if (app.keyboard[SDL_SCANCODE_D] || app.mouse.button[SDL_BUTTON_X2])
 	{
 		selectNewPlayer(1);
 		
-		app.keyboard[SDL_SCANCODE_RIGHT] = 0;
+		app.mouse.button[SDL_BUTTON_X2] = app.keyboard[SDL_SCANCODE_D] = 0;
 	}
 	
-	if (app.keyboard[SDL_SCANCODE_RETURN] && player->health > 0)
+	if (player->health > 0 && app.mouse.button[SDL_BUTTON_LEFT])
 	{
 		battle.playerSelect = 0;
 		
 		initPlayer();
 		
-		app.keyboard[SDL_SCANCODE_RETURN] = 0;
+		app.mouse.button[SDL_BUTTON_LEFT] = 0;
 	}
 }
 

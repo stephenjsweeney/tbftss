@@ -13,15 +13,15 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Eliminate Escorts",
+			"description" : "Eliminate escorts",
 			"targetName" : "Pandoran",
-			"targetValue" : 8,
+			"targetValue" : 4,
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Eliminate Reinforcements",
+			"description" : "Eliminate reinforcements",
 			"targetName" : "Reinforcements",
-			"targetValue" : 6,
+			"targetValue" : 4,
 			"targetType" : "TT_DESTROY",
 			"active": 0
 		},
@@ -64,10 +64,10 @@
 			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
-			"x" : 40,
+			"x" : 20,
 			"y" : 40,
-			"number" : 6,
-			"scatter" : 1000,
+			"number" : 4,
+			"scatter" : 0,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
@@ -75,9 +75,9 @@
 			"groupName" : "Reinforcements",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
-			"x" : 35,
-			"y" : 35,
-			"number" : 6,
+			"x" : 45,
+			"y" : 25,
+			"number" : 4,
 			"scatter" : 0,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER",
 			"active" : 0
@@ -95,11 +95,11 @@
 	],
 	"script" : [
 		{
-			"function" : "ENEMIES_KILLED 5",
+			"function" : "ENEMIES_KILLED 4",
 			"lines" : [
 				"WAIT 1",
 				"ACTIVATE_ENTITY_GROUPS Reinforcements",
-				"ACTIVATE_OBJECTIVES Eliminate Reinforcements",
+				"ACTIVATE_OBJECTIVES Eliminate reinforcements",
 				"MSG_BOX Wingmate;Commander, enemy reinforcements are enroute. Looks like more INF fighters.",
 				"MSG_BOX Carlyle;Dammit! Let's make sure we fry these cap ships before any more turn up."
 			]

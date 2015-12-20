@@ -56,7 +56,7 @@ void doAI(void)
 		return;
 	}
 	
-	if ((self->aiFlags & AIF_DEFENSIVE) && rand() % 50 && nearEnemies())
+	if ((self->aiFlags & AIF_DEFENSIVE) && rand() % 25 && nearEnemies())
 	{
 		return;
 	}
@@ -555,8 +555,13 @@ static int nearEnemies(void)
 	{
 		self->targetLocation.x /= numEnemies;
 		self->targetLocation.y /= numEnemies;
+		
+		/* dodge slightly */
+		self->targetLocation.x += (rand() % 100 - rand() % 100);
+		self->targetLocation.y += (rand() % 100 - rand() % 100);
+		
 		self->action = fleeEnemies;
-		self->aiActionTime = FPS / 2;
+		self->aiActionTime = FPS * 2;
 		return 1;
 	}
 	

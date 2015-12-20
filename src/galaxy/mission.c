@@ -314,6 +314,11 @@ static void loadFighters(cJSON *node)
 		
 			node = node->next;
 			
+			for (i = 0 ; i < numTypes ; i++)
+			{
+				free(types[i]);
+			}
+			
 			free(types);
 		}
 	}
@@ -418,6 +423,11 @@ static void loadCapitalShips(cJSON *node)
 			}
 		
 			node = node->next;
+			
+			for (i = 0 ; i < numTypes ; i++)
+			{
+				free(types[i]);
+			}
 			
 			free(types);
 		}

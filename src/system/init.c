@@ -211,7 +211,7 @@ void cleanup(void)
 	
 	destroyTextures();
 	
-	expireTexts();
+	expireTexts(1);
 	
 	destroyFonts();
 	

@@ -30,7 +30,7 @@ void startSectionTransition(void)
 	
 	presentScene();
 	
-	expireTexts();
+	expireTexts(1);
 }
 
 void endSectionTransition(void)

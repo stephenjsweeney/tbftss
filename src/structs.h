@@ -56,6 +56,7 @@ typedef struct {
 struct Texture {
 	char name[MAX_DESCRIPTION_LENGTH];
 	long hash;
+	long ttl;
 	SDL_Texture *texture;
 	Texture *next;
 };

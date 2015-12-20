@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 {
 	float td;
 	long then, lastFrameTime, frames;
+	long expireTextTimer;
 	
 	SDL_Event event;
 	
@@ -47,6 +48,7 @@ int main(int argc, char *argv[])
 	dev.fps = frames = td = 0;
 	then = SDL_GetTicks();
 	lastFrameTime = SDL_GetTicks() + 1000;
+	expireTextTimer = SDL_GetTicks() + (1000 * 10);
 	
 	while (1)
 	{
@@ -114,6 +116,13 @@ int main(int argc, char *argv[])
 			{
 				saveScreenshot();
 			}
+		}
+		
+		if (SDL_GetTicks() > expireTextTimer)
+		{
+			expireTexts(0);
+			
+			expireTextTimer = SDL_GetTicks() + (1000 * 10);
 		}
 
 		SDL_Delay(1);

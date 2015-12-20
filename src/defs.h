@@ -42,6 +42,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define FPS				60
 #define LOGIC_RATE		(1000 / FPS)
 
+#define TEXT_TTL		(1000 * 20)
+
 #define MAX_NAME_LENGTH				32
 #define MAX_DESCRIPTION_LENGTH		512
 #define MAX_FILENAME_LENGTH			1024

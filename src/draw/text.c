@@ -20,7 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "text.h"
 
-void expireTexts(void);
 static void loadFont(int size);
 static SDL_Texture *getCachedText(unsigned long hash);
 static void cacheText(unsigned long hash, SDL_Texture *t);
@@ -88,11 +87,6 @@ static void drawTextNormal(int x, int y, int size, int align, SDL_Color c, char 
 		surface = TTF_RenderText_Blended(font[size], text, c);
 		t = SDL_CreateTextureFromSurface(app.renderer, surface);
 		SDL_FreeSurface(surface);
-		
-		if (cacheSize >= TEXT_CACHE_SIZE)
-		{
-			expireTexts();
-		}
 		
 		cacheText(hash, t);
 	}
@@ -209,6 +203,7 @@ static SDL_Texture *getCachedText(unsigned long hash)
 	{
 		if (t->hash == hash)
 		{
+			t->ttl = SDL_GetTicks() + TEXT_TTL;
 			return t->texture;
 		}
 	}
@@ -236,35 +231,44 @@ static void cacheText(unsigned long hash, SDL_Texture *texture)
 
 	new->hash = hash;
 	new->texture = texture;
+	new->ttl = SDL_GetTicks() + TEXT_TTL;
 
 	t->next = new;
 	
 	cacheSize++;
 }
 
-void expireTexts(void)
+void expireTexts(int all)
 {
-	Texture *t;
+	Texture *t, *prev;
 	int i, n;
+	long now;
 	
 	n = 0;
+	now = SDL_GetTicks();
 
 	for (i = 0 ; i < NUM_TEXT_BUCKETS ; i++)
 	{
-		while (textures[i].next)
+		prev = &textures[i];
+		
+		for (t = textures[i].next ; t != NULL ; t = t->next)
 		{
-			t = textures[i].next;
-			textures[i].next = t->next;
-			SDL_DestroyTexture(t->texture);
-			free(t);
+			if (t->ttl <= now || all)
+			{
+				prev->next = t->next;
+				SDL_DestroyTexture(t->texture);
+				free(t);
+				
+				cacheSize--;
+				
+				n++;
+				
+				t = prev;
+			}
 			
-			n++;
+			prev = t;
 		}
-
-		textures[i].next = NULL;
 	}
-	
-	cacheSize = 0;
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Expired %d texts", n);
 }

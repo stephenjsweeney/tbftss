@@ -22,8 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "SDL2/SDL_ttf.h"
 
-#define TEXT_CACHE_SIZE 256
-
 extern void blit(SDL_Texture *texture, int x, int y, int centered);
 extern char *getFileLocation(char *filename);
 

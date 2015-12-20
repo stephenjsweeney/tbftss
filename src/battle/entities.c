@@ -113,6 +113,13 @@ void doEntities(void)
 			e->shieldHit = MAX(e->shieldHit - 5, 0);
 			e->systemHit = MAX(e->systemHit - 25, 0);
 			
+			e->aiDamageTimer = MAX(e->aiDamageTimer - 1, 0);
+			if (!e->aiDamageTimer)
+			{
+				e->aiDamagePerSec = 0;
+				e->aiFlags &= ~AIF_EVADE;
+			}
+			
 			switch (e->type)
 			{
 				case ET_FIGHTER:
@@ -213,8 +220,8 @@ void doEntities(void)
 		prev = e;
 	}
 	
-	battle.numAllies = numAllies;
-	battle.numEnemies = numEnemies;
+	battle.numAllies = numActiveAllies;
+	battle.numEnemies = numActiveEnemies;
 	
 	if (!battle.numInitialEnemies)
 	{

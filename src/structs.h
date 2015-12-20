@@ -119,6 +119,9 @@ struct Entity {
 	int thinkTime;
 	int aiActionTime;
 	int aiAggression;
+	int aiDamagePerSec;
+	int aiDamageTimer;
+	int aiEvadeTimer;
 	int separationRadius;
 	Weapon guns[MAX_FIGHTER_GUNS];
 	int missiles;

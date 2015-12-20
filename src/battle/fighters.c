@@ -383,6 +383,9 @@ void damageFighter(Entity *e, int amount, long flags)
 {
 	int prevShield = e->shield;
 	
+	e->aiDamageTimer = FPS;
+	e->aiDamagePerSec += amount;
+	
 	if (flags & BF_SYSTEM_DAMAGE)
 	{
 		e->systemPower = MAX(0, e->systemPower - amount);
@@ -437,6 +440,23 @@ void damageFighter(Entity *e, int amount, long flags)
 		e->shieldRecharge = e->shieldRechargeRate;
 		
 		playBattleSound(SND_SHIELD_HIT, e->x, e->y);
+	}
+	
+	/*
+	 * Sometimes run away if you take too much damage in a short space of time
+	 */
+	if (e->type == ET_FIGHTER && e != player && e->aiDamagePerSec >= (e->maxHealth + e->maxShield) * 0.1 && (!(e->aiFlags & AIF_EVADE)))
+	{
+		if (rand() % 3)
+		{
+			e->action = doAI;
+			e->aiFlags |= AIF_EVADE;
+			e->aiActionTime = e->aiEvadeTimer = FPS * 3;
+		}
+		else
+		{
+			e->aiDamagePerSec = 0;
+		}
 	}
 }
 

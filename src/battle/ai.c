@@ -51,7 +51,7 @@ static void moveToLeader(void);
 
 void doAI(void)
 {
-	if ((self->aiFlags & AIF_AVOIDS_COMBAT) && nearEnemies())
+	if ((self->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE)) && nearEnemies())
 	{
 		return;
 	}
@@ -130,7 +130,14 @@ static void doFighterAI(void)
 			{
 				if (!lookForLeader())
 				{
-					applyFighterBrakes();
+					if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
+					{
+						moveToPlayer();
+					}
+					else
+					{
+						applyFighterBrakes();
+					}
 				}
 			}
 			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
@@ -244,7 +251,7 @@ static void huntTarget(void)
 static void huntAndAttackTarget(void)
 {
 	int dist = getDistance(self->x, self->y, self->target->x, self->target->y);
-	int range = self->aiFlags & AIF_LONG_RANGE_FIRE ? 1250 : 625;
+	int range = self->aiFlags & AIF_LONG_RANGE_FIRE ? (SCREEN_WIDTH * 1.5) : SCREEN_HEIGHT;
 	
 	faceTarget(self->target);
 	
@@ -267,7 +274,7 @@ static void huntAndAttackTarget(void)
 
 static int attackSecondaryTarget(Entity *e)
 {
-	if (self->target->aiFlags & AIF_AVOIDS_COMBAT || self->target->flags & EF_SECONDARY_TARGET)
+	if (self->target->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || self->target->flags & EF_SECONDARY_TARGET)
 	{
 		return rand() % 4 == 0;
 	}

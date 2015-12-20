@@ -13,12 +13,6 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Destroy INF Blackjack",
-			"targetName" : "INF Blackjack",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY"
-		},
-		{
 			"description" : "Eliminate Escorts",
 			"targetName" : "Pandoran",
 			"targetValue" : 8,
@@ -43,7 +37,7 @@
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES",
 		"pilot" : "Angus Carlyle",
-		"squadron" : "",
+		"squadron" : "Sentinels",
 		"x" : 45,
 		"y" : 45
 	},
@@ -72,17 +66,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 40,
 			"y" : 40,
-			"number" : 4,
-			"scatter" : 1000,
-			"aiFlags" : "+AIF_MOVES_TO_LEADER"
-		},
-		{
-			"name" : "Pandoran",
-			"types" : "Jackal;Sphinx;Mantis",
-			"side" : "SIDE_PANDORAN",
-			"x" : 30,
-			"y" : 30,
-			"number" : 4,
+			"number" : 6,
 			"scatter" : 1000,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
@@ -107,20 +91,13 @@
 			"x" : 39,
 			"y" : 39,
 			"flags" : "EF_AI_LEADER"
-		},
-		{
-			"name" : "INF Blackjack",
-			"types" : "INF Corvette 01",
-			"side" : "SIDE_PANDORAN",
-			"x" : 29,
-			"y" : 29,
-			"flags" : "EF_AI_LEADER"
 		}
 	],
 	"script" : [
 		{
 			"function" : "ENEMIES_KILLED 5",
 			"lines" : [
+				"WAIT 1",
 				"ACTIVATE_ENTITY_GROUPS Reinforcements",
 				"ACTIVATE_OBJECTIVES Eliminate Reinforcements",
 				"MSG_BOX Wingmate;Commander, enemy reinforcements are enroute. Looks like more INF fighters.",
@@ -131,21 +108,14 @@
 			"function" : "Destroy INF Dirk",
 			"lines" : [
 				"WAIT 1",
-				"MSG_BOX Carlyle;INF Dirk is down."
+				"MSG_BOX Carlyle;INF Dirk has been downed."
 			]
 		},
 		{
-			"function" : "Destroy INF Blackjack",
+			"function" : "OBJECTIVES_COMPLETE 3",
 			"lines" : [
 				"WAIT 1",
-				"MSG_BOX Carlyle;INF Blackjack has been destroyed."
-			]
-		},
-		{
-			"function" : "OBJECTIVES_COMPLETE 4",
-			"lines" : [
-				"WAIT 1",
-				"MSG_BOX Carlyle;This is Carlyle. Blackjack and Dirk have been destroyed. All other fighters scratched.",
+				"MSG_BOX Carlyle;This is Carlyle. Enemy corvette has been destroyed. All other fighters scratched.",
 				"MSG_BOX Control;That's good work, Commander. We're preparing to engage more enemies, so we can't put our feet up just yet.",
 				"MSG_BOX Carlyle;Hell. Okay, we'll return momentarily. Carlyle out.",
 				"WAIT_MSG_BOX",

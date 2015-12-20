@@ -6,6 +6,8 @@
 	"music" : "music/InnerCore_Low.ogg",
 	"player" : {
 		"type" : "TAF",
+		"pilot" : "",
+		"squadron" : "",
 		"side" : "SIDE_ALLIES",
 		"x" : 10,
 		"y" : 10

@@ -135,7 +135,7 @@ void doEntities(void)
 					break;
 			}
 			
-			if (e->alive != ALIVE_DEAD)
+			if (e->alive == ALIVE_ALIVE || e->alive == ALIVE_DYING)
 			{
 				if (e->action != NULL)
 				{
@@ -201,7 +201,7 @@ void doEntities(void)
 			{
 				numAllies++;
 				
-				if (e->health > 0 && e->active && !(e->flags & EF_NO_EPIC))
+				if (e->health > 0 && e->active)
 				{
 					numActiveAllies++;
 				}
@@ -210,7 +210,7 @@ void doEntities(void)
 			{
 				numEnemies++;
 				
-				if (e->health > 0 && e->active && !(e->flags & EF_NO_EPIC))
+				if (e->health > 0 && e->active)
 				{
 					numActiveEnemies++;
 				}

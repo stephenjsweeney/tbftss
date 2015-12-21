@@ -1,10 +1,10 @@
 {
-	"name" : "",
+	"name" : "Rebel Assault #1",
 	"description" : "",
+	"requires" : 23,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/InnerCore_Low.ogg",
-	"requires" : "data/missions/granada/04 - pirate smash.json",
 	"player" : {
 		"type" : "TAF",
 		"pilot" : "",

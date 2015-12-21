@@ -1,10 +1,10 @@
 {
 	"name" : "Coyote Assault #1",
 	"description" : "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft.",
+	"requires" : 2,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/mythos.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
 	"objectives" : [
 		{
 			"description" : "Destroy all enemy targets",

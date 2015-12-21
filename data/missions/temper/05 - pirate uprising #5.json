@@ -1,10 +1,10 @@
 {
 	"name" : "Pirate Uprising #5",
-	"description" : "",
+	"description" : "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle.",
+	"requires" : 4,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/battleThemeA.mp3",
-	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Destroy all pirate forces",

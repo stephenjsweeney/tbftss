@@ -57,7 +57,6 @@ static int pulseTimer;
 static float ssx, ssy;
 static float arrowPulse;
 static int show;
-static int completedMissions, totalMissions;
 
 void initGalacticMap(void)
 {
@@ -76,8 +75,6 @@ void initGalacticMap(void)
 	arrowTexture = getTexture("gfx/galaxy/arrow.png");
 	
 	selectedStarSystem = getStarSystem(game.selectedStarSystem);
-	
-	updateStarSystemDescriptions();
 	
 	centerOnSelectedStarSystem();
 	
@@ -152,8 +149,6 @@ static void doStarSystems(void)
 	StarSystem *starSystem;
 	int cx, cy;
 	
-	completedMissions = totalMissions = 0;
-	
 	cx = app.mouse.x - 32;
 	cy = app.mouse.y - 32;
 	
@@ -161,9 +156,6 @@ static void doStarSystems(void)
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		completedMissions += starSystem->completedMissions;
-		totalMissions += starSystem->totalMissions;
-		
 		if (starSystem->totalMissions > 0 && collision(cx, cy, 64, 64, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
 		{
 			if (selectedStarSystem != starSystem)
@@ -259,26 +251,18 @@ static void addPulses(void)
 			pulse->x = starSystem->x;
 			pulse->y = starSystem->y;
 			pulse->life = 255;
-			pulse->r = 255;
+			
+			if (!starSystem->isSol)
+			{
+				pulse->r = 255;
+			}
+			else
+			{
+				pulse->g = 255;
+			}
 			
 			pulseTail->next = pulse;
 			pulseTail = pulse;
-		}
-		else if (starSystem->totalMissions > 0)
-		{
-			if (pulseTimer % (FPS * 3) == 0)
-			{
-				pulse = malloc(sizeof(Pulse));
-				memset(pulse, 0, sizeof(Pulse));
-				
-				pulse->x = starSystem->x;
-				pulse->y = starSystem->y;
-				pulse->life = 255;
-				pulse->g = 255;
-				
-				pulseTail->next = pulse;
-				pulseTail = pulse;
-			}
 		}
 	}
 }
@@ -430,7 +414,14 @@ static void drawGalaxy(void)
 			
 			if (aa != -1)
 			{
-				SDL_SetTextureColorMod(arrowTexture, 255, 0, 0);
+				if (!starSystem->isSol)
+				{
+					SDL_SetTextureColorMod(arrowTexture, 255, 0, 0);
+				}
+				else
+				{
+					SDL_SetTextureColorMod(arrowTexture, 0, 255, 0);
+				}
 				
 				blitRotated(arrowTexture, ax, ay, aa);
 			}
@@ -466,7 +457,7 @@ static void drawInfoBars(void)
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, "Missions: %d / %d", completedMissions, totalMissions);
+	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, "Missions: %d / %d", game.completedMissions, game.totalMissions);
 }
 
 static void selectStarSystem(void)

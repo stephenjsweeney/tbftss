@@ -226,7 +226,7 @@ struct Mission {
 	char name[MAX_NAME_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
 	char filename[MAX_DESCRIPTION_LENGTH];
-	char requires[MAX_DESCRIPTION_LENGTH];
+	int requires;
 	char pilot[MAX_NAME_LENGTH];
 	char squadron[MAX_NAME_LENGTH];
 	char craft[MAX_NAME_LENGTH];
@@ -247,6 +247,7 @@ struct StarSystem {
 	int completedMissions;
 	int totalMissions;
 	int fallsToPandorans;
+	int isSol;
 	Mission missionHead, *missionTail;
 	StarSystem *next;
 };
@@ -296,6 +297,8 @@ typedef struct {
 	StarSystem starSystemHead, *starSystemTail;
 	Mission *currentMission;
 	char selectedStarSystem[MAX_NAME_LENGTH];
+	int completedMissions;
+	int totalMissions;
 	unsigned int stats[STAT_MAX];
 } Game;
 

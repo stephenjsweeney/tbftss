@@ -2,9 +2,9 @@
 	"name" : "Suspect Packages #2",
 	"description" : "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more.",
 	"background" : "gfx/backgrounds/background03.jpg",
+	"requires" : 4,
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/determination.mp3",
-	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Check all wayponts",

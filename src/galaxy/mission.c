@@ -702,29 +702,7 @@ Mission *getMission(char *filename)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
-	Mission *reqMission;
-	
-	if (!dev.debug)
-	{
-		if (mission->requires)
-		{
-			if (strcmp(mission->requires, "PREVIOUS") == 0)
-			{
-				return prev->completed;
-			}
-			else
-			{
-				reqMission = getMission(mission->requires);
-					
-				if (reqMission != NULL)
-				{
-					return reqMission->completed;
-				}
-			}
-		}
-	}
-	
-	return 1;
+	return prev->completed && mission->requires <= game.completedMissions;
 }
 
 static unsigned long hashcode(const char *str)

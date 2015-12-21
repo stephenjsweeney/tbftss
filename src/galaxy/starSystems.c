@@ -60,6 +60,11 @@ static void loadStarSystem(cJSON *starSystemJSON)
 		starSystem->fallsToPandorans = cJSON_GetObjectItem(starSystemJSON, "fallsToPandorans")->valueint;
 	}
 	
+	if (strcmp(starSystem->name, "Sol") == 0)
+	{
+		starSystem->isSol = 1;
+	}
+	
 	starSystem->missionHead.completed = 1;
 	starSystem->missionTail = &starSystem->missionHead;
 	
@@ -123,7 +128,7 @@ static void loadMissionMeta(char *filename, StarSystem *starSystem)
 	
 	if (cJSON_GetObjectItem(root, "requires"))
 	{
-		STRNCPY(mission->requires, cJSON_GetObjectItem(root, "requires")->valuestring, MAX_DESCRIPTION_LENGTH);
+		mission->requires = cJSON_GetObjectItem(root, "requires")->valueint;
 	}
 	
 	if (cJSON_GetObjectItem(root, "epic"))
@@ -182,56 +187,53 @@ StarSystem *getStarSystem(char *name)
 	return NULL;
 }
 
-void updateStarSystemDescriptions(void)
+void updateStarSystemMissions(void)
 {
 	StarSystem *starSystem;
-	Mission *mission;
+	Mission *mission, *prev;
+	
+	game.completedMissions = game.totalMissions = 0;
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		starSystem->completedMissions = starSystem->totalMissions;
+		starSystem->completedMissions = starSystem->totalMissions = 0;
 		
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
-			starSystem->totalMissions++;
-			
 			if (mission->completed)
 			{
 				starSystem->completedMissions++;
 			}
 		}
 		
-		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->totalMissions);
+		if (strcmp(starSystem->name, "Sol") != 0)
+		{
+			game.completedMissions += starSystem->completedMissions;
+		}
 	}
-}
-
-void updateStarSystemMissions(void)
-{
-	StarSystem *starSystem;
-	Mission *mission, *prev;
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		starSystem->completedMissions = starSystem->totalMissions = 0;
-		
 		prev = &starSystem->missionHead;
 		
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
-			mission->available = isMissionAvailable(mission, prev);
+			mission->available = strcmp(starSystem->name, "Sol") == 0 || isMissionAvailable(mission, prev);
 			
 			if (mission->available)
 			{
 				starSystem->totalMissions++;
-				
-				if (mission->completed)
-				{
-					starSystem->completedMissions++;
-				}
 			}
 			
 			prev = mission;
 		}
+		
+		if (strcmp(starSystem->name, "Sol") != 0)
+		{
+			game.totalMissions += starSystem->totalMissions;
+		}
+		
+		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->totalMissions);
 	}
 }
 

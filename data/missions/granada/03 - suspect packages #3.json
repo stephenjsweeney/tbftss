@@ -1,10 +1,10 @@
 {
 	"name" : "Suspect Packages #3",
 	"description" : "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Nation of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence.",
+	"requires" : 12,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/determination.mp3",
-	"requires" : "PREVIOUS",
 	"player" : {
 		"pilot" : "Lt. Cdr. Daniel Carr",
 		"squadron" : "Iron Patriots",

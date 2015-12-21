@@ -1,10 +1,10 @@
 {
 	"name" : "Patrol #1",
 	"description" : "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter.",
+	"requires" : 8,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "data/missions/temper/03 - pirate uprising #3.json",
 	"objectives" : [
 		{
 			"description" : "Check all wayponts",

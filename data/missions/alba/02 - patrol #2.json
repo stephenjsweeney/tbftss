@@ -1,10 +1,10 @@
 {
 	"name" : "Patrol #2",
 	"description" : "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presense is reducing the amount of illegal activity in this sector, with reported incidents down 80%. Still, we cannot afford to become complacent, and must continue with our sweeps.",
+	"requires" : 13,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Check all Waypoints",

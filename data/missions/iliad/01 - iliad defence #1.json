@@ -1,10 +1,10 @@
 {
 	"name" : "Iliad Defence #1",
 	"description" : "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle.",
+	"requires" : 13,
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/track-3.mp3",
-	"requires" : "data/missions/warro/03 - evacuation #3.json",
 	"objectives" : [
 		{
 			"description" : "Destroy incoming bombers",

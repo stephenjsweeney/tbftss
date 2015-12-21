@@ -1,10 +1,10 @@
 {
 	"name" : "Pirate Uprising #2",
 	"description" : "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevelant, and there are more shielded and plasma-equipped fighters to be found in their ranks.",
+	"requires" : 1,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/battleThemeA.mp3",
-	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Eliminate Darts",

@@ -1,10 +1,10 @@
 {
 	"name" : "Clarke Defence #2",
 	"description" : "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down two of their corvettes: INF Dirk and INF Blackjack. Ensure the Khepri-class bombers can get in close enough to delivery a strike.",
+	"requires" : 12,
 	"background" : "gfx/backgrounds/background04.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Destroy INF Dirk",

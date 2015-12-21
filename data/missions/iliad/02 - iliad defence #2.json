@@ -1,10 +1,10 @@
 {
 	"name" : "Iliad Defence #2",
 	"description" : "The Pandoran war machine has commenced its advancement beyond Mitikas space. We must prepare to defend Iliad from this powerful foe. Exercise caution: despite outnumbering the enemy units that have entered our space, the Pandorans are said to be relentless in battle, and this small number could well still test us.",
+	"requires" : 18,
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "PREVIOUS",
 	"epic" : {
 		"fighterLimit" : 12
 	},

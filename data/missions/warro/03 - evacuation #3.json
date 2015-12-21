@@ -1,10 +1,10 @@
 {
 	"name" : "Evacuation #3",
 	"description" : "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now.",
+	"requires" : 8,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
 	"music" : "music/determination.mp3",
-	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Rescue all civilians",

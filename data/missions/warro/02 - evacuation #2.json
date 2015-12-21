@@ -1,10 +1,10 @@
 {
 	"name" : "Evacuation #2",
 	"description" : "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised.",
+	"requires" : 8,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
 	"music" : "music/determination.mp3",
-	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Rescue all civilians",

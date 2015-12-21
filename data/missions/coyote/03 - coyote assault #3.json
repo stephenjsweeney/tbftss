@@ -1,10 +1,10 @@
 {
 	"name" : "Coyote Assault #3",
 	"description" : "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space.",
+	"requires" : 8,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/mythos.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "PREVIOUS",
 	"epic" : {
 		"fighterLimit" : 12
 	},

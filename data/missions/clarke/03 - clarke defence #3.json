@@ -1,10 +1,10 @@
 {
 	"name" : "Clarke Defence #3",
 	"description" : "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra is moving to intecept more enemy corvettes. Your orders are to assist it in achieving its goals.",
+	"requires" : 18,
 	"background" : "gfx/backgrounds/background04.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/heroism.ogg",
-	"requires" : "PREVIOUS",
 	"objectives" : [
 		{
 			"description" : "Destroy INF Khopesh",

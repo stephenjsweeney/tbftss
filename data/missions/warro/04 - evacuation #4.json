@@ -1,10 +1,10 @@
 {
 	"name" : "Evacuation #4",
 	"description" : "The Pandorans are here!.",
+	"requires" : 13,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
 	"music" : "music/determination.mp3",
-	"requires" : "data/missions/iliad/02 - iliad defence #2.json",
 	"objectives" : [
 		{
 			"description" : "Rescue all civilians",

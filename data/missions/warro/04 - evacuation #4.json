@@ -1,0 +1,116 @@
+{
+	"name" : "Evacuation #4",
+	"description" : "The Pandorans are here!.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/oracleIX.png",
+	"music" : "music/determination.mp3",
+	"requires" : "data/missions/iliad/02 - iliad defence #2.json",
+	"objectives" : [
+		{
+			"description" : "Rescue all civilians",
+			"targetName" : "Civilian",
+			"targetValue" : 4,
+			"targetType" : "TT_ESCAPED"
+		},
+		{
+			"description" : "Do not allow any civilians to be killed",
+			"targetName" : "Civilian",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"pilot" : "2nd Lt. Preston Palmer",
+		"squadron" : "S&R",
+		"type" : "Tug",
+		"side" : "SIDE_ALLIES"
+	},
+	"fighters" : [
+		{
+			"name" : "Civilian",
+			"types" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 18,
+			"y" : 26,
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
+		},
+		{
+			"name" : "Civilian",
+			"types" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 28,
+			"y" : 20,
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
+		},
+		{
+			"name" : "Civilian",
+			"types" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 37,
+			"y" : 22,
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
+		},
+		{
+			"name" : "Civilian",
+			"types" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 32,
+			"y" : 32,
+			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
+		},
+		{
+			"name" : "Ally",
+			"number" : 3,
+			"types" : "Nymph",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"name" : "Dart",
+			"number" : 8,
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 18,
+			"y" : 26,
+			"scatter" : 750
+		},
+		{
+			"name" : "Dart",
+			"number" : 8,
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 28,
+			"y" : 20,
+			"scatter" : 750
+		},
+		{
+			"name" : "Dart",
+			"number" : 8,
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 37,
+			"y" : 22,
+			"scatter" : 750
+		},
+		{
+			"name" : "Dart",
+			"number" : 8,
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 32,
+			"y" : 32,
+			"scatter" : 750
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Extraction Point",
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 25,
+			"y" : 25
+		}
+	]
+}

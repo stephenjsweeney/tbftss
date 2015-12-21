@@ -60,8 +60,18 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 45,
 			"y" : 45,
-			"number" : 8,
+			"number" : 4,
 			"scatter" : 500
+		},
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph;Leopard;Hyena-A;Hyena-B",
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 45,
+			"number" : 4,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
 			"name" : "Pandoran",
@@ -104,7 +114,8 @@
 			"types" : "UNF Corvette 01",
 			"side" : "SIDE_ALLIES",
 			"x" : 46,
-			"y" : 45
+			"y" : 45,
+			"flags" : "EF_AI_LEADER"
 		}
 	],
 	"script" : [

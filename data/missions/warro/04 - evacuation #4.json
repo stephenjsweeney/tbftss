@@ -1,116 +1,242 @@
 {
 	"name" : "Evacuation #4",
-	"description" : "The Pandorans are here!.",
+	"description" : "The Pandorans' arrival is imminent, but the evacuation is nearing completion. We need only mop up some of the stragglers. Two of the White Knights will be assisting, before moving on to hit the enemy's supply line. You should concentrate on getting the civilians to safety, and letting the ATAFs do the bulk of the work.",
 	"requires" : 13,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
 	"music" : "music/determination.mp3",
 	"objectives" : [
 		{
-			"description" : "Rescue all civilians",
+			"description" : "Rescue first civilian group",
 			"targetName" : "Civilian",
-			"targetValue" : 4,
+			"targetValue" : 5,
 			"targetType" : "TT_ESCAPED"
 		},
 		{
-			"description" : "Do not allow any civilians to be killed",
+			"description" : "Rescue second civilian group",
 			"targetName" : "Civilian",
+			"targetValue" : 5,
+			"targetType" : "TT_ESCAPED",
+			"active" : 0
+		},
+		{
+			"description" : "Rescue third civilian group",
+			"targetName" : "Civilian",
+			"targetValue" : 5,
+			"targetType" : "TT_ESCAPED",
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate all remaining enemies",
+			"targetName" : "ENEMY",
 			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED",
+			"active" : 0,
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Minimise civilian losses",
+			"targetName" : "Civilian",
+			"targetValue" : 3,
 			"targetType" : "TT_DESTROY",
 			"isCondition" : 1
+		},
+		{
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
 		}
 	],
 	"player" : {
-		"pilot" : "2nd Lt. Preston Palmer",
-		"squadron" : "S&R",
-		"type" : "Tug",
-		"side" : "SIDE_ALLIES"
+		"pilot" : "2nd Lt. Tobias Wiley",
+		"squadron" : "The 8mms",
+		"type" : "Nymph",
+		"side" : "SIDE_ALLIES",
+		"x" : 10,
+		"y" : 10
 	},
 	"fighters" : [
 		{
-			"name" : "Civilian",
-			"types" : "Civilian",
-			"side" : "SIDE_ALLIES",
-			"x" : 18,
-			"y" : 26,
-			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
-		},
-		{
-			"name" : "Civilian",
-			"types" : "Civilian",
-			"side" : "SIDE_ALLIES",
-			"x" : 28,
-			"y" : 20,
-			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
-		},
-		{
-			"name" : "Civilian",
-			"types" : "Civilian",
-			"side" : "SIDE_ALLIES",
-			"x" : 37,
-			"y" : 22,
-			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
-		},
-		{
-			"name" : "Civilian",
-			"types" : "Civilian",
-			"side" : "SIDE_ALLIES",
-			"x" : 32,
-			"y" : 32,
-			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
-		},
-		{
 			"name" : "Ally",
-			"number" : 3,
-			"types" : "Nymph",
+			"types" : "Nymph;Firefly",
+			"number" : 4,
 			"side" : "SIDE_ALLIES",
-			"x" : 25,
-			"y" : 25,
+			"x" : 10,
+			"y" : 10,
 			"scatter" : 500
 		},
 		{
-			"name" : "Dart",
-			"number" : 8,
-			"types" : "Dart",
-			"side" : "SIDE_PIRATE",
-			"x" : 18,
-			"y" : 26,
-			"scatter" : 750
+			"name" : "ATAF",
+			"types" : "ATAF",
+			"number" : 2,
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 10,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
-			"name" : "Dart",
-			"number" : 8,
-			"types" : "Dart",
-			"side" : "SIDE_PIRATE",
-			"x" : 28,
+			"name" : "Civilian",
+			"types" : "Civilian",
+			"groupName" : "Civilians-1",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 10,
+			"number" : 5,
+			"scatter" : 500
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "Pandorans-1",
+			"types" : "Jackal;Sphinx;Mantis;Nymph;Firefly",
+			"number" : 12,
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 1,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "Civilian",
+			"types" : "Civilian",
+			"groupName" : "Civilians-2",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 15,
+			"number" : 5,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "Pandorans-2",
+			"types" : "Jackal;Sphinx;Mantis;Nymph;Firefly",
+			"number" : 12,
+			"side" : "SIDE_PANDORAN",
+			"x" : 5,
+			"y" : 15,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "Civilian",
+			"types" : "Civilian",
+			"groupName" : "Civilians-3",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
 			"y" : 20,
-			"scatter" : 750
+			"number" : 5,
+			"scatter" : 500,
+			"active" : 0
 		},
 		{
-			"name" : "Dart",
-			"number" : 8,
-			"types" : "Dart",
-			"side" : "SIDE_PIRATE",
-			"x" : 37,
-			"y" : 22,
-			"scatter" : 750
-		},
-		{
-			"name" : "Dart",
-			"number" : 8,
-			"types" : "Dart",
-			"side" : "SIDE_PIRATE",
-			"x" : 32,
-			"y" : 32,
-			"scatter" : 750
+			"name" : "Pandoran",
+			"groupName" : "Pandorans-3",
+			"types" : "Jackal;Sphinx;Mantis;Nymph;Firefly",
+			"number" : 24,
+			"side" : "SIDE_PANDORAN",
+			"x" : 10,
+			"y" : 25,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
 		}
 	],
 	"entities" : [
 		{
 			"name" : "Extraction Point",
 			"type" : "ET_EXTRACTION_POINT",
+			"x" : 10,
+			"y" : 10
+		}
+	],
+	"locations" : [
+		{
+			"name" : "Location #1",
 			"x" : 25,
-			"y" : 25
+			"y" : 10,
+			"size" : 2500
+		},
+		{
+			"name" : "Location #2",
+			"x" : 25,
+			"y" : 15,
+			"size" : 2500,
+			"active" : 0
+		},
+		{
+			"name" : "Location #3",
+			"x" : 5,
+			"y" : 20,
+			"size" : 2500,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "Location #1",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Pandorans-1",
+				"ACTIVATE_OBJECTIVES Destroy Pandoran fighters",
+				"MSG_BOX Koonan;Enemy craft detected. Pandorans, in both INF and UNF fighters.",
+				"MSG_BOX de Winter;Chaz, you're with me. Wiley, you and your boys get those civilians to the extraction point."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 1",
+			"lines" : [
+				"WAIT 2",
+				"ACTIVATE_ENTITY_GROUPS Civilians-2",
+				"ACTIVATE_OBJECTIVES Rescue second civilian group",
+				"MSG_BOX Control;We've spotted the next group of civilians. Sending you the coordinates.",
+				"ACTIVATE_LOCATION Location #2"
+			]
+		},
+		{
+			"function" : "Location #2",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Pandorans-2",
+				"MSG_BOX Koonan;Picking up more Pandoran fighters, moving to intercept."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 2",
+			"lines" : [
+				"WAIT 3",
+				"ACTIVATE_ENTITY_GROUPS Civilians-3",
+				"ACTIVATE_OBJECTIVES Rescue third civilian group",
+				"MSG_BOX Control;The final civilian group is here.",
+				"ACTIVATE_LOCATION Location #3"
+			]
+		},
+		{
+			"function" : "Location #3",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Pandorans-3",
+				"MSG_BOX de Winter;More Pandorans. Keep knocking them down, Chaz. We're almost done."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 3",
+			"lines" : [
+				"MSG_BOX de Winter;Control, this is Wiley. Civilians have been extracted.",
+				"ACTIVATE_OBJECTIVES Eliminate all remaining enemies",
+				"MSG_BOX Control;Wiley, ensure all enemy forces have been eliminated."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 4",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX de Winter;Control, this is de Winter. All enemy forces have been destroyed.",
+				"MSG_BOX Control;Excellent, we're very grateful for the assistance.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
 		}
 	]
 }

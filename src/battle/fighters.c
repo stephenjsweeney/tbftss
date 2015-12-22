@@ -447,7 +447,7 @@ void damageFighter(Entity *e, int amount, long flags)
 	 */
 	if (e->type == ET_FIGHTER && (!(e->aiFlags & AIF_EVADE)) && e != player && e->aiDamagePerSec >= (e->maxHealth + e->maxShield) * 0.1)
 	{
-		if ((rand() % 10) > 6) 
+		if ((rand() % 10) > 7)
 		{
 			e->action = doAI;
 			e->aiFlags |= AIF_EVADE;

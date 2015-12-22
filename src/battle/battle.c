@@ -132,8 +132,6 @@ static void doBattle(void)
 	
 	doHud();
 	
-	doObjectives();
-	
 	doStars(ssx, ssy);
 	
 	doBullets();
@@ -145,6 +143,8 @@ static void doBattle(void)
 	doDebris();
 	
 	doPlayer();
+	
+	doObjectives();
 	
 	if (player != NULL)
 	{

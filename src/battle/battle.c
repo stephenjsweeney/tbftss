@@ -46,6 +46,7 @@ void initBattle(void)
 	battle.entityTail = &battle.entityHead;
 	battle.effectTail = &battle.effectHead;
 	battle.objectiveTail = &battle.objectiveHead;
+	battle.locationTail = &battle.locationHead;
 	
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
@@ -147,17 +148,17 @@ static void doBattle(void)
 	
 	if (player != NULL)
 	{
+		doLocations();
+		
 		doMessageBox();
-	}
-	
-	if (battle.status == MS_IN_PROGRESS)
-	{
-		if (player != NULL)
+		
+		if (battle.status == MS_IN_PROGRESS)
 		{
 			doScript();
 		}
 	}
-	else
+	
+	if (battle.status != MS_IN_PROGRESS)
 	{
 		battle.missionFinishedTimer--;
 	}
@@ -193,6 +194,11 @@ static void draw(void)
 	drawDebris();
 	
 	drawEffects();
+	
+	if (dev.debug)
+	{
+		drawLocations();
+	}
 	
 	drawHud();
 	
@@ -358,6 +364,7 @@ void destroyBattle(void)
 	Debris *d;
 	Effect *e;
 	Objective *o;
+	Location *l;
 	
 	while (battle.entityHead.next)
 	{
@@ -398,6 +405,14 @@ void destroyBattle(void)
 		free(o);
 	}
 	battle.objectiveTail = &battle.objectiveHead;
+	
+	while (battle.locationHead.next)
+	{
+		l = battle.locationHead.next;
+		battle.locationHead.next = l->next;
+		free(l);
+	}
+	battle.locationTail = &battle.locationHead;
 	
 	cJSON_Delete(battle.missionJSON);
 	

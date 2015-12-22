@@ -78,6 +78,8 @@ extern void initBullets(void);
 extern void initDebris(void);
 extern void doDebris(void);
 extern void drawDebris(void);
+extern void doLocations(void);
+extern void drawLocations(void);
 
 extern App app;
 extern Battle battle;

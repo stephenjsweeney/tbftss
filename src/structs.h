@@ -35,6 +35,7 @@ typedef struct HudMessage HudMessage;
 typedef struct MessageBox MessageBox;
 typedef struct GridCell GridCell;
 typedef struct ScriptRunner ScriptRunner;
+typedef struct Location Location;
 
 typedef struct {
 	int debug;
@@ -202,6 +203,14 @@ struct Effect {
 	Effect *next;
 };
 
+struct Location {
+	char name[MAX_NAME_LENGTH];
+	int x;
+	int y;
+	int size;
+	Location *next;
+};
+
 struct Objective {
 	int active;
 	char description[MAX_DESCRIPTION_LENGTH];
@@ -281,6 +290,7 @@ typedef struct {
 	Debris debrisHead, *debrisTail;
 	Effect effectHead, *effectTail;
 	Objective objectiveHead, *objectiveTail;
+	Location locationHead, *locationTail;
 	struct cJSON *missionJSON;
 	unsigned int stats[STAT_MAX];
 	GridCell grid[GRID_SIZE][GRID_SIZE];

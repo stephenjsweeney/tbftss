@@ -26,6 +26,7 @@ static void loadFighters(cJSON *node);
 static void loadCapitalShips(cJSON *node);
 static void loadEntities(cJSON *node);
 static void loadItems(cJSON *node);
+static void loadLocations(cJSON *node);
 static unsigned long hashcode(const char *str);
 static char **toTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
@@ -61,6 +62,8 @@ void loadMission(char *filename)
 	loadEntities(cJSON_GetObjectItem(root, "entities"));
 	
 	loadItems(cJSON_GetObjectItem(root, "items"));
+	
+	loadLocations(cJSON_GetObjectItem(root, "locations"));
 	
 	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_NAME_LENGTH);
 	
@@ -625,6 +628,34 @@ static void loadItems(cJSON *node)
 				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			}
 		
+			node = node->next;
+		}
+	}
+}
+
+static void loadLocations(cJSON *node)
+{
+	Location *l;
+	
+	if (node)
+	{
+		node = node->child;
+		
+		while (node)
+		{
+			l = malloc(sizeof(Location));
+			memset(l, 0, sizeof(Location));
+			battle.locationTail->next = l;
+			battle.locationTail = l;
+			
+			STRNCPY(l->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+			l->x = cJSON_GetObjectItem(node, "x")->valueint * GRID_CELL_WIDTH;
+			l->y = cJSON_GetObjectItem(node, "y")->valueint * GRID_CELL_HEIGHT;
+			l->size = cJSON_GetObjectItem(node, "size")->valueint;
+			
+			l->x += (GRID_CELL_WIDTH / 2);
+			l->y += (GRID_CELL_HEIGHT / 2);
+			
 			node = node->next;
 		}
 	}

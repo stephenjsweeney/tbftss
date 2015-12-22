@@ -204,6 +204,7 @@ struct Effect {
 };
 
 struct Location {
+	int active;
 	char name[MAX_NAME_LENGTH];
 	int x;
 	int y;
@@ -220,7 +221,7 @@ struct Objective {
 	int targetValue;
 	int status;
 	int isCondition;
-	int isOptional;
+	int isEliminateAll;
 	Objective *next;
 };
 

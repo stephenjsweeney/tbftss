@@ -160,9 +160,10 @@ static void loadObjectives(cJSON *node)
 				o->isCondition = cJSON_GetObjectItem(node, "isCondition")->valueint;
 			}
 			
-			if (cJSON_GetObjectItem(node, "isOptional"))
+			if (cJSON_GetObjectItem(node, "isEliminateAll"))
 			{
-				o->isOptional = cJSON_GetObjectItem(node, "isOptional")->valueint;
+				o->isEliminateAll = cJSON_GetObjectItem(node, "isEliminateAll")->valueint;
+				o->targetValue = 1;
 			}
 			
 			node = node->next;
@@ -635,6 +636,7 @@ static void loadItems(cJSON *node)
 
 static void loadLocations(cJSON *node)
 {
+	int active;
 	Location *l;
 	
 	if (node)
@@ -643,6 +645,8 @@ static void loadLocations(cJSON *node)
 		
 		while (node)
 		{
+			active = 1;
+			
 			l = malloc(sizeof(Location));
 			memset(l, 0, sizeof(Location));
 			battle.locationTail->next = l;
@@ -653,8 +657,14 @@ static void loadLocations(cJSON *node)
 			l->y = cJSON_GetObjectItem(node, "y")->valueint * GRID_CELL_HEIGHT;
 			l->size = cJSON_GetObjectItem(node, "size")->valueint;
 			
+			if (cJSON_GetObjectItem(node, "active"))
+			{
+				active = cJSON_GetObjectItem(node, "active")->valueint;
+			}
+			
 			l->x += (GRID_CELL_WIDTH / 2);
 			l->y += (GRID_CELL_HEIGHT / 2);
+			l->active = active;
 			
 			node = node->next;
 		}

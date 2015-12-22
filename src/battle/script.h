@@ -30,6 +30,7 @@ extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void addMessageBox(char *title, char *format, ...);
 extern void activateEntities(char *name);
 extern void activateEntityGroups(char *groupName);
+extern void activateLocations(char *locations);
 void activateObjectives(char *objectives);
 extern int showingMessageBoxes(void);
 

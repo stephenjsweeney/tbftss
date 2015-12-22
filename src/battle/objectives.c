@@ -53,10 +53,7 @@ void doObjectives(void)
 					break;
 					
 				case OS_FAILED:
-					if (!o->isOptional)
-					{
-						objectiveFailed = 1;
-					}
+					objectiveFailed = 1;
 					break;
 			}
 		}
@@ -81,30 +78,48 @@ void doObjectives(void)
 void updateObjective(char *name, int type)
 {
 	Objective *o;
+	int completed;
+	
+	completed = battle.numObjectivesComplete;
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		if (o->active && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+		if (o->active)
 		{
-			o->currentValue++;
-			
-			if (o->targetValue - o->currentValue <= 10)
+			if (!o->isEliminateAll && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 			{
-				addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
-			}
-			else if (o->currentValue % 10 == 0)
-			{
-				addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+				o->currentValue++;
+				
+				if (o->targetValue - o->currentValue <= 10)
+				{
+					addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+				}
+				else if (o->currentValue % 10 == 0)
+				{
+					addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+				}
+				
+				if (o->currentValue == o->targetValue)
+				{
+					o->status = OS_COMPLETE;
+					
+					addHudMessage(colors.green, "%s - Objective Complete!", o->description);
+					
+					runScriptFunction(o->description);
+					
+					runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
+				}
 			}
 			
-			if (o->currentValue == o->targetValue)
+			if (o->isEliminateAll && !battle.numEnemies && o->status != OS_COMPLETE)
 			{
 				o->status = OS_COMPLETE;
+				
 				addHudMessage(colors.green, "%s - Objective Complete!", o->description);
 				
-				runScriptFunction(o->description);
+				o->currentValue = o->targetValue;
 				
-				runScriptFunction("OBJECTIVES_COMPLETE %d", battle.numObjectivesComplete + 1);
+				runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
 			}
 		}
 	}

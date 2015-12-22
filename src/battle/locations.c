@@ -28,7 +28,7 @@ void doLocations(void)
 	
 	for (l = battle.locationHead.next ; l != NULL ; l = l->next)
 	{
-		if (getDistance(player->x, player->y, l->x, l->y) <= l->size)
+		if (l->active && getDistance(player->x, player->y, l->x, l->y) <= l->size)
 		{
 			runScriptFunction(l->name);
 			
@@ -47,6 +47,30 @@ void drawLocations(void)
 	
 	for (l = battle.locationHead.next ; l != NULL ; l = l->next)
 	{
-		drawCircle(l->x - battle.camera.x, l->y - battle.camera.y, l->size, 0, 255, 0, 255);
+		if (l->active)
+		{
+			drawCircle(l->x - battle.camera.x, l->y - battle.camera.y, l->size, 0, 255, 0, 255);
+		}
+	}
+}
+
+void activateLocations(char *locations)
+{
+	char *token;
+	Location *l;
+	
+	token = strtok(locations, ";");
+	
+	while (token)
+	{
+		for (l = battle.locationHead.next ; l != NULL ; l = l->next)
+		{
+			if (strcmp(token, l->name) == 0)
+			{
+				l->active = 1;
+			}
+		}
+		
+		token = strtok(NULL, ";");
 	}
 }

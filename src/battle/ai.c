@@ -272,16 +272,6 @@ static void huntAndAttackTarget(void)
 	nextAction();
 }
 
-static int attackSecondaryTarget(Entity *e)
-{
-	if (self->target->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || self->target->flags & EF_SECONDARY_TARGET)
-	{
-		return rand() % 4 == 0;
-	}
-	
-	return 1;
-}
-
 static void findTarget(void)
 {
 	int i;
@@ -302,11 +292,8 @@ static void findTarget(void)
 			
 			if (dist < closest)
 			{
-				if (!self->target || attackSecondaryTarget(e))
-				{
-					self->target = e;
-					closest = dist;
-				}
+				self->target = e;
+				closest = dist;
 			}
 		}
 	}
@@ -315,6 +302,14 @@ static void findTarget(void)
 static int canAttack(Entity *e)
 {
 	self->selectedGunType = self->guns[0].type;
+	
+	if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
+	{
+		if (rand() % 10)
+		{
+			return 0;
+		}
+	}
 	
 	if (e->flags & EF_MUST_DISABLE)
 	{

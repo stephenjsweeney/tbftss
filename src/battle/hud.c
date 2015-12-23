@@ -40,7 +40,7 @@ static SDL_Texture *smallFighter;
 static SDL_Texture *arrowLeft;
 static SDL_Texture *arrowRight;
 static int numMessages;
-static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon"};
+static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon", "Rockets"};
 
 void initHud(void)
 {

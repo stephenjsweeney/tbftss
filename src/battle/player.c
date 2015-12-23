@@ -197,7 +197,14 @@ static void handleMouse(void)
 	{
 		if (app.mouse.button[SDL_BUTTON_LEFT] && !player->reload && player->guns[0].type)
 		{
-			fireGuns(player);
+			if (player->selectedGunType != BT_ROCKET)
+			{
+				fireGuns(player);
+			}
+			else
+			{
+				fireRocket(player);
+			}
 		}
 		
 		if (app.mouse.button[SDL_BUTTON_RIGHT])

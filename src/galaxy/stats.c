@@ -28,6 +28,8 @@ static char *statDescription[] = {
 	"Missons Completed",
 	"Shots Fired",
 	"Shots Hit",
+	"Rockets Fired",
+	"Rockets Hit",
 	"Missiles Fired",
 	"Missiles Hit",
 	"Enemies Killed",

@@ -155,7 +155,14 @@ static void checkCollisions(Bullet *b)
 				}
 				else if (b->owner == player)
 				{
-					battle.stats[STAT_SHOTS_HIT]++;
+					if (b->type != BT_ROCKET)
+					{
+						battle.stats[STAT_SHOTS_HIT]++;
+					}
+					else
+					{
+						battle.stats[STAT_ROCKETS_HIT]++;
+					}
 				}
 				
 				if (!(e->flags & EF_IMMORTAL))
@@ -339,6 +346,13 @@ void fireRocket(Entity *owner)
 	b = createBullet(BT_ROCKET, owner->x, owner->y, owner);
 	
 	playBattleSound(b->sound, owner->x, owner->y);
+	
+	owner->reload = FPS;
+	
+	if (owner == player)
+	{
+		battle.stats[STAT_ROCKETS_FIRED]++;
+	}
 }
 
 void fireMissile(Entity *owner)

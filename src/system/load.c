@@ -100,9 +100,15 @@ static void loadChallenges(Mission *mission, cJSON *challengesCJSON)
 static void loadStats(cJSON *stats)
 {
 	int i;
+	char *statName;
 	
 	for (i = 0 ; i < STAT_MAX ; i++)
 	{
-		game.stats[i] = cJSON_GetObjectItem(stats, getLookupName("STAT_", i))->valueint;
+		statName = getLookupName("STAT_", i);
+		
+		if (statName && cJSON_GetObjectItem(stats, statName))
+		{
+			game.stats[i] = cJSON_GetObjectItem(stats, statName)->valueint;
+		}
 	}
 }

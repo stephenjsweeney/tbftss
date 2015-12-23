@@ -62,10 +62,11 @@ static Widget *next;
 void initStatsDisplay(void)
 {
 	page = 0;
-	maxPages = (STAT_MAX / MAX_STAT_ITEMS);
+	maxPages = ceil(STAT_TIME / MAX_STAT_ITEMS);
 	
 	prev = getWidget("prev", "stats");
 	prev->action = prevPage;
+	prev->visible = 0;
 	
 	next = getWidget("next", "stats");
 	next->action = nextPage;
@@ -94,7 +95,7 @@ void drawStats(void)
 	
 	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, "Stats");
 	
-	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, "Page %d / %d", page + 1, maxPages + 1);
+	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, "Page %d / %d", page + 1, maxPages);
 	
 	y = 170;
 	
@@ -125,10 +126,16 @@ void drawStats(void)
 
 static void nextPage(void)
 {
-	page = MIN(page + 1, maxPages);
+	page = MIN(page + 1, maxPages - 1);
+	
+	next->visible = page < maxPages - 1;
+	prev->visible = 1;
 }
 
 static void prevPage(void)
 {
 	page = MAX(0, page - 1);
+	
+	next->visible = 1;
+	prev->visible = page > 0;
 }

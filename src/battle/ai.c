@@ -25,7 +25,7 @@ static int isInFOV(Entity *e, int fov);
 static void preAttack(void);
 static void huntTarget(void);
 static void huntAndAttackTarget(void);
-static void evade(void);
+static void moveToTargetLocation(void);
 static void nextAction(void);
 static void findTarget(void);
 static int hasClearShot(void);
@@ -48,6 +48,8 @@ static int getActionChance(int type);
 static void doFighterAI(void);
 static void doGunAI(void);
 static void moveToLeader(void);
+static void wander(void);
+static void doWander(void);
 
 void doAI(void)
 {
@@ -102,6 +104,11 @@ void doAI(void)
 	{
 		lookForPlayer();
 		return;
+	}
+	
+	if (self->aiFlags & AIF_WANDERS)
+	{
+		doWander();
 	}
 	
 	/* no idea - just stay where you are */
@@ -167,7 +174,7 @@ static void doFighterAI(void)
 	{
 		self->targetLocation.x = self->target->x + (rand() % 250 - rand() % 250);
 		self->targetLocation.y = self->target->y + (rand() % 250 - rand() % 250);
-		self->action = evade;
+		self->action = moveToTargetLocation;
 		self->aiActionTime = FPS;
 	}
 	else if (r <= getActionChance(AI_FALLBACK))
@@ -470,7 +477,7 @@ static void turnAndFly(int wantedAngle)
 	nextAction();
 }
 
-static void evade(void)
+static void moveToTargetLocation(void)
 {
 	int wantedAngle = getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
 	
@@ -769,4 +776,29 @@ static void moveToLeader(void)
 		
 		applyFighterThrust();
 	}
+}
+
+static void doWander(void)
+{
+	self->targetLocation.x = 5 + (rand() % (GRID_SIZE - 10));
+	self->targetLocation.x *= GRID_CELL_WIDTH;
+	
+	self->targetLocation.y = 5 + (rand() % (GRID_SIZE - 10));
+	self->targetLocation.y *= GRID_CELL_HEIGHT;
+	
+	self->aiActionTime = FPS * 15;
+	
+	wander();
+}
+
+static void wander(void)
+{
+	moveToTargetLocation();
+	
+	if (nearEnemies())
+	{
+		self->aiActionTime = 0;
+	}
+	
+	nextAction();
 }

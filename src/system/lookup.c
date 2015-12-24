@@ -63,6 +63,7 @@ void initLookups(void)
 	addLookup("AIF_AGGRESSIVE", AIF_AGGRESSIVE);
 	addLookup("AIF_LONG_RANGE_FIRE", AIF_LONG_RANGE_FIRE);
 	addLookup("AIF_MOVES_TO_LEADER", AIF_MOVES_TO_LEADER);
+	addLookup("AIF_WANDERS", AIF_WANDERS);
 	
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);

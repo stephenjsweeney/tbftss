@@ -278,6 +278,8 @@ void addMissileExplosion(Bullet *b)
 void addEngineEffect(void)
 {
 	Effect *e;
+	float c, s;
+	int h;
 	
 	e = malloc(sizeof(Effect));
 	memset(e, 0, sizeof(Effect));
@@ -286,14 +288,15 @@ void addEngineEffect(void)
 	
 	e->type = EFFECT_TEXTURE;
 	
-	e->x = self->x;
-	e->y = self->y;
+	s = sin(TO_RAIDANS(self->angle));
+	c = cos(TO_RAIDANS(self->angle));
 	
-	e->x -= sin(TO_RAIDANS(self->angle)) * 16;
-	e->y -= -cos(TO_RAIDANS(self->angle)) * 16;
+	h = self->h / 2;
 	
-	e->x += rand() % 4;
-	e->x -= rand() % 4;
+	e->x = -(h * s) + self->x;
+	e->y = (h * c) + self->y;
+	
+	e->x += rand() % 4 - rand() % 4;
 	
 	e->texture = explosionTexture;
 	e->health = 0;

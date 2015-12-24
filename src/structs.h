@@ -125,6 +125,7 @@ struct Entity {
 	int aiDamageTimer;
 	int aiEvadeTimer;
 	int separationRadius;
+	int deathType;
 	Weapon guns[MAX_FIGHTER_GUNS];
 	int missiles;
 	long flags;

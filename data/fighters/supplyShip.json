@@ -6,6 +6,7 @@
 	"reloadTime" : 10,
 	"shieldRechargeRate" : 0,
 	"textureName" : "gfx/craft/supplyShip.png",
+	"deathType" : "DT_NO_SPIN",
 	"flags" : "EF_TAKES_DAMAGE",
 	"aiFlags" : "AIF_AVOIDS_COMBAT"
 }

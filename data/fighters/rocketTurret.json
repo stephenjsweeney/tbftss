@@ -6,6 +6,7 @@
 	"reloadTime" : 8,
 	"shieldRechargeRate" : 30,
 	"textureName" : "gfx/cannons/rocketTurret.png",
+	"deathType" : "DT_NO_SPIN",
 	"guns" : [
 		{
 			"type" : "BT_ROCKET",
@@ -14,5 +15,5 @@
 		}
 	],
 	"flags" : "EF_TAKES_DAMAGE",
-	"aiFlags" : "AIF_MISSILE_BOAT+AIF_AGGRESSIVE+AIF_INSTANT_DIE+AIF_LONG_RANGE_FIRE"
+	"aiFlags" : "AIF_MISSILE_BOAT+AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 }

@@ -463,23 +463,28 @@ void damageFighter(Entity *e, int amount, long flags)
 static void die(void)
 {
 	int n = rand() % 3;
-	if (self == player)
+	
+	switch (self->deathType)
 	{
-		n = rand() % 2;
-	}
-	else if (self->aiFlags & AIF_INSTANT_DIE)
-	{
-		n = 2;
+		case DT_ANY:
+			n = rand() % 3;
+			break;
+		case DT_NO_SPIN:
+			n = 1 + rand() % 2;
+			break;
+		case DT_INSTANT:
+			n = 2;
+			break;
 	}
 	
 	switch (n)
 	{
 		case 0:
-			self->action = straightDie;
-			break;
-			
-		case 1:
 			self->action = spinDie;
+			break;
+		
+		case 1:
+			self->action = straightDie;
 			break;
 			
 		case 2:
@@ -682,6 +687,11 @@ static void loadFighterDef(char *filename)
 	if (cJSON_GetObjectItem(root, "aiFlags"))
 	{
 		e->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring, NULL);
+	}
+	
+	if (cJSON_GetObjectItem(root, "deathType"))
+	{
+		e->deathType = lookup(cJSON_GetObjectItem(root, "deathType")->valuestring);
 	}
 	
 	e->separationRadius = MAX(e->w, e->h);

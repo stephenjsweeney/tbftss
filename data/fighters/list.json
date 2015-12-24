@@ -25,5 +25,6 @@
 	"data/fighters/khepri.json",
 	"data/fighters/cannonDart.json",
 	"data/fighters/missileDart.json",
-	"data/fighters/rocketTurret.json"
+	"data/fighters/rocketTurret.json",
+	"data/fighters/supplyShip.json"
 ]

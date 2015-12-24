@@ -1,0 +1,11 @@
+{
+	"name" : "Supply Ship",
+	"health" : 125,
+	"shield" : 0,
+	"speed" : 1.5,
+	"reloadTime" : 10,
+	"shieldRechargeRate" : 0,
+	"textureName" : "gfx/craft/supplyShip2.png",
+	"flags" : "EF_TAKES_DAMAGE",
+	"aiFlags" : "AIF_AVOIDS_COMBAT"
+}

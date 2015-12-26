@@ -1,0 +1,29 @@
+{
+	"name" : "Lynx",
+	"health" : 75,
+	"shield" : 50,
+	"speed" : 1.7,
+	"reloadTime" : 25,
+	"shieldRechargeRate" : 60,
+	"textureName" : "gfx/fighters/lynx.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : 0
+		},
+		{
+			"type" : "BT_ROCKET",
+			"x" : 0,
+			"y" : 0
+		}
+	],
+	"missiles" : 6,
+	"flags" : "EF_TAKES_DAMAGE",
+	"aiFlags" : "AIF_MISSILE_BOAT+AIF_DEFENSIVE"
+}

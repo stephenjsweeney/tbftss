@@ -28,6 +28,7 @@ static void straightDie(void);
 static void randomizeDart(Entity *dart);
 static void randomizeDartGuns(Entity *dart);
 static void loadFighterDef(char *filename);
+static void loadFighterDefList(char *filename);
 static Entity *getFighterDef(char *name);
 
 static Entity defHead, *defTail;
@@ -597,14 +598,21 @@ static Entity *getFighterDef(char *name)
 
 void loadFighterDefs(void)
 {
+	memset(&defHead, 0, sizeof(Entity));
+	defTail = &defHead;
+	
+	loadFighterDefList("data/fighters/list.json");
+	loadFighterDefList("data/craft/list.json");
+	loadFighterDefList("data/turrets/list.json");
+}
+
+static void loadFighterDefList(char *filename)
+{
 	cJSON *root, *node;
 	char *text;
 	
-	text = readFile(getFileLocation("data/fighters/list.json"));
+	text = readFile(getFileLocation(filename));
 	root = cJSON_Parse(text);
-	
-	memset(&defHead, 0, sizeof(Entity));
-	defTail = &defHead;
 	
 	for (node = root->child ; node != NULL ; node = node->next)
 	{

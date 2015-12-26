@@ -13,9 +13,6 @@
 	"data/fighters/hyenaA.json",
 	"data/fighters/hyenaB.json",
 	"data/fighters/leopard.json",
-	"data/fighters/civilian.json",
-	"data/fighters/tug.json",
-	"data/fighters/shuttle.json",
 	"data/fighters/kingfisher.json",
 	"data/fighters/mantis.json",
 	"data/fighters/rook.json",
@@ -24,8 +21,5 @@
 	"data/fighters/hammerhead.json",
 	"data/fighters/khepri.json",
 	"data/fighters/cannonDart.json",
-	"data/fighters/missileDart.json",
-	"data/fighters/rocketTurret.json",
-	"data/fighters/supplyShip.json",
-	"data/fighters/munitionsShip.json"
+	"data/fighters/missileDart.json"
 ]

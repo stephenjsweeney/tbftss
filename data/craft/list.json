@@ -1,0 +1,7 @@
+[
+	"data/craft/civilian.json",
+	"data/craft/tug.json",
+	"data/craft/shuttle.json",
+	"data/craft/supplyShip.json",
+	"data/craft/munitionsTransport.json"
+]

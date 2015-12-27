@@ -40,7 +40,7 @@ static int nearItems(void);
 static void moveToItem(void);
 static int nearTowableCraft(void);
 static void moveToTowableCraft(void);
-static void lookForPlayer(void);
+static int lookForPlayer(void);
 static int lookForLeader(void);
 static void fleeEnemies(void);
 static int isRetreating(void);
@@ -100,15 +100,20 @@ void doAI(void)
 		return;
 	}
 	
-	if (self->aiFlags & (AIF_FOLLOWS_PLAYER|AIF_MOVES_TO_PLAYER))
+	if (self->aiFlags & AIF_MOVES_TO_LEADER && lookForLeader())
 	{
-		lookForPlayer();
+		return;
+	}
+	
+	if ((self->aiFlags & (AIF_FOLLOWS_PLAYER|AIF_MOVES_TO_PLAYER)) && lookForPlayer())
+	{
 		return;
 	}
 	
 	if (self->aiFlags & AIF_WANDERS)
 	{
 		doWander();
+		return;
 	}
 	
 	/* no idea - just stay where you are */
@@ -717,17 +722,17 @@ static void moveToTowableCraft(void)
 	nextAction();
 }
 
-static void lookForPlayer(void)
+static int lookForPlayer(void)
 {
 	int range = (self->aiFlags & AIF_MOVES_TO_PLAYER) ? MAX_TARGET_RANGE : 2000;
 	
 	if (player != NULL && getDistance(self->x, self->y, player->x, player->y) < range)
 	{
 		moveToPlayer();
-		return;
+		return 1;
 	}
 	
-	applyFighterBrakes();
+	return 0;
 }
 
 static int lookForLeader(void)
@@ -736,6 +741,7 @@ static int lookForLeader(void)
 	Entity *e;
 	
 	self->leader = NULL;
+	closest = 0;
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -743,7 +749,7 @@ static int lookForLeader(void)
 		{
 			distance = getDistance(self->x, self->y, e->x, e->y);
 			
-			if (distance < closest)
+			if (!closest || distance < closest)
 			{
 				self->leader = e;
 				closest = distance;

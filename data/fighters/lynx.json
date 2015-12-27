@@ -3,7 +3,7 @@
 	"health" : 75,
 	"shield" : 50,
 	"speed" : 1.7,
-	"reloadTime" : 25,
+	"reloadTime" : 35,
 	"shieldRechargeRate" : 60,
 	"textureName" : "gfx/fighters/lynx.png",
 	"guns" : [

@@ -3,7 +3,7 @@
 	"health" : 80,
 	"shield" : 65,
 	"speed" : 1.7,
-	"reloadTime" : 25,
+	"reloadTime" : 35,
 	"shieldRechargeRate" : 60,
 	"textureName" : "gfx/fighters/scarab.png",
 	"guns" : [

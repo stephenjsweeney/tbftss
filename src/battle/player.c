@@ -68,6 +68,18 @@ void initPlayer(void)
 		player->selectedGunType = 0;
 	}
 	
+	player->numGuns = 0;
+	
+	for (i = 0 ; i < BT_MAX ; i++)
+	{
+		if (availableGuns[i])
+		{
+			player->numGuns++;
+		}
+	}
+	
+	player->selectedGun = 0;
+	
 	STRNCPY(player->name, "Player", MAX_NAME_LENGTH);
 	
 	player->action = NULL;
@@ -399,6 +411,16 @@ static void switchGuns(void)
 	}
 	
 	player->selectedGunType = i;
+	
+	player->selectedGun = 0;
+	
+	for (i = 0 ; i < player->selectedGunType ; i++)
+	{
+		if (availableGuns[i])
+		{
+			player->selectedGun++;
+		}
+	}
 }
 
 static void selectTarget(void)

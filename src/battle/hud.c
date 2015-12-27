@@ -260,7 +260,14 @@ static void drawWeaponInfo(void)
 {
 	if (!player->combinedGuns)
 	{
-		drawText(10, 70, 14, TA_LEFT, colors.white, (player->selectedGunType != -1) ? gunName[player->selectedGunType] : "(None)");
+		if (player->numGuns)
+		{
+			drawText(10, 70, 14, TA_LEFT, colors.white, "%s (%d / %d)", gunName[player->selectedGunType], player->selectedGun + 1, player->numGuns);
+		}
+		else
+		{
+			drawText(10, 70, 14, TA_LEFT, colors.white, "(None)");
+		}
 	}
 	else
 	{

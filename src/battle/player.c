@@ -44,6 +44,8 @@ void initPlayer(void)
 	
 	memset(&availableGuns, 0, sizeof(int) * BT_MAX);
 	
+	battle.numPlayerGuns = 0;
+	
 	player->selectedGunType = -1;
 	
 	if (!player->combinedGuns)
@@ -54,6 +56,11 @@ void initPlayer(void)
 			
 			if (n)
 			{
+				if (!availableGuns[n])
+				{
+					battle.numPlayerGuns++;
+				}
+				
 				availableGuns[n] = 1;
 				
 				if (player->selectedGunType == -1)
@@ -67,18 +74,6 @@ void initPlayer(void)
 	{
 		player->selectedGunType = 0;
 	}
-	
-	player->numGuns = 0;
-	
-	for (i = 0 ; i < BT_MAX ; i++)
-	{
-		if (availableGuns[i])
-		{
-			player->numGuns++;
-		}
-	}
-	
-	player->selectedGun = 0;
 	
 	STRNCPY(player->name, "Player", MAX_NAME_LENGTH);
 	
@@ -411,16 +406,6 @@ static void switchGuns(void)
 	}
 	
 	player->selectedGunType = i;
-	
-	player->selectedGun = 0;
-	
-	for (i = 0 ; i < player->selectedGunType ; i++)
-	{
-		if (availableGuns[i])
-		{
-			player->selectedGun++;
-		}
-	}
 }
 
 static void selectTarget(void)

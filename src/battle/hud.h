@@ -31,6 +31,7 @@ extern int getDistance(int x1, int y1, int x2, int y2);
 extern void drawRadar(void);
 extern void drawRadarRangeWarning(void);
 extern int getPercent(float current, float total);
+extern void textSize(char *text, int size, int *w, int *h);
 
 extern App app;
 extern Battle battle;

@@ -39,6 +39,7 @@ static SDL_Texture *targetCircle;
 static SDL_Texture *smallFighter;
 static SDL_Texture *arrowLeft;
 static SDL_Texture *arrowRight;
+static SDL_Texture *nextGun;
 static int numMessages;
 static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon", "Rockets"};
 
@@ -52,6 +53,7 @@ void initHud(void)
 	smallFighter = getTexture("gfx/hud/smallFighter.png");
 	arrowLeft = getTexture("gfx/widgets/optionsLeft.png");
 	arrowRight = getTexture("gfx/widgets/optionsRight.png");
+	nextGun = getTexture("gfx/hud/nextGun.png");
 }
 
 void doHud(void)
@@ -258,11 +260,20 @@ static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, in
 
 static void drawWeaponInfo(void)
 {
+	int w, h;
+	
 	if (!player->combinedGuns)
 	{
-		if (player->numGuns)
+		if (battle.numPlayerGuns)
 		{
-			drawText(10, 70, 14, TA_LEFT, colors.white, "%s (%d / %d)", gunName[player->selectedGunType], player->selectedGun + 1, player->numGuns);
+			drawText(10, 70, 14, TA_LEFT, colors.white, gunName[player->selectedGunType]);
+			
+			if (battle.numPlayerGuns > 1)
+			{
+				textSize(gunName[player->selectedGunType], 14, &w, &h);
+				
+				blit(nextGun, 24 + w, 81, 1);
+			}
 		}
 		else
 		{

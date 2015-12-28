@@ -26,7 +26,7 @@ static void cacheText(unsigned long hash, SDL_Texture *t);
 static unsigned long hashcode(const char *str, int size);
 static void drawTextNormal(int x, int y, int size, int align, SDL_Color c, char *text);
 static void drawTextSplit(int x, int y, int size, int align, SDL_Color c, char *text);
-static void textSize(char *text, int size, int *w, int *h);
+void textSize(char *text, int size, int *w, int *h);
 
 static char drawTextBuffer[MAX_DESCRIPTION_LENGTH];
 static TTF_Font *font[MAX_FONTS];
@@ -175,7 +175,7 @@ int getWrappedTextHeight(char *text, int size)
 	return y + h;
 }
 
-static void textSize(char *text, int size, int *w, int *h)
+void textSize(char *text, int size, int *w, int *h)
 {
 	if (!font[size])
 	{

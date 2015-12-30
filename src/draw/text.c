@@ -270,7 +270,7 @@ void expireTexts(int all)
 		}
 	}
 	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Expired %d texts", n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Expired %d texts", n);
 }
 
 static void loadFont(int size)

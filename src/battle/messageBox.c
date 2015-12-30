@@ -62,7 +62,7 @@ void doMessageBox(void)
 	
 	if (msg)
 	{
-		if (--msg->time <= -FPS)
+		if (--msg->time <= -(FPS / 4))
 		{
 			if (msg == tail)
 			{

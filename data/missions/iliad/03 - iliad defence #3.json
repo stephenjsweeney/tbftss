@@ -1,0 +1,126 @@
+{
+	"name" : "Iliad Defence #3",
+	"description" : "In order to slow the advance of the Pandoran forces, we are going to target one of their supply lines. This should buy us some time while we awake UNF and CSN reinforcements, and bring more of our capital ships into position.",
+	"requires" : 19,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/heroism.ogg",
+	"objectives" : [
+		{
+			"description" : "Destroy munitions transports",
+			"targetName" : "Munitions Transport",
+			"targetValue" : 6,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Destroy Supply ships",
+			"targetName" : "Supply Ship",
+			"targetValue" : 6,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate all enemy forces",
+			"targetName" : "Enemy",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "Lynx",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Corey Strider",
+		"squadron" : "Dust Brothers"
+	},
+	"fighters" : [
+		{
+			"types" : "Firefly;Leopard;Nymph",
+			"side" : "SIDE_ALLIES",
+			"x": 25,
+			"y": 25,
+			"number" : 6,
+			"scatter" : 500
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x": 25,
+			"y": 25,
+			"number" : 12,
+			"scatter" : 25000,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_WANDERS"
+		},
+		{
+			"name" : "Munitions Transport",
+			"types" : "Munitions Transport",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"number" : 6,
+			"scatter" : 25000,
+			"flags" : "+EF_MISSION_TARGET",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Supply Ship",
+			"types" : "Supply Ship",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"number" : 6,
+			"scatter" : 25000,
+			"flags" : "+EF_MISSION_TARGET",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "Reinforcements-1",
+			"types" : "Jackal;Sphinx;Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x": -10,
+			"y": 25,
+			"number" : 5,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "Reinforcements-2",
+			"types" : "Jackal;Sphinx;Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x": 25,
+			"y": -10,
+			"number" : 5,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "ENEMIES_KILLED 4",
+			"lines" : [
+				"WAIT 2",
+				"ACTIVATE_ENTITY_GROUPS Reinforcements-1",
+				"MSG_BOX Control;Dust Brothers, this is Control. An INF fighter squadron is inbound. Looks like they're summoned backup.",
+				"MSG_BOX Strider;Message received. Will engage as necessary."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 18",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Strider;Almost done here, Control, not many targets remaining.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_ENTITY_GROUPS Reinforcements-2",
+				"ACTIVATE_OBJECTIVES Eliminate all enemy forces",
+				"MSG_BOX Control;Strider, be advised that we are tracking a further five INF fighters heading your way.",
+				"MSG_BOX Strider;Dammit, spoke to soon ..."
+			]
+		}
+	]
+}

@@ -519,7 +519,7 @@ static void loadEngines(Entity *parent, cJSON *engines)
 	}
 }
 
-void updateCapitalShipComponentNames(Entity *parent)
+void updateCapitalShipComponentProperties(Entity *parent)
 {
 	Entity *e;
 	
@@ -541,6 +541,8 @@ void updateCapitalShipComponentNames(Entity *parent)
 					sprintf(e->name, "%s (Gun)", parent->name);
 					break;
 			}
+			
+			e->active = parent->active;
 		}
 	}
 }

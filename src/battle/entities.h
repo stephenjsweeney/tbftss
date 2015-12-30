@@ -31,6 +31,7 @@ extern void drawRope(Entity *e);
 extern void cutRope(Entity *e);
 extern void drawShieldHitEffect(Entity *e);
 extern void destroyGrid(void);
+extern void updateCapitalShipComponentProperties(Entity *parent);
 
 extern App app;
 extern Battle battle;

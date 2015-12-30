@@ -423,7 +423,7 @@ static void loadCapitalShips(cJSON *node)
 					}
 				}
 				
-				updateCapitalShipComponentNames(e);
+				updateCapitalShipComponentProperties(e);
 			}
 		
 			node = node->next;

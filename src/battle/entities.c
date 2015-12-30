@@ -428,6 +428,11 @@ void activateEntities(char *names)
 			if (strcmp(e->name, name) == 0)
 			{
 				e->active = 1;
+				
+				if (e->type == ET_CAPITAL_SHIP)
+				{
+					updateCapitalShipComponentProperties(e);
+				}
 			}
 		}
 		

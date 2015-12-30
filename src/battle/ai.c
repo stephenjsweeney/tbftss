@@ -759,7 +759,8 @@ static int lookForLeader(void)
 	
 	if (self->leader)
 	{
-		moveToLeader();
+		self->aiActionTime = FPS;
+		self->action = moveToLeader;
 		return 1;
 	}
 	
@@ -773,8 +774,6 @@ static void moveToLeader(void)
 	if (dist <= 250)
 	{
 		applyFighterBrakes();
-		
-		self->aiActionTime = MIN(FPS, self->aiActionTime);
 	}
 	else
 	{
@@ -782,6 +781,8 @@ static void moveToLeader(void)
 		
 		applyFighterThrust();
 	}
+	
+	nextAction();
 }
 
 static void doWander(void)
@@ -794,7 +795,7 @@ static void doWander(void)
 	
 	self->aiActionTime = FPS * 15;
 	
-	wander();
+	self->action = wander;
 }
 
 static void wander(void)

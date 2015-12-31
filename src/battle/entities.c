@@ -223,11 +223,6 @@ void doEntities(void)
 	battle.numAllies = (battle.epic) ? numAllies : numActiveAllies;
 	battle.numEnemies = (battle.epic) ? numEnemies : numActiveEnemies;
 	
-	if (!battle.numInitialEnemies)
-	{
-		battle.numInitialEnemies = battle.numEnemies;
-	}
-	
 	if (battle.epic && battle.stats[STAT_TIME] % FPS == 0)
 	{
 		if (numAllies > battle.epicFighterLimit)
@@ -478,6 +473,19 @@ static void activateEpicFighters(int n, int side)
 					return;
 				}
 			}
+		}
+	}
+}
+
+void countNumEnemies(void)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->side != SIDE_ALLIES)
+		{
+			battle.numInitialEnemies++;
 		}
 	}
 }

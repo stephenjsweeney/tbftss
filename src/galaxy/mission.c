@@ -92,6 +92,8 @@ void loadMission(char *filename)
 	
 	activateNextWaypoint();
 	
+	countNumEnemies();
+	
 	initPlayer();
 	
 	playMusic(music);

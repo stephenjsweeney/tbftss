@@ -1,0 +1,227 @@
+{
+	"name" : "Evacuation #5",
+	"description" : "",
+	"requires" : 13,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/oracleIX.png",
+	"music" : "music/track-4.mp3",
+	"objectives" : [
+		{
+			"description" : "Destroy INF Thunderbolt",
+			"targetName" : "INF Thunderbolt",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Destroy INF Gram",
+			"targetName" : "INF Gram",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy INF Morning Star",
+			"targetName" : "INF Morning Star",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy INF Dragonlance",
+			"targetName" : "INF Dragonlance",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy INF Trident",
+			"targetName" : "INF Trident",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate all enemies",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0,
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"player" : {
+		"pilot" : "2nd Lt. Tobias Wiley",
+		"squadron" : "The 8mms",
+		"type" : "Leopard",
+		"side" : "SIDE_ALLIES",
+		"x" : 40,
+		"y" : 40
+	},
+	"fighters" : [
+		{
+			"name" : "Ally",
+			"types" : "Firefly;Leopard",
+			"number" : 10,
+			"side" : "SIDE_ALLIES",
+			"x" : 40,
+			"y" : 40,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "ATAF",
+			"types" : "ATAF",
+			"number" : 2,
+			"side" : "SIDE_ALLIES",
+			"x" : 40,
+			"y" : 40,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
+			"number" : 8,
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 35,
+			"scatter" : 3500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "GramStar",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
+			"number" : 14,
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 52,
+			"scatter" : 1500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "DragonTrident",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
+			"number" : 14,
+			"side" : "SIDE_PANDORAN",
+			"x" : 52,
+			"y" : 45,
+			"scatter" : 1500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "INF Thunderbolt",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 35,
+			"flags" : "EF_AI_LEADER"
+		},
+		{
+			"name" : "INF Gram",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 51,
+			"flags" : "EF_AI_LEADER",
+			"active" : 0
+		},
+		{
+			"name" : "INF Morning Star",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 51,
+			"flags" : "EF_AI_LEADER",
+			"active" : 0
+		},
+		{
+			"name" : "INF Dragonlance",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 51,
+			"y" : 51,
+			"flags" : "EF_AI_LEADER",
+			"active" : 0
+		},
+		{
+			"name" : "INF Trident",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 51,
+			"flags" : "EF_AI_LEADER",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Taylor;Our orders are to take down as many of the enemy corvettes as possible. Break and attack at will.",
+				"MSG_BOX Wiley;How many of them are we expecting?",
+				"MSG_BOX Taylor;Five, at least. And they have escorts, too."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 7",
+			"lines" : [
+				"MSG_BOX Wiley;Hell, we're dropping like flies here!",
+				"MSG_BOX Taylor;Hang in there, Lieutenant, we'll try and cover you."
+			]
+		},
+		{
+			"function" : "Destroy INF Thunderbolt",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Todd;Thunderbolt is down.",
+				"MSG_BOX Taylor;Picking up two more Pandoran capital ships incoming.",
+				"WAIT_MSG_BOX",
+				"MSG_BOX Taylor;INF Gram and INF Morning Star have arrived. Follow my lead!",
+				"ACTIVATE_ENTITIES INF Gram;INF Morning Star",
+				"ACTIVATE_ENTITY_GROUPS GramStar",
+				"ACTIVATE_OBJECTIVES Destroy INF Gram;Destroy INF Morning Star"
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 3",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Todd;Scratch another two Imperial corvettes.",
+				"WAIT_MSG_BOX",
+				"MSG_BOX Leviathan;Tracking two more corvettes heading your way: Dragonlance and Trident.",
+				"ACTIVATE_ENTITIES INF Dragonlance;INF Trident",
+				"ACTIVATE_ENTITY_GROUPS DragonTrident",
+				"ACTIVATE_OBJECTIVES Destroy INF Dragonlance;Destroy INF Trident;Eliminate all enemies",
+				"MSG_BOX Todd;Dragonlance, eh? As in, a lance used for killing dragons? Yeah, they wish.",
+				"MSG_BOX Wiley;They're not the only ones."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 5",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Taylor;Leviathan, this is Taylor. All targets have been eliminated.",
+				"MSG_BOX Leviathan;Acknowledged. We're preparing to fall back and abandon Warro. Return to Leviathan as soon as possible.",
+				"MSG_BOX Taylor;Understood, will see you soon.",
+				"MSG_BOX Taylor;Nice working with you, Wiley.",
+				"MSG_BOX Wiley;Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ....",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

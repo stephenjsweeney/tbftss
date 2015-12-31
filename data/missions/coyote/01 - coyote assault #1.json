@@ -13,72 +13,146 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Do not lose any team mates",
-			"targetName" : "ATAF",
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
-			"isCondition" : 1
+			"active" : 0
 		}
 	],
 	"player" : {
-		"type" : "ATAF",
+		"type" : "Firefly",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Lt. Cdr. Simon Dodds",
-		"squadron" : "White Knights"
+		"pilot" : "Lt. Cdr. Gordon Stone",
+		"squadron" : "Atom Smashers"
 	},
 	"fighters" : [
 		{
 			"name" : "ATAF",
 			"types" : "ATAF",
-			"number" : 4,
+			"number" : 5,
 			"side" : "SIDE_ALLIES",
-			"x" : 26,
-			"y" : 25
-		},
-		{
-			"name" : "Pandoran",
-			"types" : "Jackal;Sphinx;Nymph",
-			"number" : 20,
-			"side" : "SIDE_PANDORAN",
-			"x" : 20,
+			"x" : 25,
 			"y" : 25,
-			"scatter" : 2000
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Ally",
+			"types" : "Firefly;Leopard;Hyena-A;Hyena-B",
+			"number" : 6,
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
 			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Nymph",
-			"number" : 20,
+			"number" : 25,
 			"side" : "SIDE_PANDORAN",
-			"x" : 20,
-			"y" : 20,
-			"scatter" : 2000
+			"x" : 15,
+			"y" : 15,
+			"scatter" : 2500
 		},
 		{
 			"name" : "Pandoran",
+			"groupName" : "pandoran-2",
 			"types" : "Jackal;Sphinx;Nymph",
-			"number" : 20,
+			"number" : 25,
 			"side" : "SIDE_PANDORAN",
-			"x" : 20,
+			"x" : 30,
 			"y" : 30,
-			"scatter" : 2000
+			"scatter" : 2500,
+			"active" : 0
 		},
 		{
 			"name" : "Pandoran",
+			"groupName" : "pandoran-3",
+			"types" : "Jackal;Sphinx;Nymph",
+			"number" : 25,
+			"side" : "SIDE_PANDORAN",
+			"x" : 15,
+			"y" : 15,
+			"scatter" : 2500,
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "pandoran-4",
 			"types" : "Nymph",
-			"number" : 20,
+			"number" : 25,
 			"side" : "SIDE_PANDORAN",
 			"x" : 30,
-			"y" : 40,
-			"scatter" : 2000
+			"y" : 30,
+			"scatter" : 2500,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX de Winter;All fighters, this is Commander de Winter. Enemy targets sighted, engage at will."
+			]
 		},
 		{
-			"name" : "Pandoran",
-			"types" : "Jackal;Sphinx",
-			"number" : 20,
-			"side" : "SIDE_PANDORAN",
-			"x" : 30,
-			"y" : 20,
-			"scatter" : 2000
+			"function" : "ENEMIES_KILLED 20",
+			"lines" : [
+				"MSG_BOX Koonan;More enemies inbound.",
+				"ACTIVATE_ENTITY_GROUPS pandoran-2"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 45",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS pandoran-3"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 70",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS pandoran-4"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 90",
+			"lines" : [
+				"MSG_BOX Stone;Man, I've got to get me one of those!"
+			]
+		},
+		{
+			"function" : "TIME 10",
+			"lines" : [
+				"MSG_BOX Stone;What the hell are those things you're flying?",
+				"MSG_BOX Dodds;An ATAF. Stands for Advanced Tactical Assault Fighter."
+			]
+		},
+		{
+			"function" : "TIME 50",
+			"lines" : [
+				"MSG_BOX Stone;The CSN rolling those out to everyone?",
+				"MSG_BOX Todd;No, they ... were built for a different purpose."
+			]
+		},
+		{
+			"function" : "TIME 80",
+			"lines" : [
+				"MSG_BOX Stone;What sort of purpose?",
+				"MSG_BOX de Winter;Sorry, for now, that's classified."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 1",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX de Winter;Griffin, this is de Winter. All targets destroyed.",
+				"MSG_BOX CSN Griffin;Acknowledged, Commander. Stand by for new orders.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
 		}
 	]
 }

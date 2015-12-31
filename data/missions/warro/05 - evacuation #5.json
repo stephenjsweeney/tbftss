@@ -202,7 +202,7 @@
 				"WAIT 2",
 				"MSG_BOX Todd;Scratch another two Imperial corvettes.",
 				"WAIT_MSG_BOX",
-				"MSG_BOX Leviathan;Tracking two more corvettes heading your way: Dragonlance and Trident.",
+				"MSG_BOX CSN Leviathan;Tracking two more corvettes heading your way: Dragonlance and Trident.",
 				"ACTIVATE_ENTITIES INF Dragonlance;INF Trident",
 				"ACTIVATE_ENTITY_GROUPS DragonTrident",
 				"ACTIVATE_OBJECTIVES Destroy INF Dragonlance;Destroy INF Trident;Eliminate all enemies",
@@ -215,7 +215,7 @@
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Taylor;Leviathan, this is Taylor. All targets have been eliminated.",
-				"MSG_BOX Leviathan;Acknowledged. We're preparing to fall back and abandon Warro. Return to Leviathan as soon as possible.",
+				"MSG_BOX CSN Leviathan;Acknowledged. We're preparing to fall back and abandon Warro. Return to Leviathan as soon as possible.",
 				"MSG_BOX Taylor;Understood, will see you soon.",
 				"MSG_BOX Taylor;Nice working with you, Wiley.",
 				"MSG_BOX Wiley;Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ....",

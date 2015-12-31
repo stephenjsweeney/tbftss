@@ -206,6 +206,11 @@ void activateObjectives(char *objectives)
 			{
 				addHudMessage(colors.cyan, "New Objective : %s", o->description);
 				o->active = 1;
+				
+				if (o->isEliminateAll && battle.stats[STAT_ENEMIES_KILLED] == battle.numInitialEnemies)
+				{
+					updateObjective(o->targetName, o->targetType);
+				}
 			}
 		}
 		

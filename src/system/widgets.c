@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void loadWidgets(char *filename);
 static void loadWidgetSet(char *filename);
 static void handleMouse(void);
+static void handleKeyboard(void);
 static void createOptions(Widget *w, char *options);
 static void changeSelectedValue(Widget *w, int dir);
 static void createSelectButtons(Widget *w);
@@ -55,6 +56,8 @@ void doWidgets(void)
 	if (drawingWidgets)
 	{
 		handleMouse();
+		
+		handleKeyboard();
 	}
 	
 	drawingWidgets = 0;
@@ -79,7 +82,7 @@ Widget *getWidget(const char *name, const char *group)
 
 void selectWidget(const char *name, const char *group)
 {
-	/*selectedWidget = getWidget(name, group);*/
+	selectedWidget = getWidget(name, group);
 }
 
 void drawWidgets(const char *group)
@@ -104,6 +107,7 @@ void drawWidgets(const char *group)
 					{
 						playSound(SND_GUI_CLICK);
 					}
+					
 					selectedWidget = w;
 				}
 			}
@@ -153,11 +157,6 @@ void drawWidgets(const char *group)
 			}
 		}
 	}
-	
-	if (!mouseOver)
-	{
-		selectedWidget = NULL;
-	}
 }
 
 void drawConfirmMessage(char *message)
@@ -201,6 +200,8 @@ void setWidgetOption(const char *name, const char *group, const char *value)
 
 static void handleMouse(void)
 {
+	Widget *old;
+	
 	if (selectedWidget && collision(selectedWidget->rect.x, selectedWidget->rect.y, selectedWidget->rect.w, selectedWidget->rect.h, app.mouse.x, app.mouse.y, 1, 1))
 	{
 		if (app.mouse.button[SDL_BUTTON_LEFT])
@@ -212,7 +213,12 @@ static void handleMouse(void)
 					if (selectedWidget->action)
 					{
 						playSound(SND_GUI_SELECT);
-						selectedWidget->action();	
+						old = selectedWidget;
+						selectedWidget->action();
+						if (old == selectedWidget)
+						{
+							selectedWidget = NULL;
+						}
 						app.mouse.button[SDL_BUTTON_LEFT] = 0;
 					}
 					break;
@@ -222,6 +228,26 @@ static void handleMouse(void)
 					app.mouse.button[SDL_BUTTON_LEFT] = 0;
 					break;
 			}
+		}
+	}
+}
+
+static void handleKeyboard(void)
+{
+	Widget *old;
+	
+	if (app.keyboard[SDL_SCANCODE_SPACE])
+	{
+		if (selectedWidget != NULL && selectedWidget->type == WT_BUTTON)
+		{
+			playSound(SND_GUI_SELECT);
+			old = selectedWidget;
+			selectedWidget->action();
+			if (old == selectedWidget)
+			{
+				selectedWidget = NULL;
+			}
+			app.keyboard[SDL_SCANCODE_SPACE] = 0;
 		}
 	}
 }

@@ -1,0 +1,29 @@
+{
+	"name" : "Plasma Turret",
+	"health" : 150,
+	"shield" : 150,
+	"speed" : 0,
+	"reloadTime" : 30,
+	"shieldRechargeRate" : 10,
+	"textureName" : "gfx/cannons/plasmaTurret.png",
+	"deathType" : "DT_NO_SPIN",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : 0,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : -8,
+			"y" : -4
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 8,
+			"y" : -4
+		}
+	],
+	"flags" : "EF_TAKES_DAMAGE",
+	"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
+}

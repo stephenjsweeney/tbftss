@@ -31,6 +31,7 @@ static void activateEpicFighters(int n, int side);
 static void restrictToGrid(Entity *e);
 static void drawTargetRects(Entity *e);
 static int drawComparator(const void *a, const void *b);
+static void notifyNewArrivals(void);
 
 void initEntities(void)
 {
@@ -433,6 +434,8 @@ void activateEntities(char *names)
 		
 		name = strtok(NULL, ";");
 	}
+	
+	notifyNewArrivals();
 }
 
 void activateEntityGroups(char *groupNames)
@@ -453,6 +456,25 @@ void activateEntityGroups(char *groupNames)
 		}
 		
 		groupName = strtok(NULL, ";");
+	}
+	
+	notifyNewArrivals();
+}
+
+/*
+ * Some craft, such as capital ships, might be performing a long action and won't notice new craft arrive for well over 30 seconds. 
+ * We'll knock the times down to a max of 1 second, so they can react faster.
+ */
+static void notifyNewArrivals(void)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->active && (e->type == ET_FIGHTER || e->type == ET_CAPITAL_SHIP))
+		{
+			e->aiActionTime = MIN(e->aiActionTime, FPS);
+		}
 	}
 }
 
@@ -483,11 +505,13 @@ void countNumEnemies(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->side != SIDE_ALLIES)
+		if (e->side != SIDE_ALLIES && e->type == ET_FIGHTER)
 		{
 			battle.numInitialEnemies++;
 		}
 	}
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "battle.numInitialEnemies=%d", battle.numInitialEnemies);
 }
 
 static int drawComparator(const void *a, const void *b)

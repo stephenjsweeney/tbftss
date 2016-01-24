@@ -221,8 +221,9 @@ void doFighter(void)
 			if ((self->flags & EF_DISABLED) == 0)
 			{
 				self->flags |= EF_DISABLED;
-				updateObjective(self->name, TT_DISABLE);
 				battle.stats[STAT_ENEMIES_DISABLED]++;
+				
+				updateObjective(self->name, TT_DISABLE);
 			}
 		}
 		

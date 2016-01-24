@@ -111,7 +111,7 @@ void updateObjective(char *name, int type)
 				}
 			}
 			
-			if (o->isEliminateAll && !battle.numEnemies && o->status != OS_COMPLETE)
+			if (o->isEliminateAll && o->status != OS_COMPLETE && battle.stats[STAT_ENEMIES_KILLED] == battle.numInitialEnemies)
 			{
 				o->status = OS_COMPLETE;
 				
@@ -207,7 +207,7 @@ void activateObjectives(char *objectives)
 				addHudMessage(colors.cyan, "New Objective : %s", o->description);
 				o->active = 1;
 				
-				if (o->isEliminateAll && battle.stats[STAT_ENEMIES_KILLED] == battle.numInitialEnemies)
+				if (o->isEliminateAll)
 				{
 					updateObjective(o->targetName, o->targetType);
 				}

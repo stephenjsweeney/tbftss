@@ -1,0 +1,278 @@
+{
+	"name" : "Iliad Defence #4",
+	"description" : "",
+	"requires" : 21,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/heroism.ogg",
+	"objectives" : [
+		{
+			"description" : "Protect UNF Lady Jane Grey",
+			"targetName" : "UNF Lady Jane Grey",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition": 1
+		},
+		{
+			"description" : "Protect UNF Joan of Arc",
+			"targetName" : "UNF Joan of Arc",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition": 1
+		},
+		{
+			"description" : "Destroy INF Astra",
+			"targetName" : "INF Astra",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy INF Ragnarok",
+			"targetName" : "INF Ragnarok",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy INF Buster",
+			"targetName" : "INF Buster",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate all enemies",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "DUMMY",
+			"targetName" : "DUMMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "Leopard",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "1st Lt. Opal Williams",
+		"squadron" : "Agamemnon's 1st",
+		"x" : 9,
+		"y" : 10
+	},
+	"fighters" : [
+		{
+			"types" : "Firefly;Leopard;Nymph",
+			"side" : "SIDE_ALLIES",
+			"x": 9,
+			"y": 10,
+			"number" : 6,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"types" : "Firefly;Leopard;Nymph",
+			"side" : "SIDE_ALLIES",
+			"x": 11,
+			"y": 10,
+			"number" : 6,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Dust Brothers",
+			"types" : "Firefly;Leopard;Nymph",
+			"side" : "SIDE_ALLIES",
+			"x": -1,
+			"y": 10,
+			"number" : 7,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x": 18,
+			"y": 10,
+			"number" : 4,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x": 1,
+			"y": 20,
+			"number" : 4,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "Pandorans-2",
+			"types" : "Jackal;Sphinx;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x": -1,
+			"y": 0,
+			"number" : 4,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "AstraEscorts",
+			"types" : "Jackal;Sphinx;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x": 10,
+			"y": -1,
+			"number" : 4,
+			"scatter" : 1500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "BustRagEscorts",
+			"types" : "Jackal;Sphinx;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x": 22,
+			"y": -2,
+			"number" : 8,
+			"scatter" : 2500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "Scarabs",
+			"types" : "Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x": 25,
+			"y": -4,
+			"number" : 12,
+			"scatter" : 2500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "UNF Lady Jane Grey",
+			"types" : "UNF Corvette 01",
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 10,
+			"flags" : "EF_AI_LEADER+EF_AI_TARGET"
+		},
+		{
+			"name" : "UNF Joan of Arc",
+			"types" : "UNF Corvette 01",
+			"side" : "SIDE_ALLIES",
+			"x" : 11,
+			"y" : 11,
+			"flags" : "EF_AI_LEADER+EF_AI_TARGET"
+		},
+		{
+			"name" : "INF Astra",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 10,
+			"y" : -5,
+			"flags" : "EF_AI_LEADER+EF_AI_TARGET",
+			"active" : 0
+		},
+		{
+			"name" : "INF Ragnarok",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 21,
+			"y" : -5,
+			"flags" : "EF_AI_LEADER+EF_AI_TARGET",
+			"active" : 0
+		},
+		{
+			"name" : "INF Buster",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 20,
+			"y" : -5,
+			"flags" : "EF_AI_LEADER+EF_AI_TARGET",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Control;Agamemnon's 1st, we're detecting multiple Pandoran fighters moving in to intercept. Take them down, and protect The Lady Grey and Joan of Arc."
+			]
+		},
+		{
+			"function" : "TIME 60",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Pandorans-2",
+				"MSG_BOX Control;Agamemnon's 1st, another wing is approaching. Continue to engage, and await your main targets."
+			]
+		},
+		{
+			"function" : "TIME 90",
+			"lines" : [
+				"ACTIVATE_ENTITIES INF Astra",
+				"ACTIVATE_ENTITY_GROUPS AstraEscorts",
+				"ACTIVATE_OBJECTIVES Destroy INF Astra",
+				"MSG_BOX Control;Agamemnon's 1st, INF Astra has just arrived in the area. Engage and destroy.",
+				"MSG_BOX Williams;Escorts?",
+				"MSG_BOX Control;Four Mitikas fighters."
+			]
+		},
+		{
+			"function" : "TIME 210",
+			"lines" : [
+				"ACTIVATE_ENTITIES INF Buster;INF Ragnarok",
+				"ACTIVATE_OBJECTIVES Destroy INF Buster;Destroy INF Ragnarok",
+				"MSG_BOX Control;Agamemnon's 1st, INF Buster and INF Ragnarok on approach. Determining escort groups ..."
+			]
+		},
+		{
+			"function" : "TIME 220",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS BustRagEscorts",
+				"MSG_BOX Control;Another small escort group: eight fighters.",
+				"MSG_BOX Williams;They must be holding something back."
+			]
+		},
+		{
+			"function" : "TIME 240",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Scarabs",
+				"MSG_BOX Control;Confirmed. Pandoran forces are sending in Scarab bombers.",
+				"MSG_BOX Williams;Hell! We need to keep them away from Joan and Grey, while we take down their own capital ships."
+			]
+		},
+		{
+			"function" : "TIME 260",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Dust Brothers",
+				"MSG_BOX Control;Williams, the Dust Brothers are heading your way, to lend assistance. They should be with you in a few minutes.",
+				"MSG_BOX Williams;Much appreciated!"
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 4",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Williams;Control, this is Williams. Enemy capital ships have been destroyed, along with all other forces.",
+				"MSG_BOX Control;Great work, Williams. Rejoin the main the fleet. The enemies forces are gaining strength and we need all the help we can get.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

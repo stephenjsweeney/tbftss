@@ -68,7 +68,7 @@
 		},
 		{
 			"name" : "Rocket Turret",
-			"types" : "RocketTurret",
+			"types" : "Rocket Turret",
 			"x" : 25,
 			"y" : 25,
 			"side" : "SIDE_PIRATE",

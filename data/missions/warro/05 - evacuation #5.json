@@ -41,7 +41,7 @@
 			"active" : 0
 		},
 		{
-			"description" : "Eliminate all enemies",
+			"description" : "Eliminate all remaining enemies",
 			"targetName" : "ENEMY",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
@@ -132,7 +132,7 @@
 		},
 		{
 			"name" : "INF Gram",
-			"types" : "INF Corvette 01",
+			"types" : "INF Corvette 02",
 			"side" : "SIDE_PANDORAN",
 			"x" : 35,
 			"y" : 51,
@@ -150,7 +150,7 @@
 		},
 		{
 			"name" : "INF Dragonlance",
-			"types" : "INF Corvette 01",
+			"types" : "INF Corvette 02",
 			"side" : "SIDE_PANDORAN",
 			"x" : 51,
 			"y" : 51,
@@ -205,7 +205,7 @@
 				"MSG_BOX CSN Leviathan;Tracking two more corvettes heading your way: Dragonlance and Trident.",
 				"ACTIVATE_ENTITIES INF Dragonlance;INF Trident",
 				"ACTIVATE_ENTITY_GROUPS DragonTrident",
-				"ACTIVATE_OBJECTIVES Destroy INF Dragonlance;Destroy INF Trident;Eliminate all enemies",
+				"ACTIVATE_OBJECTIVES Destroy INF Dragonlance;Destroy INF Trident;Eliminate all remaining enemies",
 				"MSG_BOX Todd;Dragonlance, eh? As in, a lance used for killing dragons? Yeah, they wish.",
 				"MSG_BOX Wiley;They're not the only ones."
 			]

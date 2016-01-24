@@ -30,7 +30,7 @@
 			"description" : "Eliminate all remaining enemies",
 			"targetName" : "ENEMY",
 			"targetValue" : 1,
-			"targetType" : "TT_ESCAPED",
+			"targetType" : "TT_DESTROY",
 			"active" : 0,
 			"isEliminateAll" : 1
 		},

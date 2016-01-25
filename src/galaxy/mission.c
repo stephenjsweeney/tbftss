@@ -72,6 +72,11 @@ void loadMission(char *filename)
 		loadEpicData(cJSON_GetObjectItem(root, "epic"));
 	}
 	
+	if (cJSON_GetObjectItem(root, "unwinnable"))
+	{
+		battle.unwinnable = cJSON_GetObjectItem(root, "unwinnable")->valueint;
+	}
+	
 	initScript(cJSON_GetObjectItem(root, "script"));
 	
 	free(text);

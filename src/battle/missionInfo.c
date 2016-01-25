@@ -52,13 +52,16 @@ void drawMissionInfo(void)
 			
 		case MS_COMPLETE:
 		case MS_FAILED:
-			if (battle.missionFinishedTimer <= -FPS)
+			if (!battle.unwinnable)
 			{
-				drawMissionSummary(battle.status == MS_COMPLETE ? missionCompleteTexture : missionFailedTexture);
-			
-				if (battle.missionFinishedTimer <= -(FPS * 2))
+				if (battle.missionFinishedTimer <= -FPS)
 				{
-					drawWidgets(battle.status == MS_COMPLETE ? "battleWon" : "battleLost");
+					drawMissionSummary(battle.status == MS_COMPLETE ? missionCompleteTexture : missionFailedTexture);
+				
+					if (battle.missionFinishedTimer <= -(FPS * 2))
+					{
+						drawWidgets(battle.status == MS_COMPLETE ? "battleWon" : "battleLost");
+					}
 				}
 			}
 			break;

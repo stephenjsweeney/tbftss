@@ -169,6 +169,15 @@ static void doBattle(void)
 	}
 	
 	battle.stats[STAT_TIME]++;
+	
+	if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
+	{
+		postBattle();
+
+		destroyBattle();
+		
+		initGalacticMap();
+	}
 }
 
 static void draw(void)

@@ -5,19 +5,13 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/mythos.png",
 	"music" : "music/heroism.ogg",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Destroy all enemy targets",
 			"targetName" : "Pandoran",
 			"targetValue" : 100,
 			"targetType" : "TT_DESTROY"
-		},
-		{
-			"description" : "DUMMY",
-			"targetName" : "DUMMY",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY",
-			"active" : 0
 		}
 	],
 	"player" : {

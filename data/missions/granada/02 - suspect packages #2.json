@@ -5,6 +5,7 @@
 	"requires" : 4,
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/determination.mp3",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Check all wayponts",
@@ -38,13 +39,6 @@
 			"description" : "Destroy intercepting Darts",
 			"targetName" : "Dart",
 			"targetValue" : 7,
-			"targetType" : "TT_DESTROY",
-			"active" : 0
-		},
-		{
-			"description" : "DUMMY",
-			"targetName" : "DUMMY",
-			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"active" : 0
 		}

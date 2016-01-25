@@ -278,6 +278,7 @@ typedef struct {
 	int epic;
 	int epicFighterLimit;
 	int playerSelect;
+	int manualComplete;
 	int unwinnable;
 	int missionFinishedTimer;
 	int boostTimer;

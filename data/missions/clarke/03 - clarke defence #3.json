@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background04.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/heroism.ogg",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Destroy INF Khopesh",
@@ -36,13 +37,6 @@
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isCondition": 1
-		},
-		{
-			"description" : "DUMMY",
-			"targetName" : "DUMMY",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY",
-			"active" : 0
 		}
 	],
 	"player" : {

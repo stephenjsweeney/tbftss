@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/track-4.mp3",
+	"manualComplete" : 1,
 	"player" : {
 		"pilot" : "Lt. Cdr. Daniel Carr",
 		"squadron" : "Iron Patriots",
@@ -31,13 +32,6 @@
 			"targetName" : "Dart",
 			"targetValue" : 48,
 			"targetType" : "TT_DESTROY"
-		},
-		{
-			"description" : "DUMMY",
-			"targetName" : "DUMMY",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY",
-			"active" : 0
 		}
 	],
 	"fighters" : [

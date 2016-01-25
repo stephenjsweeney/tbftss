@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/heroism.ogg",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Protect UNF Lady Jane Grey",
@@ -47,13 +48,6 @@
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isEliminateAll" : 1
-		},
-		{
-			"description" : "DUMMY",
-			"targetName" : "DUMMY",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY",
-			"active" : 0
 		}
 	],
 	"player" : {

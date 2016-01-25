@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background04.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/heroism.ogg",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Destroy INF Dirk",
@@ -24,13 +25,6 @@
 			"targetValue" : 4,
 			"targetType" : "TT_DESTROY",
 			"active": 0
-		},
-		{
-			"description" : "DUMMY",
-			"targetName" : "DUMMY",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY",
-			"active" : 0
 		}
 	],
 	"player" : {

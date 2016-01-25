@@ -61,7 +61,7 @@ void doObjectives(void)
 	
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (numHiddenObjectives == 0 && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
+		if (!battle.manualComplete && numHiddenObjectives == 0 && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
 		{
 			completeMission();
 			

@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
 	"music" : "music/track-4.mp3",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Destroy INF Thunderbolt",
@@ -47,13 +48,6 @@
 			"targetType" : "TT_DESTROY",
 			"active" : 0,
 			"isEliminateAll" : 1
-		},
-		{
-			"description" : "DUMMY",
-			"targetName" : "DUMMY",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY",
-			"active" : 0
 		}
 	],
 	"player" : {

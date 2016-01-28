@@ -1,0 +1,121 @@
+{
+	"comments" : [
+		"There is intentionally no music in this mission to add to the mood after the defeat at Iliad. It's basically being done for artistic reasons."
+	],
+	"name" : "Patrol #3",
+	"description" : "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter.",
+	"requires" : 26,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"music" : "",
+	"objectives" : [
+		{
+			"description" : "Check all Waypoints",
+			"targetName" : "Waypoint",
+			"targetValue" : 5,
+			"targetType" : "TT_WAYPOINT"
+		}
+	],
+	"player" : {
+		"type" : "Firefly",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "1st Lt. Curtis Rice",
+		"squadron" : "Eightballers"
+	},
+	"fighters" : [
+		{
+			"name" : "Ally",
+			"types" : "Firefly;Nymph",
+			"number" : 4,
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"number" : 5,
+			"x" : 35,
+			"y" : 25,
+			"scatter" : 8500,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 3",
+			"lines" : [
+				"MSG_BOX Pilot #2;So, Iliad has fallen?",
+				"MSG_BOX Pilot #4;From what I've heard.",
+				"MSG_BOX Pilot #2;Did they retreat, or ...",
+				"MSG_BOX Rice;They fought to the very last."
+			]
+		},
+		{
+			"function" : "Waypoint #1",
+			"lines" : [
+				"WAIT 3",
+				"MSG_BOX Pilot #2;So that's it. The Pandorans have won?",
+				"MSG_BOX Rice;At Iliad, yes. Unless the local forces there can somehow hold off the enemy's ground assault.",
+				"MSG_BOX Pilot #4;It's ... possible, right?",
+				"MSG_BOX Rice;The Pandorans will just nuke the place when they're done. They'll take what they need, kill everyone who stands in their way ...",
+				"MSG_BOX Pilot #2;And even those who don't.",
+				"MSG_BOX Rice;...and move on."
+			]
+		},
+		{
+			"function" : "Waypoint #2",
+			"lines" : [
+				"WAIT 3",
+				"MSG_BOX Pilot #2;You're quiet, Wade.",
+				"MSG_BOX Wade;Just thinking.",
+				"MSG_BOX Pilot #4;What about?",
+				"MSG_BOX Wade;How long it'll be before the Pandorans show up here.",
+				"MSG_BOX Pilot #2;They came by earlier, if you don't remember.",
+				"MSG_BOX Pilot #4;And haven't been back since. Maybe we scared them off.",
+				"MSG_BOX Rice;I doubt it, guys. They were probably just scouting."
+			]
+		},
+		{
+			"function" : "Waypoint #3",
+			"lines" : [
+				"WAIT 3",
+				"MSG_BOX Pilot #2;Where the hell are the CSN? Why weren't they at Iliad?",
+				"MSG_BOX Rice;They weren't wanted, apparently. Iliad and the UNF aren't getting along so well at the moment.",
+				"MSG_BOX Pilot #4;Something to do with Adrian Parsons?",
+				"MSG_BOX Pilot #2;That bloody idiot? It wouldn't surprise me. He's the reason we're now in this mess! If I ever meet that guy, nothing'll stop me from-",
+				"MSG_BOX Rice;Hey, mind what you say. All these communications are logged.",
+				"MSG_BOX Pilot #2;(indecipherable muttering)"
+			]
+		},
+		{
+			"function" : "Waypoint #4",
+			"lines" : [
+				"WAIT 3",
+				"MSG_BOX Wade;What do you mean, it's all Parsons' fault?",
+				"MSG_BOX Pilot #2;He made an executive decision over in Coyote several months ago, that screwed everything up. Something about being charged with a super weapon.",
+				"MSG_BOX Wade;Grendel's Mother?",
+				"MSG_BOX Pilot #2;No, something it was carrying. Linked to the ATAFs, apparently.",
+				"MSG_BOX Pilot #4;The CSN built something that nuked a whole load of allied and Pandoran forces. It wasn't meant to be used in Coyote, though.",
+				"MSG_BOX Wade;You don't say.",
+				"MSG_BOX Rice;Okay, lads, let's wrap this topic up, eh?"
+			]
+		},
+		{
+			"function" : "Waypoint #5",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Rice;That's it, all done. Anyone got anything to report?",
+				"MSG_BOX Wade;Nothing.",
+				"MSG_BOX Pilot #2;Nope.",
+				"MSG_BOX Pilot #4;Nope.",
+				"MSG_BOX Rice;Okay, let's get home and report in.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

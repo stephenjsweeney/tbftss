@@ -34,7 +34,7 @@ static void loadEpicData(cJSON *node);
 void loadMission(char *filename)
 {
 	cJSON *root;
-	char *text, music[MAX_NAME_LENGTH];
+	char *text, music[MAX_DESCRIPTION_LENGTH];
 	
 	startSectionTransition();
 	
@@ -65,7 +65,7 @@ void loadMission(char *filename)
 	
 	loadLocations(cJSON_GetObjectItem(root, "locations"));
 	
-	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_NAME_LENGTH);
+	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_DESCRIPTION_LENGTH);
 	
 	if (cJSON_GetObjectItem(root, "epic"))
 	{

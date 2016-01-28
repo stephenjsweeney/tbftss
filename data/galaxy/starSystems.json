@@ -100,7 +100,8 @@
         "name": "Iliad",
         "side" : "SIDE_UNF",
         "x": 335,
-        "y": 135
+        "y": 135,
+        "fallsToPandorans" : 1
       },
       {
         "name": "Warro",

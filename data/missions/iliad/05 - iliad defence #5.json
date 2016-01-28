@@ -1,0 +1,116 @@
+{
+	"name" : "Iliad Defence #5",
+	"description" : "The defence of Iliad is slipping, our forces are being decimated. We have to hit the enemy back, hard. All available fighters are to move into range and engage. If we lose here, Iliad is finished. We are the last line of defence, and we cannot afford to fail.",
+	"requires" : 25,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/DST-RailJet-LongSeamlessLoop.ogg",
+	"epic" : {
+		"fighterLimit" : 12
+	},
+	"unwinnable" : 1,
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "Pandoran",
+			"targetValue" : 500,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"player" : {
+		"type" : "Nymph",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)"
+	},
+	"fighters" : [
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph;Lynx;Hyena-A;Hyena-B",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 99,
+			"scatter" : 10000,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Mantis;Sphinx;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 18,
+			"number" : 500,
+			"scatter" : 10000
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "INF Seax",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 20,
+			"y" : -5,
+			"active" : 0
+		},
+		{
+			"name" : "INF Qama",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : -5,
+			"active" : 0
+		},
+		{
+			"name" : "INF Mora",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 30,
+			"y" : -5,
+			"active" : 0
+		},
+		{
+			"name" : "INF Sharpfinger",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : -5,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX UNF Wing Commander;Stay sharp, people. We need to hold the line here!",
+				"MSG_BOX UNF Pilot #31;Oh my God, there's a lot of them ...",
+				"MSG_BOX UNF Pilot #82;Pair up, and take them down together. We stand a much better chance that way."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 30",
+			"lines" : [
+				"ACTIVATE_ENTITIES INF Qama;INF Seax;INF Mora;INF Sharpfinger",
+				"MSG_BOX UNF Wing Commander;Heads up, people. Four INF corvettes just entered the area.",
+				"MSG_BOX UNF Pilot #41;What's happened to all our own capital ships?!",
+				"MSG_BOX UNF Wing Commander;They've been scratched."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 60",
+			"lines" : [
+				"MSG_BOX UNF Pilot #63;That Dust Brothers have been flagged."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 90",
+			"lines" : [
+				"MSG_BOX UNF Pilot #94;We have to sound the retreat!",
+				"MSG_BOX UNF Wing Commander;Mister, you remain where you are! We're not abando--",
+				"WAIT_MSG_BOX",
+				"WAIT 3",
+				"MSG_BOX UNF Pilot #98;The wing commander's dead."
+			]
+		}
+	]
+}

@@ -479,6 +479,11 @@ static void die(void)
 			break;
 	}
 	
+	if (self == player && battle.epic)
+	{
+		n = 1;
+	}
+	
 	switch (n)
 	{
 		case 0:

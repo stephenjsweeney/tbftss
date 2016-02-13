@@ -130,6 +130,9 @@ static void doBattle(void)
 	
 	scrollBackground(-ssx * 0.1, -ssy * 0.1);
 	
+	battle.planet.x -= ssx * 0.05;
+	battle.planet.y -= ssy * 0.05;
+	
 	doHud();
 	
 	doStars(ssx, ssy);
@@ -194,7 +197,7 @@ static void draw(void)
 	
 	drawStars();
 	
-	blit(battle.planetTexture, battle.planet.x - battle.camera.x, battle.planet.y - battle.camera.y, 1);
+	blit(battle.planetTexture, battle.planet.x, battle.planet.y, 1);
 	
 	drawEntities();
 	

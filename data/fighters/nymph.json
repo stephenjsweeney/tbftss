@@ -5,7 +5,7 @@
 	"speed" : 2,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 30,
-	"textureName" : "gfx/fighters/nymph.png",
+	"texture" : "gfx/fighters/nymph.png",
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",

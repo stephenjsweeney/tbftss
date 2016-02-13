@@ -5,7 +5,7 @@
 	"speed" : 0,
 	"reloadTime" : 8,
 	"shieldRechargeRate" : 30,
-	"textureName" : "gfx/cannons/rocketTurret.png",
+	"texture" : "gfx/cannons/rocketTurret.png",
 	"deathType" : "DT_NO_SPIN",
 	"guns" : [
 		{

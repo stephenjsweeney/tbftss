@@ -5,7 +5,7 @@
 	"speed" : 2.1,
 	"reloadTime" : 24,
 	"shieldRechargeRate" : 0,
-	"textureName" : "gfx/fighters/dart01.png",
+	"texture" : "gfx/fighters/dart01.png",
 	"missiles" : 999,
 	"flags" : "EF_TAKES_DAMAGE"
 }

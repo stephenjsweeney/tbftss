@@ -5,7 +5,7 @@
 	"speed" : 1.7,
 	"reloadTime" : 35,
 	"shieldRechargeRate" : 60,
-	"textureName" : "gfx/fighters/scarab.png",
+	"texture" : "gfx/fighters/scarab.png",
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",

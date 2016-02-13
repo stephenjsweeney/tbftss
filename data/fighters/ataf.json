@@ -5,7 +5,7 @@
 	"speed" : 2.25,
 	"reloadTime" : 8,
 	"shieldRechargeRate" : 5,
-	"textureName" : "gfx/fighters/ataf.png",
+	"texture" : "gfx/fighters/ataf.png",
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",

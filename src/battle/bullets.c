@@ -54,7 +54,7 @@ void initBulletDefs(void)
 		def = &bulletDef[type];
 		def->type = type;
 		def->damage = cJSON_GetObjectItem(node, "damage")->valueint;
-		def->texture = getTexture(cJSON_GetObjectItem(node, "textureName")->valuestring);
+		def->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
 		def->sound = lookup(cJSON_GetObjectItem(node, "sound")->valuestring);
 		def->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, NULL);
 		

@@ -101,7 +101,7 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 
 static void randomizeDart(Entity *dart)
 {
-	char textureName[MAX_DESCRIPTION_LENGTH];
+	char texture[MAX_DESCRIPTION_LENGTH];
 	
 	if (rand() % 5 == 0)
 	{
@@ -128,9 +128,9 @@ static void randomizeDart(Entity *dart)
 	
 	dart->missiles = rand() % 3;
 	
-	sprintf(textureName, "gfx/fighters/dart0%d.png", 1 + rand() % 7);
+	sprintf(texture, "gfx/fighters/dart0%d.png", 1 + rand() % 7);
 	
-	dart->texture = getTexture(textureName);
+	dart->texture = getTexture(texture);
 }
 
 static void randomizeDartGuns(Entity *dart)
@@ -657,7 +657,7 @@ static void loadFighterDef(char *filename)
 	e->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;
 	e->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
 	e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
-	e->texture = getTexture(cJSON_GetObjectItem(root, "textureName")->valuestring);
+	e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
 	
 	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 	

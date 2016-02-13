@@ -5,7 +5,7 @@
 	"speed" : 1.85,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 60,
-	"textureName" : "gfx/fighters/sphinx.png",
+	"texture" : "gfx/fighters/sphinx.png",
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",

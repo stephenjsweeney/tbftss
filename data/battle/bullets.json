@@ -2,7 +2,7 @@
 	{
 		"type" : "BT_PARTICLE",
 		"damage" : 1,
-		"textureName" : "gfx/bullets/particleBolt.png",
+		"texture" : "gfx/bullets/particleBolt.png",
 		"sound" : "SND_PARTICLE",
 		"flags" : "BF_NONE"
 	},
@@ -10,7 +10,7 @@
 	{
 		"type" : "BT_PLASMA",
 		"damage" : 3,
-		"textureName" : "gfx/bullets/plasmaBolt.png",
+		"texture" : "gfx/bullets/plasmaBolt.png",
 		"sound" : "SND_PLASMA",
 		"flags" : "BF_NONE"
 	},
@@ -18,7 +18,7 @@
 	{
 		"type" : "BT_MISSILE",
 		"damage" : 75,
-		"textureName" : "gfx/bullets/missile.png",
+		"texture" : "gfx/bullets/missile.png",
 		"sound" : "SND_MISSILE",
 		"flags" : "BF_ENGINE+BF_EXPLODES"
 	},
@@ -26,7 +26,7 @@
 	{
 		"type" : "BT_MAG",
 		"damage" : 10,
-		"textureName" : "gfx/bullets/magBolt.png",
+		"texture" : "gfx/bullets/magBolt.png",
 		"sound" : "SND_MAG",
 		"flags" : "BF_SYSTEM_DAMAGE"
 	},
@@ -34,7 +34,7 @@
 	{
 		"type" : "BT_LASER",
 		"damage" : 5,
-		"textureName" : "gfx/bullets/laser.png",
+		"texture" : "gfx/bullets/laser.png",
 		"sound" : "SND_LASER",
 		"flags" : "BF_SHIELD_DAMAGE"
 	},
@@ -42,7 +42,7 @@
 	{
 		"type" : "BT_ROCKET",
 		"damage" : 50,
-		"textureName" : "gfx/bullets/missile.png",
+		"texture" : "gfx/bullets/missile.png",
 		"sound" : "SND_MISSILE",
 		"flags" : "BF_ENGINE+BF_EXPLODES"
 	}

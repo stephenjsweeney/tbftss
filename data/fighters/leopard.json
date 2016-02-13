@@ -5,7 +5,7 @@
 	"speed" : 1.7,
 	"reloadTime" : 16,
 	"shieldRechargeRate" : 70,
-	"textureName" : "gfx/fighters/leopard.png",
+	"texture" : "gfx/fighters/leopard.png",
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",

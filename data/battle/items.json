@@ -1,10 +1,10 @@
 [
 	{
 		"name" : "crate",
-		"textureName" : "gfx/items/crate.png"
+		"texture" : "gfx/items/crate.png"
 	},
 	{
 		"name" : "smallCrate",
-		"textureName" : "gfx/items/smallCrate.png"
+		"texture" : "gfx/items/smallCrate.png"
 	}
 ]

@@ -5,7 +5,7 @@
 	"speed" : 2.1,
 	"reloadTime" : 24,
 	"shieldRechargeRate" : 0,
-	"textureName" : "gfx/fighters/dart01.png",
+	"texture" : "gfx/fighters/dart01.png",
 	"guns" : [
 		{
 			"type" : "BT_PARTICLE",

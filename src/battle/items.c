@@ -47,7 +47,7 @@ void loadItemDefs(void)
 		e->active = 1;
 		STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
-		e->texture = getTexture(cJSON_GetObjectItem(node, "textureName")->valuestring);
+		e->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
 		
 		e->health = e->maxHealth = FPS;
 		

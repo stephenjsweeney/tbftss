@@ -5,7 +5,7 @@
 	"speed" : 0,
 	"reloadTime" : 30,
 	"shieldRechargeRate" : 10,
-	"textureName" : "gfx/cannons/plasmaTurret.png",
+	"texture" : "gfx/cannons/plasmaTurret.png",
 	"deathType" : "DT_NO_SPIN",
 	"guns" : [
 		{

@@ -5,7 +5,7 @@
 	"speed" : 2,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 45,
-	"textureName" : "gfx/fighters/jackal.png",
+	"texture" : "gfx/fighters/jackal.png",
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",

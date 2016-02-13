@@ -57,6 +57,7 @@ static int pulseTimer;
 static float ssx, ssy;
 static float arrowPulse;
 static int show;
+static Widget *startMissionButton;
 
 void initGalacticMap(void)
 {
@@ -91,7 +92,8 @@ void initGalacticMap(void)
 	
 	initBackground();
 	
-	getWidget("startMission", "starSystem")->action = startMission;
+	startMissionButton = getWidget("startMission", "starSystem");
+	startMissionButton->action = startMission;
 	
 	getWidget("resume", "galacticMap")->action = resume;
 	getWidget("stats", "galacticMap")->action = stats;
@@ -495,7 +497,7 @@ static void drawStarSystemDetail(void)
 	
 	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.cyan, "%s", selectedStarSystem->name);
 	
-	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w, 120);
+	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w - 1, 120);
 	
 	SDL_RenderDrawLine(app.renderer, 515, 120, 515, 660);
 	
@@ -519,7 +521,7 @@ static void drawStarSystemDetail(void)
 		
 		if (mission->available)
 		{
-			drawText(210, y, 24, TA_LEFT, mission->completed ? colors.white : colors.yellow, mission->name);
+			drawText(210, y, 24, TA_LEFT, mission->completed ? colors.lightGrey : colors.yellow, mission->name);
 		}
 		
 		y += 50;
@@ -536,10 +538,16 @@ static void drawStarSystemDetail(void)
 		limitTextWidth(0);
 	}
 	
-	if (selectedMission->epic)
+	if (selectedMission->completed)
+	{
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.green, "This mission has been completed.");
+	}
+	else if (selectedMission->epic)
 	{
 		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, "Note: this is an Epic Mission.");
 	}
+	
+	startMissionButton->enabled = (!selectedMission->completed || selectedStarSystem->isSol);
 	
 	drawWidgets("starSystem");
 }
@@ -592,8 +600,6 @@ static void handleMouse(void)
 
 static void startMission(void)
 {
-	playSound(SND_GUI_SELECT);
-	
 	initBattle();
 	game.currentMission = selectedMission;
 	loadMission(selectedMission->filename);

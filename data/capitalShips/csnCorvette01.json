@@ -161,7 +161,7 @@
 			"x" : 0,
 			"y" : 175,
 			"reloadTime" : 40,
-			"type" : "BT_PLASMA",
+			"type" : "BT_ROCKET",
 			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
 			"missiles" : 9999

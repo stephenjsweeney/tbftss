@@ -48,8 +48,8 @@ void loadMission(char *filename)
 	
 	battle.background = getTexture(cJSON_GetObjectItem(root, "background")->valuestring);
 	battle.planetTexture = getTexture(cJSON_GetObjectItem(root, "planet")->valuestring);
-	battle.planet.x = ((200 + rand() % 100) / 10) * GRID_CELL_WIDTH;
-	battle.planet.y = ((200 + rand() % 100) / 10) * GRID_CELL_HEIGHT;
+	battle.planet.x = (SCREEN_WIDTH / 2) - (rand() % SCREEN_WIDTH) + (rand() % SCREEN_WIDTH);
+	battle.planet.y = (SCREEN_HEIGHT / 2) - (rand() % SCREEN_HEIGHT) + (rand() % SCREEN_HEIGHT);
 	
 	loadObjectives(cJSON_GetObjectItem(root, "objectives"));
 		

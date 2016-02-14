@@ -44,8 +44,11 @@ static void quit(void);
 static void startMission(void);
 static void returnFromOptions(void);
 static void doStarSystemView(void);
+static void updatePandoranAdvance(void);
+static void drawFallenView(void);
+static void fallenOK(void);
 
-static StarSystem *selectedStarSystem;
+static StarSystem *selectedStarSystem, *fallenStarSystem;
 static Mission *selectedMission = {0};
 static SDL_Texture *background;
 static SDL_Texture *starSystemTexture;
@@ -80,13 +83,13 @@ void initGalacticMap(void)
 	
 	centerOnSelectedStarSystem();
 	
+	updatePandoranAdvance();
+	
 	saveGame();
 	
 	pulseTimer = 0;
 	
 	arrowPulse = 0;
-	
-	show = SHOW_GALAXY;
 	
 	/* clear the pulses */
 	destroyGalacticMap();
@@ -103,6 +106,8 @@ void initGalacticMap(void)
 	
 	getWidget("ok", "stats")->action = statsOK;
 	
+	getWidget("ok", "fallen")->action = fallenOK;
+	
 	updateStarSystemMissions();
 	
 	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
@@ -110,6 +115,23 @@ void initGalacticMap(void)
 	endSectionTransition();
 	
 	playMusic("music/Pressure.ogg");
+}
+
+static void updatePandoranAdvance(void)
+{
+	StarSystem *starSystem;
+	
+	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	{
+		if (starSystem->side != SIDE_PANDORAN && starSystem->fallsToPandorans && starSystem->completedMissions == starSystem->totalMissions && starSystem->totalMissions > 0)
+		{
+			starSystem->side = SIDE_PANDORAN;
+			
+			show = SHOW_FALLEN_MESSAGE;
+			
+			fallenStarSystem = starSystem;
+		}
+	}
 }
 
 static void logic(void)
@@ -174,11 +196,6 @@ static void doStarSystems(void)
 						app.mouse.button[SDL_BUTTON_LEFT] = 0;
 					}
 				}
-			}
-			
-			if (starSystem->side != SIDE_PANDORAN && starSystem->fallsToPandorans && starSystem->completedMissions == starSystem->totalMissions && starSystem->totalMissions > 0)
-			{
-				starSystem->side = SIDE_PANDORAN;
 			}
 		}
 	}
@@ -321,6 +338,10 @@ static void draw(void)
 			
 		case SHOW_OPTIONS:
 			drawOptions();
+			break;
+			
+		case SHOW_FALLEN_MESSAGE:
+			drawFallenView();
 			break;
 	}
 	
@@ -545,6 +566,34 @@ static void drawStarSystemDetail(void)
 	startMissionButton->enabled = (!selectedMission->completed || selectedStarSystem->isSol);
 	
 	drawWidgets("starSystem");
+}
+
+static void fallenOK(void)
+{
+	show = SHOW_GALAXY;
+}
+
+static void drawFallenView(void)
+{
+	SDL_Rect r;
+	
+	r.w = 800;
+	r.h = 150;
+	r.x = (SCREEN_WIDTH / 2) - (r.w / 2);
+	r.y = (SCREEN_HEIGHT / 2) - (r.h / 2);
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+	
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 225);
+	SDL_RenderFillRect(app.renderer, &r);
+	
+	SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 200);
+	SDL_RenderDrawRect(app.renderer, &r);
+	
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	
+	drawText(SCREEN_WIDTH / 2, r.y + 25, 24, TA_CENTER, colors.white, "%s has fallen to the Pandorans", fallenStarSystem->name);
+	
+	drawWidgets("fallen");
 }
 
 static void handleKeyboard(void)

@@ -20,11 +20,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define SHOW_GALAXY			0
-#define SHOW_STAR_SYSTEM	1
-#define SHOW_MENU			2
-#define SHOW_OPTIONS		3
-#define SHOW_STATS			4
+#define SHOW_GALAXY				0
+#define SHOW_STAR_SYSTEM		1
+#define SHOW_MENU				2
+#define SHOW_OPTIONS			3
+#define SHOW_STATS				4
+#define SHOW_FALLEN_MESSAGE		5
 
 extern void prepareScene(void);
 extern void presentScene(void);

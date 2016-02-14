@@ -195,9 +195,9 @@ static void draw(void)
 	
 	drawBackground(battle.background);
 	
-	drawStars();
-	
 	blit(battle.planetTexture, battle.planet.x, battle.planet.y, 1);
+	
+	drawStars();
 	
 	drawEntities();
 	

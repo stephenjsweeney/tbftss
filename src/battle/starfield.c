@@ -32,7 +32,7 @@ void initStars(void)
 	{
 		stars[i].x = rand() % SCREEN_WIDTH;
 		stars[i].y = rand() % SCREEN_HEIGHT;
-		stars[i].speed = 10 + rand() % 30;
+		stars[i].speed = 5 + rand() % 35;
 		
 		stars[i].speed *= 0.1;
 	}
@@ -76,10 +76,15 @@ void drawStars(void)
 	
 	for (i = 0 ; i < MAX_STARS ; i++)
 	{
-		c = 85 * stars[i].speed;
+		c = 64 * stars[i].speed;
 		
 		SDL_SetRenderDrawColor(app.renderer, c, c, c, 255);
 		
 		SDL_RenderDrawPoint(app.renderer, stars[i].x, stars[i].y);
+		
+		if (c >= 240)
+		{
+			SDL_RenderDrawPoint(app.renderer, stars[i].x + 1, stars[i].y + 1);
+		}
 	}
 }

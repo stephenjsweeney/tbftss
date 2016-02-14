@@ -23,6 +23,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static Entity deadHead;
 static Entity *deadTail;
 
+static int disabledGlow;
+static int disabledGlowDir;
+
 static void drawEntity(Entity *e);
 static void doEntity(void);
 static void alignComponents(void);
@@ -38,6 +41,9 @@ void initEntities(void)
 	memset(&deadHead, 0, sizeof(Entity));
 	
 	deadTail = &deadHead;
+	
+	disabledGlow = DISABLED_GLOW_MAX;
+	disabledGlowDir = -DISABLED_GLOW_SPEED;
 }
 
 Entity *spawnEntity(void)
@@ -238,6 +244,17 @@ void doEntities(void)
 	}
 	
 	alignComponents();
+	
+	disabledGlow = MAX(DISABLED_GLOW_MIN, MIN(disabledGlow + disabledGlowDir, DISABLED_GLOW_MAX));
+	
+	if (disabledGlow <= DISABLED_GLOW_MIN)
+	{
+		disabledGlowDir = DISABLED_GLOW_SPEED;
+	}
+	else if (disabledGlow >= DISABLED_GLOW_MAX)
+	{
+		disabledGlowDir = -DISABLED_GLOW_SPEED;
+	}
 }
 
 static void restrictToGrid(Entity *e)
@@ -369,6 +386,11 @@ static void drawEntity(Entity *e)
 	if (e->systemHit > 0)
 	{
 		SDL_SetTextureColorMod(e->texture, 255 - e->systemHit, 255, 255);
+	}
+	
+	if (e->flags & EF_DISABLED)
+	{
+		SDL_SetTextureColorMod(e->texture, disabledGlow, disabledGlow, 255);
 	}
 	
 	blitRotated(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->angle);

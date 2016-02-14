@@ -20,6 +20,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+#define DISABLED_GLOW_SPEED 	3
+#define DISABLED_GLOW_MIN 		128
+#define DISABLED_GLOW_MAX 		255
+
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void doFighter(void);
 extern void doCapitalShip(void);

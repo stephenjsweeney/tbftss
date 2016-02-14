@@ -34,6 +34,7 @@ extern void saveScreenshot(void);
 extern void doMouseDown(SDL_MouseButtonEvent *event);
 extern void doMouseUp(SDL_MouseButtonEvent *event);
 extern void doMouseWheel(SDL_MouseWheelEvent *event);
+extern void doMouseMotion(SDL_MouseMotionEvent *event);
 extern void doDevKeys(void);
 extern void expireTexts(int all);
 

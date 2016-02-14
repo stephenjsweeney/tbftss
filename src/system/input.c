@@ -54,6 +54,12 @@ void doMouseWheel(SDL_MouseWheelEvent *event)
 	}
 }
 
+void doMouseMotion(SDL_MouseMotionEvent *event)
+{
+	app.mouse.dx = event->xrel;
+	app.mouse.dy = event->yrel;
+}
+
 void setMouse(int x, int y)
 {
 	SDL_Event event;

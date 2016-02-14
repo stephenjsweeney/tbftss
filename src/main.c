@@ -60,6 +60,10 @@ int main(int argc, char *argv[])
 		{
 			switch (event.type)
 			{
+				case SDL_MOUSEMOTION:
+					doMouseMotion(&event.motion);
+					break;
+				
 				case SDL_MOUSEWHEEL:
 					doMouseWheel(&event.wheel);
 					break;
@@ -124,6 +128,9 @@ int main(int argc, char *argv[])
 			
 			expireTextTimer = SDL_GetTicks() + (1000 * 10);
 		}
+		
+		/* always zero the mouse motion */
+		app.mouse.dx = app.mouse.dy = 0;
 
 		SDL_Delay(1);
 	}

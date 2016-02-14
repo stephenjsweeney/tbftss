@@ -57,6 +57,7 @@ static int pulseTimer;
 static float ssx, ssy;
 static float arrowPulse;
 static int show;
+static int scrollingMap;
 static Widget *startMissionButton;
 
 void initGalacticMap(void)
@@ -151,39 +152,40 @@ static void doStarSystems(void)
 	StarSystem *starSystem;
 	int cx, cy;
 	
-	cx = app.mouse.x - 32;
-	cy = app.mouse.y - 32;
-	
-	selectedStarSystem = NULL;
-	
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	if (!scrollingMap)
 	{
-		if (starSystem->totalMissions > 0 && collision(cx, cy, 64, 64, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
+		cx = app.mouse.x - 32;
+		cy = app.mouse.y - 32;
+		
+		selectedStarSystem = NULL;
+		
+		for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 		{
-			if (selectedStarSystem != starSystem)
+			if (starSystem->totalMissions > 0 && collision(cx, cy, 64, 64, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
 			{
-				selectedStarSystem = starSystem;
-				
-				if (app.mouse.button[SDL_BUTTON_LEFT])
+				if (selectedStarSystem != starSystem)
 				{
-					selectStarSystem();
+					selectedStarSystem = starSystem;
 					
-					app.mouse.button[SDL_BUTTON_LEFT] = 0;
+					if (app.mouse.button[SDL_BUTTON_LEFT])
+					{
+						selectStarSystem();
+						
+						app.mouse.button[SDL_BUTTON_LEFT] = 0;
+					}
 				}
 			}
-		}
-		
-		if (starSystem->side != SIDE_PANDORAN && starSystem->fallsToPandorans && starSystem->completedMissions == starSystem->totalMissions && starSystem->totalMissions > 0)
-		{
-			starSystem->side = SIDE_PANDORAN;
+			
+			if (starSystem->side != SIDE_PANDORAN && starSystem->fallsToPandorans && starSystem->completedMissions == starSystem->totalMissions && starSystem->totalMissions > 0)
+			{
+				starSystem->side = SIDE_PANDORAN;
+			}
 		}
 	}
 }
 
 static void scrollGalaxy(void)
 {
-	int dist;
-	float dx, dy;
 	int lastX, lastY;
 	
 	lastX = camera.x;
@@ -191,20 +193,13 @@ static void scrollGalaxy(void)
 	
 	ssx = ssy = 0;
 	
-	dist = getDistance(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, app.mouse.x, app.mouse.y);
-	if (dist > 256)
+	if (scrollingMap)
 	{
-		dx = (SCREEN_WIDTH / 2) - app.mouse.x;
-		dy = (SCREEN_HEIGHT / 2) - app.mouse.y;
+		camera.x -= app.mouse.dx * 1.5;
+		camera.y -= app.mouse.dy * 1.5;
 		
-		dx /= 35;
-		dy /= 35;
-		
-		camera.x -= dx;
-		camera.y -= dy;
-		
-		ssx = -(dx / 5);
-		ssy = -(dy / 5);
+		ssx = -(app.mouse.dx / 3);
+		ssy = -(app.mouse.dy / 3);
 		
 		camera.x = MAX(-800, MIN(camera.x, 2464));
 		camera.y = MAX(-475, MIN(camera.y, 1235));
@@ -591,10 +586,16 @@ static void handleKeyboard(void)
 
 static void handleMouse(void)
 {
-	switch (show)
+	if (app.mouse.button[SDL_BUTTON_LEFT])
 	{
-		case SHOW_STATS:
-			break;
+		if (app.mouse.dx != 0 || app.mouse.dy != 0)
+		{
+			scrollingMap = 1;
+		}
+	}
+	else
+	{
+		scrollingMap = 0;
 	}
 }
 

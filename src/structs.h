@@ -356,6 +356,8 @@ typedef struct {
 	int y;
 	int w;
 	int h;
+	int dx;
+	int dy;
 	int button[MAX_MOUSE_BUTTONS];
 } Mouse;
 

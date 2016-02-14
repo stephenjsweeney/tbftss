@@ -44,25 +44,23 @@ void doEffects(void)
 		e->x += e->dx;
 		e->y += e->dy;
 		
+		e->a -= (e->type != EFFECT_ECM) ? 1 : 3;
+		e->a = MAX(0, e->a);
+		
 		e->health--;
 		
 		e->size += e->scaleAmount;
 		
 		if (e->health <= 0)
 		{
-			e->a -= (e->type != EFFECT_ECM) ? 1 : 3;
-			
-			if (e->a <= 0)
+			if (e == battle.effectTail)
 			{
-				if (e == battle.effectTail)
-				{
-					battle.effectTail = prev;
-				}
-				
-				prev->next = e->next;
-				free(e);
-				e = prev;
+				battle.effectTail = prev;
 			}
+			
+			prev->next = e->next;
+			free(e);
+			e = prev;
 		}
 		
 		prev = e;
@@ -84,6 +82,10 @@ void drawEffects(void)
 		
 		switch (e->type)
 		{
+			case EFFECT_POINT:
+				SDL_RenderDrawPoint(app.renderer, e->x - battle.camera.x, e->y - battle.camera.y);
+				break;
+			
 			case EFFECT_LINE:
 				SDL_RenderDrawLine(app.renderer, e->x - battle.camera.x, e->y - battle.camera.y, e->x + (e->dx * 3) - battle.camera.x, e->y + (e->dy * 3) - battle.camera.y);
 				break;
@@ -129,12 +131,12 @@ void addSmallFighterExplosion(void)
 	e->x = self->x + (rand() % 16 - rand() % 16);
 	e->y = self->y + (rand() % 16 - rand() % 16);
 	e->texture = explosionTexture;
-	e->health = 0;
 	e->size = 32;
 	
 	setRandomFlameHue(e);
 	
 	e->a = 128 + (rand() % 128);
+	e->health = e->a;
 	
 	e->x -= e->size / 2;
 	e->y -= e->size / 2;
@@ -154,12 +156,12 @@ void addDebrisFire(int x, int y)
 	e->x = x + (rand() % 8 - rand() % 8);
 	e->y = y + (rand() % 8 - rand() % 8);
 	e->texture = explosionTexture;
-	e->health = 0;
 	e->size = 4 + rand() % 12;
 	
 	setRandomFlameHue(e);
 	
 	e->a = rand() % 256;
+	e->health = e->a;
 	
 	e->x -= e->size / 2;
 	e->y -= e->size / 2;
@@ -186,13 +188,13 @@ void addSmallExplosion(void)
 		e->dy = (rand() % 25) - (rand() % 25);
 		e->dy *= 0.025;
 		e->texture = explosionTexture;
-		e->health = 0;
 		e->size = 32 + (rand() % 64);
 		e->r = 255;
 		
 		setRandomFlameHue(e);
 		
 		e->a = 128 + (rand() % 128);
+		e->health = e->a;
 		
 		e->x -= e->size / 2;
 		e->y -= e->size / 2;
@@ -212,9 +214,9 @@ void addSmallExplosion(void)
 		e->dx *= 0.1;
 		e->dy = rand() % 64 - rand() % 64;
 		e->dy *= 0.1;
-		e->health = FPS / 2;
 		
 		e->a = 128;
+		e->health = e->a;
 		
 		setRandomFlameHue(e);
 	}
@@ -241,13 +243,13 @@ void addMissileExplosion(Bullet *b)
 		e->dy = (rand() % 25) - (rand() % 25);
 		e->dy *= 0.025;
 		e->texture = explosionTexture;
-		e->health = 0;
 		e->size = 32 + (rand() % 64);
 		e->r = 255;
 		
 		setRandomFlameHue(e);
 		
 		e->a = 128 + (rand() % 128);
+		e->health = e->a;
 		
 		e->x -= e->size / 2;
 		e->y -= e->size / 2;
@@ -267,9 +269,9 @@ void addMissileExplosion(Bullet *b)
 		e->dx *= 0.1;
 		e->dy = rand() % 64 - rand() % 64;
 		e->dy *= 0.1;
-		e->health = FPS / 2;
 		
 		e->a = 128;
+		e->health = e->a;
 		
 		setRandomFlameHue(e);
 	}
@@ -299,12 +301,13 @@ void addEngineEffect(void)
 	e->x += rand() % 4 - rand() % 4;
 	
 	e->texture = explosionTexture;
-	e->health = 0;
 	e->size = 16;
 	e->r = 128;
 	e->g = 128;
 	e->b = 255;
 	e->a = 64;
+	
+	e->health = e->a;
 	
 	e->x -= e->size / 2;
 	e->y -= e->size / 2;
@@ -331,12 +334,13 @@ void addLargeEngineEffect(void)
 	e->x -= rand() % 4;
 	
 	e->texture = explosionTexture;
-	e->health = 0;
 	e->size = 64;
 	e->r = 128;
 	e->g = 128;
 	e->b = 255;
 	e->a = 64;
+	
+	e->health = e->a;
 	
 	e->x -= e->size / 2;
 	e->y -= e->size / 2;
@@ -363,10 +367,11 @@ void addMissileEngineEffect(Bullet *b)
 	e->x -= rand() % 4;
 	
 	e->texture = explosionTexture;
-	e->health = 0;
 	e->size = 12;
 	setRandomFlameHue(e);
 	e->a = 128;
+	
+	e->health = e->a;
 	
 	e->x -= e->size / 2;
 	e->y -= e->size / 2;

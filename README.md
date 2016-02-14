@@ -14,11 +14,11 @@ GRAPHICS
 
 gfx/planets/earth.png - modified from the the Blue Marble NASA photograph: http://visibleearth.nasa.gov/view.php?id=57723
 
-All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015, Stephen J Sweeney | www.battleforthesolarsystem.com
+All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015,2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 
 DATA FILES (with the exception of Roboto font)
 
-CC BY-NC-SA 3.0, with the following attribution: Copyright 2015, Stephen J Sweeney | www.battleforthesolarsystem.com
+CC BY-NC-SA 3.0, with the following attribution: Copyright 2015,2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 
 SOUND
 
@@ -45,6 +45,7 @@ SOUND
 321104__nsstudios__blip2.ogg - blip2, by nsstudios - https://freesound.org/people/nsstudios/sounds/321104/
 321906__bruce965__walkie-talkie-roger-beep.ogg - Walkie Talkie - Roger Beep, by bruce965 - https://freesound.org/people/bruce965/sounds/321906/
 322603__clippysounds__glass-break.ogg - Glass Break, by clippysounds - https://freesound.org/people/clippysounds/sounds/322603/
+276912__pauldihor__transform.ogg - transform, by PaulDihor - https://freesound.org/people/PaulDihor/sounds/276912/
 
 
 MUSIC

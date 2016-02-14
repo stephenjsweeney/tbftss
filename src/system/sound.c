@@ -107,6 +107,7 @@ static void loadSounds(void)
 	sounds[SND_EXPLOSION_2] = Mix_LoadWAV(getFileLocation("sound/207322__animationisaac__short-explosion.ogg"));
 	sounds[SND_EXPLOSION_3] = Mix_LoadWAV(getFileLocation("sound/254071__tb0y298__firework-explosion.ogg"));
 	sounds[SND_EXPLOSION_4] = Mix_LoadWAV(getFileLocation("sound/47252__nthompson__bad-explosion.ogg"));
+	sounds[SND_JUMP] = Mix_LoadWAV(getFileLocation("sound/276912__pauldihor__transform.ogg"));
 	
 	sounds[SND_GUI_CLICK] = Mix_LoadWAV(getFileLocation("sound/257786__xtrgamr__mouse-click.ogg"));
 	sounds[SND_GUI_SELECT] = Mix_LoadWAV(getFileLocation("sound/321104__nsstudios__blip2.ogg"));

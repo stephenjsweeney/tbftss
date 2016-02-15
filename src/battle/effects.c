@@ -427,6 +427,8 @@ void addECMEffect(Entity *ent)
 		e->g = 128 + (i * 64);
 		e->b = 255;
 		e->a = 255;
+		
+		e->health = 255;
 	}
 }
 

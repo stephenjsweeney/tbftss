@@ -236,18 +236,20 @@ static void handleKeyboard(void)
 {
 	Widget *old;
 	
-	if (app.keyboard[SDL_SCANCODE_SPACE])
+	if (app.keyboard[SDL_SCANCODE_SPACE] ||app.keyboard[SDL_SCANCODE_RETURN])
 	{
 		if (selectedWidget != NULL && selectedWidget->type == WT_BUTTON)
 		{
 			playSound(SND_GUI_SELECT);
 			old = selectedWidget;
 			selectedWidget->action();
+			
 			if (old == selectedWidget)
 			{
 				selectedWidget = NULL;
 			}
-			app.keyboard[SDL_SCANCODE_SPACE] = 0;
+			
+			app.keyboard[SDL_SCANCODE_SPACE] = app.keyboard[SDL_SCANCODE_RETURN] = 0;
 		}
 	}
 }

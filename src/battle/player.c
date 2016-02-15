@@ -145,11 +145,18 @@ static void handleKeyboard(void)
 {
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (app.keyboard[SDL_SCANCODE_W] && battle.boostTimer == BOOST_RECHARGE_TIME)
+		if (app.keyboard[SDL_SCANCODE_W])
 		{
-			playSound(SND_BOOST);
-			
-			activateBoost();
+			if (battle.boostTimer == BOOST_RECHARGE_TIME)
+			{
+				playSound(SND_BOOST);
+				
+				activateBoost();
+			}
+			else
+			{
+				playSound(SND_GUI_DENIED);
+			}
 			
 			app.keyboard[SDL_SCANCODE_W] = 0;
 		}
@@ -161,9 +168,16 @@ static void handleKeyboard(void)
 			app.keyboard[SDL_SCANCODE_A] = 0;
 		}
 		
-		if (app.keyboard[SDL_SCANCODE_D] && battle.ecmTimer == ECM_RECHARGE_TIME)
+		if (app.keyboard[SDL_SCANCODE_D])
 		{
-			activateECM();
+			if (battle.ecmTimer == ECM_RECHARGE_TIME)
+			{
+				activateECM();
+			}
+			else
+			{
+				playSound(SND_GUI_DENIED);
+			}
 			
 			app.keyboard[SDL_SCANCODE_D] = 0;
 		}

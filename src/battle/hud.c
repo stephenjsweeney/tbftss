@@ -39,6 +39,10 @@ static SDL_Texture *targetCircle;
 static SDL_Texture *smallFighter;
 static SDL_Texture *arrowLeft;
 static SDL_Texture *arrowRight;
+static SDL_Texture *armour;
+static SDL_Texture *shield;
+static SDL_Texture *ecm;
+static SDL_Texture *boost;
 static SDL_Texture *nextGun;
 static int numMessages;
 static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon", "Rockets"};
@@ -53,6 +57,10 @@ void initHud(void)
 	smallFighter = getTexture("gfx/hud/smallFighter.png");
 	arrowLeft = getTexture("gfx/widgets/optionsLeft.png");
 	arrowRight = getTexture("gfx/widgets/optionsRight.png");
+	armour = getTexture("gfx/hud/armour.png");
+	shield = getTexture("gfx/hud/shield.png");
+	ecm = getTexture("gfx/hud/ecm.png");
+	boost = getTexture("gfx/hud/boost.png");
 	nextGun = getTexture("gfx/hud/nextGun.png");
 }
 
@@ -170,8 +178,11 @@ static void drawHealthBars(void)
 		g = 200;
 	}
 	
-	drawHealthShieldBar(player->health, player->maxHealth, 10, 10, r, g, b, 1);
-	drawHealthShieldBar(player->shield, player->maxShield, 10, 30, 0, 200, 255, 0);
+	blit(armour, 6, 9, 0);
+	drawHealthShieldBar(player->health, player->maxHealth, 30, 10, r, g, b, 1);
+	
+	blit(shield, 6, 29, 0);
+	drawHealthShieldBar(player->shield, player->maxShield, 30, 30, 0, 200, 255, 0);
 }
 
 static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b, int flashLow)
@@ -217,9 +228,11 @@ static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g
 
 static void drawAbilityBars(void)
 {
-	drawBoostECMBar(battle.boostTimer, BOOST_RECHARGE_TIME, 10, 50, 128, 128, 255);
+	blit(boost, 6, 49, 0);
+	drawBoostECMBar(battle.boostTimer, BOOST_RECHARGE_TIME, 30, 50, 128, 128, 255);
 	
-	drawBoostECMBar(battle.ecmTimer, ECM_RECHARGE_TIME, 160, 50, 255, 128, 0);
+	blit(ecm, 155, 49, 0);
+	drawBoostECMBar(battle.ecmTimer, ECM_RECHARGE_TIME, 175, 50, 255, 128, 0);
 }
 
 static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, int b)
@@ -231,7 +244,7 @@ static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, in
 	
 	rect.x = x;
 	rect.y = y;
-	rect.w = 100;
+	rect.w = 105;
 	rect.h = 12;
 	
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
@@ -266,7 +279,7 @@ static void drawWeaponInfo(void)
 	{
 		if (battle.numPlayerGuns)
 		{
-			drawText(10, 70, 14, TA_LEFT, colors.white, gunName[player->selectedGunType]);
+			drawText(30, 70, 14, TA_LEFT, colors.white, gunName[player->selectedGunType]);
 			
 			if (battle.numPlayerGuns > 1)
 			{
@@ -277,15 +290,15 @@ static void drawWeaponInfo(void)
 		}
 		else
 		{
-			drawText(10, 70, 14, TA_LEFT, colors.white, "(None)");
+			drawText(30, 70, 14, TA_LEFT, colors.white, "(None)");
 		}
 	}
 	else
 	{
-		drawText(10, 70, 14, TA_LEFT, colors.white, "(Combined Guns)");
+		drawText(30, 70, 14, TA_LEFT, colors.white, "(Combined Guns)");
 	}
 	
-	drawText(260, 70, 14, TA_RIGHT, colors.white, "Missiles (%d)", player->missiles);
+	drawText(280, 70, 14, TA_RIGHT, colors.white, "Missiles (%d)", player->missiles);
 }
 
 static void drawPlayerTargeter(void)

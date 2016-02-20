@@ -421,7 +421,11 @@ static void switchGuns(void)
 		while (!availableGuns[i]);
 	}
 	
-	player->selectedGunType = i;
+	if (player->selectedGunType != i)
+	{
+		playSound(SND_SELECT_WEAPON);
+		player->selectedGunType = i;
+	}
 }
 
 static void selectTarget(void)
@@ -525,4 +529,9 @@ static void cycleRadarZoom(void)
 {
 	battle.radarRange++;
 	battle.radarRange %= 3;
+}
+
+int playerHasGun(int type)
+{
+	return availableGuns[type];
 }

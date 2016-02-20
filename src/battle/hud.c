@@ -45,7 +45,7 @@ static SDL_Texture *ecm;
 static SDL_Texture *boost;
 static SDL_Texture *nextGun;
 static int numMessages;
-static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon", "Rockets"};
+static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon", "Rockets", "Missiles"};
 
 void initHud(void)
 {
@@ -273,19 +273,31 @@ static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, in
 
 static void drawWeaponInfo(void)
 {
-	int w, h;
+	int i, y;
 	
 	if (!player->combinedGuns)
 	{
 		if (battle.numPlayerGuns)
 		{
-			drawText(30, 70, 14, TA_LEFT, colors.white, gunName[player->selectedGunType]);
+			y = 70;
 			
-			if (battle.numPlayerGuns > 1)
+			for (i = 0 ; i < BT_MAX ; i++)
 			{
-				textSize(gunName[player->selectedGunType], 14, &w, &h);
-				
-				blit(nextGun, 24 + w, 81, 1);
+				if (playerHasGun(i))
+				{
+					if (player->selectedGunType == i)
+					{
+						drawText(30, y, 14, TA_LEFT, colors.green, "%s", gunName[i]);
+						
+						blit(nextGun, 8, y + 5, 0);
+					}
+					else
+					{
+						drawText(30, y, 14, TA_LEFT, colors.darkGrey, "%s", gunName[i]);
+					}
+					
+					y += 20;
+				}
 			}
 		}
 		else

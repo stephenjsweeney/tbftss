@@ -46,6 +46,10 @@ SOUND
 321906__bruce965__walkie-talkie-roger-beep.ogg - Walkie Talkie - Roger Beep, by bruce965 - https://freesound.org/people/bruce965/sounds/321906/
 322603__clippysounds__glass-break.ogg - Glass Break, by clippysounds - https://freesound.org/people/clippysounds/sounds/322603/
 276912__pauldihor__transform.ogg - transform, by PaulDihor - https://freesound.org/people/PaulDihor/sounds/276912/
+329359__bassoonrckr__reed-guillotine.ogg - Bassoon Reed Making Tool Sounds, by Reed Guillotine.wav - https://freesound.org/people/bassoonrckr/sounds/329359/
+251431__onlytheghosts__fusion-gun-flash0-by-onlytheghosts.ogg - fusion-gun_flash0_by_OnlyTheGhosts.wav, by OnlyTheGhosts - https://freesound.org/people/OnlyTheGhosts/sounds/251431/
+172591__timbre__zapitydooda.ogg - d1clsstf.wav, by wildweasel - https://freesound.org/people/wildweasel/sounds/39030/
+39030__wildweasel__d1clsstf.ogg - push_button_switch_07.wav, by joedeshon - https://freesound.org/people/joedeshon/sounds/139061/
 
 
 MUSIC

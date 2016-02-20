@@ -111,6 +111,7 @@ static void loadSounds(void)
 	sounds[SND_ECM] = Mix_LoadWAV(getFileLocation("sound/251431__onlytheghosts__fusion-gun-flash0-by-onlytheghosts.ogg"));
 	sounds[SND_MAG_HIT] = Mix_LoadWAV(getFileLocation("sound/172591__timbre__zapitydooda.ogg"));
 	sounds[SND_POWER_DOWN] = Mix_LoadWAV(getFileLocation("sound/39030__wildweasel__d1clsstf.ogg"));
+	sounds[SND_SELECT_WEAPON] = Mix_LoadWAV(getFileLocation("sound/329359__bassoonrckr__reed-guillotine.ogg"));
 	
 	sounds[SND_GUI_CLICK] = Mix_LoadWAV(getFileLocation("sound/257786__xtrgamr__mouse-click.ogg"));
 	sounds[SND_GUI_SELECT] = Mix_LoadWAV(getFileLocation("sound/321104__nsstudios__blip2.ogg"));

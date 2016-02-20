@@ -220,6 +220,8 @@ void doFighter(void)
 			
 			if ((self->flags & EF_DISABLED) == 0)
 			{
+				playBattleSound(SND_POWER_DOWN, self->x, self->y);
+				
 				self->flags |= EF_DISABLED;
 				battle.stats[STAT_ENEMIES_DISABLED]++;
 				
@@ -390,6 +392,8 @@ void damageFighter(Entity *e, int amount, long flags)
 	
 	if (flags & BF_SYSTEM_DAMAGE)
 	{
+		playBattleSound(SND_MAG_HIT, e->x, e->y);
+		
 		e->systemPower = MAX(0, e->systemPower - amount);
 		
 		e->systemHit = 255;

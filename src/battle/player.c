@@ -172,6 +172,8 @@ static void handleKeyboard(void)
 		{
 			if (battle.ecmTimer == ECM_RECHARGE_TIME)
 			{
+				playSound(SND_ECM);
+				
 				activateECM();
 			}
 			else

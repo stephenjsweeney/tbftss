@@ -26,3 +26,4 @@ extern void blit(SDL_Texture *texture, int x, int y, int centered);
 extern char *getFileLocation(char *filename);
 
 extern App app;
+extern Colors colors;

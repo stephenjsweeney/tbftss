@@ -84,7 +84,7 @@ static void drawTextNormal(int x, int y, int size, int align, SDL_Color c, char 
 
 	if (!t)
 	{
-		surface = TTF_RenderText_Blended(font[size], text, c);
+		surface = TTF_RenderText_Blended(font[size], text, colors.white);
 		t = SDL_CreateTextureFromSurface(app.renderer, surface);
 		SDL_FreeSurface(surface);
 		

@@ -59,6 +59,12 @@ void doDevKeys(void)
 			printf("DEBUG: dev.allImmortal=%d\n", dev.allImmortal);
 		}
 		
+		if (app.keyboard[SDL_SCANCODE_6])
+		{
+			completeMission();
+			battle.missionFinishedTimer = -FPS;
+		}
+		
 		if (app.keyboard[SDL_SCANCODE_9])
 		{
 			dev.showFPS = !dev.showFPS;

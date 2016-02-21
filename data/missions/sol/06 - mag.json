@@ -1,0 +1,45 @@
+{
+	"name" : "Mag Cannon Training",
+	"description" : "Use your mag cannons to disable the enemy Dart. Disabling enemy craft and bringing the target in alive is sometimes an important step in securing lasting victory.",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/earth.png",
+	"music" : "music/Battle in the winter.mp3",
+	"objectives" : [
+		{
+			"description" : "Disable Dart",
+			"targetName" : "Dart",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Do not destroy Dart",
+			"targetName" : "Dart",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "2nd Lt. Jim Goddard",
+		"squadron" : "Midnight Runners"
+	},
+	"fighters" : [
+		{
+			"name" : "Dart",
+			"types" : "CannonDart",
+			"side" : "SIDE_PIRATE",
+			"x" : 25,
+			"y" : 24
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Earth Orbital #1;Switch to your Mag cannons and fire them at the Dart to disable it. Do not fire your plasma cannons or launch any missiles, as these could destroy the target."
+			]
+		}
+	]
+}

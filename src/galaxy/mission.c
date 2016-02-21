@@ -192,13 +192,13 @@ static void loadPlayer(cJSON *node)
 	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 	
 	player = spawnFighter(type, 0, 0, side);
-	player->x = (GRID_SIZE * GRID_CELL_WIDTH) / 2;
-	player->y = (GRID_SIZE * GRID_CELL_HEIGHT) / 2;
+	player->x = BATTLE_AREA_WIDTH / 2;
+	player->y = BATTLE_AREA_HEIGHT / 2;
 	
 	if (cJSON_GetObjectItem(node, "x"))
 	{
-		player->x = (cJSON_GetObjectItem(node, "x")->valueint * GRID_CELL_WIDTH);
-		player->y = (cJSON_GetObjectItem(node, "y")->valueint * GRID_CELL_HEIGHT);
+		player->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+		player->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 	}
 	
 	if (strcmp(type, "Tug") == 0)
@@ -237,8 +237,8 @@ static void loadFighters(cJSON *node)
 			
 			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
-			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
+			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			
 			if (cJSON_GetObjectItem(node, "name"))
 			{
@@ -364,8 +364,8 @@ static void loadCapitalShips(cJSON *node)
 			
 			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
-			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
+			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			
 			if (cJSON_GetObjectItem(node, "name"))
 			{
@@ -465,8 +465,8 @@ static void loadEntities(cJSON *node)
 		{
 			e = NULL;
 			type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
-			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
+			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			name = NULL;
 			groupName = NULL;
 			number = 1;
@@ -563,8 +563,8 @@ static void loadItems(cJSON *node)
 		while (node)
 		{
 			type = cJSON_GetObjectItem(node, "type")->valuestring;
-			x = cJSON_GetObjectItem(node, "x")->valuedouble * GRID_CELL_WIDTH;
-			y = cJSON_GetObjectItem(node, "y")->valuedouble * GRID_CELL_HEIGHT;
+			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			name = NULL;
 			groupName = NULL;
 			number = 1;
@@ -665,8 +665,9 @@ static void loadLocations(cJSON *node)
 			battle.locationTail = l;
 			
 			STRNCPY(l->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
-			l->x = cJSON_GetObjectItem(node, "x")->valueint * GRID_CELL_WIDTH;
-			l->y = cJSON_GetObjectItem(node, "y")->valueint * GRID_CELL_HEIGHT;
+			l->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+			l->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
+			
 			l->size = cJSON_GetObjectItem(node, "size")->valueint;
 			
 			if (cJSON_GetObjectItem(node, "active"))
@@ -674,8 +675,8 @@ static void loadLocations(cJSON *node)
 				active = cJSON_GetObjectItem(node, "active")->valueint;
 			}
 			
-			l->x += (GRID_CELL_WIDTH / 2);
-			l->y += (GRID_CELL_HEIGHT / 2);
+			l->x += (SCREEN_WIDTH / 2);
+			l->y += (SCREEN_HEIGHT / 2);
 			l->active = active;
 			
 			node = node->next;

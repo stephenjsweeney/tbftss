@@ -69,14 +69,9 @@ void doEntities(void)
 	
 	numAllies = numEnemies = numActiveAllies = numActiveEnemies = 0;
 	
-	destroyGrid();
-	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->active && e->alive != ALIVE_DEAD)
-		{
-			addToGrid(e);
-		}
+		removeFromQuadtree(e, &battle.quadtree);
 	}
 	
 	if (dev.playerImmortal)
@@ -169,6 +164,8 @@ void doEntities(void)
 				
 				e->x += e->dx;
 				e->y += e->dy;
+				
+				addToQuadtree(e, &battle.quadtree);
 			}
 			else
 			{
@@ -261,30 +258,30 @@ static void restrictToGrid(Entity *e)
 {
 	float force;
 	
-	if (e->x <= GRID_RESTRICTION_SIZE)
+	if (e->x <= BATTLE_AREA_EDGE)
 	{
-		force = GRID_RESTRICTION_SIZE - e->x;
+		force = BATTLE_AREA_EDGE - e->x;
 		e->dx += force * 0.001;
 		e->dx *= 0.95;
 	}
 	
-	if (e->y <= GRID_RESTRICTION_SIZE)
+	if (e->y <= BATTLE_AREA_EDGE)
 	{
-		force = GRID_RESTRICTION_SIZE - e->y;
+		force = BATTLE_AREA_EDGE - e->y;
 		e->dy += force * 0.001;
 		e->dy *= 0.95;
 	}
 	
-	if (e->x >= (GRID_SIZE * GRID_CELL_WIDTH) - GRID_RESTRICTION_SIZE)
+	if (e->x >= BATTLE_AREA_WIDTH - BATTLE_AREA_EDGE)
 	{
-		force = e->x - ((GRID_SIZE * GRID_CELL_WIDTH) - GRID_RESTRICTION_SIZE);
+		force = e->x - (BATTLE_AREA_WIDTH - BATTLE_AREA_EDGE);
 		e->dx -= force * 0.001;
 		e->dx *= 0.95;
 	}
 	
-	if (e->y >= (GRID_SIZE * GRID_CELL_HEIGHT) - GRID_RESTRICTION_SIZE)
+	if (e->y >= BATTLE_AREA_HEIGHT - BATTLE_AREA_EDGE)
 	{
-		force = e->y - ((GRID_SIZE * GRID_CELL_HEIGHT) - GRID_RESTRICTION_SIZE);
+		force = e->y - (BATTLE_AREA_HEIGHT - BATTLE_AREA_EDGE);
 		e->dy -= force * 0.001;
 		e->dy *= 0.95;
 	}
@@ -353,7 +350,7 @@ void drawEntities(void)
 {
 	Entity *e, **candidates;
 	int i;
-
+	
 	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
 	
 	/* count number of candidates for use with qsort */

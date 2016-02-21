@@ -638,7 +638,7 @@ static int nearItems(void)
 	
 	closest = MAX_TARGET_RANGE;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - (GRID_CELL_WIDTH / 2), self->y - (self->h / 2) - (GRID_CELL_HEIGHT / 2), GRID_CELL_WIDTH, GRID_CELL_HEIGHT, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - (SCREEN_WIDTH / 4), self->y - (self->h / 2) - (SCREEN_HEIGHT / 4), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, self);
 	
 	self->target = NULL;
 	
@@ -684,7 +684,7 @@ static int nearTowableCraft(void)
 	long closest, distance;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - (GRID_CELL_WIDTH / 2), self->y - (self->h / 2) - (GRID_CELL_HEIGHT / 2), GRID_CELL_WIDTH, GRID_CELL_HEIGHT, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - (SCREEN_WIDTH / 4), self->y - (self->h / 2) - (SCREEN_HEIGHT / 4), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, self);
 	
 	closest = MAX_TARGET_RANGE;
 	
@@ -787,11 +787,8 @@ static void moveToLeader(void)
 
 static void doWander(void)
 {
-	self->targetLocation.x = 5 + (rand() % (GRID_SIZE - 10));
-	self->targetLocation.x *= GRID_CELL_WIDTH;
-	
-	self->targetLocation.y = 5 + (rand() % (GRID_SIZE - 10));
-	self->targetLocation.y *= GRID_CELL_HEIGHT;
+	self->targetLocation.x = 500 + (rand() % (BATTLE_AREA_WIDTH - 1000));
+	self->targetLocation.y = 500 + (rand() % (BATTLE_AREA_HEIGHT - 1000));
 	
 	self->aiActionTime = FPS * 15;
 	

@@ -27,14 +27,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void doFighter(void);
 extern void doCapitalShip(void);
-extern void addToGrid(Entity *e);
-extern void removeFromGrid(Entity *e);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern void doRope(Entity *e);
 extern void drawRope(Entity *e);
 extern void cutRope(Entity *e);
 extern void drawShieldHitEffect(Entity *e);
-extern void destroyGrid(void);
+extern void removeFromQuadtree(Entity *e, Quadtree *root);
+extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void updateCapitalShipComponentProperties(Entity *parent);
 
 extern App app;

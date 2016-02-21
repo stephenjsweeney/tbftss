@@ -164,11 +164,8 @@ static void findAITarget(void)
 	}
 	else
 	{
-		self->targetLocation.x = 5 + (rand() % (GRID_SIZE - 10));
-		self->targetLocation.x *= GRID_CELL_WIDTH;
-		
-		self->targetLocation.y = 5 + (rand() % (GRID_SIZE - 10));
-		self->targetLocation.y *= GRID_CELL_HEIGHT;
+		self->targetLocation.x = 500 + (rand() % (BATTLE_AREA_WIDTH - 1000));
+		self->targetLocation.y = 500 + (rand() % (BATTLE_AREA_HEIGHT - 1000));
 		
 		self->aiActionTime = FPS * (30 + (rand() % 120));
 	}

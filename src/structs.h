@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 typedef struct Texture Texture;
 typedef struct Lookup Lookup;
 typedef struct Weapon Weapon;
+typedef struct Quadtree Quadtree;
 typedef struct Entity Entity;
 typedef struct Bullet Bullet;
 typedef struct Debris Debris;
@@ -263,9 +264,12 @@ struct StarSystem {
 	StarSystem *next;
 };
 
-struct GridCell {
-	Entity *entity;
-	GridCell *next;
+struct Quadtree {
+	int depth;
+	int x, y, w, h;
+	Entity *ents[QT_MAX_ENTS];
+	int numEnts;
+	Quadtree *node[4];
 };
 
 typedef struct {
@@ -298,7 +302,7 @@ typedef struct {
 	Location locationHead, *locationTail;
 	struct cJSON *missionJSON;
 	unsigned int stats[STAT_MAX];
-	GridCell grid[GRID_SIZE][GRID_SIZE];
+	Quadtree quadtree;
 } Battle;
 
 struct ScriptRunner {

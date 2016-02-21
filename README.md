@@ -14,11 +14,11 @@ GRAPHICS
 
 gfx/planets/earth.png - modified from the the Blue Marble NASA photograph: http://visibleearth.nasa.gov/view.php?id=57723
 
-All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015,2016, Stephen J Sweeney | www.battleforthesolarsystem.com
+All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 
 DATA FILES (with the exception of Roboto font)
 
-CC BY-NC-SA 3.0, with the following attribution: Copyright 2015,2016, Stephen J Sweeney | www.battleforthesolarsystem.com
+CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 
 SOUND
 

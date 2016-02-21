@@ -69,11 +69,6 @@ void doEntities(void)
 	
 	numAllies = numEnemies = numActiveAllies = numActiveEnemies = 0;
 	
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
-	{
-		removeFromQuadtree(e, &battle.quadtree);
-	}
-	
 	if (dev.playerImmortal)
 	{
 		player->health = player->maxHealth;
@@ -82,6 +77,8 @@ void doEntities(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
+		removeFromQuadtree(e, &battle.quadtree);
+		
 		if (dev.allImmortal)
 		{
 			e->health = e->maxHealth;

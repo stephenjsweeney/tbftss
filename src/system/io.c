@@ -95,14 +95,9 @@ char *getFileLocation(char *filename)
 char **getFileList(char *dir, int *count)
 {
 	DIR *d;
-	struct dirent *ent;
 	int i;
+	struct dirent *ent;
 	char **filenames;
-	
-	filenames = malloc(sizeof(char*) * MAX_LISTED_FILES);
-	memset(filenames, 0, sizeof(char*) * MAX_LISTED_FILES);
-	
-	i = 0;
 	
 	if ((d = opendir(dir)) != NULL)
 	{
@@ -110,13 +105,28 @@ char **getFileList(char *dir, int *count)
 		{
 			if (ent->d_name[0] != '.')
 			{
-				filenames[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
-				
-				STRNCPY(filenames[i], ent->d_name, MAX_FILENAME_LENGTH);
-				
-				if (++i >= MAX_LISTED_FILES)
+				i++;
+			}
+		}
+		
+		if (i > 0)
+		{
+			filenames = malloc(sizeof(char*) * i);
+			memset(filenames, 0, sizeof(char*) * i);
+			
+			rewinddir(d);
+			
+			i = 0;
+			
+			while ((ent = readdir(d)) != NULL)
+			{
+				if (ent->d_name[0] != '.')
 				{
-					break;
+					filenames[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
+					
+					STRNCPY(filenames[i], ent->d_name, MAX_FILENAME_LENGTH);
+					
+					i++;
 				}
 			}
 		}

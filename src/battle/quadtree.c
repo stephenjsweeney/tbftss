@@ -20,8 +20,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "quadtree.h"
 
-static Entity *candidates[QT_MAX_CANDIDATES];
+static Entity **candidates;
 static int cIndex;
+static int cCapacity;
+
 static int memory;
 
 static int getIndex(Quadtree *root, int x, int y, int w, int h);
@@ -31,6 +33,7 @@ static int candidatesComparator(const void *a, const void *b);
 static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Quadtree *root);
 static void destroyQuadtreeNode(Quadtree *root);
 static void resizeQTEntCapacity(Quadtree *root);
+static void resizeCandidates(void);
 
 void initQuadtree(Quadtree *root)
 {
@@ -100,10 +103,10 @@ void initQuadtree(Quadtree *root)
 		}
 	}
 	
-	if (root->depth == 0)
-	{
-		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Quadtree memory footprint: %d bytes", memory);
-	}
+	cIndex = 0;
+	cCapacity = QT_INITIAL_CAPACITY;
+	candidates = malloc(sizeof(Entity*) * cCapacity);
+	memset(candidates, 0, sizeof(Entity*) * cCapacity);
 }
 
 void addToQuadtree(Entity *e, Quadtree *root)
@@ -232,12 +235,9 @@ static void removeEntity(Entity *e, Quadtree *root)
 Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore)
 {
 	cIndex = 0;
-	memset(candidates, 0, sizeof(Entity*) * QT_MAX_CANDIDATES);
+	memset(candidates, 0, sizeof(Entity*) * cCapacity);
 	
 	getAllEntsWithinNode(x, y, w, h, ignore, &battle.quadtree);
-	
-	/* NULL terminate, to allow us to loop through them more easily */
-	candidates[QT_MAX_CANDIDATES - 1] = NULL;
 	
 	return candidates;
 }
@@ -250,6 +250,11 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Qua
 	for (i = 0 ; i < root->numEnts ; i++)
 	{
 		addCandidate(root->ents[i]);
+		
+		if (cIndex == cCapacity)
+		{
+			resizeCandidates();
+		}
 	}
 	
 	index = getIndex(root, x, y, w, h);
@@ -274,6 +279,29 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Qua
 	}
 }
 
+static void resizeCandidates(void)
+{
+	int i, n;
+	Entity **ents;
+	
+	n = cCapacity + QT_INITIAL_CAPACITY;
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing candidates: %d -> %d\n", cCapacity, n);
+	
+	ents = malloc(sizeof(Entity*) * n);
+	memset(ents, 0, sizeof(Entity*) * n);
+	
+	for (i = 0 ; i < cCapacity ; i++)
+	{
+		ents[i] = candidates[i];
+	}
+	
+	free(candidates);
+	
+	candidates = ents;
+	cCapacity = n;
+}
+
 static void addCandidate(Entity *e)
 {
 	int i;
@@ -292,14 +320,15 @@ static void addCandidate(Entity *e)
 			return;
 		}
 	}
-	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Out of quadtree candidate space");
-	exit(1);
 }
 
 void destroyQuadtree(void)
 {
 	destroyQuadtreeNode(&battle.quadtree);
+	
+	free(candidates);
+	
+	candidates = NULL;
 }
 
 static void destroyQuadtreeNode(Quadtree *root)

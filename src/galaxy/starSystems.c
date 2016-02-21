@@ -192,14 +192,16 @@ void updateStarSystemMissions(void)
 	StarSystem *starSystem;
 	Mission *mission, *prev;
 	
-	game.completedMissions = game.totalMissions = 0;
+	game.completedMissions = game.totalMissions = game.availableMissions = 0;
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		starSystem->completedMissions = starSystem->totalMissions = 0;
+		starSystem->completedMissions = starSystem->availableMissions = starSystem->totalMissions = 0;
 		
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
+			starSystem->totalMissions++;
+			
 			if (mission->completed)
 			{
 				starSystem->completedMissions++;
@@ -208,6 +210,7 @@ void updateStarSystemMissions(void)
 		
 		if (strcmp(starSystem->name, "Sol") != 0)
 		{
+			game.totalMissions += starSystem->totalMissions;
 			game.completedMissions += starSystem->completedMissions;
 		}
 	}
@@ -222,7 +225,7 @@ void updateStarSystemMissions(void)
 			
 			if (mission->available)
 			{
-				starSystem->totalMissions++;
+				starSystem->availableMissions++;
 			}
 			
 			prev = mission;
@@ -230,10 +233,10 @@ void updateStarSystemMissions(void)
 		
 		if (strcmp(starSystem->name, "Sol") != 0)
 		{
-			game.totalMissions += starSystem->totalMissions;
+			game.availableMissions += starSystem->availableMissions;
 		}
 		
-		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->totalMissions);
+		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->availableMissions);
 	}
 }
 

@@ -1,7 +1,7 @@
 {
 	"name" : "Pirate Uprising #4",
 	"description" : "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down.",
-	"requires" : 3,
+	"requires" : 5,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/battleThemeA.mp3",

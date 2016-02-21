@@ -1,7 +1,7 @@
 {
 	"name" : "Iliad Defence #5",
 	"description" : "The defence of Iliad is slipping, our forces are being decimated. We have to hit the enemy back, hard. All available fighters are to move into range and engage. If we lose here, Iliad is finished. We are the last line of defence, and we cannot afford to fail.",
-	"requires" : 25,
+	"requires" : 26,
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/DST-RailJet-LongSeamlessLoop.ogg",

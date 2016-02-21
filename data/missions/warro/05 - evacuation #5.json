@@ -1,7 +1,7 @@
 {
 	"name" : "Evacuation #5",
 	"description" : "The Pandoran fleet is closing in on Oracle IX, and their capital ships are moving rapidly up the field. We need to hold them back for as long as possible, to give the final evacuees time to escape the system. This will need to be done with fighters along. However, Lieutenant Commanders Taylor and Todd of the White Knights will be lending assistance with the ATAFs, which should give us the edge in battle.",
-	"requires" : 13,
+	"requires" : 22,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
 	"music" : "music/track-4.mp3",

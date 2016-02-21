@@ -65,6 +65,8 @@ static Widget *startMissionButton;
 
 void initGalacticMap(void)
 {
+	show = SHOW_GALAXY;
+	
 	startSectionTransition();
 	
 	stopMusic();
@@ -82,6 +84,8 @@ void initGalacticMap(void)
 	selectedStarSystem = getStarSystem(game.selectedStarSystem);
 	
 	centerOnSelectedStarSystem();
+	
+	updateStarSystemMissions();
 	
 	updatePandoranAdvance();
 	
@@ -107,8 +111,6 @@ void initGalacticMap(void)
 	getWidget("ok", "stats")->action = statsOK;
 	
 	getWidget("ok", "fallen")->action = fallenOK;
-	
-	updateStarSystemMissions();
 	
 	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 	
@@ -183,7 +185,7 @@ static void doStarSystems(void)
 		
 		for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 		{
-			if (starSystem->totalMissions > 0 && collision(cx, cy, 64, 64, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
+			if (starSystem->availableMissions > 0 && collision(cx, cy, 64, 64, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
 			{
 				if (selectedStarSystem != starSystem)
 				{
@@ -257,7 +259,7 @@ static void addPulses(void)
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		if (starSystem->completedMissions < starSystem->totalMissions)
+		if (starSystem->completedMissions < starSystem->availableMissions)
 		{
 			pulse = malloc(sizeof(Pulse));
 			memset(pulse, 0, sizeof(Pulse));
@@ -400,7 +402,7 @@ static void drawGalaxy(void)
 		
 		drawText(r.x, r.y + 12, 14, TA_CENTER, color, starSystem->name);
 		
-		if (starSystem->completedMissions < starSystem->totalMissions)
+		if (starSystem->completedMissions < starSystem->availableMissions)
 		{
 			ax = r.x;
 			ay = r.y;
@@ -475,12 +477,12 @@ static void drawInfoBars(void)
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, "Missions: %d / %d", game.completedMissions, game.totalMissions);
+	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, "Missions: %d / %d", game.completedMissions, game.availableMissions);
 }
 
 static void selectStarSystem(void)
 {
-	if (selectedStarSystem->totalMissions > 0)
+	if (selectedStarSystem->availableMissions > 0)
 	{
 		show = SHOW_STAR_SYSTEM;
 		STRNCPY(game.selectedStarSystem, selectedStarSystem->name, MAX_NAME_LENGTH);

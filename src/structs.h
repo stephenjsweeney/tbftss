@@ -258,6 +258,7 @@ struct StarSystem {
 	int y;
 	int completedMissions;
 	int totalMissions;
+	int availableMissions;
 	int fallsToPandorans;
 	int isSol;
 	Mission missionHead, *missionTail;
@@ -319,6 +320,7 @@ typedef struct {
 	Mission *currentMission;
 	char selectedStarSystem[MAX_NAME_LENGTH];
 	int completedMissions;
+	int availableMissions;
 	int totalMissions;
 	unsigned int stats[STAT_MAX];
 } Game;

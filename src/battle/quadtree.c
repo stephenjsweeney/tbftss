@@ -28,7 +28,6 @@ static int memory;
 
 static int getIndex(Quadtree *root, int x, int y, int w, int h);
 static void removeEntity(Entity *e, Quadtree *root);
-static void addCandidate(Entity *e);
 static int candidatesComparator(const void *a, const void *b);
 static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Quadtree *root);
 static void destroyQuadtreeNode(Quadtree *root);
@@ -249,7 +248,7 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Qua
 	
 	for (i = 0 ; i < root->numEnts ; i++)
 	{
-		addCandidate(root->ents[i]);
+		candidates[cIndex++] = root->ents[i];
 		
 		if (cIndex == cCapacity)
 		{
@@ -300,26 +299,6 @@ static void resizeCandidates(void)
 	
 	candidates = ents;
 	cCapacity = n;
-}
-
-static void addCandidate(Entity *e)
-{
-	int i;
-	
-	for (i = 0 ; i <= cIndex ; i++)
-	{
-		/* already added */
-		if (candidates[i] == e)
-		{
-			return;
-		}
-		
-		if (!candidates[i])
-		{
-			candidates[cIndex++] = e;
-			return;
-		}
-	}
 }
 
 void destroyQuadtree(void)

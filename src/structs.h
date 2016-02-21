@@ -267,7 +267,8 @@ struct StarSystem {
 struct Quadtree {
 	int depth;
 	int x, y, w, h;
-	Entity *ents[QT_MAX_ENTS];
+	Entity **ents;
+	int capacity;
 	int numEnts;
 	Quadtree *node[4];
 };

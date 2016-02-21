@@ -20,4 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+#define QT_MAX_DEPTH			6
+#define QT_MAX_CANDIDATES		256
+#define QT_INITIAL_CAPACITY		8
+
 extern Battle battle;

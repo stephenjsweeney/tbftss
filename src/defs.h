@@ -60,10 +60,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_FIGHTER_GUNS		12
 #define MAX_TARGET_RANGE		65536
 
-#define QT_MAX_DEPTH			5
-#define QT_MAX_ENTS				96
-#define QT_MAX_CANDIDATES		256
-
 #define BATTLE_AREA_CELLS		50
 #define BATTLE_AREA_WIDTH		(640 * BATTLE_AREA_CELLS)
 #define BATTLE_AREA_HEIGHT		(360 * BATTLE_AREA_CELLS)

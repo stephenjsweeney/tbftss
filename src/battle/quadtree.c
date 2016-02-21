@@ -30,14 +30,22 @@ static void addCandidate(Entity *e);
 static int candidatesComparator(const void *a, const void *b);
 static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Quadtree *root);
 static void destroyQuadtreeNode(Quadtree *root);
+static void resizeQTEntCapacity(Quadtree *root);
 
 void initQuadtree(Quadtree *root)
 {
 	Quadtree *node;
 	int i, w, h;
 	
+	/* entire battlefield */
 	if (root->depth == 0)
 	{
+		root->w = BATTLE_AREA_WIDTH;
+		root->h = BATTLE_AREA_HEIGHT;
+		root->capacity = QT_INITIAL_CAPACITY;
+		root->ents = malloc(sizeof(Entity*) * root->capacity);
+		memset(root->ents, 0, sizeof(Entity*) * root->capacity);
+		
 		memory = 0;
 	}
 	
@@ -55,6 +63,9 @@ void initQuadtree(Quadtree *root)
 			root->node[i] = node;
 			
 			node->depth = root->depth + 1;
+			node->capacity = QT_INITIAL_CAPACITY;
+			node->ents = malloc(sizeof(Entity*) * node->capacity);
+			memset(node->ents, 0, sizeof(Entity*) * node->capacity);
 			
 			if (i == 0)
 			{
@@ -110,13 +121,35 @@ void addToQuadtree(Entity *e, Quadtree *root)
 		}
 	}
 	
-	if (root->numEnts < QT_MAX_ENTS)
+	if (root->numEnts == root->capacity)
 	{
-		root->ents[root->numEnts++] = e;
-		return;
+		resizeQTEntCapacity(root);
 	}
 	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Couldn't add %s to quadtree - out of node ent space", e->name);
+	root->ents[root->numEnts++] = e;
+}
+
+static void resizeQTEntCapacity(Quadtree *root)
+{
+	int i, n;
+	Entity **ents;
+	
+	n = root->capacity + QT_INITIAL_CAPACITY;
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing QT node: %d -> %d\n", root->capacity, n);
+	
+	ents = malloc(sizeof(Entity*) * n);
+	memset(ents, 0, sizeof(Entity*) * n);
+	
+	for (i = 0 ; i < root->capacity ; i++)
+	{
+		ents[i] = root->ents[i];
+	}
+	
+	free(root->ents);
+	
+	root->ents = ents;
+	root->capacity = n;
 }
 
 static int getIndex(Quadtree *root, int x, int y, int w, int h)
@@ -184,7 +217,7 @@ static void removeEntity(Entity *e, Quadtree *root)
 	
 	n = root->numEnts;
 	
-	for (i = 0 ; i < QT_MAX_ENTS ; i++)
+	for (i = 0 ; i < root->capacity ; i++)
 	{
 		if (root->ents[i] == e)
 		{
@@ -278,6 +311,8 @@ static void destroyQuadtreeNode(Quadtree *root)
 		for (i = 0 ; i < 4 ; i++)
 		{
 			destroyQuadtreeNode(root->node[i]);
+			
+			free(root->node[i]->ents);
 			
 			free(root->node[i]);
 			

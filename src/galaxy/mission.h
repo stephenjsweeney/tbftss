@@ -49,6 +49,5 @@ extern void updateCapitalShipComponentProperties(Entity *parent);
 extern void countNumEnemies(void);
 
 extern Battle battle;
-extern Dev dev;
 extern Entity *player;
 extern Game game;

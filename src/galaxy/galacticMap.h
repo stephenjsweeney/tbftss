@@ -60,7 +60,6 @@ extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void initStatsDisplay(void);
 extern void updateStarSystemMissions(void);
 extern StarSystem *getStarSystem(char *name);
-extern int getDistance(int x1, int y1, int x2, int y2);
 extern void setMouse(int x, int y);
 
 extern App app;

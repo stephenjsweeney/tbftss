@@ -31,7 +31,7 @@ static void doEntity(void);
 static void alignComponents(void);
 static void drawEntity(Entity *e);
 static void activateEpicFighters(int n, int side);
-static void restrictToGrid(Entity *e);
+static void restrictToBattleArea(Entity *e);
 static void drawTargetRects(Entity *e);
 static int drawComparator(const void *a, const void *b);
 static void notifyNewArrivals(void);
@@ -155,7 +155,7 @@ void doEntities(void)
 				
 				doRope(e);
 				
-				restrictToGrid(e);
+				restrictToBattleArea(e);
 				
 				if (!e->speed)
 				{
@@ -254,7 +254,7 @@ void doEntities(void)
 	}
 }
 
-static void restrictToGrid(Entity *e)
+static void restrictToBattleArea(Entity *e)
 {
 	float force;
 	

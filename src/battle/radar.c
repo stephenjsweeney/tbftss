@@ -101,21 +101,21 @@ void drawRadarRangeWarning(void)
 		leaving = 1;
 	}
 	
-	if (y <= 2 && player->dy < 0)
+	if (y <= 3 && player->dy < 0)
 	{
 		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 0);
 		
 		leaving = 1;
 	}
 	
-	if (x >= (SCREEN_WIDTH / 2) - 2 && player->dx > 0)
+	if (x >= BATTLE_AREA_CELLS - 2 && player->dx > 0)
 	{
 		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 90);
 		
 		leaving = 1;
 	}
 	
-	if (y >= (SCREEN_HEIGHT / 2) - 2 && player->dy > 0)
+	if (y >= BATTLE_AREA_CELLS - 3 && player->dy > 0)
 	{
 		blitRotated(radarWarningTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 180);
 		

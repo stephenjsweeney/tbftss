@@ -167,7 +167,7 @@ static int getIndex(Quadtree *root, int x, int y, int w, int h)
 	{
 		if (topQuadrant)
 		{
-			index = 1;
+			index = 0;
 		}
 		else if (bottomQuadrant)
 		{
@@ -178,7 +178,7 @@ static int getIndex(Quadtree *root, int x, int y, int w, int h)
 	{
 		if (topQuadrant)
 		{
-			index = 0;
+			index = 1;
 		}
 		else if (bottomQuadrant)
 		{

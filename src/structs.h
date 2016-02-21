@@ -295,6 +295,7 @@ typedef struct {
 	Entity *extractionPoint;
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
+	int planetWidth, planetHeight;
 	Entity entityHead, *entityTail;
 	Bullet bulletHead, *bulletTail;
 	Debris debrisHead, *debrisTail;

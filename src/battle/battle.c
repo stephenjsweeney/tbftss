@@ -197,7 +197,7 @@ static void draw(void)
 	
 	drawBackground(battle.background);
 	
-	blit(battle.planetTexture, battle.planet.x, battle.planet.y, 1);
+	blitScaled(battle.planetTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight);
 	
 	drawStars();
 	

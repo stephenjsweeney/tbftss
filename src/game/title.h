@@ -22,8 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define NUM_FIGHTERS 12
 
-extern void prepareScene(void);
-extern void presentScene(void);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern SDL_Texture *getTexture(const char *filename);
 extern void startSectionTransition(void);

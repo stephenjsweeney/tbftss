@@ -27,8 +27,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_OBJECTIVES		2
 #define SHOW_OPTIONS		3
 
-extern void prepareScene(void);
-extern void presentScene(void);
 extern void doBullets(void);
 extern void drawBullets(void);
 extern void doStars(float dx, float dy);

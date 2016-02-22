@@ -312,8 +312,6 @@ static void doPulses(void)
 
 static void draw(void)
 {
-	prepareScene();
-	
 	drawBackground(background);
 	
 	drawStars();
@@ -346,8 +344,6 @@ static void draw(void)
 			drawFallenView();
 			break;
 	}
-	
-	presentScene();
 }
 
 static void drawPulses(void)

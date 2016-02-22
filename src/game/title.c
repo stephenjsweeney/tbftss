@@ -157,8 +157,6 @@ static void doFighters(void)
 
 static void draw(void)
 {
-	prepareScene();
-	
 	drawBackground(background);
 	
 	drawStars();
@@ -184,8 +182,6 @@ static void draw(void)
 	{
 		drawOptions();
 	}
-	
-	presentScene();
 }
 
 static void drawFighters(void)

@@ -27,8 +27,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_STATS				4
 #define SHOW_FALLEN_MESSAGE		5
 
-extern void prepareScene(void);
-extern void presentScene(void);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void initBattle(void);
 extern void loadMission(char *filename);

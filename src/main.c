@@ -103,8 +103,12 @@ int main(int argc, char *argv[])
 			
 			game.stats[STAT_TIME]++;
 		}
+		
+		prepareScene();
 
 		app.delegate.draw();
+		
+		presentScene();
 		
 		doDevKeys();
 		

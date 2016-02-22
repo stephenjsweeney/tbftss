@@ -187,8 +187,6 @@ static void doBattle(void)
 
 static void draw(void)
 {
-	prepareScene();
-	
 	if (player != NULL)
 	{
 		battle.camera.x = player->x - (SCREEN_WIDTH / 2);
@@ -233,8 +231,6 @@ static void draw(void)
 			drawOptions();
 			break;
 	}
-	
-	presentScene();
 }
 
 static void drawMenu(void)

@@ -37,6 +37,8 @@ extern void doMouseWheel(SDL_MouseWheelEvent *event);
 extern void doMouseMotion(SDL_MouseMotionEvent *event);
 extern void doDevKeys(void);
 extern void expireTexts(int all);
+extern void prepareScene(void);
+extern void presentScene(void);
 
 App app;
 Colors colors;

@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void loadConfig(void);
 void saveConfig(void);
 static void initColor(SDL_Color *c, int r, int g, int b);
+static void showLoadingStep(float step, float maxSteps);
 
 void initSDL(void)
 {
@@ -94,6 +95,8 @@ void initSDL(void)
 
 void initGameSystem(void)
 {
+	int STEPS = 12;
+	
 	initColor(&colors.red, 255, 0, 0);
 	initColor(&colors.orange, 255, 128, 0);
 	initColor(&colors.yellow, 255, 255, 0);
@@ -106,30 +109,88 @@ void initGameSystem(void)
 	initColor(&colors.lightGrey, 192, 192, 192);
 	initColor(&colors.darkGrey, 128, 128, 128);
 	
-	initInput();
-	
-	initLookups();
+	showLoadingStep(0, STEPS);
 	
 	initFonts();
 	
+	showLoadingStep(1, STEPS);
+	
+	initInput();
+	
+	showLoadingStep(2, STEPS);
+	
+	initLookups();
+	
+	showLoadingStep(3, STEPS);
+	
 	initSounds();
+	
+	showLoadingStep(4, STEPS);
 	
 	initWidgets();
 	
+	showLoadingStep(5, STEPS);
+	
 	initGame();
+	
+	showLoadingStep(6, STEPS);
 	
 	loadFighterDefs();
 	
+	showLoadingStep(7, STEPS);
+	
 	loadCapitalShipDefs();
+	
+	showLoadingStep(8, STEPS);
 	
 	loadItemDefs();
 	
+	showLoadingStep(9, STEPS);
+	
 	initBulletDefs();
+	
+	showLoadingStep(10, STEPS);
 	
 	initStarSystems();
 	
+	showLoadingStep(11, STEPS);
+	
 	initBattle();
+	
+	showLoadingStep(12, STEPS);
 }
+
+/*
+ * Just in case the initial loading takes a while on the target machine. The rest of the loading a pretty quick by comparison.
+ */
+static void showLoadingStep(float step, float maxSteps)
+{
+	SDL_Rect r;
+	
+	prepareScene();
+	
+	r.w = SCREEN_WIDTH - 400;
+	r.h = 14;
+	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
+	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	
+	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
+	SDL_RenderDrawRect(app.renderer, &r);
+	
+	r.w *= (step / maxSteps);
+	r.x += 2;
+	r.y += 2;
+	r.w -= 4;
+	r.h -= 4;
+	
+	SDL_SetRenderDrawColor(app.renderer, 128, 196, 255, 255);
+	SDL_RenderFillRect(app.renderer, &r);
+	
+	presentScene();
+	
+	SDL_Delay(1);
+}
+
 
 static void initColor(SDL_Color *c, int r, int g, int b)
 {

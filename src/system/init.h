@@ -26,6 +26,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "SDL2/SDL_mixer.h"
 #include "SDL2/SDL_ttf.h"
 
+extern void prepareScene(void);
+extern void presentScene(void);
 extern int fileExists(char *filename);
 extern char *readFile(char *filename);
 extern int writeFile(char *filename, char *data);

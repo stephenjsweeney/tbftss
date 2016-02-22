@@ -21,6 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TURN_SPEED 		0.1
 #define TURN_THRESHOLD 	2
 
+#define AVOID_FORCE		500
+
 #include "../common.h"
 
 #include "../json/cJSON.h"

@@ -712,8 +712,7 @@ static void loadFighterDef(char *filename)
 		e->deathType = lookup(cJSON_GetObjectItem(root, "deathType")->valuestring);
 	}
 	
-	e->separationRadius = MAX(e->w, e->h);
-	e->separationRadius *= 3;
+	e->separationRadius = MAX(e->w, e->h) * 3;
 	
 	/* all craft default to 100 system power */
 	e->systemPower = 100;

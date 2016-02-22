@@ -1,5 +1,18 @@
 Changelog
 
+0.5
+
+	* Added capital ships
+	* Added a number of new missions
+	* Added Mag cannon training mission, at Sol
+	* Star systems can be fall to the Pandorans (campaign related, unavoidable)
+	* New craft: the Lynx, a UNF bomber, and supply craft (non-aggressive, avoid combat)
+	* Added new music and sound effects
+	* Added debris effect when fighters are destroyed
+	* Added keyboard alternatives to some mouse controls
+	* Added icons to HUD system, to help identify abilities and meters
+	* Misc. AI, mission, and bug fixes
+
 0.4
 	
 	* Added mouse + keyboard controls (replaces keyboard-only method)

@@ -191,26 +191,20 @@ static int getIndex(Quadtree *root, int x, int y, int w, int h)
 
 void removeFromQuadtree(Entity *e, Quadtree *root)
 {
-	int index, i;
+	int index;
 	
-	index = getIndex(root, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h);
-
-	removeEntity(e, root);
-
 	if (root->node[0])
 	{
+		index = getIndex(root, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h);
+		
 		if (index != -1)
 		{
 			removeFromQuadtree(e, root->node[index]);
-		}
-		else
-		{
-			for (i = 0; i < 4; i++)
-			{
-				removeFromQuadtree(e, root->node[i]);
-			}
+			return;
 		}
 	}
+	
+	removeEntity(e, root);
 }
 
 static void removeEntity(Entity *e, Quadtree *root)

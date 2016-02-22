@@ -68,7 +68,7 @@ void initSDL(void)
 	Mix_Volume(-1, app.soundVolume * MIX_MAX_VOLUME / 10);
 	Mix_VolumeMusic(app.musicVolume * MIX_MAX_VOLUME / 10);
 
-	app.window = SDL_CreateWindow("TBFTSS", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, app.winWidth, app.winHeight, windowFlags);
+	app.window = SDL_CreateWindow("TBFTSS - The Pandoran War", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, app.winWidth, app.winHeight, windowFlags);
 
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
 

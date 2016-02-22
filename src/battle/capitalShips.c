@@ -32,7 +32,6 @@ static void loadCapitalShipDef(char *filename);
 static void loadComponents(Entity *parent, cJSON *components);
 static void loadGuns(Entity *parent, cJSON *guns);
 static void loadEngines(Entity *parent, cJSON *engines);
-static Entity *findClosestCapitalShip(PointF ahead, PointF ahead2);
 
 static Entity defHead, *defTail;
 
@@ -171,68 +170,60 @@ static void findAITarget(void)
 static int steer(void)
 {
 	int wantedAngle;
-	Entity *other;
-	PointF ahead, ahead2, avoid;
-	float length;
+	int angle;
+	int distance;
+	float dx, dy, force;
+	int count;
+	Entity *e, **candidates;
+	int i;
 	
-	ahead.x = self->x + (self->dx * self->h);
-	ahead.y = self->y + (self->dy * self->w);
-	
-	ahead2.x = self->x + (self->dx * self->h * 0.5);
-	ahead2.y = self->y + (self->dy * self->w * 0.5);
-	
-	other = findClosestCapitalShip(ahead, ahead2);
-	
-	if (other != NULL)
-	{
-		avoid.x = ahead.x - other->x;
-		avoid.y = ahead.y - other->y;
-		
-		length = sqrt(avoid.x * avoid.x + avoid.y * avoid.y);
-		avoid.x /= length;
-		avoid.y /= length;
-		
-		avoid.x *= AVOID_FORCE;
-		avoid.y *= AVOID_FORCE;
-		
-		avoid.x += self->x;
-		avoid.y += self->y;
-		
-		wantedAngle = getAngle(self->x, self->y, avoid.x, avoid.y);
-	}
-	else
-	{
-		wantedAngle = getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
-	}
-	
-	wantedAngle %= 360;
-	
-	return wantedAngle;
-}
-
-static Entity *findClosestCapitalShip(PointF ahead, PointF ahead2)
-{
-	int i, collision;
-	Entity *e, **candidates, *closest;
-	
-	closest = NULL;
+	dx = dy = 0;
+	count = 0;
+	force = 0;
 	
 	candidates = getAllEntsWithin(self->x - 1000, self->y - 1000, 2000, 2000, self);
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->active && e->type == ET_CAPITAL_SHIP)
+		if (e->type == ET_CAPITAL_SHIP)
 		{
-			collision = getDistance(ahead.x, ahead.y, e->x, e->y) < e->separationRadius || getDistance(ahead2.x, ahead2.y, e->x, e->y) < e->separationRadius;
+			distance = getDistance(e->x, e->y, self->x, self->y);
 			
-			if (collision && (!closest || getDistance(self->x, self->y, closest->x, closest->y) < getDistance(self->x, self->y, e->x, e->y)))
+			if (distance > 0 && distance < self->separationRadius)
 			{
-				closest = e;
+				angle = getAngle(self->x, self->y, e->x, e->y);
+				
+				dx += sin(TO_RAIDANS(angle));
+				dy += -cos(TO_RAIDANS(angle));
+				force += (self->separationRadius - distance);
+				
+				count++;
 			}
 		}
 	}
 	
-	return closest;
+	if (count > 0)
+	{
+		dx /= count;
+		dy /= count;
+		
+		dx *= force;
+		dy *= force;
+		
+		self->dx -= (dx * 0.001);
+		self->dy -= (dy * 0.001);
+		
+		self->targetLocation.x -= dx;
+		self->targetLocation.y -= dy;
+		
+		self->aiActionTime = FPS * 10;
+	}
+	
+	wantedAngle = getAngle(self->x, self->y, self->targetLocation.x, self->targetLocation.y);
+	
+	wantedAngle %= 360;
+	
+	return wantedAngle;
 }
 
 static void gunThink(void)
@@ -369,7 +360,7 @@ static void loadCapitalShipDef(char *filename)
 	
 	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 	
-	e->separationRadius = MAX(e->w, e->h) * 0.75;
+	e->separationRadius = MAX(e->w, e->h);
 	
 	loadComponents(e, cJSON_GetObjectItem(root, "components"));
 	

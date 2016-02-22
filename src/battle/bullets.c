@@ -233,9 +233,9 @@ static void faceTarget(Bullet *b)
 		
 		b->angle = mod(b->angle, 360);
 		
-		/* halve your speed while you're not at the correct angle */
-		b->dx *= 0.5;
-		b->dy *= 0.5;
+		/* lower your speed while you're not at the correct angle */
+		b->dx *= 0.38;
+		b->dy *= 0.38;
 	}
 }
 

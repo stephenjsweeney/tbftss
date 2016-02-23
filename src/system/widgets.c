@@ -159,11 +159,6 @@ void drawWidgets(const char *group)
 	}
 }
 
-void drawConfirmMessage(char *message)
-{
-	drawWidgets("okCancel");
-}
-
 static void changeSelectedValue(Widget *w, int dir)
 {
 	int oldOption = w->currentOption;

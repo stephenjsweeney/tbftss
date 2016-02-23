@@ -50,6 +50,9 @@ int main(int argc, char *argv[])
 	lastFrameTime = SDL_GetTicks() + 1000;
 	expireTextTimer = SDL_GetTicks() + (1000 * 10);
 	
+	app.modalDialog.type = MD_OK;
+	STRNCPY(app.modalDialog.message, "This is a longer message. This is a longer message. This is a longer message. This is a longer message. This is a longer message. This is a longer message. This is a longer message. This is a longer message. This is a longer message. ", MAX_DESCRIPTION_LENGTH);
+	
 	while (1)
 	{
 		td += (SDL_GetTicks() - then);
@@ -96,6 +99,11 @@ int main(int argc, char *argv[])
 			}
 		}
 		
+		if (app.modalDialog.type != MD_NONE)
+		{
+			doModalDialog();
+		}
+		
 		while (td >= LOGIC_RATE)
 		{
 			app.delegate.logic();
@@ -107,6 +115,11 @@ int main(int argc, char *argv[])
 		prepareScene();
 
 		app.delegate.draw();
+		
+		if (app.modalDialog.type != MD_NONE)
+		{
+			drawModalDialog();
+		}
 		
 		presentScene();
 		

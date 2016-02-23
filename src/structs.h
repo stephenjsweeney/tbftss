@@ -71,6 +71,12 @@ typedef struct {
 	void (*handleMouseUp)(int x, int y, int btn);
 } Delegate;
 
+typedef struct {
+	int type;
+	int result;
+	char message[MAX_DESCRIPTION_LENGTH];
+} ModalDialog;
+
 struct Lookup {
 	char name[MAX_NAME_LENGTH];
 	long value;
@@ -385,6 +391,7 @@ typedef struct {
 	SDL_Renderer *renderer;
 	SDL_Window *window;
 	Delegate delegate;
+	ModalDialog modalDialog;
 } App;
 
 typedef struct {

@@ -95,7 +95,7 @@ void initSDL(void)
 
 void initGameSystem(void)
 {
-	int STEPS = 12;
+	int STEPS = 13;
 	
 	initColor(&colors.red, 255, 0, 0);
 	initColor(&colors.orange, 255, 128, 0);
@@ -158,6 +158,10 @@ void initGameSystem(void)
 	initBattle();
 	
 	showLoadingStep(12, STEPS);
+	
+	initModalDialog();
+	
+	showLoadingStep(13, STEPS);
 }
 
 /*

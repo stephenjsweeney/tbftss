@@ -39,6 +39,8 @@ extern void doDevKeys(void);
 extern void expireTexts(int all);
 extern void prepareScene(void);
 extern void presentScene(void);
+extern void doModalDialog(void);
+extern void drawModalDialog(void);
 
 App app;
 Colors colors;

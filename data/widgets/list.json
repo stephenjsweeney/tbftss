@@ -1,6 +1,6 @@
 [
 	"data/widgets/galacticMap.json",
-	"data/widgets/okCancel.json",
+	"data/widgets/modal.json",
 	"data/widgets/startBattle.json",
 	"data/widgets/inBattle.json",
 	"data/widgets/battleWon.json",

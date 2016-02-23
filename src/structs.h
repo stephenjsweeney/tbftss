@@ -73,7 +73,6 @@ typedef struct {
 
 typedef struct {
 	int type;
-	int result;
 	char message[MAX_DESCRIPTION_LENGTH];
 } ModalDialog;
 
@@ -342,6 +341,7 @@ struct Widget {
 	int currentOption;
 	int visible;
 	int enabled;
+	int isModal;
 	SDL_Rect rect;
 	SDL_Texture *texture;
 	void (*action)(void);

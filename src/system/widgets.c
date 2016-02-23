@@ -95,7 +95,7 @@ void drawWidgets(const char *group)
 	
 	for (w = head.next; w != NULL ; w = w->next)
 	{
-		if (w->visible && strcmp(w->group, group) == 0)
+		if ((app.modalDialog.type == MD_NONE || (app.modalDialog.type != MD_NONE && w->isModal)) && w->visible && strcmp(w->group, group) == 0)
 		{
 			if (!mouseOver)
 			{

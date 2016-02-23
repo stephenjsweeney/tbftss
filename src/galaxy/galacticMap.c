@@ -45,10 +45,9 @@ static void startMission(void);
 static void returnFromOptions(void);
 static void doStarSystemView(void);
 static void updatePandoranAdvance(void);
-static void drawFallenView(void);
 static void fallenOK(void);
 
-static StarSystem *selectedStarSystem, *fallenStarSystem;
+static StarSystem *selectedStarSystem;
 static Mission *selectedMission = {0};
 static SDL_Texture *background;
 static SDL_Texture *starSystemTexture;
@@ -121,7 +120,9 @@ void initGalacticMap(void)
 
 static void updatePandoranAdvance(void)
 {
-	StarSystem *starSystem;
+	StarSystem *starSystem, *fallenStarSystem;
+	
+	fallenStarSystem = NULL;
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
@@ -129,10 +130,13 @@ static void updatePandoranAdvance(void)
 		{
 			starSystem->side = SIDE_PANDORAN;
 			
-			show = SHOW_FALLEN_MESSAGE;
-			
 			fallenStarSystem = starSystem;
 		}
+	}
+	
+	if (fallenStarSystem)
+	{
+		showOKDialog(&fallenOK, "%s has fallen to the Pandorans", fallenStarSystem->name);
 	}
 }
 
@@ -338,10 +342,6 @@ static void draw(void)
 			
 		case SHOW_OPTIONS:
 			drawOptions();
-			break;
-			
-		case SHOW_FALLEN_MESSAGE:
-			drawFallenView();
 			break;
 	}
 }
@@ -569,29 +569,8 @@ static void drawStarSystemDetail(void)
 static void fallenOK(void)
 {
 	show = SHOW_GALAXY;
-}
-
-static void drawFallenView(void)
-{
-	SDL_Rect r;
 	
-	r.w = 800;
-	r.h = 150;
-	r.x = (SCREEN_WIDTH / 2) - (r.w / 2);
-	r.y = (SCREEN_HEIGHT / 2) - (r.h / 2);
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
-	
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 225);
-	SDL_RenderFillRect(app.renderer, &r);
-	
-	SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 200);
-	SDL_RenderDrawRect(app.renderer, &r);
-	
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-	
-	drawText(SCREEN_WIDTH / 2, r.y + 25, 24, TA_CENTER, colors.white, "%s has fallen to the Pandorans", fallenStarSystem->name);
-	
-	drawWidgets("fallen");
+	app.modalDialog.type = MD_NONE;
 }
 
 static void handleKeyboard(void)

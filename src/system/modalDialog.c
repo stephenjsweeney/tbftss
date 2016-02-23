@@ -23,12 +23,56 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static Widget *ok;
 static Widget *okCancelOK;
 static Widget *okCancelCancel;
+static char textBuffer[MAX_DESCRIPTION_LENGTH];
 
 void initModalDialog(void)
 {
 	ok = getWidget("ok", "ok");
+	ok->action = NULL;
+	ok->isModal = 1;
+	
 	okCancelOK = getWidget("ok", "okCancel");
+	okCancelOK->action = NULL;
+	okCancelOK->isModal = 1;
+	
 	okCancelCancel = getWidget("cancel", "okCancel");
+	okCancelCancel->action = NULL;
+	okCancelCancel->isModal = 1;
+}
+
+void showOKDialog(void (*callback)(void), const char *format, ...)
+{
+	va_list args;
+
+	memset(&textBuffer, '\0', sizeof(textBuffer));
+
+	va_start(args, format);
+	vsprintf(textBuffer, format, args);
+	va_end(args);
+	
+	STRNCPY(app.modalDialog.message, textBuffer, MAX_DESCRIPTION_LENGTH);
+	
+	app.modalDialog.type = MD_OK;
+	
+	ok->action = callback;
+}
+
+void showOKCancelDialog(void (*okCallback)(void), void (*cancelCallback)(void), const char *format, ...)
+{
+	va_list args;
+
+	memset(&textBuffer, '\0', sizeof(textBuffer));
+
+	va_start(args, format);
+	vsprintf(textBuffer, format, args);
+	va_end(args);
+	
+	STRNCPY(app.modalDialog.message, textBuffer, MAX_DESCRIPTION_LENGTH);
+	
+	app.modalDialog.type = MD_OK_CANCEL;
+	
+	okCancelOK->action = okCallback;
+	okCancelCancel->action = cancelCallback;
 }
 
 void doModalDialog(void)

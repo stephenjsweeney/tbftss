@@ -64,7 +64,6 @@ extern void resetWaypoints(void);
 extern void doPlayerSelect(void);
 extern void destroyQuadtree(void);
 extern void initQuadtree(Quadtree *root);
-extern void completeMission(void);
 extern void initEffects(void);
 extern void doScript(void);
 extern void destroyScript(void);

@@ -25,7 +25,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_MENU				2
 #define SHOW_OPTIONS			3
 #define SHOW_STATS				4
-#define SHOW_FALLEN_MESSAGE		5
 
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void initBattle(void);
@@ -59,6 +58,7 @@ extern void initStatsDisplay(void);
 extern void updateStarSystemMissions(void);
 extern StarSystem *getStarSystem(char *name);
 extern void setMouse(int x, int y);
+extern void showOKDialog(void (*callback)(void), const char *format, ...);
 
 extern App app;
 extern Colors colors;

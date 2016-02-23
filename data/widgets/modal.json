@@ -14,7 +14,7 @@
 		"group" : "okCancel",
 		"type" : "WT_BUTTON",
 		"text" : "OK",
-		"x" : 490,
+		"x" : 530,
 		"y" : 680,
 		"w" : 150,
 		"h": 34
@@ -24,7 +24,7 @@
 		"group" : "okCancel",
 		"type" : "WT_BUTTON",
 		"text" : "Cancel",
-		"x" : 790,
+		"x" : 730,
 		"y" : 680,
 		"w" : 150,
 		"h": 34

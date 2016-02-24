@@ -462,7 +462,7 @@ static void preAttack(void)
 	}
 }
 
-static void turnAndFly(int wantedAngle)
+static void turnToFace(int wantedAngle)
 {
 	int dir;
 	
@@ -476,6 +476,11 @@ static void turnAndFly(int wantedAngle)
 		
 		self->angle = mod(self->angle, 360);
 	}
+}
+
+static void turnAndFly(int wantedAngle)
+{
+	turnToFace(wantedAngle);
 	
 	applyFighterThrust();
 
@@ -584,13 +589,24 @@ static void fleeEnemies(void)
 
 static void moveToPlayer(void)
 {
+	int wantedAngle;
 	int dist = getDistance(self->x, self->y, player->x, player->y);
 	
-	if (dist <= 250)
+	if (dist <= 350)
 	{
-		applyFighterBrakes();
+		if (player->dx != 0 || player->dy != 0)
+		{
+			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 10), player->y + (player->dy * 10));
+			
+			turnToFace(wantedAngle);
+		}
 		
-		self->aiActionTime = MIN(FPS, self->aiActionTime);
+		if (dist <= 250)
+		{
+			applyFighterBrakes();
+		
+			self->aiActionTime = MIN(FPS, self->aiActionTime);
+		}
 	}
 	else
 	{
@@ -769,11 +785,24 @@ static int lookForLeader(void)
 
 static void moveToLeader(void)
 {
+	int wantedAngle;
 	int dist = getDistance(self->x, self->y, self->leader->x, self->leader->y);
 	
-	if (dist <= 250)
+	if (dist <= 350)
 	{
-		applyFighterBrakes();
+		if (self->leader->dx != 0 || self->leader->dy != 0)
+		{
+			wantedAngle = getAngle(self->leader->x, self->leader->y, self->leader->x + (self->leader->dx * 10), self->leader->y + (self->leader->dy * 10));
+			
+			turnToFace(wantedAngle);
+		}
+		
+		if (dist <= 250)
+		{
+			applyFighterBrakes();
+		
+			self->aiActionTime = MIN(FPS, self->aiActionTime);
+		}
 	}
 	else
 	{

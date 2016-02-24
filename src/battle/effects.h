@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+#define INITIAL_EFFECTS_TO_DRAW		128
+
 extern void blitScaled(SDL_Texture *texture, int x, int y, int w, int h);
 extern SDL_Texture *getTexture(char *name);
 extern void blit(SDL_Texture *t, int x, int y, int center);

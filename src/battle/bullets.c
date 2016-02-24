@@ -22,16 +22,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void huntTarget(Bullet *b);
 static void checkCollisions(Bullet *b);
+static void resizeDrawList(void);
 
 static Bullet bulletDef[BT_MAX];
-static Bullet *bulletsToDraw[MAX_BULLETS_TO_DRAW];
+static Bullet **bulletsToDraw;
 static int incomingMissile;
+static int drawCapacity;
 
 void initBullets(void)
 {
 	incomingMissile = 0;
-	
-	memset(bulletsToDraw, 0, sizeof(Bullet*) * MAX_BULLETS_TO_DRAW);
+
+	drawCapacity = INITIAL_BULLET_DRAW_CAPACITY;
+
+	bulletsToDraw = malloc(sizeof(Bullet*) * drawCapacity);
+	memset(bulletsToDraw, 0, sizeof(Bullet*) * drawCapacity);
 }
 
 void initBulletDefs(void)
@@ -40,27 +45,27 @@ void initBulletDefs(void)
 	char *text;
 	int type;
 	Bullet *def;
-	
+
 	memset(&bulletDef, 0, sizeof(Bullet) * BT_MAX);
-	
+
 	text = readFile(getFileLocation("data/battle/bullets.json"));
-	
+
 	root = cJSON_Parse(text);
-	
+
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
 		type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-		
+
 		def = &bulletDef[type];
 		def->type = type;
 		def->damage = cJSON_GetObjectItem(node, "damage")->valueint;
 		def->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
 		def->sound = lookup(cJSON_GetObjectItem(node, "sound")->valuestring);
 		def->flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, NULL);
-		
+
 		SDL_QueryTexture(def->texture, NULL, NULL, &def->w, &def->h);
 	}
-	
+
 	cJSON_Delete(root);
 	free(text);
 }
@@ -70,16 +75,16 @@ void doBullets(void)
 	int i = 0;
 	Bullet *b;
 	Bullet *prev = &battle.bulletHead;
-	
+
 	incomingMissile = 0;
-	
+
 	memset(bulletsToDraw, 0, sizeof(Bullet*) * MAX_BULLETS_TO_DRAW);
-	
+
 	for (b = battle.bulletHead.next ; b != NULL ; b = b->next)
 	{
 		b->x += b->dx;
 		b->y += b->dy;
-		
+
 		if (b->type == BT_ROCKET)
 		{
 			addMissileEngineEffect(b);
@@ -87,29 +92,29 @@ void doBullets(void)
 		else if (b->type == BT_MISSILE)
 		{
 			addMissileEngineEffect(b);
-			
+
 			huntTarget(b);
-			
+
 			if (b->target == player && player != NULL && player->health > 0)
 			{
 				incomingMissile = 1;
 			}
 		}
-		
+
 		checkCollisions(b);
-		
+
 		if (--b->life <= 0)
 		{
 			if (player != NULL && player->alive == ALIVE_ALIVE && b->type == BT_MISSILE && b->damage > 0 && b->target == player)
 			{
 				battle.stats[STAT_MISSILES_EVADED]++;
 			}
-			
+
 			if (b == battle.bulletTail)
 			{
 				battle.bulletTail = prev;
 			}
-			
+
 			prev->next = b->next;
 			free(b);
 			b = prev;
@@ -119,25 +124,48 @@ void doBullets(void)
 			if (collision(b->x - (b->w / 2) - battle.camera.x, b->y - (b->h / 2) - battle.camera.y, b->w * 2, b->h * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
 			{
 				bulletsToDraw[i++] = b;
-				if (i >= MAX_BULLETS_TO_DRAW)
+
+				if (i == drawCapacity)
 				{
-					printf("Too many bullets to draw\n");
-					exit(1);
+					resizeDrawList();
 				}
 			}
 		}
-		
+
 		prev = b;
 	}
+}
+
+static void resizeDrawList(void)
+{
+	int i, n;
+	Bullet **bullets;
+
+	n = drawCapacity + INITIAL_BULLET_DRAW_CAPACITY;
+
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Resizing bullet draw capacity: %d -> %d\n", drawCapacity, n);
+
+	bullets = malloc(sizeof(Bullet*) * n);
+	memset(bullets, 0, sizeof(Bullet*) * n);
+
+	for (i = 0 ; i < drawCapacity ; i++)
+	{
+		bullets[i] = bulletsToDraw[i];
+	}
+
+	free(bulletsToDraw);
+
+	bulletsToDraw = bullets;
+	drawCapacity = n;
 }
 
 static void checkCollisions(Bullet *b)
 {
 	Entity *e, **candidates;
 	int i;
-	
+
 	candidates = getAllEntsWithin(b->x - (b->w / 2), b->y - (b->h / 2), b->w, b->h, NULL);
-	
+
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if (e->flags & EF_TAKES_DAMAGE)
@@ -146,7 +174,7 @@ static void checkCollisions(Bullet *b)
 			{
 				continue;
 			}
-			
+
 			if (b->owner != e && e->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, e->x - e->w / 2, e->y - e->h / 2, e->w, e->h))
 			{
 				if (b->owner->side == e->side)
@@ -164,38 +192,38 @@ static void checkCollisions(Bullet *b)
 						battle.stats[STAT_ROCKETS_HIT]++;
 					}
 				}
-				
+
 				if (!(e->flags & EF_IMMORTAL))
 				{
 					damageFighter(e, b->damage, b->flags);
 				}
-				
+
 				b->life = 0;
 				b->damage = 0;
-				
+
 				if (b->flags & BF_EXPLODES)
 				{
 					addMissileExplosion(b);
 					playBattleSound(SND_EXPLOSION_1, b->x, b->y);
-					
+
 					if (e == player)
 					{
 						battle.stats[STAT_MISSILES_STRUCK]++;
 					}
 				}
-				
+
 				/* assuming that health <= 0 will always mean killed */
 				if (e->health <= 0 && b->owner == player)
 				{
 					battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
 					battle.stats[STAT_EPIC_KILL_STREAK]++;
 				}
-				
+
 				if (b->owner == player && b->type == BT_MISSILE)
 				{
 					battle.stats[STAT_MISSILES_HIT]++;
 				}
-				
+
 				return;
 			}
 		}
@@ -206,12 +234,12 @@ void drawBullets(void)
 {
 	int i;
 	Bullet *b;
-	
+
 	for (i = 0, b = bulletsToDraw[i] ; b != NULL ; b = bulletsToDraw[++i])
 	{
 		blitRotated(b->texture, b->x - battle.camera.x, b->y - battle.camera.y, b->angle);
 	}
-	
+
 	if (incomingMissile && battle.stats[STAT_TIME] % FPS < 40)
 	{
 		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, "WARNING: INCOMING MISSILE!");
@@ -222,17 +250,17 @@ static void faceTarget(Bullet *b)
 {
 	int dir;
 	int wantedAngle = getAngle(b->x, b->y, b->target->x, b->target->y);
-	
+
 	wantedAngle %= 360;
-	
+
 	if (fabs(wantedAngle - b->angle) > TURN_THRESHOLD)
 	{
 		dir = (wantedAngle - b->angle + 360) % 360 > 180 ? -1 : 1;
-	
+
 		b->angle += dir * TURN_SPEED;
-		
+
 		b->angle = mod(b->angle, 360);
-		
+
 		/* lower your speed while you're not at the correct angle */
 		b->dx *= 0.38;
 		b->dy *= 0.38;
@@ -243,14 +271,14 @@ static void applyMissileThrust(Bullet *b)
 {
 	int maxSpeed;
 	float v, thrust;
-	
+
 	b->dx += sin(TO_RAIDANS(b->angle));
 	b->dy += -cos(TO_RAIDANS(b->angle));
-	
+
 	maxSpeed = MAX(MIN(b->target->speed + 1, 999), 3);
-	
+
 	thrust = sqrt((b->dx * b->dx) + (b->dy * b->dy));
-	
+
 	if (thrust > maxSpeed)
 	{
 		v = (maxSpeed / sqrt(thrust));
@@ -264,9 +292,9 @@ static void huntTarget(Bullet *b)
 	if (b->target != NULL && b->target->health > 0)
 	{
 		faceTarget(b);
-		
+
 		applyMissileThrust(b);
-		
+
 		if (b->target == player && battle.ecmTimer < FPS)
 		{
 			b->life = 0;
@@ -283,16 +311,16 @@ static void huntTarget(Bullet *b)
 static Bullet *createBullet(int type, int x, int y, Entity *owner)
 {
 	Bullet *b;
-	
+
 	b = malloc(sizeof(Bullet));
 	memset(b, 0, sizeof(Bullet));
 	battle.bulletTail->next = b;
 	battle.bulletTail = b;
-	
+
 	memcpy(b, &bulletDef[type], sizeof(Bullet));
-	
+
 	b->next = NULL;
-	
+
 	b->x = x;
 	b->y = y;
 	b->dx += sin(TO_RAIDANS(owner->angle)) * 16;
@@ -301,7 +329,7 @@ static Bullet *createBullet(int type, int x, int y, Entity *owner)
 	b->angle = owner->angle;
 	b->owner = owner;
 	b->target = owner->target;
-	
+
 	return b;
 }
 
@@ -311,44 +339,44 @@ void fireGuns(Entity *owner)
 	int i;
 	float x, y;
 	float c, s;
-	
+
 	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
 	{
 		if (owner->guns[i].type == owner->selectedGunType || (owner->guns[i].type != BT_NONE && owner->combinedGuns))
 		{
 			s = sin(TO_RAIDANS(owner->angle));
 			c = cos(TO_RAIDANS(owner->angle));
-			
+
 			x = (owner->guns[i].x * c) - (owner->guns[i].y * s);
 			y = (owner->guns[i].x * s) + (owner->guns[i].y * c);
-			
+
 			x += owner->x;
 			y += owner->y;
-			
+
 			b = createBullet(owner->guns[i].type, x, y, owner);
-			
+
 			if (owner == player)
 			{
 				battle.stats[STAT_SHOTS_FIRED]++;
 			}
 		}
 	}
-	
+
 	owner->reload = owner->reloadTime;
-	
+
 	playBattleSound(b->sound, owner->x, owner->y);
 }
 
 void fireRocket(Entity *owner)
 {
 	Bullet *b;
-	
+
 	b = createBullet(BT_ROCKET, owner->x, owner->y, owner);
-	
+
 	playBattleSound(b->sound, owner->x, owner->y);
-	
+
 	owner->reload = FPS;
-	
+
 	if (owner == player)
 	{
 		battle.stats[STAT_ROCKETS_FIRED]++;
@@ -358,20 +386,20 @@ void fireRocket(Entity *owner)
 void fireMissile(Entity *owner)
 {
 	Bullet *b;
-	
+
 	b = createBullet(BT_MISSILE, owner->x, owner->y, owner);
-	
+
 	b->life = FPS * 30;
-	
+
 	owner->missiles--;
-	
+
 	if (owner == player)
 	{
 		battle.stats[STAT_MISSILES_FIRED]++;
 	}
-	
+
 	playBattleSound(b->sound, owner->x, owner->y);
-	
+
 	if (owner->target == player)
 	{
 		playSound(SND_INCOMING);
@@ -380,4 +408,7 @@ void fireMissile(Entity *owner)
 
 void destroyBulletDefs(void)
 {
+	free(bulletsToDraw);
+
+	bulletsToDraw = NULL;
 }

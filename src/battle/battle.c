@@ -47,52 +47,52 @@ void initBattle(void)
 	battle.effectTail = &battle.effectHead;
 	battle.objectiveTail = &battle.objectiveHead;
 	battle.locationTail = &battle.locationHead;
-	
+
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-	
+
 	initQuadtree(&battle.quadtree);
-	
+
 	initBullets();
-	
+
 	initEntities();
-	
+
 	initStars();
-	
+
 	initBullets();
-	
+
 	initBackground();
-	
+
 	initEffects();
-	
+
 	initHud();
-	
+
 	initRadar();
-	
+
 	initMessageBox();
-	
+
 	initMissionInfo();
-	
+
 	initDebris();
-	
+
 	resetWaypoints();
-	
+
 	show = SHOW_BATTLE;
-	
+
 	getWidget("ok", "startBattle")->action = start;
-	
+
 	getWidget("resume", "inBattle")->action = resume;
 	getWidget("options", "inBattle")->action = options;
 	getWidget("restart", "inBattle")->action = retry;
 	getWidget("quit", "inBattle")->action = quitBattle;
-	
+
 	getWidget("continue", "battleWon")->action = continueGame;
 	getWidget("retry", "battleWon")->action = retry;
-	
+
 	getWidget("retry", "battleLost")->action = retry;
 	getWidget("quit", "battleLost")->action = quitBattle;
-	
+
 	selectWidget("ok", "startBattle");
 }
 
@@ -101,7 +101,7 @@ static void logic(void)
 	if (battle.status == MS_IN_PROGRESS || battle.status == MS_COMPLETE || battle.status == MS_FAILED)
 	{
 		handleKeyboard();
-		
+
 		if (show == SHOW_BATTLE)
 		{
 			if (!battle.epic || (battle.epic && !battle.playerSelect))
@@ -114,7 +114,7 @@ static void logic(void)
 			}
 		}
 	}
-	
+
 	doWidgets();
 }
 
@@ -129,58 +129,58 @@ static void doBattle(void)
 	{
 		ssx = ssy = 0;
 	}
-	
+
 	scrollBackground(-ssx * 0.1, -ssy * 0.1);
-	
+
 	battle.planet.x -= ssx * 0.05;
 	battle.planet.y -= ssy * 0.05;
-	
+
 	doHud();
-	
+
 	doStars(ssx, ssy);
-	
+
 	doBullets();
-	
+
 	doEntities();
-	
+
 	doEffects();
-	
+
 	doDebris();
-	
+
 	doPlayer();
-	
+
 	doObjectives();
-	
+
 	if (player != NULL)
 	{
 		doLocations();
-		
+
 		doMessageBox();
-		
+
 		if (battle.status == MS_IN_PROGRESS)
 		{
 			doScript();
 		}
 	}
-	
+
 	if (battle.status != MS_IN_PROGRESS)
 	{
 		battle.missionFinishedTimer--;
 	}
-	
+
 	if (battle.stats[STAT_TIME] % FPS == 0)
 	{
 		runScriptFunction("TIME %d", battle.stats[STAT_TIME] / 60);
 	}
-	
+
 	battle.stats[STAT_TIME]++;
-	
+
 	if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
 	{
 		postBattle();
 
 		destroyBattle();
-		
+
 		initGalacticMap();
 	}
 }
@@ -192,41 +192,41 @@ static void draw(void)
 		battle.camera.x = player->x - (SCREEN_WIDTH / 2);
 		battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
 	}
-	
+
 	drawBackground(battle.background);
-	
+
 	blitScaled(battle.planetTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight);
-	
+
 	drawStars();
-	
+
 	drawEntities();
-	
+
 	drawBullets();
-	
+
 	drawDebris();
-	
+
 	drawEffects();
-	
+
 	if (dev.debug)
 	{
 		drawLocations();
 	}
-	
+
 	drawHud();
-	
+
 	if (player != NULL)
 	{
 		drawMessageBox();
 	}
-	
+
 	drawMissionInfo();
-	
+
 	switch (show)
 	{
 		case SHOW_MENU:
 			drawMenu();
 			break;
-			
+
 		case SHOW_OPTIONS:
 			drawOptions();
 			break;
@@ -236,22 +236,22 @@ static void draw(void)
 static void drawMenu(void)
 {
 	SDL_Rect r;
-	
+
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-	
+
 	r.w = 400;
 	r.h = 400;
 	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
 	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
-	
+
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
-		
+
 	drawWidgets("inBattle");
 }
 
@@ -266,21 +266,21 @@ static void handleKeyboard(void)
 				selectWidget("resume", "inBattle");
 				show = SHOW_MENU;
 				break;
-				
+
 			case SHOW_MENU:
 				show = SHOW_BATTLE;
 				break;
-				
+
 			case SHOW_OBJECTIVES:
 				show = SHOW_BATTLE;
 				break;
 		}
-		
+
 		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-		
+
 		playSound(SND_GUI_CLOSE);
 	}
-	
+
 	if (app.keyboard[SDL_SCANCODE_TAB])
 	{
 		battle.status = MS_PAUSED;
@@ -295,57 +295,57 @@ static void start(void)
 static void resume(void)
 {
 	show = SHOW_BATTLE;
-	
+
 	memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 }
 
 static void continueGame(void)
 {
 	postBattle();
-	
+
 	destroyBattle();
-	
+
 	initGalacticMap();
 }
 
 static void options(void)
 {
 	show = SHOW_OPTIONS;
-	
+
 	initOptions(returnFromOptions);
 }
 
 static void returnFromOptions(void)
 {
 	show = SHOW_MENU;
-	
+
 	selectWidget("resume", "inBattle");
 }
 
 static void retry(void)
 {
 	postBattle();
-	
+
 	destroyBattle();
-	
+
 	initBattle();
-	
+
 	loadMission(game.currentMission->filename);
 }
 
 static void quitBattle(void)
 {
 	postBattle();
-	
+
 	destroyBattle();
-	
+
 	initGalacticMap();
 }
 
 static void postBattle(void)
 {
 	int i;
-	
+
 	for (i = 0 ; i < STAT_MAX ; i++)
 	{
 		if (i != STAT_TIME && i != STAT_EPIC_KILL_STREAK)
@@ -353,12 +353,12 @@ static void postBattle(void)
 			game.stats[i] += battle.stats[i];
 		}
 	}
-	
+
 	if (game.currentMission && !game.currentMission->completed)
 	{
 		game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
 	}
-	
+
 }
 
 void destroyBattle(void)
@@ -369,7 +369,7 @@ void destroyBattle(void)
 	Effect *e;
 	Objective *o;
 	Location *l;
-	
+
 	while (battle.entityHead.next)
 	{
 		ent = battle.entityHead.next;
@@ -377,7 +377,7 @@ void destroyBattle(void)
 		free(ent);
 	}
 	battle.entityTail = &battle.entityHead;
-	
+
 	while (battle.bulletHead.next)
 	{
 		b = battle.bulletHead.next;
@@ -385,7 +385,7 @@ void destroyBattle(void)
 		free(b);
 	}
 	battle.bulletTail = &battle.bulletHead;
-	
+
 	while (battle.debrisHead.next)
 	{
 		d = battle.debrisHead.next;
@@ -393,7 +393,7 @@ void destroyBattle(void)
 		free(d);
 	}
 	battle.debrisTail = &battle.debrisHead;
-	
+
 	while (battle.effectHead.next)
 	{
 		e = battle.effectHead.next;
@@ -401,7 +401,7 @@ void destroyBattle(void)
 		free(e);
 	}
 	battle.effectTail = &battle.effectHead;
-	
+
 	while (battle.objectiveHead.next)
 	{
 		o = battle.objectiveHead.next;
@@ -409,7 +409,7 @@ void destroyBattle(void)
 		free(o);
 	}
 	battle.objectiveTail = &battle.objectiveHead;
-	
+
 	while (battle.locationHead.next)
 	{
 		l = battle.locationHead.next;
@@ -417,16 +417,22 @@ void destroyBattle(void)
 		free(l);
 	}
 	battle.locationTail = &battle.locationHead;
-	
+
 	cJSON_Delete(battle.missionJSON);
-	
+
 	resetHud();
-	
+
 	resetMessageBox();
-	
+
 	destroyEntities();
-	
+
 	destroyScript();
-	
+
 	destroyQuadtree();
+
+	destroyDebris();
+
+	destroyBullets();
+
+	destroyEffects();
 }

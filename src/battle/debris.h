@@ -22,8 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-#define MAX_DEBRIS_TO_DRAW		512
-#define MAX_DEBRIS_TEXTURES		6
+#define INITIAL_DEBRIS_DRAW_CAPACITY		32
+#define MAX_DEBRIS_TEXTURES					6
 
 extern float mod(float n, float x);
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);

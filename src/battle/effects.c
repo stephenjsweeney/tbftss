@@ -22,11 +22,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void setRandomFlameHue(Effect *e);
 static void setRandomShieldHue(Effect *e);
+static void resizeDrawList(void);
 
 static SDL_Texture *explosionTexture;
 static SDL_Texture *shieldHitTexture;
 static SDL_Texture *haloTexture;
 static Effect **effectsToDraw;
+static int drawCapacity;
 
 void initEffects(void)
 {
@@ -34,15 +36,21 @@ void initEffects(void)
 	shieldHitTexture = getTexture("gfx/effects/shieldHit.png");
 	haloTexture = getTexture("gfx/effects/halo.png");
 
-	drawCapacity = INITIAL_EFFECTS_TO_DRAW;
+	drawCapacity = INITIAL_EFFECT_DRAW_CAPACITY;
 
 	effectsToDraw = malloc(sizeof(Effect*) * drawCapacity);
+	memset(effectsToDraw, 0, sizeof(Effect*) * drawCapacity);
 }
 
 void doEffects(void)
 {
+	int i;
 	Effect *e;
 	Effect *prev = &battle.effectHead;
+	
+	i = 0;
+	
+	memset(effectsToDraw, 0, sizeof(Effect*) * drawCapacity);
 
 	for (e = battle.effectHead.next ; e != NULL ; e = e->next)
 	{
@@ -69,7 +77,7 @@ void doEffects(void)
 		}
 		else
 		{
-			if (e->type == EFFECT_LINE || collision(e->x - (e->size / 2) - battle.camera.x, e->y - (b->size / 2) - battle.camera.y, e->size * 2, e->size * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+			if (e->type == EFFECT_LINE || collision(e->x - (e->size / 2) - battle.camera.x, e->y - (e->size / 2) - battle.camera.y, e->size * 2, e->size * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
 			{
 				effectsToDraw[i++] = e;
 
@@ -91,7 +99,7 @@ static void resizeDrawList(void)
 
 	n = drawCapacity + INITIAL_EFFECT_DRAW_CAPACITY;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Resizing effect draw capacity: %d -> %d\n", drawCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing effect draw capacity: %d -> %d\n", drawCapacity, n);
 
 	effects = malloc(sizeof(Effect*) * n);
 	memset(effects, 0, sizeof(Effect*) * n);

@@ -78,7 +78,7 @@ void doBullets(void)
 
 	incomingMissile = 0;
 
-	memset(bulletsToDraw, 0, sizeof(Bullet*) * MAX_BULLETS_TO_DRAW);
+	memset(bulletsToDraw, 0, sizeof(Bullet*) * drawCapacity);
 
 	for (b = battle.bulletHead.next ; b != NULL ; b = b->next)
 	{
@@ -143,7 +143,7 @@ static void resizeDrawList(void)
 
 	n = drawCapacity + INITIAL_BULLET_DRAW_CAPACITY;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Resizing bullet draw capacity: %d -> %d\n", drawCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing bullet draw capacity: %d -> %d\n", drawCapacity, n);
 
 	bullets = malloc(sizeof(Bullet*) * n);
 	memset(bullets, 0, sizeof(Bullet*) * n);
@@ -407,6 +407,10 @@ void fireMissile(Entity *owner)
 }
 
 void destroyBulletDefs(void)
+{
+}
+
+void destroyBullets(void)
 {
 	free(bulletsToDraw);
 

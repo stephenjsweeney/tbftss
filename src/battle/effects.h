@@ -20,11 +20,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define INITIAL_EFFECTS_TO_DRAW		128
+#define INITIAL_EFFECT_DRAW_CAPACITY	128
 
 extern void blitScaled(SDL_Texture *texture, int x, int y, int w, int h);
 extern SDL_Texture *getTexture(char *name);
 extern void blit(SDL_Texture *t, int x, int y, int center);
+extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 
 extern App app;
 extern Battle battle;

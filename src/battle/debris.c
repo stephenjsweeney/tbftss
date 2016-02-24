@@ -36,7 +36,7 @@ void initDebris(void)
 	debrisTexture[4] = getTexture("gfx/debris/debris5.png");
 	debrisTexture[5] = getTexture("gfx/debris/debris6.png");
 
-	drawCapacity = INITIAL_BULLET_DRAW_CAPACITY;
+	drawCapacity = INITIAL_DEBRIS_DRAW_CAPACITY;
 
 	debrisToDraw = malloc(sizeof(Bullet*) * drawCapacity);
 	memset(debrisToDraw, 0, sizeof(Bullet*) * drawCapacity);
@@ -71,7 +71,7 @@ void doDebris(void)
 	int i;
 	Debris *d, *prev;
 
-	memset(debrisToDraw, 0, sizeof(Debris*) * MAX_DEBRIS_TO_DRAW);
+	memset(debrisToDraw, 0, sizeof(Debris*) * drawCapacity);
 
 	prev = &battle.debrisHead;
 
@@ -124,9 +124,9 @@ static void resizeDrawList(void)
 	int i, n;
 	Debris **debris;
 
-	n = drawCapacity + INITIAL_BULLET_DRAW_CAPACITY;
+	n = drawCapacity + INITIAL_DEBRIS_DRAW_CAPACITY;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Resizing debris draw capacity: %d -> %d\n", drawCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing debris draw capacity: %d -> %d\n", drawCapacity, n);
 
 	debris = malloc(sizeof(Debris*) * n);
 	memset(debris, 0, sizeof(Debris*) * n);

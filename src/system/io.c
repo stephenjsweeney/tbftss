@@ -99,6 +99,9 @@ char **getFileList(char *dir, int *count)
 	struct dirent *ent;
 	char **filenames;
 	
+	i = 0;
+	filenames = NULL;
+	
 	if ((d = opendir(dir)) != NULL)
 	{
 		while ((ent = readdir(d)) != NULL)
@@ -136,7 +139,10 @@ char **getFileList(char *dir, int *count)
 	
 	*count = i;
 	
-	qsort(filenames, i, sizeof(char*), stringComparator);
+	if (filenames)
+	{
+		qsort(filenames, i, sizeof(char*), stringComparator);
+	}
 	
 	return filenames;
 }

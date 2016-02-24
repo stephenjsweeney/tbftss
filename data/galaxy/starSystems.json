@@ -155,79 +155,79 @@
       },
       {
         "name": "Adetton",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 228,
         "y": 228
       },
       {
         "name": "Atlante",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 212,
         "y": 85
       },
       {
         "name": "Carthege",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 163,
         "y": 122
       },
       {
         "name": "Codexa",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 195,
         "y": 101
       },
       {
         "name": "Haylahe",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 204,
         "y": 132
       },
       {
         "name": "Kethlan",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 95,
         "y": 95
       },
       {
         "name": "Krasst",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 135,
         "y": 305
       },
       {
         "name": "Mekel",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 228,
         "y": 113
       },
       {
         "name": "Phylent",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 275,
         "y": 165
       },
       {
         "name": "Sampi-Persei VII",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 342,
         "y": 182
       },
       {
         "name": "Tigris",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 269,
         "y": 274
       },
       {
         "name": "Troy",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 107,
         "y": 269
       },
       {
         "name": "Pearl",
-        "side" : "SIDE_INF",
+        "side" : "SIDE_PANDORAN",
         "x": 133,
         "y": 215
       }

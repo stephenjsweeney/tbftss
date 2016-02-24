@@ -86,7 +86,6 @@ void initLookups(void)
 	addLookup("SIDE_PANDORAN", SIDE_PANDORAN);
 	addLookup("SIDE_CSN", SIDE_CSN);
 	addLookup("SIDE_UNF", SIDE_UNF);
-	addLookup("SIDE_INF", SIDE_INF);
 	
 	addLookup("SND_PARTICLE", SND_PARTICLE);
 	addLookup("SND_PLASMA", SND_PLASMA);

@@ -391,7 +391,7 @@ static void drawGalaxy(void)
 				color = colors.white;
 				break;
 				
-			case SIDE_INF:
+			case SIDE_PANDORAN:
 				color = colors.red;
 				break;
 		}

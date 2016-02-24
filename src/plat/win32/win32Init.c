@@ -22,4 +22,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void createSaveFolder(void)
 {
+	char *userHome;
+	char dir[MAX_FILENAME_LENGTH];
+	
+	userHome = getenv("USERNAME");
+	
+	if (!userHome)
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Unable to determine user save folder. Will save to current dir.");
+		return;
+	}
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "User home = %s", userHome);
+	
+	sprintf(dir, "%s/tbftss", userHome);
+	if (mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0 && errno != EEXIST)
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Failed to create save dir '%s'. Will save to current dir.", dir);
+		return;
+	}
+	
+	STRNCPY(app.saveDir, dir, MAX_FILENAME_LENGTH);
 }

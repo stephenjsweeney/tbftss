@@ -101,13 +101,20 @@ void updateObjective(char *name, int type)
 				
 				if (o->currentValue == o->targetValue)
 				{
+					completed++;
+					
 					o->status = OS_COMPLETE;
 					
 					addHudMessage(colors.green, "%s - Objective Complete!", o->description);
 					
 					runScriptFunction(o->description);
 					
-					runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
+					runScriptFunction("OBJECTIVES_COMPLETE %d", completed);
+					
+					if (completed == battle.numObjectivesTotal)
+					{
+						runScriptFunction("ALL_OBJECTIVES_COMPLETE");
+					}
 				}
 			}
 			

@@ -259,7 +259,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 4",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Williams;Control, this is Williams. Enemy capital ships have been destroyed, along with all other forces.",

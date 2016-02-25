@@ -117,7 +117,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 1",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Strickland; Looks like that was the last of 'em.",

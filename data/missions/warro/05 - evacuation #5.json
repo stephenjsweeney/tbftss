@@ -205,7 +205,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 5",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Taylor;Leviathan, this is Taylor. All targets have been eliminated.",

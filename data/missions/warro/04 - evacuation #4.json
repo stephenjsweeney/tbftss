@@ -223,7 +223,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 4",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX de Winter;Control, this is de Winter. All enemy forces have been destroyed.",

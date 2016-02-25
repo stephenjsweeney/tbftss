@@ -123,7 +123,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 3",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Carr;This is Carr. Reporting threat eliminated, operation successful.",

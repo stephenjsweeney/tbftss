@@ -162,7 +162,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 4",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Carr;Alexandria, packaged delivered.",

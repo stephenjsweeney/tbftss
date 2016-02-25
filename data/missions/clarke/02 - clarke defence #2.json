@@ -106,7 +106,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 3",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Carlyle;This is Carlyle. Enemy corvette has been destroyed. All other fighters scratched.",

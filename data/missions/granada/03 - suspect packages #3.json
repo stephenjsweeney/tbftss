@@ -144,7 +144,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 5",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Carr;This is Carr, reporting operation successful. Bagged us two squadron commanders.",

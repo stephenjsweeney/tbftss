@@ -139,7 +139,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 1",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX de Winter;Griffin, this is de Winter. All targets destroyed.",

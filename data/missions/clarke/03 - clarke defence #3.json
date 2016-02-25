@@ -135,7 +135,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 4",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Carlyle;This is Carlyle. Enemy targets have been eliminated. Cleopatra still in one piece.",

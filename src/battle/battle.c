@@ -134,6 +134,8 @@ static void doBattle(void)
 
 	battle.planet.x -= ssx * 0.05;
 	battle.planet.y -= ssy * 0.05;
+	
+	doObjectives();
 
 	doHud();
 
@@ -148,8 +150,6 @@ static void doBattle(void)
 	doDebris();
 
 	doPlayer();
-
-	doObjectives();
 
 	if (player != NULL)
 	{

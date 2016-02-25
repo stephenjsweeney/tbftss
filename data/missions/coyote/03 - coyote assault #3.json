@@ -81,13 +81,13 @@
 		{
 			"function" : "ALLIES_KILLED 70",
 			"lines" : [
-				"MSG_BOX UNF Pilot #1;We're getting our arses kicked here! Any chance of any backup?!"
+				"MSG_BOX UNF Wingmate #1;We're getting our arses kicked here! Any chance of any backup?!"
 			]
 		},
 		{
 			"function" : "ALLIES_KILLED 80",
 			"lines" : [
-				"MSG_BOX UNF Pilot #2;The White Knights are here! Finally!",
+				"MSG_BOX UNF Wingmate #2;The White Knights are here! Finally!",
 				"ACTIVATE_ENTITIES ATAFs"
 			]
 		},

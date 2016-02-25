@@ -83,8 +83,8 @@
 			"function" : "TIME 2",
 			"lines" : [
 				"MSG_BOX UNF Wing Commander;Stay sharp, people. We need to hold the line here!",
-				"MSG_BOX UNF Pilot #31;Oh my God, there's a lot of them ...",
-				"MSG_BOX UNF Pilot #82;Pair up, and take them down together. We stand a much better chance that way."
+				"MSG_BOX UNF Wingmate #31;Oh my God, there's a lot of them ...",
+				"MSG_BOX UNF Wingmate #82;Pair up, and take them down together. We stand a much better chance that way."
 			]
 		},
 		{
@@ -92,24 +92,24 @@
 			"lines" : [
 				"ACTIVATE_ENTITIES INF Qama;INF Seax;INF Mora;INF Sharpfinger",
 				"MSG_BOX UNF Wing Commander;Heads up, people. Four INF corvettes just entered the area.",
-				"MSG_BOX UNF Pilot #41;What's happened to all our own capital ships?!",
+				"MSG_BOX UNF Wingmate #41;What's happened to all our own capital ships?!",
 				"MSG_BOX UNF Wing Commander;They've been scratched."
 			]
 		},
 		{
 			"function" : "ALLIES_KILLED 60",
 			"lines" : [
-				"MSG_BOX UNF Pilot #63;That Dust Brothers have been flagged."
+				"MSG_BOX UNF Wingmate #63;That Dust Brothers have been flagged."
 			]
 		},
 		{
 			"function" : "ALLIES_KILLED 90",
 			"lines" : [
-				"MSG_BOX UNF Pilot #94;We have to sound the retreat!",
+				"MSG_BOX UNF Wingmate #94;We have to sound the retreat!",
 				"MSG_BOX UNF Wing Commander;Mister, you remain where you are! We're not abando--",
 				"WAIT_MSG_BOX",
 				"WAIT 3",
-				"MSG_BOX UNF Pilot #98;The wing commander's dead."
+				"MSG_BOX UNF Wingmate #98;The wing commander's dead."
 			]
 		}
 	]

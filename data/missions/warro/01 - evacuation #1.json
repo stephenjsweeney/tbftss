@@ -55,5 +55,14 @@
 			"x" : 25,
 			"y" : 25
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Control;ABCs, this is Control. Round up those civilians and escort them to the extraction point as quick as you can.",
+				"MSG_BOX Control;We're not expecting any opposition, but be prepared to engage hostiles if needed."
+			]
+		}
 	]
 }

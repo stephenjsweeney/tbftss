@@ -45,5 +45,13 @@
 			"scatter" : 5000,
 			"flags" : "EF_MISSION_TARGET"
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Wingmate;Not expecting any company, Carr, so this should just be a routine pickup. We'll keep an eye out, though."
+			]
+		}
 	]
 }

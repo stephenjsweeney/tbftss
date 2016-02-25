@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",
 	"music" : "music/heroism.ogg",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Check all Waypoints",
@@ -63,7 +64,17 @@
 			"lines" : [
 				"ACTIVATE_ENTITIES Pandoran",
 				"ACTIVATE_OBJECTIVES Destroy Pandoran fighters",
-				"MSG_BOX Alba Control;Patrol A-82, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
+				"MSG_BOX Alba Control;Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"MSG_BOX Rice;Control, enemies have been dispatched. Wasn't a comfortable fight.",
+				"MSG_BOX Alba Control;Eightballers, return home immediately, and deliver a full report. Do not leave out a single detail.",
+				"MSG_BOX Rice;Got it. See you soon.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
 			]
 		}
 	]

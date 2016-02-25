@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/battleThemeA.mp3",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Capture pirate lieutenant",
@@ -74,6 +75,25 @@
 			"type" : "ET_EXTRACTION_POINT",
 			"x" : 26,
 			"y" : 25
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Strickland;Seth, the lieutenant's Dart should be tagged on your HUD. Disable that ship as soon as possible.",
+				"MSG_BOX McLeod;Got it.",
+				"MSG_BOX Strickland;The rest of us will take down his buddies. Watch your stray fire around the mission target."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Strickland;Control, this is Strickland. Target has been suppressed, all other threats eliminated Will awake pickup.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
 		}
 	]
 }

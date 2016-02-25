@@ -55,5 +55,20 @@
 			"y" : 35,
 			"scatter" : 2000
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Strickland;As before, everyone. Let's take it to 'em."
+			]
+		},
+		{
+			"function" : "TIME 10",
+			"lines" : [
+				"MSG_BOX Heywood;Looks like these guys are all sporting modified Darts.",
+				"MSG_BOX Strickland;Acknowledged. Watch out for the lasers, people. They'll smash your shields to pieces if you let 'em."
+			]
+		}
 	]
 }

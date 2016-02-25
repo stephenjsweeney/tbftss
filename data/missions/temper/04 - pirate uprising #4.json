@@ -79,5 +79,13 @@
 			"x" : 8,
 			"y" : 25
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Strickland;This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the extraction point."
+			]
+		}
 	]
 }

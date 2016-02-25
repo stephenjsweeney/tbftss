@@ -54,5 +54,14 @@
 			"y" : 35,
 			"scatter" : 2000
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Heywood;Multiple incoming enemy fighters.",
+				"MSG_BOX Strickland;Follow my lead. Break and attack at will."
+			]
+		}
 	]
 }

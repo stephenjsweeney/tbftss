@@ -50,6 +50,7 @@ extern char *getSaveFilePath(char *filename);
 extern void playMusic(char *filename);
 extern void destroyBattle(void);
 extern void playSound(int id);
+extern void initEffects(void);
 
 extern App app;
 extern Battle battle;

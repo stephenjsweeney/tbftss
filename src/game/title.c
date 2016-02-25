@@ -68,6 +68,8 @@ void initTitle(void)
 	
 	initBackground();
 	
+	initEffects();
+	
 	initFighters();
 	
 	if (fileExists(getSaveFilePath("game.save")))

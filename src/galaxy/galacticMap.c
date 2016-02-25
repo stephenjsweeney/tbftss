@@ -60,6 +60,7 @@ static float ssx, ssy;
 static float arrowPulse;
 static int show;
 static int scrollingMap;
+static PointF cameraMin, cameraMax;
 static Widget *startMissionButton;
 
 void initGalacticMap(void)
@@ -185,10 +186,19 @@ static void doStarSystems(void)
 		cx = app.mouse.x - 32;
 		cy = app.mouse.y - 32;
 		
+		cameraMin.x = cameraMin.y = 99999;
+		cameraMax.x = cameraMax.y = -99999;
+		
 		selectedStarSystem = NULL;
 		
 		for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 		{
+			cameraMin.x = MIN(cameraMin.x, starSystem->x);
+			cameraMin.y = MIN(cameraMin.y, starSystem->y);
+			
+			cameraMax.x = MAX(cameraMax.x, starSystem->x);
+			cameraMax.y = MAX(cameraMax.y, starSystem->y);
+			
 			if (starSystem->availableMissions > 0 && collision(cx, cy, 64, 64, starSystem->x - camera.x, starSystem->y - camera.y, 4, 4))
 			{
 				if (selectedStarSystem != starSystem)
@@ -204,6 +214,12 @@ static void doStarSystems(void)
 				}
 			}
 		}
+		
+		cameraMin.x -= SCREEN_WIDTH / 2;
+		cameraMin.y -= SCREEN_HEIGHT / 2;
+		
+		cameraMax.x -= SCREEN_WIDTH / 2;
+		cameraMax.y -= SCREEN_HEIGHT / 2;
 	}
 }
 
@@ -224,8 +240,8 @@ static void scrollGalaxy(void)
 		ssx = -(app.mouse.dx / 3);
 		ssy = -(app.mouse.dy / 3);
 		
-		camera.x = MAX(-800, MIN(camera.x, 2464));
-		camera.y = MAX(-475, MIN(camera.y, 1235));
+		camera.x = MAX(cameraMin.x, MIN(camera.x, cameraMax.x));
+		camera.y = MAX(cameraMin.y, MIN(camera.y, cameraMax.y));
 	}
 	
 	if (lastX == camera.x)

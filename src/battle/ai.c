@@ -594,7 +594,7 @@ static void moveToPlayer(void)
 	
 	if (dist <= 350)
 	{
-		if (player->dx != 0 || player->dy != 0)
+		if (fabs(player->dx) >= 1 && fabs(player->dy) >= 1)
 		{
 			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 10), player->y + (player->dy * 10));
 			
@@ -790,7 +790,7 @@ static void moveToLeader(void)
 	
 	if (dist <= 350)
 	{
-		if (self->leader->dx != 0 || self->leader->dy != 0)
+		if (fabs(self->leader->dx) >= 1 && fabs(self->leader->dy) >= 1)
 		{
 			wantedAngle = getAngle(self->leader->x, self->leader->y, self->leader->x + (self->leader->dx * 10), self->leader->y + (self->leader->dy * 10));
 			

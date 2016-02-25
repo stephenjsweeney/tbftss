@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void setRandomFlameHue(Effect *e);
 static void setRandomShieldHue(Effect *e);
 static void resizeDrawList(void);
+static int pointOnScreen(float x, float y);
 
 static SDL_Texture *explosionTexture;
 static SDL_Texture *shieldHitTexture;
@@ -44,7 +45,7 @@ void initEffects(void)
 
 void doEffects(void)
 {
-	int i;
+	int i, onScreen;
 	Effect *e;
 	Effect *prev = &battle.effectHead;
 	
@@ -77,7 +78,24 @@ void doEffects(void)
 		}
 		else
 		{
-			if (e->type == EFFECT_LINE || collision(e->x - (e->size / 2) - battle.camera.x, e->y - (e->size / 2) - battle.camera.y, e->size * 2, e->size * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+			onScreen = 0;
+			
+			switch (e->type)
+			{
+				case EFFECT_LINE:
+					onScreen = pointOnScreen(e->x - battle.camera.x, e->y - battle.camera.y) || pointOnScreen(e->x + (e->dx * 3) - battle.camera.x, e->y + (e->dy * 3) - battle.camera.y);
+					break;
+					
+				case EFFECT_POINT:
+					onScreen = pointOnScreen(e->x - battle.camera.x, e->y - battle.camera.y);
+					break;
+					
+				default:
+					onScreen = collision(e->x - (e->size / 2) - battle.camera.x, e->y - (e->size / 2) - battle.camera.y, e->size * 2, e->size * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+					break;
+			}
+				
+			if (onScreen);
 			{
 				effectsToDraw[i++] = e;
 
@@ -90,6 +108,11 @@ void doEffects(void)
 
 		prev = e;
 	}
+}
+
+static int pointOnScreen(float x, float y)
+{
+	return collision(x, y, 1, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
 static void resizeDrawList(void)

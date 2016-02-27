@@ -611,26 +611,29 @@ void loadFighterDefs(void)
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
 	
-	loadFighterDefList("data/fighters/list.json");
-	loadFighterDefList("data/craft/list.json");
-	loadFighterDefList("data/turrets/list.json");
+	loadFighterDefList("data/fighters");
+	loadFighterDefList("data/craft");
+	loadFighterDefList("data/turrets");
 }
 
-static void loadFighterDefList(char *filename)
+static void loadFighterDefList(char *dir)
 {
-	cJSON *root, *node;
-	char *text;
+	char **filenames;
+	char path[MAX_FILENAME_LENGTH];
+	int count, i;
 	
-	text = readFile(getFileLocation(filename));
-	root = cJSON_Parse(text);
+	filenames = getFileList(dir, &count);
 	
-	for (node = root->child ; node != NULL ; node = node->next)
+	for (i = 0 ; i < count ; i++)
 	{
-		loadFighterDef(node->valuestring);
+		sprintf(path, "%s/%s", dir, filenames[i]);
+		
+		loadFighterDef(path);
+		
+		free(filenames[i]);
 	}
 	
-	cJSON_Delete(root);
-	free(text);
+	free(filenames);
 }
 
 static void loadFighterDef(char *filename)

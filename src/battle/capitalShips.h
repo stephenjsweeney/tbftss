@@ -46,6 +46,7 @@ extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern void addDebris(int x, int y, int amount);
 extern void runScriptFunction(char *format, ...);
 extern void updateObjective(char *name, int type);
+extern char **getFileList(char *dir, int *count);
 
 extern Battle battle;
 extern Entity *self;

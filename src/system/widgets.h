@@ -31,6 +31,7 @@ extern SDL_Texture *getTexture(char *filename);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void playSound(int id);
 extern char *getFileLocation(char *filename);
+extern char **getFileList(char *dir, int *count);
 
 extern App app;
 extern Colors colors;

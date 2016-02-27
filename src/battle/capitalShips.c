@@ -310,22 +310,25 @@ static void die(void)
 
 void loadCapitalShipDefs(void)
 {
-	cJSON *root, *node;
-	char *text;
-	
-	text = readFile(getFileLocation("data/capitalShips/list.json"));
-	root = cJSON_Parse(text);
+	char **filenames;
+	char path[MAX_FILENAME_LENGTH];
+	int count, i;
 	
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
 	
-	for (node = root->child ; node != NULL ; node = node->next)
+	filenames = getFileList("data/capitalShips", &count);
+	
+	for (i = 0 ; i < count ; i++)
 	{
-		loadCapitalShipDef(node->valuestring);
+		sprintf(path, "data/capitalShips/%s", filenames[i]);
+		
+		loadCapitalShipDef(path);
+		
+		free(filenames[i]);
 	}
 	
-	cJSON_Delete(root);
-	free(text);
+	free(filenames);
 }
 
 static void loadCapitalShipDef(char *filename)

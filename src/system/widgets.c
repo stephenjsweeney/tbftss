@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "widgets.h"
 
-static void loadWidgets(char *filename);
+static void loadWidgets(void);
 static void loadWidgetSet(char *filename);
 static void handleMouse(void);
 static void handleKeyboard(void);
@@ -46,7 +46,7 @@ void initWidgets(void)
 	optionsLeft = getTexture("gfx/widgets/optionsLeft.png");
 	optionsRight = getTexture("gfx/widgets/optionsRight.png");
 	
-	loadWidgets("data/widgets/list.json");
+	loadWidgets();
 	
 	drawingWidgets = 0;
 }
@@ -249,21 +249,24 @@ static void handleKeyboard(void)
 	}
 }
 
-static void loadWidgets(char *filename)
+static void loadWidgets()
 {
-	cJSON *root, *node;
-	char *text;
+	char **filenames;
+	char path[MAX_FILENAME_LENGTH];
+	int count, i;
 	
-	text = readFile(getFileLocation(filename));
-	root = cJSON_Parse(text);
+	filenames = getFileList("data/widgets", &count);
 	
-	for (node = root->child ; node != NULL ; node = node->next)
+	for (i = 0 ; i < count ; i++)
 	{
-		loadWidgetSet(node->valuestring);
+		sprintf(path, "data/widgets/%s", filenames[i]);
+		
+		loadWidgetSet(path);
+		
+		free(filenames[i]);
 	}
 	
-	cJSON_Delete(root);
-	free(text);
+	free(filenames);
 }
 
 static void loadWidgetSet(char *filename)

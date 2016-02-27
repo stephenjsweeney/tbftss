@@ -156,6 +156,7 @@ static void handleArguments(int argc, char *argv[])
 {
 	int i;
 	int testingMission = 0;
+	int languageId = -1;
 	
 	for (i = 1 ; i < argc ; i++)
 	{
@@ -172,8 +173,22 @@ static void handleArguments(int argc, char *argv[])
 			{
 				dev.debug = 1;
 			}
+			
+			if (strcmp(argv[i], "-language") == 0)
+			{
+				languageId = i + 1;
+				
+				if (languageId >= argc)
+				{
+					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "You must specify a language to use with -language. Using default.\n");
+				}
+			}
 		}
 	}
+	
+	setLanguage("tbftss", languageId == -1 ? NULL : argv[languageId]);
+	printf("Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
+	printf("atof(2.75) is %f\n", atof("2.75"));
 	
 	if (!testingMission)
 	{

@@ -44,6 +44,7 @@ extern void drawModalDialog(void);
 extern void loadGame(void);
 extern int fileExists(char *filename);
 extern char *getSaveFilePath(char *filename);
+extern void setLanguage(char *applicationName, char *languageCode);
 
 App app;
 Colors colors;

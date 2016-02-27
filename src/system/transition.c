@@ -28,6 +28,8 @@ void startSectionTransition(void)
 
 	prepareScene();
 	
+	clearInput();
+	
 	presentScene();
 	
 	expireTexts(1);

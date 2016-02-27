@@ -181,7 +181,10 @@ static void drawChallenges(void)
 
 static void handleKeyboard(void)
 {
-	
+	if (app.keyboard[SDL_SCANCODE_ESCAPE])
+	{
+		initTitle();
+	}
 }
 
 static void startChallengeMission(void)

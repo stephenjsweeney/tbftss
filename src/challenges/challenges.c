@@ -33,14 +33,14 @@ static char descriptionBuffer[MAX_DESCRIPTION_LENGTH];
 
 static char *challengeDescription[] = {
 	"Retain at least %d%% armour",
-	"Finish mission in %d seconds or less",
+	"Complete challenge in %d seconds or less",
 	"Attain a %d%% hit accuracy",
 	"Do not lose any team mates",
 	"Do not lose more than 1 team mate",
 	"Do not lose more than %d team mates",
 	"Take down %d enemy targets",
 	"Disable %d or more enemy fighters",
-	"Finish mission in %d minutes or less"
+	"Complete challenge in %d minutes or less"
 };
 
 void initChallenges(void)

@@ -217,8 +217,6 @@ static void options(void)
 static void returnFromOptions(void)
 {
 	showingOptions = 0;
-	
-	selectWidget("newGame", "title");
 }
 
 static void quit(void)

@@ -400,7 +400,7 @@ static void drawObjectives(void)
 	}
 	else
 	{
-		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d", battle.stats[STAT_TIME] / FPS);
+		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d.%02d", battle.stats[STAT_TIME] / FPS, battle.stats[STAT_TIME] % 100);
 	}
 }
 

@@ -267,7 +267,9 @@ static void doStarSystemView(void)
 			{
 				playSound(SND_GUI_CLICK);
 			}
+			
 			selectedMission = mission;
+			return;
 		}
 	}
 }

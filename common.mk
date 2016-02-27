@@ -1,4 +1,4 @@
-VERSION = 0.5
+VERSION = 0.6
 REVISION = $(shell date +"%y%m%d")
 
 SEARCHPATH += src/ src/battle src/draw src/game src/galaxy src/json src/system src/test
@@ -15,7 +15,7 @@ OBJS += effects.o entities.o extractionPoint.o
 OBJS += fighters.o
 OBJS += galacticMap.o game.o
 OBJS += hud.o
-OBJS += init.o input.o io.o items.o
+OBJS += i18n.o init.o input.o io.o items.o
 OBJS += load.o locations.o lookup.o
 OBJS += main.o messageBox.o mission.o missionInfo.o modalDialog.o
 OBJS += objectives.o options.o

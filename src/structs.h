@@ -37,6 +37,7 @@ typedef struct MessageBox MessageBox;
 typedef struct GridCell GridCell;
 typedef struct ScriptRunner ScriptRunner;
 typedef struct Location Location;
+typedef struct Bucket Bucket;
 
 typedef struct {
 	int debug;
@@ -287,6 +288,7 @@ typedef struct {
 	int numInitialEnemies;
 	int status;
 	int epic;
+	int isChallenge;
 	int epicFighterLimit;
 	int playerSelect;
 	int manualComplete;
@@ -321,7 +323,8 @@ struct ScriptRunner {
 };
 
 typedef struct {
-	StarSystem starSystemHead, *starSystemTail;
+	StarSystem starSystemHead;
+	Mission challengeMissionHead;
 	Mission *currentMission;
 	char selectedStarSystem[MAX_NAME_LENGTH];
 	int completedMissions;
@@ -407,3 +410,26 @@ typedef struct {
 	SDL_Color lightGrey;
 	SDL_Color darkGrey;
 } Colors;
+
+struct Bucket
+{
+	char *key, *value;
+	Bucket *next;
+};
+
+typedef struct HashTable
+{
+	Bucket **bucket;
+	int *bucketCount;
+} HashTable;
+
+typedef struct MOHeader
+{
+	int32_t magicNumber, version, stringCount;
+	int32_t originalOffset, translationOffset;
+} MOHeader;
+
+typedef struct MOEntry
+{
+	int32_t length, offset;
+} MOEntry;

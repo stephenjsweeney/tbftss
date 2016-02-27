@@ -2,11 +2,12 @@ PROG = tbftss.exe
 CC = x86_64-w64-mingw32-gcc
 SDLC = /usr/x86_64-w64-mingw32/bin/sdl2-config
 LIBPATH = /usr/x86_64-w64-mingw32/lib
+LOCALE_DIR = locale
 
 SEARCHPATH += src/plat/win32
 OBJS += win32Init.o
 
-CXXFLAGS += `$(SDLC) --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\"
+CXXFLAGS += `$(SDLC) --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
 CXXFLAGS += -Wall -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence
 

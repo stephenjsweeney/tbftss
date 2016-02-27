@@ -2,13 +2,14 @@ PROG = tbftss
 CC = gcc
 BIN_DIR = /usr/bin
 DATA_DIR = /opt/tbftss
+LOCALE_DIR = /usr/share/locale
 
 SEARCHPATH += src/plat/unix
 OBJS += unixInit.o
 
 include common.mk
 
-CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\"
+CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
 CXXFLAGS += -Wall -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence
 

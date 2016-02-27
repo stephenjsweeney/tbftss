@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void drawWidgets(char *groupName);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern Widget *getWidget(const char *name, const char *group);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Colors colors;

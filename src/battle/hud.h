@@ -32,6 +32,7 @@ extern void drawRadar(void);
 extern void drawRadarRangeWarning(void);
 extern int getPercent(float current, float total);
 extern int playerHasGun(int type);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Battle battle;

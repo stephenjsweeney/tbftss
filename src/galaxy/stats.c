@@ -93,9 +93,9 @@ void drawStats(void)
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 	
-	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, "Stats");
+	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, _("Stats"));
 	
-	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, "Page %d / %d", page + 1, maxPages);
+	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, _("Page %d / %d"), page + 1, maxPages);
 	
 	y = 170;
 	
@@ -118,7 +118,7 @@ void drawStats(void)
 	seconds %= 60;
 	
 	sprintf(timePlayed, "%dh:%02dm:%02ds", hours, minutes, seconds);
-	drawText(r.x + 20, 565, 18, TA_LEFT, colors.white, "Time Played");
+	drawText(r.x + 20, 565, 18, TA_LEFT, colors.white, _("Time Played"));
 	drawText(r.x + r.w - 20, 565, 18, TA_RIGHT, colors.white, timePlayed);
 		
 	drawWidgets("stats");	

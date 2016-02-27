@@ -136,7 +136,7 @@ static void updatePandoranAdvance(void)
 	
 	if (fallenStarSystem)
 	{
-		showOKDialog(&fallenOK, "%s has fallen to the Pandorans", fallenStarSystem->name);
+		showOKDialog(&fallenOK, _("%s has fallen to the Pandorans"), fallenStarSystem->name);
 	}
 }
 
@@ -170,7 +170,7 @@ static void logic(void)
 	pulseTimer++;
 	pulseTimer %= (FPS * 60);
 	
-	arrowPulse += 0.01;
+	arrowPulse += 0.1;
 	
 	doWidgets();
 }
@@ -389,8 +389,6 @@ static void drawGalaxy(void)
 	SDL_Color color;
 	float ax, ay, aa;
 	
-	arrowPulse += 0.1;
-	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
 		r.x = starSystem->x - camera.x;
@@ -490,7 +488,7 @@ static void drawInfoBars(void)
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, "Missions: %d / %d", game.completedMissions, game.availableMissions);
+	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, _("Missions: %d / %d"), game.completedMissions, game.availableMissions);
 }
 
 static void selectStarSystem(void)
@@ -526,7 +524,7 @@ static void drawStarSystemDetail(void)
 	
 	y = 70;
 	
-	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.cyan, "%s", selectedStarSystem->name);
+	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.cyan, selectedStarSystem->name);
 	
 	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w - 1, 120);
 	
@@ -560,9 +558,9 @@ static void drawStarSystemDetail(void)
 	
 	if (game.currentMission->available)
 	{
-		drawText(525, 135, 18, TA_LEFT, colors.lightGrey, "Pilot: %s", game.currentMission->pilot);
-		drawText(525, 160, 18, TA_LEFT, colors.lightGrey, "Craft: %s", game.currentMission->craft);
-		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, "Squadron: %s", game.currentMission->squadron);
+		drawText(525, 135, 18, TA_LEFT, colors.lightGrey, _("Pilot: %s"), game.currentMission->pilot);
+		drawText(525, 160, 18, TA_LEFT, colors.lightGrey, _("Craft: %s"), game.currentMission->craft);
+		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, _("Squadron: %s"), game.currentMission->squadron);
 		
 		limitTextWidth(500);
 		drawText(525, 230, 22, TA_LEFT, colors.white, game.currentMission->description);
@@ -571,11 +569,11 @@ static void drawStarSystemDetail(void)
 	
 	if (game.currentMission->completed)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.green, "This mission has been completed.");
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.green, _("This mission has been completed."));
 	}
 	else if (game.currentMission->epic)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, "Note: this is an Epic Mission.");
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, _("Note: this is an Epic Mission."));
 	}
 	
 	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->isSol);

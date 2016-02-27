@@ -25,6 +25,32 @@ void saveConfig(void);
 static void initColor(SDL_Color *c, int r, int g, int b);
 static void showLoadingStep(float step, float maxSteps);
 
+void init18N(int argc, char *argv[])
+{
+	int i;
+	int languageId = -1;
+	
+	setlocale(LC_NUMERIC, "");
+	
+	for (i = 1 ; i < argc ; i++)
+	{
+		if (strcmp(argv[i], "-language") == 0)
+		{
+			languageId = i + 1;
+				
+			if (languageId >= argc)
+			{
+				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "You must specify a language to use with -language. Using default.\n");
+			}
+		}
+	}
+	
+	setLanguage("tbftss", languageId == -1 ? NULL : argv[languageId]);
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "atof(2.75) is %f\n", atof("2.75"));
+}
+
 void initSDL(void)
 {
 	int rendererFlags, windowFlags;

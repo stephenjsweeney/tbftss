@@ -48,6 +48,7 @@ extern char *getFileLocation(char *filename);
 extern void updateCapitalShipComponentProperties(Entity *parent);
 extern void countNumEnemies(void);
 extern void initMissionInfo(void);
+extern char *getTranslatedString(char *string);
 
 extern Battle battle;
 extern Entity *player;

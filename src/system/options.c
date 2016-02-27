@@ -77,7 +77,7 @@ void drawOptions(void)
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 	
-	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, "Options");
+	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, _("Options"));
 	
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w, 120);
@@ -85,7 +85,7 @@ void drawOptions(void)
 	drawWidgets("options");	
 	
 	limitTextWidth(r.w - 100);
-	drawText(SCREEN_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, "Note: you must restart the game for window size and fullscreen options to take effect.");
+	drawText(SCREEN_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, _("Note: you must restart the game for window size and fullscreen options to take effect."));
 	limitTextWidth(0);
 }
 

@@ -25,6 +25,7 @@ extern void blit(SDL_Texture *texture, int x, int y, int center);
 extern SDL_Texture *getTexture(char *filename);
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Battle battle;

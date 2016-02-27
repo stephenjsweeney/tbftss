@@ -124,6 +124,6 @@ void drawRadarRangeWarning(void)
 	
 	if (leaving && battle.stats[STAT_TIME] % FPS < 40)
 	{
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 30, 14, TA_CENTER, colors.white, "Caution: Leaving battle area - turn around.");
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 30, 14, TA_CENTER, colors.white, _("Caution: Leaving battle area - turn around."));
 	}
 }

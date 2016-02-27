@@ -87,7 +87,7 @@ static void drawMissionSummary(SDL_Texture *header)
 	
 	if (!battle.isChallenge)
 	{
-		drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, "OBJECTIVES");
+		drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, _("OBJECTIVES"));
 		
 		y += 10;
 		
@@ -125,7 +125,7 @@ static void drawMissionSummary(SDL_Texture *header)
 		{
 			y += 50;
 			
-			drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "(none)");
+			drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, _("(none)"));
 		}
 		
 		y += 75;

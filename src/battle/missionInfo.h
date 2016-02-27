@@ -25,6 +25,7 @@ extern void drawText(int x, int y, int size, int align, SDL_Color c, const char 
 extern SDL_Texture *getTexture(char *filename);
 extern char *getChallengeDescription(Challenge *c);
 extern void drawWidgets(char *groupName);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Battle battle;

@@ -48,7 +48,7 @@ Mission *loadMissionMeta(char *filename)
 	memset(mission, 0, sizeof(Mission));
 	
 	STRNCPY(mission->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
-	STRNCPY(mission->description, cJSON_GetObjectItem(root, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
+	STRNCPY(mission->description, _(cJSON_GetObjectItem(root, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
 	STRNCPY(mission->filename, filename, MAX_DESCRIPTION_LENGTH);
 	
 	if (cJSON_GetObjectItem(root, "requires"))
@@ -236,7 +236,7 @@ static void loadObjectives(cJSON *node)
 			battle.objectiveTail = o;
 			
 			o->active = 1;
-			STRNCPY(o->description, cJSON_GetObjectItem(node, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
+			STRNCPY(o->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
 			STRNCPY(o->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
 			o->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
 			o->targetType = lookup(cJSON_GetObjectItem(node, "targetType")->valuestring);

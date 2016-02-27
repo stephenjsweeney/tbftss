@@ -302,15 +302,15 @@ static void drawWeaponInfo(void)
 		}
 		else
 		{
-			drawText(30, 70, 14, TA_LEFT, colors.white, "(None)");
+			drawText(30, 70, 14, TA_LEFT, colors.white, _("(None)"));
 		}
 	}
 	else
 	{
-		drawText(30, 70, 14, TA_LEFT, colors.white, "(Combined Guns)");
+		drawText(30, 70, 14, TA_LEFT, colors.white, _("(Combined Guns)"));
 	}
 	
-	drawText(280, 70, 14, TA_RIGHT, colors.white, "Missiles (%d)", player->missiles);
+	drawText(280, 70, 14, TA_RIGHT, colors.white, _("Missiles (%d)"), player->missiles);
 }
 
 static void drawPlayerTargeter(void)
@@ -433,7 +433,7 @@ static void drawDistancesInfo(void)
 		
 		distance = distanceToKM(player->x, player->y, player->target->x, player->target->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.red, "Target: %.2fkm", distance);
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.red, _("Target: %.2fkm"), distance);
 		
 		y += 25;
 	}
@@ -442,7 +442,7 @@ static void drawDistancesInfo(void)
 	{
 		distance = distanceToKM(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.green, "Objective: %.2fkm", distance);
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.green, _("Objective: %.2fkm"), distance);
 		
 		y += 25;
 	}
@@ -451,7 +451,7 @@ static void drawDistancesInfo(void)
 	{
 		distance = distanceToKM(player->x, player->y, battle.extractionPoint->x, battle.extractionPoint->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, "Extraction Point: %.2fkm", distance);
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, _("Extraction Point: %.2fkm"), distance);
 		
 		y += 25;
 	}
@@ -481,7 +481,7 @@ static void drawPlayerSelect(void)
 	
 	blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
 	
-	drawText(SCREEN_WIDTH / 2, 500, 28, TA_CENTER, colors.white, "SELECT NEW FIGHTER");
+	drawText(SCREEN_WIDTH / 2, 500, 28, TA_CENTER, colors.white, _("SELECT NEW FIGHTER"));
 	
 	if (player->health > 0)
 	{

@@ -242,7 +242,7 @@ void drawBullets(void)
 
 	if (incomingMissile && battle.stats[STAT_TIME] % FPS < 40)
 	{
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, "WARNING: INCOMING MISSILE!");
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, _("WARNING: INCOMING MISSILE!"));
 	}
 }
 

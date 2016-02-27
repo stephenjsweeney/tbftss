@@ -29,6 +29,7 @@ extern void setWidgetOption(const char *name, const char *group, const char *val
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void saveConfig(void);
 extern void limitTextWidth(int width);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Colors colors;

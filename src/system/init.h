@@ -22,6 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
+#include "locale.h"
+
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_mixer.h"
 #include "SDL2/SDL_ttf.h"
@@ -62,6 +64,7 @@ extern void initInput(void);
 extern void initModalDialog(void);
 extern void createSaveFolder(void);
 extern char *getFileLocation(char *filename);
+extern void setLanguage(char *applicationName, char *languageCode);
 
 extern App app;
 extern Colors colors;

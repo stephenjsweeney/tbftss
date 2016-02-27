@@ -301,7 +301,7 @@ static void loadWidgetSet(char *filename)
 		switch (w->type)
 		{
 			case WT_BUTTON:
-				STRNCPY(w->text, _((cJSON_GetObjectItem(node, "text")->valuestring)), MAX_NAME_LENGTH);
+				STRNCPY(w->text, _(cJSON_GetObjectItem(node, "text")->valuestring), MAX_NAME_LENGTH);
 				w->rect.w = cJSON_GetObjectItem(node, "w")->valueint;
 				w->rect.h = cJSON_GetObjectItem(node, "h")->valueint;
 				w->rect.x -= w->rect.w / 2;

@@ -30,10 +30,10 @@ static const char *objectiveStatus[] = {"Incomplete", "Complete", "Failed", "Con
 
 void initMissionInfo(void)
 {
-	missionStartTexture = getTexture("gfx/battle/missionStart.png");
-	missionInProgressTexture = getTexture("gfx/battle/missionInProgress.png");
-	missionCompleteTexture = getTexture("gfx/battle/missionComplete.png");
-	missionFailedTexture = getTexture("gfx/battle/missionFailed.png");
+	missionStartTexture = !battle.isChallenge ? getTexture("gfx/battle/missionStart.png") : getTexture("gfx/battle/challengeStart.png");
+	missionInProgressTexture = !battle.isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
+	missionCompleteTexture = !battle.isChallenge ? getTexture("gfx/battle/missionComplete.png") : getTexture("gfx/battle/challengeComplete.png");
+	missionFailedTexture = !battle.isChallenge ? getTexture("gfx/battle/missionFailed.png") : getTexture("gfx/battle/challengeFailed.png");
 }
 
 void drawMissionInfo(void)

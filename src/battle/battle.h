@@ -52,7 +52,6 @@ extern void doWidgets(void);
 extern void loadMission(char *filename);
 extern void resetHud(void);
 extern void doHud(void);
-extern void initMissionInfo(void);
 extern void drawMissionInfo(void);
 extern void drawBackground(SDL_Texture *texture);
 extern void initBackground(void);

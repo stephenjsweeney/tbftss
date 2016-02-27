@@ -72,8 +72,6 @@ void initBattle(void)
 
 	initMessageBox();
 
-	initMissionInfo();
-
 	initDebris();
 
 	resetWaypoints();

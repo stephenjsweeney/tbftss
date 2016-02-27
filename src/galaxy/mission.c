@@ -117,7 +117,7 @@ void loadMission(char *filename)
 	
 	battle.background = getTexture(cJSON_GetObjectItem(root, "background")->valuestring);
 	
-	planetScale = 75 + (rand() % 125);
+	planetScale = 25 + (rand() % 100);
 	planetScale *= 0.01;
 	battle.planetTexture = getTexture(cJSON_GetObjectItem(root, "planet")->valuestring);
 	battle.planet.x = (SCREEN_WIDTH / 2) - (rand() % SCREEN_WIDTH) + (rand() % SCREEN_WIDTH);
@@ -182,6 +182,8 @@ void loadMission(char *filename)
 	initPlayer();
 	
 	battle.isChallenge = game.currentMission->challengeHead.next != NULL;
+	
+	initMissionInfo();
 	
 	playMusic(music);
 }

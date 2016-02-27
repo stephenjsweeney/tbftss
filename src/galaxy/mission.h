@@ -47,6 +47,7 @@ extern void initScript(cJSON *missionJSON);
 extern char *getFileLocation(char *filename);
 extern void updateCapitalShipComponentProperties(Entity *parent);
 extern void countNumEnemies(void);
+extern void initMissionInfo(void);
 
 extern Battle battle;
 extern Entity *player;

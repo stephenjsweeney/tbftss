@@ -210,6 +210,11 @@ static void handleKeyboard(void)
 			app.keyboard[SDL_SCANCODE_SPACE] = 0;
 		}
 	}
+	else
+	{
+		player->dx *= 0.99;
+		player->dy *= 0.99;
+	}
 }
 
 static void handleMouse(void)

@@ -26,8 +26,8 @@ static void handleKeyboard(void);
 static void initFighters(void);
 static void doFighters(void);
 static void drawFighters(void);
-static void newGame(void);
-static void continueGame(void);
+static void campaign(void);
+static void challenges(void);
 static void options(void);
 static void quit(void);
 static void returnFromOptions(void);
@@ -72,19 +72,8 @@ void initTitle(void)
 	
 	initFighters();
 	
-	if (fileExists(getSaveFilePath("game.save")))
-	{
-		selectWidget("continue", "title");
-	}
-	else
-	{
-		getWidget("continue", "title")->enabled = 0;
-		
-		selectWidget("newGame", "title");
-	}
-	
-	getWidget("newGame", "title")->action = newGame;
-	getWidget("continue", "title")->action = continueGame;
+	getWidget("campaign", "title")->action = campaign;
+	getWidget("challenges", "title")->action = challenges;
 	getWidget("options", "title")->action = options;
 	getWidget("quit", "title")->action = quit;
 	
@@ -208,18 +197,22 @@ static void handleKeyboard(void)
 	}
 }
 
-static void newGame(void)
+static void campaign(void)
 {
-	resetGame();
+	if (fileExists(getSaveFilePath("game.save")))
+	{
+		loadGame();
+	}
+	else
+	{
+		resetGame();
+	}
 	
 	initGalacticMap();
 }
 
-static void continueGame(void)
+static void challenges(void)
 {
-	loadGame();
-	
-	initGalacticMap();
 }
 
 static void options(void)

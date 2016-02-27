@@ -1,0 +1,48 @@
+{
+	"name" : "Destroy all the Darts",
+	"description" : "Destroy all the Darts",
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/spirit.png",
+	"music" : "",
+	"player" : {
+		"type" : "Nymph",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy Dart",
+			"targetName" : "Dart",
+			"targetValue" : 3,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"challenges" : [
+		{
+			"type" : "CHALLENGE_TIME",
+			"targetValue" : 10
+		},
+		{
+			"type" : "CHALLENGE_TIME",
+			"targetValue" : 15
+		},
+		{
+			"type" : "CHALLENGE_TIME",
+			"targetValue" : 20
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 25,
+			"y" : 22,
+			"number" : 3,
+			"scatter" : 1000
+		}
+	]
+}

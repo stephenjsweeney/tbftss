@@ -160,6 +160,13 @@ static void doBattle(void)
 		if (battle.status == MS_IN_PROGRESS)
 		{
 			doScript();
+			
+			battle.stats[STAT_TIME]++;
+			
+			if (battle.stats[STAT_TIME] % FPS == 0)
+			{
+				runScriptFunction("TIME %d", battle.stats[STAT_TIME] / 60);
+			}
 		}
 	}
 
@@ -167,13 +174,6 @@ static void doBattle(void)
 	{
 		battle.missionFinishedTimer--;
 	}
-
-	if (battle.stats[STAT_TIME] % FPS == 0)
-	{
-		runScriptFunction("TIME %d", battle.stats[STAT_TIME] / 60);
-	}
-
-	battle.stats[STAT_TIME]++;
 
 	if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
 	{

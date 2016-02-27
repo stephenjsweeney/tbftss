@@ -85,54 +85,57 @@ static void drawMissionSummary(SDL_Texture *header)
 	
 	y = 215;
 	
-	drawText(SCREEN_WIDTH / 2, 215, 28, TA_CENTER, colors.white, "OBJECTIVES");
-	
-	y += 10;
-	
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	if (!battle.isChallenge)
 	{
-		if (o->active)
+		drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, "OBJECTIVES");
+		
+		y += 10;
+		
+		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+		{
+			if (o->active)
+			{
+				y += 50;
+				
+				switch (o->status)
+				{
+					case OS_INCOMPLETE:
+						color = colors.white;
+						break;
+						
+					case OS_COMPLETE:
+						color = colors.green;
+						break;
+						
+					case OS_FAILED:
+						color = colors.red;
+						break;
+				}
+				
+				drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
+				if (o->targetValue > 1 && !o->isCondition)
+				{
+					drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
+				}
+				drawText(SCREEN_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
+			}
+		}
+		
+		if (!battle.objectiveHead.next)
 		{
 			y += 50;
 			
-			switch (o->status)
-			{
-				case OS_INCOMPLETE:
-					color = colors.white;
-					break;
-					
-				case OS_COMPLETE:
-					color = colors.green;
-					break;
-					
-				case OS_FAILED:
-					color = colors.red;
-					break;
-			}
-			
-			drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
-			if (o->targetValue > 1 && !o->isCondition)
-			{
-				drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
-			}
-			drawText(SCREEN_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
+			drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "(none)");
 		}
+		
+		y += 75;
 	}
 	
-	if (!battle.objectiveHead.next)
+	if (battle.isChallenge)
 	{
-		y += 50;
+		drawText(SCREEN_WIDTH / 2, y, 24, TA_CENTER, colors.white, game.currentMission->description);
 		
-		drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "(none)");
-	}
-	
-	if (game.currentMission && game.currentMission->challengeHead.next)
-	{
-		y += 100;
-		
-		drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, "CHALLENGES");
-		
-		y += 10;
+		y += 25;
 		
 		for (c = game.currentMission->challengeHead.next ; c != NULL ; c = c->next)
 		{
@@ -155,8 +158,8 @@ static void drawMissionSummary(SDL_Texture *header)
 				challengeStatus = "Failed";
 			}
 			
-			drawText(SCREEN_WIDTH / 2 - 25, y, 22, TA_RIGHT, colors.white, "%s", getChallengeDescription(c));
-			drawText(SCREEN_WIDTH / 2 + 25, y, 22, TA_LEFT, color, challengeStatus);
+			drawText(SCREEN_WIDTH / 2 - 50, y, 22, TA_RIGHT, colors.white, "%s", getChallengeDescription(c));
+			drawText(SCREEN_WIDTH / 2 + 50, y, 22, TA_LEFT, color, challengeStatus);
 		}
 	}
 }

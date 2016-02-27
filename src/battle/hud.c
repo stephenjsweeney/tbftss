@@ -394,7 +394,14 @@ static void drawNumFighters(void)
 
 static void drawObjectives(void)
 {
-	drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, battle.numObjectivesTotal);
+	if (!battle.isChallenge)
+	{
+		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, battle.numObjectivesTotal);
+	}
+	else
+	{
+		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d", battle.stats[STAT_TIME] / FPS);
+	}
 }
 
 static float distanceToKM(int x1, int y1, int x2, int y2)

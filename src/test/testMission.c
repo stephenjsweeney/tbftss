@@ -34,8 +34,9 @@ void loadTestMission(char *filename)
 	
 	initBattle();
 	
-	loadMission(filename);
 	loadChallenges(filename);
+	
+	loadMission(filename);
 }
 
 static void loadChallenges(char *filename)

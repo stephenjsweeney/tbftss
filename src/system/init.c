@@ -95,7 +95,8 @@ void initSDL(void)
 
 void initGameSystem(void)
 {
-	int STEPS = 13;
+	int step = 0;
+	int STEPS = 14;
 	
 	initColor(&colors.red, 255, 0, 0);
 	initColor(&colors.orange, 255, 128, 0);
@@ -109,59 +110,63 @@ void initGameSystem(void)
 	initColor(&colors.lightGrey, 192, 192, 192);
 	initColor(&colors.darkGrey, 128, 128, 128);
 	
-	showLoadingStep(0, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initFonts();
 	
-	showLoadingStep(1, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initInput();
 	
-	showLoadingStep(2, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initLookups();
 	
-	showLoadingStep(3, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initSounds();
 	
-	showLoadingStep(4, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initWidgets();
 	
-	showLoadingStep(5, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initGame();
 	
-	showLoadingStep(6, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	loadFighterDefs();
 	
-	showLoadingStep(7, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	loadCapitalShipDefs();
 	
-	showLoadingStep(8, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	loadItemDefs();
 	
-	showLoadingStep(9, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initBulletDefs();
 	
-	showLoadingStep(10, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initStarSystems();
 	
-	showLoadingStep(11, STEPS);
+	showLoadingStep(step++, STEPS);
+	
+	initChallenges();
+	
+	showLoadingStep(step++, STEPS);
 	
 	initBattle();
 	
-	showLoadingStep(12, STEPS);
+	showLoadingStep(step++, STEPS);
 	
 	initModalDialog();
 	
-	showLoadingStep(13, STEPS);
+	showLoadingStep(step++, STEPS);
 }
 
 /*

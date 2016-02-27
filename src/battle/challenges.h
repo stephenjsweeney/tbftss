@@ -20,6 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+extern Mission *loadMissionMeta(char *filename);
+extern char **getFileList(char *dir, int *count);
+
 extern Battle battle;
 extern Entity *player;
 extern Game game;

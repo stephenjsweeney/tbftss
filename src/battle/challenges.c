@@ -43,6 +43,31 @@ static char *challengeDescription[] = {
 	"Finish mission in %d minutes or less"
 };
 
+void initChallenges(void)
+{
+	Mission *mission, *tail;
+	char **filenames;
+	char path[MAX_FILENAME_LENGTH];
+	int count, i;
+	
+	tail = &game.challengeMissionHead;
+	
+	filenames = getFileList("data/challenges", &count);
+	
+	for (i = 0 ; i < count ; i++)
+	{
+		sprintf(path, "data/challenges/%s", filenames[i]);
+		
+		mission = loadMissionMeta(path);
+		tail->next = mission;
+		tail = mission;
+		
+		free(filenames[i]);
+	}
+	
+	free(filenames);
+}
+
 void updateChallenges(void)
 {
 	Challenge *c;

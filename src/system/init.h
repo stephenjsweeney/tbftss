@@ -42,6 +42,7 @@ extern void initLookups(void);
 extern void initBattle(void);
 extern void initGame(void);
 extern void initStarSystems(void);
+extern void initChallenges(void);
 extern void initWidgets(void);
 extern void destroyLookups(void);
 extern void destroyFonts(void);

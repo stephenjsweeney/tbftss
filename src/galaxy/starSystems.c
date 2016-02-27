@@ -21,34 +21,36 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "starSystems.h"
 
 static void loadMissions(StarSystem *starSystem);
-static void loadStarSystem(cJSON *starSystemJSON);
-static void loadMissionMeta(char *filename, StarSystem *starSystem);
+static StarSystem *loadStarSystem(cJSON *starSystemJSON);
 
 void initStarSystems(void)
 {
 	cJSON *root, *node;
 	char *text;
+	StarSystem *starSystem, *tail;
+	
+	tail = &game.starSystemHead;
 	
 	text = readFile(getFileLocation("data/galaxy/starSystems.json"));
 	root = cJSON_Parse(text);
 	
 	for (node = cJSON_GetObjectItem(root, "starSystems")->child ; node != NULL ; node = node->next)
 	{
-		loadStarSystem(node);
+		starSystem = loadStarSystem(node);
+		tail->next = starSystem;
+		tail = starSystem;
 	}
 	
 	cJSON_Delete(root);
 	free(text);
 }
 
-static void loadStarSystem(cJSON *starSystemJSON)
+static StarSystem *loadStarSystem(cJSON *starSystemJSON)
 {
 	StarSystem *starSystem;
 	
 	starSystem = malloc(sizeof(StarSystem));
 	memset(starSystem, 0, sizeof(StarSystem));
-	game.starSystemTail->next = starSystem;
-	game.starSystemTail = starSystem;
 	
 	STRNCPY(starSystem->name, cJSON_GetObjectItem(starSystemJSON, "name")->valuestring, MAX_NAME_LENGTH);
 	starSystem->side = lookup(cJSON_GetObjectItem(starSystemJSON, "side")->valuestring);
@@ -72,6 +74,8 @@ static void loadStarSystem(cJSON *starSystemJSON)
 	
 	starSystem->x *= 3;
 	starSystem->y *= 3;
+	
+	return starSystem;
 }
 
 static void loadMissions(StarSystem *starSystem)
@@ -96,80 +100,12 @@ static void loadMissions(StarSystem *starSystem)
 	{
 		sprintf(path, "data/missions/%s/%s", name, filenames[i]);
 		
-		loadMissionMeta(path, starSystem);
+		loadMissionMeta(path);
 		
 		free(filenames[i]);
 	}
 	
 	free(filenames);
-}
-
-static void loadMissionMeta(char *filename, StarSystem *starSystem)
-{
-	Mission *mission;
-	Challenge *challenge, *challengeTail;
-	cJSON *root, *node;
-	char *text;
-	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
-	
-	text = readFile(getFileLocation(filename));
-	
-	root = cJSON_Parse(text);
-	
-	mission = malloc(sizeof(Mission));
-	memset(mission, 0, sizeof(Mission));
-	starSystem->missionTail->next = mission;
-	starSystem->missionTail = mission;
-	
-	STRNCPY(mission->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
-	STRNCPY(mission->description, cJSON_GetObjectItem(root, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
-	STRNCPY(mission->filename, filename, MAX_DESCRIPTION_LENGTH);
-	
-	if (cJSON_GetObjectItem(root, "requires"))
-	{
-		mission->requires = cJSON_GetObjectItem(root, "requires")->valueint;
-	}
-	
-	if (cJSON_GetObjectItem(root, "epic"))
-	{
-		mission->epic = 1;
-	}
-	
-	node = cJSON_GetObjectItem(root, "player");
-	
-	if (node)
-	{
-		STRNCPY(mission->pilot, cJSON_GetObjectItem(node, "pilot")->valuestring, MAX_NAME_LENGTH);
-		STRNCPY(mission->squadron, cJSON_GetObjectItem(node, "squadron")->valuestring, MAX_NAME_LENGTH);
-		STRNCPY(mission->craft, cJSON_GetObjectItem(node, "type")->valuestring, MAX_NAME_LENGTH);
-	}
-	
-	challengeTail = &mission->challengeHead;
-	
-	node = cJSON_GetObjectItem(root, "challenges");
-	
-	if (node)
-	{
-		node = node->child;
-		
-		while (node)
-		{
-			challenge = malloc(sizeof(Challenge));
-			memset(challenge, 0, sizeof(Challenge));
-			
-			challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			challenge->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
-			
-			challengeTail->next = challenge;
-			challengeTail = challenge;
-			
-			node = node->next;
-		}
-	}
-	
-	cJSON_Delete(root);
-	free(text);
 }
 
 StarSystem *getStarSystem(char *name)

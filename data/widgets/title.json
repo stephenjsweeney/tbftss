@@ -1,19 +1,19 @@
 [
 	{
-		"name" : "newGame",
+		"name" : "campaign",
 		"group" : "title",
 		"type" : "WT_BUTTON",
-		"text" : "New Game",
+		"text" : "Campaign",
 		"x" : -1,
 		"y" : 250,
 		"w" : 200,
 		"h": 34
 	},
 	{
-		"name" : "continue",
+		"name" : "challenges",
 		"group" : "title",
 		"type" : "WT_BUTTON",
-		"text" : "Continue",
+		"text" : "Challenges",
 		"x" : -1,
 		"y" : 350,
 		"w" : 200,

@@ -27,30 +27,6 @@ void initGame(void)
 	STRNCPY(game.selectedStarSystem, "Sol", MAX_NAME_LENGTH);
 }
 
-void resetGame(void)
-{
-	StarSystem *starSystem;
-	Mission *mission;
-	Challenge *challenge;
-	
-	memset(&game.stats, 0, sizeof(int) * STAT_MAX);
-	
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
-	{
-		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
-		{
-			mission->completed = 0;
-			
-			for (challenge = mission->challengeHead.next ; challenge != NULL ; challenge = challenge->next)
-			{
-				challenge->passed = 0;
-			}
-		}
-	}
-	
-	STRNCPY(game.selectedStarSystem, "Sol", MAX_NAME_LENGTH);
-}
-
 void destroyGame(void)
 {
 }

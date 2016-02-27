@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern char *readFile(char *filename);
 extern Mission *getMission(char *filename);
-extern Challenge *getChallenge(Mission *mission, int type);
+extern Challenge *getChallenge(Mission *mission, int type, int value);
 extern int lookup(char *lookup);
 extern char *getSaveFilePath(char *filename);
 extern char *getLookupName(char *prefix, long num);

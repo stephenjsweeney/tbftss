@@ -1,0 +1,12 @@
+[
+	{
+		"name" : "start",
+		"group" : "challenges",
+		"type" : "WT_BUTTON",
+		"text" : "Start Challenge Mission",
+		"x" : -1,
+		"y" : 680,
+		"w" : 250,
+		"h": 34
+	}
+]

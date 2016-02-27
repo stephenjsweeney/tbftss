@@ -177,6 +177,11 @@ static void handleArguments(int argc, char *argv[])
 	
 	if (!testingMission)
 	{
+		if (fileExists(getSaveFilePath("game.save")))
+		{
+			loadGame();
+		}
+		
 		initTitle();
 	}
 }

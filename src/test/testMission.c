@@ -63,7 +63,7 @@ static void loadChallenges(char *filename)
 			memset(challenge, 0, sizeof(Challenge));
 			
 			challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			challenge->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
+			challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
 			
 			challengeTail->next = challenge;
 			challengeTail = challenge;

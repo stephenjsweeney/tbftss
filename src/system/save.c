@@ -21,8 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "save.h"
 
 static void saveStarSystems(cJSON *gameJSON);
+static void saveChallenges(cJSON *gameJSON);
 static cJSON *getMissionsJSON(StarSystem *starSystem);
-static cJSON *getChallengesJSON(Mission *mission);
 static void saveStats(cJSON *gameJSON);
 
 void saveGame(void)
@@ -39,6 +39,8 @@ void saveGame(void)
 	cJSON_AddStringToObject(gameJSON, "selectedStarSystem", game.selectedStarSystem);
 	
 	saveStarSystems(gameJSON);
+	
+	saveChallenges(gameJSON);
 
 	saveStats(gameJSON);
 
@@ -85,36 +87,44 @@ static cJSON *getMissionsJSON(StarSystem *starSystem)
 		cJSON_AddStringToObject(missionJSON, "filename", mission->filename);
 		cJSON_AddNumberToObject(missionJSON, "completed", mission->completed);
 		
-		if (mission->challengeHead.next)
-		{
-			cJSON_AddItemToObject(missionJSON, "challenges", getChallengesJSON(mission));
-		}
-		
 		cJSON_AddItemToArray(missionsJSON, missionJSON);
 	}
 	
 	return missionsJSON;
 }
 
-static cJSON *getChallengesJSON(Mission *mission)
+static void saveChallenges(cJSON *gameJSON)
 {
-	cJSON *challengesJSON, *challengeJSON;
-	Challenge *challenge;
+	Mission *mission;
+	Challenge *c;
+	cJSON *missionsJSON, *missionJSON, *challengesJSON, *challengeJSON;
 	
-	challengesJSON = cJSON_CreateArray();
+	missionsJSON = cJSON_CreateArray();
 	
-	for (challenge = mission->challengeHead.next ; challenge != NULL ; challenge = challenge->next)
+	for (mission = game.challengeMissionHead.next ; mission != NULL ; mission = mission->next)
 	{
-		challengeJSON = cJSON_CreateObject();
+		missionJSON = cJSON_CreateObject();
 		
-		cJSON_AddStringToObject(challengeJSON, "type", getLookupName("CHALLENGE_", challenge->type));
-		cJSON_AddNumberToObject(challengeJSON, "targetValue", challenge->targetValue);
-		cJSON_AddNumberToObject(challengeJSON, "passed", challenge->passed);
+		cJSON_AddStringToObject(missionJSON, "filename", mission->filename);
 		
-		cJSON_AddItemToArray(challengesJSON, challengeJSON);
+		challengesJSON = cJSON_CreateArray();
+		
+		for (c = mission->challengeHead.next ; c != NULL ; c = c->next)
+		{
+			challengeJSON = cJSON_CreateObject();
+			cJSON_AddStringToObject(challengeJSON, "type", getLookupName("CHALLENGE_", c->type));
+			cJSON_AddNumberToObject(challengeJSON, "value", c->value);
+			cJSON_AddNumberToObject(challengeJSON, "passed", c->passed);
+			
+			cJSON_AddItemToArray(challengesJSON, challengeJSON);
+		}
+		
+		cJSON_AddItemToObject(missionJSON, "challenges", challengesJSON);
+		
+		cJSON_AddItemToArray(missionsJSON, missionJSON);
 	}
 	
-	return challengesJSON;
+	cJSON_AddItemToObject(gameJSON, "challenges", missionsJSON);
 }
 
 static void saveStats(cJSON *gameJSON)

@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void loadStats(cJSON *stats);
 static void loadStarSystems(cJSON *starSystemsJSON);
 static void loadMissions(cJSON *missionsCJSON);
-static void loadChallenges(Mission *mission, cJSON *challengesCJSON);
+static void loadChallenges(cJSON *challengesCJSON);
 
 void loadGame(void)
 {
@@ -38,6 +38,8 @@ void loadGame(void)
 	STRNCPY(game.selectedStarSystem, cJSON_GetObjectItem(gameJSON, "selectedStarSystem")->valuestring, MAX_NAME_LENGTH);
 	
 	loadStarSystems(cJSON_GetObjectItem(gameJSON, "starSystems"));
+	
+	loadChallenges(cJSON_GetObjectItem(gameJSON, "challenges"));
 	
 	loadStats(cJSON_GetObjectItem(gameJSON, "stats"));
 	
@@ -60,40 +62,41 @@ static void loadStarSystems(cJSON *starSystemsJSON)
 	}
 }
 
-static void loadMissions(cJSON *missionsCJSON)
+static void loadMissions(cJSON *missionsJSON)
 {
 	Mission *mission;
-	cJSON *missionCJSON;
+	cJSON *missionJSON;
 	
-	for (missionCJSON = missionsCJSON->child ; missionCJSON != NULL ; missionCJSON = missionCJSON->next)
+	for (missionJSON = missionsJSON->child ; missionJSON != NULL ; missionJSON = missionJSON->next)
 	{
-		mission = getMission(cJSON_GetObjectItem(missionCJSON, "filename")->valuestring);
-		
-		mission->completed = cJSON_GetObjectItem(missionCJSON, "completed")->valueint;
-		
-		if (cJSON_GetObjectItem(missionCJSON, "challenges"))
-		{
-			loadChallenges(mission, cJSON_GetObjectItem(missionCJSON, "challenges"));
-		}
+		mission = getMission(cJSON_GetObjectItem(missionJSON, "filename")->valuestring);
+		mission->completed = cJSON_GetObjectItem(missionJSON, "completed")->valueint;
 	}
 }
 
-static void loadChallenges(Mission *mission, cJSON *challengesCJSON)
+static void loadChallenges(cJSON *missionsJSON)
 {
+	Mission *mission;
 	Challenge *challenge;
-	cJSON *challengeCJSON;
+	cJSON *missionJSON, *challengeJSON;
+	int type, value;
 	
-	for (challengeCJSON = challengesCJSON->child ; challengeCJSON != NULL ; challengeCJSON = challengeCJSON->next)
+	if (missionsJSON)
 	{
-		challenge = getChallenge(mission, lookup(cJSON_GetObjectItem(challengeCJSON, "type")->valuestring));
-		
-		if (!challenge)
+		for (missionJSON = missionsJSON->child ; missionJSON != NULL ; missionJSON = missionJSON->next)
 		{
-			printf("Couldn't find challenge to update\n");
-			continue;
+			mission = getMission(cJSON_GetObjectItem(missionJSON, "filename")->valuestring);
+			
+			for (challengeJSON = cJSON_GetObjectItem(missionJSON, "challenges")->child ; challengeJSON != NULL ; challengeJSON = challengeJSON->next)
+			{
+				type = lookup(cJSON_GetObjectItem(challengeJSON, "type")->valuestring);
+				value = cJSON_GetObjectItem(challengeJSON, "value")->valueint;
+				
+				challenge = getChallenge(mission, type, value);
+				
+				challenge->passed = cJSON_GetObjectItem(challengeJSON, "passed")->valueint;
+			}
 		}
-		
-		challenge->passed = cJSON_GetObjectItem(challengeCJSON, "passed")->valueint;
 	}
 }
 

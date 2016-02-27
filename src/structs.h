@@ -235,7 +235,7 @@ struct Objective {
 
 struct Challenge {
 	int type;
-	int targetValue;
+	int value;
 	int passed;
 	Challenge *next;
 };
@@ -251,6 +251,8 @@ struct Mission {
 	int available;
 	int completed;
 	int epic;
+	int completedChallenges;
+	int totalChallenges;
 	SDL_Rect rect;
 	Challenge challengeHead;
 	Mission *next;
@@ -267,7 +269,7 @@ struct StarSystem {
 	int availableMissions;
 	int fallsToPandorans;
 	int isSol;
-	Mission missionHead, *missionTail;
+	Mission missionHead;
 	StarSystem *next;
 };
 

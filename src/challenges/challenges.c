@@ -114,14 +114,14 @@ static void updateTimeChallenge(Challenge *c)
 	switch (c->type)
 	{
 		case CHALLENGE_TIME:
-			if (battle.stats[STAT_TIME] / FPS <= c->targetValue)
+			if (battle.stats[STAT_TIME] / FPS < c->value)
 			{
 				c->passed = 1;
 			}
 			break;
 		
 		case CHALLENGE_TIME_MINS:
-			if ((battle.stats[STAT_TIME] / FPS) / 60 <= c->targetValue)
+			if ((battle.stats[STAT_TIME] / FPS) / 60 < c->value)
 			{
 				c->passed = 1;
 			}
@@ -137,7 +137,7 @@ static void updateAccuracyChallenge(Challenge *c)
 	percent /= battle.stats[STAT_SHOTS_FIRED];
 	percent *= 100;
 	
-	if (percent >= c->targetValue)
+	if (percent >= c->value)
 	{
 		c->passed = 1;
 	}
@@ -151,7 +151,7 @@ static void updateArmourChallenge(Challenge *c)
 	percent /= player->maxHealth;
 	percent *= 100;
 	
-	if (percent >= c->targetValue)
+	if (percent >= c->value)
 	{
 		c->passed = 1;
 	}
@@ -161,7 +161,7 @@ static void updateLossesChallenge(Challenge *c)
 {
 	if (!c->passed)
 	{
-		c->passed = battle.stats[STAT_ALLIES_KILLED] <= c->targetValue;
+		c->passed = battle.stats[STAT_ALLIES_KILLED] <= c->value;
 	}
 }
 
@@ -169,7 +169,7 @@ static void updatePlayerKillsChallenge(Challenge *c)
 {
 	if (!c->passed)
 	{
-		c->passed = battle.stats[STAT_ENEMIES_KILLED_PLAYER] >= c->targetValue;
+		c->passed = battle.stats[STAT_ENEMIES_KILLED_PLAYER] >= c->value;
 	}
 }
 
@@ -177,24 +177,24 @@ static void updateDisabledChallenge(Challenge *c)
 {
 	if (!c->passed)
 	{
-		c->passed = battle.stats[STAT_ENEMIES_DISABLED] >= c->targetValue;
+		c->passed = battle.stats[STAT_ENEMIES_DISABLED] >= c->value;
 	}
 }
 
 char *getChallengeDescription(Challenge *c)
 {
-	return getFormattedChallengeDescription(challengeDescription[c->type], c->targetValue);
+	return getFormattedChallengeDescription(challengeDescription[c->type], c->value);
 }
 
-Challenge *getChallenge(Mission *mission, int type)
+Challenge *getChallenge(Mission *mission, int type, int value)
 {
-	Challenge *challenge;
+	Challenge *c;
 	
-	for (challenge = mission->challengeHead.next ; challenge != NULL ; challenge = challenge->next)
+	for (c = mission->challengeHead.next ; c != NULL ; c = c->next)
 	{
-		if (challenge->type == type)
+		if (c->type == type && c->value == value)
 		{
-			return challenge;
+			return c;
 		}
 	}
 	

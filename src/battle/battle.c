@@ -249,7 +249,7 @@ static void drawMenu(void)
 
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
 	SDL_RenderFillRect(app.renderer, &r);
-	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
+	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawRect(app.renderer, &r);
 
 	drawWidgets("inBattle");
@@ -305,7 +305,14 @@ static void continueGame(void)
 
 	destroyBattle();
 
-	initGalacticMap();
+	if (!battle.isChallenge)
+	{
+		initGalacticMap();
+	}
+	else
+	{
+		initChallengeHome();
+	}
 }
 
 static void options(void)
@@ -339,7 +346,14 @@ static void quitBattle(void)
 
 	destroyBattle();
 
-	initGalacticMap();
+	if (!battle.isChallenge)
+	{
+		initGalacticMap();
+	}
+	else
+	{
+		initChallengeHome();
+	}
 }
 
 static void postBattle(void)
@@ -354,11 +368,13 @@ static void postBattle(void)
 		}
 	}
 
-	if (game.currentMission && !game.currentMission->completed)
+	if (!battle.isChallenge)
 	{
-		game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
+		if (game.currentMission && !game.currentMission->completed)
+		{
+			game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
+		}
 	}
-
 }
 
 void destroyBattle(void)

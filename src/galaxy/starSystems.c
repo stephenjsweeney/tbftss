@@ -68,7 +68,6 @@ static StarSystem *loadStarSystem(cJSON *starSystemJSON)
 	}
 	
 	starSystem->missionHead.completed = 1;
-	starSystem->missionTail = &starSystem->missionHead;
 	
 	loadMissions(starSystem);
 	
@@ -84,6 +83,9 @@ static void loadMissions(StarSystem *starSystem)
 	char name[MAX_NAME_LENGTH];
 	char path[MAX_FILENAME_LENGTH];
 	char **filenames;
+	Mission *mission, *tail;
+	
+	tail = &starSystem->missionHead;
 	
 	STRNCPY(name, starSystem->name, MAX_NAME_LENGTH);
 	
@@ -100,7 +102,9 @@ static void loadMissions(StarSystem *starSystem)
 	{
 		sprintf(path, "data/missions/%s/%s", name, filenames[i]);
 		
-		loadMissionMeta(path);
+		mission = loadMissionMeta(path);
+		tail->next = mission;
+		tail = mission;
 		
 		free(filenames[i]);
 	}

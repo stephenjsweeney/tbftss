@@ -81,7 +81,7 @@ void initTitle(void)
 	
 	endSectionTransition();
 	
-	SDL_WarpMouseInWindow(app.window, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 100);
+	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 	
 	playMusic("music/Rise of spirit.ogg");
 }
@@ -199,20 +199,12 @@ static void handleKeyboard(void)
 
 static void campaign(void)
 {
-	if (fileExists(getSaveFilePath("game.save")))
-	{
-		loadGame();
-	}
-	else
-	{
-		resetGame();
-	}
-	
 	initGalacticMap();
 }
 
 static void challenges(void)
 {
+	initChallengeHome();
 }
 
 static void options(void)

@@ -81,6 +81,7 @@ extern void drawLocations(void);
 extern void destroyDebris(void);
 extern void destroyBullets(void);
 extern void destroyEffects(void);
+extern void initChallengeHome(void);
 
 extern App app;
 extern Battle battle;

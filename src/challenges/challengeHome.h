@@ -20,37 +20,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define NUM_FIGHTERS 12
+#define MAX_ITEMS	21
 
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern SDL_Texture *getTexture(const char *filename);
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
-extern void blit(SDL_Texture *t, int x, int y, int centered);
 extern void stopMusic(void);
+extern void initBattle(void);
+extern void loadMission(char *filename);
+extern void setMouse(int x, int y);
 extern void doStars(float dx, float dy);
 extern void drawStars(void);
+extern void doWidgets(void);
+extern SDL_Texture *getTexture(const char *filename);
 extern void drawBackground(SDL_Texture *texture);
 extern void initBackground(void);
 extern void scrollBackground(float x, float y);
-extern void addEngineEffect(void);
-extern void doEffects(void);
-extern void drawEffects(void);
+extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void drawWidgets(char *groupName);
-extern void doWidgets(void);
+extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern Widget *getWidget(const char *name, const char *group);
-extern void selectWidget(const char *name, const char *group);
-extern void initGalacticMap(void);
-extern void initOptions(void (*returnFromOptions)(void));
-extern void drawOptions(void);
-extern void playMusic(char *filename);
-extern void destroyBattle(void);
-extern void playSound(int id);
-extern void initEffects(void);
-extern void setMouse(int x, int y);
-extern void initChallengeHome(void);
+extern void saveGame(void);
 
 extern App app;
 extern Battle battle;
 extern Colors colors;
-extern Entity *self;
+extern Game game;

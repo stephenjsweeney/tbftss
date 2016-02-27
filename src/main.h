@@ -41,6 +41,9 @@ extern void prepareScene(void);
 extern void presentScene(void);
 extern void doModalDialog(void);
 extern void drawModalDialog(void);
+extern void loadGame(void);
+extern int fileExists(char *filename);
+extern char *getSaveFilePath(char *filename);
 
 App app;
 Colors colors;

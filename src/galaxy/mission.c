@@ -84,7 +84,7 @@ Mission *loadMissionMeta(char *filename)
 			memset(challenge, 0, sizeof(Challenge));
 			
 			challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			challenge->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
+			challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
 			
 			challengeTail->next = challenge;
 			challengeTail = challenge;
@@ -817,6 +817,7 @@ Mission *getMission(char *filename)
 	StarSystem *starSystem;
 	Mission *mission;
 	
+	/* First, search the star systems */
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
@@ -827,6 +828,17 @@ Mission *getMission(char *filename)
 			}
 		}
 	}
+	
+	/* now search the challenges */
+	for (mission = game.challengeMissionHead.next ; mission != NULL ; mission = mission->next)
+	{
+		if (strcmp(mission->filename, filename) == 0)
+		{
+			return mission;
+		}
+	}
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "No such mission '%s'", filename);
 	
 	return NULL;
 }

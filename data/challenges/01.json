@@ -23,15 +23,15 @@
 	"challenges" : [
 		{
 			"type" : "CHALLENGE_TIME",
-			"targetValue" : 10
+			"value" : 20
 		},
 		{
 			"type" : "CHALLENGE_TIME",
-			"targetValue" : 15
+			"value" : 15
 		},
 		{
 			"type" : "CHALLENGE_TIME",
-			"targetValue" : 20
+			"value" : 10
 		}
 	],
 	"fighters" : [

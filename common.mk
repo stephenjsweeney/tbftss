@@ -1,7 +1,7 @@
 VERSION = 0.6
 REVISION = $(shell date +"%y%m%d")
 
-SEARCHPATH += src/ src/battle src/draw src/game src/galaxy src/json src/system src/test
+SEARCHPATH += src/ src/battle src/challenges src/draw src/game src/galaxy src/json src/system src/test
 vpath %.c $(SEARCHPATH)
 vpath %.h $(SEARCHPATH)
 
@@ -9,7 +9,7 @@ DEPS += defs.h structs.h
 
 OBJS += ai.o
 OBJS += battle.o bullets.o
-OBJS += capitalShips.o challenges.o cJSON.o
+OBJS += capitalShips.o challengeHome.o challenges.o cJSON.o
 OBJS += debris.o dev.o draw.o
 OBJS += effects.o entities.o extractionPoint.o
 OBJS += fighters.o

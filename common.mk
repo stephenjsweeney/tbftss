@@ -1,5 +1,6 @@
 VERSION = 0.6
 REVISION = $(shell date +"%y%m%d")
+LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
 SEARCHPATH += src/ src/battle src/challenges src/draw src/game src/galaxy src/json src/system src/test
 vpath %.c $(SEARCHPATH)
@@ -28,12 +29,15 @@ OBJS += util.o
 OBJS += waypoints.o widgets.o
 
 # top-level rule to create the program.
-all: $(PROG)
+all: $(PROG) $(LOCALE_MO)
 
 # compiling other source files.
 %.o: %.c %.h $(DEPS)
 	$(CC) $(CFLAGS) $(CXXFLAGS) -c $<
 	
+%.mo: %.po
+	msgfmt -c -o $@ $<
+	
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	$(RM) $(OBJS) $(PROG)
+	$(RM) $(OBJS) $(PROG) $(LOCALE_MO)

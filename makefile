@@ -30,9 +30,20 @@ install:
 	cp -r music $(DATA_DIR)
 	cp -r sound $(DATA_DIR)
 	
+	@for f in $(LOCALE_MO); do \
+		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
+		mkdir -p $(LOCALE_DIR)/$$lang/LC_MESSAGES; \
+		cp -v $$f $(LOCALE_DIR)/$$lang/LC_MESSAGES/$(PROG).mo; \
+	done
+	
 uninstall:
 	$(RM) $(BIN_DIR)/$(PROG)
 	$(RM) -rf $(DATA_DIR)
+	
+	@for f in $(LOCALE_MO); do \
+		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
+		$(RM) -v $(LOCALE_DIR)/$$lang/LC_MESSAGES/$(PROG).mo; \
+	done
 
 # prepare an archive for the program
 dist:

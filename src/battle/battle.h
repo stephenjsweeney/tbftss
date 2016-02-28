@@ -39,6 +39,7 @@ extern void drawHud(void);
 extern void drawEffects(void);
 extern void doEffects(void);
 extern void doObjectives(void);
+extern void doChallenges(void);
 extern void blitScaled(SDL_Texture *texture, int x, int y, int w, int h);
 extern void initHud(void);
 extern void initRadar(void);

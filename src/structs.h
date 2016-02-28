@@ -250,11 +250,11 @@ struct Mission {
 	char craft[MAX_NAME_LENGTH];
 	int available;
 	int completed;
-	int epic;
 	int completedChallenges;
 	int totalChallenges;
-	SDL_Rect rect;
+	int epic;
 	Challenge challengeHead;
+	SDL_Rect rect;
 	Mission *next;
 };
 
@@ -283,14 +283,21 @@ struct Quadtree {
 };
 
 typedef struct {
+	int isChallenge;
+	int timeLimit;
+	int killLimit;
+	int lossLimit;
+	int itemLimit;
+} ChallengeData;
+
+typedef struct {
 	int entId;
 	SDL_Point camera;
 	int numAllies;
 	int numEnemies;
 	int numInitialEnemies;
 	int status;
-	int epic;
-	int isChallenge;
+	int isEpic;
 	int epicFighterLimit;
 	int playerSelect;
 	int manualComplete;
@@ -314,6 +321,7 @@ typedef struct {
 	Location locationHead, *locationTail;
 	struct cJSON *missionJSON;
 	unsigned int stats[STAT_MAX];
+	ChallengeData challengeData;
 	Quadtree quadtree;
 } Battle;
 

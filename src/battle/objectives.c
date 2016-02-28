@@ -64,8 +64,6 @@ void doObjectives(void)
 		if (!battle.manualComplete && numHiddenObjectives == 0 && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
 		{
 			completeMission();
-			
-			updateChallenges();
 		}
 		
 		if (objectiveFailed)

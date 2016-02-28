@@ -102,11 +102,11 @@ static void logic(void)
 
 		if (show == SHOW_BATTLE)
 		{
-			if (!battle.epic || (battle.epic && !battle.playerSelect))
+			if (!battle.isEpic || (battle.isEpic && !battle.playerSelect))
 			{
 				doBattle();
 			}
-			else if (battle.epic && battle.playerSelect)
+			else if (battle.isEpic && battle.playerSelect)
 			{
 				doPlayerSelect();
 			}
@@ -134,6 +134,8 @@ static void doBattle(void)
 	battle.planet.y -= ssy * 0.05;
 	
 	doObjectives();
+	
+	doChallenges();
 
 	doHud();
 
@@ -303,7 +305,7 @@ static void continueGame(void)
 
 	destroyBattle();
 
-	if (!battle.isChallenge)
+	if (!battle.challengeData.isChallenge)
 	{
 		initGalacticMap();
 	}
@@ -344,7 +346,7 @@ static void quitBattle(void)
 
 	destroyBattle();
 
-	if (!battle.isChallenge)
+	if (!battle.challengeData.isChallenge)
 	{
 		initGalacticMap();
 	}
@@ -366,7 +368,7 @@ static void postBattle(void)
 		}
 	}
 
-	if (!battle.isChallenge)
+	if (!battle.challengeData.isChallenge)
 	{
 		if (game.currentMission && !game.currentMission->completed)
 		{

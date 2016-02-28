@@ -26,6 +26,7 @@ extern SDL_Texture *getTexture(char *filename);
 extern char *getChallengeDescription(Challenge *c);
 extern void drawWidgets(char *groupName);
 extern char *getTranslatedString(char *string);
+extern char *timeToString(long millis, int showHours);
 
 extern App app;
 extern Battle battle;

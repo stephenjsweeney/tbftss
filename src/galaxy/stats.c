@@ -74,9 +74,8 @@ void initStatsDisplay(void)
 
 void drawStats(void)
 {
-	int i, y, hours, minutes, seconds, startIndex;
+	int i, y, startIndex;
 	SDL_Rect r;
-	char timePlayed[MAX_NAME_LENGTH];
 	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -111,15 +110,8 @@ void drawStats(void)
 		}
 	}
 	
-	seconds = game.stats[STAT_TIME] / FPS;
-	minutes = (seconds / 60) % 60;
-	hours = seconds / (60 * 60);
-	
-	seconds %= 60;
-	
-	sprintf(timePlayed, "%dh:%02dm:%02ds", hours, minutes, seconds);
 	drawText(r.x + 20, 565, 18, TA_LEFT, colors.white, _("Time Played"));
-	drawText(r.x + r.w - 20, 565, 18, TA_RIGHT, colors.white, timePlayed);
+	drawText(r.x + r.w - 20, 565, 18, TA_RIGHT, colors.white, timeToString(game.stats[STAT_TIME], 1));
 		
 	drawWidgets("stats");	
 }

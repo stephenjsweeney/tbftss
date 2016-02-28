@@ -72,3 +72,26 @@ void getSlope(int x1, int y1, int x2, int y2, float *dx, float *dy)
 	*dy = (y1 - y2);
 	*dy /= steps;
 }
+
+char *timeToString(long millis, int showHours)
+{
+	static char TIME[MAX_NAME_LENGTH];
+	
+	int hours, minutes, seconds;
+	
+	seconds = millis / FPS;
+	minutes = (seconds / 60) % 60;
+	hours = seconds / (60 * 60);
+	seconds %= 60;
+	
+	if (showHours)
+	{
+		sprintf(TIME, "%dh:%02dm:%02ds", hours, minutes, seconds);
+	}
+	else
+	{
+		sprintf(TIME, "%dm %02ds", minutes, seconds);
+	}
+			
+	return TIME;
+}

@@ -26,6 +26,9 @@ static void updateArmourChallenge(Challenge *c);
 static void updateLossesChallenge(Challenge *c);
 static void updatePlayerKillsChallenge(Challenge *c);
 static void updateDisabledChallenge(Challenge *c);
+static void completeChallenge(void);
+static void failChallenge(void);
+static void updateChallenges(void);
 static char *getFormattedChallengeDescription(const char *format, ...);
 char *getChallengeDescription(Challenge *c);
 
@@ -68,7 +71,28 @@ void initChallenges(void)
 	free(filenames);
 }
 
-void updateChallenges(void)
+void doChallenges(void)
+{
+	if (battle.challengeData.isChallenge && battle.status == MS_IN_PROGRESS)
+	{
+		if (battle.challengeData.timeLimit > 0 && battle.stats[STAT_TIME] / FPS >= battle.challengeData.timeLimit)
+		{
+			failChallenge();
+		}
+		
+		if (battle.challengeData.killLimit > 0 && battle.stats[STAT_ENEMIES_KILLED_PLAYER] >= battle.challengeData.killLimit)
+		{
+			completeChallenge();
+		}
+		
+		if (battle.status != MS_IN_PROGRESS)
+		{
+			updateChallenges();
+		}
+	}
+}
+
+static void updateChallenges(void)
 {
 	Challenge *c;
 	
@@ -212,4 +236,38 @@ static char *getFormattedChallengeDescription(const char *format, ...)
 	va_end(args);
 	
 	return descriptionBuffer;
+}
+
+static void completeChallenge(void)
+{
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		battle.status = MS_COMPLETE;
+		battle.missionFinishedTimer = FPS;
+		selectWidget("continue", "battleWon");
+		
+		game.stats[STAT_CHALLENGES_COMPLETED]++;
+		
+		retreatAllies();
+		
+		retreatEnemies();
+		
+		player->flags |= EF_IMMORTAL;
+	}
+}
+
+static void failChallenge(void)
+{
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		battle.status = MS_FAILED;
+		battle.missionFinishedTimer = FPS;
+		selectWidget("retry", "battleLost");
+		
+		retreatAllies();
+		
+		retreatEnemies();
+		
+		player->flags |= EF_IMMORTAL;
+	}
 }

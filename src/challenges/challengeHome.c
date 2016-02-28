@@ -177,6 +177,11 @@ static void drawChallenges(void)
 		
 		i++;
 	}
+	
+	if (game.currentMission)
+	{
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 130, 24, TA_CENTER, colors.white, game.currentMission->description);
+	}
 }
 
 static void handleKeyboard(void)

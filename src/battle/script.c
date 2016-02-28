@@ -167,12 +167,12 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "RETREAT_ALLIES") == 0)
 	{
-		battle.epic = 0;
+		battle.isEpic = 0;
 		retreatAllies();
 	}
 	else if (strcmp(command, "RETREAT_ENEMIES") == 0)
 	{
-		battle.epic = 0;
+		battle.isEpic = 0;
 		retreatEnemies();
 	}
 	else

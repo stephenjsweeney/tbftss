@@ -114,7 +114,7 @@ void doPlayer(void)
 		
 		if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
 		{
-			if (!battle.epic)
+			if (!battle.isEpic)
 			{
 				failMission();
 			}
@@ -326,7 +326,7 @@ void initPlayerSelect(void)
 	}
 	else
 	{
-		battle.epic = 0;
+		battle.isEpic = 0;
 		
 		failMission();
 	}

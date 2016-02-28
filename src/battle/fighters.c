@@ -283,7 +283,7 @@ void doFighter(void)
 					if (strcmp(self->name, "Civilian") == 0)
 					{
 						battle.stats[STAT_CIVILIANS_KILLED]++;
-						if (!battle.epic)
+						if (!battle.isEpic)
 						{
 							addHudMessage(colors.red, "Civilian has been killed");
 						}
@@ -291,7 +291,7 @@ void doFighter(void)
 					else
 					{
 						battle.stats[STAT_ALLIES_KILLED]++;
-						if (!battle.epic)
+						if (!battle.isEpic)
 						{
 							addHudMessage(colors.red, "Ally has been killed");
 						}
@@ -483,7 +483,7 @@ static void die(void)
 			break;
 	}
 	
-	if (self == player && battle.epic)
+	if (self == player && battle.isEpic)
 	{
 		n = 1;
 	}

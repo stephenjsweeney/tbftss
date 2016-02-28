@@ -180,7 +180,7 @@ void doEntities(void)
 				{
 					player = NULL;
 					
-					battle.playerSelect = battle.epic;
+					battle.playerSelect = battle.isEpic;
 				}
 				
 				cutRope(e);
@@ -221,10 +221,10 @@ void doEntities(void)
 		prev = e;
 	}
 	
-	battle.numAllies = (battle.epic) ? numAllies : numActiveAllies;
-	battle.numEnemies = (battle.epic) ? numEnemies : numActiveEnemies;
+	battle.numAllies = (battle.isEpic) ? numAllies : numActiveAllies;
+	battle.numEnemies = (battle.isEpic) ? numEnemies : numActiveEnemies;
 	
-	if (battle.epic && battle.stats[STAT_TIME] % FPS == 0)
+	if (battle.isEpic && battle.stats[STAT_TIME] % FPS == 0)
 	{
 		if (numAllies > battle.epicFighterLimit)
 		{

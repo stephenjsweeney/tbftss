@@ -394,13 +394,20 @@ static void drawNumFighters(void)
 
 static void drawObjectives(void)
 {
-	if (!battle.isChallenge)
+	if (!battle.challengeData.isChallenge)
 	{
 		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, battle.numObjectivesTotal);
 	}
 	else
 	{
-		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d.%02d", battle.stats[STAT_TIME] / FPS, battle.stats[STAT_TIME] % 100);
+		if (battle.challengeData.timeLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(battle.challengeData.timeLimit - battle.stats[STAT_TIME], 0));
+		}
+		else
+		{
+			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(battle.stats[STAT_TIME], 0));
+		}
 	}
 }
 

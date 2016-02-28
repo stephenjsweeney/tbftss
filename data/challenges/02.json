@@ -13,19 +13,23 @@
 		"y" : 25
 	},
 	"challenge" : {
-		"timeLimit" : 30,
-		"killLimit" : 3,
+		"timeLimit" : 20,
+		"killLimit" : 5,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_TIME",
 				"value" : 30
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 15
 			}
 		]
 	},
 	"fighters" : [
 		{
 			"name" : "Dart",
-			"types" : "SimpleDart",
+			"types" : "Dart",
 			"side" : "SIDE_PIRATE",
 			"x" : 25,
 			"y" : 22,

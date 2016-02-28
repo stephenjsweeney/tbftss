@@ -94,7 +94,10 @@ static void loadChallenges(cJSON *missionsJSON)
 				
 				challenge = getChallenge(mission, type, value);
 				
-				challenge->passed = cJSON_GetObjectItem(challengeJSON, "passed")->valueint;
+				if (challenge)
+				{
+					challenge->passed = cJSON_GetObjectItem(challengeJSON, "passed")->valueint;
+				}
 			}
 		}
 	}

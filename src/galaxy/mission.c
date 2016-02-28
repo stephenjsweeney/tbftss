@@ -30,6 +30,7 @@ static void loadLocations(cJSON *node);
 static unsigned long hashcode(const char *str);
 static char **toTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
+static void loadChallengeData(cJSON *node);
 
 Mission *loadMissionMeta(char *filename)
 {
@@ -72,24 +73,29 @@ Mission *loadMissionMeta(char *filename)
 	
 	challengeTail = &mission->challengeHead;
 	
-	node = cJSON_GetObjectItem(root, "challenges");
+	node = cJSON_GetObjectItem(root, "challenge");
 	
 	if (node)
 	{
-		node = node->child;
+		node = cJSON_GetObjectItem(node, "challenges");
 		
-		while (node)
+		if (node)
 		{
-			challenge = malloc(sizeof(Challenge));
-			memset(challenge, 0, sizeof(Challenge));
+			node = node->child;
 			
-			challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
-			
-			challengeTail->next = challenge;
-			challengeTail = challenge;
-			
-			node = node->next;
+			while (node)
+			{
+				challenge = malloc(sizeof(Challenge));
+				memset(challenge, 0, sizeof(Challenge));
+				
+				challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+				challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
+				
+				challengeTail->next = challenge;
+				challengeTail = challenge;
+				
+				node = node->next;
+			}
 		}
 	}
 	
@@ -147,6 +153,11 @@ void loadMission(char *filename)
 		loadEpicData(cJSON_GetObjectItem(root, "epic"));
 	}
 	
+	if (cJSON_GetObjectItem(root, "challenge"))
+	{
+		loadChallengeData(cJSON_GetObjectItem(root, "challenge"));
+	}
+	
 	if (cJSON_GetObjectItem(root, "manualComplete"))
 	{
 		battle.manualComplete = cJSON_GetObjectItem(root, "manualComplete")->valueint;
@@ -165,10 +176,14 @@ void loadMission(char *filename)
 	
 	endSectionTransition();
 	
-	/* only increment num missions started if there are objectives (Free Flight excluded, for example) */
+	/* only increment num missions / challenges started if there are some (Free Flight excluded, for example) */
 	if (battle.objectiveHead.next)
 	{
 		game.stats[STAT_MISSIONS_STARTED]++;
+	}
+	else if (battle.challengeData.isChallenge)
+	{
+		game.stats[STAT_CHALLENGES_STARTED]++;
 	}
 	else 
 	{
@@ -180,8 +195,6 @@ void loadMission(char *filename)
 	countNumEnemies();
 	
 	initPlayer();
-	
-	battle.isChallenge = game.currentMission->challengeHead.next != NULL;
 	
 	initMissionInfo();
 	
@@ -801,7 +814,7 @@ static void loadEpicData(cJSON *node)
 	int numFighters[SIDE_MAX];
 	memset(numFighters, 0, sizeof(int) * SIDE_MAX);
 	
-	battle.epic = 1;
+	battle.isEpic = 1;
 	
 	battle.epicFighterLimit = cJSON_GetObjectItem(node, "fighterLimit")->valueint;
 	
@@ -812,6 +825,13 @@ static void loadEpicData(cJSON *node)
 			e->active = 0;
 		}
 	}
+}
+
+static void loadChallengeData(cJSON *node)
+{
+	battle.challengeData.isChallenge = 1;
+	battle.challengeData.timeLimit = cJSON_GetObjectItem(node, "timeLimit")->valueint * FPS;
+	battle.challengeData.killLimit = cJSON_GetObjectItem(node, "killLimit")->valueint;
 }
 
 Mission *getMission(char *filename)

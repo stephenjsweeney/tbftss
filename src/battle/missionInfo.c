@@ -21,6 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "missionInfo.h"
 
 static void drawMissionSummary(SDL_Texture *title);
+static void drawObjectives(void);
+static void drawChallenges(void);
 
 static SDL_Texture *missionStartTexture;
 static SDL_Texture *missionInProgressTexture;
@@ -30,10 +32,10 @@ static const char *objectiveStatus[] = {"Incomplete", "Complete", "Failed", "Con
 
 void initMissionInfo(void)
 {
-	missionStartTexture = !battle.isChallenge ? getTexture("gfx/battle/missionStart.png") : getTexture("gfx/battle/challengeStart.png");
-	missionInProgressTexture = !battle.isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
-	missionCompleteTexture = !battle.isChallenge ? getTexture("gfx/battle/missionComplete.png") : getTexture("gfx/battle/challengeComplete.png");
-	missionFailedTexture = !battle.isChallenge ? getTexture("gfx/battle/missionFailed.png") : getTexture("gfx/battle/challengeFailed.png");
+	missionStartTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionStart.png") : getTexture("gfx/battle/challengeStart.png");
+	missionInProgressTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
+	missionCompleteTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionComplete.png") : getTexture("gfx/battle/challengeComplete.png");
+	missionFailedTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionFailed.png") : getTexture("gfx/battle/challengeFailed.png");
 }
 
 void drawMissionInfo(void)
@@ -70,12 +72,6 @@ void drawMissionInfo(void)
 
 static void drawMissionSummary(SDL_Texture *header)
 {
-	Objective *o;
-	Challenge *c;
-	int y;
-	SDL_Color color;
-	char *challengeStatus;
-	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
@@ -83,83 +79,107 @@ static void drawMissionSummary(SDL_Texture *header)
 	
 	blit(header, SCREEN_WIDTH / 2, 150, 1);
 	
-	y = 215;
-	
-	if (!battle.isChallenge)
+	if (!battle.challengeData.isChallenge)
 	{
-		drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, _("OBJECTIVES"));
-		
-		y += 10;
-		
-		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
-		{
-			if (o->active)
-			{
-				y += 50;
-				
-				switch (o->status)
-				{
-					case OS_INCOMPLETE:
-						color = colors.white;
-						break;
-						
-					case OS_COMPLETE:
-						color = colors.green;
-						break;
-						
-					case OS_FAILED:
-						color = colors.red;
-						break;
-				}
-				
-				drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
-				if (o->targetValue > 1 && !o->isCondition)
-				{
-					drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
-				}
-				drawText(SCREEN_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
-			}
-		}
-		
-		if (!battle.objectiveHead.next)
-		{
-			y += 50;
-			
-			drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, _("(none)"));
-		}
-		
-		y += 75;
+		drawObjectives();
 	}
-	
-	if (battle.isChallenge)
+	else
 	{
-		drawText(SCREEN_WIDTH / 2, y, 24, TA_CENTER, colors.white, game.currentMission->description);
-		
-		y += 25;
-		
-		for (c = game.currentMission->challengeHead.next ; c != NULL ; c = c->next)
-		{
-			y += 50;
-			
-			color = colors.white;
-			
-			challengeStatus = "Incomplete";
-			
-			if (c->passed)
-			{
-				color = colors.green;
-				
-				challengeStatus = "Complete";
-			}
-			else if (battle.status == MS_COMPLETE ||battle.status == MS_FAILED)
-			{
-				color = colors.red;
-				
-				challengeStatus = "Failed";
-			}
-			
-			drawText(SCREEN_WIDTH / 2 - 50, y, 22, TA_RIGHT, colors.white, "%s", getChallengeDescription(c));
-			drawText(SCREEN_WIDTH / 2 + 50, y, 22, TA_LEFT, color, challengeStatus);
-		}
+		drawChallenges();
 	}
 }
+
+static void drawObjectives(void)
+{
+	Objective *o;
+	SDL_Color color;
+	int y = 215;
+	
+	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, _("OBJECTIVES"));
+		
+	y += 10;
+	
+	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	{
+		if (o->active)
+		{
+			y += 50;
+			
+			switch (o->status)
+			{
+				case OS_INCOMPLETE:
+					color = colors.white;
+					break;
+					
+				case OS_COMPLETE:
+					color = colors.green;
+					break;
+					
+				case OS_FAILED:
+					color = colors.red;
+					break;
+			}
+			
+			drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
+			if (o->targetValue > 1 && !o->isCondition)
+			{
+				drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
+			}
+			drawText(SCREEN_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
+		}
+	}
+	
+	if (!battle.objectiveHead.next)
+	{
+		y += 50;
+		
+		drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, _("(none)"));
+	}
+	
+	y += 75;
+}
+
+static void drawChallenges(void)
+{
+	Challenge *c;
+	char *challengeStatus;
+	SDL_Color color;
+	int y = 215;
+	
+	drawText(SCREEN_WIDTH / 2, y, 24, TA_CENTER, colors.white, game.currentMission->description);
+	
+	if (battle.status == MS_START && battle.challengeData.timeLimit)
+	{
+		y+= 50;
+		
+		drawText(SCREEN_WIDTH / 2, y, 20, TA_CENTER, colors.white, "Time Limit: %s", timeToString(battle.challengeData.timeLimit, 0));
+	}
+		
+	y += 25;
+	
+	for (c = game.currentMission->challengeHead.next ; c != NULL ; c = c->next)
+	{
+		y += 50;
+		
+		color = colors.white;
+		
+		challengeStatus = _("Incomplete");
+		
+		if (c->passed)
+		{
+			color = colors.green;
+			
+			challengeStatus = _("Complete");
+		}
+		else if (battle.status == MS_COMPLETE ||battle.status == MS_FAILED)
+		{
+			color = colors.red;
+			
+			challengeStatus = _("Failed");
+		}
+		
+		drawText(SCREEN_WIDTH / 2 - 50, y, 22, TA_RIGHT, colors.white, "%s", getChallengeDescription(c));
+		drawText(SCREEN_WIDTH / 2 + 50, y, 22, TA_LEFT, color, challengeStatus);
+	}
+}
+

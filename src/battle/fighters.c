@@ -249,7 +249,7 @@ void doFighter(void)
 		
 		if (self->side != SIDE_ALLIES && (!(self->flags & EF_DISABLED)))
 		{
-			addHudMessage(colors.red, "Mission target has escaped.");
+			addHudMessage(colors.red, _("Mission target has escaped."));
 			battle.stats[STAT_ENEMIES_ESCAPED]++;
 		}
 		else if (strcmp(self->defName, "Civilian") == 0)
@@ -285,7 +285,7 @@ void doFighter(void)
 						battle.stats[STAT_CIVILIANS_KILLED]++;
 						if (!battle.isEpic)
 						{
-							addHudMessage(colors.red, "Civilian has been killed");
+							addHudMessage(colors.red, _("Civilian has been killed"));
 						}
 					}
 					else
@@ -293,7 +293,7 @@ void doFighter(void)
 						battle.stats[STAT_ALLIES_KILLED]++;
 						if (!battle.isEpic)
 						{
-							addHudMessage(colors.red, "Ally has been killed");
+							addHudMessage(colors.red, _("Ally has been killed"));
 						}
 						
 						runScriptFunction("ALLIES_KILLED %d", battle.stats[STAT_ALLIES_KILLED]);

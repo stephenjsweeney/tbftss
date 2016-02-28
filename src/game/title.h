@@ -39,7 +39,6 @@ extern void drawEffects(void);
 extern void drawWidgets(char *groupName);
 extern void doWidgets(void);
 extern Widget *getWidget(const char *name, const char *group);
-extern void selectWidget(const char *name, const char *group);
 extern void initGalacticMap(void);
 extern void initOptions(void (*returnFromOptions)(void));
 extern void drawOptions(void);

@@ -49,7 +49,7 @@ void attachRope(void)
 					if (self == player)
 					{
 						battle.stats[STAT_NUM_TOWED]++;
-						addHudMessage(colors.white, "Tow rope attached");
+						addHudMessage(colors.white, _("Tow rope attached"));
 					}
 				}
 			}

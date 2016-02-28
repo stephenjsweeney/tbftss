@@ -157,12 +157,12 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "COMPLETE_MISSION") == 0)
 	{
-		addHudMessage(colors.green, "Mission Complete!");
+		addHudMessage(colors.green, _("Mission Complete!"));
 		completeMission();
 	}
 	else if (strcmp(command, "FAIL_MISSION") == 0)
 	{
-		addHudMessage(colors.red, "Mission Failed!");
+		addHudMessage(colors.red, _("Mission Failed!"));
 		failMission();
 	}
 	else if (strcmp(command, "RETREAT_ALLIES") == 0)

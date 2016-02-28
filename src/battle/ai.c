@@ -529,7 +529,7 @@ static int isRetreating(void)
 				self->aiFlags |= AIF_UNLIMITED_RANGE;
 				self->aiFlags |= AIF_GOAL_EXTRACTION;
 				
-				addHudMessage(colors.red, "%s is retreating!", self->name);
+				addHudMessage(colors.red, _("%s is retreating!"), self->name);
 				
 				return 1;
 			}

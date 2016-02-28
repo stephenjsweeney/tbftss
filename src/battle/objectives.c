@@ -103,7 +103,7 @@ void updateObjective(char *name, int type)
 					
 					o->status = OS_COMPLETE;
 					
-					addHudMessage(colors.green, "%s - Objective Complete!", o->description);
+					addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
 					
 					runScriptFunction(o->description);
 					
@@ -120,7 +120,7 @@ void updateObjective(char *name, int type)
 			{
 				o->status = OS_COMPLETE;
 				
-				addHudMessage(colors.green, "%s - Objective Complete!", o->description);
+				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
 				
 				o->currentValue = o->targetValue;
 				
@@ -144,7 +144,7 @@ void adjustObjectiveTargetValue(char *name, int type, int amount)
 			if (o->currentValue >= o->targetValue)
 			{
 				o->status = OS_COMPLETE;
-				addHudMessage(colors.green, "%s - Objective Complete!", o->description);
+				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
 			}
 		}
 	}
@@ -163,7 +163,7 @@ void updateCondition(char *name, int type)
 			if (o->currentValue == o->targetValue)
 			{
 				o->status = OS_FAILED;
-				addHudMessage(colors.red, "%s - Objective Failed!", o->description);
+				addHudMessage(colors.red, _("%s - Objective Failed!"), o->description);
 			}
 		}
 	}
@@ -209,7 +209,7 @@ void activateObjectives(char *objectives)
 		{
 			if (strcmp(token, o->description) == 0)
 			{
-				addHudMessage(colors.cyan, "New Objective : %s", o->description);
+				addHudMessage(colors.cyan, _("New Objective : %s"), o->description);
 				o->active = 1;
 				
 				if (o->isEliminateAll)

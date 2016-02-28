@@ -45,12 +45,20 @@ static SDL_Texture *ecm;
 static SDL_Texture *boost;
 static SDL_Texture *nextGun;
 static int numMessages;
-static char *gunName[] = {"", "Particle Cannon", "Plasma Cannon", "Laser Cannon", "Mag Cannon", "Rockets", "Missiles"};
+static char *gunName[BT_MAX];
 
 void initHud(void)
 {
 	memset(&hudMessageHead, 0, sizeof(HudMessage));
 	hudMessageTail = &hudMessageHead;
+	
+	gunName[BT_NONE] = "";
+	gunName[BT_PARTICLE] = _("Particle Cannon");
+	gunName[BT_PLASMA] = _("Plasma Cannon");
+	gunName[BT_LASER] = _("Laser Cannon");
+	gunName[BT_MAG] = _("Mag Cannon");
+	gunName[BT_ROCKET] = _("Rockets");
+	gunName[BT_MISSILE] = _("Missiles");
 	
 	targetPointer = getTexture("gfx/hud/targetPointer.png");
 	targetCircle = getTexture("gfx/hud/targetCircle.png");

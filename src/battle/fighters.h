@@ -46,6 +46,7 @@ extern void runScriptFunction(char *format, ...);
 extern char *getFileLocation(char *filename);
 extern void addDebris(int x, int y, int amount);
 extern char **getFileList(char *dir, int *count);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Battle battle;

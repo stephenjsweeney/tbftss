@@ -31,6 +31,7 @@ extern void playBattleSound(int id, int x, int y);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void updateObjective(char *name, int type);
 extern char *getFileLocation(char *filename);
+extern char *getTranslatedString(char *string);
 
 extern Battle battle;
 extern Entity *self;

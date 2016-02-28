@@ -26,6 +26,7 @@ extern void addHudMessage(SDL_Color c, char *format, ...);
 extern Entity *spawnEntity(void);
 extern void updateObjective(char *name, int type);
 extern void runScriptFunction(char *format, ...);
+extern char *getTranslatedString(char *string);
 
 extern Battle battle;
 extern Colors colors;

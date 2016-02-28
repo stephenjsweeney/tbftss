@@ -76,7 +76,7 @@ static int isCurrentObjective(void)
 	
 	if (numActiveObjectives > 1)
 	{
-		addHudMessage(colors.cyan, "Cannot activate waypoint - outstanding objectives not yet complete");
+		addHudMessage(colors.cyan, _("Cannot activate waypoint - outstanding objectives not yet complete"));
 		self->thinkTime = FPS;
 		return 0;
 	}
@@ -94,7 +94,7 @@ static int teamMatesClose(void)
 		{
 			if (getDistance(player->x, player->y, e->x, e->y) > 350)
 			{
-				addHudMessage(colors.cyan, "Cannot activate waypoint - team mates too far away");
+				addHudMessage(colors.cyan, _("Cannot activate waypoint - team mates too far away"));
 				self->thinkTime = FPS;
 				return 0;
 			}

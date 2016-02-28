@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-28 09:55:06+0000\n"
+"POT-Creation-Date: 2016-02-28 13:44:28+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -16,239 +16,335 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../src/battle/ai.c:532
+msgid "%s is retreating!"
+msgstr ""
+
 #: ../src/battle/bullets.c:245
 msgid "WARNING: INCOMING MISSILE!"
 msgstr ""
 
-#: ../src/battle/hud.c:305
-msgid "(None)"
+#: ../src/battle/fighters.c:252
+msgid "Mission target has escaped."
 msgstr ""
 
-#: ../src/battle/hud.c:310
-msgid "(Combined Guns)"
+#: ../src/battle/fighters.c:288
+msgid "Civilian has been killed"
+msgstr ""
+
+#: ../src/battle/fighters.c:296
+msgid "Ally has been killed"
+msgstr ""
+
+#: ../src/battle/hud.c:56
+msgid "Particle Cannon"
+msgstr ""
+
+#: ../src/battle/hud.c:57
+msgid "Plasma Cannon"
+msgstr ""
+
+#: ../src/battle/hud.c:58
+msgid "Laser Cannon"
+msgstr ""
+
+#: ../src/battle/hud.c:59
+msgid "Mag Cannon"
+msgstr ""
+
+#: ../src/battle/hud.c:60
+msgid "Rockets"
+msgstr ""
+
+#: ../src/battle/hud.c:61
+msgid "Missiles"
 msgstr ""
 
 #: ../src/battle/hud.c:313
+msgid "(None)"
+msgstr ""
+
+#: ../src/battle/hud.c:318
+msgid "(Combined Guns)"
+msgstr ""
+
+#: ../src/battle/hud.c:321
 msgid "Missiles (%d)"
 msgstr ""
 
-#: ../src/battle/hud.c:436
+#: ../src/battle/hud.c:451
 msgid "Target: %.2fkm"
 msgstr ""
 
-#: ../src/battle/hud.c:445
+#: ../src/battle/hud.c:460
 msgid "Objective: %.2fkm"
 msgstr ""
 
-#: ../src/battle/hud.c:454
+#: ../src/battle/hud.c:469
 msgid "Extraction Point: %.2fkm"
 msgstr ""
 
-#: ../src/battle/hud.c:484
+#: ../src/battle/hud.c:499
 msgid "SELECT NEW FIGHTER"
 msgstr ""
 
-#: ../src/battle/missionInfo.c:90
+#: ../src/battle/items.c:116
+msgid "Picked up %s"
+msgstr ""
+
+#: ../src/battle/missionInfo.c:35
+msgid "Incomplete"
+msgstr ""
+
+#: ../src/battle/missionInfo.c:36
+msgid "Complete"
+msgstr ""
+
+#: ../src/battle/missionInfo.c:37
+msgid "Failed"
+msgstr ""
+
+#: ../src/battle/missionInfo.c:38
+msgid "Condition"
+msgstr ""
+
+#: ../src/battle/missionInfo.c:103
 msgid "OBJECTIVES"
 msgstr ""
 
-#: ../src/battle/missionInfo.c:128
+#: ../src/battle/missionInfo.c:141
 msgid "(none)"
 msgstr ""
 
-#: ../src/battle/radar.c:127
+#: ../src/battle/missionInfo.c:171
+msgid "%s - Objective Complete!"
+msgstr ""
+
+#: ../src/battle/missionInfo.c:177
+msgid "%s - Objective Failed!"
+msgstr ""
+
+#: ../src/battle/missionInfo.c:183
+msgid "New Objective : %s"
+msgstr ""
+
+#: ../src/battle/objectives.c:106
+msgid "Target not in range"
+msgstr ""
+
+#: ../src/battle/objectives.c:123
 msgid "Caution: Leaving battle area - turn around."
 msgstr ""
 
-#: ../src/galaxy/galacticMap.c:139
+#: ../src/battle/objectives.c:147
+msgid "Tow rope attached"
+msgstr ""
+
+#: ../src/battle/objectives.c:166
+msgid "Mission Complete!"
+msgstr ""
+
+#: ../src/battle/objectives.c:212
+msgid "Mission Failed!"
+msgstr ""
+
+#: ../src/battle/player.c:300
+msgid "Cannot activate waypoint - outstanding objectives not yet complete"
+msgstr ""
+
+#: ../src/battle/radar.c:127
+msgid "Cannot activate waypoint - team mates too far away"
+msgstr ""
+
+#: ../src/battle/rope.c:52
 msgid "%s has fallen to the Pandorans"
 msgstr ""
 
-#: ../src/galaxy/galacticMap.c:491
+#: ../src/battle/script.c:160
 msgid "Missions: %d / %d"
 msgstr ""
 
-#: ../src/galaxy/galacticMap.c:561
+#: ../src/battle/script.c:165
 msgid "Pilot: %s"
 msgstr ""
 
-#: ../src/galaxy/galacticMap.c:562
+#: ../src/battle/waypoints.c:79
 msgid "Craft: %s"
 msgstr ""
 
-#: ../src/galaxy/galacticMap.c:563
+#: ../src/battle/waypoints.c:97
 msgid "Squadron: %s"
 msgstr ""
 
-#: ../src/galaxy/galacticMap.c:572
+#: ../src/galaxy/galacticMap.c:139
 msgid "This mission has been completed."
 msgstr ""
 
-#: ../src/galaxy/galacticMap.c:576
+#: ../src/galaxy/galacticMap.c:491
 msgid "Note: this is an Epic Mission."
 msgstr ""
 
-#: ../src/galaxy/stats.c:96
+#: ../src/galaxy/galacticMap.c:561
 msgid "Stats"
 msgstr ""
 
-#: ../src/galaxy/stats.c:98
+#: ../src/galaxy/galacticMap.c:562
 msgid "Page %d / %d"
 msgstr ""
 
-#: ../src/galaxy/stats.c:121
+#: ../src/galaxy/galacticMap.c:563
 msgid "Time Played"
 msgstr ""
 
-#: ../src/system/options.c:76
+#: ../src/galaxy/galacticMap.c:572
 msgid "Options"
 msgstr ""
 
-#: ../src/system/options.c:84
+#: ../src/galaxy/galacticMap.c:576
 msgid "Note: you must restart the game for window size and fullscreen options to take effect."
 msgstr ""
 
-#: ../data/widgets/battleLost.json
+#: ../src/galaxy/stats.c:95
 msgid "Retry"
 msgstr ""
 
-#: ../data/widgets/battleLost.json
+#: ../src/galaxy/stats.c:97
 msgid "Quit"
 msgstr ""
 
-#: ../data/widgets/battleWon.json
+#: ../src/galaxy/stats.c:113
 msgid "Continue"
 msgstr ""
 
-#: ../data/widgets/battleWon.json
+#: ../src/system/options.c:76
 msgid "Start Challenge Mission"
 msgstr ""
 
-#: ../data/widgets/challenges.json
+#: ../src/system/options.c:84
 msgid "Resume"
 msgstr ""
 
-#: ../data/widgets/galacticMap.json
+#: ../data/widgets/battleLost.json
 msgid "Return to Title"
 msgstr ""
 
-#: ../data/widgets/galacticMap.json
+#: ../data/widgets/battleLost.json
 msgid "OK"
 msgstr ""
 
-#: ../data/widgets/galacticMap.json
+#: ../data/widgets/battleWon.json
 msgid "Restart"
 msgstr ""
 
-#: ../data/widgets/galacticMap.json
+#: ../data/widgets/battleWon.json
 msgid "Cancel"
 msgstr ""
 
-#: ../data/widgets/galacticMap.json
+#: ../data/widgets/challenges.json
 msgid "Window Size"
 msgstr ""
 
-#: ../data/widgets/inBattle.json
+#: ../data/widgets/galacticMap.json
 msgid "Sound Volume"
 msgstr ""
 
-#: ../data/widgets/inBattle.json
+#: ../data/widgets/galacticMap.json
 msgid "Music Volume"
 msgstr ""
 
-#: ../data/widgets/inBattle.json
+#: ../data/widgets/galacticMap.json
 msgid "Fullscreen"
 msgstr ""
 
-#: ../data/widgets/inBattle.json
+#: ../data/widgets/galacticMap.json
 msgid "Start Mission"
 msgstr ""
 
-#: ../data/widgets/modal.json
+#: ../data/widgets/galacticMap.json
 msgid "Campaign"
 msgstr ""
 
-#: ../data/widgets/modal.json
+#: ../data/widgets/inBattle.json
 msgid "Challenges"
 msgstr ""
 
-#: ../data/widgets/modal.json
+#: ../data/widgets/inBattle.json
 msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
 msgstr ""
 
-#: ../data/widgets/options.json
+#: ../data/widgets/inBattle.json
 msgid "Anyone got anything to report?"
 msgstr ""
 
-#: ../data/widgets/options.json
+#: ../data/widgets/inBattle.json
 msgid "You getting paranoid, Curtis?"
 msgstr ""
 
-#: ../data/widgets/options.json
+#: ../data/widgets/modal.json
 msgid "You all saw what happened at Coyote."
 msgstr ""
 
-#: ../data/widgets/options.json
+#: ../data/widgets/modal.json
 msgid "So, those Pandorans are, what, robots?"
 msgstr ""
 
-#: ../data/widgets/options.json
+#: ../data/widgets/modal.json
 msgid "Alien-Human hybrid, I heard."
 msgstr ""
 
-#: ../data/widgets/starSystem.json
+#: ../data/widgets/options.json
 msgid "Hard to kill, whatever they are. Heard they'll still be coming at you even if you take both arms off."
 msgstr ""
 
-#: ../data/widgets/startBattle.json
+#: ../data/widgets/options.json
 msgid "And what'll they do then? Bite you to death?"
 msgstr ""
 
-#: ../data/widgets/stats.json
+#: ../data/widgets/options.json
 msgid "Eyes open, lads"
 msgstr ""
 
-#: ../data/widgets/stats.json
+#: ../data/widgets/options.json
 msgid "We're done. Anyone detect anything unusual?"
 msgstr ""
 
-#: ../data/widgets/stats.json
+#: ../data/widgets/options.json
 msgid "Same old, same old."
 msgstr ""
 
-#: ../data/widgets/title.json
+#: ../data/widgets/starSystem.json
 msgid "Believe me, that's a good thing. Right, let's head home and report in"
 msgstr ""
 
-#: ../data/widgets/title.json
+#: ../data/widgets/startBattle.json
 msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presense is reducing the amount of illegal activity in this sector, with reported incidents down 80%. Still, we cannot afford to become complacent, and must continue with our sweeps."
 msgstr ""
 
-#: ../data/widgets/title.json
+#: ../data/widgets/stats.json
 msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
 msgstr ""
 
-#: ../data/widgets/title.json
+#: ../data/widgets/stats.json
 msgid "Control, enemies have been dispatched. Wasn't a comfortable fight."
 msgstr ""
 
-#: ../data/missions/alba/01 - patrol #1.json
+#: ../data/widgets/stats.json
 msgid "Eightballers, return home immediately, and deliver a full report. Do not leave out a single detail."
 msgstr ""
 
-#: ../data/missions/alba/01 - patrol #1.json
+#: ../data/widgets/title.json
 msgid "Got it. See you soon."
 msgstr ""
 
-#: ../data/missions/alba/01 - patrol #1.json
+#: ../data/widgets/title.json
 msgid "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter."
 msgstr ""
 
-#: ../data/missions/alba/01 - patrol #1.json
+#: ../data/widgets/title.json
 msgid "So, Iliad has fallen?"
 msgstr ""
 
-#: ../data/missions/alba/01 - patrol #1.json
+#: ../data/widgets/title.json
 msgid "From what I've heard."
 msgstr ""
 
@@ -280,23 +376,23 @@ msgstr ""
 msgid "And even those who don't."
 msgstr ""
 
-#: ../data/missions/alba/02 - patrol #2.json
+#: ../data/missions/alba/01 - patrol #1.json
 msgid "...and move on."
 msgstr ""
 
-#: ../data/missions/alba/02 - patrol #2.json
+#: ../data/missions/alba/01 - patrol #1.json
 msgid "You're quiet, Wade."
 msgstr ""
 
-#: ../data/missions/alba/02 - patrol #2.json
+#: ../data/missions/alba/01 - patrol #1.json
 msgid "Just thinking."
 msgstr ""
 
-#: ../data/missions/alba/02 - patrol #2.json
+#: ../data/missions/alba/01 - patrol #1.json
 msgid "What about?"
 msgstr ""
 
-#: ../data/missions/alba/02 - patrol #2.json
+#: ../data/missions/alba/01 - patrol #1.json
 msgid "How long it'll be before the Pandorans show up here."
 msgstr ""
 
@@ -304,23 +400,23 @@ msgstr ""
 msgid "They came by earlier, in case you don't remember."
 msgstr ""
 
-#: ../data/missions/alba/03 - patrol #3.json
+#: ../data/missions/alba/02 - patrol #2.json
 msgid "And haven't been back since. Maybe we scared them off."
 msgstr ""
 
-#: ../data/missions/alba/03 - patrol #3.json
+#: ../data/missions/alba/02 - patrol #2.json
 msgid "I doubt it, guys. They were probably just scouting."
 msgstr ""
 
-#: ../data/missions/alba/03 - patrol #3.json
+#: ../data/missions/alba/02 - patrol #2.json
 msgid "Where the hell are the CSN? Why weren't they at Iliad?"
 msgstr ""
 
-#: ../data/missions/alba/03 - patrol #3.json
+#: ../data/missions/alba/02 - patrol #2.json
 msgid "They weren't wanted, apparently. Iliad and the UNF aren't getting along so well at the moment."
 msgstr ""
 
-#: ../data/missions/alba/03 - patrol #3.json
+#: ../data/missions/alba/02 - patrol #2.json
 msgid "Something to do with Adrian Parsons?"
 msgstr ""
 
@@ -448,27 +544,27 @@ msgstr ""
 msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
 msgstr ""
 
-#: ../data/missions/clarke/01 - clarke defence #1.json
+#: ../data/missions/alba/03 - patrol #3.json
 msgid "All fighters, this is Commander de Winter. Enemy targets sighted, engage at will."
 msgstr ""
 
-#: ../data/missions/clarke/02 - clarke defence #2.json
+#: ../data/missions/alba/03 - patrol #3.json
 msgid "More enemies inbound."
 msgstr ""
 
-#: ../data/missions/clarke/02 - clarke defence #2.json
+#: ../data/missions/alba/03 - patrol #3.json
 msgid "Man, I've got to get me one of those!"
 msgstr ""
 
-#: ../data/missions/clarke/02 - clarke defence #2.json
+#: ../data/missions/alba/03 - patrol #3.json
 msgid "What the hell are those things you're flying?"
 msgstr ""
 
-#: ../data/missions/clarke/02 - clarke defence #2.json
+#: ../data/missions/alba/03 - patrol #3.json
 msgid "An ATAF. Stands for Advanced Tactical Assault Fighter."
 msgstr ""
 
-#: ../data/missions/clarke/02 - clarke defence #2.json
+#: ../data/missions/clarke/01 - clarke defence #1.json
 msgid "The CSN rolling those out to everyone?"
 msgstr ""
 
@@ -488,23 +584,23 @@ msgstr ""
 msgid "Griffin, this is de Winter. All targets destroyed."
 msgstr ""
 
-#: ../data/missions/clarke/03 - clarke defence #3.json
+#: ../data/missions/clarke/02 - clarke defence #2.json
 msgid "Acknowledged, Commander. Stand by for new orders."
 msgstr ""
 
-#: ../data/missions/clarke/03 - clarke defence #3.json
+#: ../data/missions/clarke/02 - clarke defence #2.json
 msgid "The initial fight back against the Pandoran has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system."
 msgstr ""
 
-#: ../data/missions/clarke/03 - clarke defence #3.json
+#: ../data/missions/clarke/02 - clarke defence #2.json
 msgid "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space."
 msgstr ""
 
-#: ../data/missions/clarke/03 - clarke defence #3.json
+#: ../data/missions/clarke/02 - clarke defence #2.json
 msgid "We're getting our arses kicked here! Any chance of any backup?!"
 msgstr ""
 
-#: ../data/missions/clarke/03 - clarke defence #3.json
+#: ../data/missions/clarke/02 - clarke defence #2.json
 msgid "The White Knights are here! Finally!"
 msgstr ""
 
@@ -536,23 +632,23 @@ msgstr ""
 msgid "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more."
 msgstr ""
 
-#: ../data/missions/coyote/01 - coyote assault #1.json
+#: ../data/missions/clarke/03 - clarke defence #3.json
 msgid "Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up."
 msgstr ""
 
-#: ../data/missions/coyote/01 - coyote assault #1.json
+#: ../data/missions/clarke/03 - clarke defence #3.json
 msgid "Got it. Heading to the first one now"
 msgstr ""
 
-#: ../data/missions/coyote/01 - coyote assault #1.json
+#: ../data/missions/clarke/03 - clarke defence #3.json
 msgid "Iron Patriots, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location."
 msgstr ""
 
-#: ../data/missions/coyote/01 - coyote assault #1.json
+#: ../data/missions/clarke/03 - clarke defence #3.json
 msgid "Know anything about the occupant, or affiliation?"
 msgstr ""
 
-#: ../data/missions/coyote/01 - coyote assault #1.json
+#: ../data/missions/clarke/03 - clarke defence #3.json
 msgid "Negative, Lieutenant. We'll know more once it's brought in."
 msgstr ""
 
@@ -584,27 +680,27 @@ msgstr ""
 msgid "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Nation of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence."
 msgstr ""
 
-#: ../data/missions/coyote/02 - coyote assault #2.json
+#: ../data/missions/coyote/01 - coyote assault #1.json
 msgid "Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies."
 msgstr ""
 
-#: ../data/missions/coyote/03 - coyote assault #3.json
+#: ../data/missions/coyote/01 - coyote assault #1.json
 msgid "Pirates? Insurgents? Nation of Tzac?"
 msgstr ""
 
-#: ../data/missions/coyote/03 - coyote assault #3.json
+#: ../data/missions/coyote/01 - coyote assault #1.json
 msgid "Too early to speculate. We want you to disable and bring in one craft from each side. The rest, you can eliminate."
 msgstr ""
 
-#: ../data/missions/coyote/03 - coyote assault #3.json
+#: ../data/missions/coyote/01 - coyote assault #1.json
 msgid "On it."
 msgstr ""
 
-#: ../data/missions/coyote/03 - coyote assault #3.json
+#: ../data/missions/coyote/01 - coyote assault #1.json
 msgid "This is Carr, reporting operation successful. Bagged us two squadron commanders."
 msgstr ""
 
-#: ../data/missions/coyote/03 - coyote assault #3.json
+#: ../data/missions/coyote/02 - coyote assault #2.json
 msgid "Good work, Commander. Dispatching tugs to bring them in."
 msgstr ""
 
@@ -620,31 +716,31 @@ msgstr ""
 msgid "Alexandria: opposition stronger than expected. Requesting reinforcements."
 msgstr ""
 
-#: ../data/missions/granada/01 - suspect packages #1.json
+#: ../data/missions/coyote/03 - coyote assault #3.json
 msgid "Acknowledged. They're on their way."
 msgstr ""
 
-#: ../data/missions/granada/01 - suspect packages #1.json
+#: ../data/missions/coyote/03 - coyote assault #3.json
 msgid "Alexandria: reporting all captain vessels destroyed."
 msgstr ""
 
-#: ../data/missions/granada/02 - suspect packages #2.json
+#: ../data/missions/coyote/03 - coyote assault #3.json
 msgid "Alexandria: sentry cannons eliminated."
 msgstr ""
 
-#: ../data/missions/granada/02 - suspect packages #2.json
+#: ../data/missions/coyote/03 - coyote assault #3.json
 msgid "Alexandria: reporting all enemy fighters destroyed."
 msgstr ""
 
-#: ../data/missions/granada/02 - suspect packages #2.json
+#: ../data/missions/coyote/03 - coyote assault #3.json
 msgid "This is Carr. Reporting threat eliminated, operation successful."
 msgstr ""
 
-#: ../data/missions/granada/02 - suspect packages #2.json
+#: ../data/missions/granada/01 - suspect packages #1.json
 msgid "Excellent work, Commander. We'll get a few frosty ones ready for your return."
 msgstr ""
 
-#: ../data/missions/granada/02 - suspect packages #2.json
+#: ../data/missions/granada/01 - suspect packages #1.json
 msgid "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle."
 msgstr ""
 
@@ -692,23 +788,23 @@ msgstr ""
 msgid "Agamemnon's 1st, we're detecting multiple Pandoran fighters moving in to intercept. Take them down, and protect The Lady Grey and Joan of Arc."
 msgstr ""
 
-#: ../data/missions/granada/03 - suspect packages #3.json
+#: ../data/missions/granada/02 - suspect packages #2.json
 msgid "Agamemnon's 1st, another wing is approaching. Continue to engage, and await your main targets."
 msgstr ""
 
-#: ../data/missions/granada/03 - suspect packages #3.json
+#: ../data/missions/granada/02 - suspect packages #2.json
 msgid "Agamemnon's 1st, INF Astra has just arrived in the area. Engage and destroy."
 msgstr ""
 
-#: ../data/missions/granada/03 - suspect packages #3.json
+#: ../data/missions/granada/02 - suspect packages #2.json
 msgid "Escorts?"
 msgstr ""
 
-#: ../data/missions/granada/03 - suspect packages #3.json
+#: ../data/missions/granada/02 - suspect packages #2.json
 msgid "Four Mitikas fighters."
 msgstr ""
 
-#: ../data/missions/granada/03 - suspect packages #3.json
+#: ../data/missions/granada/02 - suspect packages #2.json
 msgid "Agamemnon's 1st, INF Buster and INF Ragnarok on approach. Determining escort groups ..."
 msgstr ""
 
@@ -740,23 +836,23 @@ msgstr ""
 msgid "Control, this is Williams. Enemy capital ships have been destroyed, along with all other forces."
 msgstr ""
 
-#: ../data/missions/granada/04 - pirate smash.json
+#: ../data/missions/granada/03 - suspect packages #3.json
 msgid "Great work, Williams. Rejoin the main the fleet. The enemies forces are gaining strength and we need all the help we can get."
 msgstr ""
 
-#: ../data/missions/granada/04 - pirate smash.json
+#: ../data/missions/granada/03 - suspect packages #3.json
 msgid "The defence of Iliad is slipping, our forces are being decimated. We have to hit the enemy back, hard. All available fighters are to move into range and engage. If we lose here, Iliad is finished. We are the last line of defence, and we cannot afford to fail."
 msgstr ""
 
-#: ../data/missions/granada/04 - pirate smash.json
+#: ../data/missions/granada/03 - suspect packages #3.json
 msgid "Stay sharp, people. We need to hold the line here!"
 msgstr ""
 
-#: ../data/missions/granada/04 - pirate smash.json
+#: ../data/missions/granada/03 - suspect packages #3.json
 msgid "Oh my God, there's a lot of them ..."
 msgstr ""
 
-#: ../data/missions/granada/04 - pirate smash.json
+#: ../data/missions/granada/03 - suspect packages #3.json
 msgid "Pair up, and take them down together. We stand a much better chance that way."
 msgstr ""
 
@@ -784,43 +880,43 @@ msgstr ""
 msgid "Mister, you remain where you are! We're not abando--"
 msgstr ""
 
-#: ../data/missions/iliad/01 - iliad defence #1.json
+#: ../data/missions/granada/04 - pirate smash.json
 msgid "The wing commander's dead."
 msgstr ""
 
-#: ../data/missions/iliad/01 - iliad defence #1.json
+#: ../data/missions/granada/04 - pirate smash.json
 msgid "We're taking a lot of damage here. Please assist."
 msgstr ""
 
-#: ../data/missions/iliad/01 - iliad defence #1.json
+#: ../data/missions/granada/04 - pirate smash.json
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
 msgstr ""
 
-#: ../data/missions/iliad/01 - iliad defence #1.json
+#: ../data/missions/granada/04 - pirate smash.json
 msgid "Welcome to free flight."
 msgstr ""
 
-#: ../data/missions/iliad/02 - iliad defence #2.json
+#: ../data/missions/granada/04 - pirate smash.json
 msgid "Practice turning, accelerating, and braking."
 msgstr ""
 
-#: ../data/missions/iliad/03 - iliad defence #3.json
+#: ../data/missions/iliad/01 - iliad defence #1.json
 msgid "Don't forget about your Boost, either. That can be a life saver in certain situations."
 msgstr ""
 
-#: ../data/missions/iliad/03 - iliad defence #3.json
+#: ../data/missions/iliad/01 - iliad defence #1.json
 msgid "Practice using your fighter's weapons against a stationary target."
 msgstr ""
 
-#: ../data/missions/iliad/03 - iliad defence #3.json
+#: ../data/missions/iliad/01 - iliad defence #1.json
 msgid "The Dart won't attack you, so when you're ready, you can blow the thing to pieces."
 msgstr ""
 
-#: ../data/missions/iliad/03 - iliad defence #3.json
+#: ../data/missions/iliad/01 - iliad defence #1.json
 msgid "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around."
 msgstr ""
 
-#: ../data/missions/iliad/03 - iliad defence #3.json
+#: ../data/missions/iliad/02 - iliad defence #2.json
 msgid "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge."
 msgstr ""
 
@@ -836,23 +932,23 @@ msgstr ""
 msgid "Switch to your Mag cannons and fire them at the Dart to disable it. Do not fire your plasma cannons or launch any missiles, as these could destroy the target."
 msgstr ""
 
-#: ../data/missions/iliad/04 - iliad defence #4.json
+#: ../data/missions/iliad/03 - iliad defence #3.json
 msgid "Battle along side two team mates to take on 3 enemy fighters."
 msgstr ""
 
-#: ../data/missions/iliad/04 - iliad defence #4.json
+#: ../data/missions/iliad/03 - iliad defence #3.json
 msgid "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand."
 msgstr ""
 
-#: ../data/missions/iliad/04 - iliad defence #4.json
+#: ../data/missions/iliad/03 - iliad defence #3.json
 msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presense at Temper."
 msgstr ""
 
-#: ../data/missions/iliad/04 - iliad defence #4.json
+#: ../data/missions/iliad/03 - iliad defence #3.json
 msgid "Multiple incoming enemy fighters."
 msgstr ""
 
-#: ../data/missions/iliad/04 - iliad defence #4.json
+#: ../data/missions/iliad/03 - iliad defence #3.json
 msgid "Follow my lead. Break and attack at will."
 msgstr ""
 
@@ -916,23 +1012,23 @@ msgstr ""
 msgid "Looks like we touched a nerve. We've got more Darts incoming."
 msgstr ""
 
-#: ../data/missions/iliad/05 - iliad defence #5.json
+#: ../data/missions/iliad/04 - iliad defence #4.json
 msgid "Another group just arrived."
 msgstr ""
 
-#: ../data/missions/iliad/05 - iliad defence #5.json
+#: ../data/missions/iliad/04 - iliad defence #4.json
 msgid "They'll keep lining 'em up, and we'll keep knocking them down."
 msgstr ""
 
-#: ../data/missions/iliad/05 - iliad defence #5.json
+#: ../data/missions/iliad/04 - iliad defence #4.json
 msgid " Another group. That tallies with the numbers we were expecting."
 msgstr ""
 
-#: ../data/missions/iliad/05 - iliad defence #5.json
+#: ../data/missions/iliad/04 - iliad defence #4.json
 msgid " Looks like that was the last of 'em."
 msgstr ""
 
-#: ../data/missions/iliad/05 - iliad defence #5.json
+#: ../data/missions/iliad/04 - iliad defence #4.json
 msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated."
 msgstr ""
 
@@ -960,107 +1056,107 @@ msgstr ""
 msgid "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now."
 msgstr ""
 
-#: ../data/missions/mace/01 - rebel assault #1.json
+#: ../data/missions/iliad/05 - iliad defence #5.json
 msgid "The Pandorans' arrival is imminent, but the evacuation is nearing completion. We need only mop up some of the stragglers. Two of the White Knights will be assisting, before moving on to hit the enemy's supply line. You should concentrate on getting the civilians to safety, and letting the ATAFs do the bulk of the work."
 msgstr ""
 
-#: ../data/missions/sol/01 - free flight.json
+#: ../data/missions/iliad/05 - iliad defence #5.json
 msgid "Enemy craft detected. Pandorans, in both INF and UNF fighters."
 msgstr ""
 
-#: ../data/missions/sol/01 - free flight.json
+#: ../data/missions/iliad/05 - iliad defence #5.json
 msgid "Chaz, you're with me. Wiley, you and your boys get those civilians to the extraction point."
 msgstr ""
 
-#: ../data/missions/sol/01 - free flight.json
+#: ../data/missions/iliad/05 - iliad defence #5.json
 msgid "We've spotted the next group of civilians. Sending you the coordinates."
 msgstr ""
 
-#: ../data/missions/sol/02 - weapons.json
+#: ../data/missions/iliad/05 - iliad defence #5.json
 msgid "Picking up more Pandoran fighters, moving to intercept."
 msgstr ""
 
-#: ../data/missions/sol/02 - weapons.json
+#: ../data/missions/mace/01 - rebel assault #1.json
 msgid "The final civilian group is here."
 msgstr ""
 
-#: ../data/missions/sol/03 - moving target.json
+#: ../data/missions/sol/01 - free flight.json
 msgid "More Pandorans. Keep knocking them down, Chaz. We're almost done."
 msgstr ""
 
-#: ../data/missions/sol/04 - armed target.json
+#: ../data/missions/sol/01 - free flight.json
 msgid "Control, this is Wiley. Civilians have been extracted."
 msgstr ""
 
-#: ../data/missions/sol/05 - ecm.json
+#: ../data/missions/sol/01 - free flight.json
 msgid "Wiley, ensure all enemy forces have been eliminated."
 msgstr ""
 
-#: ../data/missions/sol/06 - mag.json
+#: ../data/missions/sol/02 - weapons.json
 msgid "Control, this is de Winter. All enemy forces have been destroyed."
 msgstr ""
 
-#: ../data/missions/sol/06 - mag.json
+#: ../data/missions/sol/02 - weapons.json
 msgid "Excellent, we're very grateful for the assistance."
 msgstr ""
 
-#: ../data/missions/sol/06 - mag.json
+#: ../data/missions/sol/03 - moving target.json
 msgid "The Pandoran fleet is closing in on Oracle IX, and their capital ships are moving rapidly up the field. We need to hold them back for as long as possible, to give the final evacuees time to escape the system. This will need to be done with fighters along. However, Lieutenant Commanders Taylor and Todd of the White Knights will be lending assistance with the ATAFs, which should give us the edge in battle."
 msgstr ""
 
-#: ../data/missions/sol/07 - wingmates.json
+#: ../data/missions/sol/04 - armed target.json
 msgid "Our orders are to take down as many of the enemy corvettes as possible. Break and attack at will."
 msgstr ""
 
-#: ../data/missions/sol/08 - final.json
+#: ../data/missions/sol/05 - ecm.json
 msgid "How many of them are we expecting?"
 msgstr ""
 
-#: ../data/missions/temper/01 - pirate uprising #1.json
+#: ../data/missions/sol/06 - mag.json
 msgid "Five, at least. And they have escorts, too."
 msgstr ""
 
-#: ../data/missions/temper/01 - pirate uprising #1.json
+#: ../data/missions/sol/06 - mag.json
 msgid "Hell, we're dropping like flies here!"
 msgstr ""
 
-#: ../data/missions/temper/01 - pirate uprising #1.json
+#: ../data/missions/sol/06 - mag.json
 msgid "Hang in there, Lieutenant, we'll try and cover you."
 msgstr ""
 
-#: ../data/missions/temper/02 - pirate uprising #2.json
+#: ../data/missions/sol/07 - wingmates.json
 msgid "Thunderbolt is down."
 msgstr ""
 
-#: ../data/missions/temper/02 - pirate uprising #2.json
+#: ../data/missions/sol/08 - final.json
 msgid "Picking up two more Pandoran capital ships incoming."
 msgstr ""
 
-#: ../data/missions/temper/02 - pirate uprising #2.json
+#: ../data/missions/temper/01 - pirate uprising #1.json
 msgid "INF Gram and INF Morning Star have arrived. Follow my lead!"
 msgstr ""
 
-#: ../data/missions/temper/02 - pirate uprising #2.json
+#: ../data/missions/temper/01 - pirate uprising #1.json
 msgid "Scratch another two Imperial corvettes."
 msgstr ""
 
-#: ../data/missions/temper/03 - pirate uprising #3.json
+#: ../data/missions/temper/01 - pirate uprising #1.json
 msgid "Tracking two more corvettes heading your way: Dragonlance and Trident."
 msgstr ""
 
-#: ../data/missions/temper/03 - pirate uprising #3.json
+#: ../data/missions/temper/02 - pirate uprising #2.json
 msgid "Dragonlance, eh? As in, a lance used for killing dragons? Yeah, they wish."
 msgstr ""
 
-#: ../data/missions/temper/03 - pirate uprising #3.json
+#: ../data/missions/temper/02 - pirate uprising #2.json
 msgid "They're not the only ones."
 msgstr ""
 
-#: ../data/missions/temper/03 - pirate uprising #3.json
+#: ../data/missions/temper/02 - pirate uprising #2.json
 msgid "Leviathan, this is Taylor. All targets have been eliminated."
 msgstr ""
 
-#: ../data/missions/temper/03 - pirate uprising #3.json
+#: ../data/missions/temper/02 - pirate uprising #2.json
 msgid "Acknowledged. We're preparing to fall back and abandon Warro. Return to Leviathan as soon as possible."
 msgstr ""
 

@@ -297,7 +297,7 @@ static void preFireMissile(void)
 		}
 		else
 		{
-			addHudMessage(colors.white, "Target not in range");
+			addHudMessage(colors.white, _("Target not in range"));
 		}
 	}
 }

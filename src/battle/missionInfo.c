@@ -28,10 +28,15 @@ static SDL_Texture *missionStartTexture;
 static SDL_Texture *missionInProgressTexture;
 static SDL_Texture *missionCompleteTexture;
 static SDL_Texture *missionFailedTexture;
-static const char *objectiveStatus[] = {"Incomplete", "Complete", "Failed", "Condition"};
+static const char *objectiveStatus[OS_MAX];
 
 void initMissionInfo(void)
 {
+	objectiveStatus[OS_INCOMPLETE] = _("Incomplete");
+	objectiveStatus[OS_COMPLETE] = _("Complete");
+	objectiveStatus[OS_FAILED] = _("Failed");
+	objectiveStatus[OS_CONDITION] = _("Condition");
+	
 	missionStartTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionStart.png") : getTexture("gfx/battle/challengeStart.png");
 	missionInProgressTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
 	missionCompleteTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionComplete.png") : getTexture("gfx/battle/challengeComplete.png");

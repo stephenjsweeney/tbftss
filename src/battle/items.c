@@ -113,7 +113,7 @@ static void action(void)
 			
 			if (e == player)
 			{
-				addHudMessage(colors.white, "Picked up %s", self->name);
+				addHudMessage(colors.white, _("Picked up %s"), self->name);
 				battle.stats[STAT_ITEMS_COLLECTED]++;
 			}
 			

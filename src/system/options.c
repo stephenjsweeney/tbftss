@@ -23,7 +23,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void changeWindowSize(char *value);
 static void changeSoundVolume(char *value);
 static void changeMusicVolume(char *value);
-static void changeVSync(char *value);
 static void changeFullscreen(char *value);
 static void ok(void);
 
@@ -38,7 +37,6 @@ void initOptions(void (*rtn)(void))
 	getWidget("windowSize", "options")->onChange = changeWindowSize;
 	getWidget("soundVolume", "options")->onChange = changeSoundVolume;
 	getWidget("musicVolume", "options")->onChange = changeMusicVolume;
-	getWidget("vSync", "options")->onChange = changeVSync;
 	getWidget("fullscreen", "options")->onChange = changeFullscreen;
 	getWidget("ok", "options")->action = ok;
 	
@@ -50,8 +48,6 @@ void initOptions(void (*rtn)(void))
 	
 	sprintf(optionStr, "%d", app.musicVolume);
 	setWidgetOption("musicVolume", "options", optionStr);
-	
-	setWidgetOption("vSync", "options", app.vSync ? "On" : "Off");
 	
 	setWidgetOption("fullscreen", "options", app.fullscreen ? "On" : "Off");
 	
@@ -106,11 +102,6 @@ static void changeMusicVolume(char *value)
 	app.musicVolume = atoi(value);
 	
 	Mix_VolumeMusic(app.musicVolume * MIX_MAX_VOLUME / 10);
-}
-
-static void changeVSync(char *value)
-{
-	app.vSync = strcmp(value, "On") == 0;
 }
 
 static void changeFullscreen(char *value)

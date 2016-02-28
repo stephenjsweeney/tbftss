@@ -44,17 +44,6 @@
 		"h": 34
 	},
 	{
-		"name" : "vSync",
-		"group" : "options",
-		"type" : "WT_SELECT",
-		"text" : "VSync",
-		"options" : "Off;On",
-		"x" : -1,
-		"y" : 475,
-		"w" : 400,
-		"h": 34
-	},
-	{
 		"name" : "ok",
 		"group" : "options",
 		"type" : "WT_BUTTON",

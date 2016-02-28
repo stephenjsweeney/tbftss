@@ -61,15 +61,10 @@ void initSDL(void)
 	/* done in src/plat/ */
 	createSaveFolder();
 	
-	rendererFlags = SDL_RENDERER_ACCELERATED;
+	rendererFlags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
 	windowFlags = 0;
 	
 	loadConfig();
-	
-	if (app.vSync)
-	{
-		rendererFlags |= SDL_RENDERER_PRESENTVSYNC;
-	}
 	
 	if (app.fullscreen)
 	{
@@ -256,7 +251,6 @@ static void loadConfig(void)
 	
 	app.winWidth = cJSON_GetObjectItem(root, "winWidth")->valueint;
 	app.winHeight = cJSON_GetObjectItem(root, "winHeight")->valueint;
-	app.vSync = cJSON_GetObjectItem(root, "vSync")->valueint;
 	app.fullscreen = cJSON_GetObjectItem(root, "fullscreen")->valueint;
 	app.musicVolume = cJSON_GetObjectItem(root, "musicVolume")->valueint;
 	app.soundVolume = cJSON_GetObjectItem(root, "soundVolume")->valueint;
@@ -280,7 +274,6 @@ void saveConfig(void)
 	root = cJSON_CreateObject();
 	cJSON_AddNumberToObject(root, "winWidth", app.winWidth);
 	cJSON_AddNumberToObject(root, "winHeight", app.winHeight);
-	cJSON_AddNumberToObject(root, "vSync", app.vSync);
 	cJSON_AddNumberToObject(root, "fullscreen", app.fullscreen);
 	cJSON_AddNumberToObject(root, "musicVolume", app.musicVolume);
 	cJSON_AddNumberToObject(root, "soundVolume", app.soundVolume);

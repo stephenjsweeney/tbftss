@@ -88,6 +88,8 @@ void initChallengeHome(void)
 	getWidget("ok", "stats")->action = statsOK;
 	
 	endSectionTransition();
+	
+	playMusic("music/covert_operations.mp3");
 }
 
 static void unlockChallenges(void)

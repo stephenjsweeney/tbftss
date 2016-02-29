@@ -56,6 +56,7 @@ extern char *getTranslatedString(char *string);
 extern void blit(SDL_Texture *t, int x, int y, int centered);
 extern char *getBackgroundTextureName(int n);
 extern char *getPlanetTextureName(int n);
+extern void playMusic(char *filename);
 
 extern App app;
 extern Battle battle;

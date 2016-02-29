@@ -96,7 +96,7 @@ static void loadMissions(StarSystem *starSystem)
 	
 	sprintf(path, "data/missions/%s", name);
 	
-	filenames = getFileList(path, &count);
+	filenames = getFileList(getFileLocation(path), &count);
 	
 	for (i = 0 ; i < count ; i++)
 	{

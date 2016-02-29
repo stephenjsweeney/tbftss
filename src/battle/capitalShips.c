@@ -317,7 +317,7 @@ void loadCapitalShipDefs(void)
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
 	
-	filenames = getFileList("data/capitalShips", &count);
+	filenames = getFileList(getFileLocation("data/capitalShips"), &count);
 	
 	for (i = 0 ; i < count ; i++)
 	{

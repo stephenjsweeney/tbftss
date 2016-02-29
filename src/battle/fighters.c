@@ -622,7 +622,7 @@ static void loadFighterDefList(char *dir)
 	char path[MAX_FILENAME_LENGTH];
 	int count, i;
 	
-	filenames = getFileList(dir, &count);
+	filenames = getFileList(getFileLocation(dir), &count);
 	
 	for (i = 0 ; i < count ; i++)
 	{

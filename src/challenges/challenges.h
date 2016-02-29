@@ -26,6 +26,7 @@ extern void selectWidget(const char *name, const char *group);
 extern void retreatAllies(void);
 extern void retreatEnemies(void);
 extern char *getTranslatedString(char *string);
+extern char *getFileLocation(char *filename);
 
 extern Battle battle;
 extern Entity *player;

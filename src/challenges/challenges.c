@@ -54,7 +54,7 @@ void initChallenges(void)
 	
 	tail = &game.challengeMissionHead;
 	
-	filenames = getFileList("data/challenges", &count);
+	filenames = getFileList(getFileLocation("data/challenges"), &count);
 	
 	for (i = 0 ; i < count ; i++)
 	{

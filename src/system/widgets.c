@@ -255,7 +255,7 @@ static void loadWidgets()
 	char path[MAX_FILENAME_LENGTH];
 	int count, i;
 	
-	filenames = getFileList("data/widgets", &count);
+	filenames = getFileList(getFileLocation("data/widgets"), &count);
 	
 	for (i = 0 ; i < count ; i++)
 	{

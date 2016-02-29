@@ -28,6 +28,8 @@ static void doFighters(void);
 static void drawFighters(void);
 static void campaign(void);
 static void challenges(void);
+static void stats(void);
+static void statsOK(void);
 static void options(void);
 static void quit(void);
 static void returnFromOptions(void);
@@ -39,7 +41,7 @@ static SDL_Texture *earthTexture;
 static PointF earth;
 static Entity fighters[NUM_FIGHTERS];
 static const char *fighterTextures[] = {"gfx/fighters/firefly.png", "gfx/fighters/hammerhead.png", "gfx/fighters/hyena.png", "gfx/fighters/khepri.png", "gfx/fighters/kingfisher.png", "gfx/fighters/leopard.png", "gfx/fighters/nymph.png", "gfx/fighters/ray.png", "gfx/fighters/rook.png", "gfx/fighters/taf.png"};
-static int showingOptions;
+static int show;
 
 void initTitle(void)
 {
@@ -74,10 +76,13 @@ void initTitle(void)
 	
 	getWidget("campaign", "title")->action = campaign;
 	getWidget("challenges", "title")->action = challenges;
+	getWidget("stats", "title")->action = stats;
 	getWidget("options", "title")->action = options;
 	getWidget("quit", "title")->action = quit;
 	
-	showingOptions = 0;
+	getWidget("ok", "stats")->action = statsOK;
+	
+	show = SHOW_TITLE;
 	
 	endSectionTransition();
 	
@@ -165,13 +170,19 @@ static void draw(void)
 	drawText(10, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2016");
 	drawText(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 25, 14, TA_RIGHT, colors.white, "Version %.2f.%d", VERSION, REVISION);
 	
-	if (!showingOptions)
+	switch (show)
 	{
-		drawWidgets("title");
-	}
-	else
-	{
-		drawOptions();
+		case SHOW_TITLE:
+			drawWidgets("title");
+			break;
+			
+		case SHOW_STATS:
+			drawStats();
+			break;
+			
+		case SHOW_OPTIONS:
+			drawOptions();
+			break;
 	}
 }
 
@@ -209,14 +220,34 @@ static void challenges(void)
 
 static void options(void)
 {
-	showingOptions = 1;
+	selectWidget("ok", "options");
+	
+	show = SHOW_OPTIONS;
 	
 	initOptions(returnFromOptions);
 }
 
+static void stats(void)
+{
+	selectWidget("ok", "stats");
+	
+	show = SHOW_STATS;
+	
+	initStatsDisplay();
+}
+
+static void statsOK(void)
+{
+	selectWidget("stats", "title");
+	
+	show = SHOW_TITLE;
+}
+
 static void returnFromOptions(void)
 {
-	showingOptions = 0;
+	show = SHOW_TITLE;
+	
+	selectWidget("options", "title");
 }
 
 static void quit(void)

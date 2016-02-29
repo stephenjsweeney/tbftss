@@ -5,7 +5,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Campaign",
 		"x" : -1,
-		"y" : 250,
+		"y" : 225,
 		"w" : 200,
 		"h": 34
 	},
@@ -15,7 +15,17 @@
 		"type" : "WT_BUTTON",
 		"text" : "Challenges",
 		"x" : -1,
-		"y" : 350,
+		"y" : 325,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "stats",
+		"group" : "title",
+		"type" : "WT_BUTTON",
+		"text" : "Stats",
+		"x" : -1,
+		"y" : 425,
 		"w" : 200,
 		"h": 34
 	},
@@ -25,7 +35,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Options",
 		"x" : -1,
-		"y" : 450,
+		"y" : 525,
 		"w" : 200,
 		"h": 34
 	},
@@ -35,7 +45,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Quit",
 		"x" : -1,
-		"y" : 550,
+		"y" : 625,
 		"w" : 200,
 		"h": 34
 	}

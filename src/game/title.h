@@ -20,6 +20,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+#define SHOW_TITLE				0
+#define SHOW_STATS				1
+#define SHOW_OPTIONS			2
+
 #define NUM_FIGHTERS 12
 
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
@@ -42,12 +46,15 @@ extern Widget *getWidget(const char *name, const char *group);
 extern void initGalacticMap(void);
 extern void initOptions(void (*returnFromOptions)(void));
 extern void drawOptions(void);
+extern void initStatsDisplay(void);
 extern void playMusic(char *filename);
 extern void destroyBattle(void);
 extern void playSound(int id);
 extern void initEffects(void);
 extern void setMouse(int x, int y);
 extern void initChallengeHome(void);
+extern void selectWidget(const char *name, const char *group);
+extern void drawStats(void);
 
 extern App app;
 extern Battle battle;

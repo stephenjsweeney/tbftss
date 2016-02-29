@@ -31,6 +31,8 @@ static void startChallengeMission(void);
 static SDL_Texture *background;
 static int startIndex;
 static Widget *start;
+static int completedChallenges;
+static int totalChallenges;
 
 void initChallengeHome(void)
 {
@@ -69,9 +71,14 @@ static void updateChallengeMissions(void)
 {
 	Mission *m;
 	Challenge *c;
+	int i;
+	
+	i = completedChallenges = totalChallenges = 0;
 	
 	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
 	{
+		m->available = i <= completedChallenges;
+		
 		m->totalChallenges = m->completedChallenges = 0;
 		
 		for (c = m->challengeHead.next ; c != NULL ; c = c->next)
@@ -83,6 +90,11 @@ static void updateChallengeMissions(void)
 				m->completedChallenges++;
 			}
 		}
+		
+		completedChallenges += m->completedChallenges;
+		totalChallenges += m->totalChallenges;
+		
+		i++;
 	}
 }
 
@@ -107,9 +119,18 @@ static void doChallenges(void)
 	{
 		if (app.mouse.button[SDL_BUTTON_LEFT] && collision(app.mouse.x, app.mouse.y, 3, 3, c->rect.x, c->rect.y, c->rect.w, c->rect.h))
 		{
-			game.currentMission = c;
+			if (c->available)
+			{
+				game.currentMission = c;
+			}
+			else
+			{
+				
+				
+				game.currentMission = NULL;
+			}
 			
-			start->enabled = 1;
+			start->enabled = c->available;
 			
 			app.mouse.button[SDL_BUTTON_LEFT] = 0;
 		}
@@ -121,6 +142,10 @@ static void draw(void)
 	drawBackground(background);
 	
 	drawStars();
+	
+	drawText(SCREEN_WIDTH / 2, 50, 30, TA_CENTER, colors.white, "Challenges");
+	
+	drawText(SCREEN_WIDTH / 2, 100, 24, TA_CENTER, colors.white, "%d / %d", completedChallenges, totalChallenges);
 	
 	drawChallenges();
 	
@@ -134,7 +159,7 @@ static void drawChallenges(void)
 	int i, endIndex;
 	
 	r.x = 135;
-	r.y = 165;
+	r.y = 185;
 	r.w = r.h = 96;
 	
 	endIndex = startIndex + MAX_ITEMS;
@@ -164,7 +189,14 @@ static void drawChallenges(void)
 			
 			drawText(r.x + (r.w / 2), r.y + 28, 30, TA_CENTER, colors.white, "%d", i + 1);
 			
-			drawText(r.x + (r.w / 2), r.y + r.w + 5, 18, TA_CENTER, (c->completedChallenges < c->totalChallenges) ? colors.white : colors.green, "%d / %d", c->completedChallenges, c->totalChallenges);
+			if (c->available)
+			{
+				drawText(r.x + (r.w / 2), r.y + r.w + 5, 18, TA_CENTER, (c->completedChallenges < c->totalChallenges) ? colors.white : colors.green, "%d / %d", c->completedChallenges, c->totalChallenges);
+			}
+			else
+			{
+				drawText(r.x + (r.w / 2), r.y + r.w + 5, 18, TA_CENTER, colors.lightGrey, "[Locked]");
+			}
 			
 			r.x += 150;
 			

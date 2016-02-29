@@ -3,23 +3,22 @@
 <?php
 
 $strings = [];
-$lineNumbers = [];
 
-function addString($in)
+function addString($string)
 {
 	global $strings;
 
-	if ($in != "")
+	if ($string != "")
 	{
-		$strings[] = $in;	
-		$strings = array_unique($strings);
+		if (!in_array($string, $strings))
+		{
+			$strings[] = $string;
+		}
 	}
 }
 
 function extractC($filename)
 {
-	global $lineNumbers;
-	
 	$i = 0;
 
 	$lines = file($filename);
@@ -33,16 +32,12 @@ function extractC($filename)
 		if (preg_match($reg, $line, $matches) > 0)
 		{
 			addString($matches[1]);
-			
-			$lineNumbers[] = "$filename:$i";
 		}
 	}
 }
 
 function extractJSON($filename)
 {
-	global $lineNumbers;
-
 	$data = file_get_contents($filename);
 	$json = json_decode($data);
 	
@@ -50,9 +45,10 @@ function extractJSON($filename)
 	{
 		foreach ($json as $widget)
 		{
-			addString($widget->{"text"});
-			
-			$lineNumbers[] = "$filename";
+			if (array_key_exists("text", $widget))
+			{
+				addString($widget->{"text"}, $filename);
+			}
 		}
 	}
 	else if (strpos($filename, "missions") !== false)
@@ -63,9 +59,7 @@ function extractJSON($filename)
 		{
 			foreach ($json->{"objectives"} as $objective)
 			{
-				addString($json->{"description"});
-				
-				$lineNumbers[] = "$filename";
+				addString($json->{"description"}, $filename);
 			}
 		}
 		
@@ -81,9 +75,7 @@ function extractJSON($filename)
 						
 						$line = substr($line, $i);
 					
-						addString($line);
-						
-						$lineNumbers[] = "$filename";
+						addString($line, $filename);
 					}
 				}
 			}
@@ -134,7 +126,6 @@ $i = 0;
 
 foreach ($strings as $string)
 {
-	fwrite($handle, "#: $lineNumbers[$i]\n");
 	fwrite($handle, "msgid \"$string\"\n");
 	fwrite($handle, "msgstr \"\"\n");
 	fwrite($handle, "\n");

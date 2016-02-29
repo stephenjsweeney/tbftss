@@ -117,7 +117,7 @@ void initSDL(void)
 void initGameSystem(void)
 {
 	int step = 0;
-	int STEPS = 14;
+	int STEPS = 16;
 	
 	initColor(&colors.red, 255, 0, 0);
 	initColor(&colors.orange, 255, 128, 0);
@@ -178,6 +178,10 @@ void initGameSystem(void)
 	showLoadingStep(step++, STEPS);
 	
 	initChallenges();
+	
+	showLoadingStep(step++, STEPS);
+	
+	initStats();
 	
 	showLoadingStep(step++, STEPS);
 	

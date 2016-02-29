@@ -33,18 +33,7 @@ static char *getFormattedChallengeDescription(const char *format, ...);
 char *getChallengeDescription(Challenge *c);
 
 static char descriptionBuffer[MAX_DESCRIPTION_LENGTH];
-
-static char *challengeDescription[] = {
-	"Retain at least %d%% armour",
-	"Complete challenge in %d seconds or less",
-	"Attain a %d%% hit accuracy",
-	"Do not lose any team mates",
-	"Do not lose more than 1 team mate",
-	"Do not lose more than %d team mates",
-	"Take down %d enemy targets",
-	"Disable %d or more enemy fighters",
-	"Complete challenge in %d minutes or less"
-};
+static const char *challengeDescription[CHALLENGE_MAX];
 
 void initChallenges(void)
 {
@@ -52,6 +41,16 @@ void initChallenges(void)
 	char **filenames;
 	char path[MAX_FILENAME_LENGTH];
 	int count, i;
+	
+	challengeDescription[CHALLENGE_ARMOUR] = _("Retain at least %d%% armour");
+	challengeDescription[CHALLENGE_TIME] = _("Complete challenge in %d seconds or less");
+	challengeDescription[CHALLENGE_ACCURACY] = _("Attain a %d%% hit accuracy");
+	challengeDescription[CHALLENGE_NO_LOSSES] = _("Do not lose any team mates");
+	challengeDescription[CHALLENGE_1_LOSS] = _("Do not lose more than 1 team mate");
+	challengeDescription[CHALLENGE_LOSSES] = _("Do not lose more than %d team mates");
+	challengeDescription[CHALLENGE_PLAYER_KILLS] = _("Take down %d enemy targets");
+	challengeDescription[CHALLENGE_DISABLE] = _("Disable %d or more enemy fighters");
+	challengeDescription[CHALLENGE_TIME_MINS] = _("Complete challenge in %d minutes or less");
 	
 	tail = &game.challengeMissionHead;
 	
@@ -236,6 +235,27 @@ static char *getFormattedChallengeDescription(const char *format, ...)
 	va_end(args);
 	
 	return descriptionBuffer;
+}
+
+void updateChallengeMissions(void)
+{
+	Mission *m;
+	Challenge *c;
+	
+	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
+	{
+		m->totalChallenges = m->completedChallenges = 0;
+		
+		for (c = m->challengeHead.next ; c != NULL ; c = c->next)
+		{
+			m->totalChallenges++;
+			
+			if (c->passed)
+			{
+				m->completedChallenges++;
+			}
+		}
+	}
 }
 
 static void completeChallenge(void)

@@ -45,7 +45,7 @@ static SDL_Texture *ecm;
 static SDL_Texture *boost;
 static SDL_Texture *nextGun;
 static int numMessages;
-static char *gunName[BT_MAX];
+static const char *gunName[BT_MAX];
 
 void initHud(void)
 {

@@ -1,4 +1,4 @@
-VERSION = 0.5
+VERSION = 0.51
 REVISION = $(shell date +"%y%m%d")
 
 SEARCHPATH += src/ src/battle src/draw src/game src/galaxy src/json src/system src/test

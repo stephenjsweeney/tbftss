@@ -27,7 +27,7 @@ static void calculatePercentComplete(void);
 static char *statDescription[STAT_MAX];
 
 static int page;
-static int maxPages;
+static float maxPages;
 static Widget *prev;
 static Widget *next;
 
@@ -69,7 +69,10 @@ void initStats(void)
 void initStatsDisplay(void)
 {
 	page = 0;
-	maxPages = ceil(STAT_TIME / MAX_STAT_ITEMS);
+	
+	maxPages = STAT_TIME;
+	maxPages /= STATS_PER_PAGE;
+	maxPages = ceil(maxPages);
 	
 	prev = getWidget("prev", "stats");
 	prev->action = prevPage;
@@ -129,13 +132,13 @@ void drawStats(void)
 	
 	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, _("Stats"));
 	
-	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, _("Page %d / %d"), page + 1, maxPages);
+	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, _("Page %d / %d"), page + 1, (int)maxPages);
 	
 	y = 170;
 	
-	startIndex = (page * MAX_STAT_ITEMS);
+	startIndex = (page * STATS_PER_PAGE);
 	
-	for (i = startIndex ; i < startIndex + MAX_STAT_ITEMS ; i++)
+	for (i = startIndex ; i < startIndex + STATS_PER_PAGE ; i++)
 	{
 		if (i < STAT_TIME)
 		{

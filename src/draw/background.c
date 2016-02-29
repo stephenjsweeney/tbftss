@@ -113,12 +113,12 @@ void drawBackground(SDL_Texture *texture)
 	}
 }
 
-char *getBackgroundTexture(int i)
+char *getBackgroundTextureName(int i)
 {
 	return backgrounds[i % numBackgrounds];
 }
 
-char *getPlanetTexture(int i)
+char *getPlanetTextureName(int i)
 {
 	return planets[i % numPlanets];
 }

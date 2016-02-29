@@ -51,8 +51,8 @@ extern void initMissionInfo(void);
 extern char *getTranslatedString(char *string);
 extern void updateStarSystemMissions(void);
 extern void updateChallengeMissions(void);
-extern char *getBackgroundTexture(int n);
-extern char *getPlanetTexture(int n);
+extern char *getBackgroundTextureName(int n);
+extern char *getPlanetTextureName(int n);
 
 extern Battle battle;
 extern Entity *player;

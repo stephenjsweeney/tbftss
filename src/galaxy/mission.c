@@ -228,7 +228,7 @@ static char *getAutoBackground(char *filename)
 		hash = hashcode(filename);
 	}
 	
-	return getBackgroundTexture(hash);
+	return getBackgroundTextureName(hash);
 }
 
 static char *getAutoPlanet(char *filename)
@@ -244,7 +244,7 @@ static char *getAutoPlanet(char *filename)
 		hash = hashcode(filename);
 	}
 	
-	return getPlanetTexture(hash);
+	return getPlanetTextureName(hash);
 }
 
 void completeMission(void)

@@ -60,13 +60,13 @@ void initChallengeHome(void)
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 	
-	background = getTexture("gfx/backgrounds/background06.jpg");
-	planetTexture = getTexture("gfx/planets/bluePlanet.png");
+	background = getTexture(getBackgroundTextureName(rand()));
+	planetTexture = getTexture(getPlanetTextureName(rand()));
 	
 	battle.camera.x =  battle.camera.y = 0;
 	
-	planet.x = SCREEN_WIDTH;
-	planet.y = (rand() % SCREEN_HEIGHT - 128);
+	planet.x = rand() % SCREEN_WIDTH;
+	planet.y = rand() % SCREEN_HEIGHT;
 	
 	game.currentMission = NULL;
 	
@@ -174,7 +174,7 @@ static void draw(void)
 {
 	drawBackground(background);
 	
-	blit(planetTexture, planet.x, planet.y, 0);
+	blit(planetTexture, planet.x, planet.y, 1);
 	
 	drawStars();
 	

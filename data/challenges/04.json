@@ -1,0 +1,45 @@
+{
+	"name" : "Destroy all Lynxes",
+	"description" : "Destroy all Lynxes",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "",
+	"player" : {
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 150,
+		"killLimit" : 5,
+		"noMissiles" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 120
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 150
+			},
+			{
+				"type" : "CHALLENGE_ACCURACY",
+				"value" : 80
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"name" : "Lynx",
+			"types" : "Lynx",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 25,
+			"number" : 5,
+			"scatter" : 2000
+		}
+	]
+}

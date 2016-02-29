@@ -1,8 +1,8 @@
 {
 	"name" : "Destroy all Darts",
 	"description" : "Destroy all Darts",
-	"background" : "gfx/backgrounds/background03.jpg",
-	"planet" : "gfx/planets/spirit.png",
+	"background" : "AUTO",
+	"planet" : "AUTO",
 	"music" : "",
 	"player" : {
 		"type" : "Nymph",

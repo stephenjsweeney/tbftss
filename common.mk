@@ -9,7 +9,7 @@ vpath %.h $(SEARCHPATH)
 DEPS += defs.h structs.h
 
 OBJS += ai.o
-OBJS += battle.o bullets.o
+OBJS += background.o battle.o bullets.o
 OBJS += capitalShips.o challengeHome.o challenges.o cJSON.o
 OBJS += debris.o dev.o draw.o
 OBJS += effects.o entities.o extractionPoint.o

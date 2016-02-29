@@ -20,23 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "draw.h"
 
-static PointF backgroundPoint[4];
-
-void initBackground(void)
-{
-	backgroundPoint[0].x = -SCREEN_WIDTH / 2;
-	backgroundPoint[0].y = -SCREEN_HEIGHT / 2;
-	
-	backgroundPoint[1].x = SCREEN_WIDTH / 2;
-	backgroundPoint[1].y = -SCREEN_HEIGHT / 2;
-	
-	backgroundPoint[2].x = -SCREEN_WIDTH / 2;
-	backgroundPoint[2].y = SCREEN_HEIGHT / 2;
-	
-	backgroundPoint[3].x = SCREEN_WIDTH / 2;
-	backgroundPoint[3].y = SCREEN_HEIGHT / 2;
-}
-
 void prepareScene(void)
 {
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
@@ -159,47 +142,6 @@ void drawFilledCircle(int cx, int cy, int radius, int r, int g, int b, int a)
 	}
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-}
-
-void scrollBackground(float x, float y)
-{
-	int i;
-	
-	for (i = 0 ; i < 4 ; i++)
-	{
-		backgroundPoint[i].x += x;
-		backgroundPoint[i].y += y;
-		
-		if (backgroundPoint[i].x < 0)
-		{
-			backgroundPoint[i].x += (SCREEN_WIDTH * 2);
-		}
-		
-		if (backgroundPoint[i].x >= SCREEN_WIDTH)
-		{
-			backgroundPoint[i].x -= (SCREEN_WIDTH * 2);
-		}
-		
-		if (backgroundPoint[i].y < 0)
-		{
-			backgroundPoint[i].y += (SCREEN_HEIGHT * 2);
-		}
-		
-		if (backgroundPoint[i].y >= SCREEN_HEIGHT)
-		{
-			backgroundPoint[i].y -= (SCREEN_HEIGHT * 2);
-		}
-	}
-}
-
-void drawBackground(SDL_Texture *texture)
-{
-	int i;
-	
-	for (i = 0 ; i < 4 ; i++)
-	{
-		blitScaled(texture, backgroundPoint[i].x, backgroundPoint[i].y, SCREEN_WIDTH, SCREEN_HEIGHT);
-	}
 }
 
 void saveScreenshot(void)

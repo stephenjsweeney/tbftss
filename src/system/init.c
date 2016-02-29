@@ -132,7 +132,8 @@ void initGameSystem(void)
 		initChallenges,
 		initStats,
 		initBattle,
-		initModalDialog
+		initModalDialog,
+		initBackground
 	};
 	
 	numInitFuns = sizeof(initFuncs) / sizeof(void*);
@@ -290,6 +291,8 @@ void cleanup(void)
 	destroyGalacticMap();
 	
 	destroyWidgets();
+	
+	destroyBackground();
 
 	TTF_Quit();
 

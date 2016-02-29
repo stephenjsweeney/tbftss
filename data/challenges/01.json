@@ -1,8 +1,8 @@
 {
 	"name" : "Destroy all Darts",
 	"description" : "Destroy all Darts",
-	"background" : "gfx/backgrounds/background03.jpg",
-	"planet" : "gfx/planets/spirit.png",
+	"background" : "AUTO",
+	"planet" : "AUTO",
 	"music" : "",
 	"player" : {
 		"type" : "Nymph",
@@ -14,7 +14,7 @@
 	},
 	"challenge" : {
 		"timeLimit" : 30,
-		"killLimit" : 3,
+		"killLimit" : 5,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_TIME",
@@ -29,7 +29,7 @@
 			"side" : "SIDE_PIRATE",
 			"x" : 25,
 			"y" : 22,
-			"number" : 3,
+			"number" : 5,
 			"scatter" : 1000
 		}
 	]

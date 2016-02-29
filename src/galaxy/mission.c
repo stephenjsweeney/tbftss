@@ -31,6 +31,8 @@ static unsigned long hashcode(const char *str);
 static char **toTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
 static void loadChallengeData(cJSON *node);
+static char *getAutoBackground(char *filename);
+static char *getAutoPlanet(char *filename);
 
 Mission *loadMissionMeta(char *filename)
 {
@@ -108,7 +110,7 @@ Mission *loadMissionMeta(char *filename)
 void loadMission(char *filename)
 {
 	cJSON *root;
-	char *text, music[MAX_DESCRIPTION_LENGTH];
+	char *text, music[MAX_DESCRIPTION_LENGTH], *background, *planet;
 	float planetScale;
 	
 	startSectionTransition();
@@ -117,20 +119,9 @@ void loadMission(char *filename)
 	
 	text = readFile(getFileLocation(filename));
 	
-	srand(hashcode(filename));
-	
 	root = cJSON_Parse(text);
 	
-	battle.background = getTexture(cJSON_GetObjectItem(root, "background")->valuestring);
-	
-	planetScale = 25 + (rand() % 100);
-	planetScale *= 0.01;
-	battle.planetTexture = getTexture(cJSON_GetObjectItem(root, "planet")->valuestring);
-	battle.planet.x = (SCREEN_WIDTH / 2) - (rand() % SCREEN_WIDTH) + (rand() % SCREEN_WIDTH);
-	battle.planet.y = (SCREEN_HEIGHT / 2) - (rand() % SCREEN_HEIGHT) + (rand() % SCREEN_HEIGHT);
-	SDL_QueryTexture(battle.planetTexture, NULL, NULL, &battle.planetWidth, &battle.planetHeight);
-	battle.planetWidth *= planetScale;
-	battle.planetHeight *= planetScale;
+	srand(hashcode(filename));
 	
 	loadObjectives(cJSON_GetObjectItem(root, "objectives"));
 		
@@ -170,9 +161,32 @@ void loadMission(char *filename)
 	
 	initScript(cJSON_GetObjectItem(root, "script"));
 	
-	free(text);
+	/* planet and background loading must come last, so AUTO works properly */
+	
+	background = cJSON_GetObjectItem(root, "background")->valuestring;
+	if (strcmp(background, "AUTO") == 0)
+	{
+		background = getAutoBackground(filename);
+	}
+	battle.background = getTexture(background);
+	
+	planet = cJSON_GetObjectItem(root, "planet")->valuestring;
+	if (strcmp(planet, "AUTO") == 0)
+	{
+		planet = getAutoPlanet(filename);
+	}
+	planetScale = 75 + (rand() % 125);
+	planetScale *= 0.01;
+	battle.planetTexture = getTexture(planet);
+	battle.planet.x = (SCREEN_WIDTH / 2) - (rand() % SCREEN_WIDTH) + (rand() % SCREEN_WIDTH);
+	battle.planet.y = (SCREEN_HEIGHT / 2) - (rand() % SCREEN_HEIGHT) + (rand() % SCREEN_HEIGHT);
+	SDL_QueryTexture(battle.planetTexture, NULL, NULL, &battle.planetWidth, &battle.planetHeight);
+	battle.planetWidth *= planetScale;
+	battle.planetHeight *= planetScale;
 	
 	srand(time(NULL));
+	
+	free(text);
 	
 	endSectionTransition();
 	
@@ -199,6 +213,38 @@ void loadMission(char *filename)
 	initMissionInfo();
 	
 	playMusic(music);
+}
+
+static char *getAutoBackground(char *filename)
+{
+	int hash;
+	
+	if (!battle.challengeData.isChallenge)
+	{
+		hash = hashcode(game.selectedStarSystem);
+	}
+	else
+	{
+		hash = hashcode(filename);
+	}
+	
+	return getBackgroundTexture(hash);
+}
+
+static char *getAutoPlanet(char *filename)
+{
+	int hash;
+	
+	if (!battle.challengeData.isChallenge)
+	{
+		hash = hashcode(game.selectedStarSystem);
+	}
+	else
+	{
+		hash = hashcode(filename);
+	}
+	
+	return getPlanetTexture(hash);
 }
 
 void completeMission(void)

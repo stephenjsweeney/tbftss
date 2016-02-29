@@ -46,7 +46,7 @@ void initBackground(void)
 	
 	free(filenames);
 	
-	filenames = getFileList("gfx/planets", &numPlanets);
+	filenames = getFileList(getFileLocation("gfx/planets"), &numPlanets);
 	planets = malloc(sizeof(char*) * numPlanets);
 	
 	for (i = 0 ; i < numPlanets ; i++)

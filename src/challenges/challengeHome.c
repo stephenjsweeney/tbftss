@@ -39,6 +39,8 @@ static SDL_Texture *background;
 static int startIndex;
 static Widget *start;
 static int completedChallenges;
+static SDL_Texture *planetTexture;
+static PointF planet;
 static int totalChallenges;
 static int show;
 
@@ -58,9 +60,13 @@ void initChallengeHome(void)
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 	
-	background = getTexture("gfx/backgrounds/background04.jpg");
+	background = getTexture("gfx/backgrounds/background06.jpg");
+	planetTexture = getTexture("gfx/planets/bluePlanet.png");
 	
 	battle.camera.x =  battle.camera.y = 0;
+	
+	planet.x = SCREEN_WIDTH;
+	planet.y = (rand() % SCREEN_HEIGHT - 128);
 	
 	game.currentMission = NULL;
 	
@@ -112,6 +118,13 @@ static void logic(void)
 	
 	doStars(0.5, 0);
 	
+	planet.x -= 0.25;
+	if (planet.x <= -200)
+	{
+		planet.x = SCREEN_WIDTH + (rand() % SCREEN_WIDTH);
+		planet.y = (rand() % SCREEN_HEIGHT - 128);
+	}
+	
 	switch (show)
 	{
 		case SHOW_CHALLENGES:
@@ -160,6 +173,8 @@ static void doChallenges(void)
 static void draw(void)
 {
 	drawBackground(background);
+	
+	blit(planetTexture, planet.x, planet.y, 0);
 	
 	drawStars();
 	

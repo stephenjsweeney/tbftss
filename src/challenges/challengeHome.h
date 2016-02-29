@@ -54,6 +54,7 @@ extern void playSound(int sound);
 extern void selectWidget(const char *name, const char *group);
 extern void updateAllMissions(void);
 extern char *getTranslatedString(char *string);
+extern void blit(SDL_Texture *t, int x, int y, int centered);
 
 extern App app;
 extern Battle battle;

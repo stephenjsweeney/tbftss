@@ -85,8 +85,6 @@ void initPlayer(void)
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
 	
 	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
-	
-	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 }
 
 void doPlayer(void)

@@ -51,7 +51,6 @@ extern void playMusic(char *filename);
 extern void destroyBattle(void);
 extern void playSound(int id);
 extern void initEffects(void);
-extern void setMouse(int x, int y);
 extern void initChallengeHome(void);
 extern void selectWidget(const char *name, const char *group);
 extern void drawStats(void);

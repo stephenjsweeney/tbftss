@@ -87,8 +87,6 @@ void initChallengeHome(void)
 	
 	getWidget("ok", "stats")->action = statsOK;
 	
-	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-	
 	endSectionTransition();
 }
 

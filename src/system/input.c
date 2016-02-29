@@ -60,20 +60,6 @@ void doMouseMotion(SDL_MouseMotionEvent *event)
 	app.mouse.dy = event->yrel;
 }
 
-void setMouse(int x, int y)
-{
-	SDL_Event event;
-	
-	app.mouse.x = x * app.scaleX;
-	app.mouse.y = y * app.scaleY;
-	
-	SDL_WarpMouseInWindow(app.window, x, y);
-	
-	while (SDL_PollEvent(&event))
-	{
-	}
-}
-
 void drawMouse(void)
 {
 	int x, y;

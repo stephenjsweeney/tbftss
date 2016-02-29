@@ -88,8 +88,6 @@ void initTitle(void)
 	
 	endSectionTransition();
 	
-	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-	
 	playMusic("music/Rise of spirit.ogg");
 }
 

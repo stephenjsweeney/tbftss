@@ -32,7 +32,6 @@ extern void endSectionTransition(void);
 extern void stopMusic(void);
 extern void initBattle(void);
 extern void loadMission(char *filename);
-extern void setMouse(int x, int y);
 extern void doStars(float dx, float dy);
 extern void drawStars(void);
 extern void doWidgets(void);

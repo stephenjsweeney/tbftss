@@ -57,7 +57,6 @@ extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void initStatsDisplay(void);
 extern void updateAllMissions(void);
 extern StarSystem *getStarSystem(char *name);
-extern void setMouse(int x, int y);
 extern void showOKDialog(void (*callback)(void), const char *format, ...);
 extern char *getTranslatedString(char *string);
 

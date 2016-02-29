@@ -111,8 +111,6 @@ void initGalacticMap(void)
 	
 	getWidget("ok", "fallen")->action = fallenOK;
 	
-	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-	
 	endSectionTransition();
 	
 	playMusic("music/Pressure.ogg");
@@ -601,7 +599,6 @@ static void handleKeyboard(void)
 				break;
 				
 			case SHOW_STAR_SYSTEM:
-				setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 				show = SHOW_GALAXY;
 				break;
 			

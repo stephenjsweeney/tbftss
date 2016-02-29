@@ -67,7 +67,7 @@ static void handleFleeingEntities(void)
 			
 			addEscapeEffect(e);
 			
-			playSound(SND_JUMP);
+			playBattleSound(SND_JUMP, e->x, e->y);
 		}
 	}
 }

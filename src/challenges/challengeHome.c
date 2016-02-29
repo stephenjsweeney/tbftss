@@ -24,7 +24,6 @@ static void logic(void);
 static void draw(void);
 static void handleKeyboard(void);
 static void drawChallenges(void);
-static void updateChallengeMissions(void);
 static void doChallenges(void);
 static void startChallengeMission(void);
 static void drawMenu(void);
@@ -33,6 +32,7 @@ static void stats(void);
 static void options(void);
 static void statsOK(void);
 static void returnFromOptions(void);
+static void unlockChallenges(void);
 static void quit(void);
 
 static SDL_Texture *background;
@@ -48,7 +48,9 @@ void initChallengeHome(void)
 	
 	stopMusic();
 	
-	updateChallengeMissions();
+	updateAllMissions();
+	
+	unlockChallenges();
 	
 	saveGame();
 	
@@ -84,10 +86,9 @@ void initChallengeHome(void)
 	endSectionTransition();
 }
 
-static void updateChallengeMissions(void)
+static void unlockChallenges(void)
 {
 	Mission *m;
-	Challenge *c;
 	int i;
 	
 	i = completedChallenges = totalChallenges = 0;
@@ -95,18 +96,6 @@ static void updateChallengeMissions(void)
 	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
 	{
 		m->available = i <= completedChallenges;
-		
-		m->totalChallenges = m->completedChallenges = 0;
-		
-		for (c = m->challengeHead.next ; c != NULL ; c = c->next)
-		{
-			m->totalChallenges++;
-			
-			if (c->passed)
-			{
-				m->completedChallenges++;
-			}
-		}
 		
 		completedChallenges += m->completedChallenges;
 		totalChallenges += m->totalChallenges;
@@ -174,7 +163,7 @@ static void draw(void)
 	
 	drawStars();
 	
-	drawText(SCREEN_WIDTH / 2, 50, 30, TA_CENTER, colors.white, "Challenges");
+	drawText(SCREEN_WIDTH / 2, 50, 30, TA_CENTER, colors.white, _("Challenges"));
 	
 	drawText(SCREEN_WIDTH / 2, 100, 24, TA_CENTER, colors.white, "%d / %d", completedChallenges, totalChallenges);
 	

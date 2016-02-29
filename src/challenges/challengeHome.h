@@ -52,6 +52,8 @@ extern void initOptions(void (*returnFromOptions)(void));
 extern void drawStats(void);
 extern void playSound(int sound);
 extern void selectWidget(const char *name, const char *group);
+extern void updateAllMissions(void);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Battle battle;

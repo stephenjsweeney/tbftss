@@ -865,6 +865,13 @@ Mission *getMission(char *filename)
 	return NULL;
 }
 
+void updateAllMissions(void)
+{
+	updateStarSystemMissions();
+	
+	updateChallengeMissions();
+}
+
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
 	return prev->completed && mission->requires <= game.completedMissions;

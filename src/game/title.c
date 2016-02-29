@@ -74,6 +74,8 @@ void initTitle(void)
 	
 	initFighters();
 	
+	updateAllMissions();
+	
 	getWidget("campaign", "title")->action = campaign;
 	getWidget("challenges", "title")->action = challenges;
 	getWidget("stats", "title")->action = stats;

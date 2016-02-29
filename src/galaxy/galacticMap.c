@@ -84,7 +84,7 @@ void initGalacticMap(void)
 	
 	centerOnSelectedStarSystem();
 	
-	updateStarSystemMissions();
+	updateAllMissions();
 	
 	updatePandoranAdvance();
 	
@@ -597,7 +597,6 @@ static void handleKeyboard(void)
 			case SHOW_GALAXY:
 				selectWidget("resume", "galacticMap");
 				show = SHOW_MENU;
-				memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 				playSound(SND_GUI_CLOSE);
 				break;
 				
@@ -608,14 +607,12 @@ static void handleKeyboard(void)
 			
 			case SHOW_MENU:
 				show = SHOW_GALAXY;
-				memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 				break;
 				
 			case SHOW_OPTIONS:
 			case SHOW_STATS:
 				show = SHOW_MENU;
 				selectWidget("resume", "galacticMap");
-				memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 				break;
 		}
 		

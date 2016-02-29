@@ -22,6 +22,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_ITEMS	21
 
+#define SHOW_CHALLENGES 	0
+#define SHOW_MENU 			1
+#define SHOW_OPTIONS 		2
+#define SHOW_STATS 			3
+
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
 extern void stopMusic(void);
@@ -41,6 +46,12 @@ extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int
 extern Widget *getWidget(const char *name, const char *group);
 extern void saveGame(void);
 extern void initTitle(void);
+extern void initStatsDisplay(void);
+extern void drawOptions(void);
+extern void initOptions(void (*returnFromOptions)(void));
+extern void drawStats(void);
+extern void playSound(int sound);
+extern void selectWidget(const char *name, const char *group);
 
 extern App app;
 extern Battle battle;

@@ -27,12 +27,20 @@ static void drawChallenges(void);
 static void updateChallengeMissions(void);
 static void doChallenges(void);
 static void startChallengeMission(void);
+static void drawMenu(void);
+static void resume(void);
+static void stats(void);
+static void options(void);
+static void statsOK(void);
+static void returnFromOptions(void);
+static void quit(void);
 
 static SDL_Texture *background;
 static int startIndex;
 static Widget *start;
 static int completedChallenges;
 static int totalChallenges;
+static int show;
 
 void initChallengeHome(void)
 {
@@ -56,11 +64,20 @@ void initChallengeHome(void)
 	
 	startIndex = 0;
 	
+	show = SHOW_CHALLENGES;
+	
 	initBackground();
 	
 	start = getWidget("start", "challenges");
 	start->enabled = 0;
 	start->action = startChallengeMission;
+	
+	getWidget("resume", "challengesMenu")->action = resume;
+	getWidget("stats", "challengesMenu")->action = stats;
+	getWidget("options", "challengesMenu")->action = options;
+	getWidget("quit", "challengesMenu")->action = quit;
+	
+	getWidget("ok", "stats")->action = statsOK;
 	
 	setMouse(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 	
@@ -106,7 +123,21 @@ static void logic(void)
 	
 	doStars(0.5, 0);
 	
-	doChallenges();
+	switch (show)
+	{
+		case SHOW_CHALLENGES:
+			doChallenges();
+			break;
+			
+		case SHOW_MENU:
+			break;
+			
+		case SHOW_STATS:
+			break;
+		
+		case SHOW_OPTIONS:
+			break;
+	}
 	
 	doWidgets();
 }
@@ -149,7 +180,24 @@ static void draw(void)
 	
 	drawChallenges();
 	
-	drawWidgets("challenges");
+	switch (show)
+	{
+		case SHOW_CHALLENGES:
+			drawWidgets("challenges");
+			break;
+			
+		case SHOW_MENU:
+			drawMenu();
+			break;
+			
+		case SHOW_STATS:
+			drawStats();
+			break;
+			
+		case SHOW_OPTIONS:
+			drawOptions();
+			break;
+	}
 }
 
 static void drawChallenges(void)
@@ -216,11 +264,94 @@ static void drawChallenges(void)
 	}
 }
 
+static void drawMenu(void)
+{
+	SDL_Rect r;
+	
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+	SDL_RenderFillRect(app.renderer, NULL);
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	
+	r.w = 400;
+	r.h = 400;
+	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
+	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
+	SDL_RenderFillRect(app.renderer, &r);
+	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
+	SDL_RenderDrawRect(app.renderer, &r);
+		
+	drawWidgets("challengesMenu");
+}
+
+static void resume(void)
+{
+	show = SHOW_CHALLENGES;
+}
+
+static void options(void)
+{
+	show = SHOW_OPTIONS;
+	
+	initOptions(returnFromOptions);
+}
+
+static void stats(void)
+{
+	selectWidget("ok", "stats");
+	
+	show = SHOW_STATS;
+	
+	initStatsDisplay();
+}
+
+static void statsOK(void)
+{
+	selectWidget("resume", "challengesMenu");
+	
+	show = SHOW_MENU;
+}
+
+static void returnFromOptions(void)
+{
+	show = SHOW_MENU;
+	
+	selectWidget("resume", "challengesMenu");
+}
+
+static void quit(void)
+{
+	initTitle();
+}
+
 static void handleKeyboard(void)
 {
 	if (app.keyboard[SDL_SCANCODE_ESCAPE])
 	{
-		initTitle();
+		switch (show)
+		{
+			case SHOW_CHALLENGES:
+				selectWidget("resume", "challengesMenu");
+				show = SHOW_MENU;
+				playSound(SND_GUI_CLOSE);
+				break;
+			
+			case SHOW_MENU:
+				show = SHOW_CHALLENGES;
+				break;
+				
+			case SHOW_OPTIONS:
+			case SHOW_STATS:
+				show = SHOW_MENU;
+				selectWidget("resume", "challengesMenu");
+				break;
+		}
+		
+		playSound(SND_GUI_CLOSE);
+		
+		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 	}
 }
 

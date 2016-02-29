@@ -8,5 +8,45 @@
 		"y" : 680,
 		"w" : 250,
 		"h": 34
+	},
+	{
+		"name" : "resume",
+		"group" : "challengesMenu",
+		"type" : "WT_BUTTON",
+		"text" : "Resume",
+		"x" : -1,
+		"y" : 215,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "stats",
+		"group" : "challengesMenu",
+		"type" : "WT_BUTTON",
+		"text" : "Stats",
+		"x" : -1,
+		"y" : 315,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "options",
+		"group" : "challengesMenu",
+		"type" : "WT_BUTTON",
+		"text" : "Options",
+		"x" : -1,
+		"y" : 415,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "quit",
+		"group" : "challengesMenu",
+		"type" : "WT_BUTTON",
+		"text" : "Return to Title",
+		"x" : -1,
+		"y" : 515,
+		"w" : 200,
+		"h": 34
 	}
 ]

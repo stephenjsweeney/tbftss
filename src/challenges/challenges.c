@@ -31,6 +31,7 @@ static void failChallenge(void);
 static void updateChallenges(void);
 static char *getFormattedChallengeDescription(const char *format, ...);
 char *getChallengeDescription(Challenge *c);
+static void printStats(void);
 
 static char descriptionBuffer[MAX_DESCRIPTION_LENGTH];
 static const char *challengeDescription[CHALLENGE_MAX];
@@ -127,6 +128,31 @@ static void updateChallenges(void)
 				case CHALLENGE_DISABLE:
 					updateDisabledChallenge(c);
 					break;
+			}
+		}
+	}
+	
+	if (dev.debug)
+	{
+		printStats();
+	}
+}
+
+static void printStats(void)
+{
+	int i;
+	
+	for (i = 0 ; i < STAT_MAX ; i++)
+	{
+		if (battle.stats[i])
+		{
+			if (i != STAT_TIME)
+			{
+				printf("DEBUG: %s=%d\n", getLookupName("STAT_", i), battle.stats[i]);
+			}
+			else
+			{
+				printf("DEBUG: %s=%s\n", getLookupName("STAT_", i), timeToString(battle.stats[i], 0));
 			}
 		}
 	}

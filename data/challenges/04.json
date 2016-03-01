@@ -13,17 +13,17 @@
 		"y" : 25
 	},
 	"challenge" : {
-		"timeLimit" : 150,
+		"timeLimit" : 120,
 		"killLimit" : 5,
 		"noMissiles" : 1,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_TIME",
-				"value" : 120
+				"value" : 90
 			},
 			{
 				"type" : "CHALLENGE_TIME",
-				"value" : 150
+				"value" : 120
 			},
 			{
 				"type" : "CHALLENGE_ACCURACY",
@@ -39,7 +39,8 @@
 			"x" : 25,
 			"y" : 25,
 			"number" : 5,
-			"scatter" : 2000
+			"scatter" : 2000,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		}
 	]
 }

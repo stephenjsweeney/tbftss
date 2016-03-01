@@ -5,6 +5,10 @@ Changelog
 	* Added new game mode: Challenges
 	* Add i18n support
 
+0.51
+
+	* Fixed a mission loading bug on Linux.
+
 0.5
 
 	* Added capital ships

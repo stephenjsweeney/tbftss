@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define MAX_ITEMS	21
+#define MAX_ITEMS	14
 
 #define SHOW_CHALLENGES 	0
 #define SHOW_MENU 			1
@@ -57,6 +57,8 @@ extern void blit(SDL_Texture *t, int x, int y, int centered);
 extern char *getBackgroundTextureName(int n);
 extern char *getPlanetTextureName(int n);
 extern void playMusic(char *filename);
+extern char *timeToString(long millis, int showHours);
+extern char *getChallengeDescription(Challenge *c);
 
 extern App app;
 extern Battle battle;

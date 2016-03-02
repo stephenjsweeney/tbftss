@@ -59,4 +59,5 @@ extern void updateAllMissions(void);
 extern App app;
 extern Battle battle;
 extern Colors colors;
+extern Game game;
 extern Entity *self;

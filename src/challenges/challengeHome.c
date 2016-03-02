@@ -74,8 +74,6 @@ void initChallengeHome(void)
 	planet.x = rand() % SCREEN_WIDTH;
 	planet.y = rand() % SCREEN_HEIGHT;
 	
-	game.currentMission = NULL;
-	
 	startIndex = 0;
 	
 	show = SHOW_CHALLENGES;
@@ -93,6 +91,13 @@ void initChallengeHome(void)
 	
 	getWidget("ok", "stats")->action = statsOK;
 	
+	/* select first challenge if none chosen */
+	if (!game.currentMission)
+	{
+		game.currentMission = game.challengeMissionHead.next;
+		updateChallengeMissionData();
+	}
+	
 	endSectionTransition();
 	
 	playMusic("music/covert_operations.mp3");
@@ -107,9 +112,7 @@ static void unlockChallenges(void)
 	
 	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
 	{
-		m->available = i <= completedChallenges;
-		
-		m->available = 1;
+		m->available = (i <= completedChallenges || dev.debug);
 		
 		completedChallenges += m->completedChallenges;
 		totalChallenges += m->totalChallenges;

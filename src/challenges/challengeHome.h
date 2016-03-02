@@ -63,4 +63,5 @@ extern char *getChallengeDescription(Challenge *c);
 extern App app;
 extern Battle battle;
 extern Colors colors;
+extern Dev dev;
 extern Game game;

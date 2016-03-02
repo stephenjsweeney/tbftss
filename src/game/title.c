@@ -215,6 +215,8 @@ static void campaign(void)
 
 static void challenges(void)
 {
+	game.currentMission = NULL;
+	
 	initChallengeHome();
 }
 

@@ -33,6 +33,7 @@ static void handleKeyboard(void);
 static void faceMouse(void);
 static void handleMouse(void);
 static void preFireMissile(void);
+static void applyRestrictions(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -96,6 +97,11 @@ void doPlayer(void)
 	{
 		self = player;
 		
+		if (game.currentMission->challengeData.isChallenge)
+		{
+			applyRestrictions();
+		}
+		
 		if (player->alive == ALIVE_ALIVE)
 		{
 			handleKeyboard();
@@ -136,6 +142,29 @@ void doPlayer(void)
 	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
 	{
 		deactivateBoost();
+	}
+}
+
+static void applyRestrictions(void)
+{
+	if (game.currentMission->challengeData.noMissiles)
+	{
+		player->missiles = 0;
+	}
+	
+	if (game.currentMission->challengeData.noBoost)
+	{
+		battle.boostTimer = 0;
+	}
+	
+	if (game.currentMission->challengeData.noECM)
+	{
+		battle.ecmTimer = 0;
+	}
+	
+	if (game.currentMission->challengeData.noGuns)
+	{
+		player->reload = 1;
 	}
 }
 
@@ -235,7 +264,7 @@ static void handleMouse(void)
 		
 		if (app.mouse.button[SDL_BUTTON_RIGHT])
 		{
-			if (battle.boostTimer > BOOST_FINISHED_TIME)
+			if (battle.boostTimer > BOOST_FINISHED_TIME || game.currentMission->challengeData.noBoost)
 			{
 				applyFighterThrust();
 			}

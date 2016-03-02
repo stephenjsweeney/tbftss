@@ -81,6 +81,10 @@ Mission *loadMissionMeta(char *filename)
 		mission->challengeData.isChallenge = 1;
 		mission->challengeData.timeLimit = cJSON_GetObjectItem(node, "timeLimit")->valueint * FPS;
 		mission->challengeData.killLimit = cJSON_GetObjectItem(node, "killLimit")->valueint;
+		mission->challengeData.noMissiles = cJSON_GetObjectItem(node, "noMissiles") ? 1 : 0;
+		mission->challengeData.noECM = cJSON_GetObjectItem(node, "noECM") ? 1 : 0;
+		mission->challengeData.noBoost = cJSON_GetObjectItem(node, "noBoost") ? 1 : 0;
+		mission->challengeData.noGuns = cJSON_GetObjectItem(node, "noGuns") ? 1 : 0;
 		
 		node = cJSON_GetObjectItem(node, "challenges");
 		

@@ -246,6 +246,10 @@ typedef struct {
 	int killLimit;
 	int lossLimit;
 	int itemLimit;
+	int noMissiles;
+	int noBoost;
+	int noECM;
+	int noGuns;
 	Challenge challengeHead;
 } ChallengeData;
 

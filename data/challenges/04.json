@@ -15,7 +15,6 @@
 	"challenge" : {
 		"timeLimit" : 120,
 		"killLimit" : 5,
-		"noMissiles" : 1,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_TIME",

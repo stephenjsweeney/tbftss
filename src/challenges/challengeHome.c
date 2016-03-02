@@ -45,10 +45,10 @@ static SDL_Texture *planetTexture;
 static PointF planet;
 static int totalChallenges;
 static int show;
-static char challenge[3][MAX_DESCRIPTION_LENGTH];
-static int passed[3];
+static Challenge *challenge[3];
 static char timeLimit[MAX_DESCRIPTION_LENGTH];
 static char restrictions[MAX_DESCRIPTION_LENGTH];
+static int hasRestrictions;
 
 void initChallengeHome(void)
 {
@@ -108,6 +108,8 @@ static void unlockChallenges(void)
 	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
 	{
 		m->available = i <= completedChallenges;
+		
+		m->available = 1;
 		
 		completedChallenges += m->completedChallenges;
 		totalChallenges += m->totalChallenges;
@@ -180,28 +182,45 @@ static void updateChallengeMissionData(void)
 	STRNCPY(timeLimit, timeToString(game.currentMission->challengeData.timeLimit, 0), MAX_DESCRIPTION_LENGTH);
 	sprintf(restrictions, "%s", listRestrictions());
 	
-	i = 0;
-	
-	for (i = 0 ; i < 3 ; i++)
-	{
-		strcpy(challenge[i], "");
-		passed[i] = 0;
-	}
+	memset(challenge, 0, sizeof(Challenge*) * 3);
 	
 	i = 0;
 	
 	for (c = game.currentMission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
 	{
-		STRNCPY(challenge[i], getChallengeDescription(c), MAX_DESCRIPTION_LENGTH);
-		passed[i] = c->passed;
+		challenge[i++] = c;
+	}
+}
+
+static void addRestriction(char *buffer, int restricted, char *description)
+{
+	if (restricted)
+	{
+		if (strlen(buffer) > 0)
+		{
+			strcat(buffer, ". ");
+		}
 		
-		i++;
+		strcat(buffer, description);
+		
+		hasRestrictions = 1;
 	}
 }
 
 static char *listRestrictions(void)
 {
-	return _("None");
+	static char textBuffer[MAX_DESCRIPTION_LENGTH];
+	
+	memset(textBuffer, '\0', MAX_DESCRIPTION_LENGTH);
+	
+	hasRestrictions = 0;
+	
+	addRestriction(textBuffer, game.currentMission->challengeData.noMissiles, _("No Missiles"));
+	addRestriction(textBuffer, game.currentMission->challengeData.noECM, _("No ECM"));
+	addRestriction(textBuffer, game.currentMission->challengeData.noBoost, _("No Boost"));
+	addRestriction(textBuffer, game.currentMission->challengeData.noGuns, _("No Guns"));
+	
+	return strlen(textBuffer) > 0  ? textBuffer : "-";
 }
 
 static void draw(void)
@@ -316,15 +335,23 @@ static void drawChallenges(void)
 		
 		r.y -= 50;
 		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Craft: %s"), game.currentMission->craft);
-		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (passed[0]) ? colors.green : colors.white, challenge[0]);
+		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (challenge[0]->passed) ? colors.green : colors.white, "1. %s", getChallengeDescription(challenge[0]));
 		
 		r.y -= 30;
 		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Time Limit: %s"), timeLimit);
-		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (passed[0]) ? colors.green : colors.white, challenge[1]);
+		
+		if (challenge[1])
+		{
+			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (challenge[1]->passed) ? colors.green : colors.white, "2. %s", getChallengeDescription(challenge[1]));
+		}
 		
 		r.y -= 30;
-		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Restrictions: %s"), restrictions);
-		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (passed[0]) ? colors.green : colors.white, challenge[2]);
+		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, hasRestrictions ? colors.red : colors.white, _("Restrictions: %s"), restrictions);
+		
+		if (challenge[2])
+		{
+			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (challenge[2]->passed) ? colors.green : colors.white, "3. %s", getChallengeDescription(challenge[2]));
+		}
 	}
 }
 

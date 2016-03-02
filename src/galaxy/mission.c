@@ -30,7 +30,6 @@ static void loadLocations(cJSON *node);
 static unsigned long hashcode(const char *str);
 static char **toTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
-static void loadChallengeData(cJSON *node);
 static char *getAutoBackground(char *filename);
 static char *getAutoPlanet(char *filename);
 
@@ -73,12 +72,16 @@ Mission *loadMissionMeta(char *filename)
 		STRNCPY(mission->craft, cJSON_GetObjectItem(node, "type")->valuestring, MAX_NAME_LENGTH);
 	}
 	
-	challengeTail = &mission->challengeHead;
+	challengeTail = &mission->challengeData.challengeHead;
 	
 	node = cJSON_GetObjectItem(root, "challenge");
 	
 	if (node)
 	{
+		mission->challengeData.isChallenge = 1;
+		mission->challengeData.timeLimit = cJSON_GetObjectItem(node, "timeLimit")->valueint * FPS;
+		mission->challengeData.killLimit = cJSON_GetObjectItem(node, "killLimit")->valueint;
+		
 		node = cJSON_GetObjectItem(node, "challenges");
 		
 		if (node)
@@ -144,11 +147,6 @@ void loadMission(char *filename)
 		loadEpicData(cJSON_GetObjectItem(root, "epic"));
 	}
 	
-	if (cJSON_GetObjectItem(root, "challenge"))
-	{
-		loadChallengeData(cJSON_GetObjectItem(root, "challenge"));
-	}
-	
 	if (cJSON_GetObjectItem(root, "manualComplete"))
 	{
 		battle.manualComplete = cJSON_GetObjectItem(root, "manualComplete")->valueint;
@@ -195,7 +193,7 @@ void loadMission(char *filename)
 	{
 		game.stats[STAT_MISSIONS_STARTED]++;
 	}
-	else if (battle.challengeData.isChallenge)
+	else if (game.currentMission->challengeData.isChallenge)
 	{
 		game.stats[STAT_CHALLENGES_STARTED]++;
 	}
@@ -219,7 +217,7 @@ static char *getAutoBackground(char *filename)
 {
 	int hash;
 	
-	if (!battle.challengeData.isChallenge)
+	if (!game.currentMission->challengeData.isChallenge)
 	{
 		hash = hashcode(game.selectedStarSystem);
 	}
@@ -235,7 +233,7 @@ static char *getAutoPlanet(char *filename)
 {
 	int hash;
 	
-	if (!battle.challengeData.isChallenge)
+	if (!game.currentMission->challengeData.isChallenge)
 	{
 		hash = hashcode(game.selectedStarSystem);
 	}
@@ -871,13 +869,6 @@ static void loadEpicData(cJSON *node)
 			e->active = 0;
 		}
 	}
-}
-
-static void loadChallengeData(cJSON *node)
-{
-	battle.challengeData.isChallenge = 1;
-	battle.challengeData.timeLimit = cJSON_GetObjectItem(node, "timeLimit")->valueint * FPS;
-	battle.challengeData.killLimit = cJSON_GetObjectItem(node, "killLimit")->valueint;
 }
 
 Mission *getMission(char *filename)

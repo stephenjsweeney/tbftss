@@ -240,6 +240,15 @@ struct Challenge {
 	Challenge *next;
 };
 
+typedef struct {
+	int isChallenge;
+	int timeLimit;
+	int killLimit;
+	int lossLimit;
+	int itemLimit;
+	Challenge challengeHead;
+} ChallengeData;
+
 struct Mission {
 	char name[MAX_NAME_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
@@ -253,7 +262,7 @@ struct Mission {
 	int completedChallenges;
 	int totalChallenges;
 	int epic;
-	Challenge challengeHead;
+	ChallengeData challengeData;
 	SDL_Rect rect;
 	Mission *next;
 };
@@ -281,14 +290,6 @@ struct Quadtree {
 	int numEnts;
 	Quadtree *node[4];
 };
-
-typedef struct {
-	int isChallenge;
-	int timeLimit;
-	int killLimit;
-	int lossLimit;
-	int itemLimit;
-} ChallengeData;
 
 typedef struct {
 	int entId;
@@ -321,7 +322,6 @@ typedef struct {
 	Location locationHead, *locationTail;
 	struct cJSON *missionJSON;
 	unsigned int stats[STAT_MAX];
-	ChallengeData challengeData;
 	Quadtree quadtree;
 } Battle;
 

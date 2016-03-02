@@ -32,15 +32,17 @@ static const char *objectiveStatus[OS_MAX];
 
 void initMissionInfo(void)
 {
+	int isChallenge = game.currentMission->challengeData.isChallenge;
+	
 	objectiveStatus[OS_INCOMPLETE] = _("Incomplete");
 	objectiveStatus[OS_COMPLETE] = _("Complete");
 	objectiveStatus[OS_FAILED] = _("Failed");
 	objectiveStatus[OS_CONDITION] = _("Condition");
 	
-	missionStartTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionStart.png") : getTexture("gfx/battle/challengeStart.png");
-	missionInProgressTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
-	missionCompleteTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionComplete.png") : getTexture("gfx/battle/challengeComplete.png");
-	missionFailedTexture = !battle.challengeData.isChallenge ? getTexture("gfx/battle/missionFailed.png") : getTexture("gfx/battle/challengeFailed.png");
+	missionStartTexture = !isChallenge ? getTexture("gfx/battle/missionStart.png") : getTexture("gfx/battle/challengeStart.png");
+	missionInProgressTexture = !isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
+	missionCompleteTexture = !isChallenge ? getTexture("gfx/battle/missionComplete.png") : getTexture("gfx/battle/challengeComplete.png");
+	missionFailedTexture = !isChallenge ? getTexture("gfx/battle/missionFailed.png") : getTexture("gfx/battle/challengeFailed.png");
 }
 
 void drawMissionInfo(void)
@@ -84,7 +86,7 @@ static void drawMissionSummary(SDL_Texture *header)
 	
 	blit(header, SCREEN_WIDTH / 2, 150, 1);
 	
-	if (!battle.challengeData.isChallenge)
+	if (!game.currentMission->challengeData.isChallenge)
 	{
 		drawObjectives();
 	}
@@ -153,16 +155,16 @@ static void drawChallenges(void)
 	
 	drawText(SCREEN_WIDTH / 2, y, 24, TA_CENTER, colors.white, game.currentMission->description);
 	
-	if (battle.status == MS_START && battle.challengeData.timeLimit)
+	if (battle.status == MS_START && game.currentMission->challengeData.timeLimit)
 	{
 		y+= 50;
 		
-		drawText(SCREEN_WIDTH / 2, y, 20, TA_CENTER, colors.white, "Time Limit: %s", timeToString(battle.challengeData.timeLimit, 0));
+		drawText(SCREEN_WIDTH / 2, y, 20, TA_CENTER, colors.white, "Time Limit: %s", timeToString(game.currentMission->challengeData.timeLimit, 0));
 	}
 		
 	y += 25;
 	
-	for (c = game.currentMission->challengeHead.next ; c != NULL ; c = c->next)
+	for (c = game.currentMission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
 	{
 		y += 50;
 		

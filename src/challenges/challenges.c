@@ -73,14 +73,14 @@ void initChallenges(void)
 
 void doChallenges(void)
 {
-	if (battle.challengeData.isChallenge && battle.status == MS_IN_PROGRESS)
+	if (game.currentMission->challengeData.isChallenge && battle.status == MS_IN_PROGRESS)
 	{
-		if (battle.challengeData.timeLimit > 0 && battle.stats[STAT_TIME] / FPS >= battle.challengeData.timeLimit)
+		if (game.currentMission->challengeData.timeLimit > 0 && battle.stats[STAT_TIME] / FPS >= game.currentMission->challengeData.timeLimit)
 		{
 			failChallenge();
 		}
 		
-		if (battle.challengeData.killLimit > 0 && battle.stats[STAT_ENEMIES_KILLED_PLAYER] >= battle.challengeData.killLimit)
+		if (game.currentMission->challengeData.killLimit > 0 && battle.stats[STAT_ENEMIES_KILLED_PLAYER] >= game.currentMission->challengeData.killLimit)
 		{
 			completeChallenge();
 		}
@@ -96,7 +96,7 @@ static void updateChallenges(void)
 {
 	Challenge *c;
 	
-	for (c = game.currentMission->challengeHead.next ; c != NULL ; c = c->next)
+	for (c = game.currentMission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
 	{
 		if (!c->passed)
 		{
@@ -239,7 +239,7 @@ Challenge *getChallenge(Mission *mission, int type, int value)
 {
 	Challenge *c;
 	
-	for (c = mission->challengeHead.next ; c != NULL ; c = c->next)
+	for (c = mission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
 	{
 		if (c->type == type && c->value == value)
 		{
@@ -272,7 +272,7 @@ void updateChallengeMissions(void)
 	{
 		m->totalChallenges = m->completedChallenges = 0;
 		
-		for (c = m->challengeHead.next ; c != NULL ; c = c->next)
+		for (c = m->challengeData.challengeHead.next ; c != NULL ; c = c->next)
 		{
 			m->totalChallenges++;
 			

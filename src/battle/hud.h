@@ -39,3 +39,4 @@ extern App app;
 extern Battle battle;
 extern Colors colors;
 extern Entity *player;
+extern Game game;

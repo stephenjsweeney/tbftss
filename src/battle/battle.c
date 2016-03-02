@@ -305,7 +305,7 @@ static void continueGame(void)
 
 	destroyBattle();
 
-	if (!battle.challengeData.isChallenge)
+	if (!game.currentMission->challengeData.isChallenge)
 	{
 		initGalacticMap();
 	}
@@ -346,7 +346,7 @@ static void quitBattle(void)
 
 	destroyBattle();
 
-	if (!battle.challengeData.isChallenge)
+	if (!game.currentMission->challengeData.isChallenge)
 	{
 		initGalacticMap();
 	}
@@ -368,7 +368,7 @@ static void postBattle(void)
 		}
 	}
 
-	if (!battle.challengeData.isChallenge)
+	if (!game.currentMission->challengeData.isChallenge)
 	{
 		if (game.currentMission && !game.currentMission->completed)
 		{

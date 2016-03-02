@@ -109,7 +109,7 @@ static void saveChallenges(cJSON *gameJSON)
 		
 		challengesJSON = cJSON_CreateArray();
 		
-		for (c = mission->challengeHead.next ; c != NULL ; c = c->next)
+		for (c = mission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
 		{
 			challengeJSON = cJSON_CreateObject();
 			cJSON_AddStringToObject(challengeJSON, "type", getLookupName("CHALLENGE_", c->type));

@@ -402,15 +402,15 @@ static void drawNumFighters(void)
 
 static void drawObjectives(void)
 {
-	if (!battle.challengeData.isChallenge)
+	if (!game.currentMission->challengeData.isChallenge)
 	{
 		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, battle.numObjectivesTotal);
 	}
 	else
 	{
-		if (battle.challengeData.timeLimit)
+		if (game.currentMission->challengeData.timeLimit)
 		{
-			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(battle.challengeData.timeLimit - battle.stats[STAT_TIME], 0));
+			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME], 0));
 		}
 		else
 		{

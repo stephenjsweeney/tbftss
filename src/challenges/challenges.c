@@ -94,10 +94,13 @@ void doChallenges(void)
 
 static void updateChallenges(void)
 {
+	int i;
 	Challenge *c;
 	
-	for (c = game.currentMission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
+	for (i = 0 ; i < MAX_CHALLENGES ; i++)
 	{
+		c = mission->challengeData.challenges[i];
+			
 		if (!c->passed)
 		{
 			switch (c->type)
@@ -237,10 +240,13 @@ char *getChallengeDescription(Challenge *c)
 
 Challenge *getChallenge(Mission *mission, int type, int value)
 {
+	int i;
 	Challenge *c;
 	
-	for (c = mission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
+	for (i = 0 ; i < MAX_CHALLENGES ; i++)
 	{
+		c = mission->challengeData.challenges[i];
+			
 		if (c->type == type && c->value == value)
 		{
 			return c;
@@ -265,6 +271,7 @@ static char *getFormattedChallengeDescription(const char *format, ...)
 
 void updateChallengeMissions(void)
 {
+	int i;
 	Mission *m;
 	Challenge *c;
 	
@@ -272,8 +279,10 @@ void updateChallengeMissions(void)
 	{
 		m->totalChallenges = m->completedChallenges = 0;
 		
-		for (c = m->challengeData.challengeHead.next ; c != NULL ; c = c->next)
+		for (i = 0 ; i < MAX_CHALLENGES ; i++)
 		{
+			c = mission->challengeData.challenges[i];
+			
 			m->totalChallenges++;
 			
 			if (c->passed)

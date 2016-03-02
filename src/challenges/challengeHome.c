@@ -45,7 +45,6 @@ static SDL_Texture *planetTexture;
 static PointF planet;
 static int totalChallenges;
 static int show;
-static Challenge *challenge[3];
 static char timeLimit[MAX_DESCRIPTION_LENGTH];
 static char restrictions[MAX_DESCRIPTION_LENGTH];
 static int hasRestrictions;
@@ -179,20 +178,8 @@ static void doChallenges(void)
 
 static void updateChallengeMissionData(void)
 {
-	Challenge *c;
-	int i;
-	
 	STRNCPY(timeLimit, timeToString(game.currentMission->challengeData.timeLimit, 0), MAX_DESCRIPTION_LENGTH);
 	sprintf(restrictions, "%s", listRestrictions());
-	
-	memset(challenge, 0, sizeof(Challenge*) * 3);
-	
-	i = 0;
-	
-	for (c = game.currentMission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
-	{
-		challenge[i++] = c;
-	}
 }
 
 static void addRestriction(char *buffer, int restricted, char *description)
@@ -262,7 +249,8 @@ static void draw(void)
 
 static void drawChallenges(void)
 {
-	Mission *c;
+	Mission *m;
+	Challenge *c;
 	SDL_Rect r;
 	int i, endIndex;
 	
@@ -273,16 +261,16 @@ static void drawChallenges(void)
 	endIndex = startIndex + MAX_ITEMS;
 	i = 0;
 	
-	for (c = game.challengeMissionHead.next ; c != NULL ; c = c->next)
+	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
 	{
-		c->rect = r;
+		m->rect = r;
 		
 		if (i >= startIndex && i <= endIndex)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
 			SDL_RenderFillRect(app.renderer, &r);
 			
-			if (game.currentMission == c)
+			if (game.currentMission == m)
 			{
 				SDL_SetRenderDrawColor(app.renderer, 64, 128, 200, SDL_ALPHA_OPAQUE);
 				SDL_RenderFillRect(app.renderer, &r);
@@ -297,9 +285,9 @@ static void drawChallenges(void)
 			
 			drawText(r.x + (r.w / 2), r.y + 28, 30, TA_CENTER, colors.white, "%d", i + 1);
 			
-			if (c->available)
+			if (m->available)
 			{
-				drawText(r.x + (r.w / 2), r.y + r.w + 5, 18, TA_CENTER, (c->completedChallenges < c->totalChallenges) ? colors.white : colors.green, "%d / %d", c->completedChallenges, c->totalChallenges);
+				drawText(r.x + (r.w / 2), r.y + r.w + 5, 18, TA_CENTER, (m->completedChallenges < m->totalChallenges) ? colors.white : colors.green, "%d / %d", m->completedChallenges, m->totalChallenges);
 			}
 			else
 			{
@@ -337,23 +325,26 @@ static void drawChallenges(void)
 		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - r.y, 24, TA_CENTER, colors.white, game.currentMission->description);
 		
 		r.y -= 50;
+		c = game.currentMission->challengeData.challenges[0];
 		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Craft: %s"), game.currentMission->craft);
-		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (challenge[0]->passed) ? colors.green : colors.white, "1. %s", getChallengeDescription(challenge[0]));
+		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, c ? colors.green : colors.white, "1. %s", getChallengeDescription(c));
 		
 		r.y -= 30;
 		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Time Limit: %s"), timeLimit);
 		
-		if (challenge[1])
+		c = game.currentMission->challengeData.challenges[1];
+		if (c)
 		{
-			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (challenge[1]->passed) ? colors.green : colors.white, "2. %s", getChallengeDescription(challenge[1]));
+			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "2. %s", getChallengeDescription(c));
 		}
 		
 		r.y -= 30;
 		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, hasRestrictions ? colors.red : colors.white, _("Restrictions: %s"), restrictions);
 		
-		if (challenge[2])
+		c = game.currentMission->challengeData.challenges[2];
+		if (c)
 		{
-			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (challenge[2]->passed) ? colors.green : colors.white, "3. %s", getChallengeDescription(challenge[2]));
+			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c) ? colors.green : colors.white, "3. %s", getChallengeDescription(c));
 		}
 	}
 }

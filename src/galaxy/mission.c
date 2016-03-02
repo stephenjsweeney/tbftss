@@ -35,8 +35,9 @@ static char *getAutoPlanet(char *filename);
 
 Mission *loadMissionMeta(char *filename)
 {
+	int i;
 	Mission *mission;
-	Challenge *challenge, *challengeTail;
+	Challenge *challenge;
 	cJSON *root, *node;
 	char *text;
 	
@@ -72,8 +73,6 @@ Mission *loadMissionMeta(char *filename)
 		STRNCPY(mission->craft, cJSON_GetObjectItem(node, "type")->valuestring, MAX_NAME_LENGTH);
 	}
 	
-	challengeTail = &mission->challengeData.challengeHead;
-	
 	node = cJSON_GetObjectItem(root, "challenge");
 	
 	if (node)
@@ -92,7 +91,9 @@ Mission *loadMissionMeta(char *filename)
 		{
 			node = node->child;
 			
-			while (node)
+			i = 0;
+			
+			while (node && i < MAX_CHALLENGES)
 			{
 				challenge = malloc(sizeof(Challenge));
 				memset(challenge, 0, sizeof(Challenge));
@@ -100,10 +101,11 @@ Mission *loadMissionMeta(char *filename)
 				challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
 				challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
 				
-				challengeTail->next = challenge;
-				challengeTail = challenge;
+				mission->challengeData.challenges[i] = challenge;
 				
 				node = node->next;
+				
+				i++;
 			}
 		}
 	}

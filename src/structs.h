@@ -250,7 +250,7 @@ typedef struct {
 	int noBoost;
 	int noECM;
 	int noGuns;
-	Challenge challengeHead;
+	Challenge *challenges[MAX_CHALLENGES];
 } ChallengeData;
 
 struct Mission {

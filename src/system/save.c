@@ -95,6 +95,7 @@ static cJSON *getMissionsJSON(StarSystem *starSystem)
 
 static void saveChallenges(cJSON *gameJSON)
 {
+	int i;
 	Mission *mission;
 	Challenge *c;
 	cJSON *missionsJSON, *missionJSON, *challengesJSON, *challengeJSON;
@@ -109,8 +110,10 @@ static void saveChallenges(cJSON *gameJSON)
 		
 		challengesJSON = cJSON_CreateArray();
 		
-		for (c = mission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
+		for (i = 0 ; i < MAX_CHALLENGES ; i++)
 		{
+			c = mission->challengeData.challenges[i];
+			
 			challengeJSON = cJSON_CreateObject();
 			cJSON_AddStringToObject(challengeJSON, "type", getLookupName("CHALLENGE_", c->type));
 			cJSON_AddNumberToObject(challengeJSON, "value", c->value);

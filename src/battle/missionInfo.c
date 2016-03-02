@@ -148,6 +148,7 @@ static void drawObjectives(void)
 
 static void drawChallenges(void)
 {
+	int i;
 	Challenge *c;
 	char *challengeStatus;
 	SDL_Color color;
@@ -164,8 +165,10 @@ static void drawChallenges(void)
 		
 	y += 25;
 	
-	for (c = game.currentMission->challengeData.challengeHead.next ; c != NULL ; c = c->next)
+	for (i = 0 ; i < MAX_CHALLENGES ; i++)
 	{
+		c = mission->challengeData.challenges[i];
+		
 		y += 50;
 		
 		color = colors.white;

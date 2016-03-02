@@ -201,7 +201,7 @@ static void updateChallengeMissionData(void)
 
 static char *listRestrictions(void)
 {
-	return "";
+	return _("None");
 }
 
 static void draw(void)
@@ -281,12 +281,12 @@ static void drawChallenges(void)
 			}
 			else
 			{
-				drawText(r.x + (r.w / 2), r.y + r.w + 5, 18, TA_CENTER, colors.lightGrey, "[Locked]");
+				drawText(r.x + (r.w / 2), r.y + r.w + 5, 18, TA_CENTER, colors.lightGrey, _("[Locked]"));
 			}
 			
 			r.x += 150;
 			
-			if (r.x > SCREEN_WIDTH - 800)
+			if (r.x > SCREEN_WIDTH - 200)
 			{
 				r.y += 165;
 				r.x = 135;
@@ -315,15 +315,15 @@ static void drawChallenges(void)
 		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - r.y, 24, TA_CENTER, colors.white, game.currentMission->description);
 		
 		r.y -= 50;
-		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, "Craft: %s", game.currentMission->craft);
+		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Craft: %s"), game.currentMission->craft);
 		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (passed[0]) ? colors.green : colors.white, challenge[0]);
 		
 		r.y -= 30;
-		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, "Time Limit: %s", timeLimit);
+		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Time Limit: %s"), timeLimit);
 		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (passed[0]) ? colors.green : colors.white, challenge[1]);
 		
 		r.y -= 30;
-		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, "Restrictions: %s", restrictions);
+		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Restrictions: %s"), restrictions);
 		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (passed[0]) ? colors.green : colors.white, challenge[2]);
 	}
 }

@@ -19,10 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
 
 #include "time.h"
-
-#include "../json/cJSON.h"
 
 extern long lookup(char *name);
 extern char *readFile(char *filename);

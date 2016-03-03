@@ -29,11 +29,23 @@ void initLookups(void)
 {
 	memset(&head, 0, sizeof(Lookup));
 	tail = &head;
-	
+
+	addLookup("CONTROL_FIRE", CONTROL_FIRE);
+	addLookup("CONTROL_ACCELERATE", CONTROL_ACCELERATE);
+	addLookup("CONTROL_BOOST", CONTROL_BOOST);
+	addLookup("CONTROL_ECM", CONTROL_ECM);
+	addLookup("CONTROL_BRAKE", CONTROL_BRAKE);
+	addLookup("CONTROL_TARGET", CONTROL_TARGET);
+	addLookup("CONTROL_MISSILE", CONTROL_MISSILE);
+	addLookup("CONTROL_GUNS", CONTROL_GUNS);
+	addLookup("CONTROL_RADAR", CONTROL_RADAR);
+	addLookup("CONTROL_NEXT_FIGHTER", CONTROL_NEXT_FIGHTER);
+	addLookup("CONTROL_PREV_FIGHTER", CONTROL_PREV_FIGHTER);
+
 	addLookup("ET_WAYPOINT", ET_WAYPOINT);
 	addLookup("ET_EXTRACTION_POINT", ET_EXTRACTION_POINT);
 	addLookup("ET_CAPITAL_SHIP", ET_CAPITAL_SHIP);
-	
+
 	addLookup("EF_NO_KILL", EF_NO_KILL);
 	addLookup("EF_DISABLED", EF_DISABLED);
 	addLookup("EF_MUST_DISABLE", EF_MUST_DISABLE);
@@ -48,7 +60,7 @@ void initLookups(void)
 	addLookup("EF_SECONDARY_TARGET", EF_SECONDARY_TARGET);
 	addLookup("EF_AI_TARGET", EF_AI_TARGET);
 	addLookup("EF_AI_LEADER", EF_AI_LEADER);
-	
+
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);
 	addLookup("AIF_FOLLOWS_PLAYER", AIF_FOLLOWS_PLAYER);
@@ -64,48 +76,48 @@ void initLookups(void)
 	addLookup("AIF_LONG_RANGE_FIRE", AIF_LONG_RANGE_FIRE);
 	addLookup("AIF_MOVES_TO_LEADER", AIF_MOVES_TO_LEADER);
 	addLookup("AIF_WANDERS", AIF_WANDERS);
-	
+
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);
 	addLookup("DT_INSTANT", DT_INSTANT);
-	
+
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);
 	addLookup("TT_WAYPOINT", TT_WAYPOINT);
 	addLookup("TT_ESCAPED", TT_ESCAPED);
 	addLookup("TT_PLAYER_ESCAPED", TT_PLAYER_ESCAPED);
 	addLookup("TT_ITEM", TT_ITEM);
-	
+
 	addLookup("WT_BUTTON", WT_BUTTON);
 	addLookup("WT_SELECT", WT_SELECT);
 	addLookup("WT_IMG_BUTTON", WT_IMG_BUTTON);
-	
+
 	addLookup("SIDE_ALLIES", SIDE_ALLIES);
 	addLookup("SIDE_PIRATE", SIDE_PIRATE);
 	addLookup("SIDE_REBEL", SIDE_REBEL);
 	addLookup("SIDE_PANDORAN", SIDE_PANDORAN);
 	addLookup("SIDE_CSN", SIDE_CSN);
 	addLookup("SIDE_UNF", SIDE_UNF);
-	
+
 	addLookup("SND_PARTICLE", SND_PARTICLE);
 	addLookup("SND_PLASMA", SND_PLASMA);
 	addLookup("SND_LASER", SND_LASER);
 	addLookup("SND_MAG", SND_MAG);
 	addLookup("SND_MISSILE", SND_MISSILE);
-	
+
 	addLookup("BT_PARTICLE", BT_PARTICLE);
 	addLookup("BT_PLASMA", BT_PLASMA);
 	addLookup("BT_LASER", BT_LASER);
 	addLookup("BT_MAG", BT_MAG);
 	addLookup("BT_ROCKET", BT_ROCKET);
 	addLookup("BT_MISSILE", BT_MISSILE);
-	
+
 	addLookup("BF_NONE", BF_NONE);
 	addLookup("BF_ENGINE", BF_ENGINE);
 	addLookup("BF_SYSTEM_DAMAGE", BF_SYSTEM_DAMAGE);
 	addLookup("BF_SHIELD_DAMAGE", BF_SHIELD_DAMAGE);
 	addLookup("BF_EXPLODES", BF_EXPLODES);
-	
+
 	addLookup("CHALLENGE_ARMOUR", CHALLENGE_ARMOUR);
 	addLookup("CHALLENGE_TIME", CHALLENGE_TIME);
 	addLookup("CHALLENGE_SHOT_ACCURACY", CHALLENGE_SHOT_ACCURACY);
@@ -117,7 +129,7 @@ void initLookups(void)
 	addLookup("CHALLENGE_PLAYER_KILLS", CHALLENGE_PLAYER_KILLS);
 	addLookup("CHALLENGE_DISABLE", CHALLENGE_DISABLE);
 	addLookup("CHALLENGE_TIME_MINS", CHALLENGE_TIME_MINS);
-	
+
 	addLookup("STAT_PERCENT_COMPLETE", STAT_PERCENT_COMPLETE);
 	addLookup("STAT_MISSIONS_STARTED", STAT_MISSIONS_STARTED);
 	addLookup("STAT_MISSIONS_COMPLETED", STAT_MISSIONS_COMPLETED);
@@ -158,10 +170,10 @@ static void addLookup(char *name, long value)
 {
 	Lookup *lookup = malloc(sizeof(Lookup));
 	memset(lookup, 0, sizeof(Lookup));
-	
+
 	STRNCPY(lookup->name, name, MAX_NAME_LENGTH);
 	lookup->value = value;
-	
+
 	tail->next = lookup;
 	tail = lookup;
 }
@@ -169,7 +181,7 @@ static void addLookup(char *name, long value)
 long lookup(char *name)
 {
 	Lookup *l;
-	
+
 	for (l = head.next ; l != NULL ; l = l->next)
 	{
 		if (strcmp(l->name, name) == 0)
@@ -177,18 +189,18 @@ long lookup(char *name)
 			return l->value;
 		}
 	}
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "No such lookup value '%s'", name);
-	
+
 	exit(1);
-	
+
 	return 0;
 }
 
 char *getLookupName(char *prefix, long num)
 {
 	Lookup *l;
-	
+
 	for (l = head.next ; l != NULL ; l = l->next)
 	{
 		if (l->value == num && strncmp(prefix, l->name, strlen(prefix)) == 0)
@@ -196,11 +208,11 @@ char *getLookupName(char *prefix, long num)
 			return l->name;
 		}
 	}
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "No such lookup value %ld, prefix=%s", num, prefix);
-	
+
 	exit(1);
-	
+
 	return "";
 }
 
@@ -209,11 +221,11 @@ char *getFlagValues(char *prefix, long flags)
 	static char flagStr[MAX_DESCRIPTION_LENGTH];
 	int requirePlus;
 	Lookup *l;
-	
+
 	memset(flagStr, '\0', MAX_DESCRIPTION_LENGTH);
-	
+
 	requirePlus = 0;
-	
+
 	for (l = head.next ; l != NULL ; l = l->next)
 	{
 		if (flags & l->value && strncmp(prefix, l->name, strlen(prefix)) == 0)
@@ -222,13 +234,13 @@ char *getFlagValues(char *prefix, long flags)
 			{
 				strcat(flagStr, "+");
 			}
-			
+
 			strcat(flagStr, l->name);
-			
+
 			requirePlus = 1;
 		}
 	}
-	
+
 	return flagStr;
 }
 
@@ -236,28 +248,28 @@ long flagsToLong(char *flags, int *add)
 {
 	char *flag;
 	long total;
-	
+
 	total = 0;
-	
+
 	if (add)
 	{
 		*add = (flags[0] == '+');
 	}
-	
+
 	flag = strtok(flags, "+");
 	while (flag)
 	{
 		total += lookup(flag);
 		flag = strtok(NULL, "+");
 	}
-	
+
 	return total;
 }
 
 void destroyLookups(void)
 {
 	Lookup *l;
-	
+
 	while (head.next)
 	{
 		l = head.next;

@@ -1,0 +1,68 @@
+[
+	{
+		"id" : "READY_DUTY",
+		"title" : "Ready for duty",
+		"description" : "Complete all the training missions at Sol",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "EPIC",
+		"title" : "Truly epic",
+		"description" : "Survive an epic battle",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "BIGGER_FALL",
+		"title" : "The bigger they are",
+		"description" : "Destroy an enemy capital ship",
+		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "CAMPAIGN_COYOTE",
+		"title" : "Coyote Ugly",
+		"description" : "Complete all missions at Coyote",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "PANDORAN_FIRST",
+		"title" : "Plenty more where that came from",
+		"description" : "Engage the Pandorans in battle",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "ATAF_FIRST",
+		"title" : "Man, I gotta get me one of these!",
+		"description" : "Pilot an ATAF during the campaign",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "CHALLENGE_25",
+		"title" : "",
+		"description" : "Complete 25% of all challenges",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "CHALLENGE_50",
+		"title" : "",
+		"description" : "Complete 50% of all challenges",
+		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "CHALLENGE_100",
+		"title" : "",
+		"description" : "Complete 100% of all challenges",
+		"value" : "TROPHY_GOLD"
+	},
+	{
+		"id" : "FIRE_10000",
+		"title" : "Your name's on one of these!",
+		"description" : "Fire 10,000 shots",
+		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "MISSILE_1000",
+		"title" : "Dodge this!",
+		"description" : "Launch 1,000 missiles",
+		"value" : "TROPHY_SILVER"
+	}
+]

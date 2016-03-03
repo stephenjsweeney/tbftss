@@ -25,29 +25,38 @@ static SDL_Texture *mousePointer;
 void initInput(void)
 {
 	memset(&app.mouse, 0, sizeof(Mouse));
-	
+
 	mousePointer = getTexture("gfx/input/mousePointer.png");
-	
+
 	SDL_QueryTexture(mousePointer, NULL, NULL, &app.mouse.w, &app.mouse.h);
 }
 
 void doMouseDown(SDL_MouseButtonEvent *event)
 {
-	app.mouse.button[event->button] = 1;
+	if (event->button >= 0 && event->button < MAX_MOUSE_BUTTONS)
+	{
+		app.mouse.button[event->button] = 1;
+	}
 }
 
 void doMouseUp(SDL_MouseButtonEvent *event)
 {
-	app.mouse.button[event->button] = 0;
+	if (event->button >= 0 && event->button < MAX_MOUSE_BUTTONS)
+	{
+		app.mouse.button[event->button] = 0;
+	}
 }
 
+/*
+ * Note: the following assumes that SDL_BUTTON_X1 and SDL_BUTTON_X2 are 4 and 5, respectively. They usually are.
+ */
 void doMouseWheel(SDL_MouseWheelEvent *event)
 {
 	if (event->y == -1)
 	{
 		app.mouse.button[SDL_BUTTON_X1] = 1;
 	}
-	
+
 	if (event->y == 1)
 	{
 		app.mouse.button[SDL_BUTTON_X2] = 1;
@@ -63,12 +72,12 @@ void doMouseMotion(SDL_MouseMotionEvent *event)
 void drawMouse(void)
 {
 	int x, y;
-	
+
 	SDL_GetMouseState(&x, &y);
-	
+
 	app.mouse.x = x * app.scaleX;
 	app.mouse.y = y * app.scaleY;
-	
+
 	blit(mousePointer, app.mouse.x, app.mouse.y, 1);
 }
 
@@ -76,17 +85,17 @@ void clearInput(void)
 {
 	SDL_Event event;
 	int i;
-	
+
 	for (i = 0 ; i < MAX_KEYBOARD_KEYS ; i++)
 	{
 		app.keyboard[i] = 0;
 	}
-	
+
 	for (i = 0 ; i < MAX_MOUSE_BUTTONS ; i++)
 	{
 		app.mouse.button[i] = 0;
 	}
-	
+
 	while (SDL_PollEvent(&event))
 	{
 	}

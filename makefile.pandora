@@ -9,7 +9,7 @@ OBJS += unixInit.o
 
 include common.mk
 
-CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
+CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DFIXED_RESOLUTION=1
 CXXFLAGS += -ansi -Wstrict-prototypes
 CXXFLAGS += -g -lefence -flto -flto-odr-type-merging
 

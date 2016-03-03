@@ -43,28 +43,28 @@ static Entity *availablePlayerUnits[MAX_SELECTABLE_PLAYERS];
 void initPlayer(void)
 {
 	int i, n;
-	
+
 	memset(&availableGuns, 0, sizeof(int) * BT_MAX);
-	
+
 	battle.numPlayerGuns = 0;
-	
+
 	player->selectedGunType = -1;
-	
+
 	if (!player->combinedGuns)
 	{
 		for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
 		{
 			n = player->guns[i].type;
-			
+
 			if (n)
 			{
 				if (!availableGuns[n])
 				{
 					battle.numPlayerGuns++;
 				}
-				
+
 				availableGuns[n] = 1;
-				
+
 				if (player->selectedGunType == -1)
 				{
 					player->selectedGunType = n;
@@ -76,16 +76,16 @@ void initPlayer(void)
 	{
 		player->selectedGunType = 0;
 	}
-	
+
 	STRNCPY(player->name, "Player", MAX_NAME_LENGTH);
-	
+
 	player->action = NULL;
-	
+
 	battle.boostTimer = BOOST_RECHARGE_TIME;
 	battle.ecmTimer = ECM_RECHARGE_TIME;
-	
+
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
-	
+
 	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
 }
 
@@ -93,7 +93,7 @@ void doPlayer(void)
 {
 	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
 	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
-	
+
 	if (player != NULL)
 	{
 		self = player;
@@ -106,17 +106,17 @@ void doPlayer(void)
 		if (player->alive == ALIVE_ALIVE)
 		{
 			handleKeyboard();
-			
+
 			handleMouse();
-			
+
 			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0)
 			{
 				selectTarget();
 			}
 		}
-		
+
 		player->angle = ((int)player->angle) % 360;
-		
+
 		if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
 		{
 			if (!battle.isEpic)
@@ -128,18 +128,18 @@ void doPlayer(void)
 				initPlayerSelect();
 			}
 		}
-		
+
 		if (battle.status == MS_IN_PROGRESS)
 		{
 			selectMissionTarget();
 		}
-		
+
 		if (dev.playerUnlimitedMissiles)
 		{
 			player->missiles = 999;
 		}
 	}
-	
+
 	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
 	{
 		deactivateBoost();
@@ -173,69 +173,69 @@ static void handleKeyboard(void)
 {
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (app.keyboard[SDL_SCANCODE_W])
+		if (isKeyControl(CONTROL_BOOST))
 		{
 			if (battle.boostTimer == BOOST_RECHARGE_TIME)
 			{
 				playSound(SND_BOOST);
-				
+
 				activateBoost();
 			}
 			else
 			{
 				playSound(SND_GUI_DENIED);
 			}
-			
-			app.keyboard[SDL_SCANCODE_W] = 0;
+
+			clearControl(CONTROL_BOOST);
 		}
-		
-		if (app.keyboard[SDL_SCANCODE_A])
+
+		if (isKeyControl(CONTROL_TARGET))
 		{
 			selectTarget();
-			
-			app.keyboard[SDL_SCANCODE_A] = 0;
+
+			clearControl(CONTROL_TARGET);
 		}
-		
-		if (app.keyboard[SDL_SCANCODE_D])
+
+		if (isKeyControl(CONTROL_ECM))
 		{
 			if (battle.ecmTimer == ECM_RECHARGE_TIME)
 			{
 				playSound(SND_ECM);
-				
+
 				activateECM();
 			}
 			else
 			{
 				playSound(SND_GUI_DENIED);
 			}
-			
-			app.keyboard[SDL_SCANCODE_D] = 0;
+
+			clearControl(CONTROL_ECM);
 		}
-		
-		if (app.keyboard[SDL_SCANCODE_S])
+
+		if (isKeyControl(CONTROL_BRAKE))
 		{
 			applyFighterBrakes();
 		}
-		
-		if (app.keyboard[SDL_SCANCODE_Z])
+
+		if (isKeyControl(CONTROL_GUNS))
 		{
 			switchGuns();
-			
-			app.keyboard[SDL_SCANCODE_Z] = 0;
+
+			clearControl(CONTROL_GUNS);
 		}
-		
-		if (app.keyboard[SDL_SCANCODE_X])
+
+		if (isKeyControl(CONTROL_RADAR))
 		{
 			cycleRadarZoom();
-			
-			app.keyboard[SDL_SCANCODE_X] = 0;
+
+			clearControl(CONTROL_RADAR);
 		}
-		
-		if (app.keyboard[SDL_SCANCODE_SPACE])
+
+		if (isKeyControl(CONTROL_MISSILE))
 		{
 			preFireMissile();
-			
-			app.keyboard[SDL_SCANCODE_SPACE] = 0;
+
+			clearControl(CONTROL_MISSILE);
 		}
 	}
 	else
@@ -298,19 +298,19 @@ static void faceMouse(void)
 {
 	int dir;
 	int x, y, wantedAngle;
-	
+
 	x = player->x - battle.camera.x;
 	y = player->y - battle.camera.y;
 	wantedAngle = getAngle(x, y, app.mouse.x, app.mouse.y);
-	
+
 	wantedAngle %= 360;
-	
+
 	if (fabs(wantedAngle - player->angle) > 2)
 	{
 		dir = ((int)(wantedAngle - player->angle + 360)) % 360 > 180 ? -1 : 1;
-	
+
 		player->angle += dir * 4;
-		
+
 		player->angle = mod(player->angle, 360);
 	}
 }
@@ -333,11 +333,11 @@ static void preFireMissile(void)
 void initPlayerSelect(void)
 {
 	Entity *e;
-	
+
 	memset(&availablePlayerUnits, 0, sizeof(Entity*) * MAX_SELECTABLE_PLAYERS);
-	
+
 	selectedPlayerIndex = 0;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->active && e->type == ET_FIGHTER && e->health > 0 && e->side == SIDE_ALLIES && selectedPlayerIndex < MAX_SELECTABLE_PLAYERS)
@@ -345,17 +345,17 @@ void initPlayerSelect(void)
 			availablePlayerUnits[selectedPlayerIndex++] = e;
 		}
 	}
-	
+
 	if (selectedPlayerIndex > 0)
 	{
 		battle.playerSelect = 1;
-		selectedPlayerIndex = 0;		
+		selectedPlayerIndex = 0;
 		memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 	}
 	else
 	{
 		battle.isEpic = 0;
-		
+
 		failMission();
 	}
 }
@@ -391,13 +391,13 @@ static void selectNewPlayer(int dir)
 	do
 	{
 		selectedPlayerIndex += dir;
-		
+
 		selectedPlayerIndex = mod(selectedPlayerIndex, MAX_SELECTABLE_PLAYERS);
-		
+
 		player = availablePlayerUnits[selectedPlayerIndex];
 	}
 	while (player == NULL);
-	
+
 	battle.camera.x = player->x - (SCREEN_WIDTH / 2);
 	battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
 }
@@ -407,22 +407,22 @@ static void activateBoost(void)
 	self->dx += sin(TO_RAIDANS(self->angle)) * 10;
 	self->dy += -cos(TO_RAIDANS(self->angle)) * 10;
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
-	
+
 	battle.boostTimer = 0;
-	
+
 	battle.stats[STAT_BOOST]++;
 }
 
 static void deactivateBoost(void)
 {
 	float v, thrust;
-	
+
 	thrust = -1;
-	
+
 	while (thrust != self->thrust)
 	{
 		thrust = self->thrust;
-		
+
 		v = (self->speed / sqrt(self->thrust));
 		self->dx = v * self->dx;
 		self->dy = v * self->dy;
@@ -433,18 +433,18 @@ static void deactivateBoost(void)
 static void activateECM(void)
 {
 	battle.ecmTimer = 0;
-	
+
 	addECMEffect(player);
-	
+
 	battle.stats[STAT_ECM]++;
 }
 
 static void switchGuns(void)
 {
 	int i;
-	
+
 	i = player->selectedGunType;
-	
+
 	if (!player->combinedGuns)
 	{
 		do
@@ -453,7 +453,7 @@ static void switchGuns(void)
 		}
 		while (!availableGuns[i]);
 	}
-	
+
 	if (player->selectedGunType != i)
 	{
 		playSound(SND_SELECT_WEAPON);
@@ -468,7 +468,7 @@ static void selectTarget(void)
 	int i, total;
 	Entity *e, *near;
 	Entity *targets[MAX_SELECTABLE_TARGETS];
-	
+
 	i = 0;
 	near = NULL;
 	memset(targets, 0, sizeof(Entity*) * MAX_SELECTABLE_TARGETS);
@@ -488,7 +488,7 @@ static void selectTarget(void)
 				near = e;
 				closest = dist;
 			}
-			
+
 			if (collision(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, e->x - battle.camera.x - (e->w / 2), e->y - battle.camera.y - (e->h / 2), e->w, e->h))
 			{
 				targets[i++] = e;
@@ -499,9 +499,9 @@ static void selectTarget(void)
 			}
 		}
 	}
-	
+
 	total = i;
-	
+
 	for (i = 0 ; i < total ; i++)
 	{
 		if (targets[i] == player->target)
@@ -517,7 +517,7 @@ static void selectTarget(void)
 			}
 		}
 	}
-	
+
 	if (!player->target || !targets[0])
 	{
 		player->target = near;
@@ -529,15 +529,15 @@ static void selectMissionTarget(void)
 	unsigned int closest = MAX_TARGET_RANGE;
 	unsigned int dist = MAX_TARGET_RANGE;
 	Entity *e;
-	
+
 	battle.missionTarget = NULL;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->active && e->flags & EF_MISSION_TARGET && e->alive == ALIVE_ALIVE)
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
-			
+
 			if (battle.missionTarget == NULL)
 			{
 				battle.missionTarget = e;

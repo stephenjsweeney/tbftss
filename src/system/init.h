@@ -40,7 +40,6 @@ extern void loadCapitalShipDefs(void);
 extern void loadItemDefs(void);
 extern void initFonts(void);
 extern void initBulletDefs(void);
-extern void initLookups(void);
 extern void initBattle(void);
 extern void initGame(void);
 extern void initStats(void);
@@ -69,6 +68,9 @@ extern void initModalDialog(void);
 extern void createSaveFolder(void);
 extern char *getFileLocation(char *filename);
 extern void setLanguage(char *applicationName, char *languageCode);
+extern char *getLookupName(char *prefix, long num);
+extern long lookup(char *name);
 
 extern App app;
 extern Colors colors;
+extern Game game;

@@ -1,8 +1,29 @@
 {
 	"winWidth" : 1280,
 	"winHeight" : 720,
-	"vSync" : 1,
 	"fullscreen" : 0,
 	"musicVolume" : 8,
-	"soundVolume" : 10
+	"soundVolume" : 10,
+	"controls" : {
+		"keys": {
+			"CONTROL_BOOST" : 26,
+			"CONTROL_ECM" : 7,
+			"CONTROL_BRAKE" : 22,
+			"CONTROL_TARGET" : 4,
+			"CONTROL_MISSILE" : 44,
+			"CONTROL_GUNS" : 29,
+			"CONTROL_RADAR" : 27,
+			"CONTROL_NEXT_FIGHTER":	7,
+			"CONTROL_PREV_FIGHTER":	4
+		},
+		"mouse" : {
+			"CONTROL_BOOST" : -1,
+			"CONTROL_ECM" : -1,
+			"CONTROL_BRAKE" : -1,
+			"CONTROL_TARGET" : -1,
+			"CONTROL_MISSILE" : -1,
+			"CONTROL_GUNS" : -1,
+			"CONTROL_RADAR" : -1
+		}
+	}
 }

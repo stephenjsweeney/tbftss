@@ -44,6 +44,16 @@
 		"h": 34
 	},
 	{
+		"name" : "controls",
+		"group" : "options",
+		"type" : "WT_BUTTON",
+		"text" : "Controls ...",
+		"x" : -1,
+		"y" : 475,
+		"w" : 400,
+		"h": 34
+	},
+	{
 		"name" : "ok",
 		"group" : "options",
 		"type" : "WT_BUTTON",

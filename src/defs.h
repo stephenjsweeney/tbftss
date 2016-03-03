@@ -26,6 +26,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define DATA_DIR ""
 #endif
 
+#ifndef FIXED_RESOLUTION
+#define FIXED_RESOLUTION 0
+#endif
+
 #define _(string) getTranslatedString(string)
 
 #define PI 3.14159265358979323846
@@ -39,7 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SCREEN_HEIGHT 	720
 
 #define MAX_KEYBOARD_KEYS	350
-#define MAX_MOUSE_BUTTONS	8
+#define MAX_MOUSE_BUTTONS	5
 
 #define FPS				60
 #define LOGIC_RATE		(1000 / FPS)
@@ -112,6 +116,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define BOOST_RECHARGE_TIME 	(FPS * 7)
 #define BOOST_FINISHED_TIME 	(FPS * 0.75)
 #define ECM_RECHARGE_TIME		(FPS * 7)
+
+enum
+{
+	CONTROL_FIRE,
+	CONTROL_ACCELERATE,
+	CONTROL_BOOST,
+	CONTROL_ECM,
+	CONTROL_BRAKE,
+	CONTROL_TARGET,
+	CONTROL_MISSILE,
+	CONTROL_GUNS,
+	CONTROL_RADAR,
+	CONTROL_NEXT_FIGHTER,
+	CONTROL_PREV_FIGHTER,
+	CONTROL_MAX
+};
 
 enum
 {

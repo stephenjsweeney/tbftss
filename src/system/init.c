@@ -29,24 +29,24 @@ void init18N(int argc, char *argv[])
 {
 	int i;
 	int languageId = -1;
-	
+
 	setlocale(LC_NUMERIC, "");
-	
+
 	for (i = 1 ; i < argc ; i++)
 	{
 		if (strcmp(argv[i], "-language") == 0)
 		{
 			languageId = i + 1;
-				
+
 			if (languageId >= argc)
 			{
 				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "You must specify a language to use with -language. Using default.\n");
 			}
 		}
 	}
-	
+
 	setLanguage("tbftss", languageId == -1 ? NULL : argv[languageId]);
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "atof(2.75) is %f\n", atof("2.75"));
 }
@@ -54,39 +54,39 @@ void init18N(int argc, char *argv[])
 void initSDL(void)
 {
 	int rendererFlags, windowFlags;
-	
+
 	/* do this here, so we don't destroy the save dir stored in app */
 	memset(&app, 0, sizeof(App));
-	
+
 	/* done in src/plat/ */
 	createSaveFolder();
-	
+
 	rendererFlags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
 	windowFlags = 0;
-	
+
 	loadConfig();
-	
+
 	if (app.fullscreen)
 	{
 		windowFlags |= SDL_WINDOW_FULLSCREEN;
 	}
-	
+
 	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) < 0)
 	{
 		printf("Couldn't initialize SDL: %s\n", SDL_GetError());
 		exit(1);
 	}
-	
+
 	SDL_ShowCursor(0);
-	
+
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
     {
         printf("Couldn't initialize SDL Mixer\n");
 		exit(1);
     }
-    
+
     Mix_AllocateChannels(64);
-	
+
 	Mix_Volume(-1, app.soundVolume * MIX_MAX_VOLUME / 10);
 	Mix_VolumeMusic(app.musicVolume * MIX_MAX_VOLUME / 10);
 
@@ -103,14 +103,14 @@ void initSDL(void)
 		printf("Couldn't initialize SDL TTF: %s\n", SDL_GetError());
 		exit(1);
 	}
-	
+
 	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
-	
+
 	app.scaleX = SCREEN_WIDTH;
 	app.scaleX /= app.winWidth;
 	app.scaleY = SCREEN_HEIGHT;
 	app.scaleY /= app.winHeight;
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Game scale factor: %.2f,%.2f\n", app.scaleX, app.scaleY);
 }
 
@@ -120,7 +120,6 @@ void initGameSystem(void)
 	void (*initFuncs[]) (void) = {
 		initFonts,
 		initInput,
-		initLookups,
 		initResources,
 		initSounds,
 		initWidgets,
@@ -136,9 +135,9 @@ void initGameSystem(void)
 		initModalDialog,
 		initBackground
 	};
-	
+
 	numInitFuns = sizeof(initFuncs) / sizeof(void*);
-	
+
 	initColor(&colors.red, 255, 0, 0);
 	initColor(&colors.orange, 255, 128, 0);
 	initColor(&colors.yellow, 255, 255, 0);
@@ -150,11 +149,11 @@ void initGameSystem(void)
 	initColor(&colors.black, 0, 0, 0);
 	initColor(&colors.lightGrey, 192, 192, 192);
 	initColor(&colors.darkGrey, 128, 128, 128);
-	
+
 	for (i = 0 ; i < numInitFuns ; i++)
 	{
 		showLoadingStep(i, numInitFuns);
-		
+
 		initFuncs[i]();
 	}
 }
@@ -165,28 +164,28 @@ void initGameSystem(void)
 static void showLoadingStep(float step, float maxSteps)
 {
 	SDL_Rect r;
-	
+
 	prepareScene();
-	
+
 	r.w = SCREEN_WIDTH - 400;
 	r.h = 14;
 	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
 	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
-	
+
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
-	
+
 	r.w *= (step / maxSteps);
 	r.x += 2;
 	r.y += 2;
 	r.w -= 4;
 	r.h -= 4;
-	
+
 	SDL_SetRenderDrawColor(app.renderer, 128, 196, 255, 255);
 	SDL_RenderFillRect(app.renderer, &r);
-	
+
 	presentScene();
-	
+
 	SDL_Delay(1);
 }
 
@@ -202,11 +201,12 @@ static void initColor(SDL_Color *c, int r, int g, int b)
 
 static void loadConfig(void)
 {
-	cJSON *root;
+	int i;
+	cJSON *root, *controlsJSON, *node;
 	char *text, *configFilename;
-	
+
 	configFilename = getSaveFilePath("config.json");
-	
+
 	if (fileExists(configFilename))
 	{
 		text = readFile(configFilename);
@@ -215,29 +215,54 @@ static void loadConfig(void)
 	{
 		text = readFile(getFileLocation("data/app/config.json"));
 	}
-	
+
 	root = cJSON_Parse(text);
-	
+
 	app.winWidth = cJSON_GetObjectItem(root, "winWidth")->valueint;
 	app.winHeight = cJSON_GetObjectItem(root, "winHeight")->valueint;
 	app.fullscreen = cJSON_GetObjectItem(root, "fullscreen")->valueint;
 	app.musicVolume = cJSON_GetObjectItem(root, "musicVolume")->valueint;
 	app.soundVolume = cJSON_GetObjectItem(root, "soundVolume")->valueint;
-	
+
+	controlsJSON = cJSON_GetObjectItem(root, "controls");
+	if (controlsJSON)
+	{
+		node = cJSON_GetObjectItem(controlsJSON, "keys")->child;
+		while (node)
+		{
+			i = lookup(node->string);
+			
+			app.keyControls[i] = node->valueint;
+			
+			node = node->next;
+		}
+		
+		node = cJSON_GetObjectItem(controlsJSON, "mouse")->child;
+		while (node)
+		{
+			i = lookup(node->string);
+			
+			app.mouseControls[i] = node->valueint;
+			
+			node = node->next;
+		}
+	}
+
 	cJSON_Delete(root);
 	free(text);
-	
+
 	/* so that the player doesn't get confused if this is a new game */
 	saveConfig();
 }
 
 void saveConfig(void)
 {
+	int i;
 	char *out, *configFilename;
-	cJSON *root;
-	
+	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON;
+
 	configFilename = getSaveFilePath("config.json");
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Saving config ...");
 
 	root = cJSON_CreateObject();
@@ -246,12 +271,30 @@ void saveConfig(void)
 	cJSON_AddNumberToObject(root, "fullscreen", app.fullscreen);
 	cJSON_AddNumberToObject(root, "musicVolume", app.musicVolume);
 	cJSON_AddNumberToObject(root, "soundVolume", app.soundVolume);
+	
+	keysJSON = cJSON_CreateObject();
+	for (i = 0 ; i < CONTROL_MAX ; i++)
+	{
+		cJSON_AddNumberToObject(keysJSON, getLookupName("CONTROL_", i), app.keyControls[i]);
+	}
+	
+	mouseJSON = cJSON_CreateObject();
+	for (i = 0 ; i < CONTROL_MAX ; i++)
+	{
+		cJSON_AddNumberToObject(mouseJSON, getLookupName("CONTROL_", i), app.mouseControls[i]);
+	}
+	
+	controlsJSON = cJSON_CreateObject();
+	cJSON_AddItemToObject(controlsJSON, "keys", keysJSON);
+	cJSON_AddItemToObject(controlsJSON, "mouse", mouseJSON);
+	
+	cJSON_AddItemToObject(root, "controls", controlsJSON);
 
 	out = cJSON_Print(root);
 
 	if (!writeFile(configFilename, out))
 	{
-		printf("Failed to save config\n");
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Failed to save config");
 	}
 
 	cJSON_Delete(root);
@@ -261,36 +304,36 @@ void saveConfig(void)
 void cleanup(void)
 {
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Cleaning up ...");
-	
+
 	SDL_DestroyRenderer(app.renderer);
 	SDL_DestroyWindow(app.window);
-	
+
 	destroyLookups();
-	
+
 	destroyTextures();
-	
+
 	expireTexts(1);
-	
+
 	destroyFonts();
-	
+
 	destroySounds();
-	
+
 	destroyGame();
-	
+
 	destroyFighterDefs();
-	
+
 	destroyCapitalShipDefs();
-	
+
 	destroyBulletDefs();
-	
+
 	destroyItemDefs();
-	
+
 	destroyStarSystems();
-	
+
 	destroyBattle();
-	
+
 	destroyGalacticMap();
-	
+
 	destroyWidgets();
 	
 	destroyResources();
@@ -298,6 +341,6 @@ void cleanup(void)
 	TTF_Quit();
 
 	SDL_Quit();
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Done");
 }

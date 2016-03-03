@@ -38,6 +38,7 @@ typedef struct GridCell GridCell;
 typedef struct ScriptRunner ScriptRunner;
 typedef struct Location Location;
 typedef struct Bucket Bucket;
+typedef struct Trophy Trophy;
 
 typedef struct {
 	int debug;
@@ -261,6 +262,7 @@ struct Mission {
 	char pilot[MAX_NAME_LENGTH];
 	char squadron[MAX_NAME_LENGTH];
 	char craft[MAX_NAME_LENGTH];
+	char trophyId[MAX_NAME_LENGTH];
 	int available;
 	int completed;
 	int completedChallenges;
@@ -336,6 +338,17 @@ struct ScriptRunner {
 	ScriptRunner *next;
 };
 
+struct Trophy {
+	char id[MAX_NAME_LENGTH];
+	char title[MAX_DESCRIPTION_LENGTH];
+	char description[MAX_DESCRIPTION_LENGTH];
+	int value;
+	int awarded;
+	unsigned long awardDate;
+	int notify;
+	Trophy *next;
+};
+
 typedef struct {
 	StarSystem starSystemHead;
 	Mission challengeMissionHead;
@@ -345,6 +358,7 @@ typedef struct {
 	int availableMissions;
 	int totalMissions;
 	unsigned int stats[STAT_MAX];
+	Trophy trophyHead;
 } Game;
 
 struct Widget {
@@ -408,6 +422,8 @@ typedef struct {
 	SDL_Window *window;
 	Delegate delegate;
 	ModalDialog modalDialog;
+	int keyControls[CONTROL_MAX];
+	int mouseControls[CONTROL_MAX];
 } App;
 
 typedef struct {

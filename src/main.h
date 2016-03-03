@@ -44,6 +44,8 @@ extern void loadGame(void);
 extern int fileExists(char *filename);
 extern char *getSaveFilePath(char *filename);
 extern void init18N(int argc, char *argv[]);
+extern void initLookups(void);
+extern void initGame(void);
 
 App app;
 Colors colors;

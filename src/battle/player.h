@@ -37,6 +37,9 @@ extern float getAngle(int x1, int y1, int x2, int y2);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern char *getTranslatedString(char *string);
 extern void addECMEffect(Entity *ent);
+extern int isKeyControl(int type);
+extern int isMouseControl(int type);
+extern void clearControl(int type);
 
 extern App app;
 extern Battle battle;

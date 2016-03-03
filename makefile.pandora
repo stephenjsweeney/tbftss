@@ -45,15 +45,4 @@ uninstall:
 		$(RM) -v $(LOCALE_DIR)/$$lang/LC_MESSAGES/$(PROG).mo; \
 	done
 
-# prepare an archive for the program
-dist:
-	$(RM) -rf $(PROG)-$(VERSION)
-	mkdir $(PROG)-$(VERSION)
-	cp -r $(DIST_FILES) $(PROG)-$(VERSION)
-	git log --oneline --decorate >$(PROG)-$(VERSION)/CHANGELOG.raw
-	tar czf $(PROG)-$(VERSION)-$(REVISION).src.tar.gz $(PROG)-$(VERSION)
-	mkdir -p dist
-	mv $(PROG)-$(VERSION)-$(REVISION).src.tar.gz dist
-	$(RM) -rf $(PROG)-$(VERSION)
-
 .PHONY: dist

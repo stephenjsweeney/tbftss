@@ -3,7 +3,7 @@
 	"description" : "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/earth.png",
-	"music" : "music/Battle in the winter.mp3",
+	"music" : "music/battle/Battle in the winter.mp3",
 	"player" : {
 		"type" : "TAF",
 		"side" : "SIDE_ALLIES",

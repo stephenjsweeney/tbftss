@@ -121,6 +121,7 @@ void initGameSystem(void)
 		initFonts,
 		initInput,
 		initLookups,
+		initResources,
 		initSounds,
 		initWidgets,
 		initGame,
@@ -292,7 +293,7 @@ void cleanup(void)
 	
 	destroyWidgets();
 	
-	destroyBackground();
+	destroyResources();
 
 	TTF_Quit();
 

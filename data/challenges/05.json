@@ -3,7 +3,7 @@
 	"description" : "Disable all targets",
 	"background" : "AUTO",
 	"planet" : "AUTO",
-	"music" : "",
+	"music" : "AUTO",
 	"player" : {
 		"type" : "Hyena-A",
 		"side" : "SIDE_ALLIES",

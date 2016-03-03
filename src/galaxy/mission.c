@@ -32,6 +32,7 @@ static char **toTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
 static char *getAutoBackground(char *filename);
 static char *getAutoPlanet(char *filename);
+static char *getAutoMusic(char *filename);
 
 Mission *loadMissionMeta(char *filename)
 {
@@ -146,8 +147,6 @@ void loadMission(char *filename)
 	
 	loadLocations(cJSON_GetObjectItem(root, "locations"));
 	
-	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_DESCRIPTION_LENGTH);
-	
 	if (cJSON_GetObjectItem(root, "epic"))
 	{
 		loadEpicData(cJSON_GetObjectItem(root, "epic"));
@@ -165,7 +164,13 @@ void loadMission(char *filename)
 	
 	initScript(cJSON_GetObjectItem(root, "script"));
 	
-	/* planet and background loading must come last, so AUTO works properly */
+	/* music, planet, and background loading must come last, so AUTO works properly */
+	
+	STRNCPY(music, cJSON_GetObjectItem(root, "music")->valuestring, MAX_DESCRIPTION_LENGTH);
+	if (strcmp(music, "AUTO") == 0)
+	{
+		STRNCPY(music, getAutoMusic(filename), MAX_DESCRIPTION_LENGTH);
+	}
 	
 	background = cJSON_GetObjectItem(root, "background")->valuestring;
 	if (strcmp(background, "AUTO") == 0)
@@ -249,6 +254,22 @@ static char *getAutoPlanet(char *filename)
 	}
 	
 	return getPlanetTextureName(hash);
+}
+
+static char *getAutoMusic(char *filename)
+{
+	int hash;
+	
+	if (!game.currentMission->challengeData.isChallenge)
+	{
+		hash = hashcode(game.selectedStarSystem);
+	}
+	else
+	{
+		hash = hashcode(filename);
+	}
+	
+	return getMusicFilename(hash);
 }
 
 void completeMission(void)

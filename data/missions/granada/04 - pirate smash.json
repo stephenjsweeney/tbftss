@@ -4,7 +4,7 @@
 	"requires" : 17,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
-	"music" : "music/track-4.mp3",
+	"music" : "music/battle/track-4.mp3",
 	"manualComplete" : 1,
 	"player" : {
 		"pilot" : "Lt. Cdr. Daniel Carr",

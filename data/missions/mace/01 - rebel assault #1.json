@@ -4,7 +4,7 @@
 	"requires" : 28,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
-	"music" : "music/InnerCore_Low.ogg",
+	"music" : "music/battle/InnerCore_Low.ogg",
 	"player" : {
 		"type" : "TAF",
 		"pilot" : "",

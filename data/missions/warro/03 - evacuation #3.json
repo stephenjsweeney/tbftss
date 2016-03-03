@@ -4,7 +4,7 @@
 	"requires" : 8,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
-	"music" : "music/determination.mp3",
+	"music" : "music/battle/determination.mp3",
 	"objectives" : [
 		{
 			"description" : "Rescue all civilians",

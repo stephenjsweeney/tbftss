@@ -4,7 +4,7 @@
 	"requires" : 22,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
-	"music" : "music/track-4.mp3",
+	"music" : "music/battle/track-4.mp3",
 	"manualComplete" : 1,
 	"objectives" : [
 		{

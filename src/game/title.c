@@ -88,7 +88,7 @@ void initTitle(void)
 	
 	endSectionTransition();
 	
-	playMusic("music/Rise of spirit.ogg");
+	playMusic("music/main/Rise of spirit.ogg");
 }
 
 static void initFighters(void)

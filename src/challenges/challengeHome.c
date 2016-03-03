@@ -99,7 +99,7 @@ void initChallengeHome(void)
 	
 	endSectionTransition();
 	
-	playMusic("music/covert_operations.mp3");
+	playMusic("music/main/covert_operations.mp3");
 }
 
 static void unlockChallenges(void)

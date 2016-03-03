@@ -4,7 +4,7 @@
 	"requires" : 2,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/mythos.png",
-	"music" : "music/heroism.ogg",
+	"music" : "music/battle/heroism.ogg",
 	"manualComplete" : 1,
 	"objectives" : [
 		{

@@ -3,7 +3,7 @@
 	"description" : "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/earth.png",
-	"music" : "music/Battle in the winter.mp3",
+	"music" : "music/battle/Battle in the winter.mp3",
 	"objectives" : [
 		{
 			"description" : "Eliminate Dart",

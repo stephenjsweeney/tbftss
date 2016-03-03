@@ -3,7 +3,7 @@
 	"description" : "Destroy all Darts",
 	"background" : "AUTO",
 	"planet" : "AUTO",
-	"music" : "",
+	"music" : "AUTO",
 	"player" : {
 		"type" : "Nymph",
 		"side" : "SIDE_ALLIES",

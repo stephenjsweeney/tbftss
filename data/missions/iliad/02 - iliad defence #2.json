@@ -4,7 +4,7 @@
 	"requires" : 18,
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
-	"music" : "music/heroism.ogg",
+	"music" : "music/battle/heroism.ogg",
 	"epic" : {
 		"fighterLimit" : 12
 	},

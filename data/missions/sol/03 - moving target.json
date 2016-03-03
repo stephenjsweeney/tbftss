@@ -3,7 +3,7 @@
 	"description" : "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/earth.png",
-	"music" : "music/Battle in the winter.mp3",
+	"music" : "music/battle/Battle in the winter.mp3",
 	"objectives" : [
 		{
 			"description" : "Eliminate Dart",

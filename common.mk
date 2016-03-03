@@ -9,7 +9,7 @@ vpath %.h $(SEARCHPATH)
 DEPS += defs.h structs.h
 
 OBJS += ai.o
-OBJS += background.o battle.o bullets.o
+OBJS += battle.o bullets.o
 OBJS += capitalShips.o challengeHome.o challenges.o cJSON.o
 OBJS += debris.o dev.o draw.o
 OBJS += effects.o entities.o extractionPoint.o
@@ -22,7 +22,7 @@ OBJS += main.o messageBox.o mission.o missionInfo.o modalDialog.o
 OBJS += objectives.o options.o
 OBJS += player.o
 OBJS += quadtree.o
-OBJS += radar.o rope.o
+OBJS += radar.o resources.o rope.o
 OBJS += save.o script.o sound.o starfield.o starSystems.o stats.o
 OBJS += testMission.o textures.o text.o title.o transition.o
 OBJS += util.o

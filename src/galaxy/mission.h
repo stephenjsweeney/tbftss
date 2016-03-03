@@ -53,6 +53,7 @@ extern void updateStarSystemMissions(void);
 extern void updateChallengeMissions(void);
 extern char *getBackgroundTextureName(int n);
 extern char *getPlanetTextureName(int n);
+extern char *getMusicFilename(int n);
 
 extern Battle battle;
 extern Entity *player;

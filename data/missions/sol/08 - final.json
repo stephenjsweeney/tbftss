@@ -3,7 +3,7 @@
 	"description" : "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/earth.png",
-	"music" : "music/Battle in the winter.mp3",
+	"music" : "music/battle/Battle in the winter.mp3",
 	"objectives" : [
 		{
 			"description" : "Eliminate Darts",

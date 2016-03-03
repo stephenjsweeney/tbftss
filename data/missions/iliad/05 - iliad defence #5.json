@@ -4,7 +4,7 @@
 	"requires" : 26,
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
-	"music" : "music/DST-RailJet-LongSeamlessLoop.ogg",
+	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
 	"epic" : {
 		"fighterLimit" : 12
 	},

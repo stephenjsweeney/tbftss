@@ -3,7 +3,7 @@
 	"description" : "Practice using your fighter's weapons against a stationary target.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/earth.png",
-	"music" : "music/Battle in the winter.mp3",
+	"music" : "music/battle/Battle in the winter.mp3",
 	"objectives" : [
 		{
 			"description" : "Destroy Dart",

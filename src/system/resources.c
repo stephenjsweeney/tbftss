@@ -18,20 +18,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "background.h"
+#include "resources.h"
 
-static PointF backgroundPoint[4];
 char **backgrounds;
 char **planets;
+char **musicFiles;
 int numBackgrounds;
 int numPlanets;
+int numMusicFiles;
 
-void initBackground(void)
+void initResources(void)
 {
 	char **filenames;
 	int i;
 	
-	numBackgrounds = numPlanets = 0;
+	numBackgrounds = numPlanets = numMusicFiles = 0;
 	
 	filenames = getFileList(getFileLocation("gfx/backgrounds"), &numBackgrounds);
 	backgrounds = malloc(sizeof(char*) * numBackgrounds);
@@ -40,6 +41,8 @@ void initBackground(void)
 	{
 		backgrounds[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(backgrounds[i], "gfx/backgrounds/%s", filenames[i]);
+		
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
 		
 		free(filenames[i]);
 	}
@@ -54,63 +57,28 @@ void initBackground(void)
 		planets[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(planets[i], "gfx/planets/%s", filenames[i]);
 		
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
+		
 		free(filenames[i]);
 	}
 	
 	free(filenames);
 	
-	backgroundPoint[0].x = -SCREEN_WIDTH / 2;
-	backgroundPoint[0].y = -SCREEN_HEIGHT / 2;
+	filenames = getFileList(getFileLocation("music/battle/"), &numMusicFiles);
 	
-	backgroundPoint[1].x = SCREEN_WIDTH / 2;
-	backgroundPoint[1].y = -SCREEN_HEIGHT / 2;
+	musicFiles = malloc(sizeof(char*) * numMusicFiles);
 	
-	backgroundPoint[2].x = -SCREEN_WIDTH / 2;
-	backgroundPoint[2].y = SCREEN_HEIGHT / 2;
-	
-	backgroundPoint[3].x = SCREEN_WIDTH / 2;
-	backgroundPoint[3].y = SCREEN_HEIGHT / 2;
-}
-
-void scrollBackground(float x, float y)
-{
-	int i;
-	
-	for (i = 0 ; i < 4 ; i++)
+	for (i = 0 ; i < numMusicFiles ; i++)
 	{
-		backgroundPoint[i].x += x;
-		backgroundPoint[i].y += y;
+		musicFiles[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
+		sprintf(musicFiles[i], "music/battle/%s", filenames[i]);
 		
-		if (backgroundPoint[i].x < 0)
-		{
-			backgroundPoint[i].x += (SCREEN_WIDTH * 2);
-		}
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
 		
-		if (backgroundPoint[i].x >= SCREEN_WIDTH)
-		{
-			backgroundPoint[i].x -= (SCREEN_WIDTH * 2);
-		}
-		
-		if (backgroundPoint[i].y < 0)
-		{
-			backgroundPoint[i].y += (SCREEN_HEIGHT * 2);
-		}
-		
-		if (backgroundPoint[i].y >= SCREEN_HEIGHT)
-		{
-			backgroundPoint[i].y -= (SCREEN_HEIGHT * 2);
-		}
+		free(filenames[i]);
 	}
-}
-
-void drawBackground(SDL_Texture *texture)
-{
-	int i;
 	
-	for (i = 0 ; i < 4 ; i++)
-	{
-		blitScaled(texture, backgroundPoint[i].x, backgroundPoint[i].y, SCREEN_WIDTH, SCREEN_HEIGHT);
-	}
+	free(filenames);
 }
 
 char *getBackgroundTextureName(int i)
@@ -123,8 +91,14 @@ char *getPlanetTextureName(int i)
 	return planets[i % numPlanets];
 }
 
-void destroyBackground(void)
+char *getMusicFilename(int i)
+{
+	return musicFiles[i % numMusicFiles];
+}
+
+void destroyResources(void)
 {
 	free(backgrounds);
 	free(planets);
+	free(musicFiles);
 }

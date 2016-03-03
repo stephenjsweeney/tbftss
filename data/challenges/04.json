@@ -3,7 +3,7 @@
 	"description" : "Destroy all Lynxes",
 	"background" : "AUTO",
 	"planet" : "AUTO",
-	"music" : "",
+	"music" : "AUTO",
 	"player" : {
 		"type" : "Ray",
 		"side" : "SIDE_ALLIES",

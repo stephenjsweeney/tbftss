@@ -4,7 +4,7 @@
 	"requires" : 3,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
-	"music" : "music/battleThemeA.mp3",
+	"music" : "music/battle/battleThemeA.mp3",
 	"manualComplete" : 1,
 	"objectives" : [
 		{

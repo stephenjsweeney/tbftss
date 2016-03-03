@@ -4,7 +4,7 @@
 	"requires" : 13,
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
-	"music" : "music/track-3.mp3",
+	"music" : "music/battle/track-3.mp3",
 	"objectives" : [
 		{
 			"description" : "Destroy incoming bombers",

@@ -3,7 +3,7 @@
 	"description" : "Battle along side two team mates to take on 3 enemy fighters.",
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/earth.png",
-	"music" : "music/Battle in the winter.mp3",
+	"music" : "music/battle/Battle in the winter.mp3",
 	"objectives" : [
 		{
 			"description" : "Eliminate Darts",

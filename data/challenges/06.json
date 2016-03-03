@@ -3,7 +3,7 @@
 	"description" : "60 second battle",
 	"background" : "AUTO",
 	"planet" : "AUTO",
-	"music" : "",
+	"music" : "AUTO",
 	"player" : {
 		"type" : "Hammerhead",
 		"side" : "SIDE_ALLIES",

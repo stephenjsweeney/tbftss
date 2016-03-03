@@ -1,0 +1,64 @@
+{
+	"name" : "Disable all targets",
+	"description" : "Disable all targets",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "",
+	"player" : {
+		"type" : "Hyena-A",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Do not destroy targets",
+			"targetName" : "TAF",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"challenge" : {
+		"timeLimit" : 90,
+		"killLimit" : 6,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 90
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 45
+			},
+			{
+				"type" : "CHALLENGE_DISABLE",
+				"value" : 6
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"name" : "TAF",
+			"types" : "TAF",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 25,
+			"number" : 2,
+			"scatter" : 4000,
+			"flags" : "+EF_NO_KILL+EF_MUST_DISABLE+EF_MISSION_TARGET+EF_AI_LEADER"
+		},
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 25,
+			"number" : 4,
+			"scatter" : 4000,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		}
+	]
+}

@@ -82,7 +82,8 @@ void doChallenges(void)
 			failChallenge();
 		}
 		
-		if (game.currentMission->challengeData.killLimit > 0 && battle.stats[STAT_ENEMIES_KILLED_PLAYER] >= game.currentMission->challengeData.killLimit)
+		/* disabled enemies count as killed during challenges - not player exclusive, but no need to worry about AI contributions here */
+		if (game.currentMission->challengeData.killLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.killLimit)
 		{
 			completeChallenge();
 		}

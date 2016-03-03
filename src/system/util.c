@@ -32,7 +32,7 @@ int rrnd(int low, int high)
 
 int getPercent(float current, float total)
 {
-	return (current / total) * 100;
+	return total != 0 ? (current / total) * 100 : 0;
 }
 
 int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2)

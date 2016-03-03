@@ -223,6 +223,8 @@ void doFighter(void)
 				playBattleSound(SND_POWER_DOWN, self->x, self->y);
 				
 				self->flags |= EF_DISABLED;
+				self->flags |= EF_SECONDARY_TARGET;
+				
 				battle.stats[STAT_ENEMIES_DISABLED]++;
 				
 				updateObjective(self->name, TT_DISABLE);

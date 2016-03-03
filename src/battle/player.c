@@ -34,6 +34,7 @@ static void faceMouse(void);
 static void handleMouse(void);
 static void preFireMissile(void);
 static void applyRestrictions(void);
+static int isPriorityMissionTarget(Entity *e, int dist, int closest);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -472,9 +473,14 @@ static void selectTarget(void)
 	near = NULL;
 	memset(targets, 0, sizeof(Entity*) * MAX_SELECTABLE_TARGETS);
 	
+	if (player->target && (!player->target->health || !player->target->systemPower))
+	{
+		player->target = NULL;
+	}
+	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->active && e != player && (e->flags & EF_TAKES_DAMAGE) && e->side != player->side && e->alive == ALIVE_ALIVE && (!(e->flags & EF_DISABLED)) && i < MAX_SELECTABLE_TARGETS)
+		if (e->active && e != player && (e->flags & EF_TAKES_DAMAGE) && e->side != player->side && e->alive == ALIVE_ALIVE && e->systemPower > 0 && i < MAX_SELECTABLE_TARGETS)
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			if (dist < closest)
@@ -543,7 +549,7 @@ static void selectMissionTarget(void)
 			}
 			else if (battle.missionTarget->type != ET_WAYPOINT)
 			{
-				if (dist < closest)
+				if (isPriorityMissionTarget(e, dist, closest))
 				{
 					battle.missionTarget = e;
 					closest = dist;
@@ -555,6 +561,24 @@ static void selectMissionTarget(void)
 			}
 		}
 	}
+}
+
+static int isPriorityMissionTarget(Entity *e, int dist, int closest)
+{
+	/* battle.missionTarget is secondary, e is not */
+	if ((battle.missionTarget->flags & EF_SECONDARY_TARGET) > (e->flags & EF_SECONDARY_TARGET))
+	{
+		return 1;
+	}
+	
+	/* battle.missionTarget is not secondary, e is */
+	if ((battle.missionTarget->flags & EF_SECONDARY_TARGET) < (e->flags & EF_SECONDARY_TARGET))
+	{
+		return 0;
+	}
+	
+	/* normal distance check */
+	return dist < closest;
 }
 
 static void cycleRadarZoom(void)

@@ -99,7 +99,7 @@ static void updateChallenges(void)
 	
 	for (i = 0 ; i < MAX_CHALLENGES ; i++)
 	{
-		c = mission->challengeData.challenges[i];
+		c = game.currentMission->challengeData.challenges[i];
 			
 		if (!c->passed)
 		{
@@ -159,6 +159,8 @@ static void printStats(void)
 			}
 		}
 	}
+	
+	printf("DEBUG: Accuracy=%d\n", getPercent(battle.stats[STAT_SHOTS_FIRED], battle.stats[STAT_SHOTS_HIT]));
 }
 
 static void updateTimeChallenge(Challenge *c)
@@ -281,13 +283,16 @@ void updateChallengeMissions(void)
 		
 		for (i = 0 ; i < MAX_CHALLENGES ; i++)
 		{
-			c = mission->challengeData.challenges[i];
+			c = m->challengeData.challenges[i];
 			
-			m->totalChallenges++;
-			
-			if (c->passed)
+			if (c)
 			{
-				m->completedChallenges++;
+				m->totalChallenges++;
+				
+				if (c->passed)
+				{
+					m->completedChallenges++;
+				}
 			}
 		}
 	}

@@ -327,7 +327,7 @@ static void drawChallenges(void)
 		r.y -= 50;
 		c = game.currentMission->challengeData.challenges[0];
 		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Craft: %s"), game.currentMission->craft);
-		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, c ? colors.green : colors.white, "1. %s", getChallengeDescription(c));
+		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "1. %s", getChallengeDescription(c));
 		
 		r.y -= 30;
 		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, _("Time Limit: %s"), timeLimit);
@@ -344,7 +344,7 @@ static void drawChallenges(void)
 		c = game.currentMission->challengeData.challenges[2];
 		if (c)
 		{
-			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c) ? colors.green : colors.white, "3. %s", getChallengeDescription(c));
+			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "3. %s", getChallengeDescription(c));
 		}
 	}
 }

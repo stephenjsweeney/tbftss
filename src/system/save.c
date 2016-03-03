@@ -114,12 +114,15 @@ static void saveChallenges(cJSON *gameJSON)
 		{
 			c = mission->challengeData.challenges[i];
 			
-			challengeJSON = cJSON_CreateObject();
-			cJSON_AddStringToObject(challengeJSON, "type", getLookupName("CHALLENGE_", c->type));
-			cJSON_AddNumberToObject(challengeJSON, "value", c->value);
-			cJSON_AddNumberToObject(challengeJSON, "passed", c->passed);
-			
-			cJSON_AddItemToArray(challengesJSON, challengeJSON);
+			if (c)
+			{
+				challengeJSON = cJSON_CreateObject();
+				cJSON_AddStringToObject(challengeJSON, "type", getLookupName("CHALLENGE_", c->type));
+				cJSON_AddNumberToObject(challengeJSON, "value", c->value);
+				cJSON_AddNumberToObject(challengeJSON, "passed", c->passed);
+				
+				cJSON_AddItemToArray(challengesJSON, challengeJSON);
+			}
 		}
 		
 		cJSON_AddItemToObject(missionJSON, "challenges", challengesJSON);

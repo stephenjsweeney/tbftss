@@ -167,7 +167,7 @@ static void drawChallenges(void)
 	
 	for (i = 0 ; i < MAX_CHALLENGES ; i++)
 	{
-		c = mission->challengeData.challenges[i];
+		c = game.currentMission->challengeData.challenges[i];
 		
 		y += 50;
 		

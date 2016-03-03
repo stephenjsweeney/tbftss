@@ -29,6 +29,7 @@ extern char *getTranslatedString(char *string);
 extern char *getFileLocation(char *filename);
 extern char *getLookupName(char *prefix, long num);
 extern char *timeToString(long millis, int showHours);
+extern int getPercent(float current, float total);
 
 extern Dev dev;
 extern Battle battle;

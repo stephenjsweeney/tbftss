@@ -296,7 +296,7 @@ static unsigned long hashcode(const char *str, int size)
 
 	hash = ((hash << 5) + hash) + size;
 	
-	return abs(hash);
+	return hash;
 }
 
 void destroyFonts(void)

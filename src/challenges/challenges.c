@@ -31,6 +31,7 @@ static void failChallenge(void);
 static void updateChallenges(void);
 static char *getFormattedChallengeDescription(const char *format, ...);
 char *getChallengeDescription(Challenge *c);
+static int hasFailedAllChallenges(void);
 static void printStats(void);
 
 static char descriptionBuffer[MAX_DESCRIPTION_LENGTH];
@@ -77,22 +78,46 @@ void doChallenges(void)
 {
 	if (game.currentMission->challengeData.isChallenge && battle.status == MS_IN_PROGRESS)
 	{
-		if (game.currentMission->challengeData.timeLimit > 0 && battle.stats[STAT_TIME] / FPS >= game.currentMission->challengeData.timeLimit)
+		if (game.currentMission->challengeData.timeLimit > 0 && battle.stats[STAT_TIME] >= game.currentMission->challengeData.timeLimit)
 		{
-			failChallenge();
+			updateChallenges();
+			
+			if (hasFailedAllChallenges())
+			{
+				failChallenge();
+			}
+			else
+			{
+				completeChallenge();
+			}
 		}
 		
 		/* disabled enemies count as killed during challenges - not player exclusive, but no need to worry about AI contributions here */
 		if (game.currentMission->challengeData.killLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.killLimit)
 		{
+			updateChallenges();
+			
 			completeChallenge();
 		}
-		
-		if (battle.status != MS_IN_PROGRESS)
+	}
+}
+
+static int hasFailedAllChallenges(void)
+{
+	int i;
+	Challenge *c;
+	
+	for (i = 0 ; i < MAX_CHALLENGES ; i++)
+	{
+		c = game.currentMission->challengeData.challenges[i];
+			
+		if (c && c->passed)
 		{
-			updateChallenges();
+			return 0;
 		}
 	}
+	
+	return 1;
 }
 
 static void updateChallenges(void)

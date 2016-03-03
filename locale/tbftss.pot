@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-29 14:58:58+0000\n"
+"POT-Creation-Date: 2016-03-03 07:53:54+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -121,7 +121,31 @@ msgstr ""
 msgid "Cannot activate waypoint - team mates too far away"
 msgstr ""
 
+msgid "No Missiles"
+msgstr ""
+
+msgid "No ECM"
+msgstr ""
+
+msgid "No Boost"
+msgstr ""
+
+msgid "No Guns"
+msgstr ""
+
 msgid "Challenges"
+msgstr ""
+
+msgid "[Locked]"
+msgstr ""
+
+msgid "Craft: %s"
+msgstr ""
+
+msgid "Time Limit: %s"
+msgstr ""
+
+msgid "Restrictions: %s"
 msgstr ""
 
 msgid "Retain at least %d%% armour"
@@ -158,9 +182,6 @@ msgid "Missions: %d / %d"
 msgstr ""
 
 msgid "Pilot: %s"
-msgstr ""
-
-msgid "Craft: %s"
 msgstr ""
 
 msgid "Squadron: %s"

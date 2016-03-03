@@ -92,20 +92,22 @@ void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a)
 	int x = radius;
 	int y = 0;
 	int radiusError = 1 - x;
+	SDL_Point p[8];
 
 	SDL_SetRenderDrawColor(app.renderer, r, g, b, a);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 
 	while (x >= y)
 	{
-		SDL_RenderDrawPoint(app.renderer, x + cx,  y + cy);
-		SDL_RenderDrawPoint(app.renderer, y + cx,  x + cy);
-		SDL_RenderDrawPoint(app.renderer,-x + cx,  y + cy);
-		SDL_RenderDrawPoint(app.renderer,-y + cx,  x + cy);
-		SDL_RenderDrawPoint(app.renderer,-x + cx, -y + cy);
-		SDL_RenderDrawPoint(app.renderer,-y + cx, -x + cy);
-		SDL_RenderDrawPoint(app.renderer, x + cx, -y + cy);
-		SDL_RenderDrawPoint(app.renderer, y + cx, -x + cy);
+		p[0].x =  x + cx; p[0].y = y + cy;
+		p[1].x =  y + cx; p[1].y =  x + cy;
+		p[2].x = -x + cx; p[2].y =  y + cy;
+		p[3].x = -y + cx; p[3].y =  x + cy;
+		p[4].x = -x + cx; p[4].y = -y + cy;
+		p[5].x = -y + cx; p[5].y = -x + cy;
+		p[6].x =  x + cx; p[6].y = -y + cy;
+		p[7].x =  y + cx; p[7].y = -x + cy;
+		SDL_RenderDrawPoints(app.renderer, p, 8);
 
 		y++;
 
@@ -117,27 +119,6 @@ void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a)
 		{
 			x--;
 			radiusError += 2 * (y - x) + 1;
-		}
-	}
-
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-}
-
-void drawFilledCircle(int cx, int cy, int radius, int r, int g, int b, int a)
-{
-	int x, y;
-
-	SDL_SetRenderDrawColor(app.renderer, r, g, b, a);
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
-
-	for (y = -radius ; y <= radius ; y++)
-	{
-		for (x =- radius; x <= radius ; x++)
-		{
-			if (x * x + y * y <= radius * radius)
-			{
-				SDL_RenderDrawPoint(app.renderer, cx + x, cy + y);
-			}
 		}
 	}
 

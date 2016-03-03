@@ -1,0 +1,47 @@
+{
+	"name" : "60 second battle",
+	"description" : "60 second battle",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "",
+	"player" : {
+		"type" : "Hammerhead",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"epic" : {
+		"fighterLimit" : 5
+	},
+	"challenge" : {
+		"timeLimit" : 60,
+		"killLimit" : 20,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 12
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 15
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 20
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"name" : "Pirate",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 25,
+			"y" : 25,
+			"number" : 20,
+			"scatter" : 5000
+		}
+	]
+}

@@ -23,9 +23,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void prevPage(void);
 static void nextPage(void);
 static void calculatePercentComplete(void);
+void updateAccuracyStats(unsigned int *stats);
 
 static char *statDescription[STAT_MAX];
-
 static int page;
 static float maxPages;
 static Widget *prev;
@@ -40,10 +40,13 @@ void initStats(void)
 	statDescription[STAT_CHALLENGES_COMPLETED] = _("Challenges Completed");
 	statDescription[STAT_SHOTS_FIRED] = _("Shots Fired");
 	statDescription[STAT_SHOTS_HIT] = _("Shots Hit");
+	statDescription[STAT_SHOT_ACCURACY] = _("Accuracy");
 	statDescription[STAT_ROCKETS_FIRED] = _("Rockets Fired");
 	statDescription[STAT_ROCKETS_HIT] = _("Rockets Hit");
+	statDescription[STAT_ROCKET_ACCURACY] = _("Accuracy");
 	statDescription[STAT_MISSILES_FIRED] = _("Missiles Fired");
 	statDescription[STAT_MISSILES_HIT] = _("Missiles Hit");
+	statDescription[STAT_MISSILE_ACCURACY] = _("Accuracy");
 	statDescription[STAT_ENEMIES_KILLED] = _("Enemies Killed");
 	statDescription[STAT_ENEMIES_KILLED_PLAYER] = _("Enemies Killed (Player)");
 	statDescription[STAT_ALLIES_KILLED] = _("Allies Killed");
@@ -82,6 +85,8 @@ void initStatsDisplay(void)
 	next->action = nextPage;
 	
 	calculatePercentComplete();
+	
+	updateAccuracyStats(game.stats);
 }
 
 static void calculatePercentComplete(void)
@@ -144,13 +149,18 @@ void drawStats(void)
 		{
 			drawText(r.x + 20, y, 18, TA_LEFT, colors.white, statDescription[i]);
 			
-			if (i == STAT_PERCENT_COMPLETE)
+			switch (i)
 			{
-				drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d%%", game.stats[i]);
-			}
-			else
-			{
-				drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats[i]);
+				case STAT_PERCENT_COMPLETE:
+				case STAT_SHOT_ACCURACY:
+				case STAT_ROCKET_ACCURACY:
+				case STAT_MISSILE_ACCURACY:
+					drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d%%", game.stats[i]);
+					break;
+					
+				default:
+					drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats[i]);
+					break;
 			}
 			
 			y += 40;
@@ -177,4 +187,11 @@ static void prevPage(void)
 	
 	next->visible = 1;
 	prev->visible = page > 0;
+}
+
+void updateAccuracyStats(unsigned int *stats)
+{
+	stats[STAT_SHOT_ACCURACY] = getPercent(stats[STAT_SHOTS_HIT], stats[STAT_SHOTS_FIRED]);
+	stats[STAT_ROCKET_ACCURACY] = getPercent(stats[STAT_ROCKETS_HIT], stats[STAT_ROCKETS_FIRED]);
+	stats[STAT_MISSILE_ACCURACY] = getPercent(stats[STAT_MISSILES_HIT], stats[STAT_MISSILES_FIRED]);
 }

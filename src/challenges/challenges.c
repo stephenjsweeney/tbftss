@@ -45,7 +45,9 @@ void initChallenges(void)
 	
 	challengeDescription[CHALLENGE_ARMOUR] = _("Retain at least %d%% armour");
 	challengeDescription[CHALLENGE_TIME] = _("Complete challenge in %d seconds or less");
-	challengeDescription[CHALLENGE_ACCURACY] = _("Attain a %d%% hit accuracy");
+	challengeDescription[CHALLENGE_SHOT_ACCURACY] = _("Attain a %d%% shot hit accuracy");
+	challengeDescription[CHALLENGE_ROCKET_ACCURACY] = _("Attain a %d%% rocket hit accuracy");
+	challengeDescription[CHALLENGE_MISSILE_ACCURACY] = _("Attain a %d%% missile hit accuracy");
 	challengeDescription[CHALLENGE_NO_LOSSES] = _("Do not lose any team mates");
 	challengeDescription[CHALLENGE_1_LOSS] = _("Do not lose more than 1 team mate");
 	challengeDescription[CHALLENGE_LOSSES] = _("Do not lose more than %d team mates");
@@ -97,11 +99,13 @@ static void updateChallenges(void)
 	int i;
 	Challenge *c;
 	
+	updateAccuracyStats(battle.stats);
+	
 	for (i = 0 ; i < MAX_CHALLENGES ; i++)
 	{
 		c = game.currentMission->challengeData.challenges[i];
 			
-		if (!c->passed)
+		if (c && !c->passed)
 		{
 			switch (c->type)
 			{
@@ -110,7 +114,9 @@ static void updateChallenges(void)
 					updateTimeChallenge(c);
 					break;
 					
-				case CHALLENGE_ACCURACY:
+				case CHALLENGE_SHOT_ACCURACY:
+				case CHALLENGE_ROCKET_ACCURACY:
+				case CHALLENGE_MISSILE_ACCURACY:
 					updateAccuracyChallenge(c);
 					break;
 					
@@ -159,8 +165,6 @@ static void printStats(void)
 			}
 		}
 	}
-	
-	printf("DEBUG: Accuracy=%d\n", getPercent(battle.stats[STAT_SHOTS_FIRED], battle.stats[STAT_SHOTS_HIT]));
 }
 
 static void updateTimeChallenge(Challenge *c)
@@ -187,9 +191,24 @@ static void updateAccuracyChallenge(Challenge *c)
 {
 	float percent;
 	
-	percent = battle.stats[STAT_SHOTS_HIT];
-	percent /= battle.stats[STAT_SHOTS_FIRED];
-	percent *= 100;
+	switch (c->type)
+	{
+		case CHALLENGE_SHOT_ACCURACY:
+			percent = battle.stats[STAT_SHOT_ACCURACY];
+			break;
+			
+		case CHALLENGE_ROCKET_ACCURACY:
+			percent = battle.stats[STAT_ROCKET_ACCURACY];
+			break;
+		
+		case CHALLENGE_MISSILE_ACCURACY:
+			percent = battle.stats[STAT_MISSILE_ACCURACY];
+			break;
+			
+		default:
+			percent = 0;
+			break;
+	}
 	
 	if (percent >= c->value)
 	{

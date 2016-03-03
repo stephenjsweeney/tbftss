@@ -367,6 +367,8 @@ static void postBattle(void)
 			game.stats[i] += battle.stats[i];
 		}
 	}
+	
+	updateAccuracyStats(game.stats);
 
 	if (!game.currentMission->challengeData.isChallenge)
 	{

@@ -30,6 +30,7 @@ extern char *getFileLocation(char *filename);
 extern char *getLookupName(char *prefix, long num);
 extern char *timeToString(long millis, int showHours);
 extern int getPercent(float current, float total);
+extern void updateAccuracyStats(unsigned int *stats);
 
 extern Dev dev;
 extern Battle battle;

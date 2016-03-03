@@ -25,7 +25,7 @@
 				"value" : 120
 			},
 			{
-				"type" : "CHALLENGE_ACCURACY",
+				"type" : "CHALLENGE_SHOT_ACCURACY",
 				"value" : 80
 			}
 		]

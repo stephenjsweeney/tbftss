@@ -169,27 +169,30 @@ static void drawChallenges(void)
 	{
 		c = game.currentMission->challengeData.challenges[i];
 		
-		y += 50;
-		
-		color = colors.white;
-		
-		challengeStatus = _("Incomplete");
-		
-		if (c->passed)
+		if (c)
 		{
-			color = colors.green;
+			y += 50;
 			
-			challengeStatus = _("Complete");
-		}
-		else if (battle.status == MS_COMPLETE ||battle.status == MS_FAILED)
-		{
-			color = colors.red;
+			color = colors.white;
 			
-			challengeStatus = _("Failed");
+			challengeStatus = _("Incomplete");
+			
+			if (c->passed)
+			{
+				color = colors.green;
+				
+				challengeStatus = _("Complete");
+			}
+			else if (battle.status == MS_COMPLETE ||battle.status == MS_FAILED)
+			{
+				color = colors.red;
+				
+				challengeStatus = _("Failed");
+			}
+			
+			drawText(SCREEN_WIDTH / 2 - 50, y, 22, TA_RIGHT, colors.white, "%s", getChallengeDescription(c));
+			drawText(SCREEN_WIDTH / 2 + 50, y, 22, TA_LEFT, color, challengeStatus);
 		}
-		
-		drawText(SCREEN_WIDTH / 2 - 50, y, 22, TA_RIGHT, colors.white, "%s", getChallengeDescription(c));
-		drawText(SCREEN_WIDTH / 2 + 50, y, 22, TA_LEFT, color, challengeStatus);
 	}
 }
 

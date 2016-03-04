@@ -41,7 +41,6 @@ extern void addMissileExplosion(Bullet *b);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void playSound(int id);
-extern char *getFileLocation(char *filename);
 extern char *getTranslatedString(char *string);
 
 extern Battle battle;

@@ -30,32 +30,32 @@ void loadItemDefs(void)
 	cJSON *root, *node;
 	char *text;
 	Entity *e;
-	
-	text = readFile(getFileLocation("data/battle/items.json"));
-	
+
+	text = readFile("data/battle/items.json");
+
 	root = cJSON_Parse(text);
-	
+
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
-	
+
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
 		e = malloc(sizeof(Entity));
 		memset(e, 0, sizeof(Entity));
-		
+
 		e->type = ET_ITEM;
 		e->active = 1;
 		STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 		e->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
-		
+
 		e->health = e->maxHealth = FPS;
-		
+
 		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
-		
+
 		defTail->next = e;
 	}
-	
+
 	cJSON_Delete(root);
 	free(text);
 }
@@ -63,26 +63,26 @@ void loadItemDefs(void)
 Entity *spawnItem(char *name)
 {
 	Entity *item, *def;
-	
+
 	item = spawnEntity();
-	
+
 	def = getItemDef(name);
-	
+
 	memcpy(item, def, sizeof(Entity));
-	
+
 	item->dx = rand() % 100 - rand() % 100;
 	item->dx *= 0.01;
 	item->dy = rand() % 100 - rand() % 100;
 	item->dy *= 0.01;
 	item->action = action;
-	
+
 	return item;
 }
 
 static Entity *getItemDef(char *name)
 {
 	Entity *e;
-	
+
 	for (e = defHead.next ; e != NULL ; e = e->next)
 	{
 		if (strcmp(e->name, name) == 0)
@@ -90,7 +90,7 @@ static Entity *getItemDef(char *name)
 			return e;
 		}
 	}
-	
+
 	printf("Error: no such item '%s'\n", name);
 	exit(1);
 }
@@ -99,24 +99,24 @@ static void action(void)
 {
 	Entity *e, **candidates;
 	int i;
-	
+
 	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
-	
+
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if ((e->flags & EF_COLLECTS_ITEMS) && collision(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h))
 		{
 			self->health = 0;
 			playBattleSound(SND_GET_ITEM, self->x, self->y);
-			
+
 			updateObjective(self->name, TT_ITEM);
-			
+
 			if (e == player)
 			{
 				addHudMessage(colors.white, _("Picked up %s"), self->name);
 				battle.stats[STAT_ITEMS_COLLECTED]++;
 			}
-			
+
 			self->action = NULL;
 		}
 	}
@@ -125,7 +125,7 @@ static void action(void)
 void destroyItemDefs(void)
 {
 	Entity *e;
-	
+
 	while (defHead.next)
 	{
 		e = defHead.next;

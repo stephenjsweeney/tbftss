@@ -213,7 +213,7 @@ static void loadConfig(void)
 	}
 	else
 	{
-		text = readFile(getFileLocation("data/app/config.json"));
+		text = readFile("data/app/config.json");
 	}
 
 	root = cJSON_Parse(text);
@@ -231,19 +231,19 @@ static void loadConfig(void)
 		while (node)
 		{
 			i = lookup(node->string);
-			
+
 			app.keyControls[i] = node->valueint;
-			
+
 			node = node->next;
 		}
-		
+
 		node = cJSON_GetObjectItem(controlsJSON, "mouse")->child;
 		while (node)
 		{
 			i = lookup(node->string);
-			
+
 			app.mouseControls[i] = node->valueint;
-			
+
 			node = node->next;
 		}
 	}
@@ -271,23 +271,23 @@ void saveConfig(void)
 	cJSON_AddNumberToObject(root, "fullscreen", app.fullscreen);
 	cJSON_AddNumberToObject(root, "musicVolume", app.musicVolume);
 	cJSON_AddNumberToObject(root, "soundVolume", app.soundVolume);
-	
+
 	keysJSON = cJSON_CreateObject();
 	for (i = 0 ; i < CONTROL_MAX ; i++)
 	{
 		cJSON_AddNumberToObject(keysJSON, getLookupName("CONTROL_", i), app.keyControls[i]);
 	}
-	
+
 	mouseJSON = cJSON_CreateObject();
 	for (i = 0 ; i < CONTROL_MAX ; i++)
 	{
 		cJSON_AddNumberToObject(mouseJSON, getLookupName("CONTROL_", i), app.mouseControls[i]);
 	}
-	
+
 	controlsJSON = cJSON_CreateObject();
 	cJSON_AddItemToObject(controlsJSON, "keys", keysJSON);
 	cJSON_AddItemToObject(controlsJSON, "mouse", mouseJSON);
-	
+
 	cJSON_AddItemToObject(root, "controls", controlsJSON);
 
 	out = cJSON_Print(root);
@@ -335,7 +335,7 @@ void cleanup(void)
 	destroyGalacticMap();
 
 	destroyWidgets();
-	
+
 	destroyResources();
 
 	TTF_Quit();

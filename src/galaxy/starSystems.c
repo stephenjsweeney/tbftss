@@ -31,7 +31,7 @@ void initStarSystems(void)
 
 	tail = &game.starSystemHead;
 
-	text = readFile(getFileLocation("data/galaxy/starSystems.json"));
+	text = readFile("data/galaxy/starSystems.json");
 	root = cJSON_Parse(text);
 
 	for (node = cJSON_GetObjectItem(root, "starSystems")->child ; node != NULL ; node = node->next)
@@ -92,7 +92,7 @@ static void loadMissions(StarSystem *starSystem)
 
 	sprintf(path, "data/missions/%s", name);
 
-	filenames = getFileList(getFileLocation(path), &count);
+	filenames = getFileList(path, &count);
 
 	for (i = 0 ; i < count ; i++)
 	{

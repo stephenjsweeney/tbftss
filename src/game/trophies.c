@@ -91,7 +91,7 @@ static void loadTrophyData(char *filename)
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
-	text = readFile(getFileLocation(filename));
+	text = readFile(filename);
 	root = cJSON_Parse(text);
 
 	tail = &game.trophyHead;

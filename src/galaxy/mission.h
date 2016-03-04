@@ -43,7 +43,6 @@ extern void failIncompleteObjectives(void);
 extern void completeConditions(void);
 extern void retreatEnemies(void);
 extern void initScript(cJSON *missionJSON);
-extern char *getFileLocation(char *filename);
 extern void updateCapitalShipComponentProperties(Entity *parent);
 extern void countNumEnemies(void);
 extern void initMissionInfo(void);

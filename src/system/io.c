@@ -25,15 +25,30 @@ static int stringComparator(const void *a, const void *b);
 int fileExists(char *filename)
 {
 	struct stat buffer;
-	
+
 	return (stat(filename, &buffer) == 0);
+}
+
+char *getFileLocation(char *filename)
+{
+	static char path[MAX_FILENAME_LENGTH];
+	memset(path, '\0', MAX_FILENAME_LENGTH);
+
+	if (fileExists(filename))
+	{
+		return filename;
+	}
+
+	sprintf(path, DATA_DIR"/%s", filename);
+
+	return path;
 }
 
 char *readFile(char *filename)
 {
 	char *buffer = 0;
 	long length;
-	FILE *file = fopen(filename, "rb");
+	FILE *file = fopen(getFileLocation(filename), "rb");
 
 	if (file)
 	{
@@ -54,14 +69,14 @@ char *readFile(char *filename)
 int writeFile(char *filename, char *data)
 {
 	FILE *file = fopen(filename, "wb");
-	
+
 	if (file)
 	{
 		fprintf(file, "%s\n", data);
 		fclose(file);
 		return 1;
 	}
-	
+
 	return 0;
 }
 
@@ -69,26 +84,11 @@ char *getSaveFilePath(char *filename)
 {
 	static char path[MAX_FILENAME_LENGTH];
 	memset(path, '\0', MAX_FILENAME_LENGTH);
-	
+
 	sprintf(path, "%s/%s", app.saveDir, filename);
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "getSaveFilePath = '%s'", path);
-	
-	return path;
-}
 
-char *getFileLocation(char *filename)
-{
-	static char path[MAX_FILENAME_LENGTH];
-	memset(path, '\0', MAX_FILENAME_LENGTH);
-
-	if (fileExists(filename))
-	{
-		return filename;
-	}
-	
-	sprintf(path, DATA_DIR"/%s", filename);
-	
 	return path;
 }
 
@@ -98,11 +98,11 @@ char **getFileList(char *dir, int *count)
 	int i;
 	struct dirent *ent;
 	char **filenames;
-	
+
 	i = 0;
 	filenames = NULL;
-	
-	if ((d = opendir(dir)) != NULL)
+
+	if ((d = opendir(getFileLocation(dir))) != NULL)
 	{
 		while ((ent = readdir(d)) != NULL)
 		{
@@ -111,45 +111,45 @@ char **getFileList(char *dir, int *count)
 				i++;
 			}
 		}
-		
+
 		if (i > 0)
 		{
 			filenames = malloc(sizeof(char*) * i);
 			memset(filenames, 0, sizeof(char*) * i);
-			
+
 			rewinddir(d);
-			
+
 			i = 0;
-			
+
 			while ((ent = readdir(d)) != NULL)
 			{
 				if (ent->d_name[0] != '.')
 				{
 					filenames[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
-					
+
 					STRNCPY(filenames[i], ent->d_name, MAX_FILENAME_LENGTH);
-					
+
 					i++;
 				}
 			}
 		}
-		
+
 		closedir(d);
 	}
-	
+
 	*count = i;
-	
+
 	if (filenames)
 	{
 		qsort(filenames, i, sizeof(char*), stringComparator);
 	}
-	
+
 	return filenames;
 }
 
 static int stringComparator(const void *a, const void *b)
-{ 
+{
     char **s1 = (char **)a;
     char **s2 = (char **)b;
     return strcmp(*s1, *s2);
-} 
+}

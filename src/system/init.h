@@ -66,7 +66,6 @@ extern void expireTexts(int all);
 extern void initInput(void);
 extern void initModalDialog(void);
 extern void createSaveFolder(void);
-extern char *getFileLocation(char *filename);
 extern void setLanguage(char *applicationName, char *languageCode);
 extern char *getLookupName(char *prefix, long num);
 extern long lookup(char *name);

@@ -624,7 +624,7 @@ static void loadFighterDefList(char *dir)
 	char path[MAX_FILENAME_LENGTH];
 	int count, i;
 
-	filenames = getFileList(getFileLocation(dir), &count);
+	filenames = getFileList(dir, &count);
 
 	for (i = 0 ; i < count ; i++)
 	{
@@ -647,7 +647,7 @@ static void loadFighterDef(char *filename)
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
-	text = readFile(getFileLocation(filename));
+	text = readFile(filename);
 
 	e = malloc(sizeof(Entity));
 	memset(e, 0, sizeof(Entity));

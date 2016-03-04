@@ -25,7 +25,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern char *readFile(char *filename);
 extern long lookup(char *name);
 extern int isMissionAvailable(Mission *mission, Mission *prev);
-extern char *getFileLocation(char *filename);
 extern char **getFileList(char *dir, int *count);
 extern Mission *loadMissionMeta(char *filename);
 extern int getJSONValue(cJSON *node, char *name, int defValue);

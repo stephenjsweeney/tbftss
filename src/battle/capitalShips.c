@@ -317,7 +317,7 @@ void loadCapitalShipDefs(void)
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
 
-	filenames = getFileList(getFileLocation("data/capitalShips"), &count);
+	filenames = getFileList("data/capitalShips", &count);
 
 	for (i = 0 ; i < count ; i++)
 	{
@@ -339,7 +339,7 @@ static void loadCapitalShipDef(char *filename)
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
-	text = readFile(getFileLocation(filename));
+	text = readFile(filename);
 
 	e = malloc(sizeof(Entity));
 	memset(e, 0, sizeof(Entity));

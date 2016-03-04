@@ -31,53 +31,53 @@ void initResources(void)
 {
 	char **filenames;
 	int i;
-	
+
 	numBackgrounds = numPlanets = numMusicFiles = 0;
-	
-	filenames = getFileList(getFileLocation("gfx/backgrounds"), &numBackgrounds);
+
+	filenames = getFileList("gfx/backgrounds", &numBackgrounds);
 	backgrounds = malloc(sizeof(char*) * numBackgrounds);
-	
+
 	for (i = 0 ; i < numBackgrounds ; i++)
 	{
 		backgrounds[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(backgrounds[i], "gfx/backgrounds/%s", filenames[i]);
-		
+
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
-		
+
 		free(filenames[i]);
 	}
-	
+
 	free(filenames);
-	
-	filenames = getFileList(getFileLocation("gfx/planets"), &numPlanets);
+
+	filenames = getFileList("gfx/planets", &numPlanets);
 	planets = malloc(sizeof(char*) * numPlanets);
-	
+
 	for (i = 0 ; i < numPlanets ; i++)
 	{
 		planets[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(planets[i], "gfx/planets/%s", filenames[i]);
-		
+
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
-		
+
 		free(filenames[i]);
 	}
-	
+
 	free(filenames);
-	
-	filenames = getFileList(getFileLocation("music/battle/"), &numMusicFiles);
-	
+
+	filenames = getFileList("music/battle/", &numMusicFiles);
+
 	musicFiles = malloc(sizeof(char*) * numMusicFiles);
-	
+
 	for (i = 0 ; i < numMusicFiles ; i++)
 	{
 		musicFiles[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(musicFiles[i], "music/battle/%s", filenames[i]);
-		
+
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
-		
+
 		free(filenames[i]);
 	}
-	
+
 	free(filenames);
 }
 

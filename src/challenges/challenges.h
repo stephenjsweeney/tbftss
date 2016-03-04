@@ -30,6 +30,7 @@ extern char *getLookupName(char *prefix, long num);
 extern char *timeToString(long millis, int showHours);
 extern int getPercent(float current, float total);
 extern void updateAccuracyStats(unsigned int *stats);
+extern char *timeToString(long millis, int showHours);
 
 extern Dev dev;
 extern Battle battle;

@@ -32,6 +32,7 @@ static void updateChallenges(void);
 static char *getFormattedChallengeDescription(const char *format, ...);
 char *getChallengeDescription(Challenge *c);
 static int hasFailedAllChallenges(void);
+static int challengeFinished(void);
 static void printStats(void);
 
 static char descriptionBuffer[MAX_DESCRIPTION_LENGTH];
@@ -54,7 +55,6 @@ void initChallenges(void)
 	challengeDescription[CHALLENGE_LOSSES] = _("Do not lose more than %d team mates");
 	challengeDescription[CHALLENGE_PLAYER_KILLS] = _("Take down %d enemy targets");
 	challengeDescription[CHALLENGE_DISABLE] = _("Disable %d or more enemy fighters");
-	challengeDescription[CHALLENGE_TIME_MINS] = _("Complete challenge in %d minutes or less");
 
 	tail = &game.challengeMissionHead;
 
@@ -78,7 +78,7 @@ void doChallenges(void)
 {
 	if (game.currentMission->challengeData.isChallenge && battle.status == MS_IN_PROGRESS)
 	{
-		if (game.currentMission->challengeData.timeLimit > 0 && battle.stats[STAT_TIME] >= game.currentMission->challengeData.timeLimit)
+		if (challengeFinished())
 		{
 			updateChallenges();
 
@@ -91,15 +91,33 @@ void doChallenges(void)
 				completeChallenge();
 			}
 		}
-
-		/* disabled enemies count as killed during challenges - not player exclusive, but no need to worry about AI contributions here */
-		if (game.currentMission->challengeData.killLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.killLimit)
-		{
-			updateChallenges();
-
-			completeChallenge();
-		}
 	}
+}
+
+static int challengeFinished(void)
+{
+	if (game.currentMission->challengeData.timeLimit > 0 && battle.stats[STAT_TIME] >= game.currentMission->challengeData.timeLimit)
+	{
+		return 1;
+	}
+	
+	/* disabled enemies count as killed during challenges - not player exclusive, but no need to worry about AI contributions here */
+	if (game.currentMission->challengeData.killLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.killLimit)
+	{
+		return 1;
+	}
+	
+	if (game.currentMission->challengeData.waypointLimit > 0 && battle.stats[STAT_WAYPOINTS_VISITED] >= game.currentMission->challengeData.waypointLimit)
+	{
+		return 1;
+	}
+	
+	if (game.currentMission->challengeData.itemLimit > 0 && battle.stats[STAT_ITEMS_COLLECTED] >= game.currentMission->challengeData.itemLimit)
+	{
+		return 1;
+	}
+	
+	return 0;
 }
 
 static int hasFailedAllChallenges(void)
@@ -136,7 +154,6 @@ static void updateChallenges(void)
 			switch (c->type)
 			{
 				case CHALLENGE_TIME:
-				case CHALLENGE_TIME_MINS:
 					updateTimeChallenge(c);
 					break;
 
@@ -195,21 +212,9 @@ static void printStats(void)
 
 static void updateTimeChallenge(Challenge *c)
 {
-	switch (c->type)
+	if (battle.stats[STAT_TIME] / FPS < c->value)
 	{
-		case CHALLENGE_TIME:
-			if (battle.stats[STAT_TIME] / FPS < c->value)
-			{
-				c->passed = 1;
-			}
-			break;
-
-		case CHALLENGE_TIME_MINS:
-			if ((battle.stats[STAT_TIME] / FPS) / 60 < c->value)
-			{
-				c->passed = 1;
-			}
-			break;
+		c->passed = 1;
 	}
 }
 

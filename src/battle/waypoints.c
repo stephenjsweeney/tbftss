@@ -67,6 +67,8 @@ static void think(void)
 		runScriptFunction(self->name);
 		
 		activateNextWaypoint(self->id);
+		
+		battle.stats[STAT_WAYPOINTS_VISITED]++;
 	}
 }
 

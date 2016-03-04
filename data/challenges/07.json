@@ -14,18 +14,19 @@
 	},
 	"challenge" : {
 		"waypointLimit" : 5,
+		"timeLimit" : 120,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_TIME",
-				"value" : 60
-			},
-			{
-				"type" : "CHALLENGE_TIME",
-				"value" : 90
+				"value" : 80
 			},
 			{
 				"type" : "CHALLENGE_TIME",
 				"value" : 120
+			},
+			{
+				"type" : "CHALLENGE_ARMOUR",
+				"value" : 100
 			}
 		]
 	},
@@ -33,34 +34,46 @@
 		{
 			"groupName" : "RT1",
 			"types" : "Rocket Turret",
-			"x" : 35,
-			"y" : 15,
+			"x" : 30,
+			"y" : 30,
 			"side" : "SIDE_REBEL",
-			"active" : 0
+			"scatter" : 1000,
+			"number" : 2
+		},
+		{
+			"groupName" : "RT1",
+			"types" : "Rocket Turret",
+			"x" : 30,
+			"y" : 20,
+			"side" : "SIDE_REBEL",
+			"scatter" : 1000,
+			"number" : 2
 		},
 		{
 			"groupName" : "RT2",
 			"types" : "Rocket Turret",
-			"x" : 15,
-			"y" : 15,
+			"x" : 20,
+			"y" : 20,
 			"side" : "SIDE_REBEL",
-			"active" : 0
+			"scatter" : 1000,
+			"number" : 2
 		},
 		{
 			"groupName" : "RT3",
 			"types" : "Rocket Turret",
-			"x" : 15,
-			"y" : 35,
+			"x" : 20,
+			"y" : 30,
 			"side" : "SIDE_REBEL",
-			"active" : 0
-		}
+			"scatter" : 1000,
+			"number" : 2
+		},
 		{
 			"groupName" : "RT4",
 			"types" : "Rocket Turret",
 			"x" : 25,
 			"y" : 25,
 			"side" : "SIDE_REBEL",
-			"scatter" : 500,
+			"scatter" : 1000,
 			"number" : 2,
 			"active" : 0
 		}
@@ -68,26 +81,26 @@
 	"entities" : [
 		{
 			"type" : "ET_WAYPOINT",
-			"x" : 35,
-			"y" : 35,
+			"x" : 30,
+			"y" : 30,
 			"active" : 0
 		},
 		{
 			"type" : "ET_WAYPOINT",
-			"x" : 35,
-			"y" : 15,
+			"x" : 30,
+			"y" : 20,
 			"active" : 0
 		},
 		{
 			"type" : "ET_WAYPOINT",
-			"x" : 15,
-			"y" : 15,
+			"x" : 20,
+			"y" : 20,
 			"active" : 0
 		},
 		{
 			"type" : "ET_WAYPOINT",
-			"x" : 15,
-			"y" : 35,
+			"x" : 20,
+			"y" : 30,
 			"active" : 0
 		},
 		{
@@ -98,24 +111,6 @@
 		}
 	],
 	"script" : [
-		{
-			"function" : "Waypoint #1",
-			"lines" : [
-				"ACTIVATE_ENTITY_GROUPS RT1"
-			]
-		},
-		{
-			"function" : "Waypoint #2",
-			"lines" : [
-				"ACTIVATE_ENTITY_GROUPS RT2"
-			]
-		},
-		{
-			"function" : "Waypoint #3",
-			"lines" : [
-				"ACTIVATE_ENTITY_GROUPS RT3"
-			]
-		},
 		{
 			"function" : "Waypoint #4",
 			"lines" : [

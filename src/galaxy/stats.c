@@ -64,6 +64,7 @@ void initStats(void)
 	statDescription[STAT_NUM_TOWED] = _("Craft Towed");
 	statDescription[STAT_ITEMS_COLLECTED] = _("Items Collected");
 	statDescription[STAT_EPIC_KILL_STREAK] = _("Longest Epic Kill Streak");
+	statDescription[STAT_WAYPOINTS_VISITED] = _("Waypoints Visited");
 	statDescription[STAT_CAPITAL_SHIPS_DESTROYED] = _("Capital Ships Destroyed");
 	statDescription[STAT_CAPITAL_SHIPS_LOST] = _("Capital Ships Lost");
 	statDescription[STAT_TIME] = _("Time Played");

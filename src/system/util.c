@@ -49,10 +49,10 @@ float getAngle(int x1, int y1, int x2, int y2)
 int getDistance(int x1, int y1, int x2, int y2)
 {
 	int x, y;
-	
+
 	x = x2 - x1;
 	y = y2 - y1;
-	
+
 	return sqrt(x * x + y *y);
 }
 
@@ -76,14 +76,14 @@ void getSlope(int x1, int y1, int x2, int y2, float *dx, float *dy)
 char *timeToString(long millis, int showHours)
 {
 	static char TIME[MAX_NAME_LENGTH];
-	
+
 	int hours, minutes, seconds;
-	
+
 	seconds = millis / FPS;
 	minutes = (seconds / 60) % 60;
 	hours = seconds / (60 * 60);
 	seconds %= 60;
-	
+
 	if (showHours)
 	{
 		sprintf(TIME, "%dh:%02dm:%02ds", hours, minutes, seconds);
@@ -92,6 +92,33 @@ char *timeToString(long millis, int showHours)
 	{
 		sprintf(TIME, "%dm %02ds", minutes, seconds);
 	}
-			
+
 	return TIME;
+}
+
+char *getJSONValueStr(cJSON *node, char *name, char *defValue)
+{
+	cJSON *child;
+
+	if (node)
+	{
+		child = cJSON_GetObjectItem(node, name);
+
+		if (child)
+		{
+			return child->valuestring;
+		}
+	}
+
+	return defValue;
+}
+
+int getJSONValue(cJSON *node, char *name, int defValue)
+{
+	char *result = getJSONValueStr(node, name, defValue);
+
+	if (result)
+	{
+		return aoti(result);
+	}
 }

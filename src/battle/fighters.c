@@ -36,20 +36,20 @@ static Entity defHead, *defTail;
 Entity *spawnFighter(char *name, int x, int y, int side)
 {
 	Entity *e, *def;
-	
+
 	e = spawnEntity();
-	
+
 	def = getFighterDef(name);
-	
+
 	memcpy(e, def, sizeof(Entity));
-	
+
 	e->id = battle.entId;
 	e->next = NULL;
-	
+
 	e->x = x;
 	e->y = y;
 	e->side = side;
-	
+
 	switch (side)
 	{
 		case SIDE_ALLIES:
@@ -59,91 +59,91 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 				e->aiFlags |= AIF_MOVES_TO_PLAYER;
 			}
 			break;
-			
+
 		case SIDE_PIRATE:
 			e->aiAggression = rand() % 3;
 			break;
-			
+
 		case SIDE_PANDORAN:
 			e->aiAggression = 3 + rand() % 2;
 			break;
-			
+
 		case SIDE_REBEL:
 			e->aiAggression = 1 + rand() % 3;
 			break;
 	}
-	
+
 	if (strcmp(name, "ATAF") == 0)
 	{
 		e->aiAggression = 4;
 	}
-	
+
 	if (strcmp(name, "Dart") == 0)
 	{
 		randomizeDart(e);
 	}
-	
+
 	if (strcmp(name, "Civilian") == 0 && rand() % 2 == 0)
 	{
 		e->texture = getTexture("gfx/craft/civilian02.png");
 	}
-	
+
 	if (e->aiFlags & AIF_AGGRESSIVE)
 	{
 		e->aiAggression = 4;
 	}
-	
+
 	e->action = doAI;
 	e->die = die;
-	
+
 	return e;
 }
 
 static void randomizeDart(Entity *dart)
 {
 	char texture[MAX_DESCRIPTION_LENGTH];
-	
+
 	if (rand() % 5 == 0)
 	{
 		dart->health = dart->maxHealth = 5 + (rand() % 21);
 	}
-	
+
 	if (rand() % 5 == 0)
 	{
 		dart->shield = dart->maxShield = 1 + (rand() % 16);
 		dart->shieldRechargeRate = 30 + (rand() % 90);
 	}
-	
+
 	if (rand() % 5 == 0)
 	{
 		dart->speed = 2 + (rand() % 3);
 	}
-	
+
 	if (rand() % 5 == 0)
 	{
 		dart->reloadTime = 24 + (rand() % 11);
 	}
-	
+
 	randomizeDartGuns(dart);
-	
+
 	dart->missiles = rand() % 3;
-	
+
 	sprintf(texture, "gfx/fighters/dart0%d.png", 1 + rand() % 7);
-	
+
 	dart->texture = getTexture(texture);
 }
 
 static void randomizeDartGuns(Entity *dart)
 {
 	int i;
-	
+
 	switch (rand() % 4)
 	{
 		/* Single plasma gun */
 		case 0:
 			dart->guns[0].type = BT_PLASMA;
 			dart->guns[0].x = dart->guns[0].y = 0;
-			
+
 			for (i = 1 ; i < MAX_FIGHTER_GUNS ; i++)
 			{
 				if (dart->guns[i].type)
@@ -152,25 +152,25 @@ static void randomizeDartGuns(Entity *dart)
 				}
 			}
 			break;
-		
+
 		/* Dual plasma guns */
 		case 1:
 			dart->guns[0].type = BT_PLASMA;
 			dart->guns[1].type = BT_PLASMA;
 			break;
-		
+
 		/* Triple particle guns */
 		case 2:
 			dart->guns[2].type = BT_PARTICLE;
 			dart->guns[2].y = -10;
 			break;
 
-		
+
 		/* Plasma / Laser cannons */
 		case 3:
 			dart->guns[0].type = BT_PLASMA;
 			dart->guns[0].x = dart->guns[0].y = 0;
-			
+
 			dart->guns[1].type = BT_LASER;
 			dart->guns[1].x = dart->guns[1].y = 0;
 			break;
@@ -191,20 +191,20 @@ void doFighter(void)
 		{
 			separate();
 		}
-		
+
 		attachRope();
-		
+
 		if (self->thrust > 0.25)
 		{
 			addEngineEffect();
 		}
-		
+
 		if (self->health <= 0)
 		{
 			self->health = 0;
 			self->alive = ALIVE_DYING;
 			self->die();
-			
+
 			if (self == battle.missionTarget)
 			{
 				battle.missionTarget = NULL;
@@ -217,38 +217,38 @@ void doFighter(void)
 			self->thrust = 0;
 			self->shield = self->maxShield = 0;
 			self->action = NULL;
-			
+
 			if ((self->flags & EF_DISABLED) == 0)
 			{
 				playBattleSound(SND_POWER_DOWN, self->x, self->y);
-				
+
 				self->flags |= EF_DISABLED;
 				self->flags |= EF_SECONDARY_TARGET;
-				
+
 				battle.stats[STAT_ENEMIES_DISABLED]++;
-				
+
 				updateObjective(self->name, TT_DISABLE);
 			}
 		}
-		
+
 		if (self->target != NULL && self->target->alive != ALIVE_ALIVE)
 		{
 			self->target = NULL;
-			
+
 			if (self != player)
 			{
 				self->action = doAI;
 			}
 		}
 	}
-	
+
 	if (self->alive == ALIVE_ESCAPED)
 	{
 		if (self == player)
 		{
 			completeMission();
 		}
-		
+
 		if (self->side != SIDE_ALLIES && (!(self->flags & EF_DISABLED)))
 		{
 			addHudMessage(colors.red, _("Mission target has escaped."));
@@ -258,12 +258,12 @@ void doFighter(void)
 		{
 			battle.stats[STAT_CIVILIANS_RESCUED]++;
 		}
-		
+
 		updateObjective(self->name, TT_ESCAPED);
-			
+
 		updateCondition(self->name, TT_ESCAPED);
 	}
-	
+
 	if (self->alive == ALIVE_DEAD)
 	{
 		if (self == player)
@@ -277,7 +277,7 @@ void doFighter(void)
 				if (self->side != SIDE_ALLIES)
 				{
 					battle.stats[STAT_ENEMIES_KILLED]++;
-					
+
 					runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
 				}
 				else
@@ -297,17 +297,17 @@ void doFighter(void)
 						{
 							addHudMessage(colors.red, _("Ally has been killed"));
 						}
-						
+
 						runScriptFunction("ALLIES_KILLED %d", battle.stats[STAT_ALLIES_KILLED]);
 					}
 				}
 			}
-			
+
 			updateObjective(self->name, TT_DESTROY);
 			updateObjective(self->groupName, TT_DESTROY);
-			
+
 			adjustObjectiveTargetValue(self->name, TT_ESCAPED, -1);
-			
+
 			updateCondition(self->name, TT_DESTROY);
 		}
 	}
@@ -321,40 +321,40 @@ static void separate(void)
 	int count;
 	Entity *e, **candidates;
 	int i;
-	
+
 	dx = dy = 0;
 	count = 0;
 	force = 0;
-	
+
 	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
-	
+
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		if (e->flags & EF_TAKES_DAMAGE)
 		{
 			distance = getDistance(e->x, e->y, self->x, self->y);
-			
+
 			if (distance > 0 && distance < self->separationRadius)
 			{
 				angle = getAngle(self->x, self->y, e->x, e->y);
-				
+
 				dx += sin(TO_RAIDANS(angle));
 				dy += -cos(TO_RAIDANS(angle));
 				force += (self->separationRadius - distance) * 0.005;
-				
+
 				count++;
 			}
 		}
 	}
-	
+
 	if (count > 0)
 	{
 		dx /= count;
 		dy /= count;
-		
+
 		dx *= force;
 		dy *= force;
-		
+
 		self->dx -= dx;
 		self->dy -= dy;
 	}
@@ -363,11 +363,11 @@ static void separate(void)
 void applyFighterThrust(void)
 {
 	float v;
-	
+
 	self->dx += sin(TO_RAIDANS(self->angle)) * 0.1;
 	self->dy += -cos(TO_RAIDANS(self->angle)) * 0.1;
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
-	
+
 	if (self->thrust > self->speed * self->speed)
 	{
 		v = (self->speed / sqrt(self->thrust));
@@ -381,25 +381,25 @@ void applyFighterBrakes(void)
 {
 	self->dx *= 0.95;
 	self->dy *= 0.95;
-	
+
 	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
 }
 
 void damageFighter(Entity *e, int amount, long flags)
 {
 	int prevShield = e->shield;
-	
+
 	e->aiDamageTimer = FPS;
 	e->aiDamagePerSec += amount;
-	
+
 	if (flags & BF_SYSTEM_DAMAGE)
 	{
 		playBattleSound(SND_MAG_HIT, e->x, e->y);
-		
+
 		e->systemPower = MAX(0, e->systemPower - amount);
-		
+
 		e->systemHit = 255;
-	
+
 		if (e->systemPower == 0)
 		{
 			e->shield = e->maxShield = 0;
@@ -409,14 +409,14 @@ void damageFighter(Entity *e, int amount, long flags)
 	else if (flags & BF_SHIELD_DAMAGE)
 	{
 		e->shield -= amount;
-		
+
 		if (e->shield <= 0 && prevShield > 0)
 		{
 			playBattleSound(SND_SHIELD_BREAK, e->x, e->y);
 			addShieldSplinterEffect(e);
 			e->shield = -(FPS * 10);
 		}
-		
+
 		e->shield = MAX(-(FPS * 10), e->shield);
 	}
 	else
@@ -424,7 +424,7 @@ void damageFighter(Entity *e, int amount, long flags)
 		if (e->shield > 0)
 		{
 			e->shield -= amount;
-			
+
 			if (e->shield < 0)
 			{
 				e->health += e->shield;
@@ -435,21 +435,21 @@ void damageFighter(Entity *e, int amount, long flags)
 		{
 			e->health -= amount;
 			e->armourHit = 255;
-			
+
 			playBattleSound(SND_ARMOUR_HIT, e->x, e->y);
 		}
 	}
-	
+
 	if (e->shield > 0)
 	{
 		e->shieldHit = 255;
-		
+
 		/* don't allow the shield to recharge immediately after taking a hit */
 		e->shieldRecharge = e->shieldRechargeRate;
-		
+
 		playBattleSound(SND_SHIELD_HIT, e->x, e->y);
 	}
-	
+
 	/*
 	 * Sometimes run away if you take too much damage in a short space of time
 	 */
@@ -471,7 +471,7 @@ void damageFighter(Entity *e, int amount, long flags)
 static void die(void)
 {
 	int n = rand() % 3;
-	
+
 	switch (self->deathType)
 	{
 		case DT_ANY:
@@ -484,22 +484,22 @@ static void die(void)
 			n = 2;
 			break;
 	}
-	
+
 	if (self == player && battle.isEpic)
 	{
 		n = 1;
 	}
-	
+
 	switch (n)
 	{
 		case 0:
 			self->action = spinDie;
 			break;
-		
+
 		case 1:
 			self->action = straightDie;
 			break;
-			
+
 		case 2:
 			self->action = immediateDie;
 			break;
@@ -521,14 +521,14 @@ static void spinDie(void)
 	self->armourHit = 0;
 	self->shieldHit = 0;
 	self->systemHit = 0;
-	
+
 	self->angle += 8;
-	
+
 	if (rand() % 2 == 0)
 	{
 		addSmallFighterExplosion();
 	}
-	
+
 	if (self->health <= -(FPS * 1.5))
 	{
 		self->alive = ALIVE_DEAD;
@@ -545,12 +545,12 @@ static void straightDie(void)
 	self->armourHit = 0;
 	self->shieldHit = 0;
 	self->systemHit = 0;
-	
+
 	if (rand() % 2 == 0)
 	{
 		addSmallFighterExplosion();
 	}
-	
+
 	if (self->health <= -(FPS * 1.5))
 	{
 		self->alive = ALIVE_DEAD;
@@ -563,7 +563,7 @@ static void straightDie(void)
 void retreatEnemies(void)
 {
 	Entity *e;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
@@ -576,13 +576,13 @@ void retreatEnemies(void)
 void retreatAllies(void)
 {
 	Entity *e;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
 		{
 			e->flags |= EF_RETREATING;
-			
+
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
 			e->aiFlags |= AIF_GOAL_EXTRACTION;
@@ -595,7 +595,7 @@ void retreatAllies(void)
 static Entity *getFighterDef(char *name)
 {
 	Entity *e;
-	
+
 	for (e = defHead.next ; e != NULL ; e = e->next)
 	{
 		if (strcmp(e->name, name) == 0)
@@ -603,7 +603,7 @@ static Entity *getFighterDef(char *name)
 			return e;
 		}
 	}
-	
+
 	printf("Error: no such fighter '%s'\n", name);
 	exit(1);
 }
@@ -612,7 +612,7 @@ void loadFighterDefs(void)
 {
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
-	
+
 	loadFighterDefList("data/fighters");
 	loadFighterDefList("data/craft");
 	loadFighterDefList("data/turrets");
@@ -623,18 +623,18 @@ static void loadFighterDefList(char *dir)
 	char **filenames;
 	char path[MAX_FILENAME_LENGTH];
 	int count, i;
-	
+
 	filenames = getFileList(getFileLocation(dir), &count);
-	
+
 	for (i = 0 ; i < count ; i++)
 	{
 		sprintf(path, "%s/%s", dir, filenames[i]);
-		
+
 		loadFighterDef(path);
-		
+
 		free(filenames[i]);
 	}
-	
+
 	free(filenames);
 }
 
@@ -644,21 +644,21 @@ static void loadFighterDef(char *filename)
 	char *text;
 	Entity *e;
 	int i;
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
-	
+
 	text = readFile(getFileLocation(filename));
-	
+
 	e = malloc(sizeof(Entity));
 	memset(e, 0, sizeof(Entity));
 	defTail->next = e;
 	defTail = e;
-	
+
 	e->type = ET_FIGHTER;
 	e->active = 1;
-	
+
 	root = cJSON_Parse(text);
-	
+
 	STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 	STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
 	e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
@@ -667,61 +667,55 @@ static void loadFighterDef(char *filename)
 	e->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
 	e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 	e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
-	
+
 	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
-	
+
 	if (cJSON_GetObjectItem(root, "guns"))
 	{
 		i = 0;
-		
+
 		for (node = cJSON_GetObjectItem(root, "guns")->child ; node != NULL ; node = node->next)
 		{
 			e->guns[i].type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
 			e->guns[i].x = cJSON_GetObjectItem(node, "x")->valueint;
 			e->guns[i].y = cJSON_GetObjectItem(node, "y")->valueint;
-			
+
 			i++;
-			
+
 			if (i >= MAX_FIGHTER_GUNS)
 			{
 				printf("ERROR: cannot assign more than %d guns to a fighter\n", MAX_FIGHTER_GUNS);
 				exit(1);
 			}
 		}
-		
-		if (cJSON_GetObjectItem(root, "combinedGuns"))
-		{
-			e->combinedGuns = cJSON_GetObjectItem(root, "combinedGuns")->valueint;
-		}
+
+		e->combinedGuns = getJSONValue(root, "combinedGuns", 0);
 	}
-	
+
 	e->selectedGunType = e->guns[0].type;
-	
-	if (cJSON_GetObjectItem(root, "missiles"))
-	{
-		e->missiles = cJSON_GetObjectItem(root, "missiles")->valueint;
-	}
-	
+
+	e->missiles = getJSONValue(root, "missiles", 0);
+
 	if (cJSON_GetObjectItem(root, "flags"))
 	{
 		e->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring, NULL);
 	}
-	
+
 	if (cJSON_GetObjectItem(root, "aiFlags"))
 	{
 		e->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring, NULL);
 	}
-	
+
 	if (cJSON_GetObjectItem(root, "deathType"))
 	{
 		e->deathType = lookup(cJSON_GetObjectItem(root, "deathType")->valuestring);
 	}
-	
+
 	e->separationRadius = MAX(e->w, e->h) * 3;
-	
+
 	/* all craft default to 100 system power */
 	e->systemPower = 100;
-	
+
 	cJSON_Delete(root);
 	free(text);
 }
@@ -729,7 +723,7 @@ static void loadFighterDef(char *filename)
 void destroyFighterDefs(void)
 {
 	Entity *e;
-	
+
 	while (defHead.next)
 	{
 		e = defHead.next;

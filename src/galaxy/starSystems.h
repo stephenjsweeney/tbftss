@@ -28,5 +28,6 @@ extern int isMissionAvailable(Mission *mission, Mission *prev);
 extern char *getFileLocation(char *filename);
 extern char **getFileList(char *dir, int *count);
 extern Mission *loadMissionMeta(char *filename);
+extern int getJSONValue(cJSON *node, char *name, int defValue);
 
 extern Game game;

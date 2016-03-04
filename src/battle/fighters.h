@@ -47,6 +47,7 @@ extern char *getFileLocation(char *filename);
 extern void addDebris(int x, int y, int amount);
 extern char **getFileList(char *dir, int *count);
 extern char *getTranslatedString(char *string);
+extern int getJSONValue(cJSON *node, char *name, int defValue);
 
 extern App app;
 extern Battle battle;

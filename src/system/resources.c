@@ -42,8 +42,8 @@ void initResources(void)
 		backgrounds[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(backgrounds[i], "gfx/backgrounds/%s", filenames[i]);
 
-		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
-
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Adding AUTO %s", filenames[i]);
+		
 		free(filenames[i]);
 	}
 
@@ -56,9 +56,9 @@ void initResources(void)
 	{
 		planets[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(planets[i], "gfx/planets/%s", filenames[i]);
-
-		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
-
+		
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Adding AUTO %s", filenames[i]);
+		
 		free(filenames[i]);
 	}
 
@@ -72,9 +72,9 @@ void initResources(void)
 	{
 		musicFiles[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(musicFiles[i], "music/battle/%s", filenames[i]);
-
-		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "'%s' added to AUTO resources list", filenames[i]);
-
+		
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Adding AUTO %s", filenames[i]);
+		
 		free(filenames[i]);
 	}
 

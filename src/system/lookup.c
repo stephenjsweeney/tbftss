@@ -91,6 +91,8 @@ void initLookups(void)
 	addLookup("WT_BUTTON", WT_BUTTON);
 	addLookup("WT_SELECT", WT_SELECT);
 	addLookup("WT_IMG_BUTTON", WT_IMG_BUTTON);
+	addLookup("WT_KEY_CONFIG", WT_KEY_CONFIG);
+	addLookup("WT_MOUSE_CONFIG", WT_MOUSE_CONFIG);
 
 	addLookup("SIDE_ALLIES", SIDE_ALLIES);
 	addLookup("SIDE_PIRATE", SIDE_PIRATE);

@@ -311,16 +311,15 @@ static void loadObjectives(cJSON *node)
 			battle.objectiveTail->next = o;
 			battle.objectiveTail = o;
 
-			o->active = 1;
 			STRNCPY(o->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
 			STRNCPY(o->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
 			o->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
 			o->targetType = lookup(cJSON_GetObjectItem(node, "targetType")->valuestring);
-			o->active = getJSONValue(node, "active", 0);
+			o->active = getJSONValue(node, "active", 1);
 			o->isCondition = getJSONValue(node, "isCondition", 0);
 
 			o->isEliminateAll = getJSONValue(node, "isEliminateAll", 0);
-			if (isEliminateAll)
+			if (o->isEliminateAll)
 			{
 				o->targetValue = 1;
 			}
@@ -378,9 +377,6 @@ static void loadFighters(cJSON *node)
 			groupName = NULL;
 			flags = -1;
 			aiFlags = -1;
-			scatter = 1;
-			active = 1;
-			number = 1;
 
 			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
@@ -388,9 +384,9 @@ static void loadFighters(cJSON *node)
 			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			name = getJSONValueStr(node, "name", NULL);
 			groupName = getJSONValueStr(node, "groupName", NULL);
-			number = getJSONValue(node, "number", 0);
-			scatter = getJSONValue(node, "scatter", 0);
-			active = getJSONValue(node, "active", 0);
+			number = getJSONValue(node, "number", 1);
+			scatter = getJSONValue(node, "scatter", 1);
+			active = getJSONValue(node, "active", 1);
 
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
@@ -484,20 +480,17 @@ static void loadCapitalShips(cJSON *node)
 		{
 			name = NULL;
 			groupName = NULL;
-			scatter = 1;
-			active = 1;
-			number = 1;
 			flags = -1;
 
 			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
 			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
 			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
-			name = cJSON_GetObjectItem(node, "name", NULL);
+			name = getJSONValueStr(node, "name", NULL);
 			groupName = getJSONValueStr(node, "groupName", NULL);
-			number = getJSONValueStr(node, "number", 0);
-			scatter = getJSONValueStr(node, "scatter", 0);
-			active = getJSONValue(node, "active", 0);
+			number = getJSONValue(node, "number", 1);
+			scatter = getJSONValue(node, "scatter", 1);
+			active = getJSONValue(node, "active", 1);
 
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
@@ -576,19 +569,12 @@ static void loadEntities(cJSON *node)
 			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			name = NULL;
 			groupName = NULL;
-			number = 1;
-			active = 1;
-			scatter = 1;
 
 			name = getJSONValueStr(node, "name", NULL);
-
 			groupName = getJSONValueStr(node, "groupName", NULL);
-
-			number = getJSONValue(node, "number", 0);
-
-			active = getJSONValue(node, "active", 0);
-
-			scatter = getJSONValue(node, "scatter", 0);
+			number = getJSONValue(node, "number", 1);
+			active = getJSONValue(node, "active", 1);
+			scatter = getJSONValue(node, "scatter", 1);
 
 			for (i = 0 ; i < number ; i++)
 			{
@@ -659,23 +645,17 @@ static void loadItems(cJSON *node)
 			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			name = NULL;
 			groupName = NULL;
-			number = 1;
-			active = 1;
 
 			name = getJSONValueStr(node, "name", NULL);
-
 			groupName = getJSONValueStr(node, "groupName", NULL);
-
-			number = getJSONValue(node, "number", 0);
-
-			scatter = getJSONValue(node, "scatter", 0);
+			number = getJSONValue(node, "number", 1);
+			scatter = getJSONValue(node, "scatter", 1);
+			active = getJSONValue(node, "active", 1);
 
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
 			}
-
-			active = getJSONValue(node, "active", 0);
 
 			for (i = 0 ; i < number ; i++)
 			{
@@ -734,8 +714,6 @@ static void loadLocations(cJSON *node)
 
 		while (node)
 		{
-			active = 1;
-
 			l = malloc(sizeof(Location));
 			memset(l, 0, sizeof(Location));
 			battle.locationTail->next = l;
@@ -747,7 +725,7 @@ static void loadLocations(cJSON *node)
 
 			l->size = cJSON_GetObjectItem(node, "size")->valueint;
 
-			active = getJSONValue(node, "active", 0);
+			active = getJSONValue(node, "active", 1);
 
 			l->x += (SCREEN_WIDTH / 2);
 			l->y += (SCREEN_HEIGHT / 2);

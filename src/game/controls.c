@@ -29,3 +29,43 @@ void clearControl(int type)
 {
 	app.keyboard[app.keyControls[type]] = 0;
 }
+
+void initControlsDisplay(void)
+{
+	getWidget("keyMissile", "controls")->value = app.keyControls[CONTROL_MISSILE];
+	getWidget("keyBoost", "controls")->value = app.keyControls[CONTROL_BOOST];
+	getWidget("keyECM", "controls")->value = app.keyControls[CONTROL_ECM];
+	getWidget("keyBrake", "controls")->value = app.keyControls[CONTROL_BRAKE];
+	getWidget("keyRadar", "controls")->value = app.keyControls[CONTROL_RADAR];
+	getWidget("keyTarget", "controls")->value = app.keyControls[CONTROL_TARGET];
+	getWidget("keyGuns", "controls")->value = app.keyControls[CONTROL_GUNS];
+	getWidget("keyPrevFighter", "controls")->value = app.keyControls[CONTROL_PREV_FIGHTER];
+	getWidget("keyNextFighter", "controls")->value = app.keyControls[CONTROL_NEXT_FIGHTER];
+}
+
+void drawControls(void)
+{
+	SDL_Rect r;
+
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+	SDL_RenderFillRect(app.renderer, NULL);
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+
+	r.w = 800;
+	r.h = 650;
+	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
+	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
+	SDL_RenderFillRect(app.renderer, &r);
+	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
+	SDL_RenderDrawRect(app.renderer, &r);
+
+	drawText(SCREEN_WIDTH / 2, 50, 28, TA_CENTER, colors.white, _("Controls"));
+
+	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
+	SDL_RenderDrawLine(app.renderer, r.x, r.y + 65, r.x + r.w, r.y + 65);
+	
+	drawWidgets("controls");
+}

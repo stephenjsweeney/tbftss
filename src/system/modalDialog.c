@@ -60,7 +60,7 @@ void showOKDialog(void (*callback)(void), const char *format, ...)
 	ok->action = callback;
 
 	enableTimer = FPS;
-	ok->enabled = okCancelOK = okCancelCancel = 0;
+	ok->enabled = okCancelOK->enabled = okCancelCancel->enabled = 0;
 }
 
 void showOKCancelDialog(void (*okCallback)(void), void (*cancelCallback)(void), const char *format, ...)
@@ -81,7 +81,7 @@ void showOKCancelDialog(void (*okCallback)(void), void (*cancelCallback)(void), 
 	okCancelCancel->action = cancelCallback;
 
 	enableTimer = FPS;
-	ok->enabled = okCancelOK = okCancelCancel = 0;
+	ok->enabled = okCancelOK->enabled = okCancelCancel->enabled = 0;
 }
 
 void doModalDialog(void)
@@ -93,7 +93,7 @@ void doModalDialog(void)
 	enableTimer = MAX(enableTimer - 1, 0);
 	if (!enableTimer)
 	{
-		ok->enabled = okCancelOK = okCancelCancel = 1;
+		ok->enabled = okCancelOK->enabled = okCancelCancel->enabled = 1;
 	}
 }
 

@@ -25,8 +25,12 @@ static void changeSoundVolume(char *value);
 static void changeMusicVolume(char *value);
 static void changeFullscreen(char *value);
 static void ok(void);
+static void controlsOK(void);
+static void drawMain(void);
+static void controls(void);
 
 static void (*returnFromOptions)(void);
+static int show;
 
 void initOptions(void (*rtn)(void))
 {
@@ -38,7 +42,9 @@ void initOptions(void (*rtn)(void))
 	getWidget("soundVolume", "options")->onChange = changeSoundVolume;
 	getWidget("musicVolume", "options")->onChange = changeMusicVolume;
 	getWidget("fullscreen", "options")->onChange = changeFullscreen;
+	getWidget("controls", "options")->action = controls;
 	getWidget("ok", "options")->action = ok;
+	getWidget("ok", "controls")->action = controlsOK;
 
 	sprintf(optionStr, "%d x %d", app.winWidth, app.winHeight);
 	setWidgetOption("windowSize", "options", optionStr);
@@ -57,9 +63,25 @@ void initOptions(void (*rtn)(void))
 	#endif
 
 	returnFromOptions = rtn;
+	
+	show = SHOW_MAIN;
 }
 
 void drawOptions(void)
+{
+	switch (show)
+	{
+		case SHOW_MAIN:
+			drawMain();
+			break;
+			
+		case SHOW_CONTROLS:
+			drawControls();
+			break;
+	}
+}
+
+static void drawMain(void)
 {
 	SDL_Rect r;
 
@@ -95,6 +117,13 @@ void drawOptions(void)
 	limitTextWidth(0);
 }
 
+static void controls(void)
+{
+	initControlsDisplay();
+	
+	show = SHOW_CONTROLS;
+}
+
 static void changeWindowSize(char *value)
 {
 	sscanf(value, "%d x %d", &app.winWidth, &app.winHeight);
@@ -124,4 +153,9 @@ static void ok(void)
 	saveConfig();
 
 	returnFromOptions();
+}
+
+static void controlsOK(void)
+{
+	show = SHOW_MAIN;
 }

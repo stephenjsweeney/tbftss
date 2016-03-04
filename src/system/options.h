@@ -22,6 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "SDL2/SDL_mixer.h"
 
+#define SHOW_MAIN		0
+#define SHOW_CONTROLS	1
+
 extern void selectWidget(const char *name, const char *group);
 extern Widget *getWidget(const char *name, const char *group);
 extern void drawWidgets(char *groupName);
@@ -30,6 +33,8 @@ extern void drawText(int x, int y, int size, int align, SDL_Color c, const char 
 extern void saveConfig(void);
 extern void limitTextWidth(int width);
 extern char *getTranslatedString(char *string);
+extern void drawControls(void);
+extern void initControlsDisplay(void);
 
 extern App app;
 extern Colors colors;

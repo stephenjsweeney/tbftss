@@ -115,10 +115,17 @@ char *getJSONValueStr(cJSON *node, char *name, char *defValue)
 
 int getJSONValue(cJSON *node, char *name, int defValue)
 {
-	char *result = getJSONValueStr(node, name, defValue);
+	cJSON *child;
 
-	if (result)
+	if (node)
 	{
-		return aoti(result);
+		child = cJSON_GetObjectItem(node, name);
+
+		if (child)
+		{
+			return child->valueint;
+		}
 	}
+
+	return defValue;
 }

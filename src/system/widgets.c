@@ -146,6 +146,18 @@ void drawWidgets(const char *group)
 					drawText(w->rect.x + 10, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
 					drawText(w->rect.x + w->rect.w - 10, w->rect.y + 2, 20, TA_RIGHT, colors.white, w->options[w->currentOption]);
 					break;
+					
+				case WT_KEY_CONFIG:
+					SDL_RenderDrawRect(app.renderer, &w->rect);
+					drawText(w->rect.x + 25, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
+					drawText(w->rect.x + w->rect.w - 25, w->rect.y + 2, 20, TA_RIGHT, colors.white, "%d", w->value);
+					break;
+					
+				case WT_MOUSE_CONFIG:
+					SDL_RenderDrawRect(app.renderer, &w->rect);
+					drawText(w->rect.x + 25, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
+					drawText(w->rect.x + w->rect.w - 25, w->rect.y + 2, 20, TA_RIGHT, colors.white, "%d", w->value);
+					break;
 			}
 
 			if (!w->enabled)
@@ -321,6 +333,18 @@ static void loadWidgetSet(char *filename)
 				w->rect.y -= (w->rect.h / 2) + 8;
 				createSelectButtons(w);
 				createOptions(w, cJSON_GetObjectItem(node, "options")->valuestring);
+				break;
+				
+			case WT_KEY_CONFIG:
+			case WT_MOUSE_CONFIG:
+				STRNCPY(w->text, _(cJSON_GetObjectItem(node, "text")->valuestring), MAX_NAME_LENGTH);
+				w->rect.w = cJSON_GetObjectItem(node, "w")->valueint;
+				w->rect.h = cJSON_GetObjectItem(node, "h")->valueint;
+				break;
+				
+			default:
+				printf("Widget type %d not handled\n", w->type);
+				exit(1);
 				break;
 		}
 

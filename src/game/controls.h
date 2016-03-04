@@ -20,5 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern char *getTranslatedString(char *string);
+extern Widget *getWidget(const char *name, const char *group);
+extern void drawWidgets(char *groupName);
+
 extern App app;
+extern Colors colors;
 extern Game game;

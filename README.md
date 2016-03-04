@@ -66,3 +66,4 @@ CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J 
 * track-3.mp3, by Alexandr Zhelanov - https://soundcloud.com/alexandr-zhelanov
 * track-4.mp3, by Alexandr Zhelanov - https://soundcloud.com/alexandr-zhelanov
 * DST-RailJet-LongSeamlessLoop.ogg, by Deceased Superior Technician - http://opengameart.org/content/railjet-long-seamless-loop
+* covert_operations.mp3, by artisticdude - http://opengameart.org/content/covert-operations

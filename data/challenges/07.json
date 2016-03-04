@@ -1,0 +1,126 @@
+{
+	"name" : "Pass all Waypoints",
+	"description" : "Pass all Waypoints",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Nymph",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"waypointLimit" : 5,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 60
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 90
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 120
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"groupName" : "RT1",
+			"types" : "Rocket Turret",
+			"x" : 35,
+			"y" : 15,
+			"side" : "SIDE_REBEL",
+			"active" : 0
+		},
+		{
+			"groupName" : "RT2",
+			"types" : "Rocket Turret",
+			"x" : 15,
+			"y" : 15,
+			"side" : "SIDE_REBEL",
+			"active" : 0
+		},
+		{
+			"groupName" : "RT3",
+			"types" : "Rocket Turret",
+			"x" : 15,
+			"y" : 35,
+			"side" : "SIDE_REBEL",
+			"active" : 0
+		}
+		{
+			"groupName" : "RT4",
+			"types" : "Rocket Turret",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_REBEL",
+			"scatter" : 500,
+			"number" : 2,
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 35,
+			"y" : 35,
+			"active" : 0
+		},
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 35,
+			"y" : 15,
+			"active" : 0
+		},
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 15,
+			"y" : 15,
+			"active" : 0
+		},
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 15,
+			"y" : 35,
+			"active" : 0
+		},
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 25,
+			"y" : 25,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "Waypoint #1",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS RT1"
+			]
+		},
+		{
+			"function" : "Waypoint #2",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS RT2"
+			]
+		},
+		{
+			"function" : "Waypoint #3",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS RT3"
+			]
+		},
+		{
+			"function" : "Waypoint #4",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS RT4"
+			]
+		}
+	]
+}

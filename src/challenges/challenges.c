@@ -31,8 +31,8 @@ static void failChallenge(void);
 static void updateChallenges(void);
 static char *getFormattedChallengeDescription(const char *format, ...);
 char *getChallengeDescription(Challenge *c);
-static int hasFailedAllChallenges(void);
 static int challengeFinished(void);
+static int alreadyPassed(void);
 static void printStats(void);
 
 static char descriptionBuffer[MAX_DESCRIPTION_LENGTH];
@@ -80,14 +80,14 @@ void doChallenges(void)
 	{
 		if (challengeFinished())
 		{
-			updateChallenges();
-
-			if (hasFailedAllChallenges())
+			if (battle.stats[STAT_TIME] >= game.currentMission->challengeData.timeLimit)
 			{
 				failChallenge();
 			}
 			else
 			{
+				updateChallenges();
+				
 				completeChallenge();
 			}
 		}
@@ -118,24 +118,6 @@ static int challengeFinished(void)
 	}
 	
 	return 0;
-}
-
-static int hasFailedAllChallenges(void)
-{
-	int i;
-	Challenge *c;
-
-	for (i = 0 ; i < MAX_CHALLENGES ; i++)
-	{
-		c = game.currentMission->challengeData.challenges[i];
-
-		if (c && c->passed)
-		{
-			return 0;
-		}
-	}
-
-	return 1;
 }
 
 static void updateChallenges(void)
@@ -379,5 +361,28 @@ static void failChallenge(void)
 		retreatEnemies();
 
 		player->flags |= EF_IMMORTAL;
+		
+		if (alreadyPassed())
+		{
+			battle.status = MS_TIME_UP;
+		}
 	}
+}
+
+static int alreadyPassed(void)
+{
+	int i;
+	Challenge *c;
+
+	for (i = 0 ; i < MAX_CHALLENGES ; i++)
+	{
+		c = game.currentMission->challengeData.challenges[i];
+
+		if (c && c->passed)
+		{
+			return 1;
+		}
+	}
+	
+	return 0;
 }

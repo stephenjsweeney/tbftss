@@ -83,6 +83,7 @@ extern void destroyBullets(void);
 extern void destroyEffects(void);
 extern void initChallengeHome(void);
 extern void updateAccuracyStats(unsigned int *stats);
+extern void clearInput(void);
 
 extern App app;
 extern Battle battle;

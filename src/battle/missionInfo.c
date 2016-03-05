@@ -28,6 +28,7 @@ static SDL_Texture *missionStartTexture;
 static SDL_Texture *missionInProgressTexture;
 static SDL_Texture *missionCompleteTexture;
 static SDL_Texture *missionFailedTexture;
+static SDL_Texture *timeUpTexture;
 static const char *objectiveStatus[OS_MAX];
 
 void initMissionInfo(void)
@@ -43,6 +44,7 @@ void initMissionInfo(void)
 	missionInProgressTexture = !isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
 	missionCompleteTexture = !isChallenge ? getTexture("gfx/battle/missionComplete.png") : getTexture("gfx/battle/challengeComplete.png");
 	missionFailedTexture = !isChallenge ? getTexture("gfx/battle/missionFailed.png") : getTexture("gfx/battle/challengeFailed.png");
+	timeUpTexture = getTexture("gfx/battle/timeUp.png");
 }
 
 void drawMissionInfo(void)
@@ -71,6 +73,18 @@ void drawMissionInfo(void)
 					{
 						drawWidgets(battle.status == MS_COMPLETE ? "battleWon" : "battleLost");
 					}
+				}
+			}
+			break;
+			
+		case MS_TIME_UP:
+			if (battle.missionFinishedTimer <= -FPS)
+			{
+				drawMissionSummary(timeUpTexture);
+			
+				if (battle.missionFinishedTimer <= -(FPS * 2))
+				{
+					drawWidgets("battleWon");
 				}
 			}
 			break;

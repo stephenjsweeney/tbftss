@@ -96,7 +96,7 @@ void initBattle(void)
 
 static void logic(void)
 {
-	if (battle.status == MS_IN_PROGRESS || battle.status == MS_COMPLETE || battle.status == MS_FAILED)
+	if (battle.status == MS_IN_PROGRESS || battle.status == MS_COMPLETE || battle.status == MS_FAILED || battle.status == MS_TIME_UP)
 	{
 		handleKeyboard();
 
@@ -276,12 +276,12 @@ static void handleKeyboard(void)
 				break;
 		}
 
-		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+		clearInput();
 
 		playSound(SND_GUI_CLOSE);
 	}
 
-	if (app.keyboard[SDL_SCANCODE_TAB])
+	if (battle.status == MS_IN_PROGRESS && app.keyboard[SDL_SCANCODE_TAB])
 	{
 		battle.status = MS_PAUSED;
 	}
@@ -296,7 +296,7 @@ static void resume(void)
 {
 	show = SHOW_BATTLE;
 
-	memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+	clearInput();
 }
 
 static void continueGame(void)

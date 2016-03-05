@@ -13,7 +13,7 @@
 		"y" : 25
 	},
 	"challenge" : {
-		"timeLimit" : 20,
+		"timeLimit" : 45,
 		"killLimit" : 3,
 		"challenges" : [
 			{
@@ -21,20 +21,20 @@
 				"value" : 20
 			},
 			{
-				"type" : "CHALLENGE_TIME",
-				"value" : 15
+				"type" : "CHALLENGE_ARMOUR",
+				"value" : 80
 			},
 			{
-				"type" : "CHALLENGE_TIME",
-				"value" : 10
+				"type" : "CHALLENGE_SHOT_ACCURACY",
+				"value" : 50
 			}
 		]
 	},
 	"fighters" : [
 		{
-			"name" : "Dart",
-			"types" : "Dart",
-			"side" : "SIDE_PIRATE",
+			"name" : "Nymph",
+			"types" : "Nymph",
+			"side" : "SIDE_REBEL",
 			"x" : 25,
 			"y" : 22,
 			"number" : 3,

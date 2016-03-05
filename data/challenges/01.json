@@ -19,6 +19,14 @@
 			{
 				"type" : "CHALLENGE_TIME",
 				"value" : 30
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 15
+			},
+			{
+				"type" : "CHALLENGE_SHOT_ACCURACY",
+				"value" : 75
 			}
 		]
 	},

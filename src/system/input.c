@@ -104,17 +104,9 @@ void drawMouse(void)
 void clearInput(void)
 {
 	SDL_Event event;
-	int i;
-
-	for (i = 0 ; i < MAX_KEYBOARD_KEYS ; i++)
-	{
-		app.keyboard[i] = 0;
-	}
-
-	for (i = 0 ; i < MAX_MOUSE_BUTTONS ; i++)
-	{
-		app.mouse.button[i] = 0;
-	}
+	
+	memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+	memset(app.mouse.button, 0, sizeof(int) * MAX_MOUSE_BUTTONS);
 
 	while (SDL_PollEvent(&event))
 	{

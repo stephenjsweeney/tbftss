@@ -140,6 +140,9 @@ void drawStats(void)
 	
 	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, _("Page %d / %d"), page + 1, (int)maxPages);
 	
+	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
+	SDL_RenderDrawLine(app.renderer, r.x, 150, r.x + r.w, 150);
+	
 	y = 170;
 	
 	startIndex = (page * STATS_PER_PAGE);
@@ -171,7 +174,7 @@ void drawStats(void)
 	drawText(r.x + 20, 565, 18, TA_LEFT, colors.white, statDescription[STAT_TIME]);
 	drawText(r.x + r.w - 20, 565, 18, TA_RIGHT, colors.white, timeToString(game.stats[STAT_TIME], 1));
 		
-	drawWidgets("stats");	
+	drawWidgets("stats");
 }
 
 static void nextPage(void)

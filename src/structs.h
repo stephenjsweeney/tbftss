@@ -423,6 +423,7 @@ typedef struct {
 	SDL_Window *window;
 	Delegate delegate;
 	ModalDialog modalDialog;
+	int awaitingWidgetInput;
 	int lastKeyPressed;
 	int lastButtonPressed;
 	int keyControls[CONTROL_MAX];

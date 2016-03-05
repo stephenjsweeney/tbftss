@@ -588,7 +588,7 @@ static void fallenOK(void)
 
 static void handleKeyboard(void)
 {
-	if (app.keyboard[SDL_SCANCODE_ESCAPE])
+	if (app.keyboard[SDL_SCANCODE_ESCAPE] && !app.awaitingWidgetInput)
 	{
 		switch (show)
 		{

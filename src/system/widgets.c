@@ -35,7 +35,6 @@ static Widget *selectedWidget;
 static SDL_Texture *optionsLeft;
 static SDL_Texture *optionsRight;
 static int drawingWidgets;
-static int waitingForInput;
 
 void initWidgets(void)
 {
@@ -50,7 +49,7 @@ void initWidgets(void)
 
 	loadWidgets();
 
-	waitingForInput = drawingWidgets = 0;	
+	app.awaitingWidgetInput = drawingWidgets = 0;
 }
 
 void doWidgets(void)
@@ -61,7 +60,7 @@ void doWidgets(void)
 
 		handleKeyboard();
 		
-		if (waitingForInput)
+		if (app.awaitingWidgetInput)
 		{
 			handleControlWidgets();
 		}
@@ -104,7 +103,7 @@ void drawWidgets(const char *group)
 	{
 		if ((app.modalDialog.type == MD_NONE || (app.modalDialog.type != MD_NONE && w->isModal)) && w->visible && strcmp(w->group, group) == 0)
 		{
-			if (!mouseOver && !waitingForInput)
+			if (!mouseOver && !app.awaitingWidgetInput)
 			{
 				mouseOver = (w->type != WT_SELECT && w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.mouse.x, app.mouse.y, 1, 1));
 
@@ -157,7 +156,7 @@ void drawWidgets(const char *group)
 				case WT_CONTROL_CONFIG:
 					SDL_RenderDrawRect(app.renderer, &w->rect);
 					
-					if (!waitingForInput || (waitingForInput && w != selectedWidget))
+					if (!app.awaitingWidgetInput || (app.awaitingWidgetInput && w != selectedWidget))
 					{
 						if (strlen(w->options[0]) && strlen(w->options[1]))
 						{
@@ -259,9 +258,9 @@ static void handleMouse(void)
 					break;
 					
 				case WT_CONTROL_CONFIG:
-					if (!waitingForInput)
+					if (!app.awaitingWidgetInput)
 					{
-						waitingForInput = 1;
+						app.awaitingWidgetInput = 1;
 						app.lastKeyPressed = app.lastButtonPressed = -1;
 					}
 					app.mouse.button[SDL_BUTTON_LEFT] = 0;
@@ -302,11 +301,11 @@ static void handleControlWidgets(void)
 	{
 		clearControlConfig(selectedWidget->name);
 		
-		waitingForInput = 0;
+		app.awaitingWidgetInput = 0;
 	}
 	else if (app.lastKeyPressed == SDL_SCANCODE_ESCAPE)
 	{
-		waitingForInput = 0;
+		app.awaitingWidgetInput = 0;
 	}
 	else
 	{
@@ -314,18 +313,18 @@ static void handleControlWidgets(void)
 		{
 			updateControlKey(selectedWidget->name);
 			
-			waitingForInput = 0;
+			app.awaitingWidgetInput = 0;
 		}
 		
 		if (app.lastButtonPressed != -1)
 		{
 			updateControlButton(selectedWidget->name);
 			
-			waitingForInput = 0;
+			app.awaitingWidgetInput = 0;
 		}
 	}
 	
-	if (!waitingForInput)
+	if (!app.awaitingWidgetInput)
 	{
 		clearInput();
 	}

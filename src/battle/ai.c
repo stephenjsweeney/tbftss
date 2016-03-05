@@ -685,7 +685,7 @@ static void moveToItem(void)
 {
 	if (self->target->alive == ALIVE_ALIVE)
 	{
-		faceTarget(self->target);		
+		faceTarget(self->target);
 		applyFighterThrust();
 		return;
 	}

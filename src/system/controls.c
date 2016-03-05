@@ -151,7 +151,7 @@ void drawControls(void)
 	
 	for (i = 0 ; i < CONTROL_MAX ; i++)
 	{
-		drawText(r.x, r.y, 20, TA_LEFT, colors.white, controlName[i]);
+		drawText(r.x, r.y + 2, 20, TA_LEFT, colors.white, controlName[i]);
 		
 		controlWidget[i]->rect.x = r.x + 175;
 		controlWidget[i]->rect.y = r.y;

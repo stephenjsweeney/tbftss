@@ -80,7 +80,6 @@ void initChallengeHome(void)
 	initBackground();
 	
 	start = getWidget("start", "challenges");
-	start->enabled = 0;
 	start->action = startChallengeMission;
 	
 	getWidget("resume", "challengesMenu")->action = resume;
@@ -168,7 +167,9 @@ static void doChallenges(void)
 				
 				updateChallengeMissionData();
 			
-				start->enabled = c->available;
+				start->enabled = 1;
+				
+				playSound(SND_GUI_CLICK);
 			}
 			
 			app.mouse.button[SDL_BUTTON_LEFT] = 0;
@@ -436,7 +437,7 @@ static void handleKeyboard(void)
 		
 		playSound(SND_GUI_CLOSE);
 		
-		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+		clearInput();
 	}
 }
 

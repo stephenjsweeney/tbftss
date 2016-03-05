@@ -202,6 +202,8 @@ static void handleKeyboard(void)
 	{
 		returnFromOptions();
 		playSound(SND_GUI_CLOSE);
+		
+		clearInput();
 	}
 }
 

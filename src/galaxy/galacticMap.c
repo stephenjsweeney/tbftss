@@ -615,7 +615,7 @@ static void handleKeyboard(void)
 		
 		playSound(SND_GUI_CLOSE);
 		
-		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+		clearInput();
 	}
 }
 

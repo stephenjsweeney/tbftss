@@ -55,6 +55,7 @@ extern void initChallengeHome(void);
 extern void selectWidget(const char *name, const char *group);
 extern void drawStats(void);
 extern void updateAllMissions(void);
+extern void clearInput(void);
 
 extern App app;
 extern Battle battle;

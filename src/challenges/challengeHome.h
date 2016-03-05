@@ -59,6 +59,7 @@ extern char *getPlanetTextureName(int n);
 extern void playMusic(char *filename);
 extern char *timeToString(long millis, int showHours);
 extern char *getChallengeDescription(Challenge *c);
+extern void clearInput(void);
 
 extern App app;
 extern Battle battle;

@@ -121,24 +121,13 @@ void doDebris(void)
 
 static void resizeDrawList(void)
 {
-	int i, n;
-	Debris **debris;
+	int n;
 
 	n = drawCapacity + INITIAL_DEBRIS_DRAW_CAPACITY;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing debris draw capacity: %d -> %d\n", drawCapacity, n);
 
-	debris = malloc(sizeof(Debris*) * n);
-	memset(debris, 0, sizeof(Debris*) * n);
-
-	for (i = 0 ; i < drawCapacity ; i++)
-	{
-		debris[i] = debrisToDraw[i];
-	}
-
-	free(debrisToDraw);
-
-	debrisToDraw = debris;
+	debrisToDraw = resize(debrisToDraw, sizeof(Debris*) * drawCapacity, sizeof(Debris*) * n);
 	drawCapacity = n;
 }
 

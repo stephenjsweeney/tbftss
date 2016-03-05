@@ -117,24 +117,14 @@ static int pointOnScreen(float x, float y)
 
 static void resizeDrawList(void)
 {
-	int i, n;
-	Effect **effects;
+	int n;
 
 	n = drawCapacity + INITIAL_EFFECT_DRAW_CAPACITY;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing effect draw capacity: %d -> %d\n", drawCapacity, n);
 
-	effects = malloc(sizeof(Effect*) * n);
-	memset(effects, 0, sizeof(Effect*) * n);
-
-	for (i = 0 ; i < drawCapacity ; i++)
-	{
-		effects[i] = effectsToDraw[i];
-	}
-
-	free(effectsToDraw);
-
-	effectsToDraw = effects;
+	effectsToDraw = resize(effectsToDraw, sizeof(Effect*) * drawCapacity, sizeof(Effect*) * n);
+	
 	drawCapacity = n;
 }
 

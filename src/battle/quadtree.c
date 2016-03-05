@@ -133,24 +133,13 @@ void addToQuadtree(Entity *e, Quadtree *root)
 
 static void resizeQTEntCapacity(Quadtree *root)
 {
-	int i, n;
-	Entity **ents;
+	int n;
 	
 	n = root->capacity + QT_INITIAL_CAPACITY;
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing QT node: %d -> %d\n", root->capacity, n);
 	
-	ents = malloc(sizeof(Entity*) * n);
-	memset(ents, 0, sizeof(Entity*) * n);
-	
-	for (i = 0 ; i < root->capacity ; i++)
-	{
-		ents[i] = root->ents[i];
-	}
-	
-	free(root->ents);
-	
-	root->ents = ents;
+	root->ents = resize(root->ents, sizeof(Entity*) * root->capacity, sizeof(Entity*) * n);
 	root->capacity = n;
 }
 
@@ -274,24 +263,13 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Qua
 
 static void resizeCandidates(void)
 {
-	int i, n;
-	Entity **ents;
+	int n;
 	
 	n = cCapacity + QT_INITIAL_CAPACITY;
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing candidates: %d -> %d\n", cCapacity, n);
 	
-	ents = malloc(sizeof(Entity*) * n);
-	memset(ents, 0, sizeof(Entity*) * n);
-	
-	for (i = 0 ; i < cCapacity ; i++)
-	{
-		ents[i] = candidates[i];
-	}
-	
-	free(candidates);
-	
-	candidates = ents;
+	candidates = resize(candidates, sizeof(Entity*) * cCapacity, sizeof(Entity*) * n);
 	cCapacity = n;
 }
 

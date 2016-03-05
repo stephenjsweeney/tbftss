@@ -138,24 +138,14 @@ void doBullets(void)
 
 static void resizeDrawList(void)
 {
-	int i, n;
-	Bullet **bullets;
+	int n;
 
 	n = drawCapacity + INITIAL_BULLET_DRAW_CAPACITY;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing bullet draw capacity: %d -> %d\n", drawCapacity, n);
 
-	bullets = malloc(sizeof(Bullet*) * n);
-	memset(bullets, 0, sizeof(Bullet*) * n);
-
-	for (i = 0 ; i < drawCapacity ; i++)
-	{
-		bullets[i] = bulletsToDraw[i];
-	}
-
-	free(bulletsToDraw);
-
-	bulletsToDraw = bullets;
+	bulletsToDraw = resize(bulletsToDraw, sizeof(Bullet*) * drawCapacity, sizeof(Bullet*) * n);
+	
 	drawCapacity = n;
 }
 

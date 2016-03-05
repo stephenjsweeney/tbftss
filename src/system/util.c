@@ -129,3 +129,15 @@ int getJSONValue(cJSON *node, char *name, int defValue)
 
 	return defValue;
 }
+
+void *resize(void *array, int oldSize, int newSize)
+{
+	void **newArray;
+	
+	newArray = malloc(newSize);
+	memset(newArray, 0, newSize);
+	memcpy(newArray, array, oldSize);
+	free(array);
+	
+	return newArray;
+}

@@ -26,7 +26,7 @@ extern Widget *getWidget(const char *name, const char *group);
 extern void drawWidgets(char *groupName);
 extern char *getLookupName(char *prefix, long num);
 extern long lookup(char *name);
+extern void limitTextWidth(int width);
 
 extern App app;
 extern Colors colors;
-extern Game game;

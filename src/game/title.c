@@ -198,13 +198,16 @@ static void drawFighters(void)
 
 static void handleKeyboard(void)
 {
-	if (app.keyboard[SDL_SCANCODE_ESCAPE])
+	switch (show)
 	{
-		returnFromOptions();
-		
-		memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-		
-		playSound(SND_GUI_CLOSE);
+		case SHOW_STATS:
+			returnFromOptions();
+			memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+			playSound(SND_GUI_CLOSE);
+			break;
+			
+		case SHOW_OPTIONS:
+			break;
 	}
 }
 

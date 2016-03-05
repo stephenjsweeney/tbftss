@@ -72,14 +72,28 @@ void initControlsDisplay(void)
 	}
 }
 
-int isKeyControl(int type)
+int isControl(int type)
 {
-	return app.keyboard[app.keyControls[type]];
+	int key = app.keyControls[type];
+	int btn = app.mouseControls[type];
+	
+	return ((key != -1 && app.keyboard[key]) || (btn != -1 && app.mouse.button[btn]));
 }
 
 void clearControl(int type)
 {
-	app.keyboard[app.keyControls[type]] = 0;
+	int key = app.keyControls[type];
+	int btn = app.mouseControls[type];
+	
+	if (key != -1)
+	{
+		app.keyboard[key] = 0;
+	}
+	
+	if (btn != -1)
+	{
+		app.mouse.button[btn] = 0;
+	}
 }
 
 void updateControlKey(char *name)
@@ -142,14 +156,20 @@ void drawControls(void)
 		controlWidget[i]->rect.x = r.x + 175;
 		controlWidget[i]->rect.y = r.y;
 		
-		r.y += 50;
+		r.y += 65;
 		
-		if (r.y > 400)
+		if (r.y > 500)
 		{
 			r.y = 125;
 			r.x += 400;
 		}
 	}
+	
+	limitTextWidth(r.w - 100);
+	drawText(SCREEN_WIDTH / 2, 525, 16, TA_CENTER, colors.white, _("Click a control to change it, and then the key or mouse button you want to use."));
+	drawText((SCREEN_WIDTH / 2) - 50, 560, 16, TA_RIGHT, colors.white, _("[BACKSPACE] - Clear"));
+	drawText((SCREEN_WIDTH / 2) + 50, 560, 16, TA_LEFT, colors.white, _("[ESCAPE] - Cancel"));
+	limitTextWidth(0);
 	
 	drawWidgets("controls");
 }

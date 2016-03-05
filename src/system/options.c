@@ -113,7 +113,6 @@ static void drawMain(void)
 	#else
 	drawText(SCREEN_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, _("Note: this device does not support changing the screen resolution."));
 	#endif
-	
 	limitTextWidth(0);
 }
 

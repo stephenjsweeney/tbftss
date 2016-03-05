@@ -21,4 +21,3 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 
 extern char **getFileList(char *dir, int *count);
-extern void blitScaled(SDL_Texture *texture, int x, int y, int w, int h);

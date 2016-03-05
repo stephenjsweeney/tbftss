@@ -173,7 +173,7 @@ static void handleKeyboard(void)
 {
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (isKeyControl(CONTROL_BOOST))
+		if (isControl(CONTROL_BOOST))
 		{
 			if (battle.boostTimer == BOOST_RECHARGE_TIME)
 			{
@@ -189,14 +189,14 @@ static void handleKeyboard(void)
 			clearControl(CONTROL_BOOST);
 		}
 
-		if (isKeyControl(CONTROL_TARGET))
+		if (isControl(CONTROL_TARGET))
 		{
 			selectTarget();
 
 			clearControl(CONTROL_TARGET);
 		}
 
-		if (isKeyControl(CONTROL_ECM))
+		if (isControl(CONTROL_ECM))
 		{
 			if (battle.ecmTimer == ECM_RECHARGE_TIME)
 			{
@@ -212,26 +212,26 @@ static void handleKeyboard(void)
 			clearControl(CONTROL_ECM);
 		}
 
-		if (isKeyControl(CONTROL_BRAKE))
+		if (isControl(CONTROL_BRAKE))
 		{
 			applyFighterBrakes();
 		}
 
-		if (isKeyControl(CONTROL_GUNS))
+		if (isControl(CONTROL_GUNS))
 		{
 			switchGuns();
 
 			clearControl(CONTROL_GUNS);
 		}
 
-		if (isKeyControl(CONTROL_RADAR))
+		if (isControl(CONTROL_RADAR))
 		{
 			cycleRadarZoom();
 
 			clearControl(CONTROL_RADAR);
 		}
 
-		if (isKeyControl(CONTROL_MISSILE))
+		if (isControl(CONTROL_MISSILE))
 		{
 			preFireMissile();
 
@@ -251,7 +251,7 @@ static void handleMouse(void)
 	
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (app.mouse.button[SDL_BUTTON_LEFT] && !player->reload && player->guns[0].type)
+		if (isControl(CONTROL_FIRE) && !player->reload && player->guns[0].type)
 		{
 			if (player->selectedGunType != BT_ROCKET)
 			{
@@ -263,7 +263,7 @@ static void handleMouse(void)
 			}
 		}
 		
-		if (app.mouse.button[SDL_BUTTON_RIGHT])
+		if (isControl(CONTROL_ACCELERATE))
 		{
 			if (battle.boostTimer > BOOST_FINISHED_TIME || game.currentMission->challengeData.noBoost)
 			{
@@ -271,21 +271,21 @@ static void handleMouse(void)
 			}
 		}
 		
-		if (app.mouse.button[SDL_BUTTON_MIDDLE])
+		if (isControl(CONTROL_MISSILE))
 		{
 			preFireMissile();
 			
 			app.mouse.button[SDL_BUTTON_MIDDLE] = 0;
 		}
 		
-		if (app.mouse.button[SDL_BUTTON_X1])
+		if (isControl(CONTROL_GUNS))
 		{
 			switchGuns();
 			
 			app.mouse.button[SDL_BUTTON_X1] = 0;
 		}
 		
-		if (app.mouse.button[SDL_BUTTON_X2])
+		if (isControl(CONTROL_RADAR))
 		{
 			cycleRadarZoom();
 			

@@ -133,7 +133,8 @@ void initGameSystem(void)
 		initStats,
 		initBattle,
 		initModalDialog,
-		initBackground
+		initBackground,
+		initControls
 	};
 
 	numInitFuns = sizeof(initFuncs) / sizeof(void*);

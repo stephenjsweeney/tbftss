@@ -1,0 +1,111 @@
+[
+	{
+		"name" : "fire",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "accelerate",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "missile",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "boost",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "brake",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "ecm",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "target",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "radar",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "guns",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "prevFighter",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "nextFighter",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
+		"name" : "ok",
+		"group" : "controls",
+		"type" : "WT_BUTTON",
+		"text" : "OK",
+		"x" : -1,
+		"y" : 650,
+		"w" : 100,
+		"h": 34
+	}
+]

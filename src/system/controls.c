@@ -1,0 +1,128 @@
+/*
+Copyright (C) 2015-2016 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+*/
+
+#include "controls.h"
+
+static const char *controlName[CONTROL_MAX];
+static Widget *controlWidget[CONTROL_MAX];
+static const char *widgetNames[] = {"fire", "accelerate", "boost", "ecm", "brake", "target", "missile", "guns", "radar", "nextFighter", "prevFighter"};
+
+void initControls(void)
+{
+	int i;
+	
+	controlName[CONTROL_FIRE] = _("Fire");
+	controlName[CONTROL_ACCELERATE] = _("Accelerate");
+	controlName[CONTROL_BOOST] = _("Boost");
+	controlName[CONTROL_ECM] = _("ECM");
+	controlName[CONTROL_BRAKE] = _("Brake");
+	controlName[CONTROL_TARGET] = _("Select Target");
+	controlName[CONTROL_MISSILE] = _("Fire Missile");
+	controlName[CONTROL_GUNS] = _("Cycle Guns");
+	controlName[CONTROL_RADAR] = _("Cycle Radar");
+	controlName[CONTROL_NEXT_FIGHTER] = _("Next Fighter");
+	controlName[CONTROL_PREV_FIGHTER] = _("Previous Fighter");
+	
+	for (i = 0 ; i < CONTROL_MAX ; i++)
+	{
+		controlWidget[i] = getWidget(widgetNames[i], "controls");
+		controlWidget[i]->numOptions = 2;
+		controlWidget[i]->options = malloc(2 * sizeof(char*));
+		controlWidget[i]->options[0] = malloc(sizeof(char) * MAX_NAME_LENGTH);
+		controlWidget[i]->options[1] = malloc(sizeof(char) * MAX_NAME_LENGTH);
+		strcpy(controlWidget[i]->options[0], "");
+		strcpy(controlWidget[i]->options[1], "");
+	}
+}
+
+int isKeyControl(int type)
+{
+	return app.keyboard[app.keyControls[type]];
+}
+
+void clearControl(int type)
+{
+	app.keyboard[app.keyControls[type]] = 0;
+}
+
+void initControlsDisplay(void)
+{
+	int i;
+	
+	for (i = 0 ; i < CONTROL_MAX ; i++)
+	{
+		if (app.mouseControls[i] != 0)
+		{
+			sprintf(controlWidget[i]->options[0], "%s", SDL_GetScancodeName(app.keyControls[i]));
+		}
+		
+		if (app.mouseControls[i] != -1)
+		{
+			sprintf(controlWidget[i]->options[1], "Btn %d", app.mouseControls[i]);
+		}
+	}
+}
+
+void drawControls(void)
+{
+	int i;
+	SDL_Rect r;
+
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+	SDL_RenderFillRect(app.renderer, NULL);
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+
+	r.w = 800;
+	r.h = 650;
+	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
+	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
+	SDL_RenderFillRect(app.renderer, &r);
+	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
+	SDL_RenderDrawRect(app.renderer, &r);
+
+	drawText(SCREEN_WIDTH / 2, 50, 28, TA_CENTER, colors.white, _("Controls"));
+
+	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
+	SDL_RenderDrawLine(app.renderer, r.x, r.y + 65, r.x + r.w, r.y + 65);
+	
+	r.x += 25;
+	r.y = 125;
+	
+	for (i = 0 ; i < CONTROL_MAX ; i++)
+	{
+		drawText(r.x, r.y, 20, TA_LEFT, colors.white, controlName[i]);
+		
+		controlWidget[i]->rect.x = r.x + 175;
+		controlWidget[i]->rect.y = r.y;
+		
+		r.y += 50;
+		
+		if (r.y > 400)
+		{
+			r.y = 125;
+			r.x += 400;
+		}
+	}
+	
+	drawWidgets("controls");
+}

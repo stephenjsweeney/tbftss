@@ -147,16 +147,24 @@ void drawWidgets(const char *group)
 					drawText(w->rect.x + w->rect.w - 10, w->rect.y + 2, 20, TA_RIGHT, colors.white, w->options[w->currentOption]);
 					break;
 					
-				case WT_KEY_CONFIG:
+				case WT_CONTROL_CONFIG:
 					SDL_RenderDrawRect(app.renderer, &w->rect);
-					drawText(w->rect.x + 25, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
-					drawText(w->rect.x + w->rect.w - 25, w->rect.y + 2, 20, TA_RIGHT, colors.white, "%d", w->value);
-					break;
-					
-				case WT_MOUSE_CONFIG:
-					SDL_RenderDrawRect(app.renderer, &w->rect);
-					drawText(w->rect.x + 25, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
-					drawText(w->rect.x + w->rect.w - 25, w->rect.y + 2, 20, TA_RIGHT, colors.white, "%d", w->value);
+					if (strlen(w->options[0]) && strlen(w->options[1]))
+					{
+						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s or %s", w->options[0], w->options[1]);
+					}
+					else if (strlen(w->options[0]))
+					{
+						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s", w->options[0]);
+					}
+					else if (strlen(w->options[1]))
+					{
+						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s", w->options[1]);
+					}
+					else
+					{
+						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "");
+					}
 					break;
 			}
 
@@ -335,9 +343,7 @@ static void loadWidgetSet(char *filename)
 				createOptions(w, cJSON_GetObjectItem(node, "options")->valuestring);
 				break;
 				
-			case WT_KEY_CONFIG:
-			case WT_MOUSE_CONFIG:
-				STRNCPY(w->text, _(cJSON_GetObjectItem(node, "text")->valuestring), MAX_NAME_LENGTH);
+			case WT_CONTROL_CONFIG:
 				w->rect.w = cJSON_GetObjectItem(node, "w")->valueint;
 				w->rect.h = cJSON_GetObjectItem(node, "h")->valueint;
 				break;

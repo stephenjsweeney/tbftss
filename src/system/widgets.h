@@ -32,6 +32,10 @@ extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int
 extern void playSound(int id);
 extern char **getFileList(char *dir, int *count);
 extern char *getTranslatedString(char *string);
+extern void updateControlKey(char *name);
+extern void updateControlButton(char *name);
+extern void clearControlConfig(char *name);
+extern void clearInput(void);
 
 extern App app;
 extern Colors colors;

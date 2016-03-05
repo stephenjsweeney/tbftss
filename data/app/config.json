@@ -5,7 +5,9 @@
 	"musicVolume" : 8,
 	"soundVolume" : 10,
 	"controls" : {
-		"keys": {
+		"keys" : {
+			"CONTROL_FIRE" : 0,
+			"CONTROL_ACCELERATE" : 0,
 			"CONTROL_BOOST" : 26,
 			"CONTROL_ECM" : 7,
 			"CONTROL_BRAKE" : 22,
@@ -13,17 +15,21 @@
 			"CONTROL_MISSILE" : 44,
 			"CONTROL_GUNS" : 29,
 			"CONTROL_RADAR" : 27,
-			"CONTROL_NEXT_FIGHTER":	7,
-			"CONTROL_PREV_FIGHTER":	4
+			"CONTROL_PREV_FIGHTER" : 4,
+			"CONTROL_NEXT_FIGHTER" : 7
 		},
-		"mouse" : {
+		"mouse" : 	{
+			"CONTROL_FIRE" : 1,
+			"CONTROL_ACCELERATE" : 3,
 			"CONTROL_BOOST" : -1,
 			"CONTROL_ECM" : -1,
 			"CONTROL_BRAKE" : -1,
 			"CONTROL_TARGET" : -1,
-			"CONTROL_MISSILE" : -1,
-			"CONTROL_GUNS" : -1,
-			"CONTROL_RADAR" : -1
+			"CONTROL_MISSILE" : 2,
+			"CONTROL_GUNS" : 4,
+			"CONTROL_RADAR" : 5,
+			"CONTROL_PREV_FIGHTER" : 4,
+			"CONTROL_NEXT_FIGHTER" : 5
 		}
 	}
 }

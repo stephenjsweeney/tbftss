@@ -423,6 +423,8 @@ typedef struct {
 	SDL_Window *window;
 	Delegate delegate;
 	ModalDialog modalDialog;
+	int lastKeyPressed;
+	int lastButtonPressed;
 	int keyControls[CONTROL_MAX];
 	int mouseControls[CONTROL_MAX];
 } App;
@@ -447,19 +449,19 @@ struct Bucket
 	Bucket *next;
 };
 
-typedef struct HashTable
+typedef struct
 {
 	Bucket **bucket;
 	int *bucketCount;
 } HashTable;
 
-typedef struct MOHeader
+typedef struct
 {
 	int32_t magicNumber, version, stringCount;
 	int32_t originalOffset, translationOffset;
 } MOHeader;
 
-typedef struct MOEntry
+typedef struct
 {
 	int32_t length, offset;
 } MOEntry;

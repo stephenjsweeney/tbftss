@@ -27,6 +27,7 @@ static void handleKeyboard(void);
 static void createOptions(Widget *w, char *options);
 static void changeSelectedValue(Widget *w, int dir);
 static void createSelectButtons(Widget *w);
+static void handleControlWidgets(void);
 
 static Widget head;
 static Widget *tail;
@@ -34,6 +35,7 @@ static Widget *selectedWidget;
 static SDL_Texture *optionsLeft;
 static SDL_Texture *optionsRight;
 static int drawingWidgets;
+static int waitingForInput;
 
 void initWidgets(void)
 {
@@ -48,7 +50,7 @@ void initWidgets(void)
 
 	loadWidgets();
 
-	drawingWidgets = 0;
+	waitingForInput = drawingWidgets = 0;	
 }
 
 void doWidgets(void)
@@ -58,6 +60,11 @@ void doWidgets(void)
 		handleMouse();
 
 		handleKeyboard();
+		
+		if (waitingForInput)
+		{
+			handleControlWidgets();
+		}
 	}
 
 	drawingWidgets = 0;
@@ -97,7 +104,7 @@ void drawWidgets(const char *group)
 	{
 		if ((app.modalDialog.type == MD_NONE || (app.modalDialog.type != MD_NONE && w->isModal)) && w->visible && strcmp(w->group, group) == 0)
 		{
-			if (!mouseOver)
+			if (!mouseOver && !waitingForInput)
 			{
 				mouseOver = (w->type != WT_SELECT && w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.mouse.x, app.mouse.y, 1, 1));
 
@@ -149,21 +156,29 @@ void drawWidgets(const char *group)
 					
 				case WT_CONTROL_CONFIG:
 					SDL_RenderDrawRect(app.renderer, &w->rect);
-					if (strlen(w->options[0]) && strlen(w->options[1]))
+					
+					if (!waitingForInput || (waitingForInput && w != selectedWidget))
 					{
-						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s or %s", w->options[0], w->options[1]);
-					}
-					else if (strlen(w->options[0]))
-					{
-						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s", w->options[0]);
-					}
-					else if (strlen(w->options[1]))
-					{
-						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s", w->options[1]);
+						if (strlen(w->options[0]) && strlen(w->options[1]))
+						{
+							drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s or %s", w->options[0], w->options[1]);
+						}
+						else if (strlen(w->options[0]))
+						{
+							drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s", w->options[0]);
+						}
+						else if (strlen(w->options[1]))
+						{
+							drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "%s", w->options[1]);
+						}
+						else
+						{
+							drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "");
+						}
 					}
 					else
 					{
-						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "");
+						drawText(w->rect.x + (w->rect.w / 2), w->rect.y + 2, 20, TA_CENTER, colors.white, "...");
 					}
 					break;
 			}
@@ -242,6 +257,15 @@ static void handleMouse(void)
 					changeSelectedValue(selectedWidget->parent, selectedWidget->value);
 					app.mouse.button[SDL_BUTTON_LEFT] = 0;
 					break;
+					
+				case WT_CONTROL_CONFIG:
+					if (!waitingForInput)
+					{
+						waitingForInput = 1;
+						app.lastKeyPressed = app.lastButtonPressed = -1;
+					}
+					app.mouse.button[SDL_BUTTON_LEFT] = 0;
+					break;
 			}
 		}
 	}
@@ -250,23 +274,63 @@ static void handleMouse(void)
 static void handleKeyboard(void)
 {
 	Widget *old;
-
-	if (app.keyboard[SDL_SCANCODE_SPACE] ||app.keyboard[SDL_SCANCODE_RETURN])
+	
+	if (selectedWidget != NULL)
 	{
-		if (selectedWidget != NULL && selectedWidget->type == WT_BUTTON)
+		if (selectedWidget->type == WT_BUTTON)
 		{
-			playSound(SND_GUI_SELECT);
-			old = selectedWidget;
-			selectedWidget->action();
-
-			if (old == selectedWidget)
+			if (app.keyboard[SDL_SCANCODE_SPACE] ||app.keyboard[SDL_SCANCODE_RETURN])
 			{
-				selectedWidget = NULL;
-			}
+				playSound(SND_GUI_SELECT);
+				old = selectedWidget;
+				selectedWidget->action();
 
-			app.keyboard[SDL_SCANCODE_SPACE] = app.keyboard[SDL_SCANCODE_RETURN] = 0;
+				if (old == selectedWidget)
+				{
+					selectedWidget = NULL;
+				}
+
+				app.keyboard[SDL_SCANCODE_SPACE] = app.keyboard[SDL_SCANCODE_RETURN] = 0;
+			}
 		}
 	}
+}
+
+static void handleControlWidgets(void)
+{
+	if (app.lastKeyPressed == SDL_SCANCODE_BACKSPACE)
+	{
+		clearControlConfig(selectedWidget->name);
+		
+		waitingForInput = 0;
+	}
+	else if (app.lastKeyPressed == SDL_SCANCODE_ESCAPE)
+	{
+		waitingForInput = 0;
+	}
+	else
+	{
+		if (app.lastKeyPressed != -1)
+		{
+			updateControlKey(selectedWidget->name);
+			
+			waitingForInput = 0;
+		}
+		
+		if (app.lastButtonPressed != -1)
+		{
+			updateControlButton(selectedWidget->name);
+			
+			waitingForInput = 0;
+		}
+	}
+	
+	if (!waitingForInput)
+	{
+		clearInput();
+	}
+	
+	app.lastKeyPressed = app.lastButtonPressed = -1;
 }
 
 static void loadWidgets()

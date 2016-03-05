@@ -24,6 +24,8 @@ extern void drawText(int x, int y, int size, int align, SDL_Color c, const char 
 extern char *getTranslatedString(char *string);
 extern Widget *getWidget(const char *name, const char *group);
 extern void drawWidgets(char *groupName);
+extern char *getLookupName(char *prefix, long num);
+extern long lookup(char *name);
 
 extern App app;
 extern Colors colors;

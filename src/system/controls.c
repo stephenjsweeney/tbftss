@@ -22,7 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static const char *controlName[CONTROL_MAX];
 static Widget *controlWidget[CONTROL_MAX];
-static const char *widgetNames[] = {"fire", "accelerate", "boost", "ecm", "brake", "target", "missile", "guns", "radar", "nextFighter", "prevFighter"};
 
 void initControls(void)
 {
@@ -42,13 +41,34 @@ void initControls(void)
 	
 	for (i = 0 ; i < CONTROL_MAX ; i++)
 	{
-		controlWidget[i] = getWidget(widgetNames[i], "controls");
+		controlWidget[i] = getWidget(getLookupName("CONTROL_", i), "controls");
 		controlWidget[i]->numOptions = 2;
 		controlWidget[i]->options = malloc(2 * sizeof(char*));
 		controlWidget[i]->options[0] = malloc(sizeof(char) * MAX_NAME_LENGTH);
 		controlWidget[i]->options[1] = malloc(sizeof(char) * MAX_NAME_LENGTH);
 		strcpy(controlWidget[i]->options[0], "");
 		strcpy(controlWidget[i]->options[1], "");
+	}
+}
+
+void initControlsDisplay(void)
+{
+	int i;
+	
+	for (i = 0 ; i < CONTROL_MAX ; i++)
+	{
+		strcpy(controlWidget[i]->options[0], "");
+		strcpy(controlWidget[i]->options[1], "");
+		
+		if (app.keyControls[i] != -1)
+		{
+			sprintf(controlWidget[i]->options[0], "%s", SDL_GetScancodeName(app.keyControls[i]));
+		}
+		
+		if (app.mouseControls[i] != -1)
+		{
+			sprintf(controlWidget[i]->options[1], "Btn %d", app.mouseControls[i]);
+		}
 	}
 }
 
@@ -62,22 +82,29 @@ void clearControl(int type)
 	app.keyboard[app.keyControls[type]] = 0;
 }
 
-void initControlsDisplay(void)
+void updateControlKey(char *name)
+{
+	app.keyControls[lookup(name)] = app.lastKeyPressed;
+	
+	initControlsDisplay();
+}
+
+void updateControlButton(char *name)
+{
+	app.mouseControls[lookup(name)] = app.lastButtonPressed;
+	
+	initControlsDisplay();
+}
+
+void clearControlConfig(char *name)
 {
 	int i;
 	
-	for (i = 0 ; i < CONTROL_MAX ; i++)
-	{
-		if (app.mouseControls[i] != 0)
-		{
-			sprintf(controlWidget[i]->options[0], "%s", SDL_GetScancodeName(app.keyControls[i]));
-		}
-		
-		if (app.mouseControls[i] != -1)
-		{
-			sprintf(controlWidget[i]->options[1], "Btn %d", app.mouseControls[i]);
-		}
-	}
+	i = lookup(name);
+	
+	app.keyControls[i] = app.mouseControls[i] = -1;
+	
+	initControlsDisplay();
 }
 
 void drawControls(void)

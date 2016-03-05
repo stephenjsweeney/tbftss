@@ -1,6 +1,6 @@
 [
 	{
-		"name" : "fire",
+		"name" : "CONTROL_FIRE",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -9,7 +9,7 @@
 		"h": 34
 	},
 	{
-		"name" : "accelerate",
+		"name" : "CONTROL_ACCELERATE",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -18,7 +18,7 @@
 		"h": 34
 	},
 	{
-		"name" : "missile",
+		"name" : "CONTROL_MISSILE",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -27,7 +27,7 @@
 		"h": 34
 	},
 	{
-		"name" : "boost",
+		"name" : "CONTROL_BOOST",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -36,7 +36,7 @@
 		"h": 34
 	},
 	{
-		"name" : "brake",
+		"name" : "CONTROL_BRAKE",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -45,7 +45,7 @@
 		"h": 34
 	},
 	{
-		"name" : "ecm",
+		"name" : "CONTROL_ECM",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -54,7 +54,7 @@
 		"h": 34
 	},
 	{
-		"name" : "target",
+		"name" : "CONTROL_TARGET",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -63,7 +63,7 @@
 		"h": 34
 	},
 	{
-		"name" : "radar",
+		"name" : "CONTROL_RADAR",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -72,7 +72,7 @@
 		"h": 34
 	},
 	{
-		"name" : "guns",
+		"name" : "CONTROL_GUNS",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -81,7 +81,7 @@
 		"h": 34
 	},
 	{
-		"name" : "prevFighter",
+		"name" : "CONTROL_PREV_FIGHTER",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,
@@ -90,7 +90,7 @@
 		"h": 34
 	},
 	{
-		"name" : "nextFighter",
+		"name" : "CONTROL_NEXT_FIGHTER",
 		"group" : "controls",
 		"type" : "WT_CONTROL_CONFIG",
 		"x" : 0,

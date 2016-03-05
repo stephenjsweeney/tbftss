@@ -31,11 +31,29 @@ void initInput(void)
 	SDL_QueryTexture(mousePointer, NULL, NULL, &app.mouse.w, &app.mouse.h);
 }
 
+void doKeyDown(SDL_KeyboardEvent *event)
+{
+	if (event->keysym.scancode >= 0 && event->keysym.scancode < MAX_KEYBOARD_KEYS && event->repeat == 0)
+	{
+		app.keyboard[event->keysym.scancode] = 1;
+		app.lastKeyPressed = event->keysym.scancode;
+	}
+}
+
+void doKeyUp(SDL_KeyboardEvent *event)
+{
+	if (event->keysym.scancode >= 0 && event->keysym.scancode < MAX_KEYBOARD_KEYS)
+	{
+		app.keyboard[event->keysym.scancode] = 0;
+	}
+}
+
 void doMouseDown(SDL_MouseButtonEvent *event)
 {
 	if (event->button >= 0 && event->button < MAX_MOUSE_BUTTONS)
 	{
 		app.mouse.button[event->button] = 1;
+		app.lastButtonPressed = event->button;
 	}
 }
 
@@ -55,11 +73,13 @@ void doMouseWheel(SDL_MouseWheelEvent *event)
 	if (event->y == -1)
 	{
 		app.mouse.button[SDL_BUTTON_X1] = 1;
+		app.lastButtonPressed = SDL_BUTTON_X1;
 	}
 
 	if (event->y == 1)
 	{
 		app.mouse.button[SDL_BUTTON_X2] = 1;
+		app.lastButtonPressed = SDL_BUTTON_X2;
 	}
 }
 

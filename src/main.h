@@ -46,6 +46,8 @@ extern char *getSaveFilePath(char *filename);
 extern void init18N(int argc, char *argv[]);
 extern void initLookups(void);
 extern void initGame(void);
+extern void doKeyDown(SDL_KeyboardEvent *event);
+extern void doKeyUp(SDL_KeyboardEvent *event);
 
 App app;
 Colors colors;

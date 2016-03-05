@@ -79,17 +79,11 @@ int main(int argc, char *argv[])
 					break;
 				
 				case SDL_KEYDOWN:
-					if (event.key.keysym.scancode >= 0 && event.key.keysym.scancode < MAX_KEYBOARD_KEYS && event.key.repeat == 0)
-					{
-						app.keyboard[event.key.keysym.scancode] = 1;
-					}
+					doKeyDown(&event.key);
 					break;
 					
 				case SDL_KEYUP:
-					if (event.key.keysym.scancode >= 0 && event.key.keysym.scancode < MAX_KEYBOARD_KEYS)
-					{
-						app.keyboard[event.key.keysym.scancode] = 0;
-					}
+					doKeyUp(&event.key);
 					break;
 
 				case SDL_QUIT:

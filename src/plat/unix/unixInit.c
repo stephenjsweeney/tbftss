@@ -44,3 +44,10 @@ void createSaveFolder(void)
 	
 	STRNCPY(app.saveDir, dir, MAX_FILENAME_LENGTH);
 }
+
+void createScreenshotFolder(void)
+{
+	mkdir("/tmp/tbftss", S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH);
+	
+	dev.screenshotFolder = "/tmp/tbftss";
+}

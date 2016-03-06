@@ -14,4 +14,4 @@ to access some (rather crude) debugging and development stuff, activated by pres
 * [6] - Immediately complete the current mission
 
 * [9] - Show the current frames per second
-* [0] - Take a screenshot once per second. Assumes the existance of dev/screenshots/tmp relative to the game's binary
+* [0] - Take a screenshot once per second, saving to /tmp/tbftss on Linux.

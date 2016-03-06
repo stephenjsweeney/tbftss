@@ -167,6 +167,8 @@ static void handleArguments(int argc, char *argv[])
 			if (strcmp(argv[i], "-debug") == 0)
 			{
 				dev.debug = 1;
+				
+				createScreenshotFolder();
 			}
 		}
 	}

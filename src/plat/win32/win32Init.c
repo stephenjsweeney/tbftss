@@ -44,3 +44,8 @@ void createSaveFolder(void)
 	
 	STRNCPY(app.saveDir, dir, MAX_FILENAME_LENGTH);
 }
+
+void createScreenshotFolder(void)
+{
+	dev.screenshotFolder = "./";
+}

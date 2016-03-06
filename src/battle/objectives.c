@@ -82,7 +82,7 @@ void updateObjective(char *name, int type)
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
-		if (o->active)
+		if (o->active && o->status != OS_COMPLETE)
 		{
 			if (!o->isEliminateAll && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 			{
@@ -99,34 +99,32 @@ void updateObjective(char *name, int type)
 				
 				if (o->currentValue == o->targetValue)
 				{
-					completed++;
-					
-					o->status = OS_COMPLETE;
-					
 					addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
 					
 					runScriptFunction(o->description);
 					
-					runScriptFunction("OBJECTIVES_COMPLETE %d", completed);
+					o->status = OS_COMPLETE;
 					
-					if (completed == battle.numObjectivesTotal)
-					{
-						runScriptFunction("ALL_OBJECTIVES_COMPLETE");
-					}
+					runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
 				}
 			}
 			
 			if (o->isEliminateAll && o->status != OS_COMPLETE && battle.stats[STAT_ENEMIES_KILLED] == battle.numInitialEnemies)
 			{
-				o->status = OS_COMPLETE;
-				
 				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
 				
 				o->currentValue = o->targetValue;
 				
+				o->status = OS_COMPLETE;
+				
 				runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
 			}
 		}
+	}
+	
+	if (completed == battle.numObjectivesTotal)
+	{
+		runScriptFunction("ALL_OBJECTIVES_COMPLETE");
 	}
 }
 

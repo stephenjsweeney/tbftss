@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 07:53:54+0000\n"
+"POT-Creation-Date: 2016-03-06 09:48:36+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -154,7 +154,13 @@ msgstr ""
 msgid "Complete challenge in %d seconds or less"
 msgstr ""
 
-msgid "Attain a %d%% hit accuracy"
+msgid "Attain a %d%% shot hit accuracy"
+msgstr ""
+
+msgid "Attain a %d%% rocket hit accuracy"
+msgstr ""
+
+msgid "Attain a %d%% missile hit accuracy"
 msgstr ""
 
 msgid "Do not lose any team mates"
@@ -170,9 +176,6 @@ msgid "Take down %d enemy targets"
 msgstr ""
 
 msgid "Disable %d or more enemy fighters"
-msgstr ""
-
-msgid "Complete challenge in %d minutes or less"
 msgstr ""
 
 msgid "%s has fallen to the Pandorans"
@@ -212,6 +215,9 @@ msgid "Shots Fired"
 msgstr ""
 
 msgid "Shots Hit"
+msgstr ""
+
+msgid "Accuracy"
 msgstr ""
 
 msgid "Rockets Fired"
@@ -277,6 +283,9 @@ msgstr ""
 msgid "Longest Epic Kill Streak"
 msgstr ""
 
+msgid "Waypoints Visited"
+msgstr ""
+
 msgid "Capital Ships Destroyed"
 msgstr ""
 
@@ -292,10 +301,58 @@ msgstr ""
 msgid "Page %d / %d"
 msgstr ""
 
+msgid "Fire"
+msgstr ""
+
+msgid "Accelerate"
+msgstr ""
+
+msgid "Boost"
+msgstr ""
+
+msgid "ECM"
+msgstr ""
+
+msgid "Brake"
+msgstr ""
+
+msgid "Select Target"
+msgstr ""
+
+msgid "Fire Missile"
+msgstr ""
+
+msgid "Cycle Guns"
+msgstr ""
+
+msgid "Cycle Radar"
+msgstr ""
+
+msgid "Next Fighter"
+msgstr ""
+
+msgid "Previous Fighter"
+msgstr ""
+
+msgid "Controls"
+msgstr ""
+
+msgid "Click a control to change it, and then the key or mouse button you want to use."
+msgstr ""
+
+msgid "[BACKSPACE] - Clear"
+msgstr ""
+
+msgid "[ESCAPE] - Cancel"
+msgstr ""
+
 msgid "Options"
 msgstr ""
 
 msgid "Note: you must restart the game for window size and fullscreen options to take effect."
+msgstr ""
+
+msgid "Note: this device does not support changing the screen resolution."
 msgstr ""
 
 msgid "Retry"
@@ -335,6 +392,9 @@ msgid "Music Volume"
 msgstr ""
 
 msgid "Fullscreen"
+msgstr ""
+
+msgid "Controls ..."
 msgstr ""
 
 msgid "Start Mission"

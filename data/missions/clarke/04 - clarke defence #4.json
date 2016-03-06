@@ -1,0 +1,167 @@
+{
+	"name" : "Clarke Defence #4",
+	"description" : "",
+	"requires" : 28,
+	"background" : "gfx/backgrounds/background06.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/heroism.ogg",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemy forces",
+			"targetName" : "Enemy",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Simon Dodds",
+		"squadron" : "White Knights",
+		"x" : 10,
+		"y" : 10
+	},
+	"fighters" : [
+		{
+			"name" : "ALLIES",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 10,
+			"number" : 2,
+			"scatter" : 500
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"number" : 5,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 40,
+			"y" : 25,
+			"number" : 5,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 40,
+			"number" : 5,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "reinforcements",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : -1,
+			"number" : 12,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "reinforcements-2",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 51,
+			"number" : 12,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "INF Trishula",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"flags" : "EF_AI_LEADER"
+		},
+		{
+			"name" : "INF Kongo",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 40,
+			"y" : 25,
+			"flags" : "EF_AI_LEADER"
+		},
+		{
+			"name" : "INF Sharanga",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 40,
+			"flags" : "EF_AI_LEADER"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Koonan;Targets sighted: three capital ships, five escorts apiece.",
+				"MSG_BOX Dodds;You know what to do, guys. Let's take them down.",
+				"MSG_BOX Todd;Want to take bets on how soon before they run?",
+				"MSG_BOX Dodds;Wouldn't call that a fair bet, mate. We all know they won't."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 1",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_ENTITY_GROUPS reinforcements",
+				"MSG_BOX Koonan;More fighters inbound."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 2",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_ENTITY_GROUPS reinforcements-2",
+				"MSG_BOX Todd;Picking up another Pandoran squadron, incoming.",
+				"MSG_BOX Dodds;See? That's why I didn't make a bet with you!"
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 3",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Todd;All capital ships down. That's, what, fifty of these things we've scratched, alone?",
+				"MSG_BOX Dodds;Seriously, I've lost count.",
+				"MSG_BOX Todd;How many more can the Pandorans have?",
+				"MSG_BOX Dodds;Only way we'll find out is if we go to Kethlan, and I'm not keen on heading there anytime soon."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Todd;Looks like that's all of them.",
+				"MSG_BOX Dodds;Chaz, anything?",
+				"MSG_BOX Koonan;Negative.",
+				"MSG_BOX Dodds;Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

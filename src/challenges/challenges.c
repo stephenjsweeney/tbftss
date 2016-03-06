@@ -107,6 +107,11 @@ static int challengeFinished(void)
 		return 1;
 	}
 	
+	if (game.currentMission->challengeData.escapeLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_ESCAPED]) >= game.currentMission->challengeData.escapeLimit)
+	{
+		return 1;
+	}
+	
 	if (game.currentMission->challengeData.waypointLimit > 0 && battle.stats[STAT_WAYPOINTS_VISITED] >= game.currentMission->challengeData.waypointLimit)
 	{
 		return 1;

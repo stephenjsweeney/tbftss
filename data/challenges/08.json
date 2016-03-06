@@ -1,0 +1,54 @@
+{
+	"name" : "Defend Extraction Point",
+	"description" : "Defend Extraction Point",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Leopard",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 90,
+		"killLimit" : 12,
+		"escapeLimit" : 12,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 6
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 9
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 12
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"groupName" : "Dart",
+			"types" : "Dart",
+			"x" : 25,
+			"y" : 28,
+			"side" : "SIDE_REBEL",
+			"scatter" : 5000,
+			"number" : 12,
+			"flags" : "+EF_RETREATING",
+			"aiFlags" : "+AIF_GOAL_EXTRACTION+AIF_UNLIMITED_RANGE+AIF_DEFENSIVE+AIF_COVERS_RETREAT"
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_EXTRACTION_POINT",
+			"x" : 25.1,
+			"y" : 25.1
+		}
+	]
+}

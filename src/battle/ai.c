@@ -58,14 +58,18 @@ void doAI(void)
 		return;
 	}
 	
-	if ((self->aiFlags & AIF_DEFENSIVE) && rand() % 25 && nearEnemies())
+	if ((self->aiFlags & AIF_DEFENSIVE) && rand() % 10 && nearEnemies())
 	{
 		return;
 	}
 	
 	if ((self->aiFlags & AIF_GOAL_EXTRACTION) && nearExtractionPoint())
 	{
-		return;
+		/* near extraction point, but you might decide to continue to fight, anyway */
+		if ((self->aiFlags & AIF_COVERS_RETREAT) && rand() % 3)
+		{
+			return;
+		}
 	}
 	
 	if ((self->aiFlags & AIF_COLLECTS_ITEMS) && nearItems())
@@ -544,7 +548,7 @@ static int nearEnemies(void)
 	int i, numEnemies;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - 500, self->y - (self->h / 2) - 500, 1000, 1000, self);
+	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
 	
 	self->target = NULL;
 	self->targetLocation.x = self->targetLocation.y = 0;
@@ -555,9 +559,12 @@ static int nearEnemies(void)
 	{
 		if ((e->flags & EF_TAKES_DAMAGE) && e->side != self->side && !(e->flags & EF_DISABLED))
 		{
-			self->targetLocation.x += e->x;
-			self->targetLocation.y += e->y;
-			numEnemies++;
+			if (getDistance(e->x, e->y, self->x, self->y) < 1000)
+			{
+				self->targetLocation.x += e->x;
+				self->targetLocation.y += e->y;
+				numEnemies++;
+			}
 		}
 	}
 	
@@ -572,6 +579,7 @@ static int nearEnemies(void)
 		
 		self->action = fleeEnemies;
 		self->aiActionTime = FPS * 2;
+		
 		return 1;
 	}
 	

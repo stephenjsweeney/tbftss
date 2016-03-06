@@ -43,6 +43,7 @@ typedef struct Trophy Trophy;
 typedef struct {
 	int debug;
 	int takeScreenshots;
+	char *screenshotFolder;
 	int noAIWeapons;
 	int showFPS;
 	int playerImmortal;
@@ -247,6 +248,7 @@ typedef struct {
 	int killLimit;
 	int lossLimit;
 	int itemLimit;
+	int escapeLimit;
 	int waypointLimit;
 	int noMissiles;
 	int noBoost;

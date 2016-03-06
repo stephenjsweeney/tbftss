@@ -79,6 +79,7 @@ Mission *loadMissionMeta(char *filename)
 		
 		mission->challengeData.timeLimit = getJSONValue(node, "timeLimit", 0) * FPS;
 		mission->challengeData.killLimit = getJSONValue(node, "killLimit", 0);
+		mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
 		mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
 		mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
 		mission->challengeData.noECM = getJSONValue(node, "noECM", 0);

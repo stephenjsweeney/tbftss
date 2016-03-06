@@ -76,6 +76,7 @@ void initLookups(void)
 	addLookup("AIF_LONG_RANGE_FIRE", AIF_LONG_RANGE_FIRE);
 	addLookup("AIF_MOVES_TO_LEADER", AIF_MOVES_TO_LEADER);
 	addLookup("AIF_WANDERS", AIF_WANDERS);
+	addLookup("AIF_COVERS_RETREAT", AIF_COVERS_RETREAT);
 
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);

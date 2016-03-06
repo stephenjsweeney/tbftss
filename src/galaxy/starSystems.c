@@ -89,22 +89,22 @@ static void loadMissions(StarSystem *starSystem)
 	{
 		name[i] = tolower(name[i]);
 	}
-
+	
 	sprintf(path, "data/missions/%s", name);
-
+	
 	filenames = getFileList(path, &count);
-
+	
 	for (i = 0 ; i < count ; i++)
 	{
 		sprintf(path, "data/missions/%s/%s", name, filenames[i]);
-
+		
 		mission = loadMissionMeta(path);
 		tail->next = mission;
 		tail = mission;
-
+		
 		free(filenames[i]);
 	}
-
+	
 	free(filenames);
 }
 

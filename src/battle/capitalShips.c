@@ -94,10 +94,14 @@ void doCapitalShip(void)
 			if (self->side == SIDE_ALLIES)
 			{
 				battle.stats[STAT_CAPITAL_SHIPS_LOST]++;
+				
+				runScriptFunction("CAPITAL_SHIPS_LOST %d", battle.stats[STAT_CAPITAL_SHIPS_LOST]);
 			}
 			else
 			{
 				battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]++;
+				
+				runScriptFunction("CAPITAL_SHIPS_DESTROYED %d", battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]);
 			}
 		}
 	}

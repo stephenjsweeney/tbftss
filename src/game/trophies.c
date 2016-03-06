@@ -105,6 +105,7 @@ static void loadTrophyData(char *filename)
 		STRNCPY(t->title, cJSON_GetObjectItem(node, "title")->valuestring, MAX_DESCRIPTION_LENGTH);
 		STRNCPY(t->description, cJSON_GetObjectItem(node, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
 		t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
+		t->hidden = getJSONValue(node, "hidden", 0);
 
 		tail->next = t;
 		tail = t;

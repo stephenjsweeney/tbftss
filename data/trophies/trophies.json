@@ -21,7 +21,8 @@
 		"id" : "CAMPAIGN_COYOTE",
 		"title" : "Coyote Ugly",
 		"description" : "Complete all missions at Coyote",
-		"value" : "TROPHY_BRONZE"
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
 	},
 	{
 		"id" : "PANDORAN_FIRST",
@@ -54,9 +55,9 @@
 		"value" : "TROPHY_GOLD"
 	},
 	{
-		"id" : "FIRE_10000",
+		"id" : "FIRE_100000",
 		"title" : "Your name's on one of these!",
-		"description" : "Fire 10,000 shots",
+		"description" : "Fire 100,000 shots",
 		"value" : "TROPHY_SILVER"
 	},
 	{
@@ -64,5 +65,12 @@
 		"title" : "Dodge this!",
 		"description" : "Launch 1,000 missiles",
 		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "ATAF_DESTROYED",
+		"title" : "Almost indestructable. Almost.",
+		"description" : "Be destroyed while piloting an ATAF",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
 	}
 ]

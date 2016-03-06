@@ -25,5 +25,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern long lookup(char *name);
 extern char *readFile(char *filename);
+extern int getJSONValue(cJSON *node, char *name, int defValue);
 
 extern Game game;

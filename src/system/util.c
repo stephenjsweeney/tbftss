@@ -133,10 +133,13 @@ int getJSONValue(cJSON *node, char *name, int defValue)
 void *resize(void *array, int oldSize, int newSize)
 {
 	void **newArray;
+	int copySize;
+	
+	copySize = newSize > oldSize ? oldSize : newSize;
 	
 	newArray = malloc(newSize);
 	memset(newArray, 0, newSize);
-	memcpy(newArray, array, oldSize);
+	memcpy(newArray, array, copySize);
 	free(array);
 	
 	return newArray;

@@ -285,7 +285,7 @@ void doFighter(void)
 					if (strcmp(self->name, "Civilian") == 0)
 					{
 						battle.stats[STAT_CIVILIANS_KILLED]++;
-						if (!battle.isEpic)
+						if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
 						{
 							addHudMessage(colors.red, _("Civilian has been killed"));
 						}
@@ -293,7 +293,7 @@ void doFighter(void)
 					else
 					{
 						battle.stats[STAT_ALLIES_KILLED]++;
-						if (!battle.isEpic)
+						if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
 						{
 							addHudMessage(colors.red, _("Ally has been killed"));
 						}

@@ -247,8 +247,6 @@ static void statsOK(void)
 static void returnFromOptions(void)
 {
 	show = SHOW_TITLE;
-	
-	selectWidget("options", "title");
 }
 
 static void quit(void)

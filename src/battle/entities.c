@@ -20,12 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "entities.h"
 
-static Entity deadHead;
-static Entity *deadTail;
-
-static int disabledGlow;
-static int disabledGlowDir;
-
 static void drawEntity(Entity *e);
 static void doEntity(void);
 static void alignComponents(void);
@@ -37,6 +31,13 @@ static int drawComparator(const void *a, const void *b);
 static void notifyNewArrivals(void);
 static int isCapitalShipComponent(Entity *e);
 
+static SDL_Texture *jumpPortal;
+static float jumpPortAngle;
+static Entity deadHead;
+static Entity *deadTail;
+static int disabledGlow;
+static int disabledGlowDir;
+
 void initEntities(void)
 {
 	memset(&deadHead, 0, sizeof(Entity));
@@ -45,6 +46,9 @@ void initEntities(void)
 	
 	disabledGlow = DISABLED_GLOW_MAX;
 	disabledGlowDir = -DISABLED_GLOW_SPEED;
+	
+	jumpPortal = getTexture("gfx/entities/portal.png");
+	jumpPortAngle = 0;
 }
 
 Entity *spawnEntity(void)
@@ -253,6 +257,12 @@ void doEntities(void)
 	{
 		disabledGlowDir = -DISABLED_GLOW_SPEED;
 	}
+	
+	jumpPortAngle += 0.5;
+	if (jumpPortAngle >= 360)
+	{
+		jumpPortAngle -= 360;
+	}
 }
 
 static void restrictToBattleArea(Entity *e)
@@ -381,6 +391,11 @@ void drawEntities(void)
 
 static void drawEntity(Entity *e)
 {
+	if (e->type == ET_JUMPGATE)
+	{
+		blitRotated(jumpPortal, e->x - battle.camera.x, e->y - battle.camera.y, jumpPortAngle);
+	}
+	
 	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
 	
 	if (e->armourHit > 0)

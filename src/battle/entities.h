@@ -35,6 +35,8 @@ extern void drawShieldHitEffect(Entity *e);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void updateCapitalShipComponentProperties(Entity *parent);
+extern void drawJumpPortal(Entity *e);
+extern SDL_Texture *getTexture(char *filename);
 
 extern App app;
 extern Battle battle;

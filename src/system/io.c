@@ -87,7 +87,7 @@ char *getSaveFilePath(char *filename)
 
 	sprintf(path, "%s/%s", app.saveDir, filename);
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "getSaveFilePath = '%s'", path);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "getSaveFilePath = '%s'", path);
 
 	return path;
 }

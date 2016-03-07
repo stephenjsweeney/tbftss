@@ -392,12 +392,12 @@ static void drawNumFighters(void)
 	/* Allies */
 	SDL_SetTextureColorMod(smallFighter, 150, 200, 255);
 	blit(smallFighter, 400, 15, 0);
-	drawText(425, 11, 14, TA_LEFT, colors.white, "(%d)", battle.numAllies);
+	drawText(425, 11, 14, TA_LEFT, colors.white, battle.numAllies < 1000 ? "(%d)" : "(999+)", battle.numAllies);
 	
 	/* Enemies */
 	SDL_SetTextureColorMod(smallFighter, 255, 100, 100);
 	blit(smallFighter, SCREEN_WIDTH - 410, 15, 0);
-	drawText(SCREEN_WIDTH - 420, 11, 14, TA_RIGHT, colors.white, "(%d)", battle.numEnemies);
+	drawText(SCREEN_WIDTH - 420, 11, 14, TA_RIGHT, colors.white, battle.numEnemies < 1000 ? "(%d)" : "(999+)", battle.numEnemies);
 }
 
 static void drawObjectives(void)
@@ -411,6 +411,11 @@ static void drawObjectives(void)
 		if (game.currentMission->challengeData.timeLimit)
 		{
 			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME], 0));
+			
+			if (game.currentMission->challengeData.itemLimit)
+			{
+				drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
+			}
 		}
 		else
 		{

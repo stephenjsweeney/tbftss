@@ -26,6 +26,7 @@ static void updateArmourChallenge(Challenge *c);
 static void updateLossesChallenge(Challenge *c);
 static void updatePlayerKillsChallenge(Challenge *c);
 static void updateDisabledChallenge(Challenge *c);
+static void updateItemsChallenge(Challenge *c);
 static void completeChallenge(void);
 static void failChallenge(void);
 static void updateChallenges(void);
@@ -55,6 +56,7 @@ void initChallenges(void)
 	challengeDescription[CHALLENGE_LOSSES] = _("Do not lose more than %d team mates");
 	challengeDescription[CHALLENGE_PLAYER_KILLS] = _("Take down %d enemy targets");
 	challengeDescription[CHALLENGE_DISABLE] = _("Disable %d or more enemy fighters");
+	challengeDescription[CHALLENGE_ITEMS] = _("Collect %d packages");
 
 	tail = &game.challengeMissionHead;
 
@@ -117,7 +119,12 @@ static int challengeFinished(void)
 		return 1;
 	}
 	
-	if (game.currentMission->challengeData.itemLimit > 0 && battle.stats[STAT_ITEMS_COLLECTED] >= game.currentMission->challengeData.itemLimit)
+	if (game.currentMission->challengeData.itemLimit > 0 && battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= game.currentMission->challengeData.itemLimit)
+	{
+		return 1;
+	}
+	
+	if (game.currentMission->challengeData.scriptedEnd)
 	{
 		return 1;
 	}
@@ -166,6 +173,10 @@ static void updateChallenges(void)
 
 				case CHALLENGE_DISABLE:
 					updateDisabledChallenge(c);
+					break;
+					
+				case CHALLENGE_ITEMS:
+					updateItemsChallenge(c);
 					break;
 			}
 		}
@@ -269,6 +280,14 @@ static void updateDisabledChallenge(Challenge *c)
 	if (!c->passed)
 	{
 		c->passed = battle.stats[STAT_ENEMIES_DISABLED] >= c->value;
+	}
+}
+
+static void updateItemsChallenge(Challenge *c)
+{
+	if (!c->passed)
+	{
+		c->passed = battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= c->value;
 	}
 }
 

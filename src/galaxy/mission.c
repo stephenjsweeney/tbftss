@@ -77,10 +77,14 @@ Mission *loadMissionMeta(char *filename)
 	{
 		mission->challengeData.isChallenge = 1;
 		
+		/* limits */
 		mission->challengeData.timeLimit = getJSONValue(node, "timeLimit", 0) * FPS;
 		mission->challengeData.killLimit = getJSONValue(node, "killLimit", 0);
 		mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
 		mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
+		mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
+		
+		/* restrictions */
 		mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
 		mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
 		mission->challengeData.noBoost = getJSONValue(node, "noBoost", 0);

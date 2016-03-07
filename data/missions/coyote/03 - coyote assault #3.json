@@ -16,7 +16,7 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Retreat to extraction point",
+			"description" : "Retreat to jumpgate",
 			"targetName" : "Player",
 			"targetValue" : 1,
 			"targetType" : "TT_ESCAPED",
@@ -70,8 +70,8 @@
 	],
 	"entities" : [
 		{
-			"name" : "Extraction Point",
-			"type" : "ET_EXTRACTION_POINT",
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
 			"x" : 25,
 			"y" : 25,
 			"active" : 0
@@ -94,12 +94,12 @@
 		{
 			"function" : "ALLIES_KILLED 90",
 			"lines" : [
-				"MSG_BOX UNF Talos;All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the extraction point.",
+				"MSG_BOX UNF Talos;All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate.",
 				"MSG_BOX de Winter;You all heard the Captain - fall back, we'll cover the retreat.",
 				"MSG_BOX Dodds;Estelle, we've got this. We can take them.",
 				"MSG_BOX de Winter;We're taking too many losses, Dodds. Fall back now, that's an order.",
 				"WAIT_MSG_BOX",
-				"ACTIVATE_ENTITIES Extraction Point",
+				"ACTIVATE_ENTITIES Jumpgate",
 				"RETREAT_ALLIES"
 			]
 		}

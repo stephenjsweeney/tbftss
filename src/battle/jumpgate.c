@@ -18,30 +18,30 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "extractionPoint.h"
+#include "jumpgate.h"
 
 static void think(void);
 static void handleFleeingEntities(void);
 static void addEscapeEffect(Entity *ent);
 
-Entity *spawnExtractionPoint(void)
+Entity *spawnJumpgate(void)
 {
-	Entity *extractionPoint = spawnEntity();
+	Entity *jumpgate = spawnEntity();
 	
-	extractionPoint->type = ET_EXTRACTION_POINT;
-	extractionPoint->health = extractionPoint->maxHealth = FPS;
-	extractionPoint->texture = getTexture("gfx/entities/extractionPoint.png");
-	extractionPoint->action = think;
-	extractionPoint->flags |= EF_NO_MT_BOX;
+	jumpgate->type = ET_JUMPGATE;
+	jumpgate->health = jumpgate->maxHealth = FPS;
+	jumpgate->texture = getTexture("gfx/entities/jumpgate.png");
+	jumpgate->action = think;
+	jumpgate->flags |= EF_NO_MT_BOX;
 	
-	return extractionPoint;
+	return jumpgate;
 }
 
 static void think(void)
 {
 	self->thinkTime = 4;
 	
-	self->angle++;
+	self->angle += 0.1;
 	if (self->angle >= 360)
 	{
 		self->angle -= 360;
@@ -49,7 +49,7 @@ static void think(void)
 	
 	handleFleeingEntities();
 	
-	battle.extractionPoint = self;
+	battle.jumpgate = self;
 }
 
 static void handleFleeingEntities(void)

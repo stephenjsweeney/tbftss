@@ -7,5 +7,5 @@
 	"shieldRechargeRate" : 0,
 	"texture" : "gfx/craft/civilian01.png",
 	"flags" : "EF_MISSION_TARGET+EF_RETREATING+EF_TAKES_DAMAGE",
-	"aiFlags" : "AIF_GOAL_EXTRACTION+AIF_AVOIDS_COMBAT+AIF_FOLLOWS_PLAYER"
+	"aiFlags" : "AIF_GOAL_JUMPGATE+AIF_AVOIDS_COMBAT+AIF_FOLLOWS_PLAYER"
 }

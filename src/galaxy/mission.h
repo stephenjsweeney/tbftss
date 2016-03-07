@@ -37,7 +37,7 @@ extern long flagsToLong(char *flags, int *add);
 extern Entity *spawnWaypoint(void);
 extern void activateNextWaypoint(void);
 extern void selectWidget(const char *name, const char *group);
-extern Entity *spawnExtractionPoint(void);
+extern Entity *spawnJumpgate(void);
 extern Entity *spawnItem(char *type);
 extern void failIncompleteObjectives(void);
 extern void completeConditions(void);

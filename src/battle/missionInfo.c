@@ -174,7 +174,7 @@ static void drawChallenges(void)
 	{
 		y+= 50;
 		
-		drawText(SCREEN_WIDTH / 2, y, 20, TA_CENTER, colors.white, "Time Limit: %s", timeToString(game.currentMission->challengeData.timeLimit, 0));
+		drawText(SCREEN_WIDTH / 2, y, 20, TA_CENTER, colors.white, _("Time Limit: %s"), timeToString(game.currentMission->challengeData.timeLimit, 0));
 	}
 		
 	y += 25;

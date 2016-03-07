@@ -106,8 +106,8 @@
 			"active" : 0
 		},
 		{
-			"name" : "Extraction Point",
-			"type" : "ET_EXTRACTION_POINT",
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
 			"x" : 10,
 			"y" : 8,
 			"active" : 0
@@ -153,7 +153,7 @@
 				"WAIT 2",
 				"MSG_BOX Tug;Tow cable attached. Ready to head home.",
 				"MSG_BOX Carr;We're done here. Let's bring our mystery guest in.",
-				"ACTIVATE_ENTITIES Extraction Point",
+				"ACTIVATE_ENTITIES Jumpgate",
 				"WAIT 20",
 				"ACTIVATE_ENTITIES Dart",
 				"ACTIVATE_OBJECTIVES Destroy intercepting Darts",

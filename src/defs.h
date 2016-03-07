@@ -102,7 +102,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_COLLECTS_ITEMS		(2 << 3)
 #define AIF_TOWS				(2 << 4)
 #define AIF_RETREATS			(2 << 5)
-#define AIF_GOAL_EXTRACTION		(2 << 6)
+#define AIF_GOAL_JUMPGATE		(2 << 6)
 #define AIF_AVOIDS_COMBAT		(2 << 7)
 #define AIF_DEFENSIVE			(2 << 8)
 #define AIF_MISSILE_BOAT		(2 << 9)
@@ -146,7 +146,7 @@ enum
 	ET_FIGHTER,
 	ET_ITEM,
 	ET_WAYPOINT,
-	ET_EXTRACTION_POINT,
+	ET_JUMPGATE,
 	ET_CAPITAL_SHIP_GUN,
 	ET_CAPITAL_SHIP_COMPONENT,
 	ET_CAPITAL_SHIP_ENGINE,

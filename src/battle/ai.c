@@ -33,8 +33,8 @@ static void fallback(void);
 static void moveToPlayer(void);
 static int canAttack(Entity *e);
 static int selectWeapon(int type);
-static int nearExtractionPoint(void);
-static void moveToExtractionPoint(void);
+static int nearJumpgate(void);
+static void moveToJumpgate(void);
 static int nearEnemies(void);
 static int nearItems(void);
 static void moveToItem(void);
@@ -63,9 +63,9 @@ void doAI(void)
 		return;
 	}
 	
-	if ((self->aiFlags & AIF_GOAL_EXTRACTION) && nearExtractionPoint())
+	if ((self->aiFlags & AIF_GOAL_JUMPGATE) && nearJumpgate())
 	{
-		/* near extraction point, but you might decide to continue to fight, anyway */
+		/* near jumpgate point, but you might decide to continue to fight, anyway */
 		if ((self->aiFlags & AIF_COVERS_RETREAT) && rand() % 3)
 		{
 			return;
@@ -534,7 +534,7 @@ static int isRetreating(void)
 				
 				self->aiFlags |= AIF_AVOIDS_COMBAT;
 				self->aiFlags |= AIF_UNLIMITED_RANGE;
-				self->aiFlags |= AIF_GOAL_EXTRACTION;
+				self->aiFlags |= AIF_GOAL_JUMPGATE;
 				
 				addHudMessage(colors.red, _("%s is retreating!"), self->name);
 				
@@ -627,20 +627,20 @@ static void moveToPlayer(void)
 	}
 }
 
-static int nearExtractionPoint(void)
+static int nearJumpgate(void)
 {
 	int dist;
 	
 	self->target = NULL;
 	
-	if (battle.extractionPoint)
+	if (battle.jumpgate)
 	{
-		dist = getDistance(self->x, self->y, battle.extractionPoint->x, battle.extractionPoint->y);
+		dist = getDistance(self->x, self->y, battle.jumpgate->x, battle.jumpgate->y);
 		
 		if (dist <= 2000 || self->aiFlags & AIF_UNLIMITED_RANGE)
 		{
-			self->target = battle.extractionPoint;
-			self->action = moveToExtractionPoint;
+			self->target = battle.jumpgate;
+			self->action = moveToJumpgate;
 			self->aiActionTime = (!self->towing) ? FPS / 2 : FPS * 2;
 		}
 	}
@@ -648,7 +648,7 @@ static int nearExtractionPoint(void)
 	return self->target != NULL;
 }
 
-static void moveToExtractionPoint(void)
+static void moveToJumpgate(void)
 {
 	faceTarget(self->target);
 		

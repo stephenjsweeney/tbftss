@@ -589,8 +589,8 @@ static void loadEntities(cJSON *node)
 						e = spawnWaypoint();
 						break;
 
-					case ET_EXTRACTION_POINT:
-						e = spawnExtractionPoint();
+					case ET_JUMPGATE:
+						e = spawnJumpgate();
 						break;
 
 					default:

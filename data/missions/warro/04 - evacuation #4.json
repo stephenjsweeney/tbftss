@@ -142,8 +142,8 @@
 	],
 	"entities" : [
 		{
-			"name" : "Extraction Point",
-			"type" : "ET_EXTRACTION_POINT",
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
 			"x" : 10,
 			"y" : 10
 		}
@@ -177,7 +177,7 @@
 				"ACTIVATE_ENTITY_GROUPS Pandorans-1",
 				"ACTIVATE_OBJECTIVES Destroy Pandoran fighters",
 				"MSG_BOX Koonan;Enemy craft detected. Pandorans, in both INF and UNF fighters.",
-				"MSG_BOX de Winter;Chaz, you're with me. Wiley, you and your boys get those civilians to the extraction point."
+				"MSG_BOX de Winter;Chaz, you're with me. Wiley, you and your boys get those civilians to the jumpgate."
 			]
 		},
 		{

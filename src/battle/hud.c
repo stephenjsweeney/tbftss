@@ -326,7 +326,7 @@ static void drawPlayerTargeter(void)
 	float angle;
 	int x, y;
 	
-	if (player->target || battle.missionTarget || battle.extractionPoint)
+	if (player->target || battle.missionTarget || battle.jumpgate)
 	{
 		if (player->target)
 		{
@@ -372,9 +372,9 @@ static void drawPlayerTargeter(void)
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
 	
-	if (battle.extractionPoint)
+	if (battle.jumpgate)
 	{
-		angle = getAngle(player->x, player->y, battle.extractionPoint->x, battle.extractionPoint->y);
+		angle = getAngle(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		x = player->x;
 		y = player->y;
 		
@@ -467,11 +467,11 @@ static void drawDistancesInfo(void)
 		y += 25;
 	}
 	
-	if (battle.extractionPoint != NULL)
+	if (battle.jumpgate != NULL)
 	{
-		distance = distanceToKM(player->x, player->y, battle.extractionPoint->x, battle.extractionPoint->y);
+		distance = distanceToKM(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, _("Extraction Point: %.2fkm"), distance);
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, _("Jumpgate: %.2fkm"), distance);
 		
 		y += 25;
 	}

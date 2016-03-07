@@ -1,6 +1,6 @@
 {
-	"name" : "Defend Extraction Point",
-	"description" : "Defend Extraction Point",
+	"name" : "Defend Jumpgate Point",
+	"description" : "Defend Jumpgate Point",
 	"background" : "AUTO",
 	"planet" : "AUTO",
 	"music" : "AUTO",
@@ -41,12 +41,12 @@
 			"scatter" : 5000,
 			"number" : 12,
 			"flags" : "+EF_RETREATING",
-			"aiFlags" : "+AIF_GOAL_EXTRACTION+AIF_UNLIMITED_RANGE+AIF_DEFENSIVE+AIF_COVERS_RETREAT"
+			"aiFlags" : "+AIF_GOAL_JUMPGATE+AIF_UNLIMITED_RANGE+AIF_DEFENSIVE+AIF_COVERS_RETREAT"
 		}
 	],
 	"entities" : [
 		{
-			"type" : "ET_EXTRACTION_POINT",
+			"type" : "ET_JUMPGATE",
 			"x" : 25.1,
 			"y" : 25.1
 		}

@@ -40,7 +40,7 @@ void attachRope(void)
 					self->towing = e;
 					e->owner = self;
 					
-					self->aiFlags |= AIF_GOAL_EXTRACTION;
+					self->aiFlags |= AIF_GOAL_JUMPGATE;
 					
 					e->flags |= EF_RETREATING;
 					
@@ -98,7 +98,7 @@ void cutRope(Entity *e)
 	if (e->owner && e->owner->towing == e)
 	{
 		e->owner->towing = NULL;
-		e->owner->aiFlags &= ~AIF_GOAL_EXTRACTION;
+		e->owner->aiFlags &= ~AIF_GOAL_JUMPGATE;
 		e->owner = NULL;
 	}
 }

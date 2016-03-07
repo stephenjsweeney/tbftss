@@ -320,7 +320,7 @@ typedef struct {
 	int numPlayerGuns;
 	int numObjectivesComplete, numObjectivesTotal;
 	Entity *missionTarget;
-	Entity *extractionPoint;
+	Entity *jumpgate;
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
 	int planetWidth, planetHeight;

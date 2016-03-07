@@ -585,7 +585,7 @@ void retreatAllies(void)
 
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
-			e->aiFlags |= AIF_GOAL_EXTRACTION;
+			e->aiFlags |= AIF_GOAL_JUMPGATE;
 			e->aiFlags &= ~AIF_FOLLOWS_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_PLAYER;
 		}

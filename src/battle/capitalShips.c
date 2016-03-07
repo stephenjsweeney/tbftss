@@ -537,15 +537,15 @@ void updateCapitalShipComponentProperties(Entity *parent)
 			switch (e->type)
 			{
 				case ET_CAPITAL_SHIP_ENGINE:
-					sprintf(e->name, "%s (Engine)", parent->name);
+					sprintf(e->name, _("%s (Engine)"), parent->name);
 					break;
 
 				case ET_CAPITAL_SHIP_COMPONENT:
-					sprintf(e->name, "%s (Component)", parent->name);
+					sprintf(e->name, _("%s (Component)"), parent->name);
 					break;
 
 				case ET_CAPITAL_SHIP_GUN:
-					sprintf(e->name, "%s (Gun)", parent->name);
+					sprintf(e->name, _("%s (Gun)"), parent->name);
 					break;
 			}
 

@@ -71,8 +71,8 @@
 	],
 	"entities" : [
 		{
-			"name" : "Extraction Point",
-			"type" : "ET_EXTRACTION_POINT",
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
 			"x" : 26,
 			"y" : 25
 		}

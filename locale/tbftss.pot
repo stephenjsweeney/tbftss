@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-06 09:48:36+0000\n"
+"POT-Creation-Date: 2016-03-07 17:12:32+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -20,6 +20,15 @@ msgid "%s is retreating!"
 msgstr ""
 
 msgid "WARNING: INCOMING MISSILE!"
+msgstr ""
+
+msgid "%s (Engine)"
+msgstr ""
+
+msgid "%s (Component)"
+msgstr ""
+
+msgid "%s (Gun)"
 msgstr ""
 
 msgid "Mission target has escaped."
@@ -64,7 +73,7 @@ msgstr ""
 msgid "Objective: %.2fkm"
 msgstr ""
 
-msgid "Extraction Point: %.2fkm"
+msgid "Jumpgate: %.2fkm"
 msgstr ""
 
 msgid "SELECT NEW FIGHTER"
@@ -89,6 +98,9 @@ msgid "OBJECTIVES"
 msgstr ""
 
 msgid "(none)"
+msgstr ""
+
+msgid "Time Limit: %s"
 msgstr ""
 
 msgid "%s - Objective Complete!"
@@ -142,9 +154,6 @@ msgstr ""
 msgid "Craft: %s"
 msgstr ""
 
-msgid "Time Limit: %s"
-msgstr ""
-
 msgid "Restrictions: %s"
 msgstr ""
 
@@ -176,6 +185,9 @@ msgid "Take down %d enemy targets"
 msgstr ""
 
 msgid "Disable %d or more enemy fighters"
+msgstr ""
+
+msgid "Collect %d packages"
 msgstr ""
 
 msgid "%s has fallen to the Pandorans"
@@ -278,6 +290,9 @@ msgid "Craft Towed"
 msgstr ""
 
 msgid "Items Collected"
+msgstr ""
+
+msgid "Items Collected (Player)"
 msgstr ""
 
 msgid "Longest Epic Kill Streak"
@@ -607,6 +622,51 @@ msgstr ""
 msgid "Maybe not, if we continue to lose ground the way we are already ..."
 msgstr ""
 
+msgid "Targets sighted: three capital ships, five escorts apiece."
+msgstr ""
+
+msgid "You know what to do, guys. Let's take them down."
+msgstr ""
+
+msgid "Want to take bets on how soon before they run?"
+msgstr ""
+
+msgid "Wouldn't call that a fair bet, mate. We all know they won't."
+msgstr ""
+
+msgid "More fighters inbound."
+msgstr ""
+
+msgid "Picking up another Pandoran squadron, incoming."
+msgstr ""
+
+msgid "See? That's why I didn't make a bet with you!"
+msgstr ""
+
+msgid "All capital ships down. That's, what, fifty of these things we've scratched, alone?"
+msgstr ""
+
+msgid "Seriously, I've lost count."
+msgstr ""
+
+msgid "How many more can the Pandorans have?"
+msgstr ""
+
+msgid "Only way we'll find out is if we go to Kethlan, and I'm not keen on heading there anytime soon."
+msgstr ""
+
+msgid "Looks like that's all of them."
+msgstr ""
+
+msgid "Chaz, anything?"
+msgstr ""
+
+msgid "Negative."
+msgstr ""
+
+msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
+msgstr ""
+
 msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
 msgstr ""
 
@@ -655,7 +715,7 @@ msgstr ""
 msgid "The White Knights are here! Finally!"
 msgstr ""
 
-msgid "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the extraction point."
+msgid "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate."
 msgstr ""
 
 msgid "You all heard the Captain - fall back, we'll cover the retreat."
@@ -946,7 +1006,7 @@ msgstr ""
 msgid "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down."
 msgstr ""
 
-msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the extraction point."
+msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate ."
 msgstr ""
 
 msgid "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle."
@@ -982,7 +1042,7 @@ msgstr ""
 msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilation craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
 msgstr ""
 
-msgid "ABCs, this is Control. Round up those civilians and escort them to the extraction point as quick as you can."
+msgid "ABCs, this is Control. Round up those civilians and escort them to the jumpgate as quick as you can."
 msgstr ""
 
 msgid "We're not expecting any opposition, but be prepared to engage hostiles if needed."
@@ -1000,7 +1060,7 @@ msgstr ""
 msgid "Enemy craft detected. Pandorans, in both INF and UNF fighters."
 msgstr ""
 
-msgid "Chaz, you're with me. Wiley, you and your boys get those civilians to the extraction point."
+msgid "Chaz, you're with me. Wiley, you and your boys get those civilians to the jumpgate."
 msgstr ""
 
 msgid "We've spotted the next group of civilians. Sending you the coordinates."

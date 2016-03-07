@@ -67,9 +67,13 @@ void initChallenges(void)
 		sprintf(path, "data/challenges/%s", filenames[i]);
 
 		mission = loadMissionMeta(path);
-		tail->next = mission;
-		tail = mission;
-
+		
+		if (mission)
+		{
+			tail->next = mission;
+			tail = mission;
+		}
+		
 		free(filenames[i]);
 	}
 

@@ -47,75 +47,81 @@ Mission *loadMissionMeta(char *filename)
 	text = readFile(filename);
 
 	root = cJSON_Parse(text);
+	
+	mission = NULL;
 
-	mission = malloc(sizeof(Mission));
-	memset(mission, 0, sizeof(Mission));
-
-	STRNCPY(mission->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
-	STRNCPY(mission->description, _(cJSON_GetObjectItem(root, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
-	STRNCPY(mission->filename, filename, MAX_DESCRIPTION_LENGTH);
-
-	mission->requires = getJSONValue(root, "requires", 0);
-
-	if (cJSON_GetObjectItem(root, "epic"))
+	if (root)
 	{
-		mission->epic = 1;
-	}
+		mission = malloc(sizeof(Mission));
+		memset(mission, 0, sizeof(Mission));
 
-	node = cJSON_GetObjectItem(root, "player");
+		STRNCPY(mission->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
+		STRNCPY(mission->description, _(cJSON_GetObjectItem(root, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
+		STRNCPY(mission->filename, filename, MAX_DESCRIPTION_LENGTH);
 
-	if (node)
-	{
-		STRNCPY(mission->pilot, cJSON_GetObjectItem(node, "pilot")->valuestring, MAX_NAME_LENGTH);
-		STRNCPY(mission->squadron, cJSON_GetObjectItem(node, "squadron")->valuestring, MAX_NAME_LENGTH);
-		STRNCPY(mission->craft, cJSON_GetObjectItem(node, "type")->valuestring, MAX_NAME_LENGTH);
-	}
+		mission->requires = getJSONValue(root, "requires", 0);
 
-	node = cJSON_GetObjectItem(root, "challenge");
+		if (cJSON_GetObjectItem(root, "epic"))
+		{
+			mission->epic = 1;
+		}
 
-	if (node)
-	{
-		mission->challengeData.isChallenge = 1;
-		
-		/* limits */
-		mission->challengeData.timeLimit = getJSONValue(node, "timeLimit", 0) * FPS;
-		mission->challengeData.killLimit = getJSONValue(node, "killLimit", 0);
-		mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
-		mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
-		mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
-		
-		/* restrictions */
-		mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
-		mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
-		mission->challengeData.noBoost = getJSONValue(node, "noBoost", 0);
-		mission->challengeData.noGuns = getJSONValue(node, "noGuns", 0);
-
-		node = cJSON_GetObjectItem(node, "challenges");
+		node = cJSON_GetObjectItem(root, "player");
 
 		if (node)
 		{
-			node = node->child;
+			STRNCPY(mission->pilot, cJSON_GetObjectItem(node, "pilot")->valuestring, MAX_NAME_LENGTH);
+			STRNCPY(mission->squadron, cJSON_GetObjectItem(node, "squadron")->valuestring, MAX_NAME_LENGTH);
+			STRNCPY(mission->craft, cJSON_GetObjectItem(node, "type")->valuestring, MAX_NAME_LENGTH);
+		}
 
-			i = 0;
+		node = cJSON_GetObjectItem(root, "challenge");
 
-			while (node && i < MAX_CHALLENGES)
+		if (node)
+		{
+			mission->challengeData.isChallenge = 1;
+			
+			/* limits */
+			mission->challengeData.timeLimit = getJSONValue(node, "timeLimit", 0) * FPS;
+			mission->challengeData.killLimit = getJSONValue(node, "killLimit", 0);
+			mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
+			mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
+			mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
+			
+			/* restrictions */
+			mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
+			mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
+			mission->challengeData.noBoost = getJSONValue(node, "noBoost", 0);
+			mission->challengeData.noGuns = getJSONValue(node, "noGuns", 0);
+
+			node = cJSON_GetObjectItem(node, "challenges");
+
+			if (node)
 			{
-				challenge = malloc(sizeof(Challenge));
-				memset(challenge, 0, sizeof(Challenge));
+				node = node->child;
 
-				challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-				challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
+				i = 0;
 
-				mission->challengeData.challenges[i] = challenge;
+				while (node && i < MAX_CHALLENGES)
+				{
+					challenge = malloc(sizeof(Challenge));
+					memset(challenge, 0, sizeof(Challenge));
 
-				node = node->next;
+					challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+					challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
 
-				i++;
+					mission->challengeData.challenges[i] = challenge;
+
+					node = node->next;
+
+					i++;
+				}
 			}
 		}
-	}
 
-	cJSON_Delete(root);
+		cJSON_Delete(root);
+	}
+	
 	free(text);
 
 	return mission;

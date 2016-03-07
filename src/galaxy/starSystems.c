@@ -99,8 +99,12 @@ static void loadMissions(StarSystem *starSystem)
 		sprintf(path, "data/missions/%s/%s", name, filenames[i]);
 		
 		mission = loadMissionMeta(path);
-		tail->next = mission;
-		tail = mission;
+		
+		if (mission)
+		{
+			tail->next = mission;
+			tail = mission;
+		}
 		
 		free(filenames[i]);
 	}

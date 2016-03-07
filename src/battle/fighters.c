@@ -649,74 +649,78 @@ static void loadFighterDef(char *filename)
 
 	text = readFile(filename);
 
-	e = malloc(sizeof(Entity));
-	memset(e, 0, sizeof(Entity));
-	defTail->next = e;
-	defTail = e;
-
-	e->type = ET_FIGHTER;
-	e->active = 1;
-
 	root = cJSON_Parse(text);
 
-	STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
-	STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
-	e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
-	e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
-	e->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;
-	e->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
-	e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
-	e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
-
-	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
-
-	if (cJSON_GetObjectItem(root, "guns"))
+	if (root)
 	{
-		i = 0;
+		e = malloc(sizeof(Entity));
+		memset(e, 0, sizeof(Entity));
+		defTail->next = e;
+		defTail = e;
 
-		for (node = cJSON_GetObjectItem(root, "guns")->child ; node != NULL ; node = node->next)
+		e->type = ET_FIGHTER;
+		e->active = 1;
+		
+		STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
+		STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
+		e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
+		e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
+		e->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;
+		e->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
+		e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
+		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
+
+		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+
+		if (cJSON_GetObjectItem(root, "guns"))
 		{
-			e->guns[i].type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-			e->guns[i].x = cJSON_GetObjectItem(node, "x")->valueint;
-			e->guns[i].y = cJSON_GetObjectItem(node, "y")->valueint;
+			i = 0;
 
-			i++;
-
-			if (i >= MAX_FIGHTER_GUNS)
+			for (node = cJSON_GetObjectItem(root, "guns")->child ; node != NULL ; node = node->next)
 			{
-				printf("ERROR: cannot assign more than %d guns to a fighter\n", MAX_FIGHTER_GUNS);
-				exit(1);
+				e->guns[i].type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+				e->guns[i].x = cJSON_GetObjectItem(node, "x")->valueint;
+				e->guns[i].y = cJSON_GetObjectItem(node, "y")->valueint;
+
+				i++;
+
+				if (i >= MAX_FIGHTER_GUNS)
+				{
+					printf("ERROR: cannot assign more than %d guns to a fighter\n", MAX_FIGHTER_GUNS);
+					exit(1);
+				}
 			}
+
+			e->combinedGuns = getJSONValue(root, "combinedGuns", 0);
 		}
 
-		e->combinedGuns = getJSONValue(root, "combinedGuns", 0);
+		e->selectedGunType = e->guns[0].type;
+
+		e->missiles = getJSONValue(root, "missiles", 0);
+
+		if (cJSON_GetObjectItem(root, "flags"))
+		{
+			e->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring, NULL);
+		}
+
+		if (cJSON_GetObjectItem(root, "aiFlags"))
+		{
+			e->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring, NULL);
+		}
+
+		if (cJSON_GetObjectItem(root, "deathType"))
+		{
+			e->deathType = lookup(cJSON_GetObjectItem(root, "deathType")->valuestring);
+		}
+
+		e->separationRadius = MAX(e->w, e->h) * 3;
+
+		/* all craft default to 100 system power */
+		e->systemPower = 100;
+
+		cJSON_Delete(root);
 	}
-
-	e->selectedGunType = e->guns[0].type;
-
-	e->missiles = getJSONValue(root, "missiles", 0);
-
-	if (cJSON_GetObjectItem(root, "flags"))
-	{
-		e->flags = flagsToLong(cJSON_GetObjectItem(root, "flags")->valuestring, NULL);
-	}
-
-	if (cJSON_GetObjectItem(root, "aiFlags"))
-	{
-		e->aiFlags = flagsToLong(cJSON_GetObjectItem(root, "aiFlags")->valuestring, NULL);
-	}
-
-	if (cJSON_GetObjectItem(root, "deathType"))
-	{
-		e->deathType = lookup(cJSON_GetObjectItem(root, "deathType")->valuestring);
-	}
-
-	e->separationRadius = MAX(e->w, e->h) * 3;
-
-	/* all craft default to 100 system power */
-	e->systemPower = 100;
-
-	cJSON_Delete(root);
+	
 	free(text);
 }
 

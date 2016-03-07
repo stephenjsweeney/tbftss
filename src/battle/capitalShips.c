@@ -345,37 +345,41 @@ static void loadCapitalShipDef(char *filename)
 
 	text = readFile(filename);
 
-	e = malloc(sizeof(Entity));
-	memset(e, 0, sizeof(Entity));
-	defTail->next = e;
-	defTail = e;
-
-	e->type = ET_CAPITAL_SHIP;
-	e->active = 1;
-
 	root = cJSON_Parse(text);
 
-	STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
-	STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
-	e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
-	e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
-	e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
-	e->speed = 1;
+	if (root)
+	{
+		e = malloc(sizeof(Entity));
+		memset(e, 0, sizeof(Entity));
+		defTail->next = e;
+		defTail = e;
 
-	e->action = think;
-	e->die = die;
+		e->type = ET_CAPITAL_SHIP;
+		e->active = 1;
+		
+		STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
+		STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
+		e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
+		e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
+		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
+		e->speed = 1;
 
-	SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+		e->action = think;
+		e->die = die;
 
-	e->separationRadius = MAX(e->w, e->h);
+		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 
-	loadComponents(e, cJSON_GetObjectItem(root, "components"));
+		e->separationRadius = MAX(e->w, e->h);
 
-	loadGuns(e, cJSON_GetObjectItem(root, "guns"));
+		loadComponents(e, cJSON_GetObjectItem(root, "components"));
 
-	loadEngines(e, cJSON_GetObjectItem(root, "engines"));
+		loadGuns(e, cJSON_GetObjectItem(root, "guns"));
 
-	cJSON_Delete(root);
+		loadEngines(e, cJSON_GetObjectItem(root, "engines"));
+
+		cJSON_Delete(root);
+	}
+	
 	free(text);
 }
 

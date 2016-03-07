@@ -6,6 +6,6 @@
 	"reloadTime" : 0,
 	"shieldRechargeRate" : 60,
 	"texture" : "gfx/craft/shuttle.png",
-	"flags" : "EF_COLLECTS_ITEMS+EF_TAKES_DAMAGE",
+	"flags" : "EF_COLLECTS_ITEMS+EF_TAKES_DAMAGE+EF_NO_EPIC",
 	"aiFlags" : "AIF_AVOIDS_COMBAT+AIF_COLLECTS_ITEMS"
 }

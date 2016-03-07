@@ -165,6 +165,10 @@ static void executeNextLine(ScriptRunner *runner)
 		addHudMessage(colors.red, _("Mission Failed!"));
 		failMission();
 	}
+	else if (strcmp(command, "END_CHALLENGE") == 0)
+	{
+		game.currentMission->challengeData.scriptedEnd = 1;
+	}
 	else if (strcmp(command, "RETREAT_ALLIES") == 0)
 	{
 		battle.isEpic = 0;

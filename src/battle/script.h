@@ -37,3 +37,4 @@ extern char *getTranslatedString(char *string);
 
 extern Battle battle;
 extern Colors colors;
+extern Game game;

@@ -1,0 +1,76 @@
+{
+	"name" : "Collect Packages",
+	"description" : "Collect Packages",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Firefly",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"epic" : {
+		"fighterLimit" : 3
+	},
+	"challenge" : {
+		"timeLimit" : 900,
+		"itemLimit" : 50,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_ITEMS",
+				"value" : 25
+			},
+			{
+				"type" : "CHALLENGE_ITEMS",
+				"value" : 40
+			},
+			{
+				"type" : "CHALLENGE_ITEMS",
+				"value" : 50
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"groupName" : "Shuttle",
+			"types" : "Shuttle",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_ALLIES",
+			"flags" : "+EF_AI_TARGET",
+			"scatter" : 500
+		},
+		{
+			"groupName" : "Dart",
+			"types" : "Dart",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_REBEL",
+			"scatter" : 10000,
+			"number" : 9999,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		}
+	],
+	"items" : [
+		{
+			"name" : "package",
+			"number" : 50,
+			"type" : "smallCrate",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 5000,
+			"flags" : "+EF_MISSION_TARGET"
+		}
+	],
+	"script" : [
+		{
+			"function" : "ALLIES_KILLED 1",
+			"lines" : [
+				"END_CHALLENGE"
+			]
+		}
+	]
+}

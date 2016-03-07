@@ -319,11 +319,14 @@ static int canAttack(Entity *e)
 {
 	self->selectedGunType = self->guns[0].type;
 	
-	if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
+	if (!(e->flags & EF_AI_TARGET))
 	{
-		if (rand() % 10)
+		if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
 		{
-			return 0;
+			if (rand() % 5)
+			{
+				return 0;
+			}
 		}
 	}
 	

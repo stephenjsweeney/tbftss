@@ -94,13 +94,13 @@ void doCapitalShip(void)
 			if (self->side == SIDE_ALLIES)
 			{
 				battle.stats[STAT_CAPITAL_SHIPS_LOST]++;
-				
+
 				runScriptFunction("CAPITAL_SHIPS_LOST %d", battle.stats[STAT_CAPITAL_SHIPS_LOST]);
 			}
 			else
 			{
 				battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]++;
-				
+
 				runScriptFunction("CAPITAL_SHIPS_DESTROYED %d", battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]);
 			}
 		}
@@ -356,7 +356,7 @@ static void loadCapitalShipDef(char *filename)
 
 		e->type = ET_CAPITAL_SHIP;
 		e->active = 1;
-		
+
 		STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
 		e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
@@ -379,7 +379,7 @@ static void loadCapitalShipDef(char *filename)
 
 		cJSON_Delete(root);
 	}
-	
+
 	free(text);
 }
 
@@ -421,7 +421,7 @@ static void loadComponents(Entity *parent, cJSON *components)
 				e->aiFlags = flagsToLong(cJSON_GetObjectItem(component, "aiFlags")->valuestring, NULL);
 			}
 
-			e->systemPower = 100;
+			e->systemPower = MAX_SYSTEM_POWER;
 
 			e->die = componentDie;
 
@@ -475,7 +475,7 @@ static void loadGuns(Entity *parent, cJSON *guns)
 
 			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 
-			e->systemPower = 100;
+			e->systemPower = MAX_SYSTEM_POWER;
 
 			e->action = gunThink;
 			e->die = gunDie;
@@ -518,7 +518,7 @@ static void loadEngines(Entity *parent, cJSON *engines)
 
 			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 
-			e->systemPower = 100;
+			e->systemPower = MAX_SYSTEM_POWER;
 
 			e->action = engineThink;
 			e->die = engineDie;

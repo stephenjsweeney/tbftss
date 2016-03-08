@@ -145,6 +145,7 @@ struct Entity {
 	Entity *leader;
 	Entity *owner;
 	void (*action)(void);
+	void (*draw)(void);
 	void (*die)(void);
 	SDL_Texture *texture;
 	Entity *next;

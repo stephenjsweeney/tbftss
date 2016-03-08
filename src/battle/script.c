@@ -30,42 +30,42 @@ void initScript(cJSON *scriptNode)
 {
 	memset(&head, 0, sizeof(ScriptRunner));
 	tail = &head;
-	
+
 	scriptJSON = scriptNode;
 }
 
 void doScript(void)
 {
 	ScriptRunner *runner, *prev;
-	
+
 	prev = &head;
-	
+
 	for (runner = head.next ; runner != NULL ; runner = runner->next)
 	{
 		runner->delay = MAX(0, runner->delay - 1);
-		
+
 		if (runner->waitForMessageBox)
 		{
 			runner->waitForMessageBox = showingMessageBoxes();
 		}
-		
+
 		if (!runner->delay && !runner->waitForMessageBox)
 		{
 			executeNextLine(runner);
-			
+
 			if (!runner->line)
 			{
 				if (runner == tail)
 				{
 					tail = prev;
 				}
-				
+
 				prev->next = runner->next;
 				free(runner);
 				runner = prev;
 			}
 		}
-		
+
 		prev = runner;
 	}
 }
@@ -85,26 +85,26 @@ void runScriptFunction(const char *format, ...)
 		va_start(args, format);
 		vsprintf(funcNameBuffer, format, args);
 		va_end(args);
-		
+
 		function = scriptJSON->child;
-		
+
 		while (function)
 		{
 			functionName = cJSON_GetObjectItem(function, "function")->valuestring;
-			
+
 			if (strcmp(functionName, funcNameBuffer) == 0)
 			{
 				scriptRunner = malloc(sizeof(ScriptRunner));
 				memset(scriptRunner, 0, sizeof(ScriptRunner));
-				
+
 				scriptRunner->line = cJSON_GetObjectItem(function, "lines")->child;
-				
+
 				tail->next = scriptRunner;
 				tail = scriptRunner;
-				
+
 				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
 			}
-			
+
 			function = function->next;
 		}
 	}
@@ -118,7 +118,7 @@ static void executeNextLine(ScriptRunner *runner)
 	int intParam[2];
 
 	line = runner->line->valuestring;
-	
+
 	sscanf(line, "%s", command);
 
 	if (strcmp(command, "ACTIVATE_ENTITIES") == 0)
@@ -143,7 +143,7 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "ACTIVATE_JUMPGATE") == 0)
 	{
-		battle.jumpgate->alive = ALIVE_ALIVE;
+		battle.jumpgate->systemPower = MAX_SYSTEM_POWER;
 	}
 	else if (strcmp(command, "MSG_BOX") == 0)
 	{
@@ -196,13 +196,13 @@ static void executeNextLine(ScriptRunner *runner)
 void destroyScript(void)
 {
 	ScriptRunner *scriptRunner;
-	
+
 	while (head.next)
 	{
 		scriptRunner = head.next;
 		head.next = scriptRunner->next;
 		free(scriptRunner);
 	}
-	
+
 	tail = &head;
 }

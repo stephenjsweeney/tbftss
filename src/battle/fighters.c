@@ -660,7 +660,7 @@ static void loadFighterDef(char *filename)
 
 		e->type = ET_FIGHTER;
 		e->active = 1;
-		
+
 		STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
 		e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
@@ -715,12 +715,11 @@ static void loadFighterDef(char *filename)
 
 		e->separationRadius = MAX(e->w, e->h) * 3;
 
-		/* all craft default to 100 system power */
-		e->systemPower = 100;
+		e->systemPower = MAX_SYSTEM_POWER;
 
 		cJSON_Delete(root);
 	}
-	
+
 	free(text);
 }
 

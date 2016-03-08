@@ -47,7 +47,7 @@ Mission *loadMissionMeta(char *filename)
 	text = readFile(filename);
 
 	root = cJSON_Parse(text);
-	
+
 	mission = NULL;
 
 	if (root)
@@ -80,14 +80,14 @@ Mission *loadMissionMeta(char *filename)
 		if (node)
 		{
 			mission->challengeData.isChallenge = 1;
-			
+
 			/* limits */
 			mission->challengeData.timeLimit = getJSONValue(node, "timeLimit", 0) * FPS;
 			mission->challengeData.killLimit = getJSONValue(node, "killLimit", 0);
 			mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
 			mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
 			mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
-			
+
 			/* restrictions */
 			mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
 			mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
@@ -121,7 +121,7 @@ Mission *loadMissionMeta(char *filename)
 
 		cJSON_Delete(root);
 	}
-	
+
 	free(text);
 
 	return mission;
@@ -223,7 +223,7 @@ void loadMission(char *filename)
 	initPlayer();
 
 	initMissionInfo();
-	
+
 	addAllEntsToQuadtree();
 
 	playMusic(music);
@@ -567,7 +567,7 @@ static void loadEntities(cJSON *node)
 {
 	Entity *e;
 	char *name, *groupName;
-	int i, type, scatter, number, active, sleeping;
+	int i, type, scatter, number, active, systemPower;
 	float x, y;
 
 	if (node)
@@ -588,7 +588,7 @@ static void loadEntities(cJSON *node)
 			number = getJSONValue(node, "number", 1);
 			active = getJSONValue(node, "active", 1);
 			scatter = getJSONValue(node, "scatter", 1);
-			sleeping = getJSONValue(node, "sleeping", 0);
+			systemPower = getJSONValue(node, "systemPower", MAX_SYSTEM_POWER);
 
 			for (i = 0 ; i < number ; i++)
 			{
@@ -628,11 +628,8 @@ static void loadEntities(cJSON *node)
 				}
 
 				e->active = active;
-				
-				if (sleeping)
-				{
-					e->alive = ALIVE_SLEEPING;
-				}
+
+				e->systemPower = systemPower;
 
 				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			}

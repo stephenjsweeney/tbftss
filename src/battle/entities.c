@@ -556,6 +556,16 @@ void countNumEnemies(void)
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "battle.numInitialEnemies=%d", battle.numInitialEnemies);
 }
 
+void addAllEntsToQuadtree(void)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		addToQuadtree(e, &battle.quadtree);
+	}
+}
+
 static int drawComparator(const void *a, const void *b)
 {
 	Entity *e1 = *((Entity**)a);

@@ -223,6 +223,8 @@ void loadMission(char *filename)
 	initPlayer();
 
 	initMissionInfo();
+	
+	addAllEntsToQuadtree();
 
 	playMusic(music);
 }

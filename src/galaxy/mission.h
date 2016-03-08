@@ -54,6 +54,7 @@ extern char *getPlanetTextureName(int n);
 extern char *getMusicFilename(int n);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
+extern void addAllEntsToQuadtree(void);
 
 extern Battle battle;
 extern Entity *player;

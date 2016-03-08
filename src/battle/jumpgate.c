@@ -47,7 +47,10 @@ static void think(void)
 		self->angle -= 360;
 	}
 	
-	handleFleeingEntities();
+	if (self->alive == ALIVE_ALIVE)
+	{
+		handleFleeingEntities();
+	}
 	
 	battle.jumpgate = self;
 }

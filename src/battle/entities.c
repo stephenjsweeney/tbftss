@@ -139,7 +139,7 @@ void doEntities(void)
 					break;
 			}
 			
-			if (e->alive == ALIVE_ALIVE || e->alive == ALIVE_DYING)
+			if (e->alive == ALIVE_ALIVE || e->alive == ALIVE_DYING || e->alive == ALIVE_SLEEPING)
 			{
 				if (e->action != NULL)
 				{
@@ -391,7 +391,7 @@ void drawEntities(void)
 
 static void drawEntity(Entity *e)
 {
-	if (e->type == ET_JUMPGATE)
+	if (e->type == ET_JUMPGATE && e->alive == ALIVE_ALIVE)
 	{
 		blitRotated(jumpPortal, e->x - battle.camera.x, e->y - battle.camera.y, jumpPortAngle);
 	}

@@ -141,6 +141,10 @@ static void executeNextLine(ScriptRunner *runner)
 		sscanf(line, "%*s %[^\n]", strParam[0]);
 		activateLocations(strParam[0]);
 	}
+	else if (strcmp(command, "ACTIVATE_JUMPGATE") == 0)
+	{
+		battle.jumpgate->alive = ALIVE_ALIVE;
+	}
 	else if (strcmp(command, "MSG_BOX") == 0)
 	{
 		sscanf(line, "%*s %255[^;]%*c%255[^\n]", strParam[0], strParam[1]);

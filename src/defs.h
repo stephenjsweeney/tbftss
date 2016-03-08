@@ -165,7 +165,8 @@ enum
 	ALIVE_ALIVE,
 	ALIVE_DYING,
 	ALIVE_DEAD,
-	ALIVE_ESCAPED
+	ALIVE_ESCAPED,
+	ALIVE_SLEEPING /* used by jumpgate */
 };
 
 enum

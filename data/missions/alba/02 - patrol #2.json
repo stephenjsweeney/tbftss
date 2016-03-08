@@ -34,8 +34,8 @@
 			"number" : 4,
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
-			"y" : 26,
-			"scatter" : 64
+			"y" : 25,
+			"scatter" : 350
 		},
 		{
 			"name" : "Pandoran",

@@ -28,7 +28,7 @@
 			"types" : "TAF;Ray;Rook;Hammerhead",
 			"number" : 12,
 			"side" : "SIDE_ALLIES",
-			"x" : 18,
+			"x" : 20,
 			"y" : 20,
 			"scatter" : 1000
 		},

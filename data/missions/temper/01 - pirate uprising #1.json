@@ -24,8 +24,9 @@
 			"types" : "TAF",
 			"number" : 4,
 			"side" : "SIDE_ALLIES",
-			"x" : 23,
-			"y" : 25
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 250
 		},
 		{
 			"name" : "Dart",

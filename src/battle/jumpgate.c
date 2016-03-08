@@ -67,7 +67,7 @@ static void think(void)
 
 	if (battle.jumpgate == self)
 	{
-		portalAngle += 0.5;
+		portalAngle++;
 		if (portalAngle >= 360)
 		{
 			portalAngle -= 360;

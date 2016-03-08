@@ -110,7 +110,7 @@
 			"type" : "ET_JUMPGATE",
 			"x" : 10,
 			"y" : 8,
-			"sleeping" : 1
+			"systemPower" : 0
 		}
 	],
 	"items" : [

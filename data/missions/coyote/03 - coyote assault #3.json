@@ -74,7 +74,7 @@
 			"type" : "ET_JUMPGATE",
 			"x" : 25,
 			"y" : 25,
-			"sleeping" : 1
+			"systemPower" : 0
 		}
 	],
 	"script" : [

@@ -88,6 +88,7 @@ void initLookups(void)
 	addLookup("TT_ESCAPED", TT_ESCAPED);
 	addLookup("TT_PLAYER_ESCAPED", TT_PLAYER_ESCAPED);
 	addLookup("TT_ITEM", TT_ITEM);
+	addLookup("TT_STOLEN", TT_STOLEN);
 
 	addLookup("WT_BUTTON", WT_BUTTON);
 	addLookup("WT_SELECT", WT_SELECT);

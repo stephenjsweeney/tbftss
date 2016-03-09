@@ -71,6 +71,14 @@ function extractJSON($filename)
 			}
 		}
 	}
+	else if (strpos($filename, "trophies") !== false)
+	{
+		foreach ($json as $trophy)
+		{
+			addString($json->{"title"});
+			addString($json->{"description"});
+		}
+	}
 	else if (strpos($filename, "missions") !== false)
 	{
 		addString($json->{"description"});
@@ -131,6 +139,8 @@ recurseDir("../data/widgets");
 recurseDir("../data/missions");
 
 recurseDir("../data/challenges");
+
+recurseDir("../data/trophies");
 
 $potHeader = file_get_contents("../tools/potHeader.txt");
 

@@ -719,7 +719,7 @@ static int nearTowableCraft(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if ((e->flags & (EF_DISABLED|EF_MISSION_TARGET)) == (EF_DISABLED|EF_MISSION_TARGET))
+		if ((e->flags & (EF_DISABLED|EF_MISSION_TARGET)) == (EF_DISABLED|EF_MISSION_TARGET) && (e->flags & EF_ROPED_ATTACHED) == 0)
 		{
 			distance = getDistance(self->x, self->y, e->x, e->y);
 			

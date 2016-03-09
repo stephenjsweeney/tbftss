@@ -44,6 +44,8 @@ static SDL_Texture *shield;
 static SDL_Texture *ecm;
 static SDL_Texture *boost;
 static SDL_Texture *nextGun;
+static SDL_Texture *clock;
+static SDL_Texture *objectives;
 static int numMessages;
 static const char *gunName[BT_MAX];
 
@@ -70,6 +72,8 @@ void initHud(void)
 	ecm = getTexture("gfx/hud/ecm.png");
 	boost = getTexture("gfx/hud/boost.png");
 	nextGun = getTexture("gfx/hud/nextGun.png");
+	clock = getTexture("gfx/hud/clock.png");
+	objectives = getTexture("gfx/hud/objectives.png");
 }
 
 void doHud(void)
@@ -404,12 +408,14 @@ static void drawObjectives(void)
 {
 	if (!game.currentMission->challengeData.isChallenge)
 	{
+		blit(objectives, (SCREEN_WIDTH / 2) - 50, 14, 0);
 		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, battle.numObjectivesTotal);
 	}
 	else
 	{
 		if (game.currentMission->challengeData.timeLimit)
 		{
+			blit(clock, (SCREEN_WIDTH / 2) - 50, 14, 0);
 			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME], 0));
 			
 			if (game.currentMission->challengeData.itemLimit)
@@ -420,6 +426,7 @@ static void drawObjectives(void)
 		else
 		{
 			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(battle.stats[STAT_TIME], 0));
+			blit(clock, (SCREEN_WIDTH / 2) - 50, 14, 0);
 		}
 	}
 }

@@ -1,9 +1,69 @@
 [
 	{
+		"id" : "PLATINUM",
+		"title" : "One of the seven",
+		"description" : "Earn all other trophies",
+		"value" : "TROPHY_PLATINUM"
+	},
+	{
 		"id" : "READY_DUTY",
 		"title" : "Ready for duty",
 		"description" : "Complete all the training missions at Sol",
 		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "CAMPAIGN_1",
+		"title" : "2nd Lieutenant",
+		"description" : "Complete a campaign mission",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "CAMPAIGN_10",
+		"title" : "1st Lieutenant",
+		"description" : "Complete 10% of all missions",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "CAMPAIGN_20",
+		"title" : "Lieutenant Commander",
+		"description" : "Complete 20% of all missions",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "CAMPAIGN_40",
+		"title" : "Commander",
+		"description" : "Complete 40% of all missions",
+		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "CAMPAIGN_50",
+		"title" : "Captain",
+		"description" : "Complete 50% of all missions",
+		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "CAMPAIGN_60",
+		"title" : "Commodore",
+		"description" : "Complete 60% of all missions",
+		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "CAMPAIGN_80",
+		"title" : "Rear Admiral",
+		"description" : "Complete 80% of all missions",
+		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "CAMPAIGN_90",
+		"title" : "Admiral",
+		"description" : "Complete 90% of all missions",
+		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "CAMPAIGN_100",
+		"title" : "Fleet Admiral",
+		"description" : "Complete all campaign missions",
+		"value" : "TROPHY_SILVER"
 	},
 	{
 		"id" : "EPIC",
@@ -21,6 +81,27 @@
 		"id" : "CAMPAIGN_COYOTE",
 		"title" : "Coyote Ugly",
 		"description" : "Complete all missions at Coyote",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
+	},
+	{
+		"id" : "CAMPAIGN_WARRO",
+		"title" : "Better late than never",
+		"description" : "Complete all missions at Warro",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
+	},
+	{
+		"id" : "CAMPAIGN_ILIAD",
+		"title" : "Shape of things to come",
+		"description" : "Complete all missions at Iliad",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
+	},
+	{
+		"id" : "CAMPAIGN_TEMPER",
+		"title" : "Now get the hell out of our galaxy!",
+		"description" : "Complete all missions at Temper",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
 	},

@@ -132,9 +132,9 @@ static void doBattle(void)
 
 	battle.planet.x -= ssx * 0.05;
 	battle.planet.y -= ssy * 0.05;
-	
+
 	doObjectives();
-	
+
 	doChallenges();
 
 	doHud();
@@ -160,9 +160,9 @@ static void doBattle(void)
 		if (battle.status == MS_IN_PROGRESS)
 		{
 			doScript();
-			
+
 			battle.stats[STAT_TIME]++;
-			
+
 			if (battle.stats[STAT_TIME] % FPS == 0)
 			{
 				runScriptFunction("TIME %d", battle.stats[STAT_TIME] / 60);
@@ -367,7 +367,7 @@ static void postBattle(void)
 			game.stats[i] += battle.stats[i];
 		}
 	}
-	
+
 	updateAccuracyStats(game.stats);
 
 	if (!game.currentMission->challengeData.isChallenge)
@@ -375,6 +375,11 @@ static void postBattle(void)
 		if (game.currentMission && !game.currentMission->completed)
 		{
 			game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
+
+			if (game.currentMission->completed && game.currentMission->trophyId)
+			{
+				awardTrophy(game.currentMission->trophyId);
+			}
 		}
 	}
 }

@@ -168,6 +168,11 @@ void initLookups(void)
 	addLookup("STAT_CAPITAL_SHIPS_DESTROYED", STAT_CAPITAL_SHIPS_DESTROYED);
 	addLookup("STAT_CAPITAL_SHIPS_LOST", STAT_CAPITAL_SHIPS_LOST);
 	addLookup("STAT_TIME", STAT_TIME);
+
+	addLookup("TROPHY_BRONZE", TROPHY_BRONZE);
+	addLookup("TROPHY_SILVER", TROPHY_SILVER);
+	addLookup("TROPHY_GOLD", TROPHY_GOLD);
+	addLookup("TROPHY_PLATINUM", TROPHY_PLATINUM);
 }
 
 static void addLookup(char *name, long value)

@@ -20,14 +20,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "trophies.h"
 
-static int recentlyAwarded;
 static void loadTrophyData(char *filename);
+static void resetAlert(void);
+
+static Trophy *alertTrophy;
+static SDL_Texture *trophyIcons[TROPHY_MAX];
+static SDL_Rect alertRect;
+static float alertDX;
+static int alertTimer;
 
 void initTrophies(void)
 {
-	recentlyAwarded = 0;
-
 	loadTrophyData("data/trophies/trophies.json");
+
+	trophyIcons[TROPHY_BRONZE] = getTexture("gfx/trophies/bronze.png");
+	trophyIcons[TROPHY_SILVER] = getTexture("gfx/trophies/silver.png");
+	trophyIcons[TROPHY_GOLD] = getTexture("gfx/trophies/gold.png");
+	trophyIcons[TROPHY_PLATINUM] = getTexture("gfx/trophies/platinum.png");
+
+	resetAlert();
 }
 
 void awardTrophy(char *id)
@@ -41,26 +52,67 @@ void awardTrophy(char *id)
 			t->awarded = 1;
 			t->awardDate = time(NULL);
 			t->notify = 1;
-
-			recentlyAwarded++;
 		}
 	}
 }
 
-void drawTrophyAlerts(void)
+void doTrophies(void)
 {
 	Trophy *t;
 
-	if (recentlyAwarded)
+	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
-		for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+		if (t->notify)
 		{
-			if (t->notify)
+			if (alertTrophy != t)
 			{
-				/* handle notification */
-				return;
+				alertTrophy = t;
+				playSound(SND_TROPHY);
 			}
+
+			alertRect.x += alertDX;
+
+			if (alertRect.x > -50)
+			{
+				alertDX *= 0.95;
+			}
+
+			if (--alertTimer <= 0)
+			{
+				t->notify = 0;
+				resetAlert();
+			}
+
+			return;
 		}
+	}
+}
+
+static void resetAlert(void)
+{
+	alertRect.w = 300;
+	alertRect.h = 100;
+	alertRect.x = -alertRect.w;
+	alertRect.y = 10;
+
+	alertDX = 3;
+	alertTimer = FPS * 3;
+}
+
+void drawTrophyAlert(void)
+{
+	if (alertTrophy)
+	{
+		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+		SDL_RenderFillRect(app.renderer, &alertRect);
+
+		SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
+		SDL_RenderDrawRect(app.renderer, &alertRect);
+
+		drawText(alertRect.x + 5, alertRect.y + 5, 30, TA_LEFT, colors.white, alertTrophy->title);
+		drawText(alertRect.x + 5, alertRect.y + 45, 20, TA_LEFT, colors.white, alertTrophy->description);
+
+		blit(trophyIcons[alertTrophy->value], alertRect.x + alertRect.w - 64, alertRect.y + 10, 0);
 	}
 }
 
@@ -102,8 +154,8 @@ static void loadTrophyData(char *filename)
 		memset(t, 0, sizeof(Trophy));
 
 		STRNCPY(t->id, cJSON_GetObjectItem(node, "id")->valuestring, MAX_NAME_LENGTH);
-		STRNCPY(t->title, cJSON_GetObjectItem(node, "title")->valuestring, MAX_DESCRIPTION_LENGTH);
-		STRNCPY(t->description, cJSON_GetObjectItem(node, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
+		STRNCPY(t->title, _(cJSON_GetObjectItem(node, "title")->valuestring), MAX_DESCRIPTION_LENGTH);
+		STRNCPY(t->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
 		t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
 		t->hidden = getJSONValue(node, "hidden", 0);
 

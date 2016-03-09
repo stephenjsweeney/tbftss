@@ -267,7 +267,6 @@ struct Mission {
 	char pilot[MAX_NAME_LENGTH];
 	char squadron[MAX_NAME_LENGTH];
 	char craft[MAX_NAME_LENGTH];
-	char trophyId[MAX_NAME_LENGTH];
 	int available;
 	int completed;
 	int completedChallenges;

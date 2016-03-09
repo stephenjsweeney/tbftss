@@ -61,8 +61,6 @@ Mission *loadMissionMeta(char *filename)
 
 		mission->requires = getJSONValue(root, "requires", 0);
 
-		mission->trophyId = getJSONValueStr(root, "trophyId", NULL);
-
 		if (cJSON_GetObjectItem(root, "epic"))
 		{
 			mission->epic = 1;

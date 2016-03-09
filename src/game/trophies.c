@@ -174,7 +174,7 @@ static void loadTrophyData(char *filename)
 	free(text);
 }
 
-void checkStatTrophies(void)
+void awardStatsTrophies(void)
 {
 	Trophy *t;
 
@@ -185,6 +185,37 @@ void checkStatTrophies(void)
 			t->awarded = 1;
 			t->awardDate = time(NULL);
 			t->notify = 1;
+		}
+	}
+}
+
+void awardCampaignTrophies(void)
+{
+	char trophyId[MAX_NAME_LENGTH];
+	char name[MAX_NAME_LENGTH];
+	int completedMissions, i, len;
+	StarSystem *ss;
+
+	/* check % of missions completed */
+	completedMissions = (int)getPercent(game.completedMissions, game.totalMissions);
+	sprintf(trophyId, "CAMPAIGN_%d", completedMissions);
+	awardTrophy(trophyId);
+
+	/* check if all star system missions are completed */
+	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	{
+		if (starSystem->totalMissions && starSystem->completedMissions == starSystem->totalMissions)
+		{
+			memset(name, '\0', MAX_NAME_LENGTH);
+
+			len = strlen(starSystem->name);
+
+			for (i = 0 ; i < len ; i++)
+			{
+				name[i] = toupper(starSystem->name[i]);
+			}
+			sprintf(trophyId, "CAMPAIGN_%s", name);
+			awardTrophy(trophyId);
 		}
 	}
 }

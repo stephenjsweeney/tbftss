@@ -88,7 +88,9 @@ void initGalacticMap(void)
 
 	updatePandoranAdvance();
 
-	checkStatTrophies();
+	awardCampaignTrophies();
+
+	awardStatsTrophies();
 
 	saveGame();
 

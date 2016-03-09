@@ -62,7 +62,8 @@ extern char *getTranslatedString(char *string);
 extern void clearInput(void);
 extern void doTrophies(void);
 extern void drawTrophyAlert(void);
-extern void checkStatTrophies(void);
+extern void awardCampaignTrophies(void);
+extern void awardStatsTrophies(void);
 
 extern App app;
 extern Colors colors;

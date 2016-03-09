@@ -60,6 +60,9 @@ extern StarSystem *getStarSystem(char *name);
 extern void showOKDialog(void (*callback)(void), const char *format, ...);
 extern char *getTranslatedString(char *string);
 extern void clearInput(void);
+extern void doTrophies(void);
+extern void drawTrophyAlert(void);
+extern void checkStatTrophies(void);
 
 extern App app;
 extern Colors colors;

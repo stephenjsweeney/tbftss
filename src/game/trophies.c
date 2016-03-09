@@ -159,10 +159,32 @@ static void loadTrophyData(char *filename)
 		t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
 		t->hidden = getJSONValue(node, "hidden", 0);
 
+		/* can't use the getJSONValue here, as it could lead to false positives  */
+		if (cJSON_GetObjectItem(node, "stat"))
+		{
+			t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring));
+			t->statValue = cJSON_GetObjectItem(node, "statValue")->valueint;
+		}
+
 		tail->next = t;
 		tail = t;
 	}
 
 	cJSON_Delete(root);
 	free(text);
+}
+
+void checkStatTrophies(void)
+{
+	Trophy *t;
+
+	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	{
+		if (!t->awarded && game.stats[t->stat] >= t->statValue)
+		{
+			t->awarded = 1;
+			t->awardDate = time(NULL);
+			t->notify = 1;
+		}
+	}
 }

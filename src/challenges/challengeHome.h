@@ -60,6 +60,9 @@ extern void playMusic(char *filename);
 extern char *timeToString(long millis, int showHours);
 extern char *getChallengeDescription(Challenge *c);
 extern void clearInput(void);
+extern void doTrophies(void);
+extern void drawTrophyAlert(void);
+extern void checkStatTrophies(void);
 
 extern App app;
 extern Battle battle;

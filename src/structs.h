@@ -349,6 +349,8 @@ struct Trophy {
 	char description[MAX_DESCRIPTION_LENGTH];
 	int value;
 	int hidden;
+	int stat;
+	int statValue;
 	int awarded;
 	unsigned long awardDate;
 	int notify;

@@ -58,13 +58,17 @@
 		"id" : "FIRE_100000",
 		"title" : "Your name's on one of these!",
 		"description" : "Fire 100,000 shots",
-		"value" : "TROPHY_SILVER"
+		"value" : "TROPHY_SILVER",
+		"stat" : "STAT_SHOTS_FIRED",
+		"statValue" : 10000
 	},
 	{
 		"id" : "MISSILE_1000",
 		"title" : "Dodge this!",
 		"description" : "Launch 1,000 missiles",
-		"value" : "TROPHY_SILVER"
+		"value" : "TROPHY_SILVER",
+		"stat" : "STAT_MISSILES_FIRED",
+		"statValue" : 1000
 	},
 	{
 		"id" : "ATAF_DESTROYED",

@@ -1,0 +1,117 @@
+{
+	"name" : "Rothan Defence #1",
+	"description" : "",
+	"requires" : 28,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/track-1.mp3",
+	"objectives" : [
+		{
+			"description" : "Rescue all CSN pilots",
+			"targetName" : "CSN Pilot",
+			"targetValue" : 12,
+			"targetType" : "TT_ESCAPED"
+		},
+		{
+			"description" : "Do not allow any pilots to be killed",
+			"targetName" : "CSN Pilot",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not allow any pilots to be kidnapped",
+			"targetName" : "CSN Pilot",
+			"targetValue" : 1,
+			"targetType" : "TT_STOLEN",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Estelle de Winter",
+		"squadron" : "White Knights",
+		"x" : 25,
+		"y" : 48
+	},
+	"fighters" : [
+		{
+			"name" : "ALLIES",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 48,
+			"scatter" : 500
+		},
+		{
+			"name" : "ALLIES",
+			"types" : "TAF;Rook;Ray",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 48,
+			"number" : 5,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "CSN Pilot",
+			"types" : "TAF;Ray;Kingfisher;Hammerhead;Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 12,
+			"scatter" : 5000,
+			"systemPower" : 0,
+			"flags" : "+EF_NO_KILL+EF_MISSION_TARGET"
+		},
+		{
+			"types" : "Tug",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"number" : 12,
+			"scatter" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"flags" : "+EF_AI_LEADER"
+		},
+		{
+			"types" : "Sphinx;Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"number" : 12,
+			"scatter" : 0,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"flags" : "+EF_AI_LEADER"
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
+			"x" : 45,
+			"y" : 45
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Griffin;White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate.",
+				"MSG_BOX de Winter;Can you disable the gate remotely?",
+				"MSG_BOX Griffin;Negative, the Pandorans have control. We're working take back command function. Stand by.",
+				"MSG_BOX Taylor;Estelle, maybe you should mark the gate. It's the tug's ultimate destination, after all.",
+				"MSG_BOX de Winter;Good point, Kelly."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 1",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX de Winter;Griffin, all enemy tugs have been dispatched"
+			]
+		}
+	]
+}
+ 

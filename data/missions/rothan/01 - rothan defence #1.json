@@ -5,12 +5,35 @@
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/track-1.mp3",
+	"manualComplete" : 1,
 	"objectives" : [
+		{
+			"description" : "Destroy all Pandoran Tugs",
+			"targetName" : "Pandoran Tug",
+			"targetValue" : 12,
+			"targetType" : "TT_DESTROY"
+		},
 		{
 			"description" : "Rescue all CSN pilots",
 			"targetName" : "CSN Pilot",
 			"targetValue" : 12,
 			"targetType" : "TT_ESCAPED"
+		},
+		{
+			"description" : "Protect Tugs",
+			"targetName" : "CSN Tug",
+			"targetValue" : 8,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate all Pandoran fighters",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
 		},
 		{
 			"description" : "Do not allow any pilots to be killed",
@@ -45,16 +68,6 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "ALLIES",
-			"types" : "TAF;Rook;Ray",
-			"side" : "SIDE_ALLIES",
-			"x" : 25,
-			"y" : 48,
-			"number" : 5,
-			"scatter" : 500,
-			"aiFlags" : "+AIF_UNLIMITED_RANGE"
-		},
-		{
 			"name" : "CSN Pilot",
 			"types" : "TAF;Ray;Kingfisher;Hammerhead;Rook",
 			"side" : "SIDE_ALLIES",
@@ -66,12 +79,26 @@
 			"flags" : "+EF_NO_KILL+EF_MISSION_TARGET"
 		},
 		{
+			"name" : "CSN Tug",
+			"groupName" : "CSNTugs",
 			"types" : "Tug",
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 45,
+			"number" : 6,
+			"scatter" : 750,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "Pandoran Tug",
+			"types" : "INF Tug",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : 25,
 			"number" : 12,
-			"scatter" : 0,
+			"scatter" : 5000,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"flags" : "+EF_AI_LEADER"
 		},
@@ -84,6 +111,39 @@
 			"scatter" : 0,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER",
 			"flags" : "+EF_AI_LEADER"
+		},
+		{
+			"types" : "Jackal;Sphinx;Thunderhead;Mantis",
+			"groupName" : "Reinforcements",
+			"side" : "SIDE_PANDORAN",
+			"x" : 51,
+			"y" : 35,
+			"number" : 8,
+			"scatter" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"types" : "Jackal;Sphinx;Thunderhead;Mantis",
+			"groupName" : "Reinforcements",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 51,
+			"number" : 8,
+			"scatter" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"types" : "Jackal;Sphinx;Thunderhead;Mantis",
+			"groupName" : "Reinforcements",
+			"side" : "SIDE_PANDORAN",
+			"x" : -1,
+			"y" : -1,
+			"number" : 8,
+			"scatter" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
 		}
 	],
 	"entities" : [
@@ -98,18 +158,35 @@
 		{
 			"function" : "TIME 2",
 			"lines" : [
-				"MSG_BOX Griffin;White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate.",
+				"MSG_BOX CSN Griffin;White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate.",
 				"MSG_BOX de Winter;Can you disable the gate remotely?",
-				"MSG_BOX Griffin;Negative, the Pandorans have control. We're working take back command function. Stand by.",
-				"MSG_BOX Taylor;Estelle, maybe you should mark the gate. It's the tug's ultimate destination, after all.",
-				"MSG_BOX de Winter;Good point, Kelly."
+				"MSG_BOX CSN Griffin;Negative, the Pandorans have control. We're working take back command function. Stand by."
 			]
 		},
 		{
 			"function" : "OBJECTIVES_COMPLETE 1",
 			"lines" : [
 				"WAIT 2",
-				"MSG_BOX de Winter;Griffin, all enemy tugs have been dispatched"
+				"MSG_BOX de Winter;Griffin, all enemy tugs have been dispatched.",
+				"MSG_BOX CSN Griffin;Good work, Commander. We've regained control of the gate. We're sending our own tugs through now.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_ENTITY_GROUPS CSNTugs",
+				"WAIT 10",
+				"ACTIVATE_ENTITY_GROUPS Reinforcements",
+				"ACTIVATE_OBJECTIVES Protect Tugs",
+				"MSG_BOX Taylor;Estelle, I'm picking up incoming INF fighters.",
+				"MSG_BOX de Winter;Hell! Protect the tugs. Make sure they get everyone home.",
+				"ACTIVATE_OBJECTIVES Eliminate all Pandoran fighters"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX de Winter;Griffin, this is de Winter. Operation successful.",
+				"MSG_BOX Parks;I knew I could count on you, de Winter. Head back to Griffin.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
 			]
 		}
 	]

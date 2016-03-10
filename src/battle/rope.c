@@ -96,13 +96,18 @@ void drawRope(Entity *e)
 
 void cutRope(Entity *e)
 {
+	/* thing being towed is dead */
 	if (e->owner && e->owner->towing == e)
 	{
-		e->flags &= ~EF_RETREATING;
-		e->flags &= ~EF_ROPED_ATTACHED;
-		
 		e->owner->towing = NULL;
 		e->owner->aiFlags &= ~AIF_GOAL_JUMPGATE;
-		e->owner = NULL;
+	}
+	
+	/* tug is dead - reset thing being tugged */
+	if (e->towing)
+	{
+		e->towing->flags &= ~EF_RETREATING;
+		e->towing->flags &= ~EF_ROPED_ATTACHED;
+		e->towing = NULL;
 	}
 }

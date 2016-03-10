@@ -708,12 +708,12 @@ static void moveToItem(void)
 static int nearTowableCraft(void)
 {
 	int i;
-	long closest, distance;
+	long closest, dist;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - (SCREEN_WIDTH / 4), self->y - (self->h / 2) - (SCREEN_HEIGHT / 4), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, self);
+	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 2000;
 	
-	closest = MAX_TARGET_RANGE;
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - (dist / 2), self->y - (self->h / 2) - (dist / 2), self->w + dist, self->h + dist, self);
 	
 	self->target = NULL;
 	
@@ -721,12 +721,12 @@ static int nearTowableCraft(void)
 	{
 		if ((e->flags & (EF_DISABLED|EF_MISSION_TARGET)) == (EF_DISABLED|EF_MISSION_TARGET) && (e->flags & EF_ROPED_ATTACHED) == 0)
 		{
-			distance = getDistance(self->x, self->y, e->x, e->y);
+			dist = getDistance(self->x, self->y, e->x, e->y);
 			
-			if (distance < closest)
+			if (dist < closest)
 			{
 				self->target = e;
-				closest = distance;
+				closest = dist;
 			}
 		}
 	}

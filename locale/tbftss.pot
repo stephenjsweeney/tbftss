@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-07 17:12:32+0000\n"
+"POT-Creation-Date: 2016-03-10 15:44:08+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -926,6 +926,33 @@ msgid "The wing commander's dead."
 msgstr ""
 
 msgid "We're taking a lot of damage here. Please assist."
+msgstr ""
+
+msgid "White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate."
+msgstr ""
+
+msgid "Can you disable the gate remotely?"
+msgstr ""
+
+msgid "Negative, the Pandorans have control. We're working take back command function. Stand by."
+msgstr ""
+
+msgid "Griffin, all enemy tugs have been dispatched."
+msgstr ""
+
+msgid "Good work, Commander. We've regained control of the gate. We're sending our own tugs through now."
+msgstr ""
+
+msgid "Estelle, I'm picking up incoming INF fighters."
+msgstr ""
+
+msgid "Hell! Protect the tugs. Make sure they get everyone home."
+msgstr ""
+
+msgid "Griffin, this is de Winter. Operation successful."
+msgstr ""
+
+msgid "I knew I could count on you, de Winter. Head back to Griffin."
 msgstr ""
 
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."

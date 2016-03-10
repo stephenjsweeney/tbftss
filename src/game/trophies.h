@@ -26,5 +26,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern long lookup(char *name);
 extern char *readFile(char *filename);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
+extern int getPercent(float current, float total);
+extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern void blit(SDL_Texture *t, int x, int y, int center);
+extern char *getTranslatedString(char *string);
+extern SDL_Texture *getTexture(char *filename);
+extern void playSound(int id);
 
+extern App app;
+extern Colors colors;
 extern Game game;

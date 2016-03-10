@@ -59,7 +59,7 @@ void initChallengeHome(void)
 
 	unlockChallenges();
 
-	checkStatTrophies();
+	awardStatsTrophies();
 
 	saveGame();
 
@@ -255,7 +255,7 @@ static void draw(void)
 			break;
 	}
 
-	doTrophyAlert();
+	drawTrophyAlert();
 }
 
 static void drawChallenges(void)

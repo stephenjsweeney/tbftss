@@ -162,7 +162,7 @@ static void loadTrophyData(char *filename)
 		/* can't use the getJSONValue here, as it could lead to false positives  */
 		if (cJSON_GetObjectItem(node, "stat"))
 		{
-			t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring));
+			t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring);
 			t->statValue = cJSON_GetObjectItem(node, "statValue")->valueint;
 		}
 
@@ -194,10 +194,10 @@ void awardCampaignTrophies(void)
 	char trophyId[MAX_NAME_LENGTH];
 	char name[MAX_NAME_LENGTH];
 	int completedMissions, i, len;
-	StarSystem *ss;
+	StarSystem *starSystem;
 
 	/* check % of missions completed */
-	completedMissions = (int)getPercent(game.completedMissions, game.totalMissions);
+	completedMissions = getPercent(game.completedMissions, game.totalMissions);
 	sprintf(trophyId, "CAMPAIGN_%d", completedMissions);
 	awardTrophy(trophyId);
 

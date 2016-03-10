@@ -366,7 +366,7 @@ static void draw(void)
 			break;
 	}
 
-	drawTrophyAlerts();
+	drawTrophyAlert();
 }
 
 static void drawPulses(void)

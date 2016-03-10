@@ -62,7 +62,7 @@ extern char *getChallengeDescription(Challenge *c);
 extern void clearInput(void);
 extern void doTrophies(void);
 extern void drawTrophyAlert(void);
-extern void checkStatTrophies(void);
+extern void awardStatsTrophies(void);
 
 extern App app;
 extern Battle battle;

@@ -117,6 +117,7 @@ static void loadSounds(void)
 	sounds[SND_MAG_HIT] = loadSound("sound/172591__timbre__zapitydooda.ogg");
 	sounds[SND_POWER_DOWN] = loadSound("sound/39030__wildweasel__d1clsstf.ogg");
 	sounds[SND_SELECT_WEAPON] = loadSound("sound/329359__bassoonrckr__reed-guillotine.ogg");
+	sounds[SND_TROPHY] = loadSound("sound/278142__ricemaster__effect-notify.ogg");
 
 	sounds[SND_GUI_CLICK] = loadSound("sound/257786__xtrgamr__mouse-click.ogg");
 	sounds[SND_GUI_SELECT] = loadSound("sound/321104__nsstudios__blip2.ogg");

@@ -95,7 +95,7 @@ void doEffects(void)
 					break;
 			}
 				
-			if (onScreen);
+			if (onScreen)
 			{
 				effectsToDraw[i++] = e;
 

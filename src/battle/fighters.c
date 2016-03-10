@@ -254,14 +254,23 @@ void doFighter(void)
 			addHudMessage(colors.red, _("Mission target has escaped."));
 			battle.stats[STAT_ENEMIES_ESCAPED]++;
 		}
-		else if (strcmp(self->defName, "Civilian") == 0)
+		
+		if (strcmp(self->defName, "Civilian") == 0)
 		{
 			battle.stats[STAT_CIVILIANS_RESCUED]++;
 		}
 
-		updateObjective(self->name, TT_ESCAPED);
-
-		updateCondition(self->name, TT_ESCAPED);
+		/* if you did not escape under your own volition, or with the aid of a friend, you've been stolen */
+		if (!self->owner || self->side == self->owner->side)
+		{
+			updateObjective(self->name, TT_ESCAPED);
+			updateCondition(self->name, TT_ESCAPED);
+		}
+		else
+		{
+			updateObjective(self->name, TT_STOLEN);
+			updateCondition(self->name, TT_STOLEN);
+		}
 	}
 
 	if (self->alive == ALIVE_DEAD)

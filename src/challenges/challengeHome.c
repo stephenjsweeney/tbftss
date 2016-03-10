@@ -106,16 +106,20 @@ void initChallengeHome(void)
 static void unlockChallenges(void)
 {
 	Mission *m;
-	int i;
+
+	int i, prevCompleted;
 
 	i = completedChallenges = totalChallenges = 0;
 
+	prevCompleted = 1;
+
 	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
 	{
-		m->available = (i <= completedChallenges || dev.debug);
+		m->available = (prevCompleted > 0 || dev.debug);
 
 		completedChallenges += m->completedChallenges;
 		totalChallenges += m->totalChallenges;
+		prevCompleted = m->completedChallenges;
 
 		i++;
 	}

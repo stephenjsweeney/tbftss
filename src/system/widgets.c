@@ -109,7 +109,7 @@ void drawWidgets(const char *group)
 
 				if (mouseOver && selectedWidget != w)
 				{
-					if (w->type == WT_BUTTON)
+					if (w->type == WT_BUTTON || w->type == WT_CONTROL_CONFIG)
 					{
 						playSound(SND_GUI_CLICK);
 					}
@@ -262,6 +262,7 @@ static void handleMouse(void)
 					{
 						app.awaitingWidgetInput = 1;
 						app.lastKeyPressed = app.lastButtonPressed = -1;
+						playSound(SND_GUI_SELECT);
 					}
 					app.mouse.button[SDL_BUTTON_LEFT] = 0;
 					break;
@@ -305,6 +306,7 @@ static void handleControlWidgets(void)
 	}
 	else if (app.lastKeyPressed == SDL_SCANCODE_ESCAPE)
 	{
+		playSound(SND_GUI_CLOSE);
 		app.awaitingWidgetInput = 0;
 	}
 	else

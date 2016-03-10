@@ -6,12 +6,6 @@
 		"value" : "TROPHY_PLATINUM"
 	},
 	{
-		"id" : "READY_DUTY",
-		"title" : "Ready for duty",
-		"description" : "Complete all the training missions at Sol",
-		"value" : "TROPHY_BRONZE"
-	},
-	{
 		"id" : "CAMPAIGN_1",
 		"title" : "2nd Lieutenant",
 		"description" : "Complete a campaign mission",
@@ -66,16 +60,10 @@
 		"value" : "TROPHY_SILVER"
 	},
 	{
-		"id" : "EPIC",
-		"title" : "Truly epic",
-		"description" : "Survive an epic battle",
+		"id" : "CAMPAIGN_SOL",
+		"title" : "Ready for duty",
+		"description" : "Complete all the training missions at Sol",
 		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "BIGGER_FALL",
-		"title" : "The bigger they are",
-		"description" : "Destroy an enemy capital ship",
-		"value" : "TROPHY_SILVER"
 	},
 	{
 		"id" : "CAMPAIGN_COYOTE",
@@ -93,7 +81,7 @@
 	},
 	{
 		"id" : "CAMPAIGN_ILIAD",
-		"title" : "Shape of things to come",
+		"title" : "The shape of things to come",
 		"description" : "Complete all missions at Iliad",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
@@ -104,6 +92,20 @@
 		"description" : "Complete all missions at Temper",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
+	},
+	{
+		"id" : "EPIC",
+		"title" : "Truly epic",
+		"description" : "Survive an epic battle",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "BIGGER_FALL",
+		"title" : "The bigger they are",
+		"description" : "Destroy an enemy capital ship",
+		"value" : "TROPHY_SILVER",
+		"stat" : "STAT_CAPITAL_SHIPS_DESTROYED",
+		"statValue" : 1
 	},
 	{
 		"id" : "PANDORAN_FIRST",

@@ -95,6 +95,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_SECONDARY_TARGET	(2 << 12)
 #define EF_AI_TARGET		(2 << 13)
 #define EF_AI_LEADER		(2 << 14)
+#define EF_ROPED_ATTACHED	(2 << 15)
 
 #define AIF_NONE				0
 #define AIF_FOLLOWS_PLAYER		(2 << 0)
@@ -255,7 +256,8 @@ enum
 	TT_WAYPOINT,
 	TT_ESCAPED,
 	TT_PLAYER_ESCAPED,
-	TT_ITEM
+	TT_ITEM,
+	TT_STOLEN
 };
 
 enum

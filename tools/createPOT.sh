@@ -152,15 +152,11 @@ $potHeader = str_replace("{POT_CREATION_DATE}", $dateTime, $potHeader);
 
 fwrite($handle, "$potHeader\n");
 
-$i = 0;
-
 foreach ($strings as $string)
 {
 	fwrite($handle, "msgid \"$string\"\n");
 	fwrite($handle, "msgstr \"\"\n");
 	fwrite($handle, "\n");
-	
-	$i++;
 }
 
 fclose($handle);

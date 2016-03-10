@@ -219,3 +219,8 @@ void awardCampaignTrophies(void)
 		}
 	}
 }
+
+void awardPostMissionTrophies(void)
+{
+
+}

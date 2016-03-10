@@ -376,7 +376,7 @@ static void loadFighters(cJSON *node)
 	Entity *e;
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
-	int i, numTypes, addFlags, addAIFlags;
+	int i, numTypes, addFlags, addAIFlags, systemPower;
 	long flags, aiFlags;
 	float x, y;
 
@@ -400,6 +400,7 @@ static void loadFighters(cJSON *node)
 			number = getJSONValue(node, "number", 1);
 			scatter = getJSONValue(node, "scatter", 1);
 			active = getJSONValue(node, "active", 1);
+			systemPower = getJSONValue(node, "systemPower", MAX_SYSTEM_POWER);
 
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
@@ -461,6 +462,12 @@ static void loadFighters(cJSON *node)
 				if (groupName)
 				{
 					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
+				}
+				
+				e->systemPower = systemPower;
+				if (!e->systemPower)
+				{
+					e->flags |= EF_DISABLED;
 				}
 			}
 

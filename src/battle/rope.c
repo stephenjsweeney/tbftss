@@ -31,7 +31,7 @@ void attachRope(void)
 	
 		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 		{
-			if ((e->flags & EF_DISABLED) && e->alive == ALIVE_ALIVE)
+			if ((e->flags & EF_DISABLED) && (e->flags & EF_ROPED_ATTACHED) == 0 && e->alive == ALIVE_ALIVE)
 			{
 				distance = getDistance(e->x, e->y, self->x, self->y);
 				
@@ -43,6 +43,7 @@ void attachRope(void)
 					self->aiFlags |= AIF_GOAL_JUMPGATE;
 					
 					e->flags |= EF_RETREATING;
+					e->flags |= EF_ROPED_ATTACHED;
 					
 					runScriptFunction("TOWING %s", e->name);
 					
@@ -95,10 +96,18 @@ void drawRope(Entity *e)
 
 void cutRope(Entity *e)
 {
+	/* thing being towed is dead */
 	if (e->owner && e->owner->towing == e)
 	{
 		e->owner->towing = NULL;
 		e->owner->aiFlags &= ~AIF_GOAL_JUMPGATE;
-		e->owner = NULL;
+	}
+	
+	/* tug is dead - reset thing being tugged */
+	if (e->towing)
+	{
+		e->towing->flags &= ~EF_RETREATING;
+		e->towing->flags &= ~EF_ROPED_ATTACHED;
+		e->towing = NULL;
 	}
 }

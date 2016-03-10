@@ -131,7 +131,6 @@ void initGameSystem(void)
 		initStarSystems,
 		initChallenges,
 		initStats,
-		initBattle,
 		initModalDialog,
 		initBackground,
 		initControls

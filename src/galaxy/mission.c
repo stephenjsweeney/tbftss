@@ -28,7 +28,6 @@ static void loadEntities(cJSON *node);
 static void loadItems(cJSON *node);
 static void loadLocations(cJSON *node);
 static unsigned long hashcode(const char *str);
-static char **toTypeArray(char *types, int *numTypes);
 static void loadEpicData(cJSON *node);
 static char *getAutoBackground(char *filename);
 static char *getAutoPlanet(char *filename);
@@ -87,6 +86,7 @@ Mission *loadMissionMeta(char *filename)
 			mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
 			mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
 			mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
+			mission->challengeData.rescueLimit = getJSONValue(node, "rescueLimit", 0);
 
 			/* restrictions */
 			mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
@@ -197,8 +197,6 @@ void loadMission(char *filename)
 	battle.planetHeight *= planetScale;
 
 	srand(time(NULL));
-	
-	cJSON_Delete(root);
 
 	free(text);
 
@@ -759,38 +757,6 @@ static void loadLocations(cJSON *node)
 			node = node->next;
 		}
 	}
-}
-
-static char **toTypeArray(char *types, int *numTypes)
-{
-	int i;
-	char **typeArray, *type;
-
-	*numTypes = 1;
-
-	for (i = 0 ; i < strlen(types) ; i++)
-	{
-		if (types[i] == ';')
-		{
-			*numTypes = *numTypes + 1;
-		}
-	}
-
-	typeArray = malloc(*numTypes * sizeof(char*));
-
-	i = 0;
-	type = strtok(types, ";");
-	while (type)
-	{
-		typeArray[i] = malloc(strlen(type) + 1);
-		strcpy(typeArray[i], type);
-
-		type = strtok(NULL, ";");
-
-		i++;
-	}
-
-	return typeArray;
 }
 
 static void loadEpicData(cJSON *node)

@@ -57,6 +57,7 @@ void initChallenges(void)
 	challengeDescription[CHALLENGE_PLAYER_KILLS] = _("Take down %d enemy targets");
 	challengeDescription[CHALLENGE_DISABLE] = _("Disable %d or more enemy fighters");
 	challengeDescription[CHALLENGE_ITEMS] = _("Collect %d packages");
+	challengeDescription[CHALLENGE_RESCUE] = _("Rescue %d civilians");
 
 	tail = &game.challengeMissionHead;
 
@@ -124,6 +125,11 @@ static int challengeFinished(void)
 	}
 	
 	if (game.currentMission->challengeData.itemLimit > 0 && battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= game.currentMission->challengeData.itemLimit)
+	{
+		return 1;
+	}
+	
+	if (game.currentMission->challengeData.rescueLimit > 0 && (battle.stats[STAT_CIVILIANS_RESCUED] + battle.stats[STAT_CIVILIANS_KILLED]) >= game.currentMission->challengeData.rescueLimit)
 	{
 		return 1;
 	}

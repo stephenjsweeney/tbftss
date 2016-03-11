@@ -1,0 +1,60 @@
+{
+	"name" : "Rescue Civilians",
+	"description" : "Rescue Civilians",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Tug",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"rescueLimit" : 8,
+		"timeLimit" : 300,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_RESCUE",
+				"value" : 4
+			},
+			{
+				"type" : "CHALLENGE_RESCUE",
+				"value" : 5
+			},
+			{
+				"type" : "CHALLENGE_RESCUE",
+				"value" : 8
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"types" : "Civilian",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_ALLIES",
+			"flags" : "+EF_DISABLED",
+			"number" : 8,
+			"scatter" : 5000
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
+			"x" : 25,
+			"y" : 25
+		}
+	],
+	"script" : [
+		{
+			"function" : "INTERVAL 30",
+			"lines" : [
+				"SPAWN_FIGHTERS Dart SIDE_PIRATE 1 OFFSCREEN"
+			]
+		}
+	]
+}

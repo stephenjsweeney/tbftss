@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadTrophyData(char *filename);
 static void resetAlert(void);
+static void awardCraftTrophy(void);
 
 static Trophy *alertTrophy;
 static SDL_Texture *trophyIcons[TROPHY_MAX];
@@ -74,7 +75,7 @@ void doTrophies(void)
 
 			if (alertRect.x > -50)
 			{
-				alertDX *= 0.95;
+				alertDX *= 0.9;
 			}
 
 			if (--alertTimer <= 0)
@@ -193,12 +194,12 @@ void awardCampaignTrophies(void)
 {
 	char trophyId[MAX_NAME_LENGTH];
 	char name[MAX_NAME_LENGTH];
-	int completedMissions, i, len;
+	int completed, i, len;
 	StarSystem *starSystem;
 
 	/* check % of missions completed */
-	completedMissions = getPercent(game.completedMissions, game.totalMissions);
-	sprintf(trophyId, "CAMPAIGN_%d", completedMissions);
+	completed = getPercent(game.completedMissions, game.totalMissions);
+	sprintf(trophyId, "CAMPAIGN_%d", completed);
 	awardTrophy(trophyId);
 
 	/* check if all star system missions are completed */
@@ -220,7 +221,41 @@ void awardCampaignTrophies(void)
 	}
 }
 
+void awardChallengeTrophies(void)
+{
+	char trophyId[MAX_NAME_LENGTH];
+	int completed;
+
+	/* check % of challenges completed */
+	completed = getPercent(game.completedChallenges, game.totalChallenges);
+	sprintf(trophyId, "CHALLENGE_%d", completed);
+	awardTrophy(trophyId);
+}
+
 void awardPostMissionTrophies(void)
 {
+	awardCraftTrophy();
 
+	if (game.currentMission->epic)
+	{
+		awardTrophy("EPIC");
+	}
+}
+
+/* the player is known as "Player", so we need to check the craft they were assigned to */
+static void awardCraftTrophy(void)
+{
+	char trophyId[MAX_NAME_LENGTH];
+	int len;
+
+	memset(trophyId, '\0', MAX_NAME_LENGTH);
+
+	len = strlen(game.currentMission->craft);
+
+	for (i = 0 ; i < len ; i++)
+	{
+		trophyId[i] = toupper(game.currentMission->craft[i]);
+	}
+
+	awardTrophy(trophyId);
 }

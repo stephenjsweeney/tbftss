@@ -63,6 +63,7 @@ extern void clearInput(void);
 extern void doTrophies(void);
 extern void drawTrophyAlert(void);
 extern void awardStatsTrophies(void);
+extern void awardChallengeTrophies(void);
 
 extern App app;
 extern Battle battle;

@@ -254,7 +254,7 @@ void doFighter(void)
 			addHudMessage(colors.red, _("Mission target has escaped."));
 			battle.stats[STAT_ENEMIES_ESCAPED]++;
 		}
-		
+
 		if (strcmp(self->defName, "Civilian") == 0)
 		{
 			battle.stats[STAT_CIVILIANS_RESCUED]++;
@@ -278,6 +278,12 @@ void doFighter(void)
 		if (self == player)
 		{
 			battle.stats[STAT_PLAYER_KILLED]++;
+
+			/* the player is known as "Player", so we need to check the craft they were assigned to */
+			if (strcmp(game.currentMission->craft, "ATAF") == 0)
+			{
+				awardTrophy("ATAF_DESTROYED");
+			}
 		}
 		else if (player != NULL)
 		{

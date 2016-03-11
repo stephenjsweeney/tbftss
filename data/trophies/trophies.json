@@ -27,7 +27,7 @@
 		"id" : "CAMPAIGN_40",
 		"title" : "Commander",
 		"description" : "Complete 40% of all missions",
-		"value" : "TROPHY_SILVER"
+		"value" : "TROPHY_BRONZE"
 	},
 	{
 		"id" : "CAMPAIGN_50",
@@ -51,13 +51,13 @@
 		"id" : "CAMPAIGN_90",
 		"title" : "Admiral",
 		"description" : "Complete 90% of all missions",
-		"value" : "TROPHY_SILVER"
+		"value" : "TROPHY_GOLD"
 	},
 	{
 		"id" : "CAMPAIGN_100",
 		"title" : "Fleet Admiral",
 		"description" : "Complete all campaign missions",
-		"value" : "TROPHY_SILVER"
+		"value" : "TROPHY_GOLD"
 	},
 	{
 		"id" : "CAMPAIGN_SOL",
@@ -83,7 +83,7 @@
 		"id" : "CAMPAIGN_ILIAD",
 		"title" : "The shape of things to come",
 		"description" : "Complete all missions at Iliad",
-		"value" : "TROPHY_BRONZE",
+		"value" : "TROPHY_SILVER",
 		"hidden" : 1
 	},
 	{
@@ -108,15 +108,27 @@
 		"statValue" : 1
 	},
 	{
-		"id" : "PANDORAN_FIRST",
-		"title" : "Plenty more where that came from",
-		"description" : "Engage the Pandorans in battle",
+		"id" : "PANDORAN",
+		"title" : "Plenty more where that came from, unfortunately",
+		"description" : "Destroy a Pandoran-controlled craft",
 		"value" : "TROPHY_BRONZE"
 	},
 	{
-		"id" : "ATAF_FIRST",
+		"id" : "ATAF",
 		"title" : "Man, I gotta get me one of these!",
 		"description" : "Pilot an ATAF during the campaign",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "TUG",
+		"title" : "The 4th emergency service",
+		"description" : "Complete a mission using a Tug",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
+		"id" : "SHUTTLE",
+		"title" : "Room for one more on top",
+		"description" : "Complete a mission using a Shuttle",
 		"value" : "TROPHY_BRONZE"
 	},
 	{
@@ -141,7 +153,7 @@
 		"id" : "FIRE_100000",
 		"title" : "Your name's on one of these!",
 		"description" : "Fire 100,000 shots",
-		"value" : "TROPHY_SILVER",
+		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_SHOTS_FIRED",
 		"statValue" : 10000
 	},
@@ -149,9 +161,50 @@
 		"id" : "MISSILE_1000",
 		"title" : "Dodge this!",
 		"description" : "Launch 1,000 missiles",
-		"value" : "TROPHY_SILVER",
+		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_MISSILES_FIRED",
 		"statValue" : 1000
+	},
+	{
+		"id" : "ECM_100",
+		"title" : "Isn't technology wonderful?",
+		"description" : "Use the ECM 100 times",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_ECM",
+		"statValue" : 100
+	},
+	{
+		"id" : "BOOST_100",
+		"title" : "Runaway!",
+		"description" : "Boost 100 times",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_BOOST",
+		"statValue" : 100
+	},
+	{
+		"id" : "EVADE_50",
+		"title" : "Missed, you f**kers!",
+		"description" : "Evade 50 missiles",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_MISSILES_EVADED",
+		"statValue" : 50,
+		"hidden" : 1
+	},
+	{
+		"id" : "WAYPOINT_100",
+		"title" : "Sightseer",
+		"description" : "Visit 100 waypoints",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_WAYPOINTS_VISITED",
+		"statValue" : 100
+	},
+	{
+		"id" : "EPIC_KILL_13",
+		"title" : "Yippie-ki-yay",
+		"description" : "Destroy 13 or more enemies in an epic battle without being killed",
+		"value" : "TROPHY_SILVER",
+		"stat" : "STAT_EPIC_KILL_STREAK",
+		"statValue" : 13
 	},
 	{
 		"id" : "ATAF_DESTROYED",

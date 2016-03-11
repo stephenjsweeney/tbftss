@@ -99,6 +99,42 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 	return e;
 }
 
+void spawnScriptFighter(char *fighterTypes, char *sideStr, int num, char *location)
+{
+	Entity *e;
+	int i, numTypes, side, offscreen;
+	char **types, *type;
+	
+	types = toTypeArray(fighterTypes, &numTypes);
+	side = lookup(sideStr);
+	offscreen = strcmp(location, "OFFSCREEN") == 0;
+	
+	for (i = 0 ; i < num ; i++)
+	{
+		type = types[rand() % numTypes];
+		
+		e = spawnFighter(type, 0, 0, side);
+		
+		if (offscreen)
+		{
+			e->x = player->x;
+			e->y = player->y;
+		}
+		else
+		{
+			e->x = rand() % 2 ? 0 : BATTLE_AREA_WIDTH;
+			e->y = rand() % 2 ? 0 : BATTLE_AREA_HEIGHT;
+		}
+		
+		e->x += (rand() % 2) ? -SCREEN_WIDTH : SCREEN_WIDTH;
+		e->y += (rand() % 2) ? -SCREEN_HEIGHT : SCREEN_HEIGHT;
+		
+		e->aiFlags |= AIF_UNLIMITED_RANGE;
+	}
+	
+	free(types);
+}
+
 static void randomizeDart(Entity *dart)
 {
 	char texture[MAX_DESCRIPTION_LENGTH];

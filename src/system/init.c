@@ -133,6 +133,7 @@ void initGameSystem(void)
 		initStats,
 		initModalDialog,
 		initBackground,
+		initStars,
 		initControls
 	};
 

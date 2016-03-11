@@ -24,8 +24,6 @@ static Entity **candidates;
 static int cIndex;
 static int cCapacity;
 
-static int memory;
-
 static int getIndex(Quadtree *root, int x, int y, int w, int h);
 static void removeEntity(Entity *e, Quadtree *root);
 static int candidatesComparator(const void *a, const void *b);
@@ -48,10 +46,11 @@ void initQuadtree(Quadtree *root)
 		root->ents = malloc(sizeof(Entity*) * root->capacity);
 		memset(root->ents, 0, sizeof(Entity*) * root->capacity);
 		
-		memory = 0;
+		cIndex = 0;
+		cCapacity = QT_INITIAL_CAPACITY;
+		candidates = malloc(sizeof(Entity*) * cCapacity);
+		memset(candidates, 0, sizeof(Entity*) * cCapacity);
 	}
-	
-	memory += sizeof(Quadtree);
 	
 	w = root->w / 2;
 	h = root->h / 2;
@@ -101,11 +100,6 @@ void initQuadtree(Quadtree *root)
 			initQuadtree(node);
 		}
 	}
-	
-	cIndex = 0;
-	cCapacity = QT_INITIAL_CAPACITY;
-	candidates = malloc(sizeof(Entity*) * cCapacity);
-	memset(candidates, 0, sizeof(Entity*) * cCapacity);
 }
 
 void addToQuadtree(Entity *e, Quadtree *root)
@@ -277,22 +271,27 @@ void destroyQuadtree(void)
 {
 	destroyQuadtreeNode(&battle.quadtree);
 	
-	free(candidates);
-	
-	candidates = NULL;
+	if (candidates)
+	{
+		free(candidates);
+		
+		candidates = NULL;
+	}
 }
 
 static void destroyQuadtreeNode(Quadtree *root)
 {
 	int i;
 	
+	free(root->ents);
+	
+	root->ents = NULL;
+	
 	if (root->node[0])
 	{
 		for (i = 0 ; i < 4 ; i++)
 		{
 			destroyQuadtreeNode(root->node[i]);
-			
-			free(root->node[i]->ents);
 			
 			free(root->node[i]);
 			

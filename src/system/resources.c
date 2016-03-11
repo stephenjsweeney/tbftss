@@ -98,7 +98,20 @@ char *getMusicFilename(int i)
 
 void destroyResources(void)
 {
-	free(backgrounds);
-	free(planets);
-	free(musicFiles);
+	int i;
+	
+	for (i = 0 ; i < numBackgrounds ; i++)
+	{
+		free(backgrounds[i]);
+	}
+	
+	for (i = 0 ; i < numPlanets ; i++)
+	{
+		free(planets[i]);
+	}
+	
+	for (i = 0 ; i < numMusicFiles ; i++)
+	{
+		free(musicFiles[i]);
+	}
 }

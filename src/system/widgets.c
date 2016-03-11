@@ -507,6 +507,8 @@ void destroyWidgets(void)
 		{
 			free(w->options[i]);
 		}
+		
+		free(w->options);
 
 		next = w->next;
 		free(w);

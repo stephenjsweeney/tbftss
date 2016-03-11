@@ -197,6 +197,8 @@ void loadMission(char *filename)
 	battle.planetHeight *= planetScale;
 
 	srand(time(NULL));
+	
+	cJSON_Delete(root);
 
 	free(text);
 

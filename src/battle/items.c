@@ -54,6 +54,7 @@ void loadItemDefs(void)
 		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 
 		defTail->next = e;
+		defTail = e;
 	}
 
 	cJSON_Delete(root);

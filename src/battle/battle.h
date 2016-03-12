@@ -67,7 +67,6 @@ extern void initQuadtree(Quadtree *root);
 extern void initEffects(void);
 extern void doScript(void);
 extern void destroyScript(void);
-extern void runScriptFunction(char *format, ...);
 extern void initMessageBox(void);
 extern void doMessageBox(void);
 extern void drawMessageBox(void);

@@ -365,6 +365,8 @@ typedef struct {
 	int completedMissions;
 	int availableMissions;
 	int totalMissions;
+	int completedChallenges;
+	int totalChallenges;
 	unsigned int stats[STAT_MAX];
 	Trophy trophyHead;
 } Game;

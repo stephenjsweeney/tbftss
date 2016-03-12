@@ -371,6 +371,11 @@ static void postBattle(void)
 		if (game.currentMission && !game.currentMission->completed)
 		{
 			game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
+
+			if (game.currentMission->completed)
+			{
+				awardPostMissionTrophies();
+			}
 		}
 	}
 }

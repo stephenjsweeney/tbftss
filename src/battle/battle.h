@@ -85,6 +85,7 @@ extern void initChallengeHome(void);
 extern void updateAccuracyStats(unsigned int *stats);
 extern void clearInput(void);
 extern void runScriptTimeFunctions(void);
+extern void awardPostMissionTrophies(void);
 
 extern App app;
 extern Battle battle;

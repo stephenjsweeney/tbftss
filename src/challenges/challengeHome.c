@@ -40,10 +40,8 @@ static char *listRestrictions(void);
 static SDL_Texture *background;
 static int startIndex;
 static Widget *start;
-static int completedChallenges;
 static SDL_Texture *planetTexture;
 static PointF planet;
-static int totalChallenges;
 static int show;
 static char timeLimit[MAX_DESCRIPTION_LENGTH];
 static char restrictions[MAX_DESCRIPTION_LENGTH];
@@ -58,6 +56,8 @@ void initChallengeHome(void)
 	updateAllMissions();
 
 	unlockChallenges();
+
+	awardChallengeTrophies();
 
 	awardStatsTrophies();
 
@@ -109,7 +109,7 @@ static void unlockChallenges(void)
 
 	int i, prevCompleted;
 
-	i = completedChallenges = totalChallenges = 0;
+	i = game.completedChallenges = game.totalChallenges = 0;
 
 	prevCompleted = 1;
 
@@ -117,8 +117,8 @@ static void unlockChallenges(void)
 	{
 		m->available = (prevCompleted > 0 || dev.debug);
 
-		completedChallenges += m->completedChallenges;
-		totalChallenges += m->totalChallenges;
+		game.completedChallenges += m->completedChallenges;
+		game.totalChallenges += m->totalChallenges;
 		prevCompleted = m->completedChallenges;
 
 		i++;
@@ -232,7 +232,7 @@ static void draw(void)
 
 	drawText(SCREEN_WIDTH / 2, 50, 30, TA_CENTER, colors.white, _("Challenges"));
 
-	drawText(SCREEN_WIDTH / 2, 100, 24, TA_CENTER, colors.white, "%d / %d", completedChallenges, totalChallenges);
+	drawText(SCREEN_WIDTH / 2, 100, 24, TA_CENTER, colors.white, "%d / %d", game.completedChallenges, game.totalChallenges);
 
 	drawChallenges();
 

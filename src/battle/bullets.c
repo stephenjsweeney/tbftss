@@ -145,7 +145,7 @@ static void resizeDrawList(void)
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing bullet draw capacity: %d -> %d\n", drawCapacity, n);
 
 	bulletsToDraw = resize(bulletsToDraw, sizeof(Bullet*) * drawCapacity, sizeof(Bullet*) * n);
-	
+
 	drawCapacity = n;
 }
 
@@ -207,6 +207,11 @@ static void checkCollisions(Bullet *b)
 				{
 					battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
 					battle.stats[STAT_EPIC_KILL_STREAK]++;
+
+					if (e->side == SIDE_PANDORAN)
+					{
+						awardTrophy("PANDORAN");
+					}
 				}
 
 				if (b->owner == player && b->type == BT_MISSILE)

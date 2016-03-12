@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-10 15:44:08+0000\n"
+"POT-Creation-Date: 2016-03-12 15:00:11+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -188,6 +188,9 @@ msgid "Disable %d or more enemy fighters"
 msgstr ""
 
 msgid "Collect %d packages"
+msgstr ""
+
+msgid "Rescue %d civilians"
 msgstr ""
 
 msgid "%s has fallen to the Pandorans"
@@ -934,7 +937,7 @@ msgstr ""
 msgid "Can you disable the gate remotely?"
 msgstr ""
 
-msgid "Negative, the Pandorans have control. We're working take back command function. Stand by."
+msgid "Negative, the Pandorans have control. We're working take back command functions. Stand by."
 msgstr ""
 
 msgid "Griffin, all enemy tugs have been dispatched."
@@ -953,6 +956,51 @@ msgid "Griffin, this is de Winter. Operation successful."
 msgstr ""
 
 msgid "I knew I could count on you, de Winter. Head back to Griffin."
+msgstr ""
+
+msgid "Control, we're in position. Awaiting the Irregular Nomads."
+msgstr ""
+
+msgid "Irregular Nomads have just exited the jumpgate. They'll be with you shortly."
+msgstr ""
+
+msgid "Commander Spencer, we're on our way. We'll join you at the waypoint."
+msgstr ""
+
+msgid "Acknowledged, Lieutenant, we'll see you in a bit."
+msgstr ""
+
+msgid "Control, we're ready to--"
+msgstr ""
+
+msgid "Commander, be advised that we are detecting UNF fighters advancing on your position, several Nymphs and Fireflies. They are not responding to requests to identify presence or purpose."
+msgstr ""
+
+msgid "Pandorans?"
+msgstr ""
+
+msgid "Their signatures don't suggest so."
+msgstr ""
+
+msgid "Commander, incoming fighters are hostile. Suggest you prepare to engage or fallback to the jumpgate."
+msgstr ""
+
+msgid "Acknowledged, moving to engage."
+msgstr ""
+
+msgid "Control, enemy targets have been eliminated."
+msgstr ""
+
+msgid "Any survivors?"
+msgstr ""
+
+msgid "Negative, I didn't see anyone eject from those fighters."
+msgstr ""
+
+msgid "Commander, your current missions has been aborted. Return to the jumpgate. We need a full report as to what just happened out there."
+msgstr ""
+
+msgid "Got it, coming home."
 msgstr ""
 
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."

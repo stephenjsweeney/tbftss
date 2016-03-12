@@ -1,0 +1,156 @@
+{
+	"name" : "Rothan Defence #2",
+	"description" : "",
+	"requires" : 29,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/determination.mp3",
+	"objectives" : [
+		{
+			"description" : "Rendezvous with Irregular Nomads",
+			"targetName" : "Waypoint",
+			"targetValue" : 1,
+			"targetType" : "TT_WAYPOINT"
+		},
+		{
+			"description" : "Eliminate UNF fighters",
+			"targetName" : "Enemy",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Retreat to jumpgate",
+			"targetName" : "Player",
+			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED",
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "Rook",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Julian Spencer",
+		"squadron" : "Blue Jesters",
+		"x" : 10,
+		"y" : 5
+	},
+	"fighters" : [
+		{
+			"name" : "CSN Pilot",
+			"types" : "TAF;Ray;Kingfisher;Hammerhead;Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 5,
+			"number" : 3,
+			"scatter" : 500
+		},
+		{
+			"name" : "CSN Pilot",
+			"groupName" : "Irregular Nomads",
+			"types" : "TAF;Ray;Kingfisher;Hammerhead;Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 30,
+			"y" : 1,
+			"number" : 4,
+			"active" : 0
+		},
+		{
+			"name" : "Rebel",
+			"groupName" : "Rebels",
+			"types" : "Nymph;Firefly",
+			"side" : "SIDE_REBEL",
+			"x" : -1,
+			"y" : -1,
+			"number" : 5,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "Rebel",
+			"groupName" : "Rebels",
+			"types" : "Nymph;Firefly",
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : -1,
+			"number" : 5,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "Rebel",
+			"groupName" : "Rebels",
+			"types" : "Nymph;Firefly",
+			"side" : "SIDE_REBEL",
+			"x" : -1,
+			"y" : 15,
+			"number" : 5,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 15,
+			"y" : 15,
+			"active" : 0
+		},
+		{
+			"type" : "ET_JUMPGATE",
+			"x" : 30,
+			"y" : 1,
+			"systemPower" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Spencer;Control, we're in position. Awaiting the Irregular Nomads.",
+				"MSG_BOX Control;Irregular Nomads have just exited the jumpgate. They'll be with you shortly.",
+				"ACTIVATE_ENTITY_GROUPS Irregular Nomads"
+			]
+		},
+		{
+			"function" : "TIME 15",
+			"lines" : [
+				"MSG_BOX Fox;Commander Spencer, we're on our way. We'll join you at the waypoint.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_NEXT_WAYPOINT",
+				"MSG_BOX Fox;Acknowledged, Lieutenant, we'll see you in a bit."
+			]
+		},
+		{
+			"function" : "Waypoint #1",
+			"lines" : [
+				"MSG_BOX Spencer;Control, we're ready to--",
+				"MSG_BOX Control;Commander, be advised that we are detecting UNF fighters advancing on your position, several Nymphs and Fireflies. They are not responding to requests to identify presence or purpose.",
+				"MSG_BOX Spencer;Pandorans?",
+				"MSG_BOX Control;Their signatures don't suggest so.",
+				"WAIT_MSG_BOX",
+				"WAIT 4,",
+				"ACTIVATE_ENTITY_GROUPS Rebels",
+				"ACTIVATE_OBJECTIVES Eliminate UNF fighters",
+				"MSG_BOX Control;Commander, incoming fighters are hostile. Suggest you prepare to engage or fallback to the jumpgate.",
+				"MSG_BOX Spencer;Acknowledged, moving to engage."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 2",
+			"lines" : [
+				"MSG_BOX Spencer;Control, enemy targets have been eliminated.",
+				"MSG_BOX Control;Any survivors?",
+				"MSG_BOX Spencer;Negative, I didn't see anyone eject from those fighters.",
+				"MSG_BOX Control;Commander, your current missions has been aborted. Return to the jumpgate. We need a full report as to what just happened out there.",
+				"MSG_BOX Spencer;Got it, coming home.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_JUMPGATE",
+				"ACTIVATE_OBJECTIVES Retreat to jumpgate",
+				"RETREAT_ALLIES"
+			]
+		}
+	]
+}
+ 

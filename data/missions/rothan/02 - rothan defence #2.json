@@ -101,7 +101,7 @@
 			"type" : "ET_JUMPGATE",
 			"x" : 30,
 			"y" : 1,
-			"systemPower" : 0
+			"flags" : "+EF_DISABLED"
 		}
 	],
 	"script" : [
@@ -146,7 +146,7 @@
 				"MSG_BOX Control;Commander, your current missions has been aborted. Return to the jumpgate. We need a full report as to what just happened out there.",
 				"MSG_BOX Spencer;Got it, coming home.",
 				"WAIT_MSG_BOX",
-				"ACTIVATE_JUMPGATE",
+				"ACTIVATE_JUMPGATE 1",
 				"ACTIVATE_OBJECTIVES Retreat to jumpgate",
 				"RETREAT_ALLIES"
 			]

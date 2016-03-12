@@ -36,6 +36,7 @@ extern int showingMessageBoxes(void);
 extern char *getTranslatedString(char *string);
 extern void spawnScriptFighter(char *fighters, char *side, int num, char *location);
 extern void activateNextWaypoint(int id);
+extern void activateJumpgate(int activate);
 
 extern Battle battle;
 extern Colors colors;

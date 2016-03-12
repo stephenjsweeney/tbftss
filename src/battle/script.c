@@ -211,7 +211,8 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "ACTIVATE_JUMPGATE") == 0)
 	{
-		battle.jumpgate->systemPower = MAX_SYSTEM_POWER;
+		sscanf(line, "%*s %d", &intParam[0]);
+		activateJumpgate(intParam[0]);
 	}
 	else if (strcmp(command, "ACTIVATE_NEXT_WAYPOINT") == 0)
 	{

@@ -45,6 +45,26 @@ Entity *spawnJumpgate(void)
 	return jumpgate;
 }
 
+int jumpgateEnabled(void)
+{
+	return (battle.jumpgate && (!(battle.jumpgate->flags & EF_DISABLED)));
+}
+
+void activateJumpgate(int activate)
+{
+	if (battle.jumpgate)
+	{
+		if (activate)
+		{
+			battle.jumpgate->flags &= ~EF_DISABLED;
+		}
+		else
+		{
+			battle.jumpgate->flags |= EF_DISABLED;
+		}
+	}
+}
+
 static void think(void)
 {
 	self->thinkTime = 4;
@@ -55,7 +75,7 @@ static void think(void)
 		self->angle -= 360;
 	}
 
-	if (self->systemPower)
+	if (jumpgateEnabled())
 	{
 		handleFleeingEntities();
 	}
@@ -128,7 +148,7 @@ static void addEscapeEffect(Entity *ent)
 
 static void draw(void)
 {
-	if (self->systemPower)
+	if (jumpgateEnabled())
 	{
 		blitRotated(portal, self->x - battle.camera.x, self->y - battle.camera.y, portalAngle);
 	}

@@ -110,7 +110,7 @@
 			"type" : "ET_JUMPGATE",
 			"x" : 10,
 			"y" : 8,
-			"systemPower" : 0
+			"flags" : "+EF_DISABLED"
 		}
 	],
 	"items" : [
@@ -159,7 +159,7 @@
 				"WAIT 2",
 				"MSG_BOX Tug;Tow cable attached. Ready to head home.",
 				"MSG_BOX Carr;We're done here. Let's bring our mystery guest in.",
-				"ACTIVATE_JUMPGATE",
+				"ACTIVATE_JUMPGATE 1",
 				"WAIT 20",
 				"ACTIVATE_ENTITIES Dart",
 				"ACTIVATE_OBJECTIVES Destroy intercepting Darts",

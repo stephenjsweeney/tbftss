@@ -374,7 +374,7 @@ static void loadFighters(cJSON *node)
 	Entity *e;
 	char **types, *name, *groupName, *type;
 	int side, scatter, number, active;
-	int i, numTypes, addFlags, addAIFlags, systemPower;
+	int i, numTypes, addFlags, addAIFlags;
 	long flags, aiFlags;
 	float x, y;
 
@@ -398,7 +398,6 @@ static void loadFighters(cJSON *node)
 			number = getJSONValue(node, "number", 1);
 			scatter = getJSONValue(node, "scatter", 1);
 			active = getJSONValue(node, "active", 1);
-			systemPower = getJSONValue(node, "systemPower", MAX_SYSTEM_POWER);
 
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
@@ -460,12 +459,6 @@ static void loadFighters(cJSON *node)
 				if (groupName)
 				{
 					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
-				}
-				
-				e->systemPower = systemPower;
-				if (!e->systemPower)
-				{
-					e->flags |= EF_DISABLED;
 				}
 			}
 
@@ -572,8 +565,9 @@ static void loadEntities(cJSON *node)
 {
 	Entity *e;
 	char *name, *groupName;
-	int i, type, scatter, number, active, systemPower;
+	int i, type, scatter, number, active, addFlags;
 	float x, y;
+	long flags;
 
 	if (node)
 	{
@@ -593,7 +587,11 @@ static void loadEntities(cJSON *node)
 			number = getJSONValue(node, "number", 1);
 			active = getJSONValue(node, "active", 1);
 			scatter = getJSONValue(node, "scatter", 1);
-			systemPower = getJSONValue(node, "systemPower", MAX_SYSTEM_POWER);
+			
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
+			}
 
 			for (i = 0 ; i < number ; i++)
 			{
@@ -622,6 +620,20 @@ static void loadEntities(cJSON *node)
 				{
 					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
 				}
+				
+				if (flags != -1)
+				{
+					if (addFlags)
+					{
+						e->flags |= flags;
+					}
+					else
+					{
+						e->flags = flags;
+
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
+					}
+				}
 
 				e->x = x;
 				e->y = y;
@@ -633,8 +645,6 @@ static void loadEntities(cJSON *node)
 				}
 
 				e->active = active;
-
-				e->systemPower = systemPower;
 
 				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			}

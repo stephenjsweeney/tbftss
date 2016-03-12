@@ -330,7 +330,7 @@ static void drawPlayerTargeter(void)
 	float angle;
 	int x, y;
 	
-	if (player->target || battle.missionTarget || battle.jumpgate)
+	if (player->target || battle.missionTarget || (battle.jumpgate && battle.jumpgate->systemPower))
 	{
 		if (player->target)
 		{
@@ -376,7 +376,7 @@ static void drawPlayerTargeter(void)
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
 	
-	if (battle.jumpgate)
+	if (battle.jumpgate && battle.jumpgate->systemPower)
 	{
 		angle = getAngle(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		x = player->x;
@@ -456,7 +456,7 @@ static void drawDistancesInfo(void)
 	
 	y = 11;
 	
-	if (player->target != NULL)
+	if (player->target)
 	{
 		drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
 		
@@ -469,7 +469,7 @@ static void drawDistancesInfo(void)
 		y += 25;
 	}
 	
-	if (battle.missionTarget != NULL)
+	if (battle.missionTarget)
 	{
 		distance = distanceToKM(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
 		
@@ -478,7 +478,7 @@ static void drawDistancesInfo(void)
 		y += 25;
 	}
 	
-	if (battle.jumpgate != NULL)
+	if (battle.jumpgate && battle.jumpgate->systemPower)
 	{
 		distance = distanceToKM(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		

@@ -47,7 +47,7 @@
 			"lines" : [
 				"ACTIVATE_NEXT_WAYPOINT"
 			]
-		}
+		},
 		{
 			"function" : "Waypoint #2",
 			"lines" : [

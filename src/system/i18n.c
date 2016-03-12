@@ -79,7 +79,7 @@ void setLanguage(char *applicationName, char *languageCode)
 		STRNCPY(language, lang, MAX_LINE_LENGTH);
 	}
 
-	printf("Locale is %s\n", language);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Locale is %s", language);
 
 	sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 

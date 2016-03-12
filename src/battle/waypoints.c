@@ -50,25 +50,29 @@ Entity *spawnWaypoint(void)
 
 static void think(void)
 {
-	self->thinkTime = 4;
+	self->angle += 0.25;
 	
-	self->angle++;
 	if (self->angle >= 360)
 	{
 		self->angle -= 360;
 	}
 	
-	if (player != NULL && getDistance(player->x, player->y, self->x, self->y) <= 64 && isCurrentObjective() && teamMatesClose())
+	if (--self->aiActionTime <= 0)
 	{
-		self->health = 0;
+		self->aiActionTime = 0;
 		
-		updateObjective("Waypoint", TT_WAYPOINT);
-		
-		runScriptFunction(self->name);
-		
-		activateNextWaypoint(self->id);
-		
-		battle.stats[STAT_WAYPOINTS_VISITED]++;
+		if (self->health && player != NULL && getDistance(player->x, player->y, self->x, self->y) <= 128 && isCurrentObjective() && teamMatesClose())
+		{
+			self->health = 0;
+			
+			updateObjective("Waypoint", TT_WAYPOINT);
+			
+			runScriptFunction(self->name);
+			
+			activateNextWaypoint(self->id);
+			
+			battle.stats[STAT_WAYPOINTS_VISITED]++;
+		}
 	}
 }
 
@@ -79,7 +83,7 @@ static int isCurrentObjective(void)
 	if (numActiveObjectives > 1)
 	{
 		addHudMessage(colors.cyan, _("Cannot activate waypoint - outstanding objectives not yet complete"));
-		self->thinkTime = FPS;
+		self->aiActionTime = FPS;
 		return 0;
 	}
 	
@@ -97,7 +101,7 @@ static int teamMatesClose(void)
 			if (getDistance(player->x, player->y, e->x, e->y) > 350)
 			{
 				addHudMessage(colors.cyan, _("Cannot activate waypoint - team mates too far away"));
-				self->thinkTime = FPS;
+				self->aiActionTime = FPS;
 				return 0;
 			}
 		}

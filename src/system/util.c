@@ -73,6 +73,38 @@ void getSlope(int x1, int y1, int x2, int y2, float *dx, float *dy)
 	*dy /= steps;
 }
 
+char **toTypeArray(char *types, int *numTypes)
+{
+	int i;
+	char **typeArray, *type;
+
+	*numTypes = 1;
+
+	for (i = 0 ; i < strlen(types) ; i++)
+	{
+		if (types[i] == ';')
+		{
+			*numTypes = *numTypes + 1;
+		}
+	}
+
+	typeArray = malloc(*numTypes * sizeof(char*));
+
+	i = 0;
+	type = strtok(types, ";");
+	while (type)
+	{
+		typeArray[i] = malloc(strlen(type) + 1);
+		strcpy(typeArray[i], type);
+
+		type = strtok(NULL, ";");
+
+		i++;
+	}
+
+	return typeArray;
+}
+
 char *timeToString(long millis, int showHours)
 {
 	static char TIME[MAX_NAME_LENGTH];

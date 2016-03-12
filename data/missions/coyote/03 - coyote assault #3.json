@@ -74,7 +74,7 @@
 			"type" : "ET_JUMPGATE",
 			"x" : 25,
 			"y" : 25,
-			"systemPower" : 0
+			"flags" : "+EF_DISABLED"
 		}
 	],
 	"script" : [
@@ -99,7 +99,7 @@
 				"MSG_BOX Dodds;Estelle, we've got this. We can take them.",
 				"MSG_BOX de Winter;We're taking too many losses, Dodds. Fall back now, that's an order.",
 				"WAIT_MSG_BOX",
-				"ACTIVATE_JUMPGATE",
+				"ACTIVATE_JUMPGATE 1",
 				"RETREAT_ALLIES"
 			]
 		}

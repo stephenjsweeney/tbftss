@@ -60,6 +60,12 @@
 	],
 	"script" : [
 		{
+			"function" : "TIME 0",
+			"lines" : [
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
 			"function" : "Waypoint #3",
 			"lines" : [
 				"ACTIVATE_ENTITIES Pandoran",

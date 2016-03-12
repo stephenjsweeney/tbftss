@@ -34,6 +34,7 @@ extern int getPercent(float current, float total);
 extern int playerHasGun(int type);
 extern char *getTranslatedString(char *string);
 extern char *timeToString(long millis, int showHours);
+extern int jumpgateEnabled(void);
 
 extern App app;
 extern Battle battle;

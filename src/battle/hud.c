@@ -330,7 +330,7 @@ static void drawPlayerTargeter(void)
 	float angle;
 	int x, y;
 	
-	if (player->target || battle.missionTarget || battle.jumpgate)
+	if (player->target || battle.missionTarget || jumpgateEnabled())
 	{
 		if (player->target)
 		{
@@ -376,7 +376,7 @@ static void drawPlayerTargeter(void)
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
 	
-	if (battle.jumpgate)
+	if (jumpgateEnabled())
 	{
 		angle = getAngle(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		x = player->x;
@@ -422,6 +422,10 @@ static void drawObjectives(void)
 			{
 				drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
 			}
+			else if (game.currentMission->challengeData.rescueLimit)
+			{
+				drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);
+			}
 		}
 		else
 		{
@@ -452,7 +456,7 @@ static void drawDistancesInfo(void)
 	
 	y = 11;
 	
-	if (player->target != NULL)
+	if (player->target)
 	{
 		drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
 		
@@ -465,7 +469,7 @@ static void drawDistancesInfo(void)
 		y += 25;
 	}
 	
-	if (battle.missionTarget != NULL)
+	if (battle.missionTarget)
 	{
 		distance = distanceToKM(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
 		
@@ -474,7 +478,7 @@ static void drawDistancesInfo(void)
 		y += 25;
 	}
 	
-	if (battle.jumpgate != NULL)
+	if (jumpgateEnabled())
 	{
 		distance = distanceToKM(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		

@@ -127,6 +127,12 @@
 	],
 	"script" : [
 		{
+			"function" : "TIME 0",
+			"lines" : [
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
 			"function" : "Waypoint #1",
 			"lines" : [
 				"WAIT 1",

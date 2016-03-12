@@ -427,6 +427,10 @@ static void loadWidgetSet(char *filename)
 
 		cJSON_Delete(root);
 	}
+	else
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Failed to load '%s'", filename);
+	}
 	
 	free(text);
 }
@@ -507,6 +511,8 @@ void destroyWidgets(void)
 		{
 			free(w->options[i]);
 		}
+		
+		free(w->options);
 
 		next = w->next;
 		free(w);

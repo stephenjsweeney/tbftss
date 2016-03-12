@@ -75,8 +75,7 @@
 			"y" : 25,
 			"number" : 12,
 			"scatter" : 5000,
-			"systemPower" : 0,
-			"flags" : "+EF_NO_KILL+EF_MISSION_TARGET"
+			"flags" : "+EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
 		},
 		{
 			"name" : "CSN Tug",

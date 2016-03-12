@@ -607,9 +607,11 @@ static void moveToPlayer(void)
 	{
 		if (fabs(player->dx) >= 1 && fabs(player->dy) >= 1)
 		{
-			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 10), player->y + (player->dy * 10));
+			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 100), player->y + (player->dy * 100));
 			
 			turnToFace(wantedAngle);
+			
+			applyFighterThrust();
 		}
 		
 		if (dist <= 250)
@@ -806,6 +808,8 @@ static void moveToLeader(void)
 			wantedAngle = getAngle(self->leader->x, self->leader->y, self->leader->x + (self->leader->dx * 10), self->leader->y + (self->leader->dy * 10));
 			
 			turnToFace(wantedAngle);
+			
+			applyFighterThrust();
 		}
 		
 		if (dist <= 250)

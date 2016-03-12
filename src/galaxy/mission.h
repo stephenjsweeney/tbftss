@@ -35,7 +35,6 @@ extern void stopMusic(void);
 extern void initPlayer(void);
 extern long flagsToLong(char *flags, int *add);
 extern Entity *spawnWaypoint(void);
-extern void activateNextWaypoint(void);
 extern void selectWidget(const char *name, const char *group);
 extern Entity *spawnJumpgate(void);
 extern Entity *spawnItem(char *type);
@@ -55,6 +54,7 @@ extern char *getMusicFilename(int n);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 extern void addAllEntsToQuadtree(void);
+extern char **toTypeArray(char *types, int *numTypes);
 
 extern Battle battle;
 extern Entity *player;

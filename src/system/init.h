@@ -70,6 +70,7 @@ extern void createSaveFolder(void);
 extern void setLanguage(char *applicationName, char *languageCode);
 extern char *getLookupName(char *prefix, long num);
 extern long lookup(char *name);
+extern void initStars(void);
 
 extern App app;
 extern Colors colors;

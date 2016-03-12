@@ -46,6 +46,12 @@
 	],
 	"script" : [
 		{
+			"function" : "TIME 0",
+			"lines" : [
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
 			"function" : "TIME 3",
 			"lines" : [
 				"MSG_BOX Wingmate #2;So, Iliad has fallen?",

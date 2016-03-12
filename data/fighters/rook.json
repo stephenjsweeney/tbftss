@@ -9,6 +9,11 @@
 	"guns" : [
 		{
 			"type" : "BT_PLASMA",
+			"x" : 0,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
 			"x" : -9,
 			"y" : 0
 		},

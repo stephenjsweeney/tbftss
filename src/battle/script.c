@@ -28,10 +28,24 @@ static ScriptRunner *tail;
 
 void initScript(cJSON *scriptNode)
 {
+	cJSON *function;
+	
 	memset(&head, 0, sizeof(ScriptRunner));
 	tail = &head;
 
 	scriptJSON = scriptNode;
+	
+	if (scriptJSON)
+	{
+		function = scriptJSON->child;
+
+		while (function)
+		{
+			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Found script function: '%s'", cJSON_GetObjectItem(function, "function")->valuestring);
+			
+			function = function->next;
+		}
+	}
 }
 
 void doScript(void)
@@ -110,11 +124,65 @@ void runScriptFunction(const char *format, ...)
 	}
 }
 
+void runScriptTimeFunctions(void)
+{
+	ScriptRunner *scriptRunner;
+	cJSON *function;
+	char *functionName;
+	char funcNameBuffer[MAX_NAME_LENGTH];
+	int intParam;
+	
+	if (scriptJSON)
+	{
+		function = scriptJSON->child;
+		
+		sprintf(funcNameBuffer, "TIME %d", battle.stats[STAT_TIME] / 60);
+		
+		while (function)
+		{
+			functionName = cJSON_GetObjectItem(function, "function")->valuestring;
+			
+			if (strcmp(functionName, funcNameBuffer) == 0)
+			{
+				scriptRunner = malloc(sizeof(ScriptRunner));
+				memset(scriptRunner, 0, sizeof(ScriptRunner));
+
+				scriptRunner->line = cJSON_GetObjectItem(function, "lines")->child;
+
+				tail->next = scriptRunner;
+				tail = scriptRunner;
+
+				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
+			}
+			
+			if (strstr(functionName, "INTERVAL"))
+			{
+				sscanf(functionName, "%*s %d", &intParam);
+				
+				if ((battle.stats[STAT_TIME] / 60) % intParam == 0)
+				{
+					scriptRunner = malloc(sizeof(ScriptRunner));
+					memset(scriptRunner, 0, sizeof(ScriptRunner));
+
+					scriptRunner->line = cJSON_GetObjectItem(function, "lines")->child;
+
+					tail->next = scriptRunner;
+					tail = scriptRunner;
+
+					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
+				}
+			}
+			
+			function = function->next;
+		}
+	}
+}
+
 static void executeNextLine(ScriptRunner *runner)
 {
 	char *line;
 	char command[24];
-	char strParam[2][256];
+	char strParam[3][256];
 	int intParam[2];
 
 	line = runner->line->valuestring;
@@ -143,7 +211,12 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "ACTIVATE_JUMPGATE") == 0)
 	{
-		battle.jumpgate->systemPower = MAX_SYSTEM_POWER;
+		sscanf(line, "%*s %d", &intParam[0]);
+		activateJumpgate(intParam[0]);
+	}
+	else if (strcmp(command, "ACTIVATE_NEXT_WAYPOINT") == 0)
+	{
+		activateNextWaypoint(0);
 	}
 	else if (strcmp(command, "MSG_BOX") == 0)
 	{
@@ -183,6 +256,11 @@ static void executeNextLine(ScriptRunner *runner)
 		battle.isEpic = 0;
 		retreatEnemies();
 	}
+	else if (strcmp(command, "SPAWN_FIGHTERS") == 0)
+	{
+		sscanf(line, "%*s %s %s %d %s", strParam[0], strParam[1], &intParam[0], strParam[2]);
+		spawnScriptFighter(strParam[0], strParam[1], intParam[0], strParam[2]);
+	}
 	else
 	{
 		printf("ERROR: Unrecognised script command '%s'\n", command);
@@ -196,6 +274,13 @@ static void executeNextLine(ScriptRunner *runner)
 void destroyScript(void)
 {
 	ScriptRunner *scriptRunner;
+	
+	if (scriptJSON)
+	{
+		cJSON_Delete(scriptJSON);
+		
+		scriptJSON = NULL;
+	}
 
 	while (head.next)
 	{

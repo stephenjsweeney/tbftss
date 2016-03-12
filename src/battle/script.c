@@ -213,6 +213,10 @@ static void executeNextLine(ScriptRunner *runner)
 	{
 		battle.jumpgate->systemPower = MAX_SYSTEM_POWER;
 	}
+	else if (strcmp(command, "ACTIVATE_NEXT_WAYPOINT") == 0)
+	{
+		activateNextWaypoint(0);
+	}
 	else if (strcmp(command, "MSG_BOX") == 0)
 	{
 		sscanf(line, "%*s %255[^;]%*c%255[^\n]", strParam[0], strParam[1]);
@@ -273,6 +277,8 @@ void destroyScript(void)
 	if (scriptJSON)
 	{
 		cJSON_Delete(scriptJSON);
+		
+		scriptJSON = NULL;
 	}
 
 	while (head.next)

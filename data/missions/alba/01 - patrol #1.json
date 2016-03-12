@@ -8,7 +8,7 @@
 	"manualComplete" : 1,
 	"objectives" : [
 		{
-			"description" : "Check all wayponts",
+			"description" : "Check all waypoints",
 			"targetName" : "Waypoint",
 			"targetValue" : 5,
 			"targetType" : "TT_WAYPOINT"
@@ -42,6 +42,12 @@
 		}
 	],
 	"script" : [
+		{
+			"function" : "TIME 0",
+			"lines" : [
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		}
 		{
 			"function" : "Waypoint #2",
 			"lines" : [

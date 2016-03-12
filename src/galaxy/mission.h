@@ -35,7 +35,6 @@ extern void stopMusic(void);
 extern void initPlayer(void);
 extern long flagsToLong(char *flags, int *add);
 extern Entity *spawnWaypoint(void);
-extern void activateNextWaypoint(void);
 extern void selectWidget(const char *name, const char *group);
 extern Entity *spawnJumpgate(void);
 extern Entity *spawnItem(char *type);

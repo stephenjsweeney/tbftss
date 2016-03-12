@@ -216,8 +216,6 @@ void loadMission(char *filename)
 		battle.status = MS_IN_PROGRESS;
 	}
 
-	activateNextWaypoint();
-
 	countNumEnemies();
 
 	initPlayer();

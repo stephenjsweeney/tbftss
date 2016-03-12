@@ -41,7 +41,7 @@ void initScript(cJSON *scriptNode)
 
 		while (function)
 		{
-			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Script Function: '%s'", cJSON_GetObjectItem(function, "function")->valuestring);
+			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Found script function: '%s'", cJSON_GetObjectItem(function, "function")->valuestring);
 			
 			function = function->next;
 		}

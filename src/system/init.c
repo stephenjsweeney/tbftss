@@ -338,10 +338,10 @@ void cleanup(void)
 	destroyWidgets();
 
 	destroyResources();
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Done");
 
 	TTF_Quit();
 
 	SDL_Quit();
-
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Done");
 }

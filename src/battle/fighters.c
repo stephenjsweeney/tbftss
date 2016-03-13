@@ -321,9 +321,12 @@ void doFighter(void)
 			{
 				if (self->side != SIDE_ALLIES)
 				{
-					battle.stats[STAT_ENEMIES_KILLED]++;
+					if (!(self->flags & EF_NO_KILL_INC))
+					{
+						battle.stats[STAT_ENEMIES_KILLED]++;
 
-					runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
+						runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
+					}
 				}
 				else
 				{

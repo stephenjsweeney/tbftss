@@ -65,7 +65,7 @@ void doAI(void)
 	
 	if ((self->aiFlags & AIF_GOAL_JUMPGATE) && nearJumpgate())
 	{
-		/* near jumpgate point, but you might decide to continue to fight, anyway */
+		/* near jumpgate, but you might decide to continue to fight, anyway */
 		if ((self->aiFlags & AIF_COVERS_RETREAT) && rand() % 3)
 		{
 			return;

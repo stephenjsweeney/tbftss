@@ -40,7 +40,6 @@ extern void loadCapitalShipDefs(void);
 extern void loadItemDefs(void);
 extern void initFonts(void);
 extern void initBulletDefs(void);
-extern void initBattle(void);
 extern void initGame(void);
 extern void initStats(void);
 extern void initStarSystems(void);

@@ -109,7 +109,7 @@ static int challengeFinished(void)
 	}
 	
 	/* disabled enemies count as killed during challenges - not player exclusive, but no need to worry about AI contributions here */
-	if (game.currentMission->challengeData.killLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.killLimit)
+	if (game.currentMission->challengeData.killLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_CAPITAL_SHIPS_DESTROYED] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.killLimit)
 	{
 		return 1;
 	}

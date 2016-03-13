@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-12 15:00:11+0000\n"
+"POT-Creation-Date: 2016-03-13 10:54:24+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -1214,5 +1214,32 @@ msgid "Nice working with you, Wiley."
 msgstr ""
 
 msgid "Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ...."
+msgstr ""
+
+msgid "Destroy all Darts"
+msgstr ""
+
+msgid "Destroy all Lynxes"
+msgstr ""
+
+msgid "Disable all targets"
+msgstr ""
+
+msgid "60 second battle"
+msgstr ""
+
+msgid "Pass all Waypoints"
+msgstr ""
+
+msgid "Defend Jumpgate"
+msgstr ""
+
+msgid "Collect Packages"
+msgstr ""
+
+msgid "Rescue Civilians"
+msgstr ""
+
+msgid "Destroy INF Klondike and INF Canfield"
 msgstr ""
 

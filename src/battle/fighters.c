@@ -676,10 +676,10 @@ static void loadFighterDef(char *filename)
 		STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
 		e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
-		e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
+		e->shield = e->maxShield = getJSONValue(root, "shield", 0);
 		e->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;
-		e->reloadTime = cJSON_GetObjectItem(root, "reloadTime")->valueint;
-		e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
+		e->reloadTime = getJSONValue(root, "reloadTime", 0);
+		e->shieldRechargeRate = getJSONValue(root, "shieldRechargeRate", 0);
 		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
 
 		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);

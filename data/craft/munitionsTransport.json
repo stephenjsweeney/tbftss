@@ -4,7 +4,6 @@
 	"shield" : 50,
 	"speed" : 1.5,
 	"reloadTime" : 10,
-	"shieldRechargeRate" : 0,
 	"texture" : "gfx/craft/munitionsTransport.png",
 	"flags" : "EF_TAKES_DAMAGE",
 	"aiFlags" : "AIF_AVOIDS_COMBAT"

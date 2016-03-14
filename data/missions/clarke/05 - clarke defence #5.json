@@ -1,0 +1,26 @@
+{
+	"name" : "Clarke Defence #5",
+	"description" : "",
+	"requires" : 28,
+	"background" : "gfx/backgrounds/background06.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/heroism.ogg",
+	"unwinnable" : 1,
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemy forces",
+			"targetName" : "Enemy",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"player" : {
+		"type" : "Lynx",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 45
+	}
+}

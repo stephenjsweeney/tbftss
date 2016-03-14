@@ -588,6 +588,7 @@ static void loadEntities(cJSON *node)
 			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			name = NULL;
 			groupName = NULL;
+			flags = -1;
 
 			name = getJSONValueStr(node, "name", NULL);
 			groupName = getJSONValueStr(node, "groupName", NULL);

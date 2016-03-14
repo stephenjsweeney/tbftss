@@ -297,13 +297,15 @@ static void die(void)
 
 	self->alive = ALIVE_DEAD;
 
-	addDebris(self->x, self->y, 50);
+	addLargeExplosion();
+	
+	addDebris(self->x, self->y, 12);
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->owner == self)
 		{
-			e->health = 0;
+			e->alive = ALIVE_DEAD;
 		}
 	}
 

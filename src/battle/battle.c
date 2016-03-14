@@ -141,8 +141,6 @@ static void doBattle(void)
 	doStars(ssx, ssy);
 
 	doBullets();
-	
-	doSpawners();
 
 	doEntities();
 
@@ -154,6 +152,8 @@ static void doBattle(void)
 
 	if (player != NULL)
 	{
+		doSpawners();
+		
 		doLocations();
 
 		doMessageBox();

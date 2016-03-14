@@ -47,6 +47,7 @@ void initBattle(void)
 	battle.effectTail = &battle.effectHead;
 	battle.objectiveTail = &battle.objectiveHead;
 	battle.locationTail = &battle.locationHead;
+	battle.spawnerTail = &battle.spawnerHead;
 
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
@@ -140,6 +141,8 @@ static void doBattle(void)
 	doStars(ssx, ssy);
 
 	doBullets();
+	
+	doSpawners();
 
 	doEntities();
 
@@ -383,6 +386,7 @@ void destroyBattle(void)
 	Effect *e;
 	Objective *o;
 	Location *l;
+	Spawner *s;
 
 	while (battle.entityHead.next)
 	{
@@ -431,6 +435,14 @@ void destroyBattle(void)
 		free(l);
 	}
 	battle.locationTail = &battle.locationHead;
+	
+	while (battle.spawnerHead.next)
+	{
+		s = battle.spawnerHead.next;
+		battle.spawnerHead.next = s->next;
+		free(s);
+	}
+	battle.spawnerTail = &battle.spawnerHead;
 
 	cJSON_Delete(battle.missionJSON);
 

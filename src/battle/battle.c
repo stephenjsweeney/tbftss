@@ -164,7 +164,7 @@ static void doBattle(void)
 			
 			if (battle.stats[STAT_TIME]++ % FPS == 0)
 			{
-				runScriptTimeFunctions();
+				runScriptFunction("TIME %d", battle.stats[STAT_TIME]);
 			}
 		}
 	}

@@ -124,60 +124,6 @@ void runScriptFunction(const char *format, ...)
 	}
 }
 
-void runScriptTimeFunctions(void)
-{
-	ScriptRunner *scriptRunner;
-	cJSON *function;
-	char *functionName;
-	char funcNameBuffer[MAX_NAME_LENGTH];
-	int intParam;
-	
-	if (scriptJSON)
-	{
-		function = scriptJSON->child;
-		
-		sprintf(funcNameBuffer, "TIME %d", battle.stats[STAT_TIME] / 60);
-		
-		while (function)
-		{
-			functionName = cJSON_GetObjectItem(function, "function")->valuestring;
-			
-			if (strcmp(functionName, funcNameBuffer) == 0)
-			{
-				scriptRunner = malloc(sizeof(ScriptRunner));
-				memset(scriptRunner, 0, sizeof(ScriptRunner));
-
-				scriptRunner->line = cJSON_GetObjectItem(function, "lines")->child;
-
-				tail->next = scriptRunner;
-				tail = scriptRunner;
-
-				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
-			}
-			
-			if (strstr(functionName, "INTERVAL"))
-			{
-				sscanf(functionName, "%*s %d", &intParam);
-				
-				if ((battle.stats[STAT_TIME] / 60) % intParam == 0)
-				{
-					scriptRunner = malloc(sizeof(ScriptRunner));
-					memset(scriptRunner, 0, sizeof(ScriptRunner));
-
-					scriptRunner->line = cJSON_GetObjectItem(function, "lines")->child;
-
-					tail->next = scriptRunner;
-					tail = scriptRunner;
-
-					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
-				}
-			}
-			
-			function = function->next;
-		}
-	}
-}
-
 static void executeNextLine(ScriptRunner *runner)
 {
 	char *line;
@@ -255,11 +201,6 @@ static void executeNextLine(ScriptRunner *runner)
 	{
 		battle.isEpic = 0;
 		retreatEnemies();
-	}
-	else if (strcmp(command, "SPAWN_FIGHTERS") == 0)
-	{
-		sscanf(line, "%*s %s %s %d %s", strParam[0], strParam[1], &intParam[0], strParam[2]);
-		spawnScriptFighter(strParam[0], strParam[1], intParam[0], strParam[2]);
 	}
 	else
 	{

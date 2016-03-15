@@ -48,6 +48,7 @@ extern void updateObjective(char *name, int type);
 extern char **getFileList(char *dir, int *count);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char *getTranslatedString(char *string);
+extern void addLargeExplosion(void);
 
 extern Battle battle;
 extern Entity *self;

@@ -49,12 +49,16 @@
 			"y" : 25
 		}
 	],
-	"script" : [
+	"spawners" : [
 		{
-			"function" : "INTERVAL 30",
-			"lines" : [
-				"SPAWN_FIGHTERS Dart SIDE_PIRATE 1 OFFSCREEN"
-			]
+			"name" : "spawner",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"interval" : 30,
+			"limit" : 0,
+			"total" : 0,
+			"step" : 1,
+			"offscreen" : 1
 		}
 	]
 }

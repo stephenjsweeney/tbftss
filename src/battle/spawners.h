@@ -20,23 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#include "../json/cJSON.h"
-
-extern void completeMission(void);
-extern void failMission(void);
-extern void retreatEnemies(void);
-extern void retreatAllies(void);
-extern void addHudMessage(SDL_Color c, char *format, ...);
-extern void addMessageBox(char *title, char *format, ...);
-extern void activateEntities(char *name);
-extern void activateEntityGroups(char *groupName);
-extern void activateLocations(char *locations);
-void activateObjectives(char *objectives);
-extern int showingMessageBoxes(void);
-extern char *getTranslatedString(char *string);
-extern void activateNextWaypoint(int id);
-extern void activateJumpgate(int activate);
+extern Entity *spawnFighter(char *name, int x, int y, int side);
 
 extern Battle battle;
-extern Colors colors;
-extern Game game;
+extern Entity *player;

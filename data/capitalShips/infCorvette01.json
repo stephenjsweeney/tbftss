@@ -10,56 +10,56 @@
 			"texture" : "gfx/capitalShips/infCorvette01/component1.png",
 			"x" : -27,
 			"y" : 100,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/component2.png",
 			"x" : 27,
 			"y" : 100,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/component3.png",
 			"x" : 20,
 			"y" : -17,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/component3.png",
 			"x" : -20,
 			"y" : -17,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/component4.png",
 			"x" : -21,
 			"y" : -64,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/component5.png",
 			"x" : 21,
 			"y" : -64,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/component6.png",
 			"x" : -22,
 			"y" : -243,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/component6.png",
 			"x" : 22,
 			"y" : -243,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		}
 	],
 	"engines" : [
@@ -68,21 +68,21 @@
 			"texture" : "gfx/capitalShips/infCorvette01/engine1.png",
 			"x" : -50,
 			"y" : 285,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/engine1.png",
 			"x" : 50,
 			"y" : 285,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		},
 		{
 			"health" : 150,
 			"texture" : "gfx/capitalShips/infCorvette01/engine2.png",
 			"x" : 0,
 			"y" : 280,
-			"flags" : "EF_TAKES_DAMAGE+EF_STATIC"
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
 		}
 	],
 	"guns" : [
@@ -93,7 +93,7 @@
 			"y" : 170,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
 			"missiles" : 9999
 		},
@@ -104,7 +104,7 @@
 			"y" : -150,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
 			"missiles" : 9999
 		},
@@ -115,7 +115,7 @@
 			"y" : 50,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -125,7 +125,7 @@
 			"y" : 50,
 			"reloadTime" : 10,
 			"type" : "BT_PLASMA",
-			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -135,7 +135,7 @@
 			"y" : -60,
 			"reloadTime" : 40,
 			"type" : "BT_ROCKET",
-			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		},
 		{
@@ -145,7 +145,7 @@
 			"y" : -60,
 			"reloadTime" : 40,
 			"type" : "BT_ROCKET",
-			"flags" : "EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"flags" : "EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
 			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE"
 		}
 	]

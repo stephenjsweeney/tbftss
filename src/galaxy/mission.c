@@ -27,6 +27,7 @@ static void loadCapitalShips(cJSON *node);
 static void loadEntities(cJSON *node);
 static void loadItems(cJSON *node);
 static void loadLocations(cJSON *node);
+static void loadSpawners(cJSON *node);
 static unsigned long hashcode(const char *str);
 static void loadEpicData(cJSON *node);
 static char *getAutoBackground(char *filename);
@@ -160,6 +161,8 @@ void loadMission(char *filename)
 	loadItems(cJSON_GetObjectItem(root, "items"));
 
 	loadLocations(cJSON_GetObjectItem(root, "locations"));
+
+	loadSpawners(cJSON_GetObjectItem(root, "spawners"));
 
 	if (cJSON_GetObjectItem(root, "epic"))
 	{
@@ -585,13 +588,14 @@ static void loadEntities(cJSON *node)
 			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			name = NULL;
 			groupName = NULL;
+			flags = -1;
 
 			name = getJSONValueStr(node, "name", NULL);
 			groupName = getJSONValueStr(node, "groupName", NULL);
 			number = getJSONValue(node, "number", 1);
 			active = getJSONValue(node, "active", 1);
 			scatter = getJSONValue(node, "scatter", 1);
-			
+
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
@@ -624,7 +628,7 @@ static void loadEntities(cJSON *node)
 				{
 					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
 				}
-				
+
 				if (flags != -1)
 				{
 					if (addFlags)
@@ -757,14 +761,43 @@ static void loadLocations(cJSON *node)
 			STRNCPY(l->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 			l->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
 			l->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
-
 			l->size = cJSON_GetObjectItem(node, "size")->valueint;
-
-			active = getJSONValue(node, "active", 1);
+			l->active = active = getJSONValue(node, "active", 1);
 
 			l->x += (SCREEN_WIDTH / 2);
 			l->y += (SCREEN_HEIGHT / 2);
-			l->active = active;
+
+
+			node = node->next;
+		}
+	}
+}
+
+static void loadSpawners(cJSON *node)
+{
+	int active;
+	Spawner *s;
+
+	if (node)
+	{
+		node = node->child;
+
+		while (node)
+		{
+			s = malloc(sizeof(Spawner));
+			memset(s, 0, sizeof(Spawner));
+			battle.spawnerTail->next = s;
+			battle.spawnerTail = s;
+
+			STRNCPY(s->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+			s->types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &s->numTypes);
+			s->side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
+			s->interval = cJSON_GetObjectItem(node, "interval")->valueint * FPS;
+			s->limit = cJSON_GetObjectItem(node, "limit")->valueint;
+			s->total = cJSON_GetObjectItem(node, "total")->valueint;
+			s->step = cJSON_GetObjectItem(node, "step")->valueint;
+			s->offscreen = getJSONValue(node, "offscreen", 0);
+			s->active = active = getJSONValue(node, "active", 1);
 
 			node = node->next;
 		}

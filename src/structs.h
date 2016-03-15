@@ -26,6 +26,7 @@ typedef struct Entity Entity;
 typedef struct Bullet Bullet;
 typedef struct Debris Debris;
 typedef struct Effect Effect;
+typedef struct Spawner Spawner;
 typedef struct Objective Objective;
 typedef struct StarSystem StarSystem;
 typedef struct Challenge Challenge;
@@ -302,6 +303,21 @@ struct Quadtree {
 	Quadtree *node[4];
 };
 
+struct Spawner {
+	char name[MAX_NAME_LENGTH];
+	char **types;
+	int numTypes;
+	int side;
+	int time;
+	int interval;
+	int limit;
+	int total;
+	int step;
+	int offscreen;
+	int active;
+	Spawner *next;
+};
+
 typedef struct {
 	int entId;
 	SDL_Point camera;
@@ -331,6 +347,7 @@ typedef struct {
 	Effect effectHead, *effectTail;
 	Objective objectiveHead, *objectiveTail;
 	Location locationHead, *locationTail;
+	Spawner spawnerHead, *spawnerTail;
 	struct cJSON *missionJSON;
 	unsigned int stats[STAT_MAX];
 	Quadtree quadtree;

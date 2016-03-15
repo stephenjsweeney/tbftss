@@ -85,6 +85,8 @@ extern void updateAccuracyStats(unsigned int *stats);
 extern void clearInput(void);
 extern void runScriptTimeFunctions(void);
 extern void awardPostMissionTrophies(void);
+extern void runScriptFunction(const char *format, ...);
+extern void doSpawners(void);
 
 extern App app;
 extern Battle battle;

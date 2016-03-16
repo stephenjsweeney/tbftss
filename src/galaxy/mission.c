@@ -329,6 +329,7 @@ static void loadObjectives(cJSON *node)
 			battle.objectiveTail->next = o;
 			battle.objectiveTail = o;
 
+			STRNCPY(o->id, cJSON_GetObjectItem(node, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
 			STRNCPY(o->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
 			STRNCPY(o->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
 			o->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
@@ -793,8 +794,8 @@ static void loadSpawners(cJSON *node)
 			s->types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &s->numTypes);
 			s->side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
 			s->interval = cJSON_GetObjectItem(node, "interval")->valueint * FPS;
-			s->limit = cJSON_GetObjectItem(node, "limit")->valueint;
-			s->total = cJSON_GetObjectItem(node, "total")->valueint;
+			s->limit = getJSONValue(node, "limit", 0);
+			s->total = getJSONValue(node, "total", 0);
 			s->step = cJSON_GetObjectItem(node, "step")->valueint;
 			s->offscreen = getJSONValue(node, "offscreen", 0);
 			s->active = active = getJSONValue(node, "active", 1);

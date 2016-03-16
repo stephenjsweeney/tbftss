@@ -205,7 +205,7 @@ void activateObjectives(char *objectives)
 	{
 		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 		{
-			if (strcmp(token, o->description) == 0)
+			if (strcmp(token, o->id) == 0)
 			{
 				addHudMessage(colors.cyan, _("New Objective : %s"), o->description);
 				o->active = 1;

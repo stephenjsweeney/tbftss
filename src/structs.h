@@ -226,6 +226,7 @@ struct Location {
 
 struct Objective {
 	int active;
+	char id[MAX_DESCRIPTION_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
 	char targetName[MAX_NAME_LENGTH];
 	int targetType;

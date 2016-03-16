@@ -607,7 +607,7 @@ static void moveToPlayer(void)
 	{
 		if (fabs(player->dx) >= 1 && fabs(player->dy) >= 1)
 		{
-			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 100), player->y + (player->dy * 100));
+			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 1000), player->y + (player->dy * 1000));
 			
 			turnToFace(wantedAngle);
 			
@@ -805,7 +805,7 @@ static void moveToLeader(void)
 	{
 		if (fabs(self->leader->dx) >= 1 && fabs(self->leader->dy) >= 1)
 		{
-			wantedAngle = getAngle(self->leader->x, self->leader->y, self->leader->x + (self->leader->dx * 10), self->leader->y + (self->leader->dy * 10));
+			wantedAngle = getAngle(self->leader->x, self->leader->y, self->leader->x + (self->leader->dx * 1000), self->leader->y + (self->leader->dy * 1000));
 			
 			turnToFace(wantedAngle);
 			

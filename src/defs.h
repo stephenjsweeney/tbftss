@@ -199,7 +199,8 @@ enum
 {
 	DT_ANY,
 	DT_NO_SPIN,
-	DT_INSTANT
+	DT_INSTANT,
+	DT_SIMPLE
 };
 
 enum

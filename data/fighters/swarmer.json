@@ -11,5 +11,7 @@
 			"y" : 0
 		}
 	],
-	"flags" : "EF_TAKES_DAMAGE"
+	"deathType" : "DT_SIMPLE",
+	"flags" : "EF_TAKES_DAMAGE",
+	"aiFlags" : "AIF_UNLIMITED_RANGE"
 }

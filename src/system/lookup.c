@@ -82,6 +82,7 @@ void initLookups(void)
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);
 	addLookup("DT_INSTANT", DT_INSTANT);
+	addLookup("DT_SIMPLE", DT_SIMPLE);
 
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);

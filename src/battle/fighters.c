@@ -25,6 +25,7 @@ static void die(void);
 static void immediateDie(void);
 static void spinDie(void);
 static void straightDie(void);
+static void simpleDie(void);
 static void randomizeDart(Entity *dart);
 static void randomizeDartGuns(Entity *dart);
 static void loadFighterDef(char *filename);
@@ -495,6 +496,9 @@ static void die(void)
 		case DT_INSTANT:
 			n = 2;
 			break;
+		case DT_SIMPLE:
+			n = 3;
+			break;
 	}
 
 	if (self == player && battle.isEpic)
@@ -507,13 +511,14 @@ static void die(void)
 		case 0:
 			self->action = spinDie;
 			break;
-
 		case 1:
 			self->action = straightDie;
 			break;
-
 		case 2:
 			self->action = immediateDie;
+			break;
+		case 3:
+			self->action = simpleDie;
 			break;
 	}
 }
@@ -570,6 +575,13 @@ static void straightDie(void)
 		playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 		addDebris(self->x, self->y, 3 + rand() % 6);
 	}
+}
+
+static void simpleDie(void)
+{
+	self->alive = ALIVE_DEAD;
+	addSmallExplosion();
+	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 }
 
 void retreatEnemies(void)

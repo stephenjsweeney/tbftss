@@ -88,13 +88,16 @@ void updateObjective(char *name, int type)
 			{
 				o->currentValue++;
 				
-				if (o->targetValue - o->currentValue <= 10)
+				if (!o->hideNumbers)
 				{
-					addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
-				}
-				else if (o->currentValue % 10 == 0)
-				{
-					addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+					if (o->targetValue - o->currentValue <= 10)
+					{
+						addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+					}
+					else if (o->currentValue % 10 == 0)
+					{
+						addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+					}
 				}
 				
 				if (o->currentValue == o->targetValue)

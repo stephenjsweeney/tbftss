@@ -235,6 +235,7 @@ struct Objective {
 	int status;
 	int isCondition;
 	int isEliminateAll;
+	int hideNumbers;
 	Objective *next;
 };
 

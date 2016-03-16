@@ -31,13 +31,15 @@
 			"targetName" : "swarmers-1",
 			"targetValue" : 24,
 			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1,
 			"active" : 0
 		},
 		{
 			"description" : "Eliminate Swarmers",
 			"targetName" : "Swarmer",
-			"targetValue" : 50,
+			"targetValue" : 80,
 			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1,
 			"active" : 0
 		}
 	],
@@ -118,9 +120,9 @@
 			"name" : "SwarmerSpawner",
 			"types" : "Swarmer",
 			"side" : "SIDE_PANDORAN",
-			"interval" : 1,
-			"total" : 50,
-			"step" : 1,
+			"interval" : 2,
+			"total" : 80,
+			"step" : 3,
 			"offscreen" : 1,
 			"active" : 0
 		}

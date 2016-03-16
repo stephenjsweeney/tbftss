@@ -336,8 +336,9 @@ static void loadObjectives(cJSON *node)
 			o->targetType = lookup(cJSON_GetObjectItem(node, "targetType")->valuestring);
 			o->active = getJSONValue(node, "active", 1);
 			o->isCondition = getJSONValue(node, "isCondition", 0);
-
 			o->isEliminateAll = getJSONValue(node, "isEliminateAll", 0);
+			o->hideNumbers = getJSONValue(node, "hideNumbers", 0);
+
 			if (o->isEliminateAll)
 			{
 				o->targetValue = 1;

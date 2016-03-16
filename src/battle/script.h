@@ -36,6 +36,7 @@ extern int showingMessageBoxes(void);
 extern char *getTranslatedString(char *string);
 extern void activateNextWaypoint(int id);
 extern void activateJumpgate(int activate);
+extern void activateSpawner(char *name, int active);
 
 extern Battle battle;
 extern Colors colors;

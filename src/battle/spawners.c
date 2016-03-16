@@ -33,12 +33,14 @@ void doSpawners(void)
 		{
 			num = s->step;
 			
-			if (s->limit)
+			if (s->total != -1)
 			{
 				num = MIN(s->step, s->total);
 				
 				s->total -= num;
 			}
+			
+			battle.numInitialEnemies += num;
 			
 			for (i = 0 ; i < num ; i++)
 			{
@@ -65,5 +67,26 @@ void doSpawners(void)
 			
 			s->time = s->interval;
 		}
+	}
+}
+
+void activateSpawner(char *names, int active)
+{
+	Spawner *s;
+	char *name;
+
+	name = strtok(names, ";");
+
+	while (name)
+	{
+		for (s = battle.spawnerHead.next ; s != NULL ; s = s->next)
+		{
+			if (strcmp(s->name, name) == 0)
+			{
+				s->active = active;
+			}
+		}
+
+		name = strtok(NULL, ";");
 	}
 }

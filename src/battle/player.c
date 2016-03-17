@@ -591,3 +591,32 @@ int playerHasGun(int type)
 {
 	return availableGuns[type];
 }
+
+void loadPlayer(cJSON *node)
+{
+	char *type;
+	int side;
+
+	type = cJSON_GetObjectItem(node, "type")->valuestring;
+	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
+
+	player = spawnFighter(type, 0, 0, side);
+	player->x = BATTLE_AREA_WIDTH / 2;
+	player->y = BATTLE_AREA_HEIGHT / 2;
+
+	if (cJSON_GetObjectItem(node, "x"))
+	{
+		player->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+		player->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
+	}
+
+	if (strcmp(type, "Tug") == 0)
+	{
+		battle.stats[STAT_TUG]++;
+	}
+
+	if (strcmp(type, "Shuttle") == 0)
+	{
+		battle.stats[STAT_SHUTTLE]++;
+	}
+}

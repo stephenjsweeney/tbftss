@@ -20,7 +20,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+#include "../json/cJSON.h"
+
+extern long lookup(char *name);
 extern Entity *spawnFighter(char *name, int x, int y, int side);
+extern int getJSONValue(cJSON *node, char *name, int defValue);
+extern char **toTypeArray(char *types, int *numTypes);
 
 extern Battle battle;
 extern Entity *player;

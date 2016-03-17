@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
 
 #define MAX_SELECTABLE_PLAYERS	8
 #define MAX_SELECTABLE_TARGETS	8
@@ -39,6 +40,8 @@ extern char *getTranslatedString(char *string);
 extern void addECMEffect(Entity *ent);
 extern int isControl(int type);
 extern void clearControl(int type);
+extern long lookup(char *name);
+extern Entity *spawnFighter(char *name, int x, int y, int side);
 
 extern App app;
 extern Battle battle;

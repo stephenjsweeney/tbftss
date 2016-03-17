@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	long expireTextTimer;
 	SDL_Event event;
 	
-	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
+	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 	
 	memset(&app, 0, sizeof(App));
 	memset(&dev, 0, sizeof(Dev));

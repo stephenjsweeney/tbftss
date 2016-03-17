@@ -223,3 +223,38 @@ void activateObjectives(char *objectives)
 		token = strtok(NULL, ";");
 	}
 }
+
+void loadObjectives(cJSON *node)
+{
+	Objective *o;
+
+	if (node)
+	{
+		node = node->child;
+
+		while (node)
+		{
+			o = malloc(sizeof(Objective));
+			memset(o, 0, sizeof(Objective));
+			battle.objectiveTail->next = o;
+			battle.objectiveTail = o;
+
+			STRNCPY(o->id, cJSON_GetObjectItem(node, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
+			STRNCPY(o->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
+			STRNCPY(o->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
+			o->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
+			o->targetType = lookup(cJSON_GetObjectItem(node, "targetType")->valuestring);
+			o->active = getJSONValue(node, "active", 1);
+			o->isCondition = getJSONValue(node, "isCondition", 0);
+			o->isEliminateAll = getJSONValue(node, "isEliminateAll", 0);
+			o->hideNumbers = getJSONValue(node, "hideNumbers", 0);
+
+			if (o->isEliminateAll)
+			{
+				o->targetValue = 1;
+			}
+
+			node = node->next;
+		}
+	}
+}

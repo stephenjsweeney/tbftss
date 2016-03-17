@@ -90,3 +90,34 @@ void activateSpawner(char *names, int active)
 		name = strtok(NULL, ";");
 	}
 }
+
+void loadSpawners(cJSON *node)
+{
+	int active;
+	Spawner *s;
+
+	if (node)
+	{
+		node = node->child;
+
+		while (node)
+		{
+			s = malloc(sizeof(Spawner));
+			memset(s, 0, sizeof(Spawner));
+			battle.spawnerTail->next = s;
+			battle.spawnerTail = s;
+
+			STRNCPY(s->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+			s->types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &s->numTypes);
+			s->side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
+			s->interval = cJSON_GetObjectItem(node, "interval")->valueint * FPS;
+			s->limit = getJSONValue(node, "limit", 0);
+			s->total = getJSONValue(node, "total", 0);
+			s->step = cJSON_GetObjectItem(node, "step")->valueint;
+			s->offscreen = getJSONValue(node, "offscreen", 0);
+			s->active = active = getJSONValue(node, "active", 1);
+
+			node = node->next;
+		}
+	}
+}

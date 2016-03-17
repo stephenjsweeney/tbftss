@@ -751,6 +751,111 @@ static void loadFighterDef(char *filename)
 	free(text);
 }
 
+void loadFighters(cJSON *node)
+{
+	Entity *e;
+	char **types, *name, *groupName, *type;
+	int side, scatter, number, active;
+	int i, numTypes, addFlags, addAIFlags;
+	long flags, aiFlags;
+	float x, y;
+
+	if (node)
+	{
+		node = node->child;
+
+		while (node)
+		{
+			name = NULL;
+			groupName = NULL;
+			flags = -1;
+			aiFlags = -1;
+
+			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
+			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
+			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
+			name = getJSONValueStr(node, "name", NULL);
+			groupName = getJSONValueStr(node, "groupName", NULL);
+			number = getJSONValue(node, "number", 1);
+			scatter = getJSONValue(node, "scatter", 1);
+			active = getJSONValue(node, "active", 1);
+
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
+			}
+
+			if (cJSON_GetObjectItem(node, "aiFlags"))
+			{
+				aiFlags = flagsToLong(cJSON_GetObjectItem(node, "aiFlags")->valuestring, &addAIFlags);
+			}
+
+			for (i = 0 ; i < number ; i++)
+			{
+				type = types[rand() % numTypes];
+
+				e = spawnFighter(type, x, y, side);
+
+				if (scatter > 1)
+				{
+					e->x += (rand() % scatter) - (rand() % scatter);
+					e->y += (rand() % scatter) - (rand() % scatter);
+				}
+
+				e->active = active;
+
+				if (flags != -1)
+				{
+					if (addFlags)
+					{
+						e->flags |= flags;
+					}
+					else
+					{
+						e->flags = flags;
+
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
+					}
+				}
+
+				if (aiFlags != -1)
+				{
+					if (addAIFlags)
+					{
+						e->aiFlags |= aiFlags;
+					}
+					else
+					{
+						e->aiFlags = aiFlags;
+
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "AI Flags for '%s' (%s) replaced", e->name, e->defName);
+					}
+				}
+
+				if (name)
+				{
+					STRNCPY(e->name, name, MAX_NAME_LENGTH);
+				}
+
+				if (groupName)
+				{
+					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
+				}
+			}
+
+			node = node->next;
+
+			for (i = 0 ; i < numTypes ; i++)
+			{
+				free(types[i]);
+			}
+
+			free(types);
+		}
+	}
+}
+
 void destroyFighterDefs(void)
 {
 	Entity *e;

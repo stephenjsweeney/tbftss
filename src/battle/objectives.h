@@ -19,12 +19,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
 
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void runScriptFunction(char *format, ...);
 extern void completeMission(void);
 extern void failMission(void);
 extern char *getTranslatedString(char *string);
+extern int getJSONValue(cJSON *node, char *name, int defValue);
+extern long lookup(char *name);
 
 extern Battle battle;
 extern Colors colors;

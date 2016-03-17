@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-13 10:54:24+0000\n"
+"POT-Creation-Date: 2016-03-17 08:09:49+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -668,6 +668,54 @@ msgid "Negative."
 msgstr ""
 
 msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
+msgstr ""
+
+msgid "First squadron sighted. Moving to intercept."
+msgstr ""
+
+msgid "First squadron taken down, preparing to engage second."
+msgstr ""
+
+msgid "Second squadron down. Moving up the field to engage Alysha's Calling."
+msgstr ""
+
+msgid "Welch, we are tracking a large number of fast-moving heading your way. IDs don't match anything we currently have on record."
+msgstr ""
+
+msgid "Missiles?"
+msgstr ""
+
+msgid "Too large. We'll relay more information as we get it. Be prepared to engage."
+msgstr ""
+
+msgid "Whatever these things are, they're not hard to dispatch."
+msgstr ""
+
+msgid "No, but there's a lot of them ..."
+msgstr ""
+
+msgid "Welch, we're detecting more of the swarmer things heading your way."
+msgstr ""
+
+msgid "How many more?"
+msgstr ""
+
+msgid "Tracking around three dozen, and the numbers are rising."
+msgstr ""
+
+msgid "Thunderbird, this is Welch. Swarmers have been taken care of."
+msgstr ""
+
+msgid "Good to hear, Commander. We're pulling you out there, to assist the other squadrons."
+msgstr ""
+
+msgid "What about Alysha?"
+msgstr ""
+
+msgid "The target is no longer a priority. Clarke's frontline is collapsing. They need reinforcement, ASAP."
+msgstr ""
+
+msgid "Understood. Heading there now."
 msgstr ""
 
 msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."

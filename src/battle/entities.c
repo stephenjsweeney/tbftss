@@ -557,7 +557,10 @@ void addAllEntsToQuadtree(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		addToQuadtree(e, &battle.quadtree);
+		if (e->active)
+		{
+			addToQuadtree(e, &battle.quadtree);
+		}
 	}
 }
 

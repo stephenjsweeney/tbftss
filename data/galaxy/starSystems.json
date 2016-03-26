@@ -151,7 +151,8 @@
         "name": "Clarke",
         "side" : "SIDE_UNF",
         "x": 398,
-        "y": 84
+        "y": 84,
+        "fallsToPandorans" : 1
       },
       {
         "name": "Adetton",

@@ -164,7 +164,7 @@
 				"MSG_BOX Welch;No, but there's a lot of them ...",
 				"WAIT_MSG_BOX",
 				"ACTIVATE_OBJECTIVES Eliminate Swarmers",
-				"ACTIVATE_SPAWNERS  SwarmerSpawner",
+				"ACTIVATE_SPAWNERS SwarmerSpawner",
 				"MSG_BOX CSN Thunderbird;Welch, we're detecting more of the swarmer things heading your way.",
 				"MSG_BOX Welch;How many more?",
 				"MSG_BOX CSN Thunderbird;Tracking around three dozen, and the numbers are rising."

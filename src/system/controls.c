@@ -80,6 +80,11 @@ int isControl(int type)
 	return ((key != -1 && app.keyboard[key]) || (btn != -1 && app.mouse.button[btn]));
 }
 
+int isAcceptControl(void)
+{
+	return (app.keyboard[SDL_SCANCODE_SPACE] ||app.keyboard[SDL_SCANCODE_RETURN] || isControl(CONTROL_FIRE));
+}
+
 void clearControl(int type)
 {
 	int key = app.keyControls[type];
@@ -94,6 +99,13 @@ void clearControl(int type)
 	{
 		app.mouse.button[btn] = 0;
 	}
+}
+
+void resetAcceptControls(void)
+{
+	app.keyboard[SDL_SCANCODE_SPACE] = app.keyboard[SDL_SCANCODE_RETURN] = 0;
+	
+	clearControl(CONTROL_FIRE);
 }
 
 void updateControlKey(char *name)

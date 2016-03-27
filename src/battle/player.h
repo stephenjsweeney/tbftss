@@ -42,6 +42,8 @@ extern int isControl(int type);
 extern void clearControl(int type);
 extern long lookup(char *name);
 extern Entity *spawnFighter(char *name, int x, int y, int side);
+extern int isAcceptControl(void);
+extern void resetAcceptControls(void);
 
 extern App app;
 extern Battle battle;

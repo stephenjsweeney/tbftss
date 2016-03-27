@@ -362,27 +362,27 @@ void initPlayerSelect(void)
 
 void doPlayerSelect(void)
 {
-	if (app.keyboard[SDL_SCANCODE_A] || app.mouse.button[SDL_BUTTON_X1])
+	if (isControl(CONTROL_PREV_FIGHTER))
 	{
 		selectNewPlayer(-1);
 		
-		app.mouse.button[SDL_BUTTON_X1] = app.keyboard[SDL_SCANCODE_A] = 0;
+		clearControl(CONTROL_PREV_FIGHTER);
 	}
 	
-	if (app.keyboard[SDL_SCANCODE_D] || app.mouse.button[SDL_BUTTON_X2])
+	if (isControl(CONTROL_NEXT_FIGHTER))
 	{
 		selectNewPlayer(1);
 		
-		app.mouse.button[SDL_BUTTON_X2] = app.keyboard[SDL_SCANCODE_D] = 0;
+		clearControl(CONTROL_NEXT_FIGHTER);
 	}
 	
-	if (player->health > 0 && app.mouse.button[SDL_BUTTON_LEFT])
+	if (player->health > 0 && isAcceptControl())
 	{
 		battle.playerSelect = 0;
 		
 		initPlayer();
 		
-		app.mouse.button[SDL_BUTTON_LEFT] = 0;
+		resetAcceptControls();
 	}
 }
 

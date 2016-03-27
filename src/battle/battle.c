@@ -153,7 +153,7 @@ static void doBattle(void)
 	if (player != NULL)
 	{
 		doSpawners();
-		
+
 		doLocations();
 
 		doMessageBox();
@@ -440,7 +440,7 @@ void destroyBattle(void)
 		free(l);
 	}
 	battle.locationTail = &battle.locationHead;
-	
+
 	while (battle.spawnerHead.next)
 	{
 		s = battle.spawnerHead.next;

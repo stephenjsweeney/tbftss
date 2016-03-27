@@ -154,7 +154,7 @@ void loadMission(char *filename)
 	loadItems(cJSON_GetObjectItem(root, "items"));
 
 	loadLocations(cJSON_GetObjectItem(root, "locations"));
-	
+
 	loadSpawners(cJSON_GetObjectItem(root, "spawners"));
 
 	if (cJSON_GetObjectItem(root, "epic"))
@@ -334,7 +334,7 @@ static void loadEntities(cJSON *node)
 			number = getJSONValue(node, "number", 1);
 			active = getJSONValue(node, "active", 1);
 			scatter = getJSONValue(node, "scatter", 1);
-			
+
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
@@ -367,7 +367,7 @@ static void loadEntities(cJSON *node)
 				{
 					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
 				}
-				
+
 				if (flags != -1)
 				{
 					if (addFlags)

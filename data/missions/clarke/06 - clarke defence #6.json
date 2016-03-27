@@ -10,7 +10,7 @@
 		{
 			"description" : "Destroy all enemy targets",
 			"targetName" : "Pandoran",
-			"targetValue" : 200,
+			"targetValue" : 150,
 			"targetType" : "TT_DESTROY"
 		}
 	],
@@ -79,6 +79,7 @@
 			"side" : "SIDE_PANDORAN",
 			"interval" : 1,
 			"total" : -1,
+			"offscreen" : 1,
 			"step" : 1,
 			"active" : 0
 		}
@@ -88,7 +89,7 @@
 			"function" : "TIME 2",
 			"lines" : [
 				"MSG_BOX Wing Commander;The Twilight Lancers are on their way.",
-				"MSG_BOX Wingmate #62;Eight whole extra fighters? They outnumber and outgun us!",
+				"MSG_BOX Wingmate #62;Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!",
 				"MSG_BOX Wing Commander;At this point, any additional support is welcome. And we still have the support of Cleopatra and Artemis."
 			]
 		},
@@ -105,7 +106,7 @@
 			"lines" : [
 				"MSG_BOX Wing Commander;We're wearing them down. Keep up the pressure.",
 				"MSG_BOX Wingmate #31;Think they're pull back if we hit them hard enough?",
-				"MSG_BOX Wing Commander;Just concentrate on take down their fighters."
+				"MSG_BOX Wing Commander;Too early to speculate. Just concentrate on taking down their fighters."
 			]
 		},
 		{

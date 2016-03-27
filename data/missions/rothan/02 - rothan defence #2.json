@@ -1,13 +1,13 @@
 {
 	"name" : "Rothan Defence #2",
-	"description" : "",
+	"description" : "The Pandorans are preparing for a major push into Rothan, so we need to shore up defences as quickly as possible. Command have selected a number of positions that will give us a strategic advantage in the early stages of battle when the enemy arrives. The Blue Jesters are to link up with the Irregular Nomads near to one Rothan's inner jumpgates, and await further instructions.",
 	"requires" : 29,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/determination.mp3",
 	"objectives" : [
 		{
-			"description" : "Rendezvous with Irregular Nomads",
+			"description" : "Rendezvous with the Irregular Nomads",
 			"targetName" : "Waypoint",
 			"targetValue" : 1,
 			"targetType" : "TT_WAYPOINT"

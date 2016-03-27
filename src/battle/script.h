@@ -34,9 +34,9 @@ extern void activateLocations(char *locations);
 void activateObjectives(char *objectives);
 extern int showingMessageBoxes(void);
 extern char *getTranslatedString(char *string);
-extern void spawnScriptFighter(char *fighters, char *side, int num, char *location);
 extern void activateNextWaypoint(int id);
 extern void activateJumpgate(int activate);
+extern void activateSpawner(char *name, int active);
 
 extern Battle battle;
 extern Colors colors;

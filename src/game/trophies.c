@@ -246,7 +246,7 @@ void awardPostMissionTrophies(void)
 static void awardCraftTrophy(void)
 {
 	char trophyId[MAX_NAME_LENGTH];
-	int len;
+	int len, i;
 
 	memset(trophyId, '\0', MAX_NAME_LENGTH);
 

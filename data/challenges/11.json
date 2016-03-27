@@ -1,0 +1,49 @@
+{
+	"name" : "Destroy INF Klondike and INF Canfield",
+	"description" : "Destroy INF Klondike and INF Canfield",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"killLimit" : 2,
+		"timeLimit" : 90,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 50
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 90
+			},
+			{
+				"type" : "CHALLENGE_SHOT_ACCURACY",
+				"value" : 90
+			}
+		]
+	},
+	"capitalShips" : [
+		{
+			"name" : "INF Klondike",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 23,
+			"y" : 23
+		},
+		{
+			"name" : "INF Canfield",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 27,
+			"y" : 27
+		}
+	]
+}

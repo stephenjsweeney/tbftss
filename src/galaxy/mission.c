@@ -20,13 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "mission.h"
 
-static void loadObjectives(cJSON *node);
-static void loadPlayer(cJSON *node);
-static void loadFighters(cJSON *node);
-static void loadCapitalShips(cJSON *node);
 static void loadEntities(cJSON *node);
-static void loadItems(cJSON *node);
-static void loadLocations(cJSON *node);
 static unsigned long hashcode(const char *str);
 static void loadEpicData(cJSON *node);
 static char *getAutoBackground(char *filename);
@@ -160,6 +154,8 @@ void loadMission(char *filename)
 	loadItems(cJSON_GetObjectItem(root, "items"));
 
 	loadLocations(cJSON_GetObjectItem(root, "locations"));
+	
+	loadSpawners(cJSON_GetObjectItem(root, "spawners"));
 
 	if (cJSON_GetObjectItem(root, "epic"))
 	{
@@ -311,260 +307,6 @@ void failMission(void)
 	}
 }
 
-static void loadObjectives(cJSON *node)
-{
-	Objective *o;
-
-	if (node)
-	{
-		node = node->child;
-
-		while (node)
-		{
-			o = malloc(sizeof(Objective));
-			memset(o, 0, sizeof(Objective));
-			battle.objectiveTail->next = o;
-			battle.objectiveTail = o;
-
-			STRNCPY(o->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
-			STRNCPY(o->targetName, cJSON_GetObjectItem(node, "targetName")->valuestring, MAX_NAME_LENGTH);
-			o->targetValue = cJSON_GetObjectItem(node, "targetValue")->valueint;
-			o->targetType = lookup(cJSON_GetObjectItem(node, "targetType")->valuestring);
-			o->active = getJSONValue(node, "active", 1);
-			o->isCondition = getJSONValue(node, "isCondition", 0);
-
-			o->isEliminateAll = getJSONValue(node, "isEliminateAll", 0);
-			if (o->isEliminateAll)
-			{
-				o->targetValue = 1;
-			}
-
-			node = node->next;
-		}
-	}
-}
-
-static void loadPlayer(cJSON *node)
-{
-	char *type;
-	int side;
-
-	type = cJSON_GetObjectItem(node, "type")->valuestring;
-	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-
-	player = spawnFighter(type, 0, 0, side);
-	player->x = BATTLE_AREA_WIDTH / 2;
-	player->y = BATTLE_AREA_HEIGHT / 2;
-
-	if (cJSON_GetObjectItem(node, "x"))
-	{
-		player->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
-		player->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
-	}
-
-	if (strcmp(type, "Tug") == 0)
-	{
-		battle.stats[STAT_TUG]++;
-	}
-
-	if (strcmp(type, "Shuttle") == 0)
-	{
-		battle.stats[STAT_SHUTTLE]++;
-	}
-}
-
-static void loadFighters(cJSON *node)
-{
-	Entity *e;
-	char **types, *name, *groupName, *type;
-	int side, scatter, number, active;
-	int i, numTypes, addFlags, addAIFlags;
-	long flags, aiFlags;
-	float x, y;
-
-	if (node)
-	{
-		node = node->child;
-
-		while (node)
-		{
-			name = NULL;
-			groupName = NULL;
-			flags = -1;
-			aiFlags = -1;
-
-			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
-			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
-			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
-			name = getJSONValueStr(node, "name", NULL);
-			groupName = getJSONValueStr(node, "groupName", NULL);
-			number = getJSONValue(node, "number", 1);
-			scatter = getJSONValue(node, "scatter", 1);
-			active = getJSONValue(node, "active", 1);
-
-			if (cJSON_GetObjectItem(node, "flags"))
-			{
-				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
-			}
-
-			if (cJSON_GetObjectItem(node, "aiFlags"))
-			{
-				aiFlags = flagsToLong(cJSON_GetObjectItem(node, "aiFlags")->valuestring, &addAIFlags);
-			}
-
-			for (i = 0 ; i < number ; i++)
-			{
-				type = types[rand() % numTypes];
-
-				e = spawnFighter(type, x, y, side);
-
-				if (scatter > 1)
-				{
-					e->x += (rand() % scatter) - (rand() % scatter);
-					e->y += (rand() % scatter) - (rand() % scatter);
-				}
-
-				e->active = active;
-
-				if (flags != -1)
-				{
-					if (addFlags)
-					{
-						e->flags |= flags;
-					}
-					else
-					{
-						e->flags = flags;
-
-						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
-					}
-				}
-
-				if (aiFlags != -1)
-				{
-					if (addAIFlags)
-					{
-						e->aiFlags |= aiFlags;
-					}
-					else
-					{
-						e->aiFlags = aiFlags;
-
-						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "AI Flags for '%s' (%s) replaced", e->name, e->defName);
-					}
-				}
-
-				if (name)
-				{
-					STRNCPY(e->name, name, MAX_NAME_LENGTH);
-				}
-
-				if (groupName)
-				{
-					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
-				}
-			}
-
-			node = node->next;
-
-			for (i = 0 ; i < numTypes ; i++)
-			{
-				free(types[i]);
-			}
-
-			free(types);
-		}
-	}
-}
-
-static void loadCapitalShips(cJSON *node)
-{
-	Entity *e;
-	char **types, *name, *groupName, *type;
-	int side, scatter, number, active;
-	int i, numTypes, addFlags;
-	long flags;
-	float x, y;
-
-	if (node)
-	{
-		node = node->child;
-
-		while (node)
-		{
-			name = NULL;
-			groupName = NULL;
-			flags = -1;
-
-			types = toTypeArray(cJSON_GetObjectItem(node, "types")->valuestring, &numTypes);
-			side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
-			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
-			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
-			name = getJSONValueStr(node, "name", NULL);
-			groupName = getJSONValueStr(node, "groupName", NULL);
-			number = getJSONValue(node, "number", 1);
-			scatter = getJSONValue(node, "scatter", 1);
-			active = getJSONValue(node, "active", 1);
-
-			if (cJSON_GetObjectItem(node, "flags"))
-			{
-				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
-			}
-
-			for (i = 0 ; i < number ; i++)
-			{
-				type = types[rand() % numTypes];
-
-				e = spawnCapitalShip(type, x, y, side);
-
-				if (scatter > 1)
-				{
-					e->x += (rand() % scatter) - (rand() % scatter);
-					e->y += (rand() % scatter) - (rand() % scatter);
-				}
-
-				e->active = active;
-
-				if (name)
-				{
-					STRNCPY(e->name, name, MAX_NAME_LENGTH);
-				}
-
-				if (groupName)
-				{
-					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
-				}
-
-				if (flags != -1)
-				{
-					if (addFlags)
-					{
-						e->flags |= flags;
-					}
-					else
-					{
-						e->flags = flags;
-
-						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
-					}
-				}
-
-				updateCapitalShipComponentProperties(e);
-			}
-
-			node = node->next;
-
-			for (i = 0 ; i < numTypes ; i++)
-			{
-				free(types[i]);
-			}
-
-			free(types);
-		}
-	}
-}
-
 static void loadEntities(cJSON *node)
 {
 	Entity *e;
@@ -585,6 +327,7 @@ static void loadEntities(cJSON *node)
 			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 			name = NULL;
 			groupName = NULL;
+			flags = -1;
 
 			name = getJSONValueStr(node, "name", NULL);
 			groupName = getJSONValueStr(node, "groupName", NULL);
@@ -658,119 +401,6 @@ static void loadEntities(cJSON *node)
 	}
 }
 
-static void loadItems(cJSON *node)
-{
-	Entity *e;
-	char *name, *groupName, *type;
-	int i, scatter, number, active, addFlags;
-	long flags;
-	float x, y;
-
-	flags = -1;
-	scatter = 1;
-
-	if (node)
-	{
-		node = node->child;
-
-		while (node)
-		{
-			type = cJSON_GetObjectItem(node, "type")->valuestring;
-			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
-			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
-			name = NULL;
-			groupName = NULL;
-
-			name = getJSONValueStr(node, "name", NULL);
-			groupName = getJSONValueStr(node, "groupName", NULL);
-			number = getJSONValue(node, "number", 1);
-			scatter = getJSONValue(node, "scatter", 1);
-			active = getJSONValue(node, "active", 1);
-
-			if (cJSON_GetObjectItem(node, "flags"))
-			{
-				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
-			}
-
-			for (i = 0 ; i < number ; i++)
-			{
-				e = spawnItem(type);
-
-				if (name)
-				{
-					STRNCPY(e->name, name, MAX_NAME_LENGTH);
-				}
-
-				if (groupName)
-				{
-					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
-				}
-
-				if (flags != -1)
-				{
-					if (addFlags)
-					{
-						e->flags |= flags;
-					}
-					else
-					{
-						e->flags = flags;
-
-						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
-					}
-				}
-
-				e->x = x;
-				e->y = y;
-				e->active = active;
-
-				if (scatter > 1)
-				{
-					e->x += (rand() % scatter) - (rand() % scatter);
-					e->y += (rand() % scatter) - (rand() % scatter);
-				}
-
-				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
-			}
-
-			node = node->next;
-		}
-	}
-}
-
-static void loadLocations(cJSON *node)
-{
-	int active;
-	Location *l;
-
-	if (node)
-	{
-		node = node->child;
-
-		while (node)
-		{
-			l = malloc(sizeof(Location));
-			memset(l, 0, sizeof(Location));
-			battle.locationTail->next = l;
-			battle.locationTail = l;
-
-			STRNCPY(l->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
-			l->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
-			l->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
-
-			l->size = cJSON_GetObjectItem(node, "size")->valueint;
-
-			active = getJSONValue(node, "active", 1);
-
-			l->x += (SCREEN_WIDTH / 2);
-			l->y += (SCREEN_HEIGHT / 2);
-			l->active = active;
-
-			node = node->next;
-		}
-	}
-}
-
 static void loadEpicData(cJSON *node)
 {
 	Entity *e;
@@ -830,7 +460,7 @@ void updateAllMissions(void)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
-	return prev->completed && mission->requires <= game.completedMissions;
+	return (prev->completed && mission->requires <= game.completedMissions) || dev.debug;
 }
 
 static unsigned long hashcode(const char *str)

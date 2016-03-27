@@ -1,0 +1,194 @@
+{
+	"name" : "Clarke Defence #5",
+	"description" : "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive infact on ours. The frigate's support groups will need to be destroyed first.",
+	"requires" : 28,
+	"background" : "gfx/backgrounds/background06.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/heroism.ogg",
+	"objectives" : [
+		{
+			"description" : "Eliminate support group #1",
+			"targetName" : "group-1",
+			"targetValue" : 5,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate support group #2",
+			"targetName" : "group-2",
+			"targetValue" : 5,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy INF Alysha's Calling",
+			"targetName" : "Alysha's Calling",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy incoming threat",
+			"targetName" : "swarmers-1",
+			"targetValue" : 24,
+			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate Swarmers",
+			"targetName" : "Swarmer",
+			"targetValue" : 80,
+			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1,
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "Rook",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Jessica Welch",
+		"squadron" : "Twilight Lancers",
+		"x" : 5,
+		"y" : 5
+	},
+	"fighters" : [
+		{
+			"types" : "TAF;Ray;Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 5,
+			"number" : 7,
+			"scatter" : 600
+		},
+		{
+			"types" : "Hammerhead",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 5,
+			"number" : 5,
+			"scatter" : 600
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "group-1",
+			"types" : "Jackal;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x" : 12,
+			"y" : 12,
+			"number" : 5,
+			"scatter" : 600
+		},
+		{
+			"name" : "Pandoran",
+			"groupName" : "group-2",
+			"types" : "Jackal;Mantis",
+			"side" : "SIDE_PANDORAN",
+			"x" : 12,
+			"y" : -1,
+			"number" : 5,
+			"scatter" : 0,
+			"active" : 0
+		},
+		{
+			"name" : "Unknown",
+			"groupName" : "swarmers-1",
+			"types" : "Swarmer",
+			"side" : "SIDE_PANDORAN",
+			"x" : -1,
+			"y" : 12,
+			"number" : 8,
+			"scatter" : 0,
+			"active" : 0
+		},
+		{
+			"name" : "Unknown",
+			"groupName" : "swarmers-1",
+			"types" : "Swarmer",
+			"side" : "SIDE_PANDORAN",
+			"x" : -1,
+			"y" : 18,
+			"number" : 8,
+			"scatter" : 0,
+			"active" : 0
+		},
+		{
+			"name" : "Unknown",
+			"groupName" : "swarmers-1",
+			"types" : "Swarmer",
+			"side" : "SIDE_PANDORAN",
+			"x" : -1,
+			"y" : 24,
+			"number" : 8,
+			"scatter" : 0,
+			"active" : 0
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "SwarmerSpawner",
+			"types" : "Swarmer",
+			"side" : "SIDE_PANDORAN",
+			"interval" : 2,
+			"total" : 80,
+			"step" : 3,
+			"offscreen" : 1,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Welch;First squadron sighted. Moving to intercept."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 5",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_OBJECTIVES Eliminate support group #2",
+				"ACTIVATE_ENTITY_GROUPS group-2",
+				"MSG_BOX Welch;First squadron taken down, preparing to engage second."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 10",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Welch;Second squadron down. Moving up the field to engage Alysha's Calling.",
+				"ACTIVATE_OBJECTIVES Destroy INF Alysha's Calling",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_ENTITY_GROUPS swarmers-1",
+				"MSG_BOX CSN Thunderbird;Welch, we are tracking a large number of fast-moving heading your way. IDs don't match anything we currently have on record.",
+				"MSG_BOX Welch;Missiles?",
+				"MSG_BOX CSN Thunderbird;Too large. We'll relay more information as we get it. Be prepared to engage.",
+				"ACTIVATE_OBJECTIVES Destroy incoming threat"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 25",
+			"lines" : [
+				"MSG_BOX Wingmate;Whatever these things are, they're not hard to dispatch.",
+				"MSG_BOX Welch;No, but there's a lot of them ...",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Eliminate Swarmers",
+				"ACTIVATE_SPAWNERS SwarmerSpawner",
+				"MSG_BOX CSN Thunderbird;Welch, we're detecting more of the swarmer things heading your way.",
+				"MSG_BOX Welch;How many more?",
+				"MSG_BOX CSN Thunderbird;Tracking around three dozen, and the numbers are rising."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 4",
+			"lines" : [
+				"MSG_BOX Welch;Thunderbird, this is Welch. Swarmers have been taken care of.",
+				"MSG_BOX CSN Thunderbird;Good to hear, Commander. We're pulling you out there, to assist the other squadrons.",
+				"MSG_BOX Welch;What about Alysha?",
+				"MSG_BOX CSN Thunderbird;The target is no longer a priority. Clarke's frontline is collapsing. They need reinforcement, ASAP.",
+				"MSG_BOX Welch;Understood. Heading there now.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

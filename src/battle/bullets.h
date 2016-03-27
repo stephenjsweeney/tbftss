@@ -43,6 +43,7 @@ extern void drawText(int x, int y, int size, int align, SDL_Color c, const char 
 extern void playSound(int id);
 extern char *getTranslatedString(char *string);
 extern void *resize(void *array, int oldSize, int newSize);
+extern void awardTrophy(char *id);
 
 extern Battle battle;
 extern Colors colors;

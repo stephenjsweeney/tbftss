@@ -203,7 +203,7 @@ static void checkCollisions(Bullet *b)
 				}
 
 				/* assuming that health <= 0 will always mean killed */
-				if (e->health <= 0 && b->owner == player)
+				if (e->health <= 0 && b->owner == player && (!(e->flags & EF_NO_KILL_INC)))
 				{
 					battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
 					battle.stats[STAT_EPIC_KILL_STREAK]++;

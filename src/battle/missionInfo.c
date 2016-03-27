@@ -142,7 +142,7 @@ static void drawObjectives(void)
 			}
 			
 			drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
-			if (o->targetValue > 1 && !o->isCondition)
+			if (o->targetValue > 1 && !o->isCondition && !o->hideNumbers)
 			{
 				drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
 			}

@@ -47,7 +47,10 @@ extern void runScriptFunction(char *format, ...);
 extern void updateObjective(char *name, int type);
 extern char **getFileList(char *dir, int *count);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
+extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 extern char *getTranslatedString(char *string);
+extern void addLargeExplosion(void);
+extern char **toTypeArray(char *types, int *numTypes);
 
 extern Battle battle;
 extern Entity *self;

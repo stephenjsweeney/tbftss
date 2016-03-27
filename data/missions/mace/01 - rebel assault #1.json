@@ -1,7 +1,7 @@
 {
 	"name" : "Rebel Assault #1",
 	"description" : "",
-	"requires" : 28,
+	"requires" : 99,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/spirit.png",
 	"music" : "music/battle/InnerCore_Low.ogg",

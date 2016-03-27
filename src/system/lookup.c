@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static Lookup head;
 static Lookup *tail;
 
-static void addLookup(char *name, long value);
+static void addLookup(char *name, long value); 
 
 void initLookups(void)
 {
@@ -60,6 +60,7 @@ void initLookups(void)
 	addLookup("EF_SECONDARY_TARGET", EF_SECONDARY_TARGET);
 	addLookup("EF_AI_TARGET", EF_AI_TARGET);
 	addLookup("EF_AI_LEADER", EF_AI_LEADER);
+	addLookup("EF_NO_KILL_INC", EF_NO_KILL_INC);
 
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);
@@ -81,6 +82,7 @@ void initLookups(void)
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);
 	addLookup("DT_INSTANT", DT_INSTANT);
+	addLookup("DT_SIMPLE", DT_SIMPLE);
 
 	addLookup("TT_DESTROY", TT_DESTROY);
 	addLookup("TT_DISABLE", TT_DISABLE);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-12 15:00:11+0000\n"
+"POT-Creation-Date: 2016-03-27 11:09:14+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -625,6 +625,9 @@ msgstr ""
 msgid "Maybe not, if we continue to lose ground the way we are already ..."
 msgstr ""
 
+msgid "White Knights, Commodore Parks has identified three enemy corvettes are high level targets. He wants Dodds, Koonan and Todd to take them down, as quickly as possible. There won't be any additional fighter support, but three ATAFs should be more than enough to get the job done. de Winter and Taylor are currently on another assignment. Dodds will lead the attack."
+msgstr ""
+
 msgid "Targets sighted: three capital ships, five escorts apiece."
 msgstr ""
 
@@ -668,6 +671,129 @@ msgid "Negative."
 msgstr ""
 
 msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
+msgstr ""
+
+msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive infact on ours. The frigate's support groups will need to be destroyed first."
+msgstr ""
+
+msgid "First squadron sighted. Moving to intercept."
+msgstr ""
+
+msgid "First squadron taken down, preparing to engage second."
+msgstr ""
+
+msgid "Second squadron down. Moving up the field to engage Alysha's Calling."
+msgstr ""
+
+msgid "Welch, we are tracking a large number of fast-moving heading your way. IDs don't match anything we currently have on record."
+msgstr ""
+
+msgid "Missiles?"
+msgstr ""
+
+msgid "Too large. We'll relay more information as we get it. Be prepared to engage."
+msgstr ""
+
+msgid "Whatever these things are, they're not hard to dispatch."
+msgstr ""
+
+msgid "No, but there's a lot of them ..."
+msgstr ""
+
+msgid "Welch, we're detecting more of the swarmer things heading your way."
+msgstr ""
+
+msgid "How many more?"
+msgstr ""
+
+msgid "Tracking around three dozen, and the numbers are rising."
+msgstr ""
+
+msgid "Thunderbird, this is Welch. Swarmers have been taken care of."
+msgstr ""
+
+msgid "Good to hear, Commander. We're pulling you out there, to assist the other squadrons."
+msgstr ""
+
+msgid "What about Alysha?"
+msgstr ""
+
+msgid "The target is no longer a priority. Clarke's frontline is collapsing. They need reinforcement, ASAP."
+msgstr ""
+
+msgid "Understood. Heading there now."
+msgstr ""
+
+msgid "The enemy are beginning to overrun our frontline. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen."
+msgstr ""
+
+msgid "The Twilight Lancers are on their way."
+msgstr ""
+
+msgid "Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!"
+msgstr ""
+
+msgid "At this point, any additional support is welcome. And we still have the support of Cleopatra and Artemis."
+msgstr ""
+
+msgid "Welch here, engaging targets."
+msgstr ""
+
+msgid "Not a moment too soon, Commander."
+msgstr ""
+
+msgid "We're wearing them down. Keep up the pressure."
+msgstr ""
+
+msgid "Think they're pull back if we hit them hard enough?"
+msgstr ""
+
+msgid "Too early to speculate. Just concentrate on taking down their fighters."
+msgstr ""
+
+msgid "I've just been tailed by something I've never seen before! Small, highly maneuverable, rapid fire particle cannon."
+msgstr ""
+
+msgid "Swarmers! The enemy have deployed them here, too!"
+msgstr ""
+
+msgid "How many?"
+msgstr ""
+
+msgid "Tracking a dozen, but the numbers are growing rapidly"
+msgstr ""
+
+msgid "I've lost count how many of these damn swarmers I've taken down."
+msgstr ""
+
+msgid "It's like fighting a hydra! You cut off one head, and two more spring up!"
+msgstr ""
+
+msgid "There's too many of them!"
+msgstr ""
+
+msgid "Keep fighting, we can still win this!"
+msgstr ""
+
+msgid "They're everywhere! I--"
+msgstr ""
+
+msgid "This is UNF Cleopatra. We are engine crippled. Please provide cover support!"
+msgstr ""
+
+msgid "Mayday! Mayday! We are taking heavy damage! Please assist ASAP!"
+msgstr ""
+
+msgid "Artemis has lost her engines. We need to keep those Pandorans off her!"
+msgstr ""
+
+msgid "All fighters, we're taking a pounding here, we don't know how much longer we can survive this."
+msgstr ""
+
+msgid "People, we are down one capital ship! We need to step things up!"
+msgstr ""
+
+msgid "Both caps are down, all hands lost. Let's not let this go to waste."
 msgstr ""
 
 msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
@@ -931,6 +1057,9 @@ msgstr ""
 msgid "We're taking a lot of damage here. Please assist."
 msgstr ""
 
+msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
+msgstr ""
+
 msgid "White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate."
 msgstr ""
 
@@ -956,6 +1085,9 @@ msgid "Griffin, this is de Winter. Operation successful."
 msgstr ""
 
 msgid "I knew I could count on you, de Winter. Head back to Griffin."
+msgstr ""
+
+msgid "The Pandorans are preparing for a major push into Rothan, so we need to shore up defences as quickly as possible. Command have selected a number of positions that will give us a strategic advantage in the early stages of battle when the enemy arrives. The Blue Jesters are to link up with the Irregular Nomads near to one Rothan's inner jumpgates, and await further instructions."
 msgstr ""
 
 msgid "Control, we're in position. Awaiting the Irregular Nomads."
@@ -1214,5 +1346,32 @@ msgid "Nice working with you, Wiley."
 msgstr ""
 
 msgid "Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ...."
+msgstr ""
+
+msgid "Destroy all Darts"
+msgstr ""
+
+msgid "Destroy all Lynxes"
+msgstr ""
+
+msgid "Disable all targets"
+msgstr ""
+
+msgid "60 second battle"
+msgstr ""
+
+msgid "Pass all Waypoints"
+msgstr ""
+
+msgid "Defend Jumpgate"
+msgstr ""
+
+msgid "Collect Packages"
+msgstr ""
+
+msgid "Rescue Civilians"
+msgstr ""
+
+msgid "Destroy INF Klondike and INF Canfield"
 msgstr ""
 

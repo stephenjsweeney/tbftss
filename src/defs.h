@@ -96,6 +96,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_AI_TARGET		(2 << 13)
 #define EF_AI_LEADER		(2 << 14)
 #define EF_ROPED_ATTACHED	(2 << 15)
+#define EF_NO_KILL_INC		(2 << 16)
 
 #define AIF_NONE				0
 #define AIF_FOLLOWS_PLAYER		(2 << 0)
@@ -198,7 +199,8 @@ enum
 {
 	DT_ANY,
 	DT_NO_SPIN,
-	DT_INSTANT
+	DT_INSTANT,
+	DT_SIMPLE
 };
 
 enum

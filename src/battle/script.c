@@ -218,6 +218,11 @@ static void executeNextLine(ScriptRunner *runner)
 	{
 		activateNextWaypoint(0);
 	}
+	else if (strcmp(command, "ACTIVATE_SPAWNERS") == 0)
+	{
+		sscanf(line, "%*s %[^;] %d", strParam[0], &intParam[0]);
+		activateSpawner(strParam[0], intParam[0]);
+	}
 	else if (strcmp(command, "MSG_BOX") == 0)
 	{
 		sscanf(line, "%*s %255[^;]%*c%255[^\n]", strParam[0], strParam[1]);
@@ -255,11 +260,6 @@ static void executeNextLine(ScriptRunner *runner)
 	{
 		battle.isEpic = 0;
 		retreatEnemies();
-	}
-	else if (strcmp(command, "SPAWN_FIGHTERS") == 0)
-	{
-		sscanf(line, "%*s %s %s %d %s", strParam[0], strParam[1], &intParam[0], strParam[2]);
-		spawnScriptFighter(strParam[0], strParam[1], intParam[0], strParam[2]);
 	}
 	else
 	{

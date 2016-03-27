@@ -127,6 +127,86 @@ static void action(void)
 	}
 }
 
+void loadItems(cJSON *node)
+{
+	Entity *e;
+	char *name, *groupName, *type;
+	int i, scatter, number, active, addFlags;
+	long flags;
+	float x, y;
+
+	flags = -1;
+	scatter = 1;
+
+	if (node)
+	{
+		node = node->child;
+
+		while (node)
+		{
+			type = cJSON_GetObjectItem(node, "type")->valuestring;
+			x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+			y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
+			name = NULL;
+			groupName = NULL;
+
+			name = getJSONValueStr(node, "name", NULL);
+			groupName = getJSONValueStr(node, "groupName", NULL);
+			number = getJSONValue(node, "number", 1);
+			scatter = getJSONValue(node, "scatter", 1);
+			active = getJSONValue(node, "active", 1);
+
+			if (cJSON_GetObjectItem(node, "flags"))
+			{
+				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
+			}
+
+			for (i = 0 ; i < number ; i++)
+			{
+				e = spawnItem(type);
+
+				if (name)
+				{
+					STRNCPY(e->name, name, MAX_NAME_LENGTH);
+				}
+
+				if (groupName)
+				{
+					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
+				}
+
+				if (flags != -1)
+				{
+					if (addFlags)
+					{
+						e->flags |= flags;
+					}
+					else
+					{
+						e->flags = flags;
+
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
+					}
+				}
+
+				e->x = x;
+				e->y = y;
+				e->active = active;
+
+				if (scatter > 1)
+				{
+					e->x += (rand() % scatter) - (rand() % scatter);
+					e->y += (rand() % scatter) - (rand() % scatter);
+				}
+
+				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+			}
+
+			node = node->next;
+		}
+	}
+}
+
 void destroyItemDefs(void)
 {
 	Entity *e;

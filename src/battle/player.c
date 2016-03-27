@@ -362,27 +362,27 @@ void initPlayerSelect(void)
 
 void doPlayerSelect(void)
 {
-	if (app.keyboard[SDL_SCANCODE_A] || app.mouse.button[SDL_BUTTON_X1])
+	if (isControl(CONTROL_PREV_FIGHTER))
 	{
 		selectNewPlayer(-1);
 		
-		app.mouse.button[SDL_BUTTON_X1] = app.keyboard[SDL_SCANCODE_A] = 0;
+		clearControl(CONTROL_PREV_FIGHTER);
 	}
 	
-	if (app.keyboard[SDL_SCANCODE_D] || app.mouse.button[SDL_BUTTON_X2])
+	if (isControl(CONTROL_NEXT_FIGHTER))
 	{
 		selectNewPlayer(1);
 		
-		app.mouse.button[SDL_BUTTON_X2] = app.keyboard[SDL_SCANCODE_D] = 0;
+		clearControl(CONTROL_NEXT_FIGHTER);
 	}
 	
-	if (player->health > 0 && app.mouse.button[SDL_BUTTON_LEFT])
+	if (player->health > 0 && isAcceptControl())
 	{
 		battle.playerSelect = 0;
 		
 		initPlayer();
 		
-		app.mouse.button[SDL_BUTTON_LEFT] = 0;
+		resetAcceptControls();
 	}
 }
 
@@ -590,4 +590,33 @@ static void cycleRadarZoom(void)
 int playerHasGun(int type)
 {
 	return availableGuns[type];
+}
+
+void loadPlayer(cJSON *node)
+{
+	char *type;
+	int side;
+
+	type = cJSON_GetObjectItem(node, "type")->valuestring;
+	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
+
+	player = spawnFighter(type, 0, 0, side);
+	player->x = BATTLE_AREA_WIDTH / 2;
+	player->y = BATTLE_AREA_HEIGHT / 2;
+
+	if (cJSON_GetObjectItem(node, "x"))
+	{
+		player->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+		player->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
+	}
+
+	if (strcmp(type, "Tug") == 0)
+	{
+		battle.stats[STAT_TUG]++;
+	}
+
+	if (strcmp(type, "Shuttle") == 0)
+	{
+		battle.stats[STAT_SHUTTLE]++;
+	}
 }

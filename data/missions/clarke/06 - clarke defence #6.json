@@ -1,0 +1,175 @@
+{
+	"name" : "Clarke Defence #6",
+	"description" : "The enemy are beginning to overrun our frontline. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen.",
+	"requires" : 30,
+	"background" : "gfx/backgrounds/background06.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
+	"unwinnable" : 1,
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "Pandoran",
+			"targetValue" : 150,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"epic" : {
+		"fighterLimit" : 24
+	},
+	"player" : {
+		"type" : "Rook",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)"
+	},
+	"fighters" : [
+		{
+			"name" : "ALLIES",
+			"types" : "TAF;Ray;Kingfisher;Hammerhead;Firefly;Nymph;Lynx;Hyena-A;Hyena-B",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 200,
+			"scatter" : 10000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Mantis;Sphinx;Scarab;Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 18,
+			"number" : 150,
+			"scatter" : 10000,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"groupName" : "twilightLancers",
+			"types" : "TAF;Ray;Kingfisher;Hammerhead",
+			"side" : "SIDE_ALLIES",
+			"x" : -1,
+			"y" : -1,
+			"number" : 7,
+			"scatter" : 600,
+			"active" : 0
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "UNF Cleopatra",
+			"types" : "UNF Corvette 01",
+			"side" : "SIDE_ALLIES",
+			"x" : 22,
+			"y" : 22,
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET"
+		},
+		{
+			"name" : "UNF Artemis",
+			"types" : "UNF Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 28,
+			"y" : 28,
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET"
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "SwarmerSpawner",
+			"types" : "Swarmer",
+			"side" : "SIDE_PANDORAN",
+			"interval" : 1,
+			"total" : -1,
+			"offscreen" : 1,
+			"step" : 1,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Wing Commander;The Twilight Lancers are on their way.",
+				"MSG_BOX Wingmate #62;Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!",
+				"MSG_BOX Wing Commander;At this point, any additional support is welcome. And we still have the support of Cleopatra and Artemis."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 25",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS twilightLancers",
+				"MSG_BOX Welch;Welch here, engaging targets.",
+				"MSG_BOX Wing Commander;Not a moment too soon, Commander."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 50",
+			"lines" : [
+				"MSG_BOX Wing Commander;We're wearing them down. Keep up the pressure.",
+				"MSG_BOX Wingmate #31;Think they're pull back if we hit them hard enough?",
+				"MSG_BOX Wing Commander;Too early to speculate. Just concentrate on taking down their fighters."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 75",
+			"lines" : [
+				"MSG_BOX Wingmate #88;I've just been tailed by something I've never seen before! Small, highly maneuverable, rapid fire particle cannon.",
+				"MSG_BOX Welch;Swarmers! The enemy have deployed them here, too!",
+				"MSG_BOX Wing Commander;How many?",
+				"MSG_BOX Wingmate #82;Tracking a dozen, but the numbers are growing rapidly",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_SPAWNERS SwarmerSpawner"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 150",
+			"lines" : [
+				"MSG_BOX Wingmate #88;I've lost count how many of these damn swarmers I've taken down.",
+				"MSG_BOX Wingmate #120;It's like fighting a hydra! You cut off one head, and two more spring up!"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 195",
+			"lines" : [
+				"MSG_BOX Wingmate #181;There's too many of them!",
+				"MSG_BOX Wingmate #31;Keep fighting, we can still win this!",
+				"MSG_BOX Wingmate #111;They're everywhere! I--"
+			]
+		},
+		{
+			"function" : "CAP_ENGINES_DESTROYED UNF Cleopatra",
+			"lines" : [
+				"MSG_BOX UNF Cleopatra;This is UNF Cleopatra. We are engine crippled. Please provide cover support!"
+			]
+		},
+		{
+			"function" : "CAP_HEALTH UNF Cleopatra 3",
+			"lines" : [
+				"MSG_BOX UNF Cleopatra;Mayday! Mayday! We are taking heavy damage! Please assist ASAP!"
+			]
+		},
+		{
+			"function" : "CAP_ENGINES_DESTROYED UNF Artemis",
+			"lines" : [
+				"MSG_BOX Wing Commander;Artemis has lost her engines. We need to keep those Pandorans off her!"
+			]
+		},
+		{
+			"function" : "CAP_HEALTH UNF Artemis 3",
+			"lines" : [
+				"MSG_BOX UNF Artemis;All fighters, we're taking a pounding here, we don't know how much longer we can survive this."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 1",
+			"lines" : [
+				"MSG_BOX Wing Commander;People, we are down one capital ship! We need to step things up!"
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 2",
+			"lines" : [
+				"MSG_BOX Wing Commander;Both caps are down, all hands lost. Let's not let this go to waste."
+			]
+		}
+	]
+}

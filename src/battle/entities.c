@@ -63,6 +63,7 @@ void doEntities(void)
 {
 	int numAllies, numEnemies;
 	int numActiveAllies, numActiveEnemies;
+	int numSpawnedEnemies;
 	Entity *e, *prev;
 
 	prev = &battle.entityHead;
@@ -217,6 +218,11 @@ void doEntities(void)
 				if (e->health > 0 && e->active)
 				{
 					numActiveEnemies++;
+					
+					if (e->spawned)
+					{
+						numSpawnedEnemies++;
+					}
 				}
 			}
 		}
@@ -229,6 +235,8 @@ void doEntities(void)
 
 	if (battle.isEpic && battle.stats[STAT_TIME] % FPS == 0)
 	{
+		numActiveEnemies -= numSpawnedEnemies;
+		
 		if (numAllies > battle.epicFighterLimit)
 		{
 			activateEpicFighters(battle.epicFighterLimit - numActiveAllies, SIDE_ALLIES);
@@ -557,7 +565,10 @@ void addAllEntsToQuadtree(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		addToQuadtree(e, &battle.quadtree);
+		if (e->active)
+		{
+			addToQuadtree(e, &battle.quadtree);
+		}
 	}
 }
 

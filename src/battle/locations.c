@@ -74,3 +74,34 @@ void activateLocations(char *locations)
 		token = strtok(NULL, ";");
 	}
 }
+
+void loadLocations(cJSON *node)
+{
+	int active;
+	Location *l;
+
+	if (node)
+	{
+		node = node->child;
+
+		while (node)
+		{
+			l = malloc(sizeof(Location));
+			memset(l, 0, sizeof(Location));
+			battle.locationTail->next = l;
+			battle.locationTail = l;
+
+			STRNCPY(l->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+			l->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
+			l->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
+			l->size = cJSON_GetObjectItem(node, "size")->valueint;
+			l->active = active = getJSONValue(node, "active", 1);
+
+			l->x += (SCREEN_WIDTH / 2);
+			l->y += (SCREEN_HEIGHT / 2);
+			
+
+			node = node->next;
+		}
+	}
+}

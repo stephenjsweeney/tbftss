@@ -109,6 +109,10 @@ function extractJSON($filename)
 			}
 		}
 	}
+	else if (strpos($filename, "challenges") !== false)
+	{
+		addString($json->{"description"});
+	}
 }
 
 function recurseDir($dir)

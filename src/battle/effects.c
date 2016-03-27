@@ -492,7 +492,7 @@ void addShieldSplinterEffect(Entity *ent)
 		e->dx *= 0.1;
 		e->dy = rand() % 64 - rand() % 64;
 		e->dy *= 0.1;
-		e->a = 128;
+		e->a = 255;
 		
 		e->health = e->a;
 

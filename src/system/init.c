@@ -134,7 +134,8 @@ void initGameSystem(void)
 		initModalDialog,
 		initBackground,
 		initStars,
-		initControls
+		initControls,
+		initTrophies
 	};
 
 	numInitFuns = sizeof(initFuncs) / sizeof(void*);

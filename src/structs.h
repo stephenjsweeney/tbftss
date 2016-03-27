@@ -100,6 +100,7 @@ struct Entity {
 	char defName[MAX_NAME_LENGTH];
 	char groupName[MAX_NAME_LENGTH];
 	int active;
+	int spawned;
 	int id;
 	int side;
 	float x;

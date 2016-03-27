@@ -40,13 +40,18 @@ void doSpawners(void)
 				s->total -= num;
 			}
 			
-			battle.numInitialEnemies += num;
+			if (s->side != SIDE_ALLIES)
+			{
+				battle.numInitialEnemies += num;
+			}
 			
 			for (i = 0 ; i < num ; i++)
 			{
 				type = s->types[rand() % s->numTypes];
 				
 				e = spawnFighter(type, 0, 0, s->side);
+				
+				e->spawned = 1;
 				
 				if (s->offscreen)
 				{

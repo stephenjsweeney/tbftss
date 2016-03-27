@@ -460,7 +460,7 @@ void updateAllMissions(void)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
-	return prev->completed && mission->requires <= game.completedMissions;
+	return (prev->completed && mission->requires <= game.completedMissions) || dev.debug;
 }
 
 static unsigned long hashcode(const char *str)

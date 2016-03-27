@@ -59,5 +59,6 @@ extern void loadLocations(cJSON *node);
 extern void loadSpawners(cJSON *node);
 
 extern Battle battle;
+extern Dev dev;
 extern Entity *player;
 extern Game game;

@@ -24,6 +24,7 @@ static int steer(void);
 static void think(void);
 static void gunThink(void);
 static void gunDie(void);
+static void handleDisabled(void);
 static void componentDie(void);
 static void engineThink(void);
 static void engineDie(void);
@@ -80,6 +81,8 @@ void doCapitalShip(void)
 {
 	if (self->alive == ALIVE_ALIVE)
 	{
+		handleDisabled();
+		
 		if (self->health <= 0)
 		{
 			self->health = 0;
@@ -232,6 +235,8 @@ static int steer(void)
 
 static void gunThink(void)
 {
+	handleDisabled();
+	
 	doAI();
 }
 
@@ -260,6 +265,8 @@ static void gunDie(void)
 
 static void engineThink(void)
 {
+	handleDisabled();
+	
 	addLargeEngineEffect();
 }
 
@@ -312,6 +319,18 @@ static void die(void)
 	updateObjective(self->name, TT_DESTROY);
 
 	updateObjective(self->groupName, TT_DESTROY);
+}
+
+static void handleDisabled(void)
+{
+	if (self->systemPower <= 0 || (self->flags & EF_DISABLED))
+	{
+		self->dx *= 0.99;
+		self->dy *= 0.99;
+		self->thrust = 0;
+		self->shield = self->maxShield = 0;
+		self->action = NULL;
+	}
 }
 
 void loadCapitalShipDefs(void)
@@ -536,7 +555,7 @@ static void loadEngines(Entity *parent, cJSON *engines)
 	}
 }
 
-void updateCapitalShipComponentProperties(Entity *parent)
+void updateCapitalShipComponentProperties(Entity *parent, long flags, int addFlags)
 {
 	Entity *e;
 
@@ -560,6 +579,20 @@ void updateCapitalShipComponentProperties(Entity *parent)
 			}
 
 			e->active = parent->active;
+			
+			if (flags != -1)
+			{
+				if (addFlags)
+				{
+					e->flags |= flags;
+				}
+				else
+				{
+					e->flags = flags;
+
+					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
+				}
+			}
 		}
 	}
 }
@@ -636,7 +669,7 @@ void loadCapitalShips(cJSON *node)
 					}
 				}
 
-				updateCapitalShipComponentProperties(e);
+				updateCapitalShipComponentProperties(e, flags, addFlags);
 			}
 
 			node = node->next;

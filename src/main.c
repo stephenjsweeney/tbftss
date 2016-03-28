@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	long expireTextTimer;
 	SDL_Event event;
 	
-	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
+	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
 	
 	memset(&app, 0, sizeof(App));
 	memset(&dev, 0, sizeof(Dev));
@@ -172,6 +172,11 @@ static void handleArguments(int argc, char *argv[])
 				createScreenshotFolder();
 				
 				SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG);
+			}
+			
+			if (strcmp(argv[i], "-info") == 0)
+			{
+				SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 			}
 		}
 	}

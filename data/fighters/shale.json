@@ -1,0 +1,28 @@
+{
+	"name" : "Shale",
+	"health" : 50,
+	"shield" : 50,
+	"speed" : 2,
+	"reloadTime" : 8,
+	"shieldRechargeRate" : 20,
+	"texture" : "gfx/fighters/shale.png",
+	"guns" : [
+		{
+			"type" : "BT_PARTICLE",
+			"x" : -12,
+			"y" : -2
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 0,
+			"y" : -2
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 12,
+			"y" : -2
+		}
+	],
+	"missiles" : 3,
+	"flags" : "EF_TAKES_DAMAGE"
+}

@@ -61,6 +61,7 @@ void initLookups(void)
 	addLookup("EF_AI_TARGET", EF_AI_TARGET);
 	addLookup("EF_AI_LEADER", EF_AI_LEADER);
 	addLookup("EF_NO_KILL_INC", EF_NO_KILL_INC);
+	addLookup("EF_NO_MT_BOX", EF_NO_MT_BOX);
 
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);

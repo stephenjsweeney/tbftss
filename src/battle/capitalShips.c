@@ -555,7 +555,6 @@ static void loadEngines(Entity *parent, cJSON *engines)
 	}
 }
 
-void updateCapitalShipComponentProperties(Entity *parent)
 void updateCapitalShipComponentProperties(Entity *parent, long flags, int addFlags)
 {
 	Entity *e;
@@ -670,7 +669,6 @@ void loadCapitalShips(cJSON *node)
 					}
 				}
 
-				updateCapitalShipComponentProperties(e);
 				updateCapitalShipComponentProperties(e, flags, addFlags);
 			}
 

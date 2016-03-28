@@ -54,9 +54,9 @@ void setLanguage(char *applicationName, char *languageCode)
 
 				if (c[0] != '\0')
 				{
-					strncat(language, "_", MAX_MESSAGE_LENGTH - strlen(language) - 1);
+					strncat(language, "_", MAX_DESCRIPTION_LENGTH - strlen(language) - 1);
 
-					strncat(language, c, MAX_MESSAGE_LENGTH - strlen(language) - 1);
+					strncat(language, c, MAX_DESCRIPTION_LENGTH - strlen(language) - 1);
 				}
 			}
 		#else

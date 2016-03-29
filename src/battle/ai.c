@@ -50,6 +50,7 @@ static void doGunAI(void);
 static void moveToLeader(void);
 static void wander(void);
 static void doWander(void);
+static int selectWeaponForTarget(Entity *e);
 
 void doAI(void)
 {
@@ -302,7 +303,7 @@ static void findTarget(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->active && (e->flags & EF_TAKES_DAMAGE) && (!(e->flags & EF_DISABLED)) && e->side != self->side && e->health > 0 && canAttack(e))
+		if (canAttack(e))
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			
@@ -317,7 +318,15 @@ static void findTarget(void)
 
 static int canAttack(Entity *e)
 {
-	self->selectedGunType = self->guns[0].type;
+	if (!e->active || e->side == self->side || e->health <= 0)
+	{
+		return 0;
+	}
+	
+	if (!(e->flags & EF_TAKES_DAMAGE))
+	{
+		return 0;
+	}
 	
 	if (!(e->flags & EF_AI_TARGET))
 	{
@@ -329,6 +338,13 @@ static int canAttack(Entity *e)
 			}
 		}
 	}
+	
+	return selectWeaponForTarget(e);
+}
+
+static int selectWeaponForTarget(Entity *e)
+{
+	self->selectedGunType = self->guns[0].type;
 	
 	if (e->flags & EF_MUST_DISABLE)
 	{
@@ -437,7 +453,7 @@ static void preAttack(void)
 		if (!(self->aiFlags & AIF_MISSILE_BOAT))
 		{
 			/* force weapon selection, otherwise we'll keep using lasers / mag */
-			canAttack(self->target);
+			selectWeaponForTarget(self->target);
 			
 			if (self->guns[0].type && (self->missiles == 0 || rand() % 50 > 0))
 			{

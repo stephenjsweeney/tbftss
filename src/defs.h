@@ -115,6 +115,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_EVADE				(2 << 13)
 #define AIF_WANDERS				(2 << 14)
 #define AIF_COVERS_RETREAT		(2 << 15)
+#define AIF_TARGET_FOCUS		(2 << 16)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)

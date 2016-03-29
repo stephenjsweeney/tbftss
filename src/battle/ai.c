@@ -332,11 +332,13 @@ static int canAttack(Entity *e)
 	{
 		if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
 		{
-			if (rand() % 5)
-			{
-				return 0;
-			}
+			return !(rand() % 5);
 		}
+	}
+	
+	if ((self->aiFlags & AIF_TARGET_FOCUS) && (!(e->flags & EF_AI_TARGET)))
+	{
+		return 0;
 	}
 	
 	return selectWeaponForTarget(e);
@@ -578,6 +580,11 @@ static int nearEnemies(void)
 	{
 		if ((e->flags & EF_TAKES_DAMAGE) && e->side != self->side && !(e->flags & EF_DISABLED))
 		{
+			if ((self->aiFlags & AIF_TARGET_FOCUS) && (e->flags & EF_AI_TARGET))
+			{
+				continue;
+			}
+			
 			if (getDistance(e->x, e->y, self->x, self->y) < 1000)
 			{
 				self->targetLocation.x += e->x;

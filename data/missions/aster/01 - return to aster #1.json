@@ -91,7 +91,7 @@
 			"x" : 10,
 			"y" : 51,
 			"number" : 8,
-			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
 			"scatter" : 500,
 			"active" : 0
 		}

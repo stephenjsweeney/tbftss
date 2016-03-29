@@ -26,7 +26,7 @@ void doObjectives(void)
 	int numHiddenObjectives;
 	Objective *o;
 	
-	battle.numObjectivesComplete = battle.numObjectivesTotal = 0;
+	battle.numObjectivesComplete = battle.numObjectivesTotal = battle.numConditions = 0;
 	objectiveFailed = 0;
 	numHiddenObjectives = 0;
 	
@@ -37,6 +37,10 @@ void doObjectives(void)
 			if (!o->isCondition)
 			{
 				battle.numObjectivesTotal++;
+			}
+			else
+			{
+				battle.numConditions++;
 			}
 		}
 		else

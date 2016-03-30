@@ -284,6 +284,36 @@ void addSmallExplosion(void)
 	}
 }
 
+void addMineExplosion(void)
+{
+	int i;
+	Effect *e;
+
+	for (i = 0 ; i < 16 ; i++)
+	{
+		e = malloc(sizeof(Effect));
+		memset(e, 0, sizeof(Effect));
+		battle.effectTail->next = e;
+		battle.effectTail = e;
+
+		e->type = EFFECT_TEXTURE;
+
+		e->x = self->x + rand() % 16 - rand() % 16;
+		e->y = self->y + rand() % 16 - rand() % 16;
+		e->texture = explosionTexture;
+		e->size = 32 + (rand() % 32);
+		e->r = 255;
+
+		setRandomFlameHue(e);
+
+		e->a = 32 + (rand() % 192);
+		e->health = e->a;
+
+		e->x -= e->size / 2;
+		e->y -= e->size / 2;
+	}
+}
+
 void addLargeExplosion(void)
 {
 	int i;

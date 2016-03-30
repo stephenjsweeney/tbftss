@@ -351,6 +351,10 @@ static void loadEntities(cJSON *node)
 					case ET_JUMPGATE:
 						e = spawnJumpgate();
 						break;
+						
+					case ET_MINE:
+						e = spawnMine();
+						break;
 
 					default:
 						printf("Error: Unhandled entity type: %s\n", cJSON_GetObjectItem(node, "type")->valuestring);

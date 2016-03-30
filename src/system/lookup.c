@@ -45,6 +45,7 @@ void initLookups(void)
 	addLookup("ET_WAYPOINT", ET_WAYPOINT);
 	addLookup("ET_JUMPGATE", ET_JUMPGATE);
 	addLookup("ET_CAPITAL_SHIP", ET_CAPITAL_SHIP);
+	addLookup("ET_MINE", ET_MINE);
 
 	addLookup("EF_NO_KILL", EF_NO_KILL);
 	addLookup("EF_DISABLED", EF_DISABLED);

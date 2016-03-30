@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "mine.h"
 
 static void think(void);
+static void die(void);
 static void lookForFighters(void);
 
 Entity *spawnMine(void)
@@ -31,6 +32,8 @@ Entity *spawnMine(void)
 	mine->health = mine->maxHealth = 1;
 	mine->texture = getTexture("gfx/entities/mine.png");
 	mine->action = think;
+	mine->die = die;
+	mine->flags = EF_TAKES_DAMAGE+EF_SHORT_RADAR_RANGE;
 
 	return mine;
 }
@@ -47,6 +50,13 @@ static void think(void)
 	lookForFighters();
 }
 
+static void die(void)
+{
+	addMineExplosion();
+	
+	self->alive = ALIVE_DEAD;
+}
+
 static void lookForFighters(void)
 {
 	Entity *e, **candidates;
@@ -59,8 +69,6 @@ static void lookForFighters(void)
 		if (e->health > 0 && e->type == ET_FIGHTER && getDistance(self->x, self->y, e->x, e->y) <= 128)
 		{
 			self->health = 0;
-			
-			addMineExplosion();
 		}
 	}
 }

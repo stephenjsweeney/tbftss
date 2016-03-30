@@ -34,6 +34,7 @@ void drawRadar(void)
 {
 	SDL_Rect r;
 	Entity *e;
+	int dist, inRange;
 	
 	blit(radarTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 1);
 	
@@ -43,45 +44,52 @@ void drawRadar(void)
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->active && getDistance(e->x, e->y, player->x, player->y) / radarRanges[battle.radarRange] < 70)
+		dist = getDistance(e->x, e->y, player->x, player->y);
+		
+		if (e->active)
 		{
-			r.x = SCREEN_WIDTH - 85;
-			r.y = SCREEN_HEIGHT - 85;
+			inRange = (!(e->flags & EF_SHORT_RADAR_RANGE)) ? (dist / radarRanges[battle.radarRange]) < 70 : dist < 500;
 			
-			r.x -= (player->x - e->x) / radarRanges[battle.radarRange];
-			r.y -= (player->y - e->y) / radarRanges[battle.radarRange];
-			
-			r.x--;
-			r.y--;
-			
-			switch (e->side)
+			if (inRange)
 			{
-				case SIDE_ALLIES:
-					SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
-					break;
-					
-				case SIDE_PIRATE:
-				case SIDE_PANDORAN:
-				case SIDE_REBEL:
-					SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
-					break;
-					
-				case SIDE_NONE:
+				r.x = SCREEN_WIDTH - 85;
+				r.y = SCREEN_HEIGHT - 85;
+				
+				r.x -= (player->x - e->x) / radarRanges[battle.radarRange];
+				r.y -= (player->y - e->y) / radarRanges[battle.radarRange];
+				
+				r.x--;
+				r.y--;
+				
+				switch (e->side)
+				{
+					case SIDE_ALLIES:
+						SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
+						break;
+						
+					case SIDE_PIRATE:
+					case SIDE_PANDORAN:
+					case SIDE_REBEL:
+						SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
+						break;
+						
+					case SIDE_NONE:
+						SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+						break;
+				}
+				
+				if (e == player->target)
+				{
+					SDL_SetRenderDrawColor(app.renderer, 255, 255, 0, 255);
+				}
+				
+				if (e == battle.missionTarget)
+				{
 					SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
-					break;
+				}
+				
+				SDL_RenderFillRect(app.renderer, &r);
 			}
-			
-			if (e == player->target)
-			{
-				SDL_SetRenderDrawColor(app.renderer, 255, 255, 0, 255);
-			}
-			
-			if (e == battle.missionTarget)
-			{
-				SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
-			}
-			
-			SDL_RenderFillRect(app.renderer, &r);
 		}
 	}
 }

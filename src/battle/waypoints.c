@@ -45,6 +45,8 @@ Entity *spawnWaypoint(void)
 	waypoint->action = think;
 	waypoint->flags |= EF_NO_MT_BOX;
 	
+	SDL_QueryTexture(waypoint->texture, NULL, NULL, &waypoint->w, &waypoint->h);
+	
 	return waypoint;
 }
 

@@ -53,7 +53,7 @@
 			"x" : 25,
 			"y" : 25,
 			"number" : 6,
-			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+			"aiFlags" : "AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE+AIF_DEFENSIVE"
 		},
 		{
 			"groupName" : "ShuttleTug",
@@ -62,7 +62,7 @@
 			"x" : 25,
 			"y" : 25,
 			"number" : 6,
-			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+			"aiFlags" : "AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE+AIF_DEFENSIVE"
 		},
 		{
 			"types" : "Thunderhead;Jackal;Sphinx",
@@ -72,6 +72,28 @@
 			"number" : 4,
 			"flags" : "+EF_AI_LEADER",
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 10,
+			"y" : 51,
+			"number" : 4,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "Khepri",
+			"side" : "SIDE_REBEL",
+			"x" : 10,
+			"y" : 51,
+			"number" : 8,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
+			"scatter" : 500,
+			"active" : 0
 		}
 	],
 	"capitalShips" : [
@@ -80,7 +102,7 @@
 			"types" : "CSN Corvette 01",
 			"side" : "SIDE_ALLIES",
 			"x" : 10,
-			"y" : 40,
+			"y" : 37,
 			"flags" : "+EF_AI_TARGET+EF_DISABLED+EF_MISSION_TARGET"
 		}
 	],
@@ -96,7 +118,7 @@
 			]
 		},
 		{
-			"function" : "ENEMIES_DESTROYED 16",
+			"function" : "ENEMIES_KILLED 16",
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Black;Florin, Pandoran vessels have been dealt with.",
@@ -108,11 +130,25 @@
 				"MSG_BOX CSN Florin;Negative. These appear to be non-aligned forces, fighters and bombers.",
 				"WAIT_MSG_BOX",
 				"WAIT 5",
-				"ACTIVATE_ENTITY_GROUP Rebels",
+				"ACTIVATE_ENTITY_GROUPS Rebels",
 				"MSG_BOX CSN Florin;Incoming forces are on intercept vectors. We only need a few more minutes.",
 				"MSG_BOX Black;On it.",
 				"WAIT_MSG_BOX",
 				"ACTIVATE_OBJECTIVES Defeat rebel forces"
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 2",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Black;Looks like that's all of them.",
+				"MSG_BOX CSN Florin;Those were Nation of Tzac fighters. We've heard reports of them being active in some Confederation systems.",
+				"MSG_BOX Black;Would appear that Crystabelle is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with.",
+				"MSG_BOX CSN Florin;It never rains ...",
+				"MSG_BOX CSN Florin;We're starting systems up again. Once we've completed pre-jump checks we're heading for Temper. Thank you for your assistance.",
+				"MSG_BOX Black;We'll meet you there.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
 			]
 		}
 	]

@@ -45,6 +45,7 @@ void initLookups(void)
 	addLookup("ET_WAYPOINT", ET_WAYPOINT);
 	addLookup("ET_JUMPGATE", ET_JUMPGATE);
 	addLookup("ET_CAPITAL_SHIP", ET_CAPITAL_SHIP);
+	addLookup("ET_MINE", ET_MINE);
 
 	addLookup("EF_NO_KILL", EF_NO_KILL);
 	addLookup("EF_DISABLED", EF_DISABLED);
@@ -79,6 +80,8 @@ void initLookups(void)
 	addLookup("AIF_MOVES_TO_LEADER", AIF_MOVES_TO_LEADER);
 	addLookup("AIF_WANDERS", AIF_WANDERS);
 	addLookup("AIF_COVERS_RETREAT", AIF_COVERS_RETREAT);
+	addLookup("AIF_TARGET_FOCUS", AIF_TARGET_FOCUS);
+	addLookup("AIF_DROPS_MINES", AIF_DROPS_MINES);
 
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);

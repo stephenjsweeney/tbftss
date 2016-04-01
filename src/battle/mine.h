@@ -18,11 +18,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include <sys/stat.h>
-#include <unistd.h>
-#include <errno.h>
+#include "../common.h"
 
-#include "../../common.h"
+#define TRIGGER_RANGE	150
+#define DAMAGE_RANGE	255
+#define SYSTEM_POWER	50
 
-extern App app;
-extern Dev dev;
+extern Entity *spawnEntity(void);
+extern SDL_Texture *getTexture(char *filename);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern int getDistance(int x1, int y1, int x2, int y2);
+extern void addMineExplosion(void);
+extern void damageFighter(Entity *e, int amount, long flags);
+extern void playBattleSound(int id, int x, int y);
+
+extern Battle battle;
+extern Entity *self;

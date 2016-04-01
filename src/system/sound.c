@@ -112,12 +112,14 @@ static void loadSounds(void)
 	sounds[SND_EXPLOSION_2] = loadSound("sound/207322__animationisaac__short-explosion.ogg");
 	sounds[SND_EXPLOSION_3] = loadSound("sound/254071__tb0y298__firework-explosion.ogg");
 	sounds[SND_EXPLOSION_4] = loadSound("sound/47252__nthompson__bad-explosion.ogg");
+	sounds[SND_EXPLOSION_5] = loadSound("sound/172870__escortmarius__carbidexplosion.ogg");
 	sounds[SND_JUMP] = loadSound("sound/276912__pauldihor__transform.ogg");
 	sounds[SND_ECM] = loadSound("sound/251431__onlytheghosts__fusion-gun-flash0-by-onlytheghosts.ogg");
 	sounds[SND_MAG_HIT] = loadSound("sound/172591__timbre__zapitydooda.ogg");
 	sounds[SND_POWER_DOWN] = loadSound("sound/39030__wildweasel__d1clsstf.ogg");
 	sounds[SND_SELECT_WEAPON] = loadSound("sound/329359__bassoonrckr__reed-guillotine.ogg");
 	sounds[SND_TROPHY] = loadSound("sound/278142__ricemaster__effect-notify.ogg");
+	sounds[SND_MINE_WARNING] = loadSound("sound/254174__kwahmah-02__s.ogg");
 
 	sounds[SND_GUI_CLICK] = loadSound("sound/257786__xtrgamr__mouse-click.ogg");
 	sounds[SND_GUI_SELECT] = loadSound("sound/321104__nsstudios__blip2.ogg");

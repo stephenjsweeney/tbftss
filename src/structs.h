@@ -338,7 +338,7 @@ typedef struct {
 	int ecmTimer;
 	int radarRange;
 	int numPlayerGuns;
-	int numObjectivesComplete, numObjectivesTotal;
+	int numObjectivesComplete, numObjectivesTotal, numConditions;
 	Entity *missionTarget;
 	Entity *jumpgate;
 	SDL_Texture *background, *planetTexture;

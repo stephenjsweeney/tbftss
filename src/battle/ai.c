@@ -37,6 +37,7 @@ static int nearJumpgate(void);
 static void moveToJumpgate(void);
 static int nearEnemies(void);
 static int nearItems(void);
+static int nearMines(void);
 static void moveToItem(void);
 static int nearTowableCraft(void);
 static void moveToTowableCraft(void);
@@ -50,15 +51,27 @@ static void doGunAI(void);
 static void moveToLeader(void);
 static void wander(void);
 static void doWander(void);
+static int selectWeaponForTarget(Entity *e);
+static void deployMine(void);
 
 void doAI(void)
 {
+	if (self->aiFlags & AIF_DROPS_MINES)
+	{
+		deployMine();
+	}
+	
 	if ((self->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE)) && nearEnemies())
 	{
 		return;
 	}
 	
 	if ((self->aiFlags & AIF_DEFENSIVE) && rand() % 10 && nearEnemies())
+	{
+		return;
+	}
+	
+	if (nearMines())
 	{
 		return;
 	}
@@ -302,7 +315,7 @@ static void findTarget(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->active && (e->flags & EF_TAKES_DAMAGE) && (!(e->flags & EF_DISABLED)) && e->side != self->side && e->health > 0 && canAttack(e))
+		if (canAttack(e))
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			
@@ -317,18 +330,35 @@ static void findTarget(void)
 
 static int canAttack(Entity *e)
 {
-	self->selectedGunType = self->guns[0].type;
+	if (!e->active || e->side == self->side || e->health <= 0)
+	{
+		return 0;
+	}
+	
+	if (!(e->flags & EF_TAKES_DAMAGE))
+	{
+		return 0;
+	}
 	
 	if (!(e->flags & EF_AI_TARGET))
 	{
 		if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
 		{
-			if (rand() % 5)
-			{
-				return 0;
-			}
+			return !(rand() % 5);
 		}
 	}
+	
+	if ((self->aiFlags & AIF_TARGET_FOCUS) && (!(e->flags & EF_AI_TARGET)))
+	{
+		return 0;
+	}
+	
+	return selectWeaponForTarget(e);
+}
+
+static int selectWeaponForTarget(Entity *e)
+{
+	self->selectedGunType = self->guns[0].type;
 	
 	if (e->flags & EF_MUST_DISABLE)
 	{
@@ -437,7 +467,7 @@ static void preAttack(void)
 		if (!(self->aiFlags & AIF_MISSILE_BOAT))
 		{
 			/* force weapon selection, otherwise we'll keep using lasers / mag */
-			canAttack(self->target);
+			selectWeaponForTarget(self->target);
 			
 			if (self->guns[0].type && (self->missiles == 0 || rand() % 50 > 0))
 			{
@@ -562,6 +592,11 @@ static int nearEnemies(void)
 	{
 		if ((e->flags & EF_TAKES_DAMAGE) && e->side != self->side && !(e->flags & EF_DISABLED))
 		{
+			if ((self->aiFlags & AIF_TARGET_FOCUS) && (e->flags & EF_AI_TARGET))
+			{
+				continue;
+			}
+			
 			if (getDistance(e->x, e->y, self->x, self->y) < 1000)
 			{
 				self->targetLocation.x += e->x;
@@ -575,6 +610,64 @@ static int nearEnemies(void)
 	{
 		self->targetLocation.x /= numEnemies;
 		self->targetLocation.y /= numEnemies;
+		
+		/* dodge slightly */
+		self->targetLocation.x += (rand() % 100 - rand() % 100);
+		self->targetLocation.y += (rand() % 100 - rand() % 100);
+		
+		self->action = fleeEnemies;
+		self->aiActionTime = FPS * 2;
+		
+		return 1;
+	}
+	
+	return 0;
+}
+
+static void deployMine(void)
+{
+	Entity *mine;
+	
+	if (!self->reload && self->thrust > 0)
+	{
+		mine = spawnMine();
+		mine->x = self->x;
+		mine->y = self->y;
+		mine->dx = rand() % 20 - rand() % 20;
+		mine->dx *= 0.1;
+		mine->dy = rand() % 20 - rand() % 20;
+		mine->dy *= 0.1;
+		mine->side = self->side;
+		
+		self->reload = rand() % (FPS * 3);
+	}
+}
+
+static int nearMines(void)
+{
+	int i, numMines;
+	Entity *e, **candidates;
+	
+	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	
+	self->targetLocation.x = self->targetLocation.y = 0;
+	
+	numMines = 0;
+	
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	{
+		if (e->side != self->side && e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) < 500)
+		{
+			self->targetLocation.x += e->x;
+			self->targetLocation.y += e->y;
+			numMines++;
+		}
+	}
+	
+	if (numMines)
+	{
+		self->targetLocation.x /= numMines;
+		self->targetLocation.y /= numMines;
 		
 		/* dodge slightly */
 		self->targetLocation.x += (rand() % 100 - rand() % 100);

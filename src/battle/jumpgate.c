@@ -41,6 +41,8 @@ Entity *spawnJumpgate(void)
 
 	portal = getTexture("gfx/entities/portal.png");
 	portalAngle = 0;
+	
+	SDL_QueryTexture(jumpgate->texture, NULL, NULL, &jumpgate->w, &jumpgate->h);
 
 	return jumpgate;
 }

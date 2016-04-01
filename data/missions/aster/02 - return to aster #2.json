@@ -1,0 +1,74 @@
+{
+	"name" : "Mine Sweeper",
+	"description" : "",
+	"requires" : 33,
+	"background" : "gfx/backgrounds/background04.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/track-3.mp3",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy forces",
+			"targetName" : "Enemy",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"player" : {
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "1st Lt. Cora Pope",
+		"squadron" : "Midnight Runners",
+		"x" : 25,
+		"y" : 45
+	},
+	"fighters" : [
+		{
+			"types" : "TAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 45,
+			"number" : 3,
+			"scatter" : 500
+		},
+		{
+			"types" : "Khepri",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 30,
+			"number" : 5,
+			"scatter" : 4000,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_DROPS_MINES+AIF_WANDERS"
+		},
+		{
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 35,
+			"number" : 3,
+			"scatter" : 2500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Pope;Watch out for those mines. They're on proximity triggers and have a large area of effect.",
+				"MSG_BOX Pope;Take them out from a distance, otherwise you'll be in trouble."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Pope;That's the bombers taken care of, but the area is still littered with mines.",
+				"MSG_BOX Pope;We'll need to get a team in here to take care of them.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

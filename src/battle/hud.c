@@ -409,7 +409,7 @@ static void drawObjectives(void)
 	if (!game.currentMission->challengeData.isChallenge)
 	{
 		blit(objectives, (SCREEN_WIDTH / 2) - 50, 14, 0);
-		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, battle.numObjectivesTotal);
+		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, (battle.numObjectivesTotal + battle.numConditions));
 	}
 	else
 	{

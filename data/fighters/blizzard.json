@@ -1,0 +1,33 @@
+{
+	"name" : "Blizzard",
+	"health" : 120,
+	"shield" : 70,
+	"speed" : 1.85,
+	"reloadTime" : 14,
+	"shieldRechargeRate" : 45,
+	"texture" : "gfx/fighters/blizzard.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -14,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : -14,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 8,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 8,
+			"y" : 0
+		}
+	],
+	"missiles" : 5,
+	"flags" : "EF_TAKES_DAMAGE"
+}

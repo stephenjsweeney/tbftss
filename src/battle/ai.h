@@ -38,6 +38,7 @@ extern void applyFighterBrakes(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern char *getTranslatedString(char *string);
+extern Entity *spawnMine(void);
 
 extern Battle battle;
 extern Colors colors;

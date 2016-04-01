@@ -98,7 +98,7 @@
 		{
 			"name" : "Tzac Commander",
 			"groupName" : "skirmishGroup",
-			"types" : "Firefly",
+			"types" : "Razor",
 			"side" : "SIDE_REBEL",
 			"x" : 15,
 			"y" : 40,
@@ -107,7 +107,7 @@
 		},
 		{
 			"groupName" : "skirmishGroup",
-			"types" : "Firefly;Nymph",
+			"types" : "Razor;Shale",
 			"side" : "SIDE_REBEL",
 			"number" : 8,
 			"x" : 15,

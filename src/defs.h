@@ -79,24 +79,26 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define BF_SHIELD_DAMAGE	(2 << 2)
 #define BF_EXPLODES			(2 << 3)
 
-#define EF_NONE				0
-#define EF_NO_KILL			(2 << 0)
-#define EF_DISABLED			(2 << 1)
-#define EF_IMMORTAL			(2 << 2)
-#define EF_MISSION_TARGET	(2 << 3)
-#define EF_NO_MT_BOX		(2 << 4)
-#define EF_HAS_ROPE			(2 << 5)
-#define EF_COLLECTS_ITEMS	(2 << 6)
-#define EF_MUST_DISABLE		(2 << 7)
-#define EF_RETREATING		(2 << 8)
-#define EF_NO_EPIC			(2 << 9)
-#define EF_STATIC			(2 << 10)
-#define EF_TAKES_DAMAGE		(2 << 11)
-#define EF_SECONDARY_TARGET	(2 << 12)
-#define EF_AI_TARGET		(2 << 13)
-#define EF_AI_LEADER		(2 << 14)
-#define EF_ROPED_ATTACHED	(2 << 15)
-#define EF_NO_KILL_INC		(2 << 16)
+#define EF_NONE					0
+#define EF_NO_KILL				(2 << 0)
+#define EF_DISABLED				(2 << 1)
+#define EF_IMMORTAL				(2 << 2)
+#define EF_MISSION_TARGET		(2 << 3)
+#define EF_NO_MT_BOX			(2 << 4)
+#define EF_HAS_ROPE				(2 << 5)
+#define EF_COLLECTS_ITEMS		(2 << 6)
+#define EF_MUST_DISABLE			(2 << 7)
+#define EF_RETREATING			(2 << 8)
+#define EF_NO_EPIC				(2 << 9)
+#define EF_STATIC				(2 << 10)
+#define EF_TAKES_DAMAGE			(2 << 11)
+#define EF_SECONDARY_TARGET		(2 << 12)
+#define EF_AI_TARGET			(2 << 13)
+#define EF_AI_LEADER			(2 << 14)
+#define EF_ROPED_ATTACHED		(2 << 15)
+#define EF_NO_KILL_INC			(2 << 16)
+#define EF_SHORT_RADAR_RANGE	(2 << 17)
+#define EF_NO_TARGET			(2 << 18)
 
 #define AIF_NONE				0
 #define AIF_FOLLOWS_PLAYER		(2 << 0)
@@ -115,6 +117,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_EVADE				(2 << 13)
 #define AIF_WANDERS				(2 << 14)
 #define AIF_COVERS_RETREAT		(2 << 15)
+#define AIF_TARGET_FOCUS		(2 << 16)
+#define AIF_DROPS_MINES			(2 << 17)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)
@@ -150,6 +154,7 @@ enum
 	ET_ITEM,
 	ET_WAYPOINT,
 	ET_JUMPGATE,
+	ET_MINE,
 	ET_CAPITAL_SHIP_GUN,
 	ET_CAPITAL_SHIP_COMPONENT,
 	ET_CAPITAL_SHIP_ENGINE,
@@ -225,6 +230,7 @@ enum
 	SND_EXPLOSION_2,
 	SND_EXPLOSION_3,
 	SND_EXPLOSION_4,
+	SND_EXPLOSION_5,
 	SND_GET_ITEM,
 	SND_MISSILE,
 	SND_INCOMING,
@@ -236,6 +242,7 @@ enum
 	SND_BOOST,
 	SND_RADIO,
 	SND_TROPHY,
+	SND_MINE_WARNING,
 	SND_GUI_CLICK,
 	SND_GUI_SELECT,
 	SND_GUI_CLOSE,

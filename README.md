@@ -52,6 +52,8 @@ CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J 
 * 172591__timbre__zapitydooda.ogg - d1clsstf.wav, by wildweasel - https://freesound.org/people/wildweasel/sounds/39030/
 * 39030__wildweasel__d1clsstf.ogg - push_button_switch_07.wav, by joedeshon - https://freesound.org/people/joedeshon/sounds/139061/
 * 278142__ricemaster__effect-notify.ogg - effect_notify.wav, by ricemaster - https://freesound.org/people/ricemaster/sounds/278142/
+* 254174__kwahmah-02__s.ogg - s.wav, by kwahmah_02 - https://freesound.org/people/kwahmah_02/sounds/254174/
+* 172870__escortmarius__carbidexplosion.ogg - carbidexplosion.wav, by escortmarius - https://freesound.org/people/escortmarius/sounds/172870/
 
 ### MUSIC
 

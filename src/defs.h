@@ -98,6 +98,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_ROPED_ATTACHED		(2 << 15)
 #define EF_NO_KILL_INC			(2 << 16)
 #define EF_SHORT_RADAR_RANGE	(2 << 17)
+#define EF_NO_TARGET			(2 << 18)
 
 #define AIF_NONE				0
 #define AIF_FOLLOWS_PLAYER		(2 << 0)
@@ -228,6 +229,7 @@ enum
 	SND_EXPLOSION_2,
 	SND_EXPLOSION_3,
 	SND_EXPLOSION_4,
+	SND_EXPLOSION_5,
 	SND_GET_ITEM,
 	SND_MISSILE,
 	SND_INCOMING,
@@ -238,6 +240,7 @@ enum
 	SND_POWER_DOWN,
 	SND_BOOST,
 	SND_RADIO,
+	SND_MINE_WARNING,
 	SND_GUI_CLICK,
 	SND_GUI_SELECT,
 	SND_GUI_CLOSE,

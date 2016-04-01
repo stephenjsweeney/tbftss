@@ -312,6 +312,26 @@ void addMineExplosion(void)
 		e->x -= e->size / 2;
 		e->y -= e->size / 2;
 	}
+
+	e = malloc(sizeof(Effect));
+
+	memset(e, 0, sizeof(Effect));
+	battle.effectTail->next = e;
+	battle.effectTail = e;
+
+	e->type = EFFECT_HALO;
+	e->x = self->x;
+	e->y = self->y;
+	e->size = 32;
+	e->scaleAmount = 2;
+	e->texture = haloTexture;
+
+	e->r = 255;
+	e->g = 255;
+	e->b = 255;
+	e->a = 128;
+
+	e->health = 128;
 }
 
 void addLargeExplosion(void)

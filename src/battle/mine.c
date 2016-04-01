@@ -25,23 +25,28 @@ static void die(void);
 static void lookForFighters(void);
 static void doSplashDamage(void);
 
-static SDL_Texture *mineWarning;
-static SDL_Texture *mineNormal;
+static SDL_Texture *mineWarning = NULL;
+static SDL_Texture *mineNormal = NULL;
 
 Entity *spawnMine(void)
 {
 	Entity *mine = spawnEntity();
+	
+	if (!mineNormal || !mineWarning)
+	{
+		mineNormal = getTexture("gfx/entities/mine.png");
+		mineWarning = getTexture("gfx/entities/mineWarning.png");
+	}
 
 	mine->type = ET_MINE;
 	mine->health = mine->maxHealth = 1;
 	mine->systemPower = SYSTEM_POWER;
-	mine->texture = getTexture("gfx/entities/mine.png");
+	mine->texture = mineNormal;
 	mine->action = think;
 	mine->die = die;
-	mine->flags = EF_TAKES_DAMAGE+EF_SHORT_RADAR_RANGE+EF_NO_TARGET;
+	mine->flags = EF_TAKES_DAMAGE+EF_NO_TARGET;
 	
-	mineNormal = getTexture("gfx/entities/mine.png");
-	mineWarning = getTexture("gfx/entities/mineWarning.png");
+	SDL_QueryTexture(mine->texture, NULL, NULL, &mine->w, &mine->h);
 
 	return mine;
 }
@@ -59,7 +64,7 @@ static void think(void)
 	
 	lookForFighters();
 	
-	if (self->systemPower < SYSTEM_POWER && SDL_GetTicks() % 150 < 75)
+	if (self->systemPower < SYSTEM_POWER && battle.stats[STAT_TIME] % 8 < 4)
 	{
 		playBattleSound(SND_MINE_WARNING, self->x, self->y);
 		
@@ -76,7 +81,7 @@ static void lookForFighters(void)
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->health > 0 && e->type == ET_FIGHTER && getDistance(self->x, self->y, e->x, e->y) <= TRIGGER_RANGE)
+		if (e->side != self->side && e->health > 0 && e->type == ET_FIGHTER && getDistance(self->x, self->y, e->x, e->y) <= TRIGGER_RANGE)
 		{
 			self->systemPower--;
 		

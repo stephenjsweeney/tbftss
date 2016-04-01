@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define TRIGGER_RANGE	150
 #define DAMAGE_RANGE	255
-#define SYSTEM_POWER	75
+#define SYSTEM_POWER	50
 
 extern Entity *spawnEntity(void);
 extern SDL_Texture *getTexture(char *filename);
@@ -32,4 +32,5 @@ extern void addMineExplosion(void);
 extern void damageFighter(Entity *e, int amount, long flags);
 extern void playBattleSound(int id, int x, int y);
 
+extern Battle battle;
 extern Entity *self;

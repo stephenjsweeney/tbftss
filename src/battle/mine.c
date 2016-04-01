@@ -114,7 +114,7 @@ static void doSplashDamage(void)
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->health > 0 && e->type == ET_FIGHTER)
+		if (e->health > 0 && e->type == ET_FIGHTER && !(e->flags & EF_IMMORTAL))
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			

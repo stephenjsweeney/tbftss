@@ -37,6 +37,7 @@ static int nearJumpgate(void);
 static void moveToJumpgate(void);
 static int nearEnemies(void);
 static int nearItems(void);
+static int nearMines(void);
 static void moveToItem(void);
 static int nearTowableCraft(void);
 static void moveToTowableCraft(void);
@@ -60,6 +61,11 @@ void doAI(void)
 	}
 	
 	if ((self->aiFlags & AIF_DEFENSIVE) && rand() % 10 && nearEnemies())
+	{
+		return;
+	}
+	
+	if (nearMines())
 	{
 		return;
 	}
@@ -598,6 +604,45 @@ static int nearEnemies(void)
 	{
 		self->targetLocation.x /= numEnemies;
 		self->targetLocation.y /= numEnemies;
+		
+		/* dodge slightly */
+		self->targetLocation.x += (rand() % 100 - rand() % 100);
+		self->targetLocation.y += (rand() % 100 - rand() % 100);
+		
+		self->action = fleeEnemies;
+		self->aiActionTime = FPS * 2;
+		
+		return 1;
+	}
+	
+	return 0;
+}
+
+static int nearMines(void)
+{
+	int i, numMines;
+	Entity *e, **candidates;
+	
+	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	
+	self->targetLocation.x = self->targetLocation.y = 0;
+	
+	numMines = 0;
+	
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	{
+		if (e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) < 500)
+		{
+			self->targetLocation.x += e->x;
+			self->targetLocation.y += e->y;
+			numMines++;
+		}
+	}
+	
+	if (numMines)
+	{
+		self->targetLocation.x /= numMines;
+		self->targetLocation.y /= numMines;
 		
 		/* dodge slightly */
 		self->targetLocation.x += (rand() % 100 - rand() % 100);

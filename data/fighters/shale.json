@@ -3,7 +3,7 @@
 	"health" : 50,
 	"shield" : 50,
 	"speed" : 2,
-	"reloadTime" : 8,
+	"reloadTime" : 18,
 	"shieldRechargeRate" : 20,
 	"texture" : "gfx/fighters/shale.png",
 	"guns" : [

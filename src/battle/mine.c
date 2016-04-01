@@ -40,6 +40,7 @@ Entity *spawnMine(void)
 
 	mine->type = ET_MINE;
 	mine->health = mine->maxHealth = 1;
+	mine->speed = 1;
 	mine->systemPower = SYSTEM_POWER;
 	mine->texture = mineNormal;
 	mine->action = think;
@@ -61,6 +62,9 @@ static void think(void)
 	{
 		self->angle -= 360;
 	}
+	
+	self->dx *= 0.99;
+	self->dy *= 0.99;
 	
 	lookForFighters();
 	
@@ -119,7 +123,7 @@ static void doSplashDamage(void)
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->health > 0 && e->type == ET_FIGHTER && !(e->flags & EF_IMMORTAL))
+		if (e->health > 0 && (e->type == ET_FIGHTER || e->type == ET_MINE) && !(e->flags & EF_IMMORTAL))
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			
@@ -132,7 +136,18 @@ static void doSplashDamage(void)
 				damage = 100;
 				damage *= percent;
 				
-				damageFighter(e, damage, 0);
+				if (e->type == ET_FIGHTER)
+				{
+					damageFighter(e, damage, 0);
+				}
+				else if (e->type == ET_MINE)
+				{
+					e->dx = e->x - self->x;
+					e->dy = e->y - self->y;
+					
+					e->dx *= 0.01;
+					e->dy *= 0.01;
+				}
 			}
 		}
 	}

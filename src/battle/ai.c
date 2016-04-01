@@ -52,9 +52,15 @@ static void moveToLeader(void);
 static void wander(void);
 static void doWander(void);
 static int selectWeaponForTarget(Entity *e);
+static void deployMine(void);
 
 void doAI(void)
 {
+	if (self->aiFlags & AIF_DROPS_MINES)
+	{
+		deployMine();
+	}
+	
 	if ((self->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE)) && nearEnemies())
 	{
 		return;
@@ -618,6 +624,21 @@ static int nearEnemies(void)
 	return 0;
 }
 
+static void deployMine(void)
+{
+	Entity *mine;
+	
+	if (!self->reload)
+	{
+		mine = spawnMine();
+		mine->x = self->x;
+		mine->y = self->y;
+		mine->side = self->side;
+		
+		self->reload = FPS + (FPS * (rand() % 5));
+	}
+}
+
 static int nearMines(void)
 {
 	int i, numMines;
@@ -631,7 +652,7 @@ static int nearMines(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) < 500)
+		if (e->side != self->side && e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) < 500)
 		{
 			self->targetLocation.x += e->x;
 			self->targetLocation.y += e->y;

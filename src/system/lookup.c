@@ -81,6 +81,7 @@ void initLookups(void)
 	addLookup("AIF_WANDERS", AIF_WANDERS);
 	addLookup("AIF_COVERS_RETREAT", AIF_COVERS_RETREAT);
 	addLookup("AIF_TARGET_FOCUS", AIF_TARGET_FOCUS);
+	addLookup("AIF_DROPS_MINES", AIF_DROPS_MINES);
 
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);

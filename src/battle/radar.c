@@ -88,6 +88,11 @@ void drawRadar(void)
 					SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
 				}
 				
+				if (e->type == ET_MINE)
+				{
+					SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+				}
+				
 				SDL_RenderFillRect(app.renderer, &r);
 			}
 		}

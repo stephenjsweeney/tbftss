@@ -628,14 +628,18 @@ static void deployMine(void)
 {
 	Entity *mine;
 	
-	if (!self->reload)
+	if (!self->reload && self->thrust > 0)
 	{
 		mine = spawnMine();
 		mine->x = self->x;
 		mine->y = self->y;
+		mine->dx = rand() % 20 - rand() % 20;
+		mine->dx *= 0.1;
+		mine->dy = rand() % 20 - rand() % 20;
+		mine->dy *= 0.1;
 		mine->side = self->side;
 		
-		self->reload = FPS + (FPS * (rand() % 5));
+		self->reload = rand() % (FPS * 3);
 	}
 }
 

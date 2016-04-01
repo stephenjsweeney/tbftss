@@ -311,7 +311,7 @@ static void loadEntities(cJSON *node)
 {
 	Entity *e;
 	char *name, *groupName;
-	int i, type, scatter, number, active, addFlags;
+	int i, type, scatter, number, active, addFlags, side;
 	float x, y;
 	long flags;
 
@@ -334,6 +334,7 @@ static void loadEntities(cJSON *node)
 			number = getJSONValue(node, "number", 1);
 			active = getJSONValue(node, "active", 1);
 			scatter = getJSONValue(node, "scatter", 1);
+			side = getJSONValue(node, "side", SIDE_NONE);
 			
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
@@ -388,6 +389,8 @@ static void loadEntities(cJSON *node)
 
 				e->x = x;
 				e->y = y;
+				
+				e->side = side;
 
 				if (scatter > 1)
 				{
@@ -396,8 +399,6 @@ static void loadEntities(cJSON *node)
 				}
 
 				e->active = active;
-
-				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 			}
 
 			node = node->next;

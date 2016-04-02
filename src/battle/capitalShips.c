@@ -384,6 +384,7 @@ static void loadCapitalShipDef(char *filename)
 		e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
 		e->speed = 1;
+		e->systemPower = MAX_SYSTEM_POWER;
 
 		e->action = think;
 		e->die = die;
@@ -555,7 +556,7 @@ static void loadEngines(Entity *parent, cJSON *engines)
 	}
 }
 
-void updateCapitalShipComponentProperties(Entity *parent, long flags, int addFlags)
+void updateCapitalShipComponentProperties(Entity *parent, long flags)
 {
 	Entity *e;
 
@@ -580,18 +581,9 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags, int addFla
 
 			e->active = parent->active;
 			
-			if (flags != -1)
+			if (flags & EF_DISABLED)
 			{
-				if (addFlags)
-				{
-					e->flags |= flags;
-				}
-				else
-				{
-					e->flags = flags;
-
-					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
-				}
+				e->flags |= EF_DISABLED;
 			}
 		}
 	}
@@ -669,7 +661,7 @@ void loadCapitalShips(cJSON *node)
 					}
 				}
 
-				updateCapitalShipComponentProperties(e, flags, addFlags);
+				updateCapitalShipComponentProperties(e, flags);
 			}
 
 			node = node->next;

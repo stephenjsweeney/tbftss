@@ -467,7 +467,7 @@ void activateEntities(char *names)
 
 				if (e->type == ET_CAPITAL_SHIP)
 				{
-					updateCapitalShipComponentProperties(e);
+					updateCapitalShipComponentProperties(e, 0);
 				}
 			}
 		}
@@ -495,7 +495,7 @@ void activateEntityGroups(char *groupNames)
 
 				if (e->type == ET_CAPITAL_SHIP)
 				{
-					updateCapitalShipComponentProperties(e);
+					updateCapitalShipComponentProperties(e, 0);
 				}
 			}
 		}

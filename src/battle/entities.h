@@ -34,7 +34,7 @@ extern void cutRope(Entity *e);
 extern void drawShieldHitEffect(Entity *e);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void addToQuadtree(Entity *e, Quadtree *root);
-extern void updateCapitalShipComponentProperties(Entity *parent);
+extern void updateCapitalShipComponentProperties(Entity *parent, long flags);
 
 extern App app;
 extern Battle battle;

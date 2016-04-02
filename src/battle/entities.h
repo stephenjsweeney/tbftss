@@ -28,7 +28,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void doFighter(void);
 extern void doCapitalShip(void);
-extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern void doRope(Entity *e);
 extern void drawRope(Entity *e);
 extern void cutRope(Entity *e);
@@ -36,7 +35,6 @@ extern void drawShieldHitEffect(Entity *e);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void updateCapitalShipComponentProperties(Entity *parent, long flags);
-extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void *resize(void *array, int oldSize, int newSize);
 extern int isOnBattleScreen(int x, int y, int w, int h);
 

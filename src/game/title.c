@@ -101,7 +101,7 @@ static void initFighters(void)
 	
 	for (i = 0 ; i < NUM_FIGHTERS ; i++)
 	{
-		fighters[i].x = rand() % (SCREEN_WIDTH - 64);
+		fighters[i].x = rand() % (SCREEN_WIDTH - 32);
 		fighters[i].y = SCREEN_HEIGHT + (rand() % SCREEN_HEIGHT);
 		fighters[i].texture = getTexture(fighterTextures[rand() % numTextures]);
 		fighters[i].dy = -(1 + rand() % 3);
@@ -133,7 +133,9 @@ static void logic(void)
 
 static void doFighters(void)
 {
-	int i;
+	int i, numTextures;
+	
+	numTextures = sizeof(fighterTextures) / sizeof(char*);
 	
 	for (i = 0 ; i < NUM_FIGHTERS ; i++)
 	{
@@ -145,8 +147,10 @@ static void doFighters(void)
 		
 		if (fighters[i].y <= -64)
 		{
-			fighters[i].x = rand() % (SCREEN_WIDTH - 64);
+			fighters[i].x = rand() % (SCREEN_WIDTH - 32);
 			fighters[i].y = SCREEN_HEIGHT + (rand() % SCREEN_HEIGHT);
+			fighters[i].texture = getTexture(fighterTextures[rand() % numTextures]);
+			fighters[i].dy = -(1 + rand() % 3);
 		}
 	}
 }
@@ -251,5 +255,5 @@ static void returnFromOptions(void)
 
 static void quit(void)
 {
-	exit(1);
+	exit(0);
 }

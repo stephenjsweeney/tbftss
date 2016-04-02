@@ -1,0 +1,54 @@
+{
+	"name" : "Collect packages",
+	"description" : "Collect packages",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Shuttle",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"itemLimit" : 8,
+		"timeLimit" : 95,
+		"allowPlayerDeath" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_ITEMS",
+				"value" : 3
+			},
+			{
+				"type" : "CHALLENGE_ITEMS",
+				"value" : 5
+			},
+			{
+				"type" : "CHALLENGE_ITEMS",
+				"value" : 8
+			}
+		]
+	},
+	"items" : [
+		{
+			"name" : "package",
+			"number" : 8,
+			"type" : "smallCrate",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 5000,
+			"flags" : "+EF_MISSION_TARGET"
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_MINE",
+			"number" : 750,
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 10000
+		}
+	]
+}

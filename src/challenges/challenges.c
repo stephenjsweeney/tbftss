@@ -87,7 +87,7 @@ void doChallenges(void)
 	{
 		if (challengeFinished())
 		{
-			if (battle.stats[STAT_TIME] >= game.currentMission->challengeData.timeLimit)
+			if (game.currentMission->challengeData.timeLimit && battle.stats[STAT_TIME] >= game.currentMission->challengeData.timeLimit)
 			{
 				failChallenge();
 			}
@@ -135,6 +135,11 @@ static int challengeFinished(void)
 	}
 	
 	if (game.currentMission->challengeData.scriptedEnd)
+	{
+		return 1;
+	}
+	
+	if (player->health <= 0)
 	{
 		return 1;
 	}

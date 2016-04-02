@@ -119,7 +119,16 @@ void doPlayer(void)
 
 		if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
 		{
-			if (!battle.isEpic)
+			battle.stats[STAT_PLAYER_KILLED]++;
+			
+			if (game.currentMission->challengeData.isChallenge)
+			{
+				if (!game.currentMission->challengeData.allowPlayerDeath)
+				{
+					failMission();
+				}
+			}
+			else if (!battle.isEpic)
 			{
 				failMission();
 			}

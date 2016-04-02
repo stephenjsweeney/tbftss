@@ -276,11 +276,7 @@ void doFighter(void)
 
 	if (self->alive == ALIVE_DEAD)
 	{
-		if (self == player)
-		{
-			battle.stats[STAT_PLAYER_KILLED]++;
-		}
-		else if (player != NULL)
+		if (player != NULL && self == player)
 		{
 			if (player->alive == ALIVE_ALIVE)
 			{

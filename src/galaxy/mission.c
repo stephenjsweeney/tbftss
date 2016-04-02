@@ -87,6 +87,9 @@ Mission *loadMissionMeta(char *filename)
 			mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
 			mission->challengeData.noBoost = getJSONValue(node, "noBoost", 0);
 			mission->challengeData.noGuns = getJSONValue(node, "noGuns", 0);
+			
+			/* misc */
+			mission->challengeData.allowPlayerDeath = getJSONValue(node, "allowPlayerDeath", 0);
 
 			node = cJSON_GetObjectItem(node, "challenges");
 

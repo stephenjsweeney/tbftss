@@ -20,9 +20,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define DISABLED_GLOW_SPEED 	3
-#define DISABLED_GLOW_MIN 		128
-#define DISABLED_GLOW_MAX 		255
+#define INITIAL_ENTITY_DRAW_CAPACITY	8
+#define DISABLED_GLOW_SPEED 			3
+#define DISABLED_GLOW_MIN 				128
+#define DISABLED_GLOW_MAX 				255
 
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void doFighter(void);
@@ -35,6 +36,9 @@ extern void drawShieldHitEffect(Entity *e);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void updateCapitalShipComponentProperties(Entity *parent, long flags);
+extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+extern void *resize(void *array, int oldSize, int newSize);
+extern int isOnBattleScreen(int x, int y, int w, int h);
 
 extern App app;
 extern Battle battle;

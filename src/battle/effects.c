@@ -91,7 +91,7 @@ void doEffects(void)
 					break;
 					
 				default:
-					onScreen = collision(e->x - (e->size / 2) - battle.camera.x, e->y - (e->size / 2) - battle.camera.y, e->size * 2, e->size * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+					onScreen = isOnBattleScreen(e->x, e->y, e->size, e->size);
 					break;
 			}
 				

@@ -121,7 +121,7 @@ void doBullets(void)
 		}
 		else
 		{
-			if (collision(b->x - (b->w / 2) - battle.camera.x, b->y - (b->h / 2) - battle.camera.y, b->w * 2, b->h * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+			if (isOnBattleScreen(b->x, b->y, b->w, b->h))
 			{
 				bulletsToDraw[i++] = b;
 

@@ -104,7 +104,7 @@ void doDebris(void)
 		}
 		else
 		{
-			if (collision(d->x - 16 - battle.camera.x, d->y - 16 - battle.camera.y, 32, 32, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+			if (isOnBattleScreen(d->x, d->y, 32, 32))
 			{
 				debrisToDraw[i++] = d;
 

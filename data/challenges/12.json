@@ -14,7 +14,7 @@
 	},
 	"challenge" : {
 		"itemLimit" : 8,
-		"timeLimit" : 95,
+		"timeLimit" : 105,
 		"allowPlayerDeath" : 1,
 		"challenges" : [
 			{

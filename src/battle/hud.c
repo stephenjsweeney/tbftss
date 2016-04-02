@@ -417,20 +417,20 @@ static void drawObjectives(void)
 		{
 			blit(clock, (SCREEN_WIDTH / 2) - 50, 14, 0);
 			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME], 0));
-			
-			if (game.currentMission->challengeData.itemLimit)
-			{
-				drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
-			}
-			else if (game.currentMission->challengeData.rescueLimit)
-			{
-				drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);
-			}
 		}
 		else
 		{
 			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(battle.stats[STAT_TIME], 0));
 			blit(clock, (SCREEN_WIDTH / 2) - 50, 14, 0);
+		}
+		
+		if (game.currentMission->challengeData.itemLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
+		}
+		else if (game.currentMission->challengeData.rescueLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);
 		}
 	}
 }

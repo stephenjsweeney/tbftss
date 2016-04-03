@@ -406,6 +406,8 @@ static void drawNumFighters(void)
 
 static void drawObjectives(void)
 {
+	int timeRemaining;
+	
 	if (!game.currentMission->challengeData.isChallenge)
 	{
 		blit(objectives, (SCREEN_WIDTH / 2) - 50, 14, 0);
@@ -415,8 +417,10 @@ static void drawObjectives(void)
 	{
 		if (game.currentMission->challengeData.timeLimit)
 		{
+			timeRemaining = game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME];
+			
 			blit(clock, (SCREEN_WIDTH / 2) - 50, 14, 0);
-			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME], 0));
+			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, (timeRemaining < 11 * FPS) ? colors.red : colors.white, timeToString(timeRemaining, 0));
 		}
 		else
 		{

@@ -29,7 +29,7 @@ static void updateDisabledChallenge(Challenge *c);
 static void updateItemsChallenge(Challenge *c);
 static void completeChallenge(void);
 static void failChallenge(void);
-static void updateChallenges(void);
+static int updateChallenges(void);
 static char *getFormattedChallengeDescription(const char *format, ...);
 char *getChallengeDescription(Challenge *c);
 static int challengeFinished(void);
@@ -83,19 +83,21 @@ void initChallenges(void)
 
 void doChallenges(void)
 {
+	int passed;
+	
 	if (game.currentMission->challengeData.isChallenge && battle.status == MS_IN_PROGRESS)
 	{
 		if (challengeFinished())
 		{
-			if (game.currentMission->challengeData.timeLimit && battle.stats[STAT_TIME] >= game.currentMission->challengeData.timeLimit)
+			passed = updateChallenges();
+			
+			if (passed)
 			{
-				failChallenge();
+				completeChallenge();
 			}
 			else
 			{
-				updateChallenges();
-				
-				completeChallenge();
+				failChallenge();
 			}
 		}
 	}
@@ -147,52 +149,62 @@ static int challengeFinished(void)
 	return 0;
 }
 
-static void updateChallenges(void)
+static int updateChallenges(void)
 {
-	int i;
+	int i, numPassed;
 	Challenge *c;
 
 	updateAccuracyStats(battle.stats);
+	
+	numPassed = 0;
 
 	for (i = 0 ; i < MAX_CHALLENGES ; i++)
 	{
 		c = game.currentMission->challengeData.challenges[i];
 
-		if (c && !c->passed)
+		if (c)
 		{
-			switch (c->type)
+			if (!c->passed)
 			{
-				case CHALLENGE_TIME:
-					updateTimeChallenge(c);
-					break;
+				switch (c->type)
+				{
+					case CHALLENGE_TIME:
+						updateTimeChallenge(c);
+						break;
 
-				case CHALLENGE_SHOT_ACCURACY:
-				case CHALLENGE_ROCKET_ACCURACY:
-				case CHALLENGE_MISSILE_ACCURACY:
-					updateAccuracyChallenge(c);
-					break;
+					case CHALLENGE_SHOT_ACCURACY:
+					case CHALLENGE_ROCKET_ACCURACY:
+					case CHALLENGE_MISSILE_ACCURACY:
+						updateAccuracyChallenge(c);
+						break;
 
-				case CHALLENGE_ARMOUR:
-					updateArmourChallenge(c);
-					break;
+					case CHALLENGE_ARMOUR:
+						updateArmourChallenge(c);
+						break;
 
-				case CHALLENGE_NO_LOSSES:
-				case CHALLENGE_1_LOSS:
-				case CHALLENGE_LOSSES:
-					updateLossesChallenge(c);
-					break;
+					case CHALLENGE_NO_LOSSES:
+					case CHALLENGE_1_LOSS:
+					case CHALLENGE_LOSSES:
+						updateLossesChallenge(c);
+						break;
 
-				case CHALLENGE_PLAYER_KILLS:
-					updatePlayerKillsChallenge(c);
-					break;
+					case CHALLENGE_PLAYER_KILLS:
+						updatePlayerKillsChallenge(c);
+						break;
 
-				case CHALLENGE_DISABLE:
-					updateDisabledChallenge(c);
-					break;
-					
-				case CHALLENGE_ITEMS:
-					updateItemsChallenge(c);
-					break;
+					case CHALLENGE_DISABLE:
+						updateDisabledChallenge(c);
+						break;
+						
+					case CHALLENGE_ITEMS:
+						updateItemsChallenge(c);
+						break;
+				}
+			}
+			
+			if (c->passed)
+			{
+				numPassed++;
 			}
 		}
 	}
@@ -201,6 +213,8 @@ static void updateChallenges(void)
 	{
 		printStats();
 	}
+	
+	return numPassed;
 }
 
 static void printStats(void)

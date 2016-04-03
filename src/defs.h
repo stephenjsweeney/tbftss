@@ -342,6 +342,7 @@ enum
 	STAT_EPIC_KILL_STREAK,
 	STAT_CAPITAL_SHIPS_DESTROYED,
 	STAT_CAPITAL_SHIPS_LOST,
+	STAT_MINES_DESTROYED,
 	/* add stats before here, so as not to mess up the stats screen */
 	STAT_TIME,
 	STAT_MAX

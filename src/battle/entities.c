@@ -592,11 +592,12 @@ void countNumEnemies(void)
 
 void addVisibleEntsToDrawList(void)
 {
-	int numEntsToDraw = 0;
 	Entity *e;
 	
 	battle.camera.x = player->x - (SCREEN_WIDTH / 2);
 	battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
+	
+	numEntsToDraw = 0;
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -635,4 +636,8 @@ void destroyEntities(void)
 	}
 
 	deadTail = &deadHead;
+	
+	free(entsToDraw);
+
+	entsToDraw = NULL;
 }

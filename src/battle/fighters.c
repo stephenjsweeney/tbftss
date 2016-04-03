@@ -517,6 +517,16 @@ static void die(void)
 			self->action = simpleDie;
 			break;
 	}
+	
+	if (self->killedBy == player && (!(self->flags & EF_NO_KILL_INC)))
+	{
+		battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
+		
+		if (battle.isEpic)
+		{
+			battle.stats[STAT_EPIC_KILL_STREAK]++;
+		}
+	}
 }
 
 static void immediateDie(void)

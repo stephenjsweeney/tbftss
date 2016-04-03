@@ -146,6 +146,7 @@ struct Entity {
 	Entity *target;
 	Entity *leader;
 	Entity *owner;
+	Entity *killedBy;
 	void (*action)(void);
 	void (*draw)(void);
 	void (*die)(void);

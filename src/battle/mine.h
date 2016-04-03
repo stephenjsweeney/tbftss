@@ -33,4 +33,5 @@ extern void damageFighter(Entity *e, int amount, long flags);
 extern void playBattleSound(int id, int x, int y);
 
 extern Battle battle;
+extern Entity *player;
 extern Entity *self;

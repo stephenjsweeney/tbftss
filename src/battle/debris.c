@@ -125,7 +125,7 @@ static void resizeDrawList(void)
 
 	n = drawCapacity + INITIAL_DEBRIS_DRAW_CAPACITY;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing debris draw capacity: %d -> %d\n", drawCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing debris draw capacity: %d -> %d", drawCapacity, n);
 
 	debrisToDraw = resize(debrisToDraw, sizeof(Debris*) * drawCapacity, sizeof(Debris*) * n);
 	drawCapacity = n;

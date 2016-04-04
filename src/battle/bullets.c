@@ -142,7 +142,7 @@ static void resizeDrawList(void)
 
 	n = drawCapacity + INITIAL_BULLET_DRAW_CAPACITY;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing bullet draw capacity: %d -> %d\n", drawCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing bullet draw capacity: %d -> %d", drawCapacity, n);
 
 	bulletsToDraw = resize(bulletsToDraw, sizeof(Bullet*) * drawCapacity, sizeof(Bullet*) * n);
 	

@@ -121,7 +121,7 @@ static void resizeDrawList(void)
 
 	n = drawCapacity + INITIAL_EFFECT_DRAW_CAPACITY;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing effect draw capacity: %d -> %d\n", drawCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing effect draw capacity: %d -> %d", drawCapacity, n);
 
 	effectsToDraw = resize(effectsToDraw, sizeof(Effect*) * drawCapacity, sizeof(Effect*) * n);
 	

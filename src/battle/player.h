@@ -44,6 +44,7 @@ extern long lookup(char *name);
 extern Entity *spawnFighter(char *name, int x, int y, int side);
 extern int isAcceptControl(void);
 extern void resetAcceptControls(void);
+extern void awardTrophy(char *id);
 
 extern App app;
 extern Battle battle;

@@ -138,6 +138,7 @@ Trophy *getTrophy(char *id)
 
 static void loadTrophyData(char *filename)
 {
+	/*
 	cJSON *root, *node;
 	char *text;
 	Trophy *t, *tail;
@@ -160,7 +161,7 @@ static void loadTrophyData(char *filename)
 		t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
 		t->hidden = getJSONValue(node, "hidden", 0);
 
-		/* can't use the getJSONValue here, as it could lead to false positives  */
+		// can't use the getJSONValue here, as it could lead to false positives
 		if (cJSON_GetObjectItem(node, "stat"))
 		{
 			t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring);
@@ -173,6 +174,7 @@ static void loadTrophyData(char *filename)
 
 	cJSON_Delete(root);
 	free(text);
+	*/
 }
 
 void awardStatsTrophies(void)

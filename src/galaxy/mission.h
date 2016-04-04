@@ -58,6 +58,7 @@ extern void loadItems(cJSON *node);
 extern void loadLocations(cJSON *node);
 extern void loadSpawners(cJSON *node);
 extern Entity *spawnMine(void);
+extern void activateNextWaypoint(void);
 
 extern Battle battle;
 extern Dev dev;

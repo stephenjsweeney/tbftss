@@ -564,7 +564,7 @@ static void selectMissionTarget(void)
 					closest = dist;
 				}
 			}
-			else if (battle.missionTarget->type == ET_WAYPOINT && e->type == ET_WAYPOINT && e->id < battle.missionTarget->id)
+			else if (battle.missionTarget->type == ET_WAYPOINT && e->type == ET_WAYPOINT && e->id == battle.missionTarget->id)
 			{
 				battle.missionTarget = e;
 			}

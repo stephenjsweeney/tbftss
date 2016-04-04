@@ -167,6 +167,7 @@ void loadMission(char *filename)
 
 	battle.manualComplete = getJSONValue(root, "manualComplete", 0);
 	battle.unwinnable = getJSONValue(root, "unwinnable", 0);
+	battle.waypointAutoAdvance = getJSONValue(root, "waypointAutoAdvance", 0);
 
 	initScript(cJSON_GetObjectItem(root, "script"));
 
@@ -217,6 +218,11 @@ void loadMission(char *filename)
 	else
 	{
 		battle.status = MS_IN_PROGRESS;
+	}
+	
+	if (battle.waypointAutoAdvance)
+	{
+		activateNextWaypoint();
 	}
 
 	countNumEnemies();
@@ -350,6 +356,7 @@ static void loadEntities(cJSON *node)
 				{
 					case ET_WAYPOINT:
 						e = spawnWaypoint();
+						active = 0;
 						break;
 
 					case ET_JUMPGATE:

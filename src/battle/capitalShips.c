@@ -50,7 +50,6 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 
 			memcpy(e, def, sizeof(Entity));
 
-			e->id = battle.entId;
 			e->next = NULL;
 
 			e->x = x;

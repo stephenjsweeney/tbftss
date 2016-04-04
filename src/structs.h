@@ -325,7 +325,6 @@ struct Spawner {
 };
 
 typedef struct {
-	int entId;
 	SDL_Point camera;
 	int numAllies;
 	int numEnemies;
@@ -336,6 +335,7 @@ typedef struct {
 	int playerSelect;
 	int manualComplete;
 	int unwinnable;
+	int waypointAutoAdvance;
 	int missionFinishedTimer;
 	int boostTimer;
 	int ecmTimer;

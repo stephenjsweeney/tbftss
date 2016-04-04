@@ -59,7 +59,6 @@ Entity *spawnEntity(void)
 {
 	Entity *e = malloc(sizeof(Entity));
 	memset(e, 0, sizeof(Entity));
-	e->id = battle.entId++;
 	e->active = 1;
 
 	battle.entityTail->next = e;
@@ -291,7 +290,7 @@ static void resizeDrawList(void)
 
 	n = drawCapacity + INITIAL_ENTITY_DRAW_CAPACITY;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing entity draw capacity: %d -> %d\n", drawCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing entity draw capacity: %d -> %d", drawCapacity, n);
 
 	entsToDraw = resize(entsToDraw, sizeof(Entity*) * drawCapacity, sizeof(Entity*) * n);
 	

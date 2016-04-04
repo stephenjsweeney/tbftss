@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 09:18:52+0100\n"
+"POT-Creation-Date: 2016-04-04 11:25:33+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -580,6 +580,39 @@ msgstr ""
 msgid "Okay, let's get home and report in."
 msgstr ""
 
+msgid "Tzac forces have been detected moving into the area. They need to be dispatched as quickly as possible, so that Christabel cannot make any significant gains in amassing her forces in the system. The Eightballers, with additional support, will move in to intercept."
+msgstr ""
+
+msgid "Enemies sighted."
+msgstr ""
+
+msgid "Break and attack, people!"
+msgstr ""
+
+msgid "That's the first group handled. Let's get to the next waypoint."
+msgstr ""
+
+msgid "Second group located."
+msgstr ""
+
+msgid "Control, this is Rice. Nine enemy fighters downed. Moving to the final waypoint."
+msgstr ""
+
+msgid "Final group spotted."
+msgstr ""
+
+msgid "That's all of them."
+msgstr ""
+
+msgid "Not as tough as I was expecting."
+msgstr ""
+
+msgid "I think they're testing the water, like our Pandoran friends before them."
+msgstr ""
+
+msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
+msgstr ""
+
 msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
 msgstr ""
 
@@ -619,7 +652,7 @@ msgstr ""
 msgid "Those were Nation of Tzac fighters. We've heard reports of them being active in some Confederation systems."
 msgstr ""
 
-msgid "Would appear that Crystabelle is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with."
+msgid "Would appear that Christabel is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with."
 msgstr ""
 
 msgid "It never rains ..."

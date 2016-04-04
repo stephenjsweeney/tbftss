@@ -44,6 +44,7 @@ extern void playSound(int id);
 extern char *getTranslatedString(char *string);
 extern void *resize(void *array, int oldSize, int newSize);
 extern void awardTrophy(char *id);
+extern int isOnBattleScreen(int x, int y, int w, int h);
 
 extern Battle battle;
 extern Colors colors;

@@ -216,7 +216,7 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "ACTIVATE_NEXT_WAYPOINT") == 0)
 	{
-		activateNextWaypoint(0);
+		activateNextWaypoint();
 	}
 	else if (strcmp(command, "ACTIVATE_SPAWNERS") == 0)
 	{

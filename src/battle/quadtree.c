@@ -131,7 +131,7 @@ static void resizeQTEntCapacity(Quadtree *root)
 	
 	n = root->capacity + QT_INITIAL_CAPACITY;
 	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing QT node: %d -> %d\n", root->capacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing QT node: %d -> %d", root->capacity, n);
 	
 	root->ents = resize(root->ents, sizeof(Entity*) * root->capacity, sizeof(Entity*) * n);
 	root->capacity = n;
@@ -261,7 +261,7 @@ static void resizeCandidates(void)
 	
 	n = cCapacity + QT_INITIAL_CAPACITY;
 	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing candidates: %d -> %d\n", cCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing candidates: %d -> %d", cCapacity, n);
 	
 	candidates = resize(candidates, sizeof(Entity*) * cCapacity, sizeof(Entity*) * n);
 	cCapacity = n;

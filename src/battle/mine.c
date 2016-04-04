@@ -104,6 +104,11 @@ static void lookForFighters(void)
 
 static void die(void)
 {
+	if (self->killedBy == player)
+	{
+		battle.stats[STAT_MINES_DESTROYED]++;
+	}
+	
 	addMineExplosion();
 	
 	doSplashDamage();

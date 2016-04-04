@@ -183,6 +183,25 @@ void drawBackground(SDL_Texture *texture)
 	}
 }
 
+int isOnBattleScreen(int x, int y, int w, int h)
+{
+	x -= (w / 2);
+	x -= (SCREEN_WIDTH / 2);
+	x -= battle.camera.x;
+	
+	y -= (h / 2);
+	y -= (SCREEN_HEIGHT / 2);
+	y -= battle.camera.y;
+	
+	w *= 2;
+	w += SCREEN_WIDTH;
+	
+	h *= 2;
+	h += SCREEN_HEIGHT;
+	
+	return collision(x, y, w, h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
+
 void saveScreenshot(void)
 {
 	static int i = 0;

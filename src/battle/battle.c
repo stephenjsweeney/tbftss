@@ -165,6 +165,11 @@ static void doBattle(void)
 			if (battle.stats[STAT_TIME]++ % FPS == 0)
 			{
 				runScriptFunction("TIME %d", battle.stats[STAT_TIME] / FPS);
+				
+				if (game.currentMission->challengeData.timeLimit && game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME] < 11 * FPS)
+				{
+					playSound(SND_TIME_WARNING);
+				}
 			}
 		}
 	}

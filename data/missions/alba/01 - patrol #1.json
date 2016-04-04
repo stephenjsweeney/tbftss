@@ -6,6 +6,7 @@
 	"planet" : "gfx/planets/torelli.png",
 	"music" : "music/battle/heroism.ogg",
 	"manualComplete" : 1,
+	"waypointAutoAdvance" : 1,
 	"objectives" : [
 		{
 			"description" : "Check all waypoints",
@@ -42,12 +43,6 @@
 		}
 	],
 	"script" : [
-		{
-			"function" : "TIME 0",
-			"lines" : [
-				"ACTIVATE_NEXT_WAYPOINT"
-			]
-		},
 		{
 			"function" : "Waypoint #2",
 			"lines" : [

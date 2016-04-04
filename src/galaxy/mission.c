@@ -87,6 +87,9 @@ Mission *loadMissionMeta(char *filename)
 			mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
 			mission->challengeData.noBoost = getJSONValue(node, "noBoost", 0);
 			mission->challengeData.noGuns = getJSONValue(node, "noGuns", 0);
+			
+			/* misc */
+			mission->challengeData.allowPlayerDeath = getJSONValue(node, "allowPlayerDeath", 0);
 
 			node = cJSON_GetObjectItem(node, "challenges");
 
@@ -164,6 +167,7 @@ void loadMission(char *filename)
 
 	battle.manualComplete = getJSONValue(root, "manualComplete", 0);
 	battle.unwinnable = getJSONValue(root, "unwinnable", 0);
+	battle.waypointAutoAdvance = getJSONValue(root, "waypointAutoAdvance", 0);
 
 	initScript(cJSON_GetObjectItem(root, "script"));
 
@@ -215,6 +219,11 @@ void loadMission(char *filename)
 	{
 		battle.status = MS_IN_PROGRESS;
 	}
+	
+	if (battle.waypointAutoAdvance)
+	{
+		activateNextWaypoint();
+	}
 
 	countNumEnemies();
 
@@ -222,7 +231,7 @@ void loadMission(char *filename)
 
 	initMissionInfo();
 
-	addAllEntsToQuadtree();
+	addVisibleEntsToDrawList();
 
 	playMusic(music);
 }
@@ -347,6 +356,7 @@ static void loadEntities(cJSON *node)
 				{
 					case ET_WAYPOINT:
 						e = spawnWaypoint();
+						active = 0;
 						break;
 
 					case ET_JUMPGATE:

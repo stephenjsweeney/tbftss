@@ -68,6 +68,7 @@ void initStats(void)
 	statDescription[STAT_WAYPOINTS_VISITED] = _("Waypoints Visited");
 	statDescription[STAT_CAPITAL_SHIPS_DESTROYED] = _("Capital Ships Destroyed");
 	statDescription[STAT_CAPITAL_SHIPS_LOST] = _("Capital Ships Lost");
+	statDescription[STAT_MINES_DESTROYED] = _("Mines Destroyed");
 	statDescription[STAT_TIME] = _("Time Played");
 }
 

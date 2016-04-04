@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-01 08:08:53+0100\n"
+"POT-Creation-Date: 2016-04-04 11:25:33+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -310,6 +310,9 @@ msgstr ""
 msgid "Capital Ships Lost"
 msgstr ""
 
+msgid "Mines Destroyed"
+msgstr ""
+
 msgid "Time Played"
 msgstr ""
 
@@ -577,6 +580,42 @@ msgstr ""
 msgid "Okay, let's get home and report in."
 msgstr ""
 
+msgid "Tzac forces have been detected moving into the area. They need to be dispatched as quickly as possible, so that Christabel cannot make any significant gains in amassing her forces in the system. The Eightballers, with additional support, will move in to intercept."
+msgstr ""
+
+msgid "Enemies sighted."
+msgstr ""
+
+msgid "Break and attack, people!"
+msgstr ""
+
+msgid "That's the first group handled. Let's get to the next waypoint."
+msgstr ""
+
+msgid "Second group located."
+msgstr ""
+
+msgid "Control, this is Rice. Nine enemy fighters downed. Moving to the final waypoint."
+msgstr ""
+
+msgid "Final group spotted."
+msgstr ""
+
+msgid "That's all of them."
+msgstr ""
+
+msgid "Not as tough as I was expecting."
+msgstr ""
+
+msgid "I think they're testing the water, like our Pandoran friends before them."
+msgstr ""
+
+msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
+msgstr ""
+
+msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
+msgstr ""
+
 msgid "Florin, this is Black of the Salty Wildcats, here to assist."
 msgstr ""
 
@@ -613,7 +652,7 @@ msgstr ""
 msgid "Those were Nation of Tzac fighters. We've heard reports of them being active in some Confederation systems."
 msgstr ""
 
-msgid "Would appear that Crystabelle is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with."
+msgid "Would appear that Christabel is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with."
 msgstr ""
 
 msgid "It never rains ..."
@@ -623,6 +662,21 @@ msgid "We're starting systems up again. Once we've completed pre-jump checks we'
 msgstr ""
 
 msgid "We'll meet you there."
+msgstr ""
+
+msgid "Tzac bombers have been identified in the area, deploying mines. While this violates intergalactic treaties, we could never assume that Tzac, much like the Pandorans, would abide by the rules of war. We need to take down those bombers quickly. Exercise caution around the mines, as they are especially potent."
+msgstr ""
+
+msgid "Watch out for those mines. They're on proximity triggers and have a large area of effect."
+msgstr ""
+
+msgid "Take them out from a distance, otherwise you'll be in trouble."
+msgstr ""
+
+msgid "That's the bombers taken care of, but the area is still littered with mines."
+msgstr ""
+
+msgid "We'll need to get a team in here to take care of them."
 msgstr ""
 
 msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
@@ -1415,5 +1469,8 @@ msgid "Rescue Civilians"
 msgstr ""
 
 msgid "Destroy INF Klondike and INF Canfield"
+msgstr ""
+
+msgid "Collect packages"
 msgstr ""
 

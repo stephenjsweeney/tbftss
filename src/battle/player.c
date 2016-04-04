@@ -119,7 +119,22 @@ void doPlayer(void)
 
 		if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
 		{
-			if (!battle.isEpic)
+			battle.stats[STAT_PLAYER_KILLED]++;
+			
+			/* the player is known as "Player", so we need to check the craft they were assigned to */
+			if (strcmp(game.currentMission->craft, "ATAF") == 0)
+			{
+				awardTrophy("ATAF_DESTROYED");
+			}
+			
+			if (game.currentMission->challengeData.isChallenge)
+			{
+				if (!game.currentMission->challengeData.allowPlayerDeath)
+				{
+					failMission();
+				}
+			}
+			else if (!battle.isEpic)
 			{
 				failMission();
 			}
@@ -555,7 +570,7 @@ static void selectMissionTarget(void)
 					closest = dist;
 				}
 			}
-			else if (battle.missionTarget->type == ET_WAYPOINT && e->type == ET_WAYPOINT && e->id < battle.missionTarget->id)
+			else if (battle.missionTarget->type == ET_WAYPOINT && e->type == ET_WAYPOINT && e->id == battle.missionTarget->id)
 			{
 				battle.missionTarget = e;
 			}

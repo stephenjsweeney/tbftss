@@ -1,0 +1,145 @@
+{
+	"name" : "Alba Defence #1",
+	"description" : "Tzac forces have been detected moving into the area. They need to be dispatched as quickly as possible, so that Christabel cannot make any significant gains in amassing her forces in the system. The Eightballers, with additional support, will move in to intercept.",
+	"requires" : 35,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"music" : "music/battle/battleThemeA.mp3",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Check all Waypoints",
+			"targetName" : "Waypoint",
+			"targetValue" : 3,
+			"targetType" : "TT_WAYPOINT"
+		},
+		{
+			"description" : "Eliminate all enemy target",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"player" : {
+		"type" : "Firefly",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "1st Lt. Curtis Rice",
+		"squadron" : "Eightballers"
+	},
+	"fighters" : [
+		{
+			"name" : "Ally",
+			"types" : "Firefly;Nymph",
+			"number" : 6,
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Shale",
+			"number" : 4,
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 8,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Shale",
+			"number" : 5,
+			"side" : "SIDE_REBEL",
+			"x" : 28,
+			"y" : 37,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-3",
+			"types" : "Shale",
+			"number" : 6,
+			"side" : "SIDE_REBEL",
+			"x" : 12,
+			"y" : 25,
+			"scatter" : 500,
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 25,
+			"y" : 18
+		},
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 28,
+			"y" : 27
+		},
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 22,
+			"y" : 25
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 0",
+			"lines" : [
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
+			"function" : "Waypoint #1",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-1",
+				"MSG_BOX Wingmate;Enemies sighted.",
+				"MSG_BOX Rice;Break and attack, people!"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 4",
+			"lines" : [
+				"MSG_BOX Rice;That's the first group handled. Let's get to the next waypoint.",
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
+			"function" : "Waypoint #2",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-2",
+				"MSG_BOX Rice;Second group located."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 9",
+			"lines" : [
+				"MSG_BOX Rice;Control, this is Rice. Nine enemy fighters downed. Moving to the final waypoint.",
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
+			"function" : "Waypoint #3",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-3",
+				"MSG_BOX Rice;Final group spotted."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 15",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Rice;That's all of them.",
+				"MSG_BOX Wingmate;Not as tough as I was expecting.",
+				"MSG_BOX Rice;I think they're testing the water, like our Pandoran friends before them.",
+				"MSG_BOX Rice;We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

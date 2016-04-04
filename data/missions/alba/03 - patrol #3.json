@@ -9,6 +9,7 @@
 	"planet" : "gfx/planets/torelli.png",
 	"music" : "",
 	"manualComplete" : 1,
+	"waypointAutoAdvance" : 1,
 	"objectives" : [
 		{
 			"description" : "Check all Waypoints",
@@ -45,12 +46,6 @@
 		}
 	],
 	"script" : [
-		{
-			"function" : "TIME 0",
-			"lines" : [
-				"ACTIVATE_NEXT_WAYPOINT"
-			]
-		},
 		{
 			"function" : "TIME 3",
 			"lines" : [

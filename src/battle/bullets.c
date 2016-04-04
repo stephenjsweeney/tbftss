@@ -121,7 +121,7 @@ void doBullets(void)
 		}
 		else
 		{
-			if (collision(b->x - (b->w / 2) - battle.camera.x, b->y - (b->h / 2) - battle.camera.y, b->w * 2, b->h * 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+			if (isOnBattleScreen(b->x, b->y, b->w, b->h))
 			{
 				bulletsToDraw[i++] = b;
 
@@ -142,7 +142,7 @@ static void resizeDrawList(void)
 
 	n = drawCapacity + INITIAL_BULLET_DRAW_CAPACITY;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing bullet draw capacity: %d -> %d\n", drawCapacity, n);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing bullet draw capacity: %d -> %d", drawCapacity, n);
 
 	bulletsToDraw = resize(bulletsToDraw, sizeof(Bullet*) * drawCapacity, sizeof(Bullet*) * n);
 
@@ -212,8 +212,10 @@ static void checkCollisions(Bullet *b)
 					{
 						awardTrophy("PANDORAN");
 					}
+					
+					e->killedBy = b->owner;
 				}
-
+				
 				if (b->owner == player && b->type == BT_MISSILE)
 				{
 					battle.stats[STAT_MISSILES_HIT]++;

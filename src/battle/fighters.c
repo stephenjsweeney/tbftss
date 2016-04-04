@@ -44,7 +44,6 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 
 	memcpy(e, def, sizeof(Entity));
 
-	e->id = battle.entId;
 	e->next = NULL;
 
 	e->x = x;
@@ -276,17 +275,7 @@ void doFighter(void)
 
 	if (self->alive == ALIVE_DEAD)
 	{
-		if (self == player)
-		{
-			battle.stats[STAT_PLAYER_KILLED]++;
-
-			/* the player is known as "Player", so we need to check the craft they were assigned to */
-			if (strcmp(game.currentMission->craft, "ATAF") == 0)
-			{
-				awardTrophy("ATAF_DESTROYED");
-			}
-		}
-		else if (player != NULL)
+		if (player != NULL && self != player)
 		{
 			if (player->alive == ALIVE_ALIVE)
 			{
@@ -526,6 +515,16 @@ static void die(void)
 		case 3:
 			self->action = simpleDie;
 			break;
+	}
+	
+	if (self->killedBy == player && (!(self->flags & EF_NO_KILL_INC)))
+	{
+		battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
+		
+		if (battle.isEpic)
+		{
+			battle.stats[STAT_EPIC_KILL_STREAK]++;
+		}
 	}
 }
 

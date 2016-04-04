@@ -6,6 +6,7 @@
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/determination.mp3",
 	"manualComplete" : 1,
+	"waypointAutoAdvance" : 1,
 	"objectives" : [
 		{
 			"description" : "Check all wayponts",
@@ -126,12 +127,6 @@
 		}
 	],
 	"script" : [
-		{
-			"function" : "TIME 0",
-			"lines" : [
-				"ACTIVATE_NEXT_WAYPOINT"
-			]
-		},
 		{
 			"function" : "Waypoint #2",
 			"lines" : [

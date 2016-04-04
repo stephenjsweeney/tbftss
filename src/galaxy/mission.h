@@ -49,7 +49,7 @@ extern char *getPlanetTextureName(int n);
 extern char *getMusicFilename(int n);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
-extern void addAllEntsToQuadtree(void);
+extern void addVisibleEntsToDrawList(void);
 extern void loadObjectives(cJSON *node);
 extern void loadPlayer(cJSON *node);
 extern void loadCapitalShips(cJSON *node);
@@ -58,6 +58,7 @@ extern void loadItems(cJSON *node);
 extern void loadLocations(cJSON *node);
 extern void loadSpawners(cJSON *node);
 extern Entity *spawnMine(void);
+extern void activateNextWaypoint(void);
 
 extern Battle battle;
 extern Dev dev;

@@ -23,20 +23,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void think(void);
 static int teamMatesClose(void);
 static int isCurrentObjective(void);
-void activateNextWaypoint(int id);
+void activateNextWaypoint(void);
 
 static int waypointId;
+static int currentWaypointId;
 
 void resetWaypoints(void)
 {
 	waypointId = 1;
+	currentWaypointId = 0;
 }
 
 Entity *spawnWaypoint(void)
 {
 	Entity *waypoint = spawnEntity();
 	
-	sprintf(waypoint->name, "Waypoint #%d", waypointId++);
+	sprintf(waypoint->name, "Waypoint #%d", waypointId);
+	waypoint->id = waypointId;
 	waypoint->type = ET_WAYPOINT;
 	waypoint->active = 0;
 	waypoint->health = waypoint->maxHealth = FPS;
@@ -46,6 +49,8 @@ Entity *spawnWaypoint(void)
 	waypoint->flags |= EF_NO_MT_BOX;
 	
 	SDL_QueryTexture(waypoint->texture, NULL, NULL, &waypoint->w, &waypoint->h);
+	
+	waypointId++;
 	
 	return waypoint;
 }
@@ -71,7 +76,10 @@ static void think(void)
 			
 			runScriptFunction(self->name);
 			
-			activateNextWaypoint(self->id);
+			if (battle.waypointAutoAdvance)
+			{
+				activateNextWaypoint();
+			}
 			
 			battle.stats[STAT_WAYPOINTS_VISITED]++;
 		}
@@ -112,14 +120,16 @@ static int teamMatesClose(void)
 	return 1;
 }
 
-void activateNextWaypoint(int id)
+void activateNextWaypoint(void)
 {
 	Entity *e;
 	Entity *nextWaypoint = NULL;
 	
+	currentWaypointId++;
+	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->type == ET_WAYPOINT && e->id > id && (nextWaypoint == NULL || e->id < nextWaypoint->id))
+		if (e->type == ET_WAYPOINT && e->id == currentWaypointId)
 		{
 			nextWaypoint = e;
 		}
@@ -128,5 +138,7 @@ void activateNextWaypoint(int id)
 	if (nextWaypoint != NULL)
 	{
 		nextWaypoint->active = 1;
+		
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Activating %s", nextWaypoint->name);
 	}
 }

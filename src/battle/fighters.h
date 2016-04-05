@@ -49,7 +49,6 @@ extern char *getTranslatedString(char *string);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char **toTypeArray(char *types, int *numTypes);
 extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
-extern void awardTrophy(char *id);
 
 extern App app;
 extern Battle battle;

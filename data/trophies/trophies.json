@@ -94,6 +94,13 @@
 		"hidden" : 1
 	},
 	{
+		"id" : "CAMPAIGN_MACE",
+		"title" : "Going out with a bang.",
+		"description" : "Complete all missions at Mace",
+		"value" : "TROPHY_SILVER",
+		"hidden" : 1
+	},
+	{
 		"id" : "EPIC",
 		"title" : "Truly epic",
 		"description" : "Survive an epic battle",

@@ -1,0 +1,95 @@
+{
+	"name" : "Trilliack Defence #1",
+	"description" : "Trilliack has come under attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army",
+	"requires" : 35,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"music" : "music/battle/track-4.mp3",
+	"player" : {
+		"type" : "Leopard",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Cdr. Preston Young",
+		"squadron" : "Sparrows",
+		"x" : 10,
+		"y" : 10
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemy target",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Ally",
+			"types" : "Firefly;Nymph;Leopard",
+			"number" : 8,
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 10,
+			"scatter" : 500
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Shale;Blizzard;Khepri",
+			"number" : 6,
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : 20,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Shale;Blizzard;Khepri",
+			"number" : 6,
+			"side" : "SIDE_REBEL",
+			"x" : -1,
+			"y" : 20,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-3",
+			"types" : "Shale;Blizzard;Khepri",
+			"number" : 6,
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : -1,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Young;Our goal is simple, lads: destroy all enemy targets."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 4",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-2"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 10",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-3"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"MSG_BOX Young;Good work, everyone. Let's prepare to lend a hand to the other squadrons."
+			]
+		}
+	]
+}
+ 

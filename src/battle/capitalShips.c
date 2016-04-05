@@ -302,6 +302,8 @@ static void die(void)
 	Entity *e;
 
 	self->alive = ALIVE_DEAD;
+	
+	playBattleSound(SND_CAP_DEATH, self->x, self->y);
 
 	addLargeExplosion();
 	

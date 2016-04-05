@@ -23,6 +23,7 @@ CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J 
 
 ### SOUND
 
+* 000000_large_explosion.ogg - created by combining https://freesound.org/people/dkmedic/sounds/104447/ and https://freesound.org/people/CGEffex/sounds/100772/
 * 18380__inferno__hvrl.ogg - hvrl, by inferno - https://freesound.org/people/inferno/sounds/18380/
 * 18382__inferno__hvylas.ogg - hvylas, by inferno - https://freesound.org/people/inferno/sounds/18382/
 * 42106__marcuslee__laser-wrath-4.ogg - Laser Wrath 4, by marcusless - https://freesound.org/people/marcuslee/sounds/42106/

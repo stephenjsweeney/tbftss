@@ -366,6 +366,26 @@ void addLargeExplosion(void)
 		e->x -= e->size / 2;
 		e->y -= e->size / 2;
 	}
+	
+	e = malloc(sizeof(Effect));
+
+	memset(e, 0, sizeof(Effect));
+	battle.effectTail->next = e;
+	battle.effectTail = e;
+
+	e->type = EFFECT_HALO;
+	e->x = self->x;
+	e->y = self->y;
+	e->size = 256;
+	e->scaleAmount = 4;
+	e->texture = haloTexture;
+
+	e->r = 255;
+	e->g = 255;
+	e->b = 255;
+	e->a = 255;
+
+	e->health = 255;
 }
 
 void addMissileExplosion(Bullet *b)

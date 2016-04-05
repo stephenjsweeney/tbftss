@@ -121,6 +121,7 @@ static void loadSounds(void)
 	sounds[SND_TROPHY] = loadSound("sound/278142__ricemaster__effect-notify.ogg");
 	sounds[SND_MINE_WARNING] = loadSound("sound/254174__kwahmah-02__s.ogg");
 	sounds[SND_TIME_WARNING] = loadSound("sound/320181__dland__hint.ogg");
+	sounds[SND_CAP_DEATH] = loadSound("sound/000000_large_explosion.ogg");
 
 	sounds[SND_GUI_CLICK] = loadSound("sound/257786__xtrgamr__mouse-click.ogg");
 	sounds[SND_GUI_SELECT] = loadSound("sound/321104__nsstudios__blip2.ogg");

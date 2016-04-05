@@ -586,7 +586,7 @@ void countNumEnemies(void)
 		}
 	}
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "battle.numInitialEnemies=%d", battle.numInitialEnemies);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "battle.numInitialEnemies=%d", battle.numInitialEnemies);
 }
 
 void addVisibleEntsToDrawList(void)

@@ -57,48 +57,17 @@
 			"x" : 25,
 			"y" : 30,
 			"scatter" : 1000,
-			"number" : 2,
+			"number" : 5,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
-			"types" : "Shale",
-			"side" : "SIDE_REBEL",
-			"x" : 25,
-			"y" : 30,
-			"scatter" : 1000,
-			"number" : 3,
-			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS"
-		},
-		{
 			"groupName" : "Rebels-2",
 			"types" : "Shale",
 			"side" : "SIDE_REBEL",
 			"x" : 30,
 			"y" : 51,
 			"scatter" : 1000,
-			"number" : 4,
-			"aiFlags" : "+AIF_UNLIMITED_RANGE",
-			"active" : 0
-		},
-		{
-			"groupName" : "Rebels-2",
-			"types" : "Shale",
-			"side" : "SIDE_REBEL",
-			"x" : 30,
-			"y" : 51,
-			"scatter" : 1000,
-			"number" : 1,
-			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
-			"active" : 0
-		},
-		{
-			"groupName" : "Rebels-3",
-			"types" : "Shale",
-			"side" : "SIDE_REBEL",
-			"x" : 20,
-			"y" : 51,
-			"scatter" : 1000,
-			"number" : 4,
+			"number" : 5,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"active" : 0
 		},
@@ -109,8 +78,8 @@
 			"x" : 20,
 			"y" : 51,
 			"scatter" : 1000,
-			"number" : 1,
-			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
+			"number" : 5,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"active" : 0
 		}
 	],

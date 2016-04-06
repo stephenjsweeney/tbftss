@@ -1,0 +1,175 @@
+{
+	"name" : "India Defence #1",
+	"description" : "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations.",
+	"requires" : 35,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/track-3.mp3",
+	"player" : {
+		"type" : "Nymph",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Francis Lee",
+		"squadron" : "Zeroes",
+		"x" : 25,
+		"y" : 45
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemy target",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Minimise civilian losses",
+			"targetName" : "Civilian",
+			"targetValue" : 11,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1,
+			"active" : 0
+		}
+	],
+	"fighters" : [
+		{
+			"types" : "Firefly;Nymph",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 45,
+			"scatter" : 500,
+			"number" : 5,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Civilian",
+			"types" : "Civilian",
+			"number" : 24,
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 40,
+			"scatter" : 5000,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "AIF_AVOIDS_COMBAT+AIF_WANDERS"
+		},
+		{
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 30,
+			"scatter" : 1000,
+			"number" : 2,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 30,
+			"scatter" : 1000,
+			"number" : 3,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS"
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 51,
+			"scatter" : 1000,
+			"number" : 4,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 51,
+			"scatter" : 1000,
+			"number" : 1,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-3",
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : 51,
+			"scatter" : 1000,
+			"number" : 4,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-3",
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : 51,
+			"scatter" : 1000,
+			"number" : 1,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Lee;Caution, everyone. The Tzac forces might be deliberately targeting the civilians in the area. We need to eliminate or drive those Shales away, as quickly as possible."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 4",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Wingmate;Picking up another group of Shales, incoming.",
+				"ACTIVATE_ENTITY_GROUPS Rebels-2"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 8",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wingmate;Another squadrons of Shales is inbound.",
+				"ACTIVATE_ENTITY_GROUPS Rebels-3"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 15",
+			"lines" : [
+				"MSG_BOX Lee;That's all of them. Let's get these civilians to safety."
+			]
+		},
+		{
+			"function" : "CIVILIANS_KILLED 1",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Lee;First civilian casualty confirmed. Let's step it up, guys.",
+				"ACTIVATE_OBJECTIVES Minimise civilian losses"
+			]
+		},
+		{
+			"function" : "CIVILIANS_KILLED 4",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Lee;The Tzac forces are picking the civilians off. We need to act faster."
+			]
+		},
+		{
+			"function" : "CIVILIANS_KILLED 7",
+			"lines" : [
+				"MSG_BOX Lee;Dammit, we're losing too many of them!"
+			]
+		},
+		{
+			"function" : "CIVILIANS_KILLED 12",
+			"lines" : [
+				"MSG_BOX Lee;Too many losses ..."
+			]
+		}
+	]
+}
+ 

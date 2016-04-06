@@ -297,6 +297,8 @@ void doFighter(void)
 						{
 							addHudMessage(colors.red, _("Civilian has been killed"));
 						}
+						
+						runScriptFunction("CIVILIANS_KILLED %d", battle.stats[STAT_CIVILIANS_KILLED]);
 					}
 					else
 					{

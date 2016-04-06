@@ -1,6 +1,6 @@
 {
 	"name" : "Alba Defence #1",
-	"description" : "Tzac forces have been detected moving into the area. They need to be dispatched as quickly as possible, so that Christabel cannot make any significant gains in amassing her forces in the system. The Eightballers, with additional support, will move in to intercept.",
+	"description" : "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations.",
 	"requires" : 35,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",

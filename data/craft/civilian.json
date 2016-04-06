@@ -1,7 +1,7 @@
 {
 	"name" : "Civilian",
 	"health" : 15,
-	"speed" : 2,
+	"speed" : 1.85,
 	"texture" : "gfx/craft/civilian01.png",
 	"flags" : "EF_MISSION_TARGET+EF_RETREATING+EF_TAKES_DAMAGE",
 	"aiFlags" : "AIF_GOAL_JUMPGATE+AIF_AVOIDS_COMBAT+AIF_FOLLOWS_PLAYER"

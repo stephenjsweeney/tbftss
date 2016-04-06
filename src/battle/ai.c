@@ -578,13 +578,13 @@ static int isRetreating(void)
 
 static int nearEnemies(void)
 {
-	int i, numEnemies;
+	int i, numEnemies, x, y;
 	Entity *e, **candidates;
 	
 	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
 	
 	self->target = NULL;
-	self->targetLocation.x = self->targetLocation.y = 0;
+	x = y = 0;
 	
 	numEnemies = 0;
 	
@@ -599,8 +599,8 @@ static int nearEnemies(void)
 			
 			if (getDistance(e->x, e->y, self->x, self->y) < 1000)
 			{
-				self->targetLocation.x += e->x;
-				self->targetLocation.y += e->y;
+				x += e->x;
+				y += e->y;
 				numEnemies++;
 			}
 		}
@@ -608,6 +608,9 @@ static int nearEnemies(void)
 	
 	if (numEnemies)
 	{
+		self->targetLocation.x = x;
+		self->targetLocation.y = y;
+		
 		self->targetLocation.x /= numEnemies;
 		self->targetLocation.y /= numEnemies;
 		

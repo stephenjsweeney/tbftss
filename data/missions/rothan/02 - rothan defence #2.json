@@ -59,7 +59,7 @@
 		{
 			"name" : "Rebel",
 			"groupName" : "Rebels",
-			"types" : "Razor;Shale",
+			"types" : "Firefly;Nymphs",
 			"side" : "SIDE_REBEL",
 			"x" : -1,
 			"y" : -1,
@@ -70,7 +70,7 @@
 		{
 			"name" : "Rebel",
 			"groupName" : "Rebels",
-			"types" : "Razor;Shale",
+			"types" : "Firefly;Nymphs",
 			"side" : "SIDE_REBEL",
 			"x" : 15,
 			"y" : -1,
@@ -81,7 +81,7 @@
 		{
 			"name" : "Rebel",
 			"groupName" : "Rebels",
-			"types" : "Razor;Shale",
+			"types" : "Firefly;Nymphs",
 			"side" : "SIDE_REBEL",
 			"x" : -1,
 			"y" : 15,

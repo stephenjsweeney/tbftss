@@ -192,7 +192,10 @@ void doFighter(void)
 			separate();
 		}
 
-		attachRope();
+		if (!(self->flags & EF_DISABLED))
+		{
+			attachRope();
+		}
 
 		if (self->thrust > 0.25)
 		{
@@ -823,6 +826,11 @@ void loadFighters(cJSON *node)
 						e->flags = flags;
 
 						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
+					}
+					
+					if (e->flags & EF_DISABLED)
+					{
+						e->speed = 0;
 					}
 				}
 

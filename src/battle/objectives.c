@@ -170,6 +170,10 @@ void updateCondition(char *name, int type)
 				o->status = OS_FAILED;
 				addHudMessage(colors.red, _("%s - Objective Failed!"), o->description);
 			}
+			else if (!o->hideNumbers)
+			{
+				addHudMessage(colors.red, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+			}
 		}
 	}
 }
@@ -251,7 +255,7 @@ void loadObjectives(cJSON *node)
 			o->active = getJSONValue(node, "active", 1);
 			o->isCondition = getJSONValue(node, "isCondition", 0);
 			o->isEliminateAll = getJSONValue(node, "isEliminateAll", 0);
-			o->hideNumbers = getJSONValue(node, "hideNumbers", 0);
+			o->hideNumbers = getJSONValue(node, "hideNumbers", o->isCondition);
 
 			if (o->isEliminateAll)
 			{

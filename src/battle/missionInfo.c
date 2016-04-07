@@ -142,10 +142,12 @@ static void drawObjectives(void)
 			}
 			
 			drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
-			if (o->targetValue > 1 && !o->isCondition && !o->hideNumbers)
+			
+			if (o->targetValue > 1 && !o->hideNumbers)
 			{
 				drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
 			}
+			
 			drawText(SCREEN_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
 		}
 	}

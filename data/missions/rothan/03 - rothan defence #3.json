@@ -1,0 +1,144 @@
+{
+	"name" : "Rothan Defence #3",
+	"description" : "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations.",
+	"requires" : 35,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/InnerCore_Low.ogg",
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemy target",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Defend shipyard",
+			"targetName" : "Shipyard",
+			"targetValue" : 12,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1,
+			"hideNumbers" : 0
+		}
+	],
+	"player" : {
+		"type" : "Leopard",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Doyle Reid",
+		"squadron" : "Hands of Fate",
+		"x" : 25,
+		"y" : 25
+	},
+	"fighters" : [
+		{
+			"types" : "Leopard",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_ALLIES",
+			"scatter" : 500,
+			"number" : 2
+		},
+		{
+			"name" : "Shipyard",
+			"types" : "Shuttle;Tug;Lynx;Nymph;Leopard;Hyena-A;Hyena-B",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_ALLIES",
+			"scatter" : 800,
+			"number" : 12,
+			"flags" : "+EF_DISABLED+EF_AI_TARGET"
+		},
+		{
+			"groupName" : "RT1",
+			"types" : "Rocket Turret",
+			"x" : 25,
+			"y" : 25,
+			"side" : "SIDE_ALLIES",
+			"scatter" : 1500,
+			"number" : 3
+		},
+		{
+			"types" : "Shale",
+			"x" : 5,
+			"y" : 5,
+			"side" : "SIDE_REBEL",
+			"scatter" : 2500,
+			"number" : 7,
+			"flags" : "EF_TAKES_DAMAGE",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS"
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Shale",
+			"x" : 15,
+			"y" : -1,
+			"side" : "SIDE_REBEL",
+			"scatter" : 2500,
+			"number" : 4,
+			"flags" : "EF_TAKES_DAMAGE",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Khepri",
+			"x" : 15,
+			"y" : -1,
+			"side" : "SIDE_REBEL",
+			"scatter" : 2500,
+			"number" : 6,
+			"flags" : "EF_TAKES_DAMAGE",
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Blizzard",
+			"x" : -1,
+			"y" : 15,
+			"side" : "SIDE_REBEL",
+			"scatter" : 2500,
+			"number" : 4,
+			"flags" : "EF_TAKES_DAMAGE",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Khepri",
+			"x" : 15,
+			"y" : -1,
+			"side" : "SIDE_REBEL",
+			"scatter" : 2500,
+			"number" : 6,
+			"flags" : "EF_TAKES_DAMAGE",
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Reid;We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here.",
+				"MSG_BOX Wingmate;Any backup on the way?",
+				"MSG_BOX Reid;The threat warning came in too late for any other squadrons to assist us, but we have the turrets to assist us.",
+				"MSG_BOX Reid;Expect the Tzac forces to focus on destroying the tugs and shuttles."
+			]
+		},
+		{
+			"function" : "TIME 60",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-1"
+			]
+		},
+		{
+			"function" : "TIME 120",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-2"
+			]
+		}
+	]
+}
+ 

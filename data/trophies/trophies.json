@@ -139,6 +139,12 @@
 		"value" : "TROPHY_BRONZE"
 	},
 	{
+		"id" : "TEAM_PLAYER",
+		"title" : "Taking one for the Team",
+		"description" : "Be killed by a missile that was meant for someone else",
+		"value" : "TROPHY_SILVER"
+	},
+	{
 		"id" : "CHALLENGE_25",
 		"title" : "",
 		"description" : "Complete 25% of all challenges",

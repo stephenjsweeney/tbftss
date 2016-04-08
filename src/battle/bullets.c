@@ -214,6 +214,11 @@ static void checkCollisions(Bullet *b)
 					}
 					
 					e->killedBy = b->owner;
+					
+					if (b->type == BT_MISSILE && e == player && b->target != player)
+					{
+						awardTrophy("TEAM_PLAYER");
+					}
 				}
 				
 				if (b->owner == player && b->type == BT_MISSILE)

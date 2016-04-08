@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 11:25:33+0100\n"
+"POT-Creation-Date: 2016-04-08 11:04:38+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -580,7 +580,7 @@ msgstr ""
 msgid "Okay, let's get home and report in."
 msgstr ""
 
-msgid "Tzac forces have been detected moving into the area. They need to be dispatched as quickly as possible, so that Christabel cannot make any significant gains in amassing her forces in the system. The Eightballers, with additional support, will move in to intercept."
+msgid "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations."
 msgstr ""
 
 msgid "Enemies sighted."
@@ -955,6 +955,21 @@ msgstr ""
 msgid "We're taking too many losses, Dodds. Fall back now, that's an order."
 msgstr ""
 
+msgid "Tzac Shales sighted. Moving to intercept."
+msgstr ""
+
+msgid "Fewer than we were expecting."
+msgstr ""
+
+msgid "Agreed. Scouts?"
+msgstr ""
+
+msgid "Zenobia, I'm detecting a large squadron of fighters and bombers, heading our way. Looks like they're focusing directly on you."
+msgstr ""
+
+msgid "Dammit! The Shales were acting as bait. Specials, keep those bombers away from us."
+msgstr ""
+
 msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
 msgstr ""
 
@@ -1150,6 +1165,30 @@ msgstr ""
 msgid "The wing commander's dead."
 msgstr ""
 
+msgid "Caution, everyone. The Tzac forces might be deliberately targeting the civilians in the area. We need to eliminate or drive those Shales away, as quickly as possible."
+msgstr ""
+
+msgid "Picking up another group of Shales, incoming."
+msgstr ""
+
+msgid "Another squadrons of Shales is inbound."
+msgstr ""
+
+msgid "That's all of them. Let's get these civilians to safety."
+msgstr ""
+
+msgid "First civilian casualty confirmed. Let's step it up, guys."
+msgstr ""
+
+msgid "The Tzac forces are picking the civilians off. We need to act faster."
+msgstr ""
+
+msgid "Dammit, we're losing too many of them!"
+msgstr ""
+
+msgid "Too many losses ..."
+msgstr ""
+
 msgid "We're taking a lot of damage here. Please assist."
 msgstr ""
 
@@ -1229,6 +1268,18 @@ msgid "Commander, your current missions has been aborted. Return to the jumpgate
 msgstr ""
 
 msgid "Got it, coming home."
+msgstr ""
+
+msgid "We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here."
+msgstr ""
+
+msgid "Any backup on the way?"
+msgstr ""
+
+msgid "The threat warning came in too late for any other squadrons to assist us, but we have the turrets to assist us."
+msgstr ""
+
+msgid "Expect the Tzac forces to focus on destroying the tugs and shuttles."
 msgstr ""
 
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
@@ -1340,6 +1391,12 @@ msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated
 msgstr ""
 
 msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
+msgstr ""
+
+msgid "Our goal is simple, lads: destroy all enemy targets."
+msgstr ""
+
+msgid "Good work, everyone. Let's prepare to lend a hand to the other squadrons."
 msgstr ""
 
 msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilation craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
@@ -1472,5 +1529,200 @@ msgid "Destroy INF Klondike and INF Canfield"
 msgstr ""
 
 msgid "Collect packages"
+msgstr ""
+
+msgid "One of the seven"
+msgstr ""
+
+msgid "Earn all other trophies"
+msgstr ""
+
+msgid "2nd Lieutenant"
+msgstr ""
+
+msgid "Complete a campaign mission"
+msgstr ""
+
+msgid "1st Lieutenant"
+msgstr ""
+
+msgid "Complete 10% of all missions"
+msgstr ""
+
+msgid "Lieutenant Commander"
+msgstr ""
+
+msgid "Complete 20% of all missions"
+msgstr ""
+
+msgid "Commander"
+msgstr ""
+
+msgid "Complete 40% of all missions"
+msgstr ""
+
+msgid "Captain"
+msgstr ""
+
+msgid "Complete 50% of all missions"
+msgstr ""
+
+msgid "Commodore"
+msgstr ""
+
+msgid "Complete 60% of all missions"
+msgstr ""
+
+msgid "Rear Admiral"
+msgstr ""
+
+msgid "Complete 80% of all missions"
+msgstr ""
+
+msgid "Admiral"
+msgstr ""
+
+msgid "Complete 90% of all missions"
+msgstr ""
+
+msgid "Fleet Admiral"
+msgstr ""
+
+msgid "Complete all campaign missions"
+msgstr ""
+
+msgid "Ready for duty"
+msgstr ""
+
+msgid "Complete all the training missions at Sol"
+msgstr ""
+
+msgid "Coyote Ugly"
+msgstr ""
+
+msgid "Complete all missions at Coyote"
+msgstr ""
+
+msgid "Better late than never"
+msgstr ""
+
+msgid "Complete all missions at Warro"
+msgstr ""
+
+msgid "The shape of things to come"
+msgstr ""
+
+msgid "Complete all missions at Iliad"
+msgstr ""
+
+msgid "Now get the hell out of our galaxy!"
+msgstr ""
+
+msgid "Complete all missions at Temper"
+msgstr ""
+
+msgid "Going out with a bang."
+msgstr ""
+
+msgid "Complete all missions at Mace"
+msgstr ""
+
+msgid "Truly epic"
+msgstr ""
+
+msgid "Survive an epic battle"
+msgstr ""
+
+msgid "The bigger they are"
+msgstr ""
+
+msgid "Destroy an enemy capital ship"
+msgstr ""
+
+msgid "Plenty more where that came from, unfortunately"
+msgstr ""
+
+msgid "Destroy a Pandoran-controlled craft"
+msgstr ""
+
+msgid "Man, I gotta get me one of these!"
+msgstr ""
+
+msgid "Pilot an ATAF during the campaign"
+msgstr ""
+
+msgid "The 4th emergency service"
+msgstr ""
+
+msgid "Complete a mission using a Tug"
+msgstr ""
+
+msgid "Room for one more on top"
+msgstr ""
+
+msgid "Complete a mission using a Shuttle"
+msgstr ""
+
+msgid "Taking one for the Team"
+msgstr ""
+
+msgid "Be killed by a missile that was meant for someone else"
+msgstr ""
+
+msgid "Complete 25% of all challenges"
+msgstr ""
+
+msgid "Complete 50% of all challenges"
+msgstr ""
+
+msgid "Complete 100% of all challenges"
+msgstr ""
+
+msgid "Your name's on one of these!"
+msgstr ""
+
+msgid "Fire 100,000 shots"
+msgstr ""
+
+msgid "Dodge this!"
+msgstr ""
+
+msgid "Launch 1,000 missiles"
+msgstr ""
+
+msgid "Isn't technology wonderful?"
+msgstr ""
+
+msgid "Use the ECM 100 times"
+msgstr ""
+
+msgid "Runaway!"
+msgstr ""
+
+msgid "Boost 100 times"
+msgstr ""
+
+msgid "Missed, you f**kers!"
+msgstr ""
+
+msgid "Evade 50 missiles"
+msgstr ""
+
+msgid "Sightseer"
+msgstr ""
+
+msgid "Visit 100 waypoints"
+msgstr ""
+
+msgid "Yippie-ki-yay"
+msgstr ""
+
+msgid "Destroy 13 or more enemies in an epic battle without being killed"
+msgstr ""
+
+msgid "Almost indestructable. Almost."
+msgstr ""
+
+msgid "Be destroyed while piloting an ATAF"
 msgstr ""
 

@@ -75,8 +75,8 @@ function extractJSON($filename)
 	{
 		foreach ($json as $trophy)
 		{
-			addString($json->{"title"});
-			addString($json->{"description"});
+			addString($trophy->{"title"});
+			addString($trophy->{"description"});
 		}
 	}
 	else if (strpos($filename, "missions") !== false)

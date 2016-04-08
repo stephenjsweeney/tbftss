@@ -702,26 +702,14 @@ static void moveToPlayer(void)
 	
 	if (dist <= 350)
 	{
-		if (fabs(player->dx) >= 1 || fabs(player->dy) >= 1)
-		{
-			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 1000), player->y + (player->dy * 1000));
-			
-			turnToFace(wantedAngle);
-			
-			oldSpeed = self->speed;
-			self->speed = MIN(self->speed, player->speed);
-			applyFighterThrust();
-			self->speed = oldSpeed;
-		}
+		wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 1000), player->y + (player->dy * 1000));
 		
-		if (dist <= 250)
-		{
-			applyFighterBrakes();
-			
-			turnToFace(player->angle);
+		turnToFace(wantedAngle);
 		
-			self->aiActionTime = MIN(FPS, self->aiActionTime);
-		}
+		oldSpeed = self->speed;
+		self->speed = sqrt(player->thrust);
+		applyFighterThrust();
+		self->speed = oldSpeed;
 	}
 	else
 	{
@@ -904,25 +892,21 @@ static void moveToLeader(void)
 	int dist = getDistance(self->x, self->y, self->leader->x, self->leader->y);
 	float oldSpeed;
 	
-	if (dist <= ((self->leader->type != ET_CAPITAL_SHIP) ? 350 : 500))
+	if (dist <= ((self->leader->type != ET_CAPITAL_SHIP) ? 350 : 550))
 	{
-		if (fabs(self->leader->dx) >= 1 || fabs(self->leader->dy) >= 1)
+		if (self->leader->thrust > 0)
 		{
 			wantedAngle = getAngle(self->leader->x, self->leader->y, self->leader->x + (self->leader->dx * 1000), self->leader->y + (self->leader->dy * 1000));
 			
 			turnToFace(wantedAngle);
 			
 			oldSpeed = self->speed;
-			self->speed = MIN(self->speed, self->leader->speed);
+			self->speed = sqrt(self->leader->thrust);
 			applyFighterThrust();
 			self->speed = oldSpeed;
-		}
-		
-		if (dist <= 250)
-		{
-			applyFighterBrakes();
-		
-			self->aiActionTime = MIN(FPS, self->aiActionTime);
+			
+			/* don't all react at once */
+			self->aiActionTime = FPS + (rand() % FPS);
 		}
 	}
 	else

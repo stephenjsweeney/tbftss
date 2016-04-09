@@ -45,7 +45,7 @@ Entity *spawnMine(void)
 	mine->texture = mineNormal;
 	mine->action = think;
 	mine->die = die;
-	mine->flags = EF_TAKES_DAMAGE+EF_NO_TARGET;
+	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET;
 	
 	SDL_QueryTexture(mine->texture, NULL, NULL, &mine->w, &mine->h);
 

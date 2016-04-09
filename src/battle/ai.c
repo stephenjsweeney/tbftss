@@ -173,6 +173,10 @@ static void doFighterAI(void)
 			{
 				moveToPlayer();
 			}
+			else if (self->aiFlags & AIF_WANDERS)
+			{
+				doWander();
+			}
 			else
 			{
 				applyFighterBrakes();
@@ -307,9 +311,9 @@ static void findTarget(void)
 	Entity *e, **candidates;
 	unsigned int dist, closest;
 	
-	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 2000;
+	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 1000;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - (dist / 2), self->y - (self->h / 2) - (dist / 2), self->w + dist, self->h + dist, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - dist, self->y - (self->h / 2) - dist, self->w + (dist * 2), self->h + (dist * 2), self);
 	
 	self->target = NULL;
 	
@@ -805,7 +809,7 @@ static int nearTowableCraft(void)
 	
 	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 2000;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - (dist / 2), self->y - (self->h / 2) - (dist / 2), self->w + dist, self->h + dist, self);
+	candidates = getAllEntsWithin(self->x - (self->w / 2) - dist, self->y - (self->h / 2) - dist, self->w + (dist * 2), self->h + (dist * 2), self);
 	
 	self->target = NULL;
 	

@@ -23,22 +23,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void drawEntity(Entity *e);
 static void doEntity(void);
 static void alignComponents(void);
-static void drawEntity(Entity *e);
 static void activateEpicFighters(int n, int side);
 static void restrictToBattleArea(Entity *e);
 static void drawTargetRects(Entity *e);
 static int drawComparator(const void *a, const void *b);
 static void notifyNewArrivals(void);
 static int isComponent(Entity *e);
-static void resizeDrawList(void);
 
 static Entity deadHead;
 static Entity *deadTail;
 static int disabledGlow;
 static int disabledGlowDir;
-static Entity **entsToDraw;
-static int drawCapacity;
-static int numEntsToDraw;
 
 void initEntities(void)
 {
@@ -48,11 +43,6 @@ void initEntities(void)
 
 	disabledGlow = DISABLED_GLOW_MAX;
 	disabledGlowDir = -DISABLED_GLOW_SPEED;
-	
-	drawCapacity = INITIAL_ENTITY_DRAW_CAPACITY;
-	
-	entsToDraw = malloc(sizeof(Entity*) * drawCapacity);
-	memset(entsToDraw, 0, sizeof(Entity*) * drawCapacity);
 }
 
 Entity *spawnEntity(void)
@@ -83,10 +73,6 @@ void doEntities(void)
 		player->health = player->maxHealth;
 		player->shield = player->maxShield;
 	}
-	
-	numEntsToDraw = 0;
-	
-	memset(entsToDraw, 0, sizeof(Entity*) * drawCapacity);
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -178,16 +164,6 @@ void doEntities(void)
 				if (!isComponent(e))
 				{
 					addToQuadtree(e, &battle.quadtree);
-				}
-				
-				if (isOnBattleScreen(e->x, e->y, e->w, e->h))
-				{
-					entsToDraw[numEntsToDraw++] = e;
-
-					if (numEntsToDraw == drawCapacity)
-					{
-						resizeDrawList();
-					}
 				}
 			}
 			else
@@ -282,19 +258,6 @@ void doEntities(void)
 	{
 		disabledGlowDir = -DISABLED_GLOW_SPEED;
 	}
-}
-
-static void resizeDrawList(void)
-{
-	int n;
-
-	n = drawCapacity + INITIAL_ENTITY_DRAW_CAPACITY;
-
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing entity draw capacity: %d -> %d", drawCapacity, n);
-
-	entsToDraw = resize(entsToDraw, sizeof(Entity*) * drawCapacity, sizeof(Entity*) * n);
-	
-	drawCapacity = n;
 }
 
 static void restrictToBattleArea(Entity *e)
@@ -398,12 +361,17 @@ static int isComponent(Entity *e)
 
 void drawEntities(void)
 {
-	Entity *e;
 	int i;
+	Entity *e, **candidates;
 	
-	qsort(entsToDraw, numEntsToDraw, sizeof(Entity*), drawComparator);
+	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
+	
+	/* counting entities to draw */
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i]) {};
+	
+	qsort(candidates, i, sizeof(Entity*), drawComparator);
 
-	for (i = 0, e = entsToDraw[i] ; e != NULL ; e = entsToDraw[++i])
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
 		self = e;
 
@@ -589,28 +557,15 @@ void countNumEnemies(void)
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "battle.numInitialEnemies=%d", battle.numInitialEnemies);
 }
 
-void addVisibleEntsToDrawList(void)
+void addAllToQuadtree(void)
 {
 	Entity *e;
 	
-	battle.camera.x = player->x - (SCREEN_WIDTH / 2);
-	battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
-	
-	numEntsToDraw = 0;
-
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->active)
 		{
-			if (isOnBattleScreen(e->x, e->y, e->w, e->h))
-			{
-				entsToDraw[numEntsToDraw++] = e;
-
-				if (numEntsToDraw == drawCapacity)
-				{
-					resizeDrawList();
-				}
-			}
+			addToQuadtree(e, &battle.quadtree);
 		}
 	}
 }
@@ -635,8 +590,4 @@ void destroyEntities(void)
 	}
 
 	deadTail = &deadHead;
-	
-	free(entsToDraw);
-
-	entsToDraw = NULL;
 }

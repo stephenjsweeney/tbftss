@@ -231,7 +231,7 @@ void loadMission(char *filename)
 
 	initMissionInfo();
 
-	addVisibleEntsToDrawList();
+	addAllToQuadtree();
 
 	playMusic(music);
 }

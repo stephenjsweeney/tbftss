@@ -20,7 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define INITIAL_ENTITY_DRAW_CAPACITY	8
 #define DISABLED_GLOW_SPEED 			3
 #define DISABLED_GLOW_MIN 				128
 #define DISABLED_GLOW_MAX 				255
@@ -35,8 +34,7 @@ extern void drawShieldHitEffect(Entity *e);
 extern void removeFromQuadtree(Entity *e, Quadtree *root);
 extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void updateCapitalShipComponentProperties(Entity *parent, long flags);
-extern void *resize(void *array, int oldSize, int newSize);
-extern int isOnBattleScreen(int x, int y, int w, int h);
+extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 
 extern App app;
 extern Battle battle;

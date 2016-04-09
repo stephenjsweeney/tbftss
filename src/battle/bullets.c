@@ -182,11 +182,13 @@ static void checkCollisions(Bullet *b)
 						battle.stats[STAT_ROCKETS_HIT]++;
 					}
 				}
-
-				if (!(e->flags & EF_IMMORTAL))
+				
+				if (e->flags & EF_IMMORTAL)
 				{
-					damageFighter(e, b->damage, b->flags);
+					b->damage = 0;
 				}
+				
+				damageFighter(e, b->damage, b->flags);
 
 				b->life = 0;
 				b->damage = 0;

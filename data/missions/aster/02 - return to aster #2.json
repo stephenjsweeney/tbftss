@@ -1,5 +1,5 @@
 {
-	"name" : "Mine Sweeper",
+	"name" : "Minesweeper",
 	"description" : "Tzac bombers have been identified in the area, deploying mines. While this violates intergalactic treaties, we could never assume that Tzac, much like the Pandorans, would abide by the rules of war. We need to take down those bombers quickly. Exercise caution around the mines, as they are especially potent.",
 	"requires" : 33,
 	"background" : "gfx/backgrounds/background04.jpg",

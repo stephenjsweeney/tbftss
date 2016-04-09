@@ -24,20 +24,25 @@ static void think(void);
 static void draw(void);
 static void handleFleeingEntities(void);
 static void addEscapeEffect(Entity *ent);
+static void addNodes(Entity *jumpgate, long flags);
+static void nodeDie(void);
 
 static SDL_Texture *portal;
 static float portalAngle;
 
-Entity *spawnJumpgate(void)
+Entity *spawnJumpgate(int side, long flags)
 {
 	Entity *jumpgate = spawnEntity();
 
 	jumpgate->type = ET_JUMPGATE;
-	jumpgate->health = jumpgate->maxHealth = FPS;
+	jumpgate->health = jumpgate->maxHealth = 1;
 	jumpgate->texture = getTexture("gfx/entities/jumpgate.png");
 	jumpgate->action = think;
 	jumpgate->draw = draw;
-	jumpgate->flags |= EF_NO_MT_BOX;
+	jumpgate->side = side;
+	jumpgate->flags = EF_NO_MT_BOX+EF_IMMORTAL+EF_AI_IGNORE;
+	
+	addNodes(jumpgate, flags);
 
 	portal = getTexture("gfx/entities/portal.png");
 	portalAngle = 0;
@@ -47,6 +52,58 @@ Entity *spawnJumpgate(void)
 	return jumpgate;
 }
 
+static void addNodes(Entity *jumpgate, long flags)
+{
+	Entity *node;
+	SDL_Texture *nodeTexture;
+	int i;
+	
+	nodeTexture = getTexture("gfx/entities/jumpgateNode.png");
+	
+	for (i = 0 ; i < 360 ; i += 36)
+	{
+		node = spawnEntity();
+		STRNCPY(node->name, _("Jumpgate System Node"), MAX_NAME_LENGTH);
+		node->health = node->maxHealth = 75;
+		node->type = ET_COMPONENT;
+		node->offsetX = sin(TO_RAIDANS(i)) * 215;
+		node->offsetY = -cos(TO_RAIDANS(i)) * 215;
+		node->owner = jumpgate;
+		node->side = jumpgate->side;
+		node->texture = nodeTexture;
+		node->flags = EF_TAKES_DAMAGE;
+		node->die = nodeDie;
+		SDL_QueryTexture(node->texture, NULL, NULL, &node->w, &node->h);
+		
+		if (flags != -1)
+		{
+			node->flags |= flags;
+		}
+		
+		jumpgate->maxHealth++;
+	}
+	
+	jumpgate->health = jumpgate->maxHealth;
+}
+
+static void nodeDie(void)
+{
+	self->alive = ALIVE_DEAD;
+	addSmallExplosion();
+	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
+	addDebris(self->x, self->y, 3 + rand() % 4);
+
+	if (--battle.jumpgate->health == 1)
+	{
+		battle.jumpgate->flags |= EF_DISABLED;
+		
+		updateObjective("Jumpgate", TT_DESTROY);
+		updateCondition("Jumpgate", TT_DESTROY);
+	}
+
+	runScriptFunction("JUMPGATE_HEALTH %d", battle.jumpgate->health);
+}
+
 int jumpgateEnabled(void)
 {
 	return (battle.jumpgate && (!(battle.jumpgate->flags & EF_DISABLED)));
@@ -54,7 +111,7 @@ int jumpgateEnabled(void)
 
 void activateJumpgate(int activate)
 {
-	if (battle.jumpgate)
+	if (battle.jumpgate && battle.jumpgate->health > 1)
 	{
 		if (activate)
 		{

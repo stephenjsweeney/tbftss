@@ -343,7 +343,7 @@ static void loadEntities(cJSON *node)
 			number = getJSONValue(node, "number", 1);
 			active = getJSONValue(node, "active", 1);
 			scatter = getJSONValue(node, "scatter", 1);
-			side = getJSONValue(node, "side", SIDE_NONE);
+			side = lookup(getJSONValueStr(node, "side", "SIDE_NONE"));
 			
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
@@ -360,7 +360,7 @@ static void loadEntities(cJSON *node)
 						break;
 
 					case ET_JUMPGATE:
-						e = spawnJumpgate();
+						e = spawnJumpgate(side, flags);
 						break;
 						
 					case ET_MINE:
@@ -383,7 +383,7 @@ static void loadEntities(cJSON *node)
 					STRNCPY(e->groupName, groupName, MAX_NAME_LENGTH);
 				}
 
-				if (flags != -1)
+				if (type != ET_JUMPGATE && flags != -1)
 				{
 					if (addFlags)
 					{

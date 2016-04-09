@@ -34,7 +34,7 @@ extern void initPlayer(void);
 extern long flagsToLong(char *flags, int *add);
 extern Entity *spawnWaypoint(void);
 extern void selectWidget(const char *name, const char *group);
-extern Entity *spawnJumpgate(void);
+extern Entity *spawnJumpgate(int side, long flags);
 extern void failIncompleteObjectives(void);
 extern void completeConditions(void);
 extern void retreatEnemies(void);

@@ -330,7 +330,7 @@ static void findTarget(void)
 
 static int canAttack(Entity *e)
 {
-	if (!e->active || e->side == self->side || e->health <= 0)
+	if (!e->active || e->side == self->side || e->health <= 0 || (e->flags & EF_AI_IGNORE))
 	{
 		return 0;
 	}

@@ -29,7 +29,7 @@ static void restrictToBattleArea(Entity *e);
 static void drawTargetRects(Entity *e);
 static int drawComparator(const void *a, const void *b);
 static void notifyNewArrivals(void);
-static int isCapitalShipComponent(Entity *e);
+static int isComponent(Entity *e);
 static void resizeDrawList(void);
 
 static Entity deadHead;
@@ -175,7 +175,7 @@ void doEntities(void)
 				e->x += e->dx;
 				e->y += e->dy;
 
-				if (!isCapitalShipComponent(e))
+				if (!isComponent(e))
 				{
 					addToQuadtree(e, &battle.quadtree);
 				}
@@ -367,7 +367,7 @@ static void alignComponents(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (isCapitalShipComponent(e))
+		if (isComponent(e))
 		{
 			s = sin(TO_RAIDANS(e->owner->angle));
 			c = cos(TO_RAIDANS(e->owner->angle));
@@ -391,9 +391,9 @@ static void alignComponents(void)
 	}
 }
 
-static int isCapitalShipComponent(Entity *e)
+static int isComponent(Entity *e)
 {
-	return (e->type == ET_CAPITAL_SHIP_COMPONENT || e->type == ET_CAPITAL_SHIP_GUN || e->type == ET_CAPITAL_SHIP_ENGINE);
+	return (e->type == ET_COMPONENT || e->type == ET_COMPONENT_GUN || e->type == ET_COMPONENT_ENGINE);
 }
 
 void drawEntities(void)

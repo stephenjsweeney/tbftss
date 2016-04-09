@@ -280,7 +280,7 @@ static void engineDie(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e != self && e->owner == self->owner && e->type == ET_CAPITAL_SHIP_ENGINE)
+		if (e != self && e->owner == self->owner && e->type == ET_COMPONENT_ENGINE)
 		{
 			return;
 		}
@@ -430,7 +430,7 @@ static void loadComponents(Entity *parent, cJSON *components)
 
 			e->active = 1;
 
-			e->type = ET_CAPITAL_SHIP_COMPONENT;
+			e->type = ET_COMPONENT;
 			e->health = e->maxHealth = cJSON_GetObjectItem(component, "health")->valueint;
 			e->offsetX = cJSON_GetObjectItem(component, "x")->valueint;
 			e->offsetY = cJSON_GetObjectItem(component, "y")->valueint;
@@ -481,7 +481,7 @@ static void loadGuns(Entity *parent, cJSON *guns)
 
 			e->active = 1;
 
-			e->type = ET_CAPITAL_SHIP_GUN;
+			e->type = ET_COMPONENT_GUN;
 			e->health = e->maxHealth = cJSON_GetObjectItem(gun, "health")->valueint;
 			e->reloadTime = cJSON_GetObjectItem(gun, "reloadTime")->valueint;
 			e->offsetX = cJSON_GetObjectItem(gun, "x")->valueint;
@@ -532,7 +532,7 @@ static void loadEngines(Entity *parent, cJSON *engines)
 
 			e->active = 1;
 
-			e->type = ET_CAPITAL_SHIP_ENGINE;
+			e->type = ET_COMPONENT_ENGINE;
 			e->health = e->maxHealth = cJSON_GetObjectItem(engine, "health")->valueint;
 			e->offsetX = cJSON_GetObjectItem(engine, "x")->valueint;
 			e->offsetY = cJSON_GetObjectItem(engine, "y")->valueint;
@@ -567,15 +567,15 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 		{
 			switch (e->type)
 			{
-				case ET_CAPITAL_SHIP_ENGINE:
+				case ET_COMPONENT_ENGINE:
 					sprintf(e->name, _("%s (Engine)"), parent->name);
 					break;
 
-				case ET_CAPITAL_SHIP_COMPONENT:
+				case ET_COMPONENT:
 					sprintf(e->name, _("%s (Component)"), parent->name);
 					break;
 
-				case ET_CAPITAL_SHIP_GUN:
+				case ET_COMPONENT_GUN:
 					sprintf(e->name, _("%s (Gun)"), parent->name);
 					break;
 			}

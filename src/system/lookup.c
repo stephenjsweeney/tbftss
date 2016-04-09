@@ -101,6 +101,7 @@ void initLookups(void)
 	addLookup("WT_IMG_BUTTON", WT_IMG_BUTTON);
 	addLookup("WT_CONTROL_CONFIG", WT_CONTROL_CONFIG);
 
+	addLookup("SIDE_NONE", SIDE_NONE);
 	addLookup("SIDE_ALLIES", SIDE_ALLIES);
 	addLookup("SIDE_PIRATE", SIDE_PIRATE);
 	addLookup("SIDE_REBEL", SIDE_REBEL);

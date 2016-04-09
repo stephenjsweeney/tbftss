@@ -71,13 +71,13 @@ static void addNodes(Entity *jumpgate, long flags)
 		node->owner = jumpgate;
 		node->side = jumpgate->side;
 		node->texture = nodeTexture;
-		node->flags = EF_TAKES_DAMAGE;
+		node->flags = EF_TAKES_DAMAGE+EF_AI_IGNORE;
 		node->die = nodeDie;
 		SDL_QueryTexture(node->texture, NULL, NULL, &node->w, &node->h);
 		
 		if (flags != -1)
 		{
-			node->flags |= flags;
+			node->flags = flags;
 		}
 		
 		jumpgate->maxHealth++;

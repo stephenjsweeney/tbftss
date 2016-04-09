@@ -1,0 +1,157 @@
+{
+	"name" : "Antomis Defence #1",
+	"description" : "",
+	"background" : "gfx/backgrounds/background02.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/track-4.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemy target",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Defend the jumpgate",
+			"targetName" : "Jumpgate",
+			"targetType" : "TT_DESTROY",
+			"targetValue" : 1,
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "2nd Lt. Jim Goddard",
+		"squadron" : "Midnight Runners",
+		"x" : 20,
+		"y" : 45
+	},
+	"fighters" : [
+		{
+			"types" : "Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 20,
+			"y" : 45,
+			"number" : 1,
+			"scatter" : 350,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "TAF;Ray;Nymph;Firefly;Hyena-A",
+			"side" : "SIDE_ALLIES",
+			"x" : 20,
+			"y" : 45,
+			"number" : 7,
+			"scatter" : 350,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 5,
+			"number" : 6,
+			"scatter" : 350,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Blizzard;Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : -2,
+			"number" : 5,
+			"scatter" : 350,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Blizzard;Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : -2,
+			"number" : 5,
+			"scatter" : 350,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-3",
+			"types" : "Khepri",
+			"side" : "SIDE_REBEL",
+			"x" : 52,
+			"y" : 25,
+			"number" : 3,
+			"scatter" : 350,
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-3",
+			"types" : "Khepri",
+			"side" : "SIDE_REBEL",
+			"x" : -1,
+			"y" : 25,
+			"number" : 3,
+			"scatter" : 350,
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"flags" : "EF_TAKES_DAMAGE+EF_AI_TARGET"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Wing Commander;Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it.",
+				"MSG_BOX Wing Commander;Goddard, command of this operation will fall to you, if events lead to me being unable to participate fully."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 5",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-1",
+				"MSG_BOX Wingmate;Picking up a second group of fighters, incoming."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 12",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-2",
+				"MSG_BOX Wingmate;More fighters, inbound!"
+			]
+		},
+		{
+			"function" : "TIME 45",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-3",
+				"MSG_BOX Control;Midnight Runners, be advised that the enemy are sending bombers your way.",
+				"MSG_BOX Goddard;Hell, they really don't want to see this thing left standing."
+			]
+		},
+		{
+			"function" : "JUMPGATE_HEALTH 10",
+			"lines" : [
+				"MSG_BOX Control;The jumpgate is taking damage!"
+			]
+		},
+		{
+			"function" : "JUMPGATE_HEALTH 5",
+			"lines" : [
+				"MSG_BOX Control;Half the jumpgate's control nodes have been destroyed! We need to step up our efforts to defend it!"
+			]
+		}
+	]
+}

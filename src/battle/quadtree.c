@@ -220,8 +220,24 @@ Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore)
 
 static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Quadtree *root)
 {
-	Quadtree *node;
 	int index, i;
+	
+	if (root->node[0])
+	{
+		index = getIndex(root, x, y, w, h);
+		
+		if (index != -1)
+		{
+			getAllEntsWithinNode(x, y, w, h, ignore, root->node[index]);
+		}
+		else
+		{
+			for (i = 0 ; i < 4 ; i++)
+			{
+				getAllEntsWithinNode(x, y, w, h, ignore, root->node[i]);
+			}
+		}
+	}
 	
 	for (i = 0 ; i < root->numEnts ; i++)
 	{
@@ -230,27 +246,6 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Qua
 		if (cIndex == cCapacity)
 		{
 			resizeCandidates();
-		}
-	}
-	
-	index = getIndex(root, x, y, w, h);
-
-	if (root->node[0])
-	{
-		if (index != -1)
-		{
-			node = root->node[index];
-			
-			getAllEntsWithinNode(node->x, node->y, node->w, node->h, ignore, node);
-		}
-		else
-		{
-			for (i = 0; i < 4; i++)
-			{
-				node = root->node[i];
-			
-				getAllEntsWithinNode(node->x, node->y, node->w, node->h, ignore, node);
-			}
 		}
 	}
 }

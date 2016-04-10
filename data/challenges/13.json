@@ -1,0 +1,44 @@
+{
+	"name" : "Turret Takedown",
+	"description" : "Turret Takedown",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Lynx",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"killLimit" : 12,
+		"timeLimit" : 135,
+		"allowPlayerDeath" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 5
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 10
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 12
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"types" : "Rocket Turret",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 25,
+			"number" : 12,
+			"scatter" : 5000
+		}
+	]
+}

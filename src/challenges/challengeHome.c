@@ -38,9 +38,11 @@ static void updateChallengeMissionData(void);
 static char *listRestrictions(void);
 
 static SDL_Texture *background;
+static SDL_Texture *planetTexture;
+static SDL_Texture *challengeIcon;
+static SDL_Texture *challengeIconHighlight;
 static int startIndex;
 static Widget *start;
-static SDL_Texture *planetTexture;
 static PointF planet;
 static int show;
 static char timeLimit[MAX_DESCRIPTION_LENGTH];
@@ -69,6 +71,8 @@ void initChallengeHome(void)
 
 	background = getTexture(getBackgroundTextureName(rand()));
 	planetTexture = getTexture(getPlanetTextureName(rand()));
+	challengeIcon = getTexture("gfx/challenges/challengeIcon.png");
+	challengeIconHighlight = getTexture("gfx/challenges/challengeIconHighlight.png");
 
 	battle.camera.x =  battle.camera.y = 0;
 
@@ -278,20 +282,13 @@ static void drawChallenges(void)
 
 		if (i >= startIndex && i <= endIndex)
 		{
-			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
-			SDL_RenderFillRect(app.renderer, &r);
-
 			if (game.currentMission == m)
 			{
-				SDL_SetRenderDrawColor(app.renderer, 64, 128, 200, SDL_ALPHA_OPAQUE);
-				SDL_RenderFillRect(app.renderer, &r);
-				SDL_SetRenderDrawColor(app.renderer, 128, 192, 255, SDL_ALPHA_OPAQUE);
-				SDL_RenderDrawRect(app.renderer, &r);
+				blit(challengeIconHighlight, r.x, r.y, 0);
 			}
 			else
 			{
-				SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
-				SDL_RenderDrawRect(app.renderer, &r);
+				blit(challengeIcon, r.x, r.y, 0);
 			}
 
 			drawText(r.x + (r.w / 2), r.y + 28, 30, TA_CENTER, colors.white, "%d", i + 1);

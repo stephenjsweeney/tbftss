@@ -1,9 +1,9 @@
 {
 	"name" : "Plasma Turret",
 	"health" : 150,
-	"shield" : 150,
+	"shield" : 25,
 	"speed" : 0,
-	"reloadTime" : 30,
+	"reloadTime" : 16,
 	"shieldRechargeRate" : 10,
 	"texture" : "gfx/cannons/plasmaTurret.png",
 	"deathType" : "DT_NO_SPIN",

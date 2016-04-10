@@ -64,7 +64,7 @@ static void addNodes(Entity *jumpgate, long flags)
 	{
 		node = spawnEntity();
 		STRNCPY(node->name, _("Jumpgate System Node"), MAX_NAME_LENGTH);
-		node->health = node->maxHealth = 75;
+		node->health = node->maxHealth = 25;
 		node->type = ET_COMPONENT;
 		node->offsetX = sin(TO_RAIDANS(i)) * 215;
 		node->offsetY = -cos(TO_RAIDANS(i)) * 215;

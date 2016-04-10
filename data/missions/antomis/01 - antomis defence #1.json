@@ -30,12 +30,13 @@
 	},
 	"fighters" : [
 		{
-			"types" : "Rook",
+			"types" : "Leopard",
 			"side" : "SIDE_ALLIES",
 			"x" : 20,
 			"y" : 45,
 			"number" : 1,
 			"scatter" : 350,
+			"flags" : "+EF_AI_LEADER",
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
@@ -48,6 +49,18 @@
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
+			"types" : "Plasma Turret",
+			"side" : "SIDE_ALLIES",
+			"x" : 24.5,
+			"y" : 25
+		},
+		{
+			"types" : "Plasma Turret",
+			"side" : "SIDE_ALLIES",
+			"x" : 25.5,
+			"y" : 25
+		},
+		{
 			"types" : "Shale",
 			"side" : "SIDE_REBEL",
 			"x" : 30,
@@ -57,14 +70,33 @@
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
+			"types" : "Khepri",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 5,
+			"scatter" : 350,
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE"
+		},
+		{
 			"groupName" : "Rebels-1",
 			"types" : "Blizzard;Shale",
 			"side" : "SIDE_REBEL",
 			"x" : 30,
-			"y" : -2,
-			"number" : 5,
+			"y" : 52,
+			"number" : 4,
 			"scatter" : 350,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Khepri",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 52,
+			"number" : 2,
+			"scatter" : 350,
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
 			"active" : 0
 		},
 		{
@@ -73,29 +105,18 @@
 			"side" : "SIDE_REBEL",
 			"x" : 30,
 			"y" : -2,
-			"number" : 5,
+			"number" : 4,
 			"scatter" : 350,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"active" : 0
 		},
 		{
-			"groupName" : "Rebels-3",
+			"groupName" : "Rebels-2",
 			"types" : "Khepri",
 			"side" : "SIDE_REBEL",
-			"x" : 52,
-			"y" : 25,
-			"number" : 3,
-			"scatter" : 350,
-			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
-			"active" : 0
-		},
-		{
-			"groupName" : "Rebels-3",
-			"types" : "Khepri",
-			"side" : "SIDE_REBEL",
-			"x" : -1,
-			"y" : 25,
-			"number" : 3,
+			"x" : 30,
+			"y" : -2,
+			"number" : 2,
 			"scatter" : 350,
 			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
 			"active" : 0
@@ -131,14 +152,6 @@
 			"lines" : [
 				"ACTIVATE_ENTITY_GROUPS Rebels-2",
 				"MSG_BOX Wingmate;More fighters, inbound!"
-			]
-		},
-		{
-			"function" : "TIME 45",
-			"lines" : [
-				"ACTIVATE_ENTITY_GROUPS Rebels-3",
-				"MSG_BOX Control;Midnight Runners, be advised that the enemy are sending bombers your way.",
-				"MSG_BOX Goddard;Hell, they really don't want to see this thing left standing."
 			]
 		},
 		{

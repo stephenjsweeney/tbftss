@@ -154,7 +154,7 @@ static void doFighterAI(void)
 		
 		if (!self->target)
 		{
-			/* takes priority over move to player */
+			/* move to leader and wander take priority over move to player */
 			if (self->aiFlags & AIF_MOVES_TO_LEADER)
 			{
 				if (!lookForLeader())
@@ -169,13 +169,13 @@ static void doFighterAI(void)
 					}
 				}
 			}
-			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
-			{
-				moveToPlayer();
-			}
 			else if (self->aiFlags & AIF_WANDERS)
 			{
 				doWander();
+			}
+			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
+			{
+				moveToPlayer();
 			}
 			else
 			{
@@ -704,16 +704,23 @@ static void moveToPlayer(void)
 	int dist = getDistance(self->x, self->y, player->x, player->y);
 	float oldSpeed;
 	
-	if (dist <= 350)
+	if (dist <= 250)
 	{
 		wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 1000), player->y + (player->dy * 1000));
 		
 		turnToFace(wantedAngle);
 		
-		oldSpeed = self->speed;
-		self->speed = sqrt(player->thrust);
-		applyFighterThrust();
-		self->speed = oldSpeed;
+		if (player->thrust)
+		{
+			oldSpeed = self->speed;
+			self->speed = sqrt(player->thrust);
+			applyFighterThrust();
+			self->speed = oldSpeed;
+		}
+		else
+		{
+			applyFighterBrakes();
+		}
 	}
 	else
 	{
@@ -898,7 +905,7 @@ static void moveToLeader(void)
 	
 	if (dist <= ((self->leader->type != ET_CAPITAL_SHIP) ? 350 : 550))
 	{
-		if (self->leader->thrust > 0)
+		if (self->leader->thrust)
 		{
 			wantedAngle = getAngle(self->leader->x, self->leader->y, self->leader->x + (self->leader->dx * 1000), self->leader->y + (self->leader->dy * 1000));
 			
@@ -911,6 +918,10 @@ static void moveToLeader(void)
 			
 			/* don't all react at once */
 			self->aiActionTime = FPS + (rand() % FPS);
+		}
+		else
+		{
+			applyFighterBrakes();
 		}
 	}
 	else

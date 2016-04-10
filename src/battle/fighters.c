@@ -530,6 +530,11 @@ static void die(void)
 		{
 			battle.stats[STAT_EPIC_KILL_STREAK]++;
 		}
+		
+		if (self->side == SIDE_PANDORAN)
+		{
+			awardTrophy("PANDORAN");
+		}
 	}
 }
 

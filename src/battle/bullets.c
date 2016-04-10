@@ -205,16 +205,8 @@ static void checkCollisions(Bullet *b)
 				}
 
 				/* assuming that health <= 0 will always mean killed */
-				if (e->health <= 0 && b->owner == player && (!(e->flags & EF_NO_KILL_INC)))
+				if (e->health <= 0)
 				{
-					battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
-					battle.stats[STAT_EPIC_KILL_STREAK]++;
-
-					if (e->side == SIDE_PANDORAN)
-					{
-						awardTrophy("PANDORAN");
-					}
-					
 					e->killedBy = b->owner;
 					
 					if (b->type == BT_MISSILE && e == player && b->target != player)

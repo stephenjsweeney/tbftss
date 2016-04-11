@@ -79,7 +79,7 @@
 		},
 		{
 			"groupName" : "Rebels-1",
-			"types" : "Blizzard;Shale",
+			"types" : "SK-31;Shale",
 			"side" : "SIDE_REBEL",
 			"x" : 30,
 			"y" : 52,
@@ -101,7 +101,7 @@
 		},
 		{
 			"groupName" : "Rebels-2",
-			"types" : "Blizzard;Shale",
+			"types" : "SK-31;Shale",
 			"side" : "SIDE_REBEL",
 			"x" : 30,
 			"y" : -2,

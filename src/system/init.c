@@ -207,7 +207,7 @@ static void loadConfig(void)
 	cJSON *root, *controlsJSON, *node;
 	char *text, *configFilename;
 
-	configFilename = getSaveFilePath("config.json");
+	configFilename = getSaveFilePath(CONFIG_FILENAME);
 
 	if (fileExists(configFilename))
 	{
@@ -215,7 +215,7 @@ static void loadConfig(void)
 	}
 	else
 	{
-		text = readFile("data/app/config.json");
+		text = readFile("data/app/"CONFIG_FILENAME);
 	}
 
 	root = cJSON_Parse(text);
@@ -263,7 +263,7 @@ void saveConfig(void)
 	char *out, *configFilename;
 	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON;
 
-	configFilename = getSaveFilePath("config.json");
+	configFilename = getSaveFilePath(CONFIG_FILENAME);
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Saving config ...");
 

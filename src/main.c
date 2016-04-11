@@ -183,7 +183,7 @@ static void handleArguments(int argc, char *argv[])
 	
 	if (!testingMission)
 	{
-		if (fileExists(getSaveFilePath("game.save")))
+		if (fileExists(getSaveFilePath(SAVE_FILENAME)))
 		{
 			loadGame();
 		}

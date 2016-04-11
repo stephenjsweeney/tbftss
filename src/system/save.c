@@ -46,7 +46,7 @@ void saveGame(void)
 
 	out = cJSON_Print(root);
 
-	writeFile(getSaveFilePath("game.save"), out);
+	writeFile(getSaveFilePath(SAVE_FILENAME), out);
 
 	cJSON_Delete(root);
 	free(out);

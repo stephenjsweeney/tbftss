@@ -39,6 +39,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TO_RAIDANS(angleDegrees) (angleDegrees * PI / 180.0)
 #define TO_DEGREES(angleRadians) (angleRadians * 180.0 / PI)
 
+#define SAVE_FILENAME "game.save"
+#define CONFIG_FILENAME "config.json"
+
 #define SCREEN_WIDTH 	1280
 #define SCREEN_HEIGHT 	720
 

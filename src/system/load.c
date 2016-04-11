@@ -30,7 +30,7 @@ void loadGame(void)
 	cJSON *root, *gameJSON;
 	char *text;
 
-	text = readFile(getSaveFilePath("game.save"));
+	text = readFile(getSaveFilePath(SAVE_FILENAME));
 	root = cJSON_Parse(text);
 
 	gameJSON = cJSON_GetObjectItem(root, "game");

@@ -1,0 +1,33 @@
+{
+	"name" : "SK-31",
+	"health" : 85,
+	"shield" : 50,
+	"speed" : 1.8,
+	"reloadTime" : 15,
+	"shieldRechargeRate" : 45,
+	"texture" : "gfx/fighters/sk31.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : -4,
+			"y" : -12
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : 6,
+			"y" : -12
+		}
+	],
+	"missiles" : 5,
+	"flags" : "EF_TAKES_DAMAGE"
+}

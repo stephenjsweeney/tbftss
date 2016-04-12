@@ -1,0 +1,33 @@
+{
+	"name" : "SK-34",
+	"health" : 100,
+	"shield" : 45,
+	"speed" : 1.7,
+	"reloadTime" : 17,
+	"shieldRechargeRate" : 45,
+	"texture" : "gfx/fighters/sk34.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : -4,
+			"y" : -12
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : 6,
+			"y" : -12
+		}
+	],
+	"missiles" : 6,
+	"flags" : "EF_TAKES_DAMAGE"
+}

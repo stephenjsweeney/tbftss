@@ -1,7 +1,7 @@
 {
 	"name" : "Rothan Defence #1",
 	"description" : "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology.",
-	"requires" : 28,
+	"requires" : 29,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/track-1.mp3",

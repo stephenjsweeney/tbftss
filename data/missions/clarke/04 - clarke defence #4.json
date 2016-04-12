@@ -1,7 +1,7 @@
 {
 	"name" : "Clarke Defence #4",
 	"description" : "White Knights, Commodore Parks has identified three enemy corvettes are high level targets. He wants Dodds, Koonan and Todd to take them down, as quickly as possible. There won't be any additional fighter support, but three ATAFs should be more than enough to get the job done. de Winter and Taylor are currently on another assignment. Dodds will lead the attack.",
-	"requires" : 28,
+	"requires" : 29,
 	"background" : "gfx/backgrounds/background06.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/heroism.ogg",

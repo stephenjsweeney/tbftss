@@ -34,7 +34,7 @@
 		},
 		{
 			"groupName" : "Rebels-1",
-			"types" : "Shale;SK-31;Khepri",
+			"types" : "Shale;Razor;Khepri",
 			"number" : 6,
 			"side" : "SIDE_REBEL",
 			"x" : 20,
@@ -55,7 +55,7 @@
 		},
 		{
 			"groupName" : "Rebels-3",
-			"types" : "Shale;SK-31;Khepri",
+			"types" : "Shale;Razor;Khepri",
 			"number" : 6,
 			"side" : "SIDE_REBEL",
 			"x" : 20,

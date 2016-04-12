@@ -1,7 +1,7 @@
 {
 	"name" : "Clarke Defence #5",
 	"description" : "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive infact on ours. The frigate's support groups will need to be destroyed first.",
-	"requires" : 28,
+	"requires" : 29,
 	"background" : "gfx/backgrounds/background06.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/heroism.ogg",

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-08 11:04:38+0100\n"
+"POT-Creation-Date: 2016-04-12 08:41:36+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -80,6 +80,9 @@ msgid "SELECT NEW FIGHTER"
 msgstr ""
 
 msgid "Picked up %s"
+msgstr ""
+
+msgid "Jumpgate System Node"
 msgstr ""
 
 msgid "Incomplete"
@@ -611,6 +614,24 @@ msgid "I think they're testing the water, like our Pandoran friends before them.
 msgstr ""
 
 msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
+msgstr ""
+
+msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
+msgstr ""
+
+msgid "Goddard, command of this operation will fall to you, if events lead to me being unable to participate fully."
+msgstr ""
+
+msgid "Picking up a second group of fighters, incoming."
+msgstr ""
+
+msgid "More fighters, inbound!"
+msgstr ""
+
+msgid "The jumpgate is taking damage!"
+msgstr ""
+
+msgid "Half the jumpgate's control nodes have been destroyed! We need to step up our efforts to defend it!"
 msgstr ""
 
 msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
@@ -1529,6 +1550,9 @@ msgid "Destroy INF Klondike and INF Canfield"
 msgstr ""
 
 msgid "Collect packages"
+msgstr ""
+
+msgid "Turret Takedown"
 msgstr ""
 
 msgid "One of the seven"

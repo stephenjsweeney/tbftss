@@ -35,7 +35,6 @@ typedef struct Pulse Pulse;
 typedef struct Widget Widget;
 typedef struct HudMessage HudMessage;
 typedef struct MessageBox MessageBox;
-typedef struct GridCell GridCell;
 typedef struct ScriptRunner ScriptRunner;
 typedef struct Location Location;
 typedef struct Bucket Bucket;
@@ -475,25 +474,21 @@ typedef struct {
 	SDL_Color darkGrey;
 } Colors;
 
-struct Bucket
-{
+struct Bucket {
 	char *key, *value;
 	Bucket *next;
 };
 
-typedef struct
-{
+typedef struct {
 	Bucket **bucket;
 	int *bucketCount;
 } HashTable;
 
-typedef struct
-{
+typedef struct {
 	int32_t magicNumber, version, stringCount;
 	int32_t originalOffset, translationOffset;
 } MOHeader;
 
-typedef struct
-{
+typedef struct {
 	int32_t length, offset;
 } MOEntry;

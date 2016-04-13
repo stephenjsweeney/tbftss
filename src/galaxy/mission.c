@@ -29,9 +29,7 @@ static char *getAutoMusic(char *filename);
 
 Mission *loadMissionMeta(char *filename)
 {
-	int i;
 	Mission *mission;
-	Challenge *challenge;
 	cJSON *root, *node;
 	char *text;
 
@@ -72,48 +70,7 @@ Mission *loadMissionMeta(char *filename)
 
 		if (node)
 		{
-			mission->challengeData.isChallenge = 1;
-
-			/* limits */
-			mission->challengeData.timeLimit = getJSONValue(node, "timeLimit", 0) * FPS;
-			mission->challengeData.killLimit = getJSONValue(node, "killLimit", 0);
-			mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
-			mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
-			mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
-			mission->challengeData.rescueLimit = getJSONValue(node, "rescueLimit", 0);
-
-			/* restrictions */
-			mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
-			mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
-			mission->challengeData.noBoost = getJSONValue(node, "noBoost", 0);
-			mission->challengeData.noGuns = getJSONValue(node, "noGuns", 0);
-			
-			/* misc */
-			mission->challengeData.allowPlayerDeath = getJSONValue(node, "allowPlayerDeath", 0);
-
-			node = cJSON_GetObjectItem(node, "challenges");
-
-			if (node)
-			{
-				node = node->child;
-
-				i = 0;
-
-				while (node && i < MAX_CHALLENGES)
-				{
-					challenge = malloc(sizeof(Challenge));
-					memset(challenge, 0, sizeof(Challenge));
-
-					challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
-					challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
-
-					mission->challengeData.challenges[i] = challenge;
-
-					node = node->next;
-
-					i++;
-				}
-			}
+			loadChallenge(mission, node);
 		}
 
 		cJSON_Delete(root);

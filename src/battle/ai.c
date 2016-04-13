@@ -319,7 +319,7 @@ static void findTarget(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (canAttack(e))
+		if (canAttack(e) && selectWeaponForTarget(e))
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 			
@@ -357,7 +357,7 @@ static int canAttack(Entity *e)
 		return 0;
 	}
 	
-	return selectWeaponForTarget(e);
+	return 1;
 }
 
 static int selectWeaponForTarget(Entity *e)
@@ -466,7 +466,7 @@ static int hasClearShot(void)
 
 static void preAttack(void)
 {
-	if (!self->reload)
+	if (!self->reload && !dev.noAIWeapons)
 	{
 		if (!(self->aiFlags & AIF_MISSILE_BOAT))
 		{
@@ -475,22 +475,16 @@ static void preAttack(void)
 			
 			if (self->guns[0].type && (self->missiles == 0 || rand() % 50 > 0))
 			{
-				if (!dev.noAIWeapons)
-				{
-					fireGuns(self);
-				}
+				fireGuns(self);
 			}
-			else if (self->missiles && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
+			else if (self->missiles && (!(self->target->flags & EF_NO_KILL)) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
 			{
-				if (!dev.noAIWeapons)
-				{
-					fireMissile(self);
-				}
+				fireMissile(self);
 				
 				self->action = doAI;
 			}
 		}
-		else
+		else if (!(self->target->flags & EF_NO_KILL))
 		{
 			fireRocket(self);
 			

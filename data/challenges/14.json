@@ -1,0 +1,45 @@
+{
+	"name" : "Swarms of Swarmers",
+	"description" : "Swarms of Swarmers",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Rapid Plasma Turret",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 0,
+		"allowPlayerDeath" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_SURVIVE",
+				"value" : 30
+			},
+			{
+				"type" : "CHALLENGE_SURVIVE",
+				"value" : 60
+			},
+			{
+				"type" : "CHALLENGE_SURVIVE",
+				"value" : 70
+			}
+		]
+	},
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Swarmer",
+			"side" : "SIDE_PANDORAN",
+			"interval" : 1,
+			"limit" : 0,
+			"total" : -1,
+			"step" : 1,
+			"offscreen" : 1
+		}
+	]
+}

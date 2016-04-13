@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
 
 extern Mission *loadMissionMeta(char *filename);
 extern char **getFileList(char *dir, int *count);
@@ -30,6 +31,8 @@ extern char *getLookupName(char *prefix, long num);
 extern char *timeToString(long millis, int showHours);
 extern void updateAccuracyStats(unsigned int *stats);
 extern char *timeToString(long millis, int showHours);
+extern int getJSONValue(cJSON *node, char *name, int defValue);
+extern long lookup(char *name);
 
 extern Dev dev;
 extern Battle battle;

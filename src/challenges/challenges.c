@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "challenges.h"
 
 static void updateTimeChallenge(Challenge *c);
+static void updateSurvivalChallenge(Challenge *c);
 static void updateAccuracyChallenge(Challenge *c);
 static void updateArmourChallenge(Challenge *c);
 static void updateLossesChallenge(Challenge *c);
@@ -48,6 +49,7 @@ void initChallenges(void)
 
 	challengeDescription[CHALLENGE_ARMOUR] = _("Retain at least %d%% armour");
 	challengeDescription[CHALLENGE_TIME] = _("Complete challenge in %d seconds or less");
+	challengeDescription[CHALLENGE_SURVIVE] = _("Survive for %d seconds");
 	challengeDescription[CHALLENGE_SHOT_ACCURACY] = _("Attain a %d%% shot hit accuracy");
 	challengeDescription[CHALLENGE_ROCKET_ACCURACY] = _("Attain a %d%% rocket hit accuracy");
 	challengeDescription[CHALLENGE_MISSILE_ACCURACY] = _("Attain a %d%% missile hit accuracy");
@@ -79,6 +81,60 @@ void initChallenges(void)
 	}
 
 	free(filenames);
+}
+
+void loadChallenge(Mission *mission, cJSON *node)
+{
+	int i;
+	Challenge *challenge;
+	
+	mission->challengeData.isChallenge = 1;
+
+	/* limits */
+	mission->challengeData.timeLimit = getJSONValue(node, "timeLimit", 0) * FPS;
+	mission->challengeData.killLimit = getJSONValue(node, "killLimit", 0);
+	mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
+	mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
+	mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
+	mission->challengeData.rescueLimit = getJSONValue(node, "rescueLimit", 0);
+
+	/* restrictions */
+	mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
+	mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
+	mission->challengeData.noBoost = getJSONValue(node, "noBoost", 0);
+	mission->challengeData.noGuns = getJSONValue(node, "noGuns", 0);
+	
+	if (getJSONValue(node, "noWeapons", 0))
+	{
+		mission->challengeData.noMissiles = mission->challengeData.noGuns = 1;
+	}
+	
+	/* misc */
+	mission->challengeData.allowPlayerDeath = getJSONValue(node, "allowPlayerDeath", 0);
+
+	node = cJSON_GetObjectItem(node, "challenges");
+
+	if (node)
+	{
+		node = node->child;
+
+		i = 0;
+
+		while (node && i < MAX_CHALLENGES)
+		{
+			challenge = malloc(sizeof(Challenge));
+			memset(challenge, 0, sizeof(Challenge));
+
+			challenge->type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
+			challenge->value = cJSON_GetObjectItem(node, "value")->valueint;
+
+			mission->challengeData.challenges[i] = challenge;
+
+			node = node->next;
+
+			i++;
+		}
+	}
 }
 
 void doChallenges(void)
@@ -171,6 +227,10 @@ static int updateChallenges(void)
 					case CHALLENGE_TIME:
 						updateTimeChallenge(c);
 						break;
+					
+					case CHALLENGE_SURVIVE:
+						updateSurvivalChallenge(c);
+						break;
 
 					case CHALLENGE_SHOT_ACCURACY:
 					case CHALLENGE_ROCKET_ACCURACY:
@@ -240,6 +300,14 @@ static void printStats(void)
 static void updateTimeChallenge(Challenge *c)
 {
 	if (battle.stats[STAT_TIME] / FPS < c->value)
+	{
+		c->passed = 1;
+	}
+}
+
+static void updateSurvivalChallenge(Challenge *c)
+{
+	if (battle.stats[STAT_TIME] / FPS >= c->value)
 	{
 		c->passed = 1;
 	}

@@ -139,18 +139,21 @@ static void doFighters(void)
 	
 	for (i = 0 ; i < NUM_FIGHTERS ; i++)
 	{
-		fighters[i].y += fighters[i].dy;
-		
 		self = &fighters[i];
-			
-		addEngineEffect();
 		
-		if (fighters[i].y <= -64)
+		/* engine position hack, due to camera being fixed */
+		self->y += 16;
+		addEngineEffect();
+		self->y -= 16;
+		
+		self->y += self->dy;
+		
+		if (self->y <= -64)
 		{
-			fighters[i].x = rand() % (SCREEN_WIDTH - 32);
-			fighters[i].y = SCREEN_HEIGHT + (rand() % SCREEN_HEIGHT);
-			fighters[i].texture = getTexture(fighterTextures[rand() % numTextures]);
-			fighters[i].dy = -(1 + rand() % 3);
+			self->x = rand() % (SCREEN_WIDTH - 32);
+			self->y = SCREEN_HEIGHT + (rand() % SCREEN_HEIGHT);
+			self->texture = getTexture(fighterTextures[rand() % numTextures]);
+			self->dy = -(1 + rand() % 3);
 		}
 	}
 }

@@ -36,7 +36,7 @@
 			"x" : 25,
 			"y" : 25,
 			"side" : "SIDE_ALLIES",
-			"flags" : "+EF_DISABLED",
+			"flags" : "+EF_DISABLED+EF_NO_KILL",
 			"number" : 8,
 			"scatter" : 5000
 		}

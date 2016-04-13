@@ -38,10 +38,10 @@ void attachRope(void)
 				if (distance > 0 && distance <= self->separationRadius)
 				{
 					self->towing = e;
-					e->owner = self;
-					
 					self->aiFlags |= AIF_GOAL_JUMPGATE;
 					
+					e->owner = self;
+					e->speed = 1;
 					e->flags |= EF_RETREATING;
 					e->flags |= EF_ROPED_ATTACHED;
 					
@@ -108,6 +108,7 @@ void cutRope(Entity *e)
 	{
 		e->towing->flags &= ~EF_RETREATING;
 		e->towing->flags &= ~EF_ROPED_ATTACHED;
+		e->towing->speed = 0;
 		e->towing = NULL;
 	}
 }

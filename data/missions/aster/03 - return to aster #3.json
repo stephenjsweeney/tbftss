@@ -1,0 +1,91 @@
+{
+	"name" : "Minesweeper #2",
+	"description" : ".",
+	"requires" : 35,
+	"background" : "gfx/backgrounds/background04.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/InnerCore_Low.ogg",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Clear all mines",
+			"targetName" : "Mine",
+			"targetValue" : 200,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate all enemies",
+			"targetName" : "Dart",
+			"targetValue" : 10,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "2nd Lt. Heather Reyes",
+		"squadron" : "Salty Wildcats",
+		"x" : 25,
+		"y" : 25
+	},
+	"entities" : [
+		{
+			"name" : "Mine",
+			"side" : "SIDE_REBEL",
+			"type" : "ET_SHADOW_MINE",
+			"number" : 200,
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 10000
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Dart",
+			"side" : "SIDE_REBEL",
+			"interval" : 20,
+			"total" : 10,
+			"step" : 1,
+			"offScreen" : 1,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Control;Reyes, proceed with caution. Those mines are equipped with radar damping fields, that will prevent them from showing up at anything but close range.",
+				"MSG_BOX Control;Remember to take them out from a distance; your TAF won't be able to withstand much impact damage from the explosions."
+			]
+		},
+		{
+			"function" : "TIME 45",
+			"lines" : [
+				"MSG_BOX Control;Reyes, we're detecting incoming fighter signatures. Looks like Darts, possibly pirates. Eliminate as necessary.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_SPAWNER 1 spawner"
+			]
+		},
+		{
+			"function" : "MINES_DESTROYED 200",
+			"lines" : [
+				"ACTIVATE_SPAWNER 0 spawner",
+				"ACTIVATE_OBJECTIVES Eliminate all enemies"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Reyes;Control, I've dealt with both the mines and the Darts. Any idea who those guys were?",
+				"MSG_BOX Control;A report is being generated right now. Should be ready by the time you return.",
+				"MSG_BOX Reyes;I noticed that none of those Darts tripped any mines. Maybe those were Tzac fighters?",
+				"MSG_BOX Control;Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

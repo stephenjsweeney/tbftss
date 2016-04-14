@@ -32,6 +32,7 @@ extern void addMineExplosion(void);
 extern void damageFighter(Entity *e, int amount, long flags);
 extern void playBattleSound(int id, int x, int y);
 extern void updateObjective(char *name, int type);
+extern void runScriptFunction(const char *format, ...);
 
 extern Battle battle;
 extern Entity *player;

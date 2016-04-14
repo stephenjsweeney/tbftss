@@ -128,30 +128,45 @@ static void lookForPlayer(void)
 	{
 		distance = getDistance(self->x, self->y, player->x, player->y);
 		
-		if (distance < SCREEN_WIDTH)
+		if (distance < SCREEN_WIDTH * 2)
 		{
 			dx = player->x - self->x;
 			dy = player->y - self->y;
-			
-			norm = sqrt(dx * dx + dy * dy);
-			
-			dx /= norm;
-			dy /= norm;
-			
-			self->dx = dx * self->speed;
-			self->dy = dy * self->speed;
-			
-			if (distance <= TRIGGER_RANGE)
+		}
+		else
+		{
+			if (--self->aiActionTime > 0)
 			{
-				self->systemPower--;
-			
-				if (self->systemPower <= 0)
-				{
-					self->health = 0;
-				}
-				
 				return;
 			}
+			
+			dx = rand() % 1000;
+			dx -= rand() % 1000;
+			
+			dy = rand() % 1000;
+			dy -= rand() % 1000;
+			
+			self->aiActionTime = FPS * (5 + (rand() % 15));
+		}
+		
+		norm = sqrt(dx * dx + dy * dy);
+			
+		dx /= norm;
+		dy /= norm;
+		
+		self->dx = dx * self->speed;
+		self->dy = dy * self->speed;
+		
+		if (distance <= TRIGGER_RANGE)
+		{
+			self->systemPower--;
+		
+			if (self->systemPower <= 0)
+			{
+				self->health = 0;
+			}
+			
+			return;
 		}
 	}
 	
@@ -174,6 +189,8 @@ static void die(void)
 	self->alive = ALIVE_DEAD;
 	
 	updateObjective(self->name, TT_DESTROY);
+	
+	runScriptFunction("MINES_DESTROYED %d", battle.stats[STAT_MINES_DESTROYED]);
 }
 
 static void doSplashDamage(void)

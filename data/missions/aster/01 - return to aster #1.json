@@ -3,7 +3,7 @@
 	"description" : "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs.",
 	"requires" : 30,
 	"background" : "gfx/backgrounds/background04.jpg",
-	"planet" : "gfx/planets/bluePlanet.png",
+	"planet" : "gfx/planets/star.png",
 	"music" : "music/battle/track-3.mp3",
 	"manualComplete" : 1,
 	"objectives" : [

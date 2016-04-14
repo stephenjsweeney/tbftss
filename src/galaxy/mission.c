@@ -148,14 +148,20 @@ void loadMission(char *filename)
 	{
 		planet = getAutoPlanet(filename);
 	}
-	planetScale = 75 + (rand() % 125);
-	planetScale *= 0.01;
+	
 	battle.planetTexture = getTexture(planet);
 	battle.planet.x = (SCREEN_WIDTH / 2) - (rand() % SCREEN_WIDTH) + (rand() % SCREEN_WIDTH);
 	battle.planet.y = (SCREEN_HEIGHT / 2) - (rand() % SCREEN_HEIGHT) + (rand() % SCREEN_HEIGHT);
-	SDL_QueryTexture(battle.planetTexture, NULL, NULL, &battle.planetWidth, &battle.planetHeight);
-	battle.planetWidth *= planetScale;
-	battle.planetHeight *= planetScale;
+	
+	if (strcmp(planet, "gfx/planets/star.png") != 0)
+	{
+		SDL_QueryTexture(battle.planetTexture, NULL, NULL, &battle.planetWidth, &battle.planetHeight);
+		
+		planetScale = 75 + (rand() % 125);
+		planetScale *= 0.01;
+		battle.planetWidth *= planetScale;
+		battle.planetHeight *= planetScale;
+	}
 
 	srand(time(NULL));
 

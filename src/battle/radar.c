@@ -88,7 +88,7 @@ void drawRadar(void)
 					SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
 				}
 				
-				if (e->type == ET_MINE || e->type == ET_JUMPGATE || (e->owner && e->owner->type == ET_JUMPGATE))
+				if (e->type == ET_MINE || e->type == ET_SHADOW_MINE || e->type == ET_JUMPGATE || (e->owner && e->owner->type == ET_JUMPGATE))
 				{
 					SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
 				}

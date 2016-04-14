@@ -58,7 +58,7 @@ extern void loadItems(cJSON *node);
 extern void loadLocations(cJSON *node);
 extern void loadSpawners(cJSON *node);
 extern void loadChallenge(Mission *mission, cJSON *node);
-extern Entity *spawnMine(void);
+extern Entity *spawnMine(int type);
 extern void activateNextWaypoint(void);
 
 extern Battle battle;

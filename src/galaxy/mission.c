@@ -321,7 +321,8 @@ static void loadEntities(cJSON *node)
 						break;
 						
 					case ET_MINE:
-						e = spawnMine();
+					case ET_SHADOW_MINE:
+						e = spawnMine(type);
 						break;
 
 					default:

@@ -31,6 +31,7 @@ extern int getDistance(int x1, int y1, int x2, int y2);
 extern void addMineExplosion(void);
 extern void damageFighter(Entity *e, int amount, long flags);
 extern void playBattleSound(int id, int x, int y);
+extern void updateObjective(char *name, int type);
 
 extern Battle battle;
 extern Entity *player;

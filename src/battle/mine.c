@@ -23,29 +23,40 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void think(void);
 static void die(void);
 static void lookForFighters(void);
+static void lookForPlayer(void);
 static void doSplashDamage(void);
 
 static SDL_Texture *mineWarning = NULL;
 static SDL_Texture *mineNormal = NULL;
+static SDL_Texture *shadowMine = NULL;
 
-Entity *spawnMine(void)
+Entity *spawnMine(int type)
 {
 	Entity *mine = spawnEntity();
 	
-	if (!mineNormal || !mineWarning)
+	if (!mineWarning)
 	{
+		shadowMine = getTexture("gfx/entities/shadowMine.png");
 		mineNormal = getTexture("gfx/entities/mine.png");
 		mineWarning = getTexture("gfx/entities/mineWarning.png");
 	}
 
-	mine->type = ET_MINE;
+	STRNCPY(mine->name, "Mine", MAX_NAME_LENGTH);
+	mine->type = type;
 	mine->health = mine->maxHealth = 1;
 	mine->speed = 1;
 	mine->systemPower = SYSTEM_POWER;
-	mine->texture = mineNormal;
+	mine->texture = (type == ET_MINE) ? mineNormal : shadowMine;
 	mine->action = think;
 	mine->die = die;
-	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET;
+	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET+EF_SHORT_RADAR_RANGE;
+	
+	if (type == ET_SHADOW_MINE)
+	{
+		mine->flags &= ~EF_NO_PLAYER_TARGET;
+		mine->speed = 100 + rand() % 100;
+		mine->speed *= 0.01;
+	}
 	
 	SDL_QueryTexture(mine->texture, NULL, NULL, &mine->w, &mine->h);
 
@@ -54,7 +65,7 @@ Entity *spawnMine(void)
 
 static void think(void)
 {
-	self->texture = mineNormal;
+	self->texture = (self->type == ET_MINE) ? mineNormal : shadowMine;
 	
 	self->angle += 0.1;
 	
@@ -66,7 +77,14 @@ static void think(void)
 	self->dx *= 0.99;
 	self->dy *= 0.99;
 	
-	lookForFighters();
+	if (self->type == ET_MINE)
+	{
+		lookForFighters();
+	}
+	else
+	{
+		lookForPlayer();
+	}
 	
 	if (self->systemPower < SYSTEM_POWER && battle.stats[STAT_TIME] % 8 < 4)
 	{
@@ -101,6 +119,44 @@ static void lookForFighters(void)
 	self->systemPower = SYSTEM_POWER;
 }
 
+static void lookForPlayer(void)
+{
+	float dx, dy, norm;
+	int distance;
+	
+	if (player != NULL)
+	{
+		distance = getDistance(self->x, self->y, player->x, player->y);
+		
+		if (distance < SCREEN_WIDTH)
+		{
+			dx = player->x - self->x;
+			dy = player->y - self->y;
+			
+			norm = sqrt(dx * dx + dy * dy);
+			
+			dx /= norm;
+			dy /= norm;
+			
+			self->dx = dx * self->speed;
+			self->dy = dy * self->speed;
+			
+			if (distance <= TRIGGER_RANGE)
+			{
+				self->systemPower--;
+			
+				if (self->systemPower <= 0)
+				{
+					self->health = 0;
+				}
+				
+				return;
+			}
+		}
+	}
+	
+	self->systemPower = SYSTEM_POWER;
+}
 
 static void die(void)
 {
@@ -116,6 +172,8 @@ static void die(void)
 	playBattleSound(SND_EXPLOSION_5, self->x, self->y);
 	
 	self->alive = ALIVE_DEAD;
+	
+	updateObjective(self->name, TT_DESTROY);
 }
 
 static void doSplashDamage(void)

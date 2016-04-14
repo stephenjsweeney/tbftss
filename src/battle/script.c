@@ -218,9 +218,9 @@ static void executeNextLine(ScriptRunner *runner)
 	{
 		activateNextWaypoint();
 	}
-	else if (strcmp(command, "ACTIVATE_SPAWNERS") == 0)
+	else if (strcmp(command, "ACTIVATE_SPAWNER") == 0)
 	{
-		sscanf(line, "%*s %[^;] %d", strParam[0], &intParam[0]);
+		sscanf(line, "%*s %d %[^\n]", &intParam[0], strParam[0]);
 		activateSpawner(strParam[0], intParam[0]);
 	}
 	else if (strcmp(command, "MSG_BOX") == 0)

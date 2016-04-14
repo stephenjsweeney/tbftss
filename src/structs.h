@@ -314,7 +314,6 @@ struct Spawner {
 	int side;
 	int time;
 	int interval;
-	int limit;
 	int total;
 	int step;
 	int offscreen;

@@ -117,7 +117,7 @@
 				"MSG_BOX Wing Commander;How many?",
 				"MSG_BOX Wingmate #82;Tracking a dozen, but the numbers are growing rapidly",
 				"WAIT_MSG_BOX",
-				"ACTIVATE_SPAWNERS SwarmerSpawner"
+				"ACTIVATE_SPAWNER 1 SwarmerSpawner"
 			]
 		},
 		{

@@ -32,7 +32,7 @@
 	"player" : {
 		"type" : "Rook",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Shaun Black",
+		"pilot" : "Cdr. Shaun Black",
 		"squadron" : "Salty Wildcats",
 		"x" : 5,
 		"y" : 45

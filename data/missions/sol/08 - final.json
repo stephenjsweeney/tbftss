@@ -21,7 +21,7 @@
 	"fighters" : [
 		{
 			"name" : "Dart",
-			"types" : "SimpleDart",
+			"types" : "Simple Dart",
 			"side" : "SIDE_PIRATE",
 			"number" : 3,
 			"x" : 26,

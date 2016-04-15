@@ -33,7 +33,7 @@
 	"fighters" : [
 		{
 			"name" : "Dart",
-			"types" : "SimpleDart",
+			"types" : "Simple Dart",
 			"side" : "SIDE_PIRATE",
 			"x" : 25,
 			"y" : 22,

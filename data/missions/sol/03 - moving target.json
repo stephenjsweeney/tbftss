@@ -21,7 +21,7 @@
 	"fighters" : [
 		{
 			"name" : "Dart",
-			"types" : "UnarmedDart",
+			"types" : "Unarmed Dart",
 			"side" : "SIDE_PIRATE",
 			"x" : 25,
 			"y" : 24

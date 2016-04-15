@@ -21,7 +21,7 @@
 	"fighters" : [
 		{
 			"name" : "Dart",
-			"types" : "MissileDart",
+			"types" : "Missile Dart",
 			"side" : "SIDE_PIRATE",
 			"x" : 25,
 			"y" : 24

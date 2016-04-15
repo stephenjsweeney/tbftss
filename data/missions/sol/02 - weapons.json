@@ -21,7 +21,7 @@
 	"fighters" : [
 		{
 			"name" : "Dart",
-			"types" : "StaticDart",
+			"types" : "Static Dart",
 			"side" : "SIDE_PIRATE",
 			"x" : 25.5,
 			"y" : 24.5

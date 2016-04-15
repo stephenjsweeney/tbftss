@@ -30,7 +30,7 @@
 		},
 		{
 			"name" : "Dart",
-			"types" : "SimpleDart",
+			"types" : "Simple Dart",
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
 			"x" : 27,
@@ -38,7 +38,7 @@
 			"scatter" : 2000
 		},
 		{
-			"types" : "SimpleDart",
+			"types" : "Simple Dart",
 			"name" : "Dart",
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
@@ -48,7 +48,7 @@
 		},
 		{
 			"name" : "Dart",
-			"types" : "SimpleDart",
+			"types" : "Simple Dart",
 			"number" : 10,
 			"side" : "SIDE_PIRATE",
 			"x" : 15,

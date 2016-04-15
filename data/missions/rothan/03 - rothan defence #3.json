@@ -7,7 +7,7 @@
 	"music" : "music/battle/InnerCore_Low.ogg",
 	"objectives" : [
 		{
-			"description" : "Eliminate all enemy target",
+			"description" : "Eliminate all enemy targets",
 			"targetName" : "ENEMY",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",

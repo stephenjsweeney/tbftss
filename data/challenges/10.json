@@ -55,10 +55,10 @@
 			"types" : "Dart",
 			"side" : "SIDE_PIRATE",
 			"interval" : 30,
-			"limit" : 0,
 			"total" : -1,
 			"step" : 1,
-			"offscreen" : 1
+			"offscreen" : 1,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		}
 	]
 }

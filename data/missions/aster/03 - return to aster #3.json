@@ -50,7 +50,8 @@
 			"total" : -1,
 			"step" : 2,
 			"offScreen" : 1,
-			"active" : 0
+			"active" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		}
 	],
 	"script" : [

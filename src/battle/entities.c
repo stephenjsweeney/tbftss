@@ -148,23 +148,20 @@ void doEntities(void)
 						e->action();
 					}
 				}
-
+				
 				doRope(e);
-
+				
 				restrictToBattleArea(e);
-
+				
 				if (!e->speed)
 				{
 					e->dx = e->dy = 0;
 				}
-
+				
 				e->x += e->dx;
 				e->y += e->dy;
-
-				if (!isComponent(e))
-				{
-					addToQuadtree(e, &battle.quadtree);
-				}
+				
+				addToQuadtree(e, &battle.quadtree);
 			}
 			else
 			{
@@ -332,6 +329,8 @@ static void alignComponents(void)
 	{
 		if (isComponent(e))
 		{
+			removeFromQuadtree(e, &battle.quadtree);
+			
 			s = sin(TO_RAIDANS(e->owner->angle));
 			c = cos(TO_RAIDANS(e->owner->angle));
 

@@ -1,24 +1,25 @@
 {
 	"name" : "Minesweeper #2",
-	"description" : ".",
+	"description" : "Following the elimination of the Tzac bombers, we need to clear the leftover mines from the system, in case they cause us difficulties in later operations. As always, the mines should be taken down from a distance, to minimise the chances of damage being caused to your fighter during their destruction.",
 	"requires" : 35,
 	"background" : "gfx/backgrounds/background04.jpg",
-	"planet" : "gfx/planets/bluePlanet.png",
+	"planet" : "gfx/planets/star.png",
 	"music" : "music/battle/InnerCore_Low.ogg",
 	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Clear all mines",
 			"targetName" : "Mine",
-			"targetValue" : 200,
+			"targetValue" : 65,
 			"targetType" : "TT_DESTROY"
 		},
 		{
 			"description" : "Eliminate all enemies",
 			"targetName" : "Dart",
-			"targetValue" : 10,
+			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
-			"active" : 0
+			"active" : 0,
+			"isEliminateAll" : 1
 		}
 	],
 	"player" : {
@@ -34,7 +35,7 @@
 			"name" : "Mine",
 			"side" : "SIDE_REBEL",
 			"type" : "ET_SHADOW_MINE",
-			"number" : 200,
+			"number" : 65,
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 10000
@@ -45,9 +46,9 @@
 			"name" : "spawner",
 			"types" : "Dart",
 			"side" : "SIDE_REBEL",
-			"interval" : 20,
-			"total" : 10,
-			"step" : 1,
+			"interval" : 30,
+			"total" : -1,
+			"step" : 2,
 			"offScreen" : 1,
 			"active" : 0
 		}
@@ -69,14 +70,14 @@
 			]
 		},
 		{
-			"function" : "MINES_DESTROYED 200",
+			"function" : "MINES_DESTROYED 65",
 			"lines" : [
 				"ACTIVATE_SPAWNER 0 spawner",
 				"ACTIVATE_OBJECTIVES Eliminate all enemies"
 			]
 		},
 		{
-			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"function" : "OBJECTIVES_COMPLETE 2",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Reyes;Control, I've dealt with both the mines and the Darts. Any idea who those guys were?",

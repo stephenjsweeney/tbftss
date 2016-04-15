@@ -25,12 +25,15 @@ void doSpawners(void)
 	Entity *e;
 	Spawner *s;
 	char *type;
-	int i, num;
+	int i, num, addFlags, addAIFlags;
+	long flags, aiFlags;
 	
 	for (s = battle.spawnerHead.next ; s != NULL ; s = s->next)
 	{
 		if (s->active && --s->time <= 0)
 		{
+			aiFlags = flags = -1;
+			
 			num = s->step;
 			
 			if (s->total != -1)
@@ -43,6 +46,16 @@ void doSpawners(void)
 			if (s->side != SIDE_ALLIES)
 			{
 				battle.numInitialEnemies += num;
+			}
+			
+			if (strlen(s->flags))
+			{
+				flags = flagsToLong(s->flags, &addFlags);
+			}
+
+			if (strlen(s->aiFlags))
+			{
+				aiFlags = flagsToLong(s->aiFlags, &addAIFlags);
 			}
 			
 			for (i = 0 ; i < num ; i++)
@@ -67,7 +80,29 @@ void doSpawners(void)
 				e->x += (rand() % 2) ? -SCREEN_WIDTH : SCREEN_WIDTH;
 				e->y += (rand() % 2) ? -SCREEN_HEIGHT : SCREEN_HEIGHT;
 				
-				e->aiFlags |= AIF_UNLIMITED_RANGE;
+				if (flags != -1)
+				{
+					if (addFlags)
+					{
+						e->flags |= flags;
+					}
+					else
+					{
+						e->flags = flags;
+					}
+				}
+				
+				if (aiFlags != -1)
+				{
+					if (addAIFlags)
+					{
+						e->aiFlags |= aiFlags;
+					}
+					else
+					{
+						e->aiFlags = aiFlags;
+					}
+				}
 			}
 			
 			s->time = s->interval;
@@ -75,24 +110,16 @@ void doSpawners(void)
 	}
 }
 
-void activateSpawner(char *names, int active)
+void activateSpawner(char *name, int active)
 {
 	Spawner *s;
-	char *name;
 
-	name = strtok(names, ";");
-
-	while (name)
+	for (s = battle.spawnerHead.next ; s != NULL ; s = s->next)
 	{
-		for (s = battle.spawnerHead.next ; s != NULL ; s = s->next)
+		if (strcmp(s->name, name) == 0)
 		{
-			if (strcmp(s->name, name) == 0)
-			{
-				s->active = active;
-			}
+			s->active = active;
 		}
-
-		name = strtok(NULL, ";");
 	}
 }
 
@@ -120,6 +147,8 @@ void loadSpawners(cJSON *node)
 			s->step = cJSON_GetObjectItem(node, "step")->valueint;
 			s->offscreen = getJSONValue(node, "offscreen", 0);
 			s->active = active = getJSONValue(node, "active", 1);
+			STRNCPY(s->flags, getJSONValueStr(node, "flags", ""), MAX_DESCRIPTION_LENGTH);
+			STRNCPY(s->aiFlags, getJSONValueStr(node, "aiFlags", ""), MAX_DESCRIPTION_LENGTH);
 
 			node = node->next;
 		}

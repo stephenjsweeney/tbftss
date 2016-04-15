@@ -26,6 +26,8 @@ extern long lookup(char *name);
 extern Entity *spawnFighter(char *name, int x, int y, int side);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char **toTypeArray(char *types, int *numTypes);
+extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
+extern long flagsToLong(char *flags, int *add);
 
 extern Battle battle;
 extern Entity *player;

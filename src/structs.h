@@ -318,6 +318,8 @@ struct Spawner {
 	int step;
 	int offscreen;
 	int active;
+	char flags[MAX_DESCRIPTION_LENGTH];
+	char aiFlags[MAX_DESCRIPTION_LENGTH];
 	Spawner *next;
 };
 

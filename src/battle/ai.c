@@ -885,6 +885,7 @@ static int lookForLeader(void)
 	{
 		self->aiActionTime = FPS;
 		self->action = moveToLeader;
+		self->aiActionTime = FPS + (rand() % FPS);
 		return 1;
 	}
 	
@@ -909,9 +910,6 @@ static void moveToLeader(void)
 			self->speed = sqrt(self->leader->thrust);
 			applyFighterThrust();
 			self->speed = oldSpeed;
-			
-			/* don't all react at once */
-			self->aiActionTime = FPS + (rand() % FPS);
 		}
 		else
 		{

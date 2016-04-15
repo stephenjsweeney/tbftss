@@ -1,0 +1,17 @@
+{
+	"name" : "Rocket Dart",
+	"health" : 15,
+	"speed" : 2.1,
+	"reloadTime" : 35,
+	"texture" : "gfx/fighters/dart01.png",
+	"guns" : [
+		{
+			"type" : "BT_ROCKET",
+			"x" : 0,
+			"y" : 0
+		}
+	],
+	"missiles" : 6,
+	"flags" : "EF_TAKES_DAMAGE",
+	"aiFlags" : "AIF_MISSILE_BOAT"
+}

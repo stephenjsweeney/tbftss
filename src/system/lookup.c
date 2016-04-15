@@ -265,17 +265,20 @@ char *getFlagValues(char *prefix, long flags)
 	return flagStr;
 }
 
-long flagsToLong(char *flags, int *add)
+long flagsToLong(char *in, int *add)
 {
-	char *flag;
+	char *flag, *flags;
 	long total;
-
+	
 	total = 0;
 
 	if (add)
 	{
-		*add = (flags[0] == '+');
+		*add = (in[0] == '+');
 	}
+	
+	flags = malloc(strlen(in) + 1);
+	STRNCPY(flags, in, strlen(in) + 1);
 
 	flag = strtok(flags, "+");
 	while (flag)
@@ -283,6 +286,8 @@ long flagsToLong(char *flags, int *add)
 		total += lookup(flag);
 		flag = strtok(NULL, "+");
 	}
+	
+	free(flags);
 
 	return total;
 }

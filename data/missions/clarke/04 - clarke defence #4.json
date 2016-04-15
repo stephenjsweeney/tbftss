@@ -18,7 +18,7 @@
 	"player" : {
 		"type" : "ATAF",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Simon Dodds",
+		"pilot" : "Lt. Cdr. Simon Dodds",
 		"squadron" : "White Knights",
 		"x" : 10,
 		"y" : 10

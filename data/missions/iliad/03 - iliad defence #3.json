@@ -29,7 +29,7 @@
 	"player" : {
 		"type" : "Lynx",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Corey Strider",
+		"pilot" : "Lt. Cdr. Corey Strider",
 		"squadron" : "Dust Brothers"
 	},
 	"fighters" : [

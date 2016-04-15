@@ -46,7 +46,7 @@
 	"player" : {
 		"type" : "Rook",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Jessica Welch",
+		"pilot" : "Lt. Cdr. Jessica Welch",
 		"squadron" : "Twilight Lancers",
 		"x" : 5,
 		"y" : 5

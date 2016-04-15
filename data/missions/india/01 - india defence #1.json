@@ -8,7 +8,7 @@
 	"player" : {
 		"type" : "Nymph",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Francis Lee",
+		"pilot" : "1st Lt. Francis Lee",
 		"squadron" : "Zeroes",
 		"x" : 25,
 		"y" : 45

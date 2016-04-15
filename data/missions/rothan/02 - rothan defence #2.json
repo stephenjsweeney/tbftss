@@ -31,7 +31,7 @@
 	"player" : {
 		"type" : "Rook",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Julian Spencer",
+		"pilot" : "Cdr. Julian Spencer",
 		"squadron" : "Blue Jesters",
 		"x" : 10,
 		"y" : 5

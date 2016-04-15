@@ -42,7 +42,7 @@
 	"player" : {
 		"type" : "Firefly",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Angus Carlyle",
+		"pilot" : "1st Lt. Angus Carlyle",
 		"squadron" : "Sentinels",
 		"x" : 45,
 		"y" : 45

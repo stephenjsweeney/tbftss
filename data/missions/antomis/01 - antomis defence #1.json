@@ -1,9 +1,10 @@
 {
 	"name" : "Antomis Defence #1",
-	"description" : "",
+	"description" : "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations.",
 	"background" : "gfx/backgrounds/background02.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/track-4.mp3",
+	"requires" : 35,
 	"objectives" : [
 		{
 			"description" : "Eliminate all enemy target",

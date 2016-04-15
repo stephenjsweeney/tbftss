@@ -560,6 +560,8 @@ static void loadEngines(Entity *parent, cJSON *engines)
 void updateCapitalShipComponentProperties(Entity *parent, long flags)
 {
 	Entity *e;
+	
+	flags &= ~EF_AI_LEADER;
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -582,10 +584,7 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 
 			e->active = parent->active;
 			
-			if (flags & EF_DISABLED)
-			{
-				e->flags |= EF_DISABLED;
-			}
+			e->flags |= flags;
 		}
 	}
 }
@@ -660,9 +659,9 @@ void loadCapitalShips(cJSON *node)
 
 						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
 					}
+					
+					updateCapitalShipComponentProperties(e, flags);
 				}
-
-				updateCapitalShipComponentProperties(e, flags);
 			}
 
 			node = node->next;

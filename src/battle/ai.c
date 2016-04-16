@@ -352,9 +352,10 @@ static int canAttack(Entity *e)
 		}
 	}
 	
+	/* low chance of attacking something else */
 	if ((self->aiFlags & AIF_TARGET_FOCUS) && (!(e->flags & EF_AI_TARGET)))
 	{
-		return 0;
+		return !(rand() % 100);
 	}
 	
 	return 1;

@@ -51,6 +51,7 @@ extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 extern char *getTranslatedString(char *string);
 extern void addLargeExplosion(void);
 extern char **toTypeArray(char *types, int *numTypes);
+extern void updateCondition(char *name, int type);
 
 extern Battle battle;
 extern Entity *self;

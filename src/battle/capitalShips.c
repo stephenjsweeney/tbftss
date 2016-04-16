@@ -318,8 +318,8 @@ static void die(void)
 	}
 
 	updateObjective(self->name, TT_DESTROY);
-
-	updateObjective(self->groupName, TT_DESTROY);
+	
+	updateCondition(self->name, TT_DESTROY);
 }
 
 static void handleDisabled(void)
@@ -662,6 +662,8 @@ void loadCapitalShips(cJSON *node)
 					
 					updateCapitalShipComponentProperties(e, flags);
 				}
+				
+				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "%s (%d / %d)", e->name, e->health, e->maxHealth);
 			}
 
 			node = node->next;

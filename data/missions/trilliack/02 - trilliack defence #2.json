@@ -60,7 +60,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 23,
 			"y" : 25,
-			"flags" : "+EF_AI_LEADER+EF_AI_TARGET"
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET+EF_MISSION_TARGET+EF_NO_MT_BOX"
 		}
 	],
 	"spawners" : [

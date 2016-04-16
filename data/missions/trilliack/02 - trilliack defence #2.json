@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
+	"manualComplete" : 1,
 	"player" : {
 		"type" : "Leopard",
 		"side" : "SIDE_ALLIES",
@@ -19,7 +20,8 @@
 			"targetName" : "ENEMY",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
-			"active" : 0
+			"active" : 0,
+			"isEliminateAll" : 1
 		},
 		{
 			"description" : "Defend UNF Lovelace",
@@ -94,7 +96,7 @@
 			"lines" : [
 				"MSG_BOX Wingmate;Looks like that's all of them, Commander.",
 				"MSG_BOX Young;Confirmed. Tzac must have opened up the coffers to fund this. Those guys meant business.",
-				"MSG_BOX Young;Still can't believe they came at us in Darts.",
+				"MSG_BOX Wingmate;I still can't believe they came at us in Darts.",
 				"MSG_BOX Young;They must've been paid handsomely for that.",
 				"MSG_BOX UNF Lovelace;Stick round, Commander. We might need you later.",
 				"WAIT_MSG_BOX",
@@ -108,13 +110,19 @@
 			]
 		},
 		{
-			"function" : "CAP_HEALTH UNF Lovelace 5",
+			"function" : "CAP_HEALTH UNF Lovelace 6",
+			"lines" : [
+				"MSG_BOX UNF Lovelace;We're taking damage here, Sparrows. Please step it up."
+			]
+		},
+		{
+			"function" : "CAP_HEALTH UNF Lovelace 3",
 			"lines" : [
 				"MSG_BOX UNF Lovelace;We're sustaining heavy damage! All fighters, please assist, ASAP!"
 			]
 		},
 		{
-			"function" : "CAP_HEALTH UNF Lovelace 2",
+			"function" : "CAP_HEALTH UNF Lovelace 1",
 			"lines" : [
 				"MSG_BOX UNF Lovelace;Mayday! Mayday! Defences are critical. We can't hold out much longer!"
 			]

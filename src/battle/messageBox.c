@@ -31,7 +31,7 @@ void initMessageBox(void)
 	tail = &head;
 }
 
-void addMessageBox(char *title, char *body)
+void addMessageBox(char *title, char *body, int important)
 {
 	MessageBox *msg;
 	float time;
@@ -52,6 +52,7 @@ void addMessageBox(char *title, char *body)
 	STRNCPY(msg->title, title, MAX_NAME_LENGTH);
 	STRNCPY(msg->body, body, MAX_DESCRIPTION_LENGTH);
 	msg->time = time * FPS;
+	msg->important = important;
 }
 
 void doMessageBox(void)
@@ -113,8 +114,17 @@ void drawMessageBox(void)
 		r.x = (SCREEN_WIDTH - r.w) / 2;
 		
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
-		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+		
+		if (!msg->important)
+		{
+			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+		}
+		else
+		{
+			SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 64);
+		}
 		SDL_RenderFillRect(app.renderer, &r);
+		
 		SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 128);
 		SDL_RenderDrawRect(app.renderer, &r);
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
@@ -123,7 +133,7 @@ void drawMessageBox(void)
 		
 		limitTextWidth(575);
 		
-		drawText(r.x + 10, r.y + 30, 18, TA_LEFT, colors.white, msg->body);
+		drawText(r.x + 10, r.y + 30, 18, TA_LEFT, (!msg->important) ? colors.white : colors.red, msg->body);
 		
 		limitTextWidth(0);
 	}

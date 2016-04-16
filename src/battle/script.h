@@ -27,7 +27,7 @@ extern void failMission(void);
 extern void retreatEnemies(void);
 extern void retreatAllies(void);
 extern void addHudMessage(SDL_Color c, char *format, ...);
-extern void addMessageBox(char *title, char *format, ...);
+extern void addMessageBox(char *title, char *body, int important);
 extern void activateEntities(char *name);
 extern void activateEntityGroups(char *groupName);
 extern void activateLocations(char *locations);

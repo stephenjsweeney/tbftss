@@ -425,6 +425,7 @@ struct MessageBox {
 	char body[MAX_DESCRIPTION_LENGTH];
 	int time;
 	int height;
+	int important;
 	MessageBox *next;
 };
 

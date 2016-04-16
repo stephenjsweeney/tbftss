@@ -93,8 +93,8 @@
 		{
 			"function" : "TIME 2",
 			"lines" : [
-				"MSG_BOX UNF Williams;Recommending taking down the escorts before engaging the bombers. Just watch out for their rockets.",
-				"MSG_BOX UNF Williams;Be warned, people, these Pandorans are said to be relentless in battle."
+				"MSG_BOX Williams;Recommending taking down the escorts before engaging the bombers. Just watch out for their rockets.",
+				"MSG_BOX Williams;Be warned, people, these Pandorans are said to be relentless in battle."
 			]
 		}
 	]

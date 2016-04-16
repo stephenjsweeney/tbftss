@@ -139,37 +139,37 @@
 		{
 			"function" : "CAP_ENGINES_DESTROYED UNF Cleopatra",
 			"lines" : [
-				"MSG_BOX UNF Cleopatra;This is UNF Cleopatra. We are engine crippled. Please provide cover support!"
+				"IMPORTANT_MSG_BOX UNF Cleopatra;This is UNF Cleopatra. We are engine crippled. Please provide cover support!"
 			]
 		},
 		{
 			"function" : "CAP_HEALTH UNF Cleopatra 3",
 			"lines" : [
-				"MSG_BOX UNF Cleopatra;Mayday! Mayday! We are taking heavy damage! Please assist ASAP!"
+				"IMPORTANT_MSG_BOX UNF Cleopatra;Mayday! Mayday! We are taking heavy damage! Please assist ASAP!"
 			]
 		},
 		{
 			"function" : "CAP_ENGINES_DESTROYED UNF Artemis",
 			"lines" : [
-				"MSG_BOX Wing Commander;Artemis has lost her engines. We need to keep those Pandorans off her!"
+				"IMPORTANT_MSG_BOX Wing Commander;Artemis has lost her engines. We need to keep those Pandorans off her!"
 			]
 		},
 		{
 			"function" : "CAP_HEALTH UNF Artemis 3",
 			"lines" : [
-				"MSG_BOX UNF Artemis;All fighters, we're taking a pounding here, we don't know how much longer we can survive this."
+				"IMPORTANT_MSG_BOX UNF Artemis;All fighters, we're taking a pounding here, we don't know how much longer we can survive this."
 			]
 		},
 		{
 			"function" : "CAPITAL_SHIPS_LOST 1",
 			"lines" : [
-				"MSG_BOX Wing Commander;People, we are down one capital ship! We need to step things up!"
+				"IMPORTANT_MSG_BOX Wing Commander;People, we are down one capital ship! We need to step things up!"
 			]
 		},
 		{
 			"function" : "CAPITAL_SHIPS_LOST 2",
 			"lines" : [
-				"MSG_BOX Wing Commander;Both caps are down, all hands lost. Let's not let this go to waste."
+				"IMPORTANT_MSG_BOX Wing Commander;Both caps are down, all hands lost. Let's not let this go to waste."
 			]
 		}
 	]

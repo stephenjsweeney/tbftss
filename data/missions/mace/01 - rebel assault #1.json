@@ -54,7 +54,7 @@
 		{
 			"function" : "CAP_HEALTH CSN Corvette 4",
 			"lines" : [
-				"MSG_BOX CSN Corvette;We're taking a lot of damage here. Please assist."
+				"IMPORTANT_MSG_BOX CSN Corvette;We're taking a lot of damage here. Please assist."
 			]
 		},
 		{

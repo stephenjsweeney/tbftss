@@ -188,7 +188,7 @@ static void handleKeyboard(void)
 {
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (isControl(CONTROL_BOOST))
+		if (isControl(CONTROL_BOOST) && player->speed > 0)
 		{
 			if (battle.boostTimer == BOOST_RECHARGE_TIME)
 			{

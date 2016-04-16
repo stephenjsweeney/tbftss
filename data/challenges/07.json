@@ -4,6 +4,7 @@
 	"background" : "AUTO",
 	"planet" : "AUTO",
 	"music" : "AUTO",
+	"waypointAutoAdvance" : 1,
 	"player" : {
 		"type" : "Nymph",
 		"side" : "SIDE_ALLIES",

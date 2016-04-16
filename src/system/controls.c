@@ -60,12 +60,12 @@ void initControlsDisplay(void)
 		strcpy(controlWidget[i]->options[0], "");
 		strcpy(controlWidget[i]->options[1], "");
 		
-		if (app.keyControls[i] != -1)
+		if (app.keyControls[i] != 0)
 		{
 			sprintf(controlWidget[i]->options[0], "%s", SDL_GetScancodeName(app.keyControls[i]));
 		}
 		
-		if (app.mouseControls[i] != -1)
+		if (app.mouseControls[i] != 0)
 		{
 			sprintf(controlWidget[i]->options[1], "Btn %d", app.mouseControls[i]);
 		}
@@ -77,7 +77,7 @@ int isControl(int type)
 	int key = app.keyControls[type];
 	int btn = app.mouseControls[type];
 	
-	return ((key != -1 && app.keyboard[key]) || (btn != -1 && app.mouse.button[btn]));
+	return ((key != 0 && app.keyboard[key]) || (btn != 0 && app.mouse.button[btn]));
 }
 
 int isAcceptControl(void)
@@ -90,12 +90,12 @@ void clearControl(int type)
 	int key = app.keyControls[type];
 	int btn = app.mouseControls[type];
 	
-	if (key != -1)
+	if (key != 0)
 	{
 		app.keyboard[key] = 0;
 	}
 	
-	if (btn != -1)
+	if (btn != 0)
 	{
 		app.mouse.button[btn] = 0;
 	}
@@ -128,7 +128,7 @@ void clearControlConfig(char *name)
 	
 	i = lookup(name);
 	
-	app.keyControls[i] = app.mouseControls[i] = -1;
+	app.keyControls[i] = app.mouseControls[i] = 0;
 	
 	initControlsDisplay();
 }

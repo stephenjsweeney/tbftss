@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "init.h"
 
 static void loadConfig(void);
+static void loadConfigFile(char *filename);
 void saveConfig(void);
 static void initColor(SDL_Color *c, int r, int g, int b);
 static void showLoadingStep(float step, float maxSteps);
@@ -203,20 +204,27 @@ static void initColor(SDL_Color *c, int r, int g, int b)
 
 static void loadConfig(void)
 {
-	int i;
-	cJSON *root, *controlsJSON, *node;
-	char *text, *configFilename;
-
+	char *configFilename;
+	
+	/* load default config first */
+	loadConfigFile("data/app/"CONFIG_FILENAME);
+	
+	/* load saved config */
 	configFilename = getSaveFilePath(CONFIG_FILENAME);
 
 	if (fileExists(configFilename))
 	{
-		text = readFile(configFilename);
+		loadConfigFile(configFilename);
 	}
-	else
-	{
-		text = readFile("data/app/"CONFIG_FILENAME);
-	}
+}
+
+static void loadConfigFile(char *filename)
+{
+	int i;
+	cJSON *root, *controlsJSON, *node;
+	char *text;
+
+	text = readFile(filename);
 
 	root = cJSON_Parse(text);
 

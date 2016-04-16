@@ -31,7 +31,7 @@ void attachRope(void)
 	
 		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 		{
-			if (!e->owner && (e->flags & EF_DISABLED) && (e->flags & EF_ROPED_ATTACHED) == 0 && e->alive == ALIVE_ALIVE)
+			if (!e->owner && e->type == ET_FIGHTER && (e->flags & EF_DISABLED) && (e->flags & EF_ROPED_ATTACHED) == 0 && e->alive == ALIVE_ALIVE)
 			{
 				distance = getDistance(e->x, e->y, self->x, self->y);
 				

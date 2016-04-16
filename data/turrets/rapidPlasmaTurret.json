@@ -5,7 +5,7 @@
 	"speed" : 0,
 	"reloadTime" : 8,
 	"shieldRechargeRate" : 10,
-	"texture" : "gfx/cannons/acceleratorODP.png",
+	"texture" : "gfx/cannons/singlePlasmaTurret.png",
 	"deathType" : "DT_NO_SPIN",
 	"guns" : [
 		{

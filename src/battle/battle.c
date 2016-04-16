@@ -288,6 +288,8 @@ static void handleKeyboard(void)
 	if (battle.status == MS_IN_PROGRESS && app.keyboard[SDL_SCANCODE_TAB])
 	{
 		battle.status = MS_PAUSED;
+		
+		selectWidget("ok", "startBattle");
 	}
 }
 

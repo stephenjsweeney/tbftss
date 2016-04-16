@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-12 08:41:36+0100\n"
+"POT-Creation-Date: 2016-04-16 11:07:45+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -164,6 +164,9 @@ msgid "Retain at least %d%% armour"
 msgstr ""
 
 msgid "Complete challenge in %d seconds or less"
+msgstr ""
+
+msgid "Survive for %d seconds"
 msgstr ""
 
 msgid "Attain a %d%% shot hit accuracy"
@@ -700,6 +703,30 @@ msgstr ""
 msgid "We'll need to get a team in here to take care of them."
 msgstr ""
 
+msgid "Following the elimination of the Tzac bombers, we need to clear the leftover mines from the system, in case they cause us difficulties in later operations. As always, the mines should be taken down from a distance, to minimise the chances of damage being caused to your fighter during their destruction."
+msgstr ""
+
+msgid "Reyes, proceed with caution. Those mines are equipped with radar damping fields, that will prevent them from showing up at anything but close range."
+msgstr ""
+
+msgid "Remember to take them out from a distance; your TAF won't be able to withstand much impact damage from the explosions."
+msgstr ""
+
+msgid "Reyes, we're detecting incoming fighter signatures. Looks like Darts, possibly pirates. Eliminate as necessary."
+msgstr ""
+
+msgid "Control, I've dealt with both the mines and the Darts. Any idea who those guys were?"
+msgstr ""
+
+msgid "A report is being generated right now. Should be ready by the time you return."
+msgstr ""
+
+msgid "I noticed that none of those Darts tripped any mines. Maybe those were Tzac fighters?"
+msgstr ""
+
+msgid "Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing."
+msgstr ""
+
 msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
 msgstr ""
 
@@ -898,24 +925,6 @@ msgstr ""
 msgid "They're everywhere! I--"
 msgstr ""
 
-msgid "This is UNF Cleopatra. We are engine crippled. Please provide cover support!"
-msgstr ""
-
-msgid "Mayday! Mayday! We are taking heavy damage! Please assist ASAP!"
-msgstr ""
-
-msgid "Artemis has lost her engines. We need to keep those Pandorans off her!"
-msgstr ""
-
-msgid "All fighters, we're taking a pounding here, we don't know how much longer we can survive this."
-msgstr ""
-
-msgid "People, we are down one capital ship! We need to step things up!"
-msgstr ""
-
-msgid "Both caps are down, all hands lost. Let's not let this go to waste."
-msgstr ""
-
 msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
 msgstr ""
 
@@ -962,9 +971,6 @@ msgid "We're getting our arses kicked here! Any chance of any backup?!"
 msgstr ""
 
 msgid "The White Knights are here! Finally!"
-msgstr ""
-
-msgid "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate."
 msgstr ""
 
 msgid "You all heard the Captain - fall back, we'll cover the retreat."
@@ -1210,9 +1216,6 @@ msgstr ""
 msgid "Too many losses ..."
 msgstr ""
 
-msgid "We're taking a lot of damage here. Please assist."
-msgstr ""
-
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
 msgstr ""
 
@@ -1420,6 +1423,36 @@ msgstr ""
 msgid "Good work, everyone. Let's prepare to lend a hand to the other squadrons."
 msgstr ""
 
+msgid "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution."
+msgstr ""
+
+msgid "Enemy fighter signatures detected. Looks like Darts."
+msgstr ""
+
+msgid "Those will be the mercenaries we've been hearing about. All fighters, prepare to engage."
+msgstr ""
+
+msgid "How many of these bastards did Tzac hire?!"
+msgstr ""
+
+msgid "Whatever the number, we'll make sure we send a clear message it wasn't enough!"
+msgstr ""
+
+msgid "Looks like that's all of them, Commander."
+msgstr ""
+
+msgid "Confirmed. Tzac must have opened up the coffers to fund this. Those guys meant business."
+msgstr ""
+
+msgid "I still can't believe they came at us in Darts."
+msgstr ""
+
+msgid "They must've been paid handsomely for that."
+msgstr ""
+
+msgid "Stick round, Commander. We might need you later."
+msgstr ""
+
 msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilation craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
 msgstr ""
 
@@ -1553,6 +1586,9 @@ msgid "Collect packages"
 msgstr ""
 
 msgid "Turret Takedown"
+msgstr ""
+
+msgid "Swarms of Swarmers"
 msgstr ""
 
 msgid "One of the seven"

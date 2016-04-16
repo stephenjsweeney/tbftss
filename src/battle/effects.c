@@ -289,7 +289,7 @@ void addMineExplosion(void)
 	int i;
 	Effect *e;
 
-	for (i = 0 ; i < 16 ; i++)
+	for (i = 0 ; i < 64 ; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -298,10 +298,10 @@ void addMineExplosion(void)
 
 		e->type = EFFECT_TEXTURE;
 
-		e->x = self->x + rand() % 16 - rand() % 16;
-		e->y = self->y + rand() % 16 - rand() % 16;
+		e->x = self->x + rand() % 64 - rand() % 64;
+		e->y = self->y + rand() % 64 - rand() % 64;
 		e->texture = explosionTexture;
-		e->size = 32 + (rand() % 32);
+		e->size = 64 + (rand() % 64);
 		e->r = 255;
 
 		setRandomFlameHue(e);
@@ -322,8 +322,8 @@ void addMineExplosion(void)
 	e->type = EFFECT_HALO;
 	e->x = self->x;
 	e->y = self->y;
-	e->size = 32;
-	e->scaleAmount = 2;
+	e->size = 64;
+	e->scaleAmount = 6;
 	e->texture = haloTexture;
 
 	e->r = 255;

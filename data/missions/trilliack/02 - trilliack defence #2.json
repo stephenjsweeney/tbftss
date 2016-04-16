@@ -1,0 +1,124 @@
+{
+	"name" : "Trilliack Defence #2",
+	"description" : "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution.",
+	"requires" : 42,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
+	"player" : {
+		"type" : "Leopard",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Cdr. Preston Young",
+		"squadron" : "Sparrows",
+		"x" : 24,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate mercenaries",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Defend UNF Lovelace",
+			"targetName" : "UNF Lovelace",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Ally",
+			"types" : "Firefly;Nymph;Leopard",
+			"number" : 6,
+			"side" : "SIDE_ALLIES",
+			"x" : 23,
+			"y" : 25,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Ally",
+			"types" : "Nymph",
+			"side" : "SIDE_ALLIES",
+			"x" : 23,
+			"y" : 25,
+			"scatter" : 500,
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "UNF Lovelace",
+			"types" : "UNF Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 23,
+			"y" : 25,
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET"
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "dartSpawner",
+			"types" : "Dart;Dart;Rocket Dart",
+			"side" : "SIDE_REBEL",
+			"interval" : 30,
+			"total" : 200,
+			"step" : 20,
+			"aiFlags" : "+AIF_TARGET_FOCUS+AIF_UNLIMITED_RANGE+AIF_LONG_RANGE_FIRE"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX UNF Lovelace;Enemy fighter signatures detected. Looks like Darts.",
+				"MSG_BOX Young;Those will be the mercenaries we've been hearing about. All fighters, prepare to engage.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Eliminate mercenaries"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 75",
+			"lines" : [
+				"MSG_BOX Wingmate;How many of these bastards did Tzac hire?!",
+				"MSG_BOX Lovelace;Whatever the number, we'll make sure we send a clear message it wasn't enough!"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 200",
+			"lines" : [
+				"MSG_BOX Wingmate;Looks like that's all of them, Commander.",
+				"MSG_BOX Young;Confirmed. Tzac must have opened up the coffers to fund this. Those guys meant business.",
+				"MSG_BOX Young;Still can't believe they came at us in Darts.",
+				"MSG_BOX Young;They must've been paid handsomely for that.",
+				"MSG_BOX UNF Lovelace;Stick round, Commander. We might need you later.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		},
+		{
+			"function" : "CAP_ENGINES_DESTROYED UNF Lovelace",
+			"lines" : [
+				"MSG_BOX UNF Lovelace;Our engines have been shot out! We're a sitting duck!"
+			]
+		},
+		{
+			"function" : "CAP_HEALTH UNF Lovelace 5",
+			"lines" : [
+				"MSG_BOX UNF Lovelace;We're sustaining heavy damage! All fighters, please assist, ASAP!"
+			]
+		},
+		{
+			"function" : "CAP_HEALTH UNF Lovelace 2",
+			"lines" : [
+				"MSG_BOX UNF Lovelace;Mayday! Mayday! Defences are critical. We can't hold out much longer!"
+			]
+		}
+	]
+}
+ 

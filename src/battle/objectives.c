@@ -178,6 +178,16 @@ void updateCondition(char *name, int type)
 	}
 }
 
+void completeAllObjectives(void)
+{
+	Objective *o;
+	
+	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	{
+		o->status = OS_COMPLETE;
+	}
+}
+
 void completeConditions(void)
 {
 	Objective *o;

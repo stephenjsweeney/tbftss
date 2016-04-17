@@ -245,6 +245,7 @@ static void executeNextLine(ScriptRunner *runner)
 	else if (strcmp(command, "COMPLETE_MISSION") == 0)
 	{
 		addHudMessage(colors.green, _("Mission Complete!"));
+		completeAllObjectives();
 		completeMission();
 	}
 	else if (strcmp(command, "FAIL_MISSION") == 0)

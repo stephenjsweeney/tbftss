@@ -26,6 +26,7 @@ static void alignComponents(void);
 static void activateEpicFighters(int n, int side);
 static void restrictToBattleArea(Entity *e);
 static void drawTargetRects(Entity *e);
+static void drawHealthBar(Entity *e);
 static int drawComparator(const void *a, const void *b);
 static void notifyNewArrivals(void);
 static int isComponent(Entity *e);
@@ -382,9 +383,11 @@ void drawEntities(void)
 		{
 			drawEntity(e);
 		}
-
+		
+		drawHealthBar(e);
+		
 		drawTargetRects(e);
-
+		
 		drawRope(e);
 	}
 }
@@ -416,6 +419,43 @@ static void drawEntity(Entity *e)
 	}
 
 	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
+}
+
+static void drawHealthBar(Entity *e)
+{
+	SDL_Rect r;
+	
+	if (e != player && e->type == ET_FIGHTER && e->health > 0)
+	{
+		r.x = e->x - (e->w / 2) - battle.camera.x;
+		r.y = e->y - e->h - battle.camera.y;
+		r.w = 32;
+		r.h = 1;
+		
+		if (e->side == SIDE_ALLIES)
+		{
+			SDL_SetRenderDrawColor(app.renderer, 0, 128, 0, 255);
+		}
+		else
+		{
+			SDL_SetRenderDrawColor(app.renderer, 128, 0, 0, 255);
+		}
+		
+		SDL_RenderFillRect(app.renderer, &r);
+		
+		r.w = 32 * (e->health * 1.0f / e->maxHealth);
+		
+		if (e->side == SIDE_ALLIES)
+		{
+			SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
+		}
+		else
+		{
+			SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
+		}
+		
+		SDL_RenderFillRect(app.renderer, &r);
+	}
 }
 
 static void drawTargetRects(Entity *e)

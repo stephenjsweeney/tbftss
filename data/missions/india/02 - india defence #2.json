@@ -1,0 +1,137 @@
+{
+	"name" : "India Defence #2",
+	"description" : "UNF Lovelace was recently attacked by a mercenary group, believed to be aligned with Tzac. While the corvette and the Sparrows were able to see off the attackers, it was nevertheless a focused and dedicated assault, that almost ended in disaster. More are likely to come, so we should remain vigilant.",
+	"requires" : 43,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/track-3.mp3",
+	"manualComplete" : 1,
+	"player" : {
+		"type" : "Nymph",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "1st Lt. Francis Lee",
+		"squadron" : "Zeroes",
+		"x" : 24,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate mercenaries",
+			"targetName" : "-",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Defend UNF Hopper",
+			"targetName" : "UNF Hopper",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"types" : "Firefly;Nymph",
+			"number" : 6,
+			"side" : "SIDE_ALLIES",
+			"x" : 23,
+			"y" : 25,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"types" : "Leopard",
+			"side" : "SIDE_ALLIES",
+			"x" : 23,
+			"y" : 25,
+			"scatter" : 500,
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "UNF Hopper",
+			"types" : "UNF Corvette 01",
+			"side" : "SIDE_ALLIES",
+			"x" : 23,
+			"y" : 25,
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET+EF_MISSION_TARGET+EF_NO_MT_BOX"
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
+			"x" : 48,
+			"y" : 48,
+			"active" : 0
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "dartSpawner",
+			"types" : "Dart;Dart;Rocket Dart",
+			"side" : "SIDE_REBEL",
+			"interval" : 30,
+			"total" : 125,
+			"step" : 20,
+			"aiFlags" : "+AIF_TARGET_FOCUS+AIF_UNLIMITED_RANGE+AIF_LONG_RANGE_FIRE"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX UNF Hopper;Got Darts, incoming.",
+				"MSG_BOX Wing Commander;Looks like Lovelace wasn't their only target. Prepare to engage, people.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Eliminate mercenaries"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 80",
+			"lines" : [
+				"MSG_BOX UNF Hopper;We're picking up a lot of chatter on the mercenaries' channels. They're not happy how things are going.",
+				"MSG_BOX Wing Commander;Then let's concentrate on making them even more unhappy."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 100",
+			"lines" : [
+				"RETREAT_ENEMIES",
+				"ACTIVATE_JUMPGATE 1",
+				"MSG_BOX UNF Hopper;The mercenaries are throwing in the towel and pulling back. They've had enough.",
+				"MSG_BOX Wing Commander;Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ...",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		},
+		{
+			"function" : "CAP_ENGINES_DESTROYED UNF Hopper",
+			"lines" : [
+				"IMPORTANT_MSG_BOX UNF Hopper;Our engines have been shot out! We're a sitting duck!"
+			]
+		},
+		{
+			"function" : "CAP_HEALTH UNF Hopper 6",
+			"lines" : [
+				"IMPORTANT_MSG_BOX UNF Hopper;We're taking damage here, guys! Please step it up."
+			]
+		},
+		{
+			"function" : "CAP_HEALTH UNF Hopper 3",
+			"lines" : [
+				"IMPORTANT_MSG_BOX UNF Hopper;We're sustaining heavy damage! All fighters, please assist, ASAP!"
+			]
+		},
+		{
+			"function" : "CAP_HEALTH UNF Hopper 1",
+			"lines" : [
+				"IMPORTANT_MSG_BOX UNF Hopper;Mayday! Mayday! Defences are critical. We can't hold out much longer!"
+			]
+		}
+	]
+}
+ 

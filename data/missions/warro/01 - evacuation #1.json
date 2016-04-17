@@ -21,7 +21,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Ally",
 			"number" : 3,
 			"types" : "Nymph",
 			"side" : "SIDE_ALLIES",

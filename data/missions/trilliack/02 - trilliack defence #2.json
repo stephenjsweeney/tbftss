@@ -33,7 +33,6 @@
 	],
 	"fighters" : [
 		{
-			"name" : "Ally",
 			"types" : "Firefly;Nymph;Leopard",
 			"number" : 6,
 			"side" : "SIDE_ALLIES",
@@ -43,7 +42,6 @@
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
-			"name" : "Ally",
 			"types" : "Nymph",
 			"side" : "SIDE_ALLIES",
 			"x" : 23,

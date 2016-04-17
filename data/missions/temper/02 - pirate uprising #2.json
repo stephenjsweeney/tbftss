@@ -21,7 +21,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Ally",
 			"types" : "TAF",
 			"number" : 4,
 			"side" : "SIDE_ALLIES",

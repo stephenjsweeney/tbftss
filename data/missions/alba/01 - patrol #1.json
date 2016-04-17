@@ -23,7 +23,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Ally",
 			"types" : "Firefly;Nymph",
 			"number" : 3,
 			"side" : "SIDE_ALLIES",

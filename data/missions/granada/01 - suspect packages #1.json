@@ -21,14 +21,12 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Ally",
 			"types" : "TAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25.1,
 			"y" : 25
 		},
 		{
-			"name" : "Ally",
 			"types" : "Shuttle",
 			"side" : "SIDE_ALLIES",
 			"x" : 24.9,

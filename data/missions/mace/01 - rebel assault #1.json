@@ -33,7 +33,6 @@
 	],
 	"fighters" : [
 		{
-			"name" : "Ally",
 			"types" : "TAF;Rook;Ray",
 			"number" : 12,
 			"side" : "SIDE_ALLIES",

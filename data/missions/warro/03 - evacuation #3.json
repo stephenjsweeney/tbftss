@@ -60,7 +60,6 @@
 			"flags" : "EF_DISABLED+EF_NO_KILL+EF_MISSION_TARGET"
 		},
 		{
-			"name" : "Ally",
 			"number" : 3,
 			"types" : "Nymph",
 			"side" : "SIDE_ALLIES",

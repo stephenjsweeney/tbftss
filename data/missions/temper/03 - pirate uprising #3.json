@@ -51,7 +51,6 @@
 			"aiFlags" : "+AIF_RETREATS"
 		},
 		{
-			"name" : "Ally",
 			"types" : "TAF",
 			"number" : 2,
 			"side" : "SIDE_ALLIES",

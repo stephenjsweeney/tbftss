@@ -33,7 +33,6 @@
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
-			"name" : "Ally",
 			"types" : "Firefly;Leopard;Hyena-A;Hyena-B",
 			"number" : 6,
 			"side" : "SIDE_ALLIES",

@@ -36,7 +36,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Ally",
 			"types" : "TAF;Ray",
 			"number" : 5,
 			"side" : "SIDE_ALLIES",
@@ -45,7 +44,6 @@
 			"scatter" : 300
 		},
 		{
-			"name" : "Ally",
 			"types" : "Rook",
 			"number" : 3,
 			"side" : "SIDE_ALLIES",

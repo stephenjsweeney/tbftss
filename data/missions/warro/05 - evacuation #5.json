@@ -60,7 +60,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Ally",
 			"types" : "Firefly;Leopard",
 			"number" : 10,
 			"side" : "SIDE_ALLIES",

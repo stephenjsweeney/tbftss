@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
 
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern char *getTranslatedString(char *string);
@@ -27,6 +28,7 @@ extern void drawWidgets(char *groupName);
 extern char *getLookupName(char *prefix, long num);
 extern long lookup(char *name);
 extern void limitTextWidth(int width);
+extern char *readFile(char *filename);
 
 extern App app;
 extern Colors colors;

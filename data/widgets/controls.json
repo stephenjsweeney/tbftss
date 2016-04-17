@@ -103,9 +103,19 @@
 		"group" : "controls",
 		"type" : "WT_BUTTON",
 		"text" : "OK",
-		"x" : -1,
+		"x" : 500,
 		"y" : 650,
-		"w" : 100,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "restore",
+		"group" : "controls",
+		"type" : "WT_BUTTON",
+		"text" : "Restore Defaults",
+		"x" : 780,
+		"y" : 650,
+		"w" : 200,
 		"h": 34
 	}
 ]

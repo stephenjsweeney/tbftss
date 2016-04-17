@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "controls.h"
 
+static void restoreDefaults(void);
+
 static const char *controlName[CONTROL_MAX];
 static Widget *controlWidget[CONTROL_MAX];
 
@@ -70,6 +72,8 @@ void initControlsDisplay(void)
 			sprintf(controlWidget[i]->options[1], "Btn %d", app.mouseControls[i]);
 		}
 	}
+	
+	getWidget("restore", "controls")->action = restoreDefaults;
 }
 
 int isControl(int type)
@@ -184,4 +188,44 @@ void drawControls(void)
 	limitTextWidth(0);
 	
 	drawWidgets("controls");
+}
+
+static void restoreDefaults(void)
+{
+	int i;
+	cJSON *root, *controlsJSON, *node;
+	char *text;
+
+	text = readFile("data/app/"CONFIG_FILENAME);
+
+	root = cJSON_Parse(text);
+
+	controlsJSON = cJSON_GetObjectItem(root, "controls");
+	if (controlsJSON)
+	{
+		node = cJSON_GetObjectItem(controlsJSON, "keys")->child;
+		while (node)
+		{
+			i = lookup(node->string);
+
+			app.keyControls[i] = node->valueint;
+
+			node = node->next;
+		}
+
+		node = cJSON_GetObjectItem(controlsJSON, "mouse")->child;
+		while (node)
+		{
+			i = lookup(node->string);
+
+			app.mouseControls[i] = node->valueint;
+
+			node = node->next;
+		}
+	}
+
+	cJSON_Delete(root);
+	free(text);
+	
+	initControlsDisplay();
 }

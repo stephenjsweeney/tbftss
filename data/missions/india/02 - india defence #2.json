@@ -66,7 +66,7 @@
 			"type" : "ET_JUMPGATE",
 			"x" : 48,
 			"y" : 48,
-			"active" : 0
+			"flags" : "+EF_DISABLED"
 		}
 	],
 	"spawners" : [
@@ -93,7 +93,7 @@
 		{
 			"function" : "ENEMIES_KILLED 80",
 			"lines" : [
-				"MSG_BOX UNF Hopper;We're picking up a lot of chatter on the mercenaries' channels. They're not happy how things are going.",
+				"MSG_BOX UNF Hopper;We're picking up a lot of chatter on the mercenaries' channels. They're not happy with how things are going.",
 				"MSG_BOX Wing Commander;Then let's concentrate on making them even more unhappy."
 			]
 		},

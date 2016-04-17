@@ -32,8 +32,15 @@ static float portalAngle;
 
 Entity *spawnJumpgate(int side, long flags)
 {
-	Entity *jumpgate = spawnEntity();
-
+	Entity *jumpgate;
+	
+	if (battle.jumpgate)
+	{
+		printf("ERROR: Only one jumpgate is allowed\n");
+		exit(1);
+	}
+	
+	jumpgate = spawnEntity();
 	jumpgate->type = ET_JUMPGATE;
 	jumpgate->health = jumpgate->maxHealth = 1;
 	jumpgate->texture = getTexture("gfx/entities/jumpgate.png");
@@ -41,6 +48,10 @@ Entity *spawnJumpgate(int side, long flags)
 	jumpgate->draw = draw;
 	jumpgate->side = side;
 	jumpgate->flags = EF_NO_MT_BOX+EF_IMMORTAL+EF_AI_IGNORE;
+	if (flags & EF_DISABLED)
+	{
+		jumpgate->flags |= EF_DISABLED;
+	}
 	
 	addNodes(jumpgate, flags);
 
@@ -48,6 +59,8 @@ Entity *spawnJumpgate(int side, long flags)
 	portalAngle = 0;
 	
 	SDL_QueryTexture(jumpgate->texture, NULL, NULL, &jumpgate->w, &jumpgate->h);
+	
+	battle.jumpgate = jumpgate;
 
 	return jumpgate;
 }
@@ -129,28 +142,22 @@ static void think(void)
 	self->thinkTime = 4;
 
 	self->angle += 0.1;
+	
 	if (self->angle >= 360)
 	{
 		self->angle -= 360;
 	}
-
+	
 	if (jumpgateEnabled())
 	{
 		handleFleeingEntities();
 	}
-
-	if (!battle.jumpgate)
+	
+	portalAngle += 2;
+	
+	if (portalAngle >= 360)
 	{
-		battle.jumpgate = self;
-	}
-
-	if (battle.jumpgate == self)
-	{
-		portalAngle += 2;
-		if (portalAngle >= 360)
-		{
-			portalAngle -= 360;
-		}
+		portalAngle -= 360;
 	}
 }
 

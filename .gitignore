@@ -35,4 +35,6 @@ tbftss
 
 # folders
 dist
-dev
+dev/*
+!dev/screenshots
+!dev/stats.sh

@@ -607,7 +607,12 @@ void retreatEnemies(void)
 	{
 		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
 		{
+			e->flags |= EF_RETREATING;
+			
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
+			e->aiFlags |= AIF_UNLIMITED_RANGE;
+			e->aiFlags |= AIF_GOAL_JUMPGATE;
+			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
 		}
 	}
 }
@@ -627,6 +632,7 @@ void retreatAllies(void)
 			e->aiFlags |= AIF_GOAL_JUMPGATE;
 			e->aiFlags &= ~AIF_FOLLOWS_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_PLAYER;
+			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
 		}
 	}
 }

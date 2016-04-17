@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-16 11:07:45+0100\n"
+"POT-Creation-Date: 2016-04-17 11:26:20+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -401,6 +401,9 @@ msgid "Return to Title"
 msgstr ""
 
 msgid "OK"
+msgstr ""
+
+msgid "Restore Defaults"
 msgstr ""
 
 msgid "Restart"
@@ -1214,6 +1217,27 @@ msgid "Dammit, we're losing too many of them!"
 msgstr ""
 
 msgid "Too many losses ..."
+msgstr ""
+
+msgid "UNF Lovelace was recently attacked by a mercenary group, believed to be aligned with Tzac. While the corvette and the Sparrows were able to see off the attackers, it was nevertheless a focused and dedicated assault, that almost ended in disaster. More are likely to come, so we should remain vigilant."
+msgstr ""
+
+msgid "Got Darts, incoming."
+msgstr ""
+
+msgid "Looks like Lovelace wasn't their only target. Prepare to engage, people."
+msgstr ""
+
+msgid "We're picking up a lot of chatter on the mercenaries' channels. They're not happy how things are going."
+msgstr ""
+
+msgid "Then let's concentrate on making them even more unhappy."
+msgstr ""
+
+msgid "The mercenaries are throwing in the towel and pulling back. They've had enough."
+msgstr ""
+
+msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
 msgstr ""
 
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."

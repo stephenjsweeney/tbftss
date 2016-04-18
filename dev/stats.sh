@@ -33,7 +33,7 @@ echo "Size of source: $SRC_SIZE" >> $STATS_FILE
 echo "Size of data: $DATA_SIZE" >> $STATS_FILE
 echo "Size of graphics: $GFX_SIZE" >> $STATS_FILE
 echo "Size of sound: $SND_SIZE" >> $STATS_FILE
-echo "Size of music $MUSIC_SIZE" >> $STATS_FILE
+echo "Size of music: $MUSIC_SIZE" >> $STATS_FILE
 echo "" >> $STATS_FILE
 
 echo "Number of missions: $NUM_MISSIONS" >> $STATS_FILE

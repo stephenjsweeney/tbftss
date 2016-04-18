@@ -1,16 +1,16 @@
 Statistics
 ----------
 
-Lines of code: 16542
-Size of source: 516K
-Size of data: 457K
+Lines of code: 16797
+Size of source: 522K
+Size of data: 471K
 Size of graphics: 3.1M
 Size of sound: 638K
-Size of music 53M
+Size of music: 53M
 
-Number of missions: 50
+Number of missions: 54
 Number of challenges: 42
-Number of spacecraft: 45
+Number of spacecraft: 46
 Number of trophies: 41
 
-Translatable strings: 579
+Translatable strings: 599

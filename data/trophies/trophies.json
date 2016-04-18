@@ -108,7 +108,7 @@
 	},
 	{
 		"id" : "BIGGER_FALL",
-		"title" : "The bigger they are",
+		"title" : "The bigger they are ...",
 		"description" : "Destroy an enemy capital ship",
 		"value" : "TROPHY_SILVER",
 		"stat" : "STAT_CAPITAL_SHIPS_DESTROYED",
@@ -140,7 +140,7 @@
 	},
 	{
 		"id" : "TEAM_PLAYER",
-		"title" : "Taking one for the Team",
+		"title" : "Taking one for the team",
 		"description" : "Be killed by a missile that was meant for someone else",
 		"value" : "TROPHY_SILVER"
 	},

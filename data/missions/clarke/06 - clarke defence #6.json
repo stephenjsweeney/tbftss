@@ -4,7 +4,7 @@
 	"requires" : 30,
 	"background" : "gfx/backgrounds/background06.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
-	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
+	"music" : "music/battle/Tactical Pursuit.mp3",
 	"unwinnable" : 1,
 	"objectives" : [
 		{

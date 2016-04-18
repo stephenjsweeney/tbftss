@@ -4,7 +4,7 @@
 	"requires" : 4,
 	"background" : "gfx/backgrounds/background06.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
-	"music" : "music/battle/heroism.ogg",
+	"music" : "music/battle/Tactical Pursuit.mp3",
 	"epic" : {
 		"fighterLimit" : 12
 	},

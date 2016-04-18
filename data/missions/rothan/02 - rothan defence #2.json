@@ -38,7 +38,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "CSN Pilot",
 			"types" : "TAF;Ray;Kingfisher;Hammerhead;Rook",
 			"side" : "SIDE_ALLIES",
 			"x" : 10,
@@ -47,7 +46,6 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "CSN Pilot",
 			"groupName" : "Irregular Nomads",
 			"types" : "TAF;Ray;Kingfisher;Hammerhead;Rook",
 			"side" : "SIDE_ALLIES",

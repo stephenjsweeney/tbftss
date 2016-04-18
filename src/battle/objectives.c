@@ -23,12 +23,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void doObjectives(void)
 {
 	int objectiveFailed;
-	int numHiddenObjectives;
+	int hasHidden;
 	Objective *o;
 	
 	battle.numObjectivesComplete = battle.numObjectivesTotal = battle.numConditions = 0;
 	objectiveFailed = 0;
-	numHiddenObjectives = 0;
+	hasHidden = 0;
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
@@ -45,7 +45,7 @@ void doObjectives(void)
 		}
 		else
 		{
-			numHiddenObjectives++;
+			hasHidden = 1;
 		}
 		
 		if (o->currentValue == o->targetValue)
@@ -65,7 +65,7 @@ void doObjectives(void)
 	
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (!battle.manualComplete && numHiddenObjectives == 0 && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
+		if (!battle.manualComplete && !hasHidden && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
 		{
 			completeMission();
 		}
@@ -80,9 +80,11 @@ void doObjectives(void)
 void updateObjective(char *name, int type)
 {
 	Objective *o;
-	int completed;
+	int completed, hasHidden;
 	
 	completed = battle.numObjectivesComplete;
+	
+	hasHidden = 0;
 	
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
@@ -127,9 +129,14 @@ void updateObjective(char *name, int type)
 				runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
 			}
 		}
+		
+		if (!o->active)
+		{
+			hasHidden = 1;
+		}
 	}
 	
-	if (completed == battle.numObjectivesTotal)
+	if (completed == battle.numObjectivesTotal && !hasHidden)
 	{
 		runScriptFunction("ALL_OBJECTIVES_COMPLETE");
 	}

@@ -231,6 +231,11 @@ void doFighter(void)
 				battle.stats[STAT_ENEMIES_DISABLED]++;
 
 				updateObjective(self->name, TT_DISABLE);
+				
+				if (self->side != SIDE_ALLIES)
+				{
+					runScriptFunction("ENEMIES_DISABLED %d", battle.stats[STAT_ENEMIES_DISABLED]);
+				}
 			}
 		}
 

@@ -1,0 +1,140 @@
+{
+	"name" : "Rothan Offensive #1",
+	"description" : "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed.",
+	"requires" : 45,
+	"manualComplete" : 1,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/Battle in the winter.mp3",
+	"objectives" : [
+		{
+			"description" : "Eliminate enemies",
+			"targetName" : "Rebels-1",
+			"targetValue" : 10,
+			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1
+		},
+		{
+			"description" : "Capture squadron commander",
+			"targetName" : "Tzac Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE",
+			"active" : 0
+		},
+		{
+			"description" : "Do not kill squadron commander",
+			"targetName" : "Tzac Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate commander support",
+			"targetName" : "CommanderGroup",
+			"targetValue" : 5,
+			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1,
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "Rook",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Cdr. Julian Spencer",
+		"squadron" : "Blue Jesters",
+		"x" : 10,
+		"y" : 5
+	},
+	"fighters" : [
+		{
+			"types" : "TAF;Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 5,
+			"number" : 5,
+			"scatter" : 500
+		},
+		{
+			"name" : "Roselyn Rose",
+			"types" : "Ray",
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 5,
+			"scatter" : 500,
+			"flags" : "+EF_IMMORTAL"
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Shale;SK-31;SK-34",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 15,
+			"number" : 10,
+			"scatter" : 3500
+		},
+		{
+			"name" : "Tzac Commander",
+			"groupName" : "CommanderGroup",
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : -2,
+			"y" : 25,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER+EF_MUST_DISABLE+EF_MISSION_TARGET",
+			"aiFlags" : "+AIF_WANDERS",
+			"active" : 0
+		},
+		{
+			"groupName" : "CommanderGroup",
+			"types" : "Shale;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : -2,
+			"y" : 25,
+			"number" : 5,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Spencer;Enemy fighters spotted. No sign of the squadron wing commander, though. We might have to draw him out.",
+				"MSG_BOX Spencer;Rose, we'll be relying on you to disable his fighter as soon as he puts in an appearance.",
+				"MSG_BOX Rose;Acknowledged."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 10",
+			"lines" : [
+				"WAIT 2",
+				"ACTIVATE_ENTITY_GROUPS CommanderGroup",
+				"MSG_BOX Rose;Tzac commander sighted, Commander.",
+				"MSG_BOX Spencer;Get to it, Lieutenant. We'll cover you.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Capture squadron commander;Do not kill squadron commander;Eliminate commander support"
+			]
+		},
+		{
+			"function" : "Capture squadron commander",
+			"lines" : [
+				"MSG_BOX Rose;Tzac commander's Shale has been disabled."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Spencer;Control, this is Spencer. Reporting operation successful.",
+				"MSG_BOX Control;You have the commander?",
+				"MSG_BOX Spencer;Bagged and tagged.",
+				"MSG_BOX Control;Excellent work, Jesters. Everything looks clear, so we'll dispatch a tug to your location to bring him in. See you soon.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

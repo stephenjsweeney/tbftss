@@ -1,0 +1,149 @@
+{
+	"name" : "Antomis Offence #2",
+	"description" : "",
+	"background" : "gfx/backgrounds/background02.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/determination.mp3",
+	"requires" : 45,
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Capture squadron commander",
+			"targetName" : "Tzac Commander",
+			"targetValue" : 2,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Do not kill squadron commander",
+			"targetName" : "Tzac Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Eliminate Tzac fighters",
+			"targetName" : "Rebels-1",
+			"targetValue" : 8,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Protect Tzac Commanders",
+			"targetName" : "Assassins",
+			"targetValue" : 24,
+			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1,
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "2nd Lt. Jim Goddard",
+		"squadron" : "Midnight Runners",
+		"x" : 45,
+		"y" : 25
+	},
+	"fighters" : [
+		{
+			"types" : "Leopard",
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 25,
+			"number" : 1,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Rook;Kingfisher;Nymph;Firefly",
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 25,
+			"number" : 8,
+			"scatter" : 900,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Tzac Commander",
+			"types" : "SK-31",
+			"side" : "SIDE_REBEL",
+			"x" : 35,
+			"y" : 25,
+			"scatter" : 1000,
+			"flags" : "+EF_AI_LEADER+EF_MUST_DISABLE+EF_MISSION_TARGET",
+			"aiFlags" : "+AIF_WANDERS"
+		},
+		{
+			"name" : "Tzac Commander",
+			"types" : "SK-34",
+			"side" : "SIDE_REBEL",
+			"x" : 35,
+			"y" : 25,
+			"scatter" : 1000,
+			"flags" : "+EF_AI_LEADER+EF_MUST_DISABLE+EF_MISSION_TARGET",
+			"flags" : "+EF_IMMORTAL"
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Shale;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 35,
+			"y" : 25,
+			"number" : 8,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "MercSpawner",
+			"types" : "Dart",
+			"side" : "SIDE_MERC",
+			"interval" : 2,
+			"total" : 24,
+			"step" : 1,
+			"offScreen" : 1,
+			"active" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_ASSASSIN"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Wing Commander;Tzac fighters spotted, both commanders are here. Goddard, disable those fighters as soon as you can."
+			]
+		},
+		{
+			"function" : "Capture squadron commander",
+			"lines" : [
+				"MSG_BOX Goddard;Squadron commanders disabled."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 2",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wing Commander;Great work, everyone. We just need to wait for the tugs to arrive and bring these guys in.",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"MSG_BOX Goddard;Commander, I'm reading incoming fighter signature: Darts.",
+				"MSG_BOX Wing Commander;I'll bet my house those are mercenaries, and given that the relationship with Tzac didn't end amicably they're probably targetting the commanders. We can't afford to lose them.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_SPAWNERS 1 MercSpawner",
+				"ACTIVATE_OBJECTIVES Protect Tzac Commanders"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Goddard;All Darts have been dispatched, Commander.",
+				"MSG_BOX Wing Commander;Good. Not often we end up having to protect the enemy from another.",
+				"MSG_BOX Wing Commander;Tugs are on the way. Should be here in the next few minutes",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

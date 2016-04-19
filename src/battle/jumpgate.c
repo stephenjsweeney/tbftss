@@ -48,7 +48,7 @@ Entity *spawnJumpgate(int side, long flags)
 	jumpgate->draw = draw;
 	jumpgate->side = side;
 	jumpgate->flags = EF_NO_MT_BOX+EF_IMMORTAL+EF_AI_IGNORE;
-	if (flags & EF_DISABLED)
+	if (flags != -1 && flags & EF_DISABLED)
 	{
 		jumpgate->flags |= EF_DISABLED;
 	}

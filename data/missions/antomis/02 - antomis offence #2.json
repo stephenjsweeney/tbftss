@@ -28,7 +28,7 @@
 		},
 		{
 			"description" : "Protect Tzac Commanders",
-			"targetName" : "Assassins",
+			"targetName" : "Mercs",
 			"targetValue" : 24,
 			"targetType" : "TT_DESTROY",
 			"hideNumbers" : 1,
@@ -70,7 +70,7 @@
 			"x" : 35,
 			"y" : 25,
 			"scatter" : 1000,
-			"flags" : "+EF_AI_LEADER+EF_MUST_DISABLE+EF_MISSION_TARGET",
+			"flags" : "+EF_AI_LEADER+EF_MUST_DISABLE+EF_MISSION_TARGET+EF_AI_TARGET",
 			"aiFlags" : "+AIF_WANDERS"
 		},
 		{
@@ -80,8 +80,8 @@
 			"x" : 35,
 			"y" : 25,
 			"scatter" : 1000,
-			"flags" : "+EF_AI_LEADER+EF_MUST_DISABLE+EF_MISSION_TARGET",
-			"flags" : "+EF_IMMORTAL"
+			"flags" : "+EF_MUST_DISABLE+EF_MISSION_TARGET+EF_AI_TARGET",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
 			"groupName" : "Rebels-1",
@@ -92,19 +92,39 @@
 			"number" : 8,
 			"scatter" : 1000,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
-		}
-	],
-	"spawners" : [
+		},
 		{
-			"name" : "MercSpawner",
-			"types" : "Dart",
+			"groupName" : "Mercs",
+			"types" : "Dart;Rocket Dart",
 			"side" : "SIDE_MERC",
-			"interval" : 2,
-			"total" : 24,
-			"step" : 1,
-			"offScreen" : 1,
-			"active" : 0,
-			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_ASSASSIN"
+			"x" : 15,
+			"y" : -1,
+			"number" : 8,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_ASSASSIN",
+			"active" : 0
+		},
+		{
+			"groupName" : "Mercs",
+			"types" : "Dart;Rocket Dart",
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : -1,
+			"number" : 8,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_TARGET_FOCUS+AIF_UNLIMITED_RANGE+AIF_ASSASSIN",
+			"active" : 0
+		},
+		{
+			"groupName" : "Mercs",
+			"types" : "Dart;Rocket Dart",
+			"side" : "SIDE_MERC",
+			"x" : 35,
+			"y" : -1,
+			"number" : 8,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_ASSASSIN",
+			"active" : 0
 		}
 	],
 	"script" : [
@@ -130,7 +150,7 @@
 				"MSG_BOX Goddard;Commander, I'm reading incoming fighter signature: Darts.",
 				"MSG_BOX Wing Commander;I'll bet my house those are mercenaries, and given that the relationship with Tzac didn't end amicably they're probably targetting the commanders. We can't afford to lose them.",
 				"WAIT_MSG_BOX",
-				"ACTIVATE_SPAWNERS 1 MercSpawner",
+				"ACTIVATE_ENTITY_GROUPS Mercs",
 				"ACTIVATE_OBJECTIVES Protect Tzac Commanders"
 			]
 		},

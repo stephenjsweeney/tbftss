@@ -83,6 +83,7 @@ void initLookups(void)
 	addLookup("AIF_COVERS_RETREAT", AIF_COVERS_RETREAT);
 	addLookup("AIF_TARGET_FOCUS", AIF_TARGET_FOCUS);
 	addLookup("AIF_DROPS_MINES", AIF_DROPS_MINES);
+	addLookup("AIF_ASSASSIN", AIF_ASSASSIN);
 
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);
@@ -106,6 +107,7 @@ void initLookups(void)
 	addLookup("SIDE_ALLIES", SIDE_ALLIES);
 	addLookup("SIDE_PIRATE", SIDE_PIRATE);
 	addLookup("SIDE_REBEL", SIDE_REBEL);
+	addLookup("SIDE_MERC", SIDE_MERC);
 	addLookup("SIDE_PANDORAN", SIDE_PANDORAN);
 	addLookup("SIDE_CSN", SIDE_CSN);
 	addLookup("SIDE_UNF", SIDE_UNF);

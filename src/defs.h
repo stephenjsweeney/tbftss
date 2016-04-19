@@ -123,6 +123,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_COVERS_RETREAT		(2 << 15)
 #define AIF_TARGET_FOCUS		(2 << 16)
 #define AIF_DROPS_MINES			(2 << 17)
+#define AIF_ASSASSIN			(2 << 18)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)
@@ -188,6 +189,7 @@ enum
 	SIDE_REBEL,
 	SIDE_PANDORAN,
 	SIDE_PIRATE,
+	SIDE_MERC,
 	SIDE_CSN,
 	SIDE_UNF,
 	SIDE_MAX

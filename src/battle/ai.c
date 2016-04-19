@@ -365,19 +365,23 @@ static int selectWeaponForTarget(Entity *e)
 {
 	self->selectedGunType = self->guns[0].type;
 	
-	if (e->flags & EF_MUST_DISABLE)
+	/* if you're an assassin, just kill the target */
+	if (!(e->aiFlags & AIF_ASSASSIN))
 	{
-		if (e->systemPower > 0)
+		if (e->flags & EF_MUST_DISABLE)
 		{
-			return selectWeapon(BT_MAG);
+			if (e->systemPower > 0)
+			{
+				return selectWeapon(BT_MAG);
+			}
+			
+			return 0;
 		}
 		
-		return 0;
-	}
-	
-	if (e->flags & EF_NO_KILL)
-	{
-		return selectWeapon(BT_LASER) || selectWeapon(BT_MAG);
+		if (e->flags & EF_NO_KILL)
+		{
+			return selectWeapon(BT_LASER) || selectWeapon(BT_MAG);
+		}
 	}
 	
 	if (e->shield > 0)

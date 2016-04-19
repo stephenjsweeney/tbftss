@@ -62,7 +62,8 @@
 			"x" : 10,
 			"y" : 5,
 			"scatter" : 500,
-			"flags" : "+EF_IMMORTAL"
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_AGGRESSIVE"
 		},
 		{
 			"groupName" : "Rebels-1",

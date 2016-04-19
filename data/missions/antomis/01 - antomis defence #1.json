@@ -47,7 +47,7 @@
 			"y" : 45,
 			"number" : 7,
 			"scatter" : 350,
-			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_MOVES_TO_LEADER"
 		},
 		{
 			"types" : "Plasma Turret",

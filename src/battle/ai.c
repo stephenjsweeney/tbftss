@@ -366,7 +366,7 @@ static int selectWeaponForTarget(Entity *e)
 	self->selectedGunType = self->guns[0].type;
 	
 	/* if you're an assassin, just kill the target */
-	if (!(e->aiFlags & AIF_ASSASSIN))
+	if (!(self->aiFlags & AIF_ASSASSIN))
 	{
 		if (e->flags & EF_MUST_DISABLE)
 		{

@@ -192,6 +192,16 @@ void removeFromQuadtree(Entity *e, Quadtree *root)
 		}
 	
 		removeEntity(e, root);
+		
+		if (root->numEnts == 0)
+		{
+			root->addedTo = 0;
+			
+			if (root->node[0])
+			{
+				root->addedTo = root->node[0]->addedTo || root->node[1]->addedTo || root->node[2]->addedTo || root->node[3]->addedTo;
+			}
+		}
 	}
 }
 

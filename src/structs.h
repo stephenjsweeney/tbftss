@@ -304,6 +304,7 @@ struct Quadtree {
 	Entity **ents;
 	int capacity;
 	int numEnts;
+	int addedTo;
 	Quadtree *node[4];
 };
 

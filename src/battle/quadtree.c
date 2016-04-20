@@ -106,6 +106,8 @@ void addToQuadtree(Entity *e, Quadtree *root)
 {
 	int index;
 	
+	root->addedTo = 1;
+	
 	if (root->node[0])
 	{
 		index = getIndex(root, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h);
@@ -176,18 +178,21 @@ void removeFromQuadtree(Entity *e, Quadtree *root)
 {
 	int index;
 	
-	if (root->node[0])
+	if (root->addedTo)
 	{
-		index = getIndex(root, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h);
-		
-		if (index != -1)
+		if (root->node[0])
 		{
-			removeFromQuadtree(e, root->node[index]);
-			return;
+			index = getIndex(root, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h);
+			
+			if (index != -1)
+			{
+				removeFromQuadtree(e, root->node[index]);
+				return;
+			}
 		}
-	}
 	
-	removeEntity(e, root);
+		removeEntity(e, root);
+	}
 }
 
 static void removeEntity(Entity *e, Quadtree *root)
@@ -222,30 +227,33 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Qua
 {
 	int index, i;
 	
-	if (root->node[0])
+	if (root->addedTo)
 	{
-		index = getIndex(root, x, y, w, h);
-		
-		if (index != -1)
+		if (root->node[0])
 		{
-			getAllEntsWithinNode(x, y, w, h, ignore, root->node[index]);
-		}
-		else
-		{
-			for (i = 0 ; i < 4 ; i++)
+			index = getIndex(root, x, y, w, h);
+			
+			if (index != -1)
 			{
-				getAllEntsWithinNode(x, y, w, h, ignore, root->node[i]);
+				getAllEntsWithinNode(x, y, w, h, ignore, root->node[index]);
+			}
+			else
+			{
+				for (i = 0 ; i < 4 ; i++)
+				{
+					getAllEntsWithinNode(x, y, w, h, ignore, root->node[i]);
+				}
 			}
 		}
-	}
-	
-	for (i = 0 ; i < root->numEnts ; i++)
-	{
-		candidates[cIndex++] = root->ents[i];
 		
-		if (cIndex == cCapacity)
+		for (i = 0 ; i < root->numEnts ; i++)
 		{
-			resizeCandidates();
+			candidates[cIndex++] = root->ents[i];
+			
+			if (cIndex == cCapacity)
+			{
+				resizeCandidates();
+			}
 		}
 	}
 }

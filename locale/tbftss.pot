@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-17 11:26:20+0100\n"
+"POT-Creation-Date: 2016-04-20 09:39:23+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -640,6 +640,33 @@ msgstr ""
 msgid "Half the jumpgate's control nodes have been destroyed! We need to step up our efforts to defend it!"
 msgstr ""
 
+msgid "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed."
+msgstr ""
+
+msgid "Tzac fighters spotted, both commanders are here. Goddard, disable those fighters as soon as you can."
+msgstr ""
+
+msgid "Squadron commanders disabled."
+msgstr ""
+
+msgid "Great work, everyone. We just need to wait for the tugs to arrive and bring these guys in."
+msgstr ""
+
+msgid "Commander, I'm reading incoming fighter signature: Darts."
+msgstr ""
+
+msgid "I'll bet my house those are mercenaries, and given that the relationship with Tzac didn't end amicably they're probably targetting the commanders. We can't afford to lose them."
+msgstr ""
+
+msgid "All Darts have been dispatched, Commander."
+msgstr ""
+
+msgid "Good. Not often we end up having to protect the enemy from another."
+msgstr ""
+
+msgid "Tugs are on the way. Should be here in the next few minutes"
+msgstr ""
+
 msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
 msgstr ""
 
@@ -1000,6 +1027,12 @@ msgstr ""
 msgid "Dammit! The Shales were acting as bait. Specials, keep those bombers away from us."
 msgstr ""
 
+msgid "You're going to have to deal with this one solo, Carpenter. There are bombers deploying mines in the area. Any one of those detonating could kill the target."
+msgstr ""
+
+msgid "Secure the commander, and then take down those bombers. Just watch your fire."
+msgstr ""
+
 msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
 msgstr ""
 
@@ -1228,7 +1261,7 @@ msgstr ""
 msgid "Looks like Lovelace wasn't their only target. Prepare to engage, people."
 msgstr ""
 
-msgid "We're picking up a lot of chatter on the mercenaries' channels. They're not happy how things are going."
+msgid "We're picking up a lot of chatter on the mercenaries' channels. They're not happy with how things are going."
 msgstr ""
 
 msgid "Then let's concentrate on making them even more unhappy."
@@ -1328,6 +1361,36 @@ msgid "The threat warning came in too late for any other squadrons to assist us,
 msgstr ""
 
 msgid "Expect the Tzac forces to focus on destroying the tugs and shuttles."
+msgstr ""
+
+msgid "Enemy fighters spotted. No sign of the squadron wing commander, though. We might have to draw him out."
+msgstr ""
+
+msgid "Rose, we'll be relying on you to disable his fighter as soon as he puts in an appearance."
+msgstr ""
+
+msgid "Acknowledged."
+msgstr ""
+
+msgid "Tzac commander sighted, Commander."
+msgstr ""
+
+msgid "Get to it, Lieutenant. We'll cover you."
+msgstr ""
+
+msgid "Tzac commander's Shale has been disabled."
+msgstr ""
+
+msgid "Control, this is Spencer. Reporting operation successful."
+msgstr ""
+
+msgid "You have the commander?"
+msgstr ""
+
+msgid "Bagged and tagged."
+msgstr ""
+
+msgid "Excellent work, Jesters. Everything looks clear, so we'll dispatch a tug to your location to bring him in. See you soon."
 msgstr ""
 
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
@@ -1717,7 +1780,7 @@ msgstr ""
 msgid "Survive an epic battle"
 msgstr ""
 
-msgid "The bigger they are"
+msgid "The bigger they are ..."
 msgstr ""
 
 msgid "Destroy an enemy capital ship"
@@ -1747,7 +1810,7 @@ msgstr ""
 msgid "Complete a mission using a Shuttle"
 msgstr ""
 
-msgid "Taking one for the Team"
+msgid "Taking one for the team"
 msgstr ""
 
 msgid "Be killed by a missile that was meant for someone else"

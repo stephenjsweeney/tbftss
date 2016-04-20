@@ -49,7 +49,7 @@ Entity *spawnMine(int type)
 	mine->texture = (type == ET_MINE) ? mineNormal : shadowMine;
 	mine->action = think;
 	mine->die = die;
-	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET+EF_SHORT_RADAR_RANGE;
+	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET+EF_SHORT_RADAR_RANGE+EF_NON_SOLID;
 	
 	if (type == ET_SHADOW_MINE)
 	{
@@ -213,7 +213,7 @@ static void doSplashDamage(void)
 				percent /= DAMAGE_RANGE;
 				percent = 1 - percent;
 				
-				damage = 100;
+				damage = 255;
 				damage *= percent;
 				
 				if (e->type == ET_FIGHTER)

@@ -348,7 +348,7 @@ static void separate(void)
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->flags & EF_TAKES_DAMAGE)
+		if ((e->flags & EF_TAKES_DAMAGE) && (!(e->flags & EF_NON_SOLID)))
 		{
 			distance = getDistance(e->x, e->y, self->x, self->y);
 

@@ -142,7 +142,7 @@
 			"lines" : [
 				"WAIT 2",
 				"MSG_BOX Black;Looks like that's all of them.",
-				"MSG_BOX CSN Florin;Those were Nation of Tzac fighters. We've heard reports of them being active in some Confederation systems.",
+				"MSG_BOX CSN Florin;Those were Kingdom of Tzac fighters. We've heard reports of them being active in some Confederation systems.",
 				"MSG_BOX Black;Would appear that Christabel is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with.",
 				"MSG_BOX CSN Florin;It never rains ...",
 				"MSG_BOX CSN Florin;We're starting systems up again. Once we've completed pre-jump checks we're heading for Temper. Thank you for your assistance.",

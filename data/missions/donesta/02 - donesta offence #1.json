@@ -1,0 +1,69 @@
+{
+	"name" : "Donesta Offence #1",
+	"description" : "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed.",
+	"requires" : 45,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/heroism.ogg",
+	"player" : {
+		"type" : "Hyena-A",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "2nd Lt. Raquel Carpenter",
+		"squadron" : "The Specials",
+		"x" : 5,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate bombers",
+			"targetName" : "Rebels-1",
+			"targetValue" : 5,
+			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1
+		},
+		{
+			"description" : "Capture squadron commander",
+			"targetName" : "Tzac Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Do not kill squadron commander",
+			"targetName" : "Tzac Commander",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Khepri",
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : 25,
+			"number" : 5,
+			"scatter" : 10000,
+			"aiFlags" : "+AIF_DROPS_MINES+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Tzac Commander",
+			"types" : "Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : 25,
+			"flags" : "+EF_AI_LEADER+EF_MISSION_TARGET",
+			"aiFlags" : "+AIF_WANDERS"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Control;You're going to have to deal with this one solo, Carpenter. There are bombers deploying mines in the area. Any one of those detonating could kill the target.",
+				"MSG_BOX Control;Secure the commander, and then take down those bombers. Just watch your fire."
+			]
+		}
+	]
+}
+ 

@@ -636,7 +636,7 @@ static void deployMine(void)
 	
 	if (!self->reload && self->thrust > 0)
 	{
-		mine = spawnMine();
+		mine = spawnMine(ET_MINE);
 		mine->x = self->x;
 		mine->y = self->y;
 		mine->dx = rand() % 20 - rand() % 20;

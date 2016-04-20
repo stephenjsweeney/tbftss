@@ -709,12 +709,19 @@ static void moveToPlayer(void)
 		
 		turnToFace(wantedAngle);
 		
-		if (player->thrust)
+		if (player->thrust > 0.1)
 		{
-			oldSpeed = self->speed;
-			self->speed = sqrt(player->thrust);
-			applyFighterThrust();
-			self->speed = oldSpeed;
+			if (self->speed > player->speed)
+			{
+				oldSpeed = self->speed;
+				self->speed = sqrt(player->thrust);
+				applyFighterThrust();
+				self->speed = oldSpeed;
+			}
+			else
+			{
+				applyFighterThrust();
+			}
 		}
 		else
 		{
@@ -905,16 +912,23 @@ static void moveToLeader(void)
 	
 	if (dist <= ((self->leader->type != ET_CAPITAL_SHIP) ? 350 : 550))
 	{
-		if (self->leader->thrust)
+		if (self->leader->thrust > 0.1)
 		{
 			wantedAngle = getAngle(self->leader->x, self->leader->y, self->leader->x + (self->leader->dx * 1000), self->leader->y + (self->leader->dy * 1000));
 			
 			turnToFace(wantedAngle);
 			
-			oldSpeed = self->speed;
-			self->speed = sqrt(self->leader->thrust);
-			applyFighterThrust();
-			self->speed = oldSpeed;
+			if (self->speed > self->leader->speed)
+			{
+				oldSpeed = self->speed;
+				self->speed = sqrt(self->leader->thrust);
+				applyFighterThrust();
+				self->speed = oldSpeed;
+			}
+			else
+			{
+				applyFighterThrust();
+			}
 		}
 		else
 		{

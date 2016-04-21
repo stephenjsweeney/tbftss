@@ -4,23 +4,27 @@
 <style>
 body {background-color:#000; color: #fff; font-family: "sans"}
 h3 {background-color:#47c; padding:0.25em; color:#fff; margin-top:3em; border: 1px solid #fff;}
-h4 {background-color:#5ad; padding:0.25em; color:#fff; margin-top:3em; width: 50%; color:#000; border: 1px solid #fff;}
+h4 {background-color:#000; padding:0.25em; color:#fff; margin-top:3em; border: 1px solid #5ad;}
 a {color: #0af; text-decoration: none;}
 a:hover {color: #0af; text-decoration: underline;}
 table.controls {border:1px solid #fff; padding: 0.5em; width:40em;}
 table.controls td:first-child {width: 50%; color:#8cf;}
 table.controls td:nth-child(2) {font-weight: bold;}
-img.screenshot {border: 1px #ccc solid; padding: 5px; width:800px; background-color:#000}
+img.screenshot {border: 1px #fff solid; padding: 1px; width:800px; background-color:#000; display: block; margin: 0 auto;}
 div.annotation {font-size: 12px; position:absolute; background-color:#08f; color:#fff; padding:3px; font-weight:bold; border:2px #fff solid; border-radius: 5px; text-align:center}
+div.annotationContainer {position:relative; width:800px; display: block; margin-left: auto; margin-right: auto;}
 span.highlight {font-weight:bold; color: #0bf;}
 </style>
 <title>TBFTSS - The Pandoran War</title>
 </head>
 <body>
+
+<div style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
+
 <div style="text-align:center">
 <p><img src="logo.png"></p>
 <p><img src="pandoran.png"></p>
-<p>Last updated: 14th February 2016</p>
+<p>Last updated: 21st April 2016</p>
 </div>
 
 <div>
@@ -71,7 +75,7 @@ You can scroll around the galactic map by holding down the left mouse button and
 
 <p>&nbsp;</p>
 
-<div style='position:relative'>
+<div class='annotationContainer'>
 	<div class="annotation" style="left:65px; top:65px;">1</div>
 	<div class="annotation" style="left:400px; top:35px;">2</div>
 	<div class="annotation" style="left:225px; top:125px;">3</div>
@@ -99,6 +103,7 @@ You can scroll around the galactic map by holding down the left mouse button and
 <tr><td>Left mouse button</td><td>Select highlighted star system</td></tr>
 <tr><td>Escape</td><td>Menu</td></tr>
 </table>
+<p style="font-size:10pt; font-style:italic">(note: these controls can be changed in the options screen)</p>
 
 <h3>Star Systems</h3>
 <p>
@@ -107,7 +112,7 @@ The Star System view shows a list of missions available for that star system. In
 
 <p>&nbsp;</p>
 
-<div style='position:relative'>
+<div class='annotationContainer'>
 	<div class="annotation" style="left:465px; top:55px;">1</div>
 	<div class="annotation" style="left:240px; top:105px;">2</div>
 	<div class="annotation" style="left:195px; top:355px;">3</div>
@@ -130,6 +135,7 @@ The Star System view shows a list of missions available for that star system. In
 <tr><td>Left mouse button</td><td>Select mission / start mission</td></tr>
 <tr><td>Escape</td><td>Return to galactic map</td></tr>
 </table>
+<p style="font-size:10pt; font-style:italic">(note: these controls can be changed in the options screen)</p>
 
 <h3>Missions</h3>
 <p>
@@ -154,7 +160,7 @@ From time to time, message boxes will appear. These will carry important communi
 
 <p>&nbsp;</p>
 
-<div style='position:relative'>
+<div class='annotationContainer'>
 	<div class="annotation" style="left:430px; top:245px;">1</div>
 	<div class="annotation" style="left:350px; top:175px;">2</div>
 	<div class="annotation" style="left:185px; top:10px;">3</div>
@@ -186,6 +192,7 @@ From time to time, message boxes will appear. These will carry important communi
 <tr><td>Tab</td><td>Display objectives</td></tr>
 <tr><td>Escape</td><td>Menu</td></tr>
 </table>
+<p style="font-size:10pt; font-style:italic">(note: these controls can be changed in the options screen)</p>
 
 <h3>Combat</h3>
 
@@ -223,7 +230,7 @@ The radar displays a number of coloured blips, with the player in the center. Th
 
 <p>&nbsp;</p>
 
-<div style='position:relative'>
+<div class='annotationContainer'>
 	<div class="annotation" style="left:400px; top:185px;">1</div>
 	<div class="annotation" style="left:175px; top:360px;">2</div>
 	<div class="annotation" style="left:775px; top:50px;">3</div>
@@ -260,6 +267,7 @@ The radar displays a number of coloured blips, with the player in the center. Th
 <tr><td>A</td><td>Cycle targets</td></tr>
 <tr><td>D</td><td>ECM</td></tr>
 </table>
+<p style="font-size:10pt; font-style:italic">(note: these controls can be changed in the options screen)</p>
 
 <h4>Weaponry</h4>
 <p>
@@ -333,9 +341,37 @@ Various game options can be changed:
 <li><span class="highlight">Sound Volume</span> - Change the volume of the sounds effects in the game, from 0 (no sound) to 10 (loudest).</li>
 <li><span class="highlight">Music Volume</span> - Change the volume of the music in the game, from 0 (no sound) to 10 (loudest).</li>
 <li><span class="highlight">Fullscreen</span> - Whether or not to start the game in fullscreen mode.<sup>[1]</sup></li>
-<li><span class="highlight">VSync</span> - Whether or not to enable VSync, to reduce screen tearing.<sup>[1]</sup></li>
+<li><span class="highlight">Control Configuration</span> - Allows you to configure the controls (see below for more details)</li>
 </ul>
 <p style="font-size:8pt">[1] - changes to this option will take effect next time you start the game.</p>
+</p>
+
+<h4>Control Configuration</h4>
+<p>
+Most of the controls in the game can be tailored to the player's liking, using either the keyboard or the mouse.
+</p>
+<img src="controls.png" class="screenshot">
+<p>
+To change a control, click on the box and then press the key or mouse button you wish to use. To clear a control, press Backpress. To cancel updating a control, press escape (not that therefore neither Backspace nor Escape can be set as controls). Note that the same key or mouse button can be set for multiple controls. Keys are represented by their name, whereas mouse buttons are donated by "Btn X", where X is the number of the mouse button.
+</p>
+<p>
+Controls be can restored to their default settings by clicking the "Restore Defaults" button.
+</p>
+
+<h3>Misc. Information</h3>
+<p>
+Saved game files are stored in:
+<ul>
+<li>Linux: $HOME/.local/share/tbftss</li>
+<li>Windows: $USERPROFILE/tbftss</li>
+</ul>
+Note that as the source code for this game is freely available, these settings may have been changed. Typically on Windows $USERPROFILE is C:/Users/&lt;userid&gt;.
+</p>
+
+<h3>License</h3>
+
+<p>
+See the LICENSE and README.md files that came with this game for information on the various copyrights of the source code, graphics, sound, and data. Additionally, you may visit <a href="https://github.com/stephenjsweeney/tbftss">https://github.com/stephenjsweeney/tbftss</a> to get the source code itself, and view the files there.
 </p>
 
 <h3>About</h3>
@@ -345,12 +381,8 @@ This game is based on the Battle for the Solar System novel trilogy by Stephen J
 
 <p><a href="http://www.battleforthesolarsystem.com/">www.battleforthesolarsystem.com</a></p>
 
-<p>The Battle for the Solar System and related related materials are Copyright &copy;2009-2016, Stephen J Sweeney. All Rights Reserved.</p>
-
-<h3>License</h3>
-
-<p>
-See the LICENSE and README.md files that came with this game for information on the various copyrights of the source code, graphics, sound, and data. Additionally, you may visit <a href="https://github.com/stephenjsweeney/tbftss">https://github.com/stephenjsweeney/tbftss</a> to get the source code itself, and view the files there.
+<p style="font-size:10pt; font-style:italic">
+This is a work of fiction. Names, characters, businesses, places, events and incidents are either the products of the author's imagination or used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is purely coincidental. The Battle for the Solar System : The Pandoran War is &copy; 2015-2016, Stephen J Sweeney, All Rights Reserved. The Battle for the Solar System and all related materials (including, but not limited to, characters, setting, and story elements) are &copy; 2009-2016, Stephen J Sweeney, All Rights Reserved.
 </p>
 
 <script src='jquery-2.1.3.min.js'></script>
@@ -378,6 +410,8 @@ $('h3,h4').each(function(i, e) {
 });
 
 </script>
+
+</div>
 
 </body>
 </html>

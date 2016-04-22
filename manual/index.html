@@ -2,15 +2,17 @@
 <html>
 <head>
 <style>
-body {background-color:#000; color: #fff; font-family: "sans"}
+body {background-color:#000; color: #fff; font-family: "sans"; background-image: url("background02.jpg");}
 h3 {background-color:#47c; padding:0.25em; color:#fff; margin-top:3em; border: 1px solid #fff;}
 h4 {background-color:#000; padding:0.25em; color:#fff; margin-top:3em; border: 1px solid #5ad;}
+h5 {border-bottom: 1px solid #5ad; width: 50%;}
 a {color: #0af; text-decoration: none;}
 a:hover {color: #0af; text-decoration: underline;}
 table.controls {border:1px solid #fff; padding: 0.5em; width:40em;}
 table.controls td:first-child {width: 50%; color:#8cf;}
 table.controls td:nth-child(2) {font-weight: bold;}
 img.screenshot {border: 1px #fff solid; padding: 1px; width:800px; background-color:#000; display: block; margin: 0 auto;}
+div.content {width: 75%; display: block; margin-left: auto; margin-right: auto; border:1px #888 solid; padding:10px;}
 div.annotation {font-size: 12px; position:absolute; background-color:#08f; color:#fff; padding:3px; font-weight:bold; border:2px #fff solid; border-radius: 5px; text-align:center}
 div.annotationContainer {position:relative; width:800px; display: block; margin-left: auto; margin-right: auto;}
 span.highlight {font-weight:bold; color: #0bf;}
@@ -19,7 +21,7 @@ span.highlight {font-weight:bold; color: #0bf;}
 </head>
 <body>
 
-<div style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
+<div class="content">
 
 <div style="text-align:center">
 <p><img src="logo.png"></p>
@@ -57,15 +59,21 @@ Note that the primary control scheme for the game is mouse and keyboard. It is n
 <p>
 This is the first screen that you will see upon starting the game. You may select from the following options:
 <ul>
-<li><span class="highlight">New Game</span> - Start a new game (note: this will overight any game that is currently in progress)</li>
-<li><span class="highlight">Continue</span> - Continue the current game. This will be the default option if a save file is found.</li>
+<li><span class="highlight">Campaign</span> - Start or continue the current campaign.</li>
+<li><span class="highlight">Challenges</span> - Go to the challenges section.</li>
+<li><span class="highlight">Stats</span> - View various game statistics.</li>
 <li><span class="highlight">Options</span> - Configure various configuration option. See the options section for more information.</li>
 <li><span class="highlight">Quit</span> - Exit the game</li>
 </ul>
 </p>
 <img src="title.png" class="screenshot">
 
-<h3>Galactic Map</h3>
+<h3>Campaign</h3>
+<p>
+The campaign is the story mode of the game. In this mode, you will progress through various missions, unlocking others as you game. Missions will take place in a number of different star systems, using a number of different starfighters. Progress is fairly non-linear, allowing the player to chose the order in which they will tackle the available missions. On occassion, mostly for story purposes, the game will require all current missions to be completed before more will become available. See below for more details.
+</p>
+
+<h4>Galactic Map</h4>
 <p>
 This is the main mission select screen. Here, you can move around and select star systems in which to undertake missions. Star Systems that have missions will emit red circles at regular intervals. Red arrows will also point in the direction of star systems that have missions, but are currently offscreen.
 </p>
@@ -97,7 +105,7 @@ You can scroll around the galactic map by holding down the left mouse button and
 	<li>Mouse cursor.</li>
 </ol>
 
-<h4>Controls</h4>
+<h5>Controls</h5>
 <table class="controls">
 <tr><td>Mouse cursor</td><td>Scroll galactic map</td></tr>
 <tr><td>Left mouse button</td><td>Select highlighted star system</td></tr>
@@ -105,7 +113,7 @@ You can scroll around the galactic map by holding down the left mouse button and
 </table>
 <p style="font-size:10pt; font-style:italic">(note: these controls can be changed in the options screen)</p>
 
-<h3>Star Systems</h3>
+<h4>Star Systems</h4>
 <p>
 The Star System view shows a list of missions available for that star system. In many cases, missions are unlocked as the related or previous missions are completed. The right-hand side of the star system view displays an overview of the mission, including the class of craft the player will be piloting, and the name of the pilot (if applicable), and the squadron to which they belong. To play a mission, highlight it, and then click on <span class="highlight">Start Mission</span>.
 </p>
@@ -130,14 +138,14 @@ The Star System view shows a list of missions available for that star system. In
 	<li>Mission detail.</li>
 </ol>
 
-<h4>Controls</h4>
+<h5>Controls</h5>
 <table class="controls">
 <tr><td>Left mouse button</td><td>Select mission / start mission</td></tr>
 <tr><td>Escape</td><td>Return to galactic map</td></tr>
 </table>
 <p style="font-size:10pt; font-style:italic">(note: these controls can be changed in the options screen)</p>
 
-<h3>Missions</h3>
+<h4>Missions</h4>
 <p>
 Each mission has various objectives that the player must finish in order to complete the mission successfully. The mission ends when the player either successfully completes all the objectives, or is killed (and is not in an Epic mission). Note: there is no friendly fire between those on the same side (in other words, you need not worry about firing upon your team mates, or them hitting you - no damage will be taken).
 </p>
@@ -184,7 +192,7 @@ From time to time, message boxes will appear. These will carry important communi
 	<li>Message box.</li>
 </ol>
 
-<h4>Controls</h4>
+<h5>Controls</h5>
 <table class="controls">
 <tr><td>Mouse cursor</td><td>Orientate craft</td></tr>
 <tr><td>Right mouse</td><td>Accelerate</td></tr>
@@ -310,7 +318,39 @@ Rescue missions involve ensuring that a stranded or disabled craft is safely tra
 Epic Missions are special types of mission. Typically, if the player's craft is destroyed during play, the mission will be failed. However, in Epic Missions the player will be given the chance to select a new craft to pilot, upon the destruction of their current one. This will continue until no more craft are available to the player. Epic Missions are also characterised by the number of active participants. There may be dozens of craft battling at once, victory going to the side to eliminates all their opponents. Note that even though there may be over 100 craft available to each side, only a certain number of these (for example, 32) will be present in the battle. Other craft will arrive as each side takes losses, to shore up the numbers.
 </p>
 
-<h3>Misc gameplay details</h3>
+<h3>Challenges</h3>
+
+<p>
+Challenges are a special game mode which allow you to undertake missions with particular goals that need to be met. These missions enforce restrictions such as time limits, the use of missiles, and the need to fulfill certain other criteria in order to fully complete the objectives. New challenge missions are unlocked when at least one goal from the previous challenge has been successfully met.
+</p>
+<p>
+To start challenge mission, click on the numbered mission box and then click on Start Challenge Mission. If the mission is locked, you will not be able to play it until you have completed a challenge from the previous mission.
+</p>
+
+<p>&nbsp;</p>
+
+<div class='annotationContainer'>
+	<div class="annotation" style="left:350px; top:65px;">1</div>
+	<div class="annotation" style="left:430px; top:65px;">2</div>
+	<div class="annotation" style="left:130px; top:100px;">3</div>
+	<div class="annotation" style="left:105px; top:185px;">4</div>
+	<div class="annotation" style="left:205px; top:185px;">5</div>
+	<div class="annotation" style="left:250px; top:340px;">6</div>
+	<div class="annotation" style="left:650px; top:340px;">7</div>
+</div>
+<img src="challenges.png" class="screenshot">
+<ol>
+	<li>Total challenges completed</li>
+	<li>Total challenges</li>
+	<li>Challenge mission box</li>
+	<li>Number of challenges completed / available for this mission</li>
+	<li>Indciates this challenge mission is not yet available</li>
+	<li>Challenge mission detail</li>
+	<li>Challenge objectives</li>
+</ol>
+</p>
+
+<h3>Misc. gameplay details</h3>
 
 <h4>Shuttles</h4>
 <p>
@@ -405,7 +445,7 @@ $('h3,h4').each(function(i, e) {
 	
 	if (e.tagName == 'H4')
 	{
-		toc.append("<span style='text-indent: 50px; display: inline-block'>&#9643 <a href='#" + link + "'>" + e.innerText + "</a></span><br>");
+		toc.append("<span style='text-indent: 2em; display: inline-block'>&#9643 <a href='#" + link + "'>" + e.innerText + "</a></span><br>");
 	}
 });
 

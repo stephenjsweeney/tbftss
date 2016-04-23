@@ -135,11 +135,11 @@ int main(int argc, char *argv[])
 			}
 		}
 		
-		if (app.keyboard[SDL_SCANCODE_F12])
+		if (isControl(CONTROL_SCREENSHOT))
 		{
 			saveScreenshot();
 			
-			app.keyboard[SDL_SCANCODE_F12] = 0;
+			clearControl(CONTROL_SCREENSHOT);
 		}
 		
 		if (SDL_GetTicks() > expireTextTimer)

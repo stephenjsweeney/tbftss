@@ -99,6 +99,15 @@
 		"h": 34
 	},
 	{
+		"name" : "CONTROL_SCREENSHOT",
+		"group" : "controls",
+		"type" : "WT_CONTROL_CONFIG",
+		"x" : 0,
+		"y" : 0,
+		"w" : 175,
+		"h": 34
+	},
+	{
 		"name" : "ok",
 		"group" : "controls",
 		"type" : "WT_BUTTON",

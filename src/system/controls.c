@@ -40,6 +40,7 @@ void initControls(void)
 	controlName[CONTROL_RADAR] = _("Cycle Radar");
 	controlName[CONTROL_NEXT_FIGHTER] = _("Next Fighter");
 	controlName[CONTROL_PREV_FIGHTER] = _("Previous Fighter");
+	controlName[CONTROL_SCREENSHOT] = _("Screenshot");
 	
 	for (i = 0 ; i < CONTROL_MAX ; i++)
 	{

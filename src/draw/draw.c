@@ -214,4 +214,9 @@ void saveScreenshot(void)
 	SDL_RenderReadPixels(app.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, sshot->pixels, sshot->pitch);
 	SDL_SaveBMP(sshot, filename);
 	SDL_FreeSurface(sshot);
+	
+	if (!dev.takeScreenshots)
+	{
+		printf("Saved '%s'\n", filename);
+	}
 }

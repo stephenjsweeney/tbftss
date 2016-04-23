@@ -46,6 +46,8 @@ int main(int argc, char *argv[])
 	
 	initGameSystem();
 	
+	createScreenshotFolder();
+	
 	handleArguments(argc, argv);
 	
 	dev.fps = frames = td = 0;
@@ -133,6 +135,13 @@ int main(int argc, char *argv[])
 			}
 		}
 		
+		if (app.keyboard[SDL_SCANCODE_F12])
+		{
+			saveScreenshot();
+			
+			app.keyboard[SDL_SCANCODE_F12] = 0;
+		}
+		
 		if (SDL_GetTicks() > expireTextTimer)
 		{
 			expireTexts(0);
@@ -168,8 +177,6 @@ static void handleArguments(int argc, char *argv[])
 			if (strcmp(argv[i], "-debug") == 0)
 			{
 				dev.debug = 1;
-				
-				createScreenshotFolder();
 				
 				SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG);
 			}

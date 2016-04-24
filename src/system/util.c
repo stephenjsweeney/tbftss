@@ -128,6 +128,19 @@ char *timeToString(long millis, int showHours)
 	return TIME;
 }
 
+char *timeToDate(long millis)
+{
+	static char DATE[MAX_NAME_LENGTH];
+	
+	struct tm *timeinfo;
+	
+	timeinfo = localtime(&millis);
+	
+	strftime(DATE, MAX_NAME_LENGTH, "%d %b %Y, %H:%M", timeinfo);
+	
+	return DATE;
+}
+
 char *getJSONValueStr(cJSON *node, char *name, char *defValue)
 {
 	cJSON *child;

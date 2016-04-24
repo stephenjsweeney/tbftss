@@ -12,49 +12,49 @@
 		"value" : "TROPHY_BRONZE"
 	},
 	{
-		"id" : "CAMPAIGN_10",
+		"id" : "_CAMPAIGN_10",
 		"title" : "1st Lieutenant",
 		"description" : "Complete 10%% of all missions",
 		"value" : "TROPHY_BRONZE"
 	},
 	{
-		"id" : "CAMPAIGN_20",
+		"id" : "_CAMPAIGN_20",
 		"title" : "Lieutenant Commander",
 		"description" : "Complete 20%% of all missions",
 		"value" : "TROPHY_BRONZE"
 	},
 	{
-		"id" : "CAMPAIGN_40",
+		"id" : "_CAMPAIGN_40",
 		"title" : "Commander",
 		"description" : "Complete 40%% of all missions",
 		"value" : "TROPHY_BRONZE"
 	},
 	{
-		"id" : "CAMPAIGN_50",
+		"id" : "_CAMPAIGN_50",
 		"title" : "Captain",
 		"description" : "Complete 50%% of all missions",
 		"value" : "TROPHY_SILVER"
 	},
 	{
-		"id" : "CAMPAIGN_60",
+		"id" : "_CAMPAIGN_60",
 		"title" : "Commodore",
 		"description" : "Complete 60%% of all missions",
 		"value" : "TROPHY_SILVER"
 	},
 	{
-		"id" : "CAMPAIGN_80",
+		"id" : "_CAMPAIGN_80",
 		"title" : "Rear Admiral",
 		"description" : "Complete 80%% of all missions",
 		"value" : "TROPHY_SILVER"
 	},
 	{
-		"id" : "CAMPAIGN_90",
+		"id" : "_CAMPAIGN_90",
 		"title" : "Admiral",
 		"description" : "Complete 90%% of all missions",
 		"value" : "TROPHY_GOLD"
 	},
 	{
-		"id" : "CAMPAIGN_100",
+		"id" : "_CAMPAIGN_100",
 		"title" : "Fleet Admiral",
 		"description" : "Complete all campaign missions",
 		"value" : "TROPHY_GOLD"
@@ -94,8 +94,8 @@
 		"hidden" : 1
 	},
 	{
-		"id" : "CAMPAIGN_MACE",
-		"title" : "Going out with a bang.",
+		"id" : "_CAMPAIGN_MACE",
+		"title" : "Going out with a bang",
 		"description" : "Complete all missions at Mace",
 		"value" : "TROPHY_SILVER",
 		"hidden" : 1
@@ -145,19 +145,19 @@
 		"value" : "TROPHY_SILVER"
 	},
 	{
-		"id" : "CHALLENGE_25",
+		"id" : "_CHALLENGE_25",
 		"title" : "",
 		"description" : "Complete 25%% of all challenges",
 		"value" : "TROPHY_BRONZE"
 	},
 	{
-		"id" : "CHALLENGE_50",
+		"id" : "_CHALLENGE_50",
 		"title" : "",
 		"description" : "Complete 50%% of all challenges",
 		"value" : "TROPHY_SILVER"
 	},
 	{
-		"id" : "CHALLENGE_100",
+		"id" : "_CHALLENGE_100",
 		"title" : "",
 		"description" : "Complete 100%% of all challenges",
 		"value" : "TROPHY_GOLD"
@@ -221,7 +221,7 @@
 	},
 	{
 		"id" : "ATAF_DESTROYED",
-		"title" : "Almost indestructable. Almost.",
+		"title" : "Almost indestructable. Almost",
 		"description" : "Be destroyed while piloting an ATAF",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1

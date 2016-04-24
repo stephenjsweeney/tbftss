@@ -18,7 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#define SHORT_DESCRIPTION_LENGTH 40
+#define SHORT_DESCRIPTION_LENGTH 	40
+#define TROPHIES_PER_PAGE			4
 
 #include "../common.h"
 #include "../json/cJSON.h"
@@ -30,10 +31,16 @@ extern char *readFile(char *filename);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern int getPercent(float current, float total);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern void blit(SDL_Texture *texture, int x, int y, int centered);
+extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern void blitScaled(SDL_Texture *t, int x, int y, int w, int h);
 extern char *getTranslatedString(char *string);
 extern SDL_Texture *getTexture(char *filename);
 extern void playSound(int id);
+extern Widget *getWidget(const char *name, const char *group);
+extern void drawWidgets(char *groupName);
+extern char *timeToDate(long millis);
+extern void textSize(char *text, int size, int *w, int *h);
 
 extern App app;
 extern Colors colors;

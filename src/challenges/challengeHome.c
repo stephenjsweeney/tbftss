@@ -160,7 +160,7 @@ static void logic(void)
 			break;
 	}
 
-	doTrophies();
+	doTrophyAlerts();
 
 	doWidgets();
 }

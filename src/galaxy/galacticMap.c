@@ -176,7 +176,7 @@ static void logic(void)
 
 	doWidgets();
 	
-	doTrophies();
+	doTrophyAlerts();
 }
 
 static void doStarSystems(void)

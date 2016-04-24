@@ -28,8 +28,9 @@ static void doFighters(void);
 static void drawFighters(void);
 static void campaign(void);
 static void challenges(void);
+static void trophies(void);
 static void stats(void);
-static void statsOK(void);
+static void ok(void);
 static void options(void);
 static void quit(void);
 static void returnFromOptions(void);
@@ -78,11 +79,13 @@ void initTitle(void)
 	
 	getWidget("campaign", "title")->action = campaign;
 	getWidget("challenges", "title")->action = challenges;
+	getWidget("trophies", "title")->action = trophies;
 	getWidget("stats", "title")->action = stats;
 	getWidget("options", "title")->action = options;
 	getWidget("quit", "title")->action = quit;
 	
-	getWidget("ok", "stats")->action = statsOK;
+	getWidget("ok", "stats")->action = ok;
+	getWidget("ok", "trophies")->action = ok;
 	
 	show = SHOW_TITLE;
 	
@@ -127,6 +130,8 @@ static void logic(void)
 	doFighters();
 	
 	doEffects();
+	
+	doTrophies();
 	
 	doWidgets();
 }
@@ -190,6 +195,10 @@ static void draw(void)
 		case SHOW_OPTIONS:
 			drawOptions();
 			break;
+			
+		case SHOW_TROPHIES:
+			drawTrophies();
+			break;
 	}
 }
 
@@ -226,6 +235,15 @@ static void challenges(void)
 	initChallengeHome();
 }
 
+static void trophies(void)
+{
+	selectWidget("ok", "trophies");
+	
+	show = SHOW_TROPHIES;
+	
+	initTrophyDisplay();
+}
+
 static void options(void)
 {
 	selectWidget("ok", "options");
@@ -244,7 +262,7 @@ static void stats(void)
 	initStatsDisplay();
 }
 
-static void statsOK(void)
+static void ok(void)
 {
 	selectWidget("stats", "title");
 	

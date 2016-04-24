@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 08:08:20+0100\n"
+"POT-Creation-Date: 2016-04-24 18:12:03+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -328,6 +328,18 @@ msgstr ""
 msgid "Page %d / %d"
 msgstr ""
 
+msgid "Trophies"
+msgstr ""
+
+msgid "Awarded : %d / %d"
+msgstr ""
+
+msgid "Page : %d / %d"
+msgstr ""
+
+msgid "[Hidden]"
+msgstr ""
+
 msgid "Fire"
 msgstr ""
 
@@ -359,6 +371,9 @@ msgid "Next Fighter"
 msgstr ""
 
 msgid "Previous Fighter"
+msgstr ""
+
+msgid "Screenshot"
 msgstr ""
 
 msgid "Controls"
@@ -1693,43 +1708,43 @@ msgstr ""
 msgid "1st Lieutenant"
 msgstr ""
 
-msgid "Complete 10% of all missions"
+msgid "Complete 10%% of all missions"
 msgstr ""
 
 msgid "Lieutenant Commander"
 msgstr ""
 
-msgid "Complete 20% of all missions"
+msgid "Complete 20%% of all missions"
 msgstr ""
 
 msgid "Commander"
 msgstr ""
 
-msgid "Complete 40% of all missions"
+msgid "Complete 40%% of all missions"
 msgstr ""
 
 msgid "Captain"
 msgstr ""
 
-msgid "Complete 50% of all missions"
+msgid "Complete 50%% of all missions"
 msgstr ""
 
 msgid "Commodore"
 msgstr ""
 
-msgid "Complete 60% of all missions"
+msgid "Complete 60%% of all missions"
 msgstr ""
 
 msgid "Rear Admiral"
 msgstr ""
 
-msgid "Complete 80% of all missions"
+msgid "Complete 80%% of all missions"
 msgstr ""
 
 msgid "Admiral"
 msgstr ""
 
-msgid "Complete 90% of all missions"
+msgid "Complete 90%% of all missions"
 msgstr ""
 
 msgid "Fleet Admiral"
@@ -1768,7 +1783,7 @@ msgstr ""
 msgid "Complete all missions at Temper"
 msgstr ""
 
-msgid "Going out with a bang."
+msgid "Going out with a bang"
 msgstr ""
 
 msgid "Complete all missions at Mace"
@@ -1816,13 +1831,13 @@ msgstr ""
 msgid "Be killed by a missile that was meant for someone else"
 msgstr ""
 
-msgid "Complete 25% of all challenges"
+msgid "Complete 25%% of all challenges"
 msgstr ""
 
-msgid "Complete 50% of all challenges"
+msgid "Complete 50%% of all challenges"
 msgstr ""
 
-msgid "Complete 100% of all challenges"
+msgid "Complete 100%% of all challenges"
 msgstr ""
 
 msgid "Your name's on one of these!"
@@ -1867,7 +1882,7 @@ msgstr ""
 msgid "Destroy 13 or more enemies in an epic battle without being killed"
 msgstr ""
 
-msgid "Almost indestructable. Almost."
+msgid "Almost indestructable. Almost"
 msgstr ""
 
 msgid "Be destroyed while piloting an ATAF"

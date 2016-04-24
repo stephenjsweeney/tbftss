@@ -174,9 +174,9 @@ static void logic(void)
 
 	arrowPulse += 0.1;
 
-	doTrophies();
-
 	doWidgets();
+	
+	doTrophies();
 }
 
 static void doStarSystems(void)

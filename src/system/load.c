@@ -24,6 +24,7 @@ static void loadStats(cJSON *statsJSON);
 static void loadStarSystems(cJSON *starSystemsJSON);
 static void loadMissions(cJSON *missionsCJSON);
 static void loadChallenges(cJSON *challengesCJSON);
+static void loadTrophies(cJSON *trophiesJSON);
 
 void loadGame(void)
 {
@@ -42,6 +43,8 @@ void loadGame(void)
 	loadChallenges(cJSON_GetObjectItem(gameJSON, "challenges"));
 
 	loadStats(cJSON_GetObjectItem(gameJSON, "stats"));
+	
+	loadTrophies(cJSON_GetObjectItem(gameJSON, "trophies"));
 
 	cJSON_Delete(root);
 	free(text);
@@ -115,6 +118,26 @@ static void loadStats(cJSON *statsJSON)
 		if (statName && cJSON_GetObjectItem(statsJSON, statName))
 		{
 			game.stats[i] = cJSON_GetObjectItem(statsJSON, statName)->valueint;
+		}
+	}
+}
+
+static void loadTrophies(cJSON *trophiesJSON)
+{
+	Trophy *t;
+	cJSON *trophyJSON;
+	
+	if (trophiesJSON)
+	{
+		for (trophyJSON = trophiesJSON->child ; trophyJSON != NULL ; trophyJSON = trophyJSON->next)
+		{
+			t = getTrophy(cJSON_GetObjectItem(trophyJSON, "id")->valuestring);
+			
+			if (t)
+			{
+				t->awardDate = cJSON_GetObjectItem(trophyJSON, "awardDate")->valueint;
+				t->awarded = 1;
+			}
 		}
 	}
 }

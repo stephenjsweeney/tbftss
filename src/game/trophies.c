@@ -73,12 +73,14 @@ void doTrophies(void)
 
 			alertRect.x += alertDX;
 
-			if (alertRect.x > -50)
+			if (alertRect.x > -150)
 			{
 				alertDX *= 0.9;
+				
+				alertTimer--;
 			}
 
-			if (--alertTimer <= 0)
+			if (alertTimer <= 0)
 			{
 				t->notify = 0;
 				resetAlert();
@@ -91,12 +93,12 @@ void doTrophies(void)
 
 static void resetAlert(void)
 {
-	alertRect.w = 300;
-	alertRect.h = 100;
+	alertRect.w = 500;
+	alertRect.h = 90;
 	alertRect.x = -alertRect.w;
 	alertRect.y = 10;
 
-	alertDX = 3;
+	alertDX = 12;
 	alertTimer = FPS * 3;
 }
 
@@ -110,10 +112,10 @@ void drawTrophyAlert(void)
 		SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
 		SDL_RenderDrawRect(app.renderer, &alertRect);
 
-		drawText(alertRect.x + 5, alertRect.y + 5, 30, TA_LEFT, colors.white, alertTrophy->title);
-		drawText(alertRect.x + 5, alertRect.y + 45, 20, TA_LEFT, colors.white, alertTrophy->description);
+		drawText(alertRect.x + 15, alertRect.y + 5, 30, TA_LEFT, colors.white, alertTrophy->title);
+		drawText(alertRect.x + 15, alertRect.y + 45, 20, TA_LEFT, colors.white, alertTrophy->shortDescription);
 
-		blit(trophyIcons[alertTrophy->value], alertRect.x + alertRect.w - 64, alertRect.y + 10, 0);
+		blitScaled(trophyIcons[alertTrophy->value], alertRect.x + alertRect.w - 64, alertRect.y + 16, 48, 48);
 	}
 }
 
@@ -138,7 +140,6 @@ Trophy *getTrophy(char *id)
 
 static void loadTrophyData(char *filename)
 {
-	/*
 	cJSON *root, *node;
 	char *text;
 	Trophy *t, *tail;
@@ -158,10 +159,20 @@ static void loadTrophyData(char *filename)
 		STRNCPY(t->id, cJSON_GetObjectItem(node, "id")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(t->title, _(cJSON_GetObjectItem(node, "title")->valuestring), MAX_DESCRIPTION_LENGTH);
 		STRNCPY(t->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
+		STRNCPY(t->shortDescription, _(cJSON_GetObjectItem(node, "description")->valuestring), SHORT_DESCRIPTION_LENGTH);
 		t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
 		t->hidden = getJSONValue(node, "hidden", 0);
-
-		// can't use the getJSONValue here, as it could lead to false positives
+		
+		if (strlen(t->description) > SHORT_DESCRIPTION_LENGTH)
+		{
+			t->shortDescription[SHORT_DESCRIPTION_LENGTH - 1] = '.';
+			t->shortDescription[SHORT_DESCRIPTION_LENGTH - 2] = '.';
+			t->shortDescription[SHORT_DESCRIPTION_LENGTH - 3] = '.';
+		}
+		
+		t->stat = -1;
+		
+		/* can't use the getJSONValue here, as it could lead to false positives */
 		if (cJSON_GetObjectItem(node, "stat"))
 		{
 			t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring);
@@ -174,7 +185,6 @@ static void loadTrophyData(char *filename)
 
 	cJSON_Delete(root);
 	free(text);
-	*/
 }
 
 void awardStatsTrophies(void)
@@ -183,7 +193,7 @@ void awardStatsTrophies(void)
 
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
-		if (!t->awarded && game.stats[t->stat] >= t->statValue)
+		if (t->stat != -1 && !t->awarded && game.stats[t->stat] >= t->statValue)
 		{
 			t->awarded = 1;
 			t->awardDate = time(NULL);
@@ -217,6 +227,7 @@ void awardCampaignTrophies(void)
 			{
 				name[i] = toupper(starSystem->name[i]);
 			}
+			
 			sprintf(trophyId, "CAMPAIGN_%s", name);
 			awardTrophy(trophyId);
 		}

@@ -24,6 +24,7 @@ static void saveStarSystems(cJSON *gameJSON);
 static void saveChallenges(cJSON *gameJSON);
 static cJSON *getMissionsJSON(StarSystem *starSystem);
 static void saveStats(cJSON *gameJSON);
+static void saveTrophies(cJSON *gameJSON);
 
 void saveGame(void)
 {
@@ -43,6 +44,8 @@ void saveGame(void)
 	saveChallenges(gameJSON);
 
 	saveStats(gameJSON);
+	
+	saveTrophies(gameJSON);
 
 	out = cJSON_Print(root);
 
@@ -145,4 +148,27 @@ static void saveStats(cJSON *gameJSON)
 	}
 
 	cJSON_AddItemToObject(gameJSON, "stats", stats);
+}
+
+static void saveTrophies(cJSON *gameJSON)
+{
+	Trophy *t;
+	cJSON *trophiesJSON, *trophyJSON;
+	
+	trophiesJSON = cJSON_CreateArray();
+
+	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	{
+		if (t->awarded)
+		{
+			trophyJSON = cJSON_CreateObject();
+			
+			cJSON_AddStringToObject(trophyJSON, "id", t->id);
+			cJSON_AddNumberToObject(trophyJSON, "awardDate", t->awardDate);
+			
+			cJSON_AddItemToArray(trophiesJSON, trophyJSON);
+		}
+	}
+	
+	cJSON_AddItemToObject(gameJSON, "trophies", trophiesJSON);
 }

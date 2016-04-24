@@ -23,7 +23,7 @@ CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -
 CXXFLAGS += -Wall -Wempty-body -ansi -pedantic -Werror -Wstrict-prototypes
 CXXFLAGS += -g -lefence
 
-LFLAGS := `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
+LFLAGS := `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm $(LDFLAGS)
 
 DIST_FILES = data gfx manual music sound src LICENSE makefile* common.mk README.md CHANGELOG
 

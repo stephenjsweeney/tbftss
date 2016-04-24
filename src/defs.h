@@ -46,7 +46,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SCREEN_HEIGHT 	720
 
 #define MAX_KEYBOARD_KEYS	350
-#define MAX_MOUSE_BUTTONS	5
+#define MAX_MOUSE_BUTTONS	6
 
 #define FPS				60
 #define LOGIC_RATE		(1000 / FPS)

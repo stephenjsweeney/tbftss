@@ -335,6 +335,8 @@ void fireGuns(Entity *owner)
 	int i;
 	float x, y;
 	float c, s;
+	
+	b = NULL;
 
 	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
 	{
@@ -360,7 +362,10 @@ void fireGuns(Entity *owner)
 
 	owner->reload = owner->reloadTime;
 
-	playBattleSound(b->sound, owner->x, owner->y);
+	if (b)
+	{
+		playBattleSound(b->sound, owner->x, owner->y);
+	}
 }
 
 void fireRocket(Entity *owner)

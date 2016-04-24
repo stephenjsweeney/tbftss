@@ -67,7 +67,7 @@ void doEntities(void)
 
 	prev = &battle.entityHead;
 
-	numAllies = numEnemies = numActiveAllies = numActiveEnemies = 0;
+	numAllies = numEnemies = numActiveAllies = numActiveEnemies = numSpawnedEnemies = 0;
 
 	if (dev.playerImmortal)
 	{

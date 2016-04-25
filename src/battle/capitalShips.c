@@ -561,7 +561,10 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 {
 	Entity *e;
 	
-	flags &= ~EF_AI_LEADER;
+	if (flags != -1)
+	{
+		flags &= ~EF_AI_LEADER;
+	}
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -584,7 +587,10 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 
 			e->active = parent->active;
 			
-			e->flags |= flags;
+			if (flags != -1)
+			{
+				e->flags |= flags;
+			}
 		}
 	}
 }
@@ -659,9 +665,9 @@ void loadCapitalShips(cJSON *node)
 
 						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
 					}
-					
-					updateCapitalShipComponentProperties(e, flags);
 				}
+				
+				updateCapitalShipComponentProperties(e, flags);
 				
 				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "%s (%d / %d)", e->name, e->health, e->maxHealth);
 			}

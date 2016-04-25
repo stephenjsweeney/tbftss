@@ -13,8 +13,9 @@
 		{
 			"description" : "Destroy all enemy targets",
 			"targetName" : "Pandoran",
-			"targetValue" : 500,
-			"targetType" : "TT_DESTROY"
+			"targetValue" : 999,
+			"targetType" : "TT_DESTROY",
+			"hideNumbers" : 1
 		}
 	],
 	"player" : {

@@ -163,6 +163,30 @@
 		"value" : "TROPHY_GOLD"
 	},
 	{
+		"id" : "ENEMY_50",
+		"title" : "",
+		"description" : "Take down 50 enemies (player only)",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
+		"statValue" : 50
+	},
+	{
+		"id" : "ENEMY_500",
+		"title" : "",
+		"description" : "Take down 500 enemies (player only)",
+		"value" : "TROPHY_SILVER",
+		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
+		"statValue" : 500
+	},
+	{
+		"id" : "ENEMY_5000",
+		"title" : "",
+		"description" : "Take down 5,000 enemies (player only)",
+		"value" : "TROPHY_GOLD",
+		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
+		"statValue" : 5000
+	},
+	{
 		"id" : "FIRE_100000",
 		"title" : "Your name's on one of these!",
 		"description" : "Fire 100,000 shots",
@@ -210,6 +234,14 @@
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_WAYPOINTS_VISITED",
 		"statValue" : 100
+	},
+	{
+		"id" : "MINESWEEPER",
+		"title" : "Minesweeper",
+		"description" : "Destroy 255 mines (player only)",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_MINES_DESTROYED",
+		"statValue" : 255
 	},
 	{
 		"id" : "EPIC_KILL_13",

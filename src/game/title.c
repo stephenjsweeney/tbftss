@@ -241,7 +241,7 @@ static void trophies(void)
 	
 	show = SHOW_TROPHIES;
 	
-	initTrophyDisplay();
+	initTrophiesDisplay();
 }
 
 static void options(void)

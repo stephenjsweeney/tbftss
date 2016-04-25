@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_MENU				2
 #define SHOW_OPTIONS			3
 #define SHOW_STATS				4
+#define SHOW_TROPHIES			5
 
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void initBattle(void);
@@ -64,6 +65,8 @@ extern void doTrophyAlerts(void);
 extern void drawTrophyAlert(void);
 extern void awardCampaignTrophies(void);
 extern void awardStatsTrophies(void);
+extern void initTrophiesDisplay(void);
+extern void drawTrophies(void);
 
 extern App app;
 extern Colors colors;

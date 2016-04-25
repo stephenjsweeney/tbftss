@@ -1,21 +1,11 @@
 [
 	{
-		"name" : "start",
-		"group" : "challenges",
-		"type" : "WT_BUTTON",
-		"text" : "Start Challenge Mission",
-		"x" : -1,
-		"y" : 680,
-		"w" : 250,
-		"h": 34
-	},
-	{
 		"name" : "resume",
 		"group" : "challengesMenu",
 		"type" : "WT_BUTTON",
 		"text" : "Resume",
 		"x" : -1,
-		"y" : 215,
+		"y" : 170,
 		"w" : 200,
 		"h": 34
 	},
@@ -25,7 +15,17 @@
 		"type" : "WT_BUTTON",
 		"text" : "Stats",
 		"x" : -1,
-		"y" : 315,
+		"y" : 270,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "trophies",
+		"group" : "challengesMenu",
+		"type" : "WT_BUTTON",
+		"text" : "Trophies",
+		"x" : -1,
+		"y" : 370,
 		"w" : 200,
 		"h": 34
 	},
@@ -35,7 +35,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Options",
 		"x" : -1,
-		"y" : 415,
+		"y" : 470,
 		"w" : 200,
 		"h": 34
 	},
@@ -45,8 +45,18 @@
 		"type" : "WT_BUTTON",
 		"text" : "Return to Title",
 		"x" : -1,
-		"y" : 515,
+		"y" : 570,
 		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "start",
+		"group" : "challenges",
+		"type" : "WT_BUTTON",
+		"text" : "Start Challenge Mission",
+		"x" : -1,
+		"y" : 680,
+		"w" : 250,
 		"h": 34
 	}
 ]

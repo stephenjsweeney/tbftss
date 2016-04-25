@@ -38,8 +38,9 @@ static void addPulses(void);
 static void drawMenu(void);
 static void resume(void);
 static void stats(void);
+static void trophies(void);
 static void options(void);
-static void statsOK(void);
+static void ok(void);
 static void quit(void);
 static void startMission(void);
 static void returnFromOptions(void);
@@ -108,10 +109,12 @@ void initGalacticMap(void)
 
 	getWidget("resume", "galacticMap")->action = resume;
 	getWidget("stats", "galacticMap")->action = stats;
+	getWidget("trophies", "galacticMap")->action = trophies;
 	getWidget("options", "galacticMap")->action = options;
 	getWidget("quit", "galacticMap")->action = quit;
 
-	getWidget("ok", "stats")->action = statsOK;
+	getWidget("ok", "stats")->action = ok;
+	getWidget("ok", "trophies")->action = ok;
 
 	getWidget("ok", "fallen")->action = fallenOK;
 
@@ -359,6 +362,10 @@ static void draw(void)
 
 		case SHOW_STATS:
 			drawStats();
+			break;
+			
+		case SHOW_TROPHIES:
+			drawTrophies();
 			break;
 
 		case SHOW_OPTIONS:
@@ -659,7 +666,7 @@ static void drawMenu(void)
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 
 	r.w = 400;
-	r.h = 400;
+	r.h = 500;
 	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
 	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
 
@@ -692,7 +699,16 @@ static void stats(void)
 	initStatsDisplay();
 }
 
-static void statsOK(void)
+static void trophies(void)
+{
+	selectWidget("ok", "trophies");
+
+	show = SHOW_TROPHIES;
+
+	initTrophiesDisplay();
+}
+
+static void ok(void)
 {
 	selectWidget("resume", "galacticMap");
 

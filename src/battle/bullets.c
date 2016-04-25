@@ -244,22 +244,34 @@ void drawBullets(void)
 
 static void faceTarget(Bullet *b)
 {
-	int dir;
-	int wantedAngle = getAngle(b->x, b->y, b->target->x, b->target->y);
-
-	wantedAngle %= 360;
+	int dir, wantedAngle, dist;
+	
+	wantedAngle = (int)getAngle(b->x, b->y, b->target->x, b->target->y) % 360;
 
 	if (fabs(wantedAngle - b->angle) > TURN_THRESHOLD)
 	{
 		dir = (wantedAngle - b->angle + 360) % 360 > 180 ? -1 : 1;
 
 		b->angle += dir * TURN_SPEED;
+		
+		dist = getDistance(b->x, b->y, b->target->x, b->target->y);
+		
+		if (dist < 250)
+		{
+			dist = 250 - dist;
+			
+			while (dist > 0)
+			{
+				b->angle += dir;
+				
+				dist -= 50;
+			}
+		}
 
 		b->angle = mod(b->angle, 360);
-
-		/* lower your speed while you're not at the correct angle */
-		b->dx *= 0.38;
-		b->dy *= 0.38;
+		
+		b->dx *= 0.75;
+		b->dy *= 0.75;
 	}
 }
 

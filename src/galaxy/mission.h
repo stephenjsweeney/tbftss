@@ -60,6 +60,7 @@ extern void loadSpawners(cJSON *node);
 extern void loadChallenge(Mission *mission, cJSON *node);
 extern Entity *spawnMine(int type);
 extern void activateNextWaypoint(void);
+extern void awardStatsTrophies(void);
 
 extern Battle battle;
 extern Dev dev;

@@ -33,6 +33,7 @@ extern void updateAccuracyStats(unsigned int *stats);
 extern char *timeToString(long millis, int showHours);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern long lookup(char *name);
+extern void awardStatsTrophies(void);
 
 extern Dev dev;
 extern Battle battle;

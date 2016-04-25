@@ -262,6 +262,8 @@ void completeMission(void)
 		retreatEnemies();
 
 		player->flags |= EF_IMMORTAL;
+		
+		awardStatsTrophies();
 	}
 }
 
@@ -276,6 +278,8 @@ void failMission(void)
 		failIncompleteObjectives();
 
 		player->flags |= EF_IMMORTAL;
+		
+		awardStatsTrophies();
 	}
 }
 

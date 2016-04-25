@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void drawEntity(Entity *e);
 static void doEntity(void);
 static void alignComponents(void);
-static void activateEpicFighters(int n, int side);
+static void activateEpicFighters(int side);
 static void restrictToBattleArea(Entity *e);
 static void drawTargetRects(Entity *e);
 static void drawHealthBar(Entity *e);
@@ -231,16 +231,16 @@ void doEntities(void)
 
 	if (battle.isEpic && battle.stats[STAT_TIME] % FPS == 0)
 	{
-		numActiveEnemies -= numSpawnedEnemies;
-		
-		if (numAllies > battle.epicFighterLimit)
+		if (numActiveAllies < battle.epicFighterLimit)
 		{
-			activateEpicFighters(battle.epicFighterLimit - numActiveAllies, SIDE_ALLIES);
+			activateEpicFighters(SIDE_ALLIES);
 		}
+		
+		numActiveEnemies -= numSpawnedEnemies;
 
-		if (numEnemies > battle.epicFighterLimit)
+		if (numActiveEnemies < battle.epicFighterLimit)
 		{
-			activateEpicFighters(battle.epicFighterLimit - numActiveEnemies, SIDE_NONE);
+			activateEpicFighters(SIDE_NONE);
 		}
 	}
 
@@ -425,7 +425,7 @@ static void drawHealthBar(Entity *e)
 {
 	SDL_Rect r;
 	
-	if (e != player && e->type == ET_FIGHTER && e->health > 0)
+	if (!(e->flags & EF_NO_HEALTH_BAR) && e->health > 0)
 	{
 		r.x = e->x - (e->w / 2) - battle.camera.x;
 		r.y = e->y - e->h - battle.camera.y;
@@ -560,23 +560,16 @@ static void notifyNewArrivals(void)
 	}
 }
 
-static void activateEpicFighters(int n, int side)
+static void activateEpicFighters(int side)
 {
 	Entity *e;
-
-	if (n > 0)
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+		if (!e->active && e->type == ET_FIGHTER && !(e->flags & EF_NO_EPIC) && ((side == SIDE_ALLIES && e->side == SIDE_ALLIES) || (side != SIDE_ALLIES && e->side != SIDE_ALLIES)))
 		{
-			if (!e->active && e->type == ET_FIGHTER && !(e->flags & EF_NO_EPIC) && ((side == SIDE_ALLIES && e->side == SIDE_ALLIES) || (side != SIDE_ALLIES && e->side != SIDE_ALLIES)))
-			{
-				e->active = 1;
-
-				if (--n <= 0)
-				{
-					return;
-				}
-			}
+			e->active = 1;
+			return;
 		}
 	}
 }

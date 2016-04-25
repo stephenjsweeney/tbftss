@@ -49,7 +49,7 @@ Entity *spawnMine(int type)
 	mine->texture = (type == ET_MINE) ? mineNormal : shadowMine;
 	mine->action = think;
 	mine->die = die;
-	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET+EF_SHORT_RADAR_RANGE+EF_NON_SOLID;
+	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET+EF_SHORT_RADAR_RANGE+EF_NON_SOLID+EF_NO_HEALTH_BAR;
 	
 	if (type == ET_SHADOW_MINE)
 	{

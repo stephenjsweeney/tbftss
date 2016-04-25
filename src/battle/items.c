@@ -48,9 +48,9 @@ void loadItemDefs(void)
 		STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 		e->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
-
 		e->health = e->maxHealth = FPS;
-
+		e->flags = EF_NO_HEALTH_BAR;
+		
 		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 
 		defTail->next = e;

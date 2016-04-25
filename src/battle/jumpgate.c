@@ -48,6 +48,7 @@ Entity *spawnJumpgate(int side, long flags)
 	jumpgate->draw = draw;
 	jumpgate->side = side;
 	jumpgate->flags = EF_NO_MT_BOX+EF_IMMORTAL+EF_AI_IGNORE+EF_NON_SOLID+EF_NO_HEALTH_BAR;
+	
 	if (flags != -1 && flags & EF_DISABLED)
 	{
 		jumpgate->flags |= EF_DISABLED;
@@ -87,6 +88,11 @@ static void addNodes(Entity *jumpgate, long flags)
 		node->flags = EF_TAKES_DAMAGE+EF_AI_IGNORE;
 		node->die = nodeDie;
 		SDL_QueryTexture(node->texture, NULL, NULL, &node->w, &node->h);
+		
+		if (jumpgate->side == SIDE_NONE)
+		{
+			node->flags |= EF_NO_HEALTH_BAR;
+		}
 		
 		if (flags != -1)
 		{

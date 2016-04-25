@@ -370,7 +370,7 @@ struct Trophy {
 	char id[MAX_NAME_LENGTH];
 	char title[MAX_DESCRIPTION_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
-	char shortDescription[MAX_DESCRIPTION_LENGTH];
+	char shortDescription[MAX_NAME_LENGTH];
 	char awardDateStr[MAX_NAME_LENGTH];
 	int value;
 	int hidden;

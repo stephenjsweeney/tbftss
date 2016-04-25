@@ -61,7 +61,7 @@ void initTrophies(void)
 	resetAlert();
 }
 
-void initTrophyDisplay(void)
+void initTrophiesDisplay(void)
 {
 	int w, h;
 	Trophy *t;
@@ -237,7 +237,7 @@ void doTrophyAlerts(void)
 	}
 	else if (alertTrophy)
 	{
-		alertRect.x = MIN(alertRect.x + 10, -1);
+		alertRect.x = MIN(alertRect.x + 32, -1);
 
 		if (alertRect.x > -150)
 		{
@@ -351,15 +351,15 @@ static void loadTrophyData(char *filename)
 		STRNCPY(t->id, cJSON_GetObjectItem(node, "id")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(t->title, _(cJSON_GetObjectItem(node, "title")->valuestring), MAX_DESCRIPTION_LENGTH);
 		STRNCPY(t->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
-		STRNCPY(t->shortDescription, _(cJSON_GetObjectItem(node, "description")->valuestring), SHORT_DESCRIPTION_LENGTH);
+		STRNCPY(t->shortDescription, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_NAME_LENGTH);
 		t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
 		t->hidden = getJSONValue(node, "hidden", 0);
 		
-		if (strlen(t->description) > SHORT_DESCRIPTION_LENGTH)
+		if (strlen(t->description) > MAX_NAME_LENGTH)
 		{
-			t->shortDescription[SHORT_DESCRIPTION_LENGTH - 1] = '.';
-			t->shortDescription[SHORT_DESCRIPTION_LENGTH - 2] = '.';
-			t->shortDescription[SHORT_DESCRIPTION_LENGTH - 3] = '.';
+			t->shortDescription[MAX_NAME_LENGTH - 1] = '.';
+			t->shortDescription[MAX_NAME_LENGTH - 2] = '.';
+			t->shortDescription[MAX_NAME_LENGTH - 3] = '.';
 		}
 		
 		t->stat = -1;
@@ -385,7 +385,7 @@ void awardStatsTrophies(void)
 
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
-		if (t->stat != -1 && !t->awarded && game.stats[t->stat] >= t->statValue)
+		if (t->stat != -1 && !t->awarded && (game.stats[t->stat] + battle.stats[t->stat]) >= t->statValue)
 		{
 			t->awarded = 1;
 			t->awardDate = time(NULL);

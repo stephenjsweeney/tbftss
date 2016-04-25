@@ -18,7 +18,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#define SHORT_DESCRIPTION_LENGTH 	40
 #define TROPHIES_PER_PAGE			4
 
 #include "../common.h"
@@ -43,5 +42,6 @@ extern char *timeToDate(long millis);
 extern void textSize(char *text, int size, int *w, int *h);
 
 extern App app;
+extern Battle battle;
 extern Colors colors;
 extern Game game;

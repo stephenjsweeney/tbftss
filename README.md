@@ -13,7 +13,12 @@ Email: stephenjsweeney@battleforthesolarsystem.com
 
 ### GRAPHICS
 
-gfx/planets/earth.png - modified from the the Blue Marble NASA photograph: http://visibleearth.nasa.gov/view.php?id=57723
+gfx/planets/earth.png - derived from the the Blue Marble NASA photograph: http://visibleearth.nasa.gov/view.php?id=57723
+gfx/trophies/bronze.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+gfx/trophies/gold.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+gfx/trophies/platinum.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+gfx/trophies/silver.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+gfx/trophies/unearned.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
 
 All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 

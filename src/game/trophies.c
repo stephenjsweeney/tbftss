@@ -33,7 +33,6 @@ static SDL_Texture *trophyIcons[TROPHY_MAX];
 static SDL_Texture *sparkle;
 static SDL_Texture *alertSphere;
 static SDL_Rect alertRect;
-static float alertDX;
 static int alertTimer;
 static int page;
 static int awarded;
@@ -204,7 +203,10 @@ void drawTrophies(void)
 void awardTrophy(char *id)
 {
 	Trophy *t;
-
+	int numRemaining;
+	
+	numRemaining = 0;
+	
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
 		if (!t->awarded && strcmp(t->id, id) == 0)
@@ -213,6 +215,17 @@ void awardTrophy(char *id)
 			t->awardDate = time(NULL);
 			t->notify = 1;
 		}
+		
+		if (!t->awarded)
+		{
+			numRemaining++;
+		}
+	}
+	
+	/* the Platinum will always be the last trophy to unlock */
+	if (numRemaining == 1)
+	{
+		awardTrophy("PLATINUM");
 	}
 }
 
@@ -224,12 +237,10 @@ void doTrophyAlerts(void)
 	}
 	else if (alertTrophy)
 	{
-		alertRect.x += alertDX;
+		alertRect.x = MIN(alertRect.x + 10, -1);
 
 		if (alertRect.x > -150)
 		{
-			alertDX *= 0.9;
-			
 			alertTimer--;
 		}
 
@@ -264,7 +275,7 @@ static void nextAlert(void)
 	{
 		playSound(SND_TROPHY);
 		
-		textSize(t->title, 30, &alertRect.w, &h);
+		textSize(alertTrophy->title, 30, &alertRect.w, &h);
 		alertRect.w += 125;
 		alertRect.w = MAX(alertRect.w, 500);
 		alertRect.x = -alertRect.w;
@@ -273,7 +284,6 @@ static void nextAlert(void)
 
 static void resetAlert(void)
 {
-	alertDX = 12;
 	alertTimer = FPS * 3;
 	alertTrophy = NULL;
 }

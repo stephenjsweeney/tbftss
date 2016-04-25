@@ -110,6 +110,11 @@ static void logic(void)
 				doPlayerSelect();
 			}
 		}
+		
+		if (battle.status != MS_IN_PROGRESS && battle.missionFinishedTimer <= -FPS * 2)
+		{
+			doTrophyAlerts();
+		}
 	}
 
 	doWidgets();
@@ -177,15 +182,15 @@ static void doBattle(void)
 	if (battle.status != MS_IN_PROGRESS)
 	{
 		battle.missionFinishedTimer--;
-	}
+		
+		if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
+		{
+			postBattle();
 
-	if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
-	{
-		postBattle();
+			destroyBattle();
 
-		destroyBattle();
-
-		initGalacticMap();
+			initGalacticMap();
+		}
 	}
 }
 
@@ -234,6 +239,11 @@ static void draw(void)
 		case SHOW_OPTIONS:
 			drawOptions();
 			break;
+	}
+	
+	if (battle.status != MS_IN_PROGRESS && battle.status != MS_PAUSED && battle.missionFinishedTimer <= -FPS * 2)
+	{
+		drawTrophyAlert();
 	}
 }
 

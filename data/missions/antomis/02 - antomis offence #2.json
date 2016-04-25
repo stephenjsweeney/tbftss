@@ -4,7 +4,7 @@
 	"background" : "gfx/backgrounds/background02.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/determination.mp3",
-	"requires" : 45,
+	"requires" : 44,
 	"manualComplete" : 1,
 	"objectives" : [
 		{

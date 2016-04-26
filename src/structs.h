@@ -443,6 +443,7 @@ typedef struct {
 } Mouse;
 
 typedef struct {
+	int resetTimeDelta;
 	char saveDir[MAX_FILENAME_LENGTH];
 	int winWidth;
 	int winHeight;

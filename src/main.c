@@ -103,7 +103,14 @@ int main(int argc, char *argv[])
 		while (td >= LOGIC_RATE)
 		{
 			app.delegate.logic();
+			
 			td -= LOGIC_RATE;
+			
+			if (app.resetTimeDelta)
+			{
+				td = 0;
+				then = SDL_GetTicks();
+			}
 			
 			game.stats[STAT_TIME]++;
 		}

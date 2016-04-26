@@ -43,4 +43,6 @@ void endSectionTransition(void)
 	{
 		SDL_Delay(elasped);
 	}
+	
+	app.resetTimeDelta = 1;
 }

@@ -93,7 +93,10 @@ void doBullets(void)
 		{
 			addMissileEngineEffect(b);
 
-			huntTarget(b);
+			if (b->life < MISSILE_LIFE - (FPS / 2))
+			{
+				huntTarget(b);
+			}
 
 			if (b->target == player && player != NULL && player->health > 0)
 			{
@@ -401,8 +404,11 @@ void fireMissile(Entity *owner)
 	Bullet *b;
 
 	b = createBullet(BT_MISSILE, owner->x, owner->y, owner);
+	
+	b->dx *= 0.5;
+	b->dy *= 0.5;
 
-	b->life = FPS * 30;
+	b->life = MISSILE_LIFE;
 
 	owner->missiles--;
 

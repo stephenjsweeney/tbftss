@@ -1,0 +1,69 @@
+{
+	"name" : "Donesta Defence #2",
+	"description" : "",
+	"requires" : 44,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/Tactical Pursuit.mp3",
+	"manualComplete" : 1,
+	"epic" : {
+		"fighterLimit" : 12
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"player" : {
+		"type" : "Nymph",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)"
+	},
+	"fighters" : [
+		{
+			"name" : "ALLIES",
+			"types" : "Firefly;Nymph;TAF;Ray;Leopard;Hyena-A;Hyena-B;Kingfisher;Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 100,
+			"scatter" : 5000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Firefly;Nymph;Nymph;Leopard;Hyena-A;Hyena-B",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 15,
+			"number" : 80,
+			"scatter" : 5000,
+			"flags" : "+EF_FRIENDLY_HEALTH_BAR"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Wing Commander;Remember everyone: the Pandorans are using UNF fighters.",
+				"MSG_BOX Wing Commander;Using your radar and HUD is the way to go in this fight."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wing Commander;All enemies down.",
+				"MSG_BOX Wingmate #23;Let's hope we never see the day when they get hold of one of the ATAFs.",
+				"MSG_BOX Wing Commander;Agreed. Let's regroup and prepare for whatever's coming next.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

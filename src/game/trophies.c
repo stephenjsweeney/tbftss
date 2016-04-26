@@ -173,7 +173,7 @@ void drawTrophies(void)
 				blitScaled(trophyIcons[t->value], x, y, 64, 64);
 				drawText(x + 85, y - 10, 20, TA_LEFT, colors.white, t->title);
 				drawText(x + 85, y + 20, 18, TA_LEFT, colors.lightGrey, t->description);
-				drawText(x + 85, y + 48, 18, TA_LEFT, colors.yellow, t->awardDateStr);
+				drawText(x + 85, y + 48, 18, TA_LEFT, colors.lightGrey, t->awardDateStr);
 			}
 			else
 			{
@@ -237,7 +237,7 @@ void doTrophyAlerts(void)
 	}
 	else if (alertTrophy)
 	{
-		alertRect.x = MIN(alertRect.x + 32, -1);
+		alertRect.x = MIN(alertRect.x + 16, -1);
 
 		if (alertRect.x > -150)
 		{
@@ -345,34 +345,37 @@ static void loadTrophyData(char *filename)
 
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
-		t = malloc(sizeof(Trophy));
-		memset(t, 0, sizeof(Trophy));
-
-		STRNCPY(t->id, cJSON_GetObjectItem(node, "id")->valuestring, MAX_NAME_LENGTH);
-		STRNCPY(t->title, _(cJSON_GetObjectItem(node, "title")->valuestring), MAX_DESCRIPTION_LENGTH);
-		STRNCPY(t->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
-		STRNCPY(t->shortDescription, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_NAME_LENGTH);
-		t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
-		t->hidden = getJSONValue(node, "hidden", 0);
-		
-		if (strlen(t->description) > MAX_NAME_LENGTH)
+		if (cJSON_GetObjectItem(node, "id")->valuestring[0] != '_')
 		{
-			t->shortDescription[MAX_NAME_LENGTH - 1] = '.';
-			t->shortDescription[MAX_NAME_LENGTH - 2] = '.';
-			t->shortDescription[MAX_NAME_LENGTH - 3] = '.';
-		}
-		
-		t->stat = -1;
-		
-		/* can't use the getJSONValue here, as it could lead to false positives */
-		if (cJSON_GetObjectItem(node, "stat"))
-		{
-			t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring);
-			t->statValue = cJSON_GetObjectItem(node, "statValue")->valueint;
-		}
+			t = malloc(sizeof(Trophy));
+			memset(t, 0, sizeof(Trophy));
 
-		tail->next = t;
-		tail = t;
+			STRNCPY(t->id, cJSON_GetObjectItem(node, "id")->valuestring, MAX_NAME_LENGTH);
+			STRNCPY(t->title, _(cJSON_GetObjectItem(node, "title")->valuestring), MAX_DESCRIPTION_LENGTH);
+			STRNCPY(t->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
+			STRNCPY(t->shortDescription, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_NAME_LENGTH);
+			t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
+			t->hidden = getJSONValue(node, "hidden", 0);
+			
+			if (strlen(t->description) > MAX_NAME_LENGTH)
+			{
+				t->shortDescription[MAX_NAME_LENGTH - 1] = '.';
+				t->shortDescription[MAX_NAME_LENGTH - 2] = '.';
+				t->shortDescription[MAX_NAME_LENGTH - 3] = '.';
+			}
+			
+			t->stat = -1;
+			
+			/* can't use the getJSONValue here, as it could lead to false positives */
+			if (cJSON_GetObjectItem(node, "stat"))
+			{
+				t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring);
+				t->statValue = cJSON_GetObjectItem(node, "statValue")->valueint;
+			}
+
+			tail->next = t;
+			tail = t;
+		}
 	}
 
 	cJSON_Delete(root);
@@ -400,6 +403,11 @@ void awardCampaignTrophies(void)
 	char name[MAX_NAME_LENGTH];
 	int completed, i, len;
 	StarSystem *starSystem;
+	
+	if (game.completedMissions)
+	{
+		awardTrophy("CAMPAIGN_1");
+	}
 
 	/* check % of missions completed */
 	completed = getPercent(game.completedMissions, game.totalMissions);

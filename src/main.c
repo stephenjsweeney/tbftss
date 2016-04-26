@@ -110,6 +110,7 @@ int main(int argc, char *argv[])
 			{
 				td = 0;
 				then = SDL_GetTicks();
+				app.resetTimeDelta = 0;
 			}
 			
 			game.stats[STAT_TIME]++;

@@ -485,6 +485,17 @@ static void drawTargetRects(Entity *e)
 		SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
 		SDL_RenderDrawRect(app.renderer, &r);
 	}
+	
+	if (e == battle.messageSpeaker && battle.stats[STAT_TIME] % 60 < 40)
+	{
+		r.x = e->x - (size / 2) - battle.camera.x;
+		r.y = e->y - (size / 2) - battle.camera.y;
+		r.w = size;
+		r.h = size;
+
+		SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+		SDL_RenderDrawRect(app.renderer, &r);
+	}
 }
 
 void activateEntities(char *names)

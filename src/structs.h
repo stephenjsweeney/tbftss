@@ -344,6 +344,7 @@ typedef struct {
 	int numObjectivesComplete, numObjectivesTotal, numConditions;
 	Entity *missionTarget;
 	Entity *jumpgate;
+	Entity *messageSpeaker;
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
 	int planetWidth, planetHeight;

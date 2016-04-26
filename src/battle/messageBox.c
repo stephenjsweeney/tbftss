@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "messageBox.h"
 
 static void calculateMessageBoxHeight(MessageBox *msg);
+static void nextMessage(void);
 
 static MessageBox head;
 static MessageBox *tail;
@@ -34,12 +35,10 @@ void initMessageBox(void)
 void addMessageBox(char *title, char *body, int important)
 {
 	MessageBox *msg;
+	int isFirst;
 	float time;
 	
-	if (tail == &head)
-	{
-		playSound(SND_RADIO);
-	}
+	isFirst = (tail == &head);
 	
 	msg = malloc(sizeof(MessageBox));
 	memset(msg, 0, sizeof(MessageBox));
@@ -53,6 +52,11 @@ void addMessageBox(char *title, char *body, int important)
 	STRNCPY(msg->body, body, MAX_DESCRIPTION_LENGTH);
 	msg->time = time * FPS;
 	msg->important = important;
+	
+	if (isFirst)
+	{
+		nextMessage();
+	}
 }
 
 void doMessageBox(void)
@@ -74,9 +78,11 @@ void doMessageBox(void)
 			free(msg);
 			msg = &head;
 			
+			battle.messageSpeaker = NULL;
+			
 			if (head.next)
 			{
-				playSound(SND_RADIO);
+				nextMessage();
 			}
 		}
 	}
@@ -136,6 +142,22 @@ void drawMessageBox(void)
 		drawText(r.x + 10, r.y + 30, 18, TA_LEFT, (!msg->important) ? colors.white : colors.red, msg->body);
 		
 		limitTextWidth(0);
+	}
+}
+
+static void nextMessage(void)
+{
+	Entity *e;
+	
+	playSound(SND_RADIO);
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (strcmp(e->name, head.next->title) == 0)
+		{
+			battle.messageSpeaker = e;
+			return;
+		}
 	}
 }
 

@@ -330,7 +330,7 @@ static void drawPlayerTargeter(void)
 	float angle;
 	int x, y;
 	
-	if (player->target || battle.missionTarget || jumpgateEnabled())
+	if (player->target || battle.missionTarget || jumpgateEnabled() || battle.messageSpeaker)
 	{
 		if (player->target)
 		{
@@ -339,6 +339,10 @@ static void drawPlayerTargeter(void)
 		else if (battle.missionTarget)
 		{
 			SDL_SetTextureColorMod(targetCircle, 0, 255, 0);
+		}
+		else if (battle.messageSpeaker)
+		{
+			SDL_SetTextureColorMod(targetCircle, 255, 255, 255);
 		}
 		else
 		{
@@ -386,6 +390,20 @@ static void drawPlayerTargeter(void)
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
 		SDL_SetTextureColorMod(targetPointer, 255, 255, 0);
+		
+		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
+	}
+	
+	if (battle.messageSpeaker)
+	{
+		angle = getAngle(player->x, player->y, battle.messageSpeaker->x, battle.messageSpeaker->y);
+		x = player->x;
+		y = player->y;
+		
+		x += sin(TO_RAIDANS(angle)) * 45;
+		y += -cos(TO_RAIDANS(angle)) * 45;
+		
+		SDL_SetTextureColorMod(targetPointer, 255, 255, 255);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}

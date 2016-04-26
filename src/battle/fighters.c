@@ -294,6 +294,8 @@ void doFighter(void)
 						battle.stats[STAT_ENEMIES_KILLED]++;
 
 						runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
+						
+						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "ENEMIES_KILLED [%d / %d]", battle.stats[STAT_ENEMIES_KILLED], battle.numInitialEnemies);
 					}
 				}
 				else

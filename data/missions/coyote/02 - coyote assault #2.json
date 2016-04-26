@@ -11,9 +11,10 @@
 	"objectives" : [
 		{
 			"description" : "Destroy all enemy targets",
-			"targetName" : "Pandoran",
-			"targetValue" : 75,
-			"targetType" : "TT_DESTROY"
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
 		}
 	],
 	"player" : {

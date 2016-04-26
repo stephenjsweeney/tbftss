@@ -569,6 +569,17 @@ static void activateEpicFighters(int side)
 		if (!e->active && e->type == ET_FIGHTER && !(e->flags & EF_NO_EPIC) && ((side == SIDE_ALLIES && e->side == SIDE_ALLIES) || (side != SIDE_ALLIES && e->side != SIDE_ALLIES)))
 		{
 			e->active = 1;
+			
+			/* don't spring into existence in front of the player */
+			if (isOnBattleScreen(e->x, e->y, e->w, e->h))
+			{
+				e->x = player->x;
+				e->y = player->y;
+				
+				e->x += (rand() % 2) ? -SCREEN_WIDTH : SCREEN_WIDTH;
+				e->y += (rand() % 2) ? -SCREEN_HEIGHT : SCREEN_HEIGHT;
+			}
+			
 			return;
 		}
 	}

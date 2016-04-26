@@ -56,7 +56,8 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "Roselyn Rose",
+			"name" : "Rose",
+			"fullname" : "Roselyn Rose",
 			"types" : "Ray",
 			"side" : "SIDE_ALLIES",
 			"x" : 10,

@@ -26,8 +26,18 @@
 	},
 	"fighters" : [
 		{
+			"name" : "Wingmate #?",
 			"types" : "Firefly;Nymph",
-			"number" : 4,
+			"number" : 3,
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"name" : "Wade",
+			"fullname" : "Frank Wade",
+			"types" : "Firefly;Nymph",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
 			"y" : 25,
@@ -48,9 +58,9 @@
 		{
 			"function" : "TIME 3",
 			"lines" : [
-				"MSG_BOX Wingmate #2;So, Iliad has fallen?",
-				"MSG_BOX Wingmate #4;From what I've heard.",
-				"MSG_BOX Wingmate #2;Did they retreat, or ...",
+				"MSG_BOX Wingmate #1;So, Iliad has fallen?",
+				"MSG_BOX Wingmate #2;From what I've heard.",
+				"MSG_BOX Wingmate #1;Did they retreat, or ...",
 				"MSG_BOX Rice;They fought to the very last."
 			]
 		},
@@ -58,11 +68,11 @@
 			"function" : "Waypoint #1",
 			"lines" : [
 				"WAIT 3",
-				"MSG_BOX Wingmate #2;So that's it. The Pandorans have won?",
+				"MSG_BOX Wingmate #1;So that's it. The Pandorans have won?",
 				"MSG_BOX Rice;At Iliad, yes. Unless the local forces there can somehow hold off the enemy's ground assault.",
-				"MSG_BOX Wingmate #4;It's ... possible, right?",
+				"MSG_BOX Wingmate #2;It's ... possible, right?",
 				"MSG_BOX Rice;The Pandorans will just nuke the place when they're done. They'll take what they need, kill everyone who stands in their way ...",
-				"MSG_BOX Wingmate #2;And even those who don't.",
+				"MSG_BOX Wingmate #1;And even those who don't.",
 				"MSG_BOX Rice;...and move on."
 			]
 		},
@@ -70,12 +80,12 @@
 			"function" : "Waypoint #2",
 			"lines" : [
 				"WAIT 3",
-				"MSG_BOX Wingmate #2;You're quiet, Wade.",
+				"MSG_BOX Wingmate #1;You're quiet, Wade.",
 				"MSG_BOX Wade;Just thinking.",
-				"MSG_BOX Wingmate #4;What about?",
+				"MSG_BOX Wingmate #2;What about?",
 				"MSG_BOX Wade;How long it'll be before the Pandorans show up here.",
-				"MSG_BOX Wingmate #2;They came by earlier, in case you don't remember.",
-				"MSG_BOX Wingmate #4;And haven't been back since. Maybe we scared them off.",
+				"MSG_BOX Wingmate #1;They came by earlier, in case you don't remember.",
+				"MSG_BOX Wingmate #2;And haven't been back since. Maybe we scared them off.",
 				"MSG_BOX Rice;I doubt it, guys. They were probably just scouting."
 			]
 		},
@@ -83,12 +93,12 @@
 			"function" : "Waypoint #3",
 			"lines" : [
 				"WAIT 3",
-				"MSG_BOX Wingmate #2;Where the hell are the CSN? Why weren't they at Iliad?",
+				"MSG_BOX Wingmate #1;Where the hell are the CSN? Why weren't they at Iliad?",
 				"MSG_BOX Rice;They weren't wanted, apparently. Iliad and the UNF aren't getting along so well at the moment.",
-				"MSG_BOX Wingmate #4;Something to do with Adrian Parsons?",
-				"MSG_BOX Wingmate #2;That bloody idiot? It wouldn't surprise me. He's the reason we're now in this mess! If I ever meet that guy, nothing'll stop me from-",
+				"MSG_BOX Wingmate #2;Something to do with Adrian Parsons?",
+				"MSG_BOX Wingmate #1;That bloody idiot? It wouldn't surprise me. He's the reason we're now in this mess! If I ever meet that guy, nothing'll stop me from-",
 				"MSG_BOX Rice;Hey, mind what you say. All these communications are logged.",
-				"MSG_BOX Wingmate #2;(indecipherable muttering)"
+				"MSG_BOX Wingmate #1;(indecipherable muttering)"
 			]
 		},
 		{
@@ -96,10 +106,10 @@
 			"lines" : [
 				"WAIT 3",
 				"MSG_BOX Wade;What do you mean, it's all Parsons' fault?",
-				"MSG_BOX Wingmate #2;He made an executive decision over in Coyote several months ago, that screwed everything up. Something about being charged with a super weapon.",
+				"MSG_BOX Wingmate #1;He made an executive decision over in Coyote several months ago, that screwed everything up. Something about being charged with a super weapon.",
 				"MSG_BOX Wade;Grendel's Mother?",
-				"MSG_BOX Wingmate #2;No, something it was carrying. Linked to the ATAFs, apparently.",
-				"MSG_BOX Wingmate #4;The CSN built something that nuked a whole load of allied and Pandoran forces. It wasn't meant to be used in Coyote, though.",
+				"MSG_BOX Wingmate #1;No, something it was carrying. Linked to the ATAFs, apparently.",
+				"MSG_BOX Wingmate #2;The CSN built something that nuked a whole load of allied and Pandoran forces. It wasn't meant to be used in Coyote, though.",
 				"MSG_BOX Wade;You don't say.",
 				"MSG_BOX Rice;Okay, lads, let's wrap this topic up, eh?"
 			]
@@ -110,8 +120,8 @@
 				"WAIT 1",
 				"MSG_BOX Rice;That's it, all done. Anyone got anything to report?",
 				"MSG_BOX Wade;Nothing.",
+				"MSG_BOX Wingmate #1;Nope.",
 				"MSG_BOX Wingmate #2;Nope.",
-				"MSG_BOX Wingmate #4;Nope.",
 				"MSG_BOX Rice;Okay, let's get home and report in.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"

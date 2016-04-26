@@ -23,6 +23,7 @@
 	},
 	"fighters" : [
 		{
+			"name" : "Wingmate #?",
 			"types" : "Firefly;Nymph",
 			"number" : 3,
 			"side" : "SIDE_ALLIES",
@@ -45,6 +46,7 @@
 		{
 			"function" : "Waypoint #2",
 			"lines" : [
+				"WAIT 1",
 				"MSG_BOX Rice;Anyone got anything to report?",
 				"MSG_BOX Wingmate #1;You getting paranoid, Curtis?",
 				"MSG_BOX Rice;You all saw what happened at Coyote."
@@ -53,11 +55,12 @@
 		{
 			"function" : "Waypoint #3",
 			"lines" : [
+				"WAIT 1",
 				"MSG_BOX Wingmate #1;So, those Pandorans are, what, robots?",
 				"MSG_BOX Wingmate #2;Alien-Human hybrid, I heard.",
 				"MSG_BOX Wingmate #3;Hard to kill, whatever they are. Heard they'll still be coming at you even if you take both arms off.",
 				"MSG_BOX Wingmate #2;And what'll they do then? Bite you to death?",
-				"MSG_BOX Rice;Eyes open, lads"
+				"MSG_BOX Rice;Eyes open, lads."
 			]
 		},
 		{
@@ -66,7 +69,7 @@
 				"WAIT 1",
 				"MSG_BOX Rice;We're done. Anyone detect anything unusual?",
 				"MSG_BOX Wingmate #2;Same old, same old.",
-				"MSG_BOX Rice;Believe me, that's a good thing. Right, let's head home and report in",
+				"MSG_BOX Rice;Believe me, that's a good thing. Right, let's head home and report in.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"
 			]

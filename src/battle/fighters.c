@@ -782,14 +782,16 @@ static void loadFighterDef(char *filename)
 void loadFighters(cJSON *node)
 {
 	Entity *e;
-	char **types, *name, *groupName, *type;
+	char **types, *name, *groupName, *type, *strpos;
 	int side, scatter, number, active;
-	int i, numTypes, addFlags, addAIFlags;
+	int i, numTypes, addFlags, addAIFlags, id;
 	long flags, aiFlags;
 	float x, y;
 
 	if (node)
 	{
+		id = 0;
+		
 		node = node->child;
 
 		while (node)
@@ -869,6 +871,14 @@ void loadFighters(cJSON *node)
 				if (name)
 				{
 					STRNCPY(e->name, name, MAX_NAME_LENGTH);
+					
+					/* update 'name #?' to 'name #1', etc. */
+					strpos = strstr(e->name, "#?");
+					
+					if (strpos)
+					{
+						*(++strpos) = ('0' + ++id);
+					}
 				}
 
 				if (groupName)

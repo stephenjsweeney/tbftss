@@ -394,7 +394,7 @@ static void drawPlayerTargeter(void)
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
 	
-	if (battle.messageSpeaker)
+	if (battle.messageSpeaker && battle.messageSpeaker != player)
 	{
 		angle = getAngle(player->x, player->y, battle.messageSpeaker->x, battle.messageSpeaker->y);
 		x = player->x;

@@ -486,7 +486,7 @@ static void drawTargetRects(Entity *e)
 		SDL_RenderDrawRect(app.renderer, &r);
 	}
 	
-	if (e == battle.messageSpeaker && battle.stats[STAT_TIME] % 60 < 40)
+	if (e == battle.messageSpeaker && e != player && battle.stats[STAT_TIME] % 60 < 40)
 	{
 		r.x = e->x - (size / 2) - battle.camera.x;
 		r.y = e->y - (size / 2) - battle.camera.y;

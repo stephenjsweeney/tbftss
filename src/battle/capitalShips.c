@@ -386,6 +386,7 @@ static void loadCapitalShipDef(char *filename)
 		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
 		e->speed = 1;
 		e->systemPower = MAX_SYSTEM_POWER;
+		e->flags = EF_NO_HEALTH_BAR;
 
 		e->action = think;
 		e->die = die;

@@ -86,6 +86,7 @@ void initStatsDisplay(void)
 	
 	next = getWidget("next", "stats");
 	next->action = nextPage;
+	next->visible = 1;
 	
 	calculatePercentComplete();
 	

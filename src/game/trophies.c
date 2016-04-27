@@ -98,6 +98,7 @@ void initTrophiesDisplay(void)
 	
 	next = getWidget("next", "trophies");
 	next->action = nextPage;
+	next->visible = 1;
 	
 	sparkleAngle = 0;
 }

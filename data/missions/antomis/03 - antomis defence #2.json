@@ -1,0 +1,83 @@
+{
+	"name" : "Antomis Defence #2",
+	"description" : "",
+	"background" : "gfx/backgrounds/background02.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/Tactical Pursuit.mp3",
+	"requires" : 44,
+	"epic" : {
+		"fighterLimit" : 12
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy INF Sharpfinger",
+			"targetName" : "INF Sharpfinger",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)",
+		"x" : 25,
+		"y" : 25
+	},
+	"fighters" : [
+		{
+			"name" : "Wingmate #?",
+			"types" : "TAF;Ray;Kingfisher;Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 100,
+			"scatter" : 5000,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "Wing Commander",
+			"types" : "Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 100,
+			"scatter" : 5000,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Scarab;Mantis;Sphinx;Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 15,
+			"number" : 75,
+			"scatter" : 8000
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "INF Sharpfinger",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 10
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Wing Commander;People, divide yourselves between the fighters and the Sharpfinger.",
+				"MSG_BOX Wing Commander;We couldn't spare any bombers, so we just need to get in there and take them all on."
+			]
+		}
+	]
+}

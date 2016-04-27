@@ -126,7 +126,7 @@ void loadMission(char *filename)
 	battle.unwinnable = getJSONValue(root, "unwinnable", 0);
 	battle.waypointAutoAdvance = getJSONValue(root, "waypointAutoAdvance", 0);
 
-	initScript(cJSON_GetObjectItem(root, "script"));
+	initScript(root);
 
 	/* music, planet, and background loading must come last, so AUTO works properly */
 

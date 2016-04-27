@@ -648,7 +648,10 @@ static void setRandomShieldHue(Effect *e)
 
 void destroyEffects(void)
 {
-	free(effectsToDraw);
+	if (effectsToDraw)
+	{
+		free(effectsToDraw);
+	}
 
 	effectsToDraw = NULL;
 }

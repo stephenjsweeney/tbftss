@@ -60,6 +60,7 @@ extern void clearInput(void);
 extern void initTrophiesDisplay(void);
 extern void drawTrophies(void);
 extern void doTrophies(void);
+extern void destroyBattle(void);
 
 extern App app;
 extern Battle battle;

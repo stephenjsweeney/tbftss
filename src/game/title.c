@@ -225,11 +225,15 @@ static void handleKeyboard(void)
 
 static void campaign(void)
 {
+	destroyBattle();
+	
 	initGalacticMap();
 }
 
 static void challenges(void)
 {
+	destroyBattle();
+	
 	game.currentMission = NULL;
 	
 	initChallengeHome();

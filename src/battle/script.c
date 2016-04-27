@@ -22,18 +22,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void executeNextLine(ScriptRunner *runner);
 
-static cJSON *scriptJSON;
+static cJSON *scriptJSON, *rootJSON;
 static ScriptRunner head;
 static ScriptRunner *tail;
 
-void initScript(cJSON *scriptNode)
+void initScript(cJSON *root)
 {
 	cJSON *function;
 	
 	memset(&head, 0, sizeof(ScriptRunner));
 	tail = &head;
+	
+	rootJSON = root;
 
-	scriptJSON = scriptNode;
+	scriptJSON = cJSON_GetObjectItem(root, "script");
 	
 	if (scriptJSON)
 	{
@@ -281,11 +283,11 @@ void destroyScript(void)
 {
 	ScriptRunner *scriptRunner;
 	
-	if (scriptJSON)
+	if (rootJSON)
 	{
-		cJSON_Delete(scriptJSON);
+		cJSON_Delete(rootJSON);
 		
-		scriptJSON = NULL;
+		rootJSON = NULL;
 	}
 
 	while (head.next)

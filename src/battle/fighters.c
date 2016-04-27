@@ -285,44 +285,41 @@ void doFighter(void)
 	{
 		if (player != NULL && self != player)
 		{
-			if (player->alive == ALIVE_ALIVE)
+			if (self->side != SIDE_ALLIES)
 			{
-				if (self->side != SIDE_ALLIES)
+				if (!(self->flags & EF_NO_KILL_INC))
 				{
-					if (!(self->flags & EF_NO_KILL_INC))
-					{
-						battle.stats[STAT_ENEMIES_KILLED]++;
+					battle.stats[STAT_ENEMIES_KILLED]++;
 
-						runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
-						
-						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "ENEMIES_KILLED [%d / %d]", battle.stats[STAT_ENEMIES_KILLED], battle.numInitialEnemies);
+					runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
+					
+					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Enemies killed [%d / %d]", battle.stats[STAT_ENEMIES_KILLED], battle.numInitialEnemies);
+				}
+			}
+			else
+			{
+				if (strcmp(self->name, "Civilian") == 0)
+				{
+					battle.stats[STAT_CIVILIANS_KILLED]++;
+					if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
+					{
+						addHudMessage(colors.red, _("Civilian has been killed"));
 					}
+					
+					runScriptFunction("CIVILIANS_KILLED %d", battle.stats[STAT_CIVILIANS_KILLED]);
 				}
 				else
 				{
-					if (strcmp(self->name, "Civilian") == 0)
+					battle.stats[STAT_ALLIES_KILLED]++;
+					if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
 					{
-						battle.stats[STAT_CIVILIANS_KILLED]++;
-						if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
-						{
-							addHudMessage(colors.red, _("Civilian has been killed"));
-						}
-						
-						runScriptFunction("CIVILIANS_KILLED %d", battle.stats[STAT_CIVILIANS_KILLED]);
+						addHudMessage(colors.red, _("Ally has been killed"));
 					}
-					else
-					{
-						battle.stats[STAT_ALLIES_KILLED]++;
-						if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
-						{
-							addHudMessage(colors.red, _("Ally has been killed"));
-						}
 
-						runScriptFunction("ALLIES_KILLED %d", battle.stats[STAT_ALLIES_KILLED]);
-					}
+					runScriptFunction("ALLIES_KILLED %d", battle.stats[STAT_ALLIES_KILLED]);
 				}
 			}
-
+			
 			updateObjective(self->name, TT_DESTROY);
 			updateObjective(self->groupName, TT_DESTROY);
 

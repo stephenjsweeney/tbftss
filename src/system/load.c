@@ -73,7 +73,11 @@ static void loadMissions(cJSON *missionsJSON)
 	for (missionJSON = missionsJSON->child ; missionJSON != NULL ; missionJSON = missionJSON->next)
 	{
 		mission = getMission(cJSON_GetObjectItem(missionJSON, "filename")->valuestring);
-		mission->completed = cJSON_GetObjectItem(missionJSON, "completed")->valueint;
+		
+		if (mission)
+		{
+			mission->completed = cJSON_GetObjectItem(missionJSON, "completed")->valueint;
+		}
 	}
 }
 

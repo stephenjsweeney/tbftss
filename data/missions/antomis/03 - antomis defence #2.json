@@ -38,7 +38,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
 			"y" : 25,
-			"number" : 100,
+			"number" : 98,
 			"scatter" : 5000,
 			"flags" : "+EF_AI_TARGET"
 		},
@@ -48,7 +48,6 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
 			"y" : 25,
-			"number" : 100,
 			"scatter" : 5000,
 			"flags" : "+EF_AI_TARGET"
 		},

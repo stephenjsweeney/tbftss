@@ -180,6 +180,8 @@ static void logic(void)
 	doWidgets();
 	
 	doTrophyAlerts();
+	
+	doTrophies();
 }
 
 static void doStarSystems(void)

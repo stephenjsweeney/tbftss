@@ -67,6 +67,7 @@ extern void awardCampaignTrophies(void);
 extern void awardStatsTrophies(void);
 extern void initTrophiesDisplay(void);
 extern void drawTrophies(void);
+extern void doTrophies(void);
 
 extern App app;
 extern Colors colors;

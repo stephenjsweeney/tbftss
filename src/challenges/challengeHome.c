@@ -166,6 +166,8 @@ static void logic(void)
 	doTrophyAlerts();
 
 	doWidgets();
+	
+	doTrophies();
 }
 
 static void doChallenges(void)

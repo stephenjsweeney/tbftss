@@ -145,6 +145,12 @@
 		"value" : "TROPHY_SILVER"
 	},
 	{
+		"id" : "BODYGUARD",
+		"title" : "The bodyguard",
+		"description" : "Kill an enemy with a missile intended for another",
+		"value" : "TROPHY_BRONZE"
+	},
+	{
 		"id" : "_CHALLENGE_25",
 		"title" : "",
 		"description" : "Complete 25%% of all challenges",
@@ -246,7 +252,7 @@
 	{
 		"id" : "EPIC_KILL_13",
 		"title" : "Yippie-ki-yay",
-		"description" : "Destroy 13 or more enemies in an epic battle without being killed",
+		"description" : "Destroy 13 or more enemies in an epic battle, without being killed",
 		"value" : "TROPHY_SILVER",
 		"stat" : "STAT_EPIC_KILL_STREAK",
 		"statValue" : 13

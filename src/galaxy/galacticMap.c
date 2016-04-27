@@ -98,6 +98,8 @@ void initGalacticMap(void)
 	pulseTimer = 0;
 
 	arrowPulse = 0;
+	
+	selectedStarSystem = NULL;
 
 	/* clear the pulses */
 	destroyGalacticMap();

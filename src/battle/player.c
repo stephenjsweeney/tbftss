@@ -83,10 +83,6 @@ void initPlayer(void)
 
 	battle.boostTimer = BOOST_RECHARGE_TIME;
 	battle.ecmTimer = ECM_RECHARGE_TIME;
-
-	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
-
-	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
 	
 	player->flags |= EF_NO_HEALTH_BAR;
 }

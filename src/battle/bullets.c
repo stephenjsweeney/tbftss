@@ -218,7 +218,7 @@ static void checkCollisions(Bullet *b)
 						{
 							awardTrophy("TEAM_PLAYER");
 						}
-						else if (b->owner == player)
+						else if (b->owner == player && (e->aiFlags & AIF_MOVES_TO_LEADER) && (b->target->flags & EF_AI_LEADER))
 						{
 							awardTrophy("BODYGUARD");
 						}

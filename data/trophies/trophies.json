@@ -1,6 +1,6 @@
 [
 	{
-		"id" : "PLATINUM",
+		"id" : "_PLATINUM",
 		"title" : "One of the seven",
 		"description" : "Earn all other trophies",
 		"value" : "TROPHY_PLATINUM"
@@ -122,7 +122,7 @@
 	},
 	{
 		"id" : "ATAF",
-		"title" : "Man, I gotta get me one of these!",
+		"title" : "Oh man, I gotta get me one of these!",
 		"description" : "Pilot an ATAF during the campaign",
 		"value" : "TROPHY_BRONZE"
 	},
@@ -142,13 +142,15 @@
 		"id" : "TEAM_PLAYER",
 		"title" : "Taking one for the team",
 		"description" : "Be killed by a missile that was meant for someone else",
-		"value" : "TROPHY_SILVER"
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
 	},
 	{
 		"id" : "BODYGUARD",
 		"title" : "The bodyguard",
-		"description" : "Kill an enemy with a missile intended for another",
-		"value" : "TROPHY_BRONZE"
+		"description" : "Kill an enemy with a missile intended for their wing leader",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
 	},
 	{
 		"id" : "_CHALLENGE_25",
@@ -255,7 +257,8 @@
 		"description" : "Destroy 13 or more enemies in an epic battle, without being killed",
 		"value" : "TROPHY_SILVER",
 		"stat" : "STAT_EPIC_KILL_STREAK",
-		"statValue" : 13
+		"statValue" : 13,
+		"hidden" : 1
 	},
 	{
 		"id" : "ATAF_DESTROYED",

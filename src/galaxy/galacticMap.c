@@ -627,6 +627,7 @@ static void handleKeyboard(void)
 
 			case SHOW_OPTIONS:
 			case SHOW_STATS:
+			case SHOW_TROPHIES:
 				show = SHOW_MENU;
 				selectWidget("resume", "galacticMap");
 				break;

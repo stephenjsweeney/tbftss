@@ -480,7 +480,14 @@ static void drawDistancesInfo(void)
 	
 	if (player->target)
 	{
-		drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
+		if (player->target->flags & EF_AI_LEADER)
+		{
+			drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, _("%s (Leader)"), player->target->name);
+		}
+		else
+		{
+			drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
+		}
 		
 		y += 30;
 		

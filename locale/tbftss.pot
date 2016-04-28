@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-25 09:56:14+0100\n"
+"POT-Creation-Date: 2016-04-28 12:36:03+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -65,6 +65,9 @@ msgid "(Combined Guns)"
 msgstr ""
 
 msgid "Missiles (%d)"
+msgstr ""
+
+msgid "%s (Leader)"
 msgstr ""
 
 msgid "Target: %.2fkm"
@@ -406,13 +409,13 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-msgid "Start Challenge Mission"
-msgstr ""
-
 msgid "Resume"
 msgstr ""
 
 msgid "Return to Title"
+msgstr ""
+
+msgid "Start Challenge Mission"
 msgstr ""
 
 msgid "OK"
@@ -472,7 +475,7 @@ msgstr ""
 msgid "And what'll they do then? Bite you to death?"
 msgstr ""
 
-msgid "Eyes open, lads"
+msgid "Eyes open, lads."
 msgstr ""
 
 msgid "We're done. Anyone detect anything unusual?"
@@ -481,7 +484,7 @@ msgstr ""
 msgid "Same old, same old."
 msgstr ""
 
-msgid "Believe me, that's a good thing. Right, let's head home and report in"
+msgid "Believe me, that's a good thing. Right, let's head home and report in."
 msgstr ""
 
 msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presense is reducing the amount of illegal activity in this sector, with reported incidents down 80%. Still, we cannot afford to become complacent, and must continue with our sweeps."
@@ -680,6 +683,12 @@ msgid "Good. Not often we end up having to protect the enemy from another."
 msgstr ""
 
 msgid "Tugs are on the way. Should be here in the next few minutes"
+msgstr ""
+
+msgid "People, divide yourselves between the fighters and the Sharpfinger."
+msgstr ""
+
+msgid "We couldn't spare any bombers, so we just need to get in there and take them all on."
 msgstr ""
 
 msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
@@ -1046,6 +1055,21 @@ msgid "You're going to have to deal with this one solo, Carpenter. There are bom
 msgstr ""
 
 msgid "Secure the commander, and then take down those bombers. Just watch your fire."
+msgstr ""
+
+msgid "Remember everyone: the Pandorans are using UNF fighters."
+msgstr ""
+
+msgid "Using your radar and HUD is the way to go in this fight."
+msgstr ""
+
+msgid "All enemies down."
+msgstr ""
+
+msgid "Let's hope we never see the day when they get hold of one of the ATAFs."
+msgstr ""
+
+msgid "Agreed. Let's regroup and prepare for whatever's coming next."
 msgstr ""
 
 msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
@@ -1819,7 +1843,7 @@ msgstr ""
 msgid "Destroy a Pandoran-controlled craft"
 msgstr ""
 
-msgid "Man, I gotta get me one of these!"
+msgid "Oh man, I gotta get me one of these!"
 msgstr ""
 
 msgid "Pilot an ATAF during the campaign"
@@ -1843,6 +1867,12 @@ msgstr ""
 msgid "Be killed by a missile that was meant for someone else"
 msgstr ""
 
+msgid "The bodyguard"
+msgstr ""
+
+msgid "Kill an enemy with a missile intended for their wing leader"
+msgstr ""
+
 msgid "Complete 25%% of all challenges"
 msgstr ""
 
@@ -1850,6 +1880,15 @@ msgid "Complete 50%% of all challenges"
 msgstr ""
 
 msgid "Complete 100%% of all challenges"
+msgstr ""
+
+msgid "Take down 50 enemies (player only)"
+msgstr ""
+
+msgid "Take down 500 enemies (player only)"
+msgstr ""
+
+msgid "Take down 5,000 enemies (player only)"
 msgstr ""
 
 msgid "Your name's on one of these!"
@@ -1888,10 +1927,16 @@ msgstr ""
 msgid "Visit 100 waypoints"
 msgstr ""
 
+msgid "Minesweeper"
+msgstr ""
+
+msgid "Destroy 255 mines (player only)"
+msgstr ""
+
 msgid "Yippie-ki-yay"
 msgstr ""
 
-msgid "Destroy 13 or more enemies in an epic battle without being killed"
+msgid "Destroy 13 or more enemies in an epic battle, without being killed"
 msgstr ""
 
 msgid "Almost indestructable. Almost"

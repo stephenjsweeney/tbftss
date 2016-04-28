@@ -1,0 +1,156 @@
+{
+	"name" : "HMS Corvette 01",
+	"health" : 0,
+	"shield" : 500,
+	"shieldRechargeRate" : 60,
+	"texture" : "gfx/capitalShips/hmsCorvette01/body.png",
+	"components" : [
+		{
+			"health" : 150,
+			"texture" : "gfx/capitalShips/hmsCorvette01/core.png",
+			"x" : 0,
+			"y" : -140,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/hmsCorvette01/component1.png",
+			"x" : 16,
+			"y" : -38,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/hmsCorvette01/component1.png",
+			"x" : -16,
+			"y" : -38,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/hmsCorvette01/component2.png",
+			"x" : -44,
+			"y" : 4,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/hmsCorvette01/component2.png",
+			"x" : 44,
+			"y" : 4,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/hmsCorvette01/component2.png",
+			"x" : 43,
+			"y" : 75,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 100,
+			"texture" : "gfx/capitalShips/hmsCorvette01/component2.png",
+			"x" : -43,
+			"y" : 75,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		}
+	],
+	"engines" : [
+		{
+			"health" : 150,
+			"texture" : "gfx/capitalShips/hmsCorvette01/engine1.png",
+			"x" : -112,
+			"y" : 295,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 150,
+			"texture" : "gfx/capitalShips/hmsCorvette01/engine1.png",
+			"x" : 112,
+			"y" : 295,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 150,
+			"texture" : "gfx/capitalShips/hmsCorvette01/engine2.png",
+			"x" : -25,
+			"y" : 120,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		},
+		{
+			"health" : 150,
+			"texture" : "gfx/capitalShips/hmsCorvette01/engine3.png",
+			"x" : 25,
+			"y" : 120,
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_STATIC"
+		}
+	],
+	"guns" : [
+		{
+			"health" : 250,
+			"texture" : "gfx/capitalShips/common/cannon01.png",
+			"x" : -75,
+			"y" : -50,
+			"reloadTime" : 10,
+			"type" : "BT_PLASMA",
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
+			"missiles" : 9999
+		},
+		{
+			"health" : 250,
+			"texture" : "gfx/capitalShips/common/cannon01.png",
+			"x" : 75,
+			"y" : -50,
+			"reloadTime" : 10,
+			"type" : "BT_PLASMA",
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
+			"missiles" : 9999
+		},
+		{
+			"health" : 250,
+			"texture" : "gfx/capitalShips/common/cannon01.png",
+			"x" : -125,
+			"y" : 200,
+			"reloadTime" : 10,
+			"type" : "BT_PLASMA",
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
+			"missiles" : 9999
+		},
+		{
+			"health" : 250,
+			"texture" : "gfx/capitalShips/common/cannon01.png",
+			"x" : 125,
+			"y" : 200,
+			"reloadTime" : 10,
+			"type" : "BT_PLASMA",
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
+			"missiles" : 9999
+		},
+		{
+			"health" : 250,
+			"texture" : "gfx/capitalShips/common/cannon01.png",
+			"x" : 0,
+			"y" : -250,
+			"reloadTime" : 40,
+			"type" : "BT_ROCKET",
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
+			"missiles" : 9999
+		},
+		{
+			"health" : 250,
+			"texture" : "gfx/capitalShips/common/cannon01.png",
+			"x" : 0,
+			"y" : 70,
+			"reloadTime" : 40,
+			"type" : "BT_ROCKET",
+			"flags" : "EF_NO_MT_BOX+EF_NO_KILL_INC+EF_TAKES_DAMAGE+EF_SECONDARY_TARGET",
+			"aiFlags" : "AIF_AGGRESSIVE+AIF_LONG_RANGE_FIRE",
+			"missiles" : 9999
+		}
+	]
+}

@@ -154,25 +154,25 @@
 	},
 	{
 		"id" : "_CHALLENGE_25",
-		"title" : "",
+		"title" : "Dedicated",
 		"description" : "Complete 25%% of all challenges",
 		"value" : "TROPHY_BRONZE"
 	},
 	{
 		"id" : "_CHALLENGE_50",
-		"title" : "",
+		"title" : "Obssessed",
 		"description" : "Complete 50%% of all challenges",
 		"value" : "TROPHY_SILVER"
 	},
 	{
 		"id" : "_CHALLENGE_100",
-		"title" : "",
+		"title" : "Completitonist",
 		"description" : "Complete 100%% of all challenges",
 		"value" : "TROPHY_GOLD"
 	},
 	{
 		"id" : "ENEMY_50",
-		"title" : "",
+		"title" : "Hero",
 		"description" : "Take down 50 enemies (player only)",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
@@ -180,7 +180,7 @@
 	},
 	{
 		"id" : "ENEMY_500",
-		"title" : "",
+		"title" : "Veteran",
 		"description" : "Take down 500 enemies (player only)",
 		"value" : "TROPHY_SILVER",
 		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
@@ -188,7 +188,7 @@
 	},
 	{
 		"id" : "ENEMY_5000",
-		"title" : "",
+		"title" : "Legend",
 		"description" : "Take down 5,000 enemies (player only)",
 		"value" : "TROPHY_GOLD",
 		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
@@ -259,6 +259,12 @@
 		"stat" : "STAT_EPIC_KILL_STREAK",
 		"statValue" : 13,
 		"hidden" : 1
+	},
+	{
+		"id" : "SURVIVOR",
+		"title" : "Survivor",
+		"description" : "Complete an epic battle without being killed",
+		"value" : "TROPHY_SILVER"
 	},
 	{
 		"id" : "ATAF_DESTROYED",

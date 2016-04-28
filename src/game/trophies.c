@@ -453,6 +453,11 @@ void awardPostMissionTrophies(void)
 	if (game.currentMission->epic)
 	{
 		awardTrophy("EPIC");
+		
+		if (battle.stats[STAT_PLAYER_KILLED] == 0)
+		{
+			awardTrophy("SURVIVOR");
+		}
 	}
 }
 

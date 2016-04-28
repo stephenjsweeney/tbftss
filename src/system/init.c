@@ -155,7 +155,7 @@ void initGameSystem(void)
 
 	for (i = 0 ; i < numInitFuns ; i++)
 	{
-		showLoadingStep(i, numInitFuns);
+		showLoadingStep(i + 1, numInitFuns);
 
 		initFuncs[i]();
 	}

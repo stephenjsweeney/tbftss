@@ -29,8 +29,8 @@ CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J 
 ### SOUND
 
 * 000000_large_explosion.ogg - created by combining
-	** EXPLODE.WAV, by dkmedic (CC-0) - https://freesound.org/people/dkmedic/sounds/104447/
-	** Huge rocket launcher.wav, by CGEffex (CC-BY) https://freesound.org/people/CGEffex/sounds/100772/
+  * EXPLODE.WAV, by dkmedic (CC-0) - https://freesound.org/people/dkmedic/sounds/104447/
+  * Huge rocket launcher.wav, by CGEffex (CC-BY) https://freesound.org/people/CGEffex/sounds/100772/
 * 18380__inferno__hvrl.ogg - hvrl, by inferno (CC-Sampling+) - https://freesound.org/people/inferno/sounds/18380/
 * 18382__inferno__hvylas.ogg - hvylas, by inferno (CC-Sampling+) - https://freesound.org/people/inferno/sounds/18382/
 * 42106__marcuslee__laser-wrath-4.ogg - Laser Wrath 4, by marcusless (CC-Sampling+) - https://freesound.org/people/marcuslee/sounds/42106/
@@ -80,3 +80,7 @@ CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J 
 * DST-RailJet-LongSeamlessLoop.ogg, by Deceased Superior Technician (CC-BY) - http://opengameart.org/content/railjet-long-seamless-loop
 * covert_operations.mp3, by artisticdude (CC-0) - http://opengameart.org/content/covert-operations
 * Tactical Pursuit.mp3, by Matthew Pablo (CC-BY) - http://opengameart.org/content/tactical-pursuit
+
+## ABOUT
+
+This is a work of fiction. Names, characters, businesses, places, events and incidents are either the products of the author's imagination or used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is purely coincidental. The Battle for the Solar System : The Pandoran War is &copy; 2015-2016, Stephen J Sweeney, All Rights Reserved. The Battle for the Solar System and all related materials (including, but not limited to, characters, setting, and story elements) are &copy; 2009-2016, Stephen J Sweeney, All Rights Reserved.

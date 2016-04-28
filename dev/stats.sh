@@ -22,6 +22,8 @@ NUM_GUNS=`find data/turrets/* | wc -l`
 NUM_CAPS=`find data/capitalShips/* | wc -l`
 TOTAL_CRAFT=$(($NUM_CRAFT + $NUM_FIGHTERS + $NUM_GUNS + $NUM_CAPS))
 
+REVISIONS=`git rev-list --all --count`
+
 LOCALE=`cat locale/tbftss.pot | grep msgid | wc -l`
 
 echo "# Statistics" > $STATS_FILE
@@ -42,3 +44,6 @@ echo "* Number of trophies: $NUM_TROPHIES" >> $STATS_FILE
 echo "" >> $STATS_FILE
 
 echo "* Translatable strings: $LOCALE" >> $STATS_FILE
+echo "" >> $STATS_FILE
+
+echo "* Number of GIT revisions: $REVISIONS" >> $STATS_FILE

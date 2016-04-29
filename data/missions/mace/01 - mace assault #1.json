@@ -44,7 +44,7 @@
 		{
 			"name" : "Wingmate #?",
 			"types" : "TAF;Ray",
-			"number" : 11,
+			"number" : 6,
 			"side" : "SIDE_ALLIES",
 			"x" : 45,
 			"y" : 25,
@@ -53,11 +53,11 @@
 		},
 		{
 			"types" : "Rapid Plasma Turret",
-			"number" : 6,
+			"number" : 8,
 			"side" : "SIDE_REBEL",
 			"x" : 10,
 			"y" : 25,
-			"scatter" : 800
+			"scatter" : 700
 		},
 		{
 			"types" : "Shale;Razor",
@@ -130,7 +130,7 @@
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Wolfenden;We're clear for the run against the gate.",
-				"MSG_BOX Wolfenden;It's guarded by several rapid-fire plasma turrets. Just not to let those things get a lock on you."
+				"MSG_BOX Wolfenden;It's guarded by several rapid-fire plasma turrets. Try not to let those things get a lock on you."
 			]
 		},
 		{
@@ -155,6 +155,14 @@
 				"MSG_BOX Control;Acknowledged. Hold position there. We'll need you to guard that gate and prevent the enemy from affecting repairs.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 6",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wolfenden;Dammit, the team's been cut down! Looks like it's up to you and me, Ian.",
+				"MSG_BOX Barclay;We'll make sure their deaths weren't in vain."
 			]
 		}
 	]

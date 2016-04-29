@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-28 12:36:03+0100\n"
+"POT-Creation-Date: 2016-04-29 14:25:07+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -1312,6 +1312,48 @@ msgstr ""
 msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
 msgstr ""
 
+msgid "Our goal is the jumpgate. Expect a lot of resistance."
+msgstr ""
+
+msgid "Once we're they, we need to destroy the control nodes to shut it down. Barclay, that's your job."
+msgstr ""
+
+msgid "More enemies incoming."
+msgstr ""
+
+msgid "Commander, I'm detecting a wing of Blizzards, incoming."
+msgstr ""
+
+msgid "Couldn't expect Tzac not to bring out the heavy guns. Let's take it to them, people."
+msgstr ""
+
+msgid "We're clear for the run against the gate."
+msgstr ""
+
+msgid "It's guarded by several rapid-fire plasma turrets. Try not to let those things get a lock on you."
+msgstr ""
+
+msgid "Half the nodes are down."
+msgstr ""
+
+msgid "Keep at it!"
+msgstr ""
+
+msgid "Jumpgate is down."
+msgstr ""
+
+msgid "Control, this is Wolfenden. Tzac's outer jumpgate is offline."
+msgstr ""
+
+msgid "Acknowledged. Hold position there. We'll need you to guard that gate and prevent the enemy from affecting repairs."
+msgstr ""
+
+msgid "Dammit, the team's been cut down! Looks like it's up to you and me, Ian."
+msgstr ""
+
+msgid "We'll make sure their deaths weren't in vain."
+msgstr ""
+
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
 msgstr ""
 
@@ -1873,19 +1915,37 @@ msgstr ""
 msgid "Kill an enemy with a missile intended for their wing leader"
 msgstr ""
 
+msgid "Dedicated"
+msgstr ""
+
 msgid "Complete 25%% of all challenges"
+msgstr ""
+
+msgid "Obssessed"
 msgstr ""
 
 msgid "Complete 50%% of all challenges"
 msgstr ""
 
+msgid "Completitonist"
+msgstr ""
+
 msgid "Complete 100%% of all challenges"
+msgstr ""
+
+msgid "Hero"
 msgstr ""
 
 msgid "Take down 50 enemies (player only)"
 msgstr ""
 
+msgid "Veteran"
+msgstr ""
+
 msgid "Take down 500 enemies (player only)"
+msgstr ""
+
+msgid "Legend"
 msgstr ""
 
 msgid "Take down 5,000 enemies (player only)"
@@ -1939,9 +1999,21 @@ msgstr ""
 msgid "Destroy 13 or more enemies in an epic battle, without being killed"
 msgstr ""
 
+msgid "Survivor"
+msgstr ""
+
+msgid "Complete an epic battle without being killed"
+msgstr ""
+
 msgid "Almost indestructable. Almost"
 msgstr ""
 
 msgid "Be destroyed while piloting an ATAF"
+msgstr ""
+
+msgid "Pacifist"
+msgstr ""
+
+msgid "Complete a fighter-based campaign mission without firing"
 msgstr ""
 

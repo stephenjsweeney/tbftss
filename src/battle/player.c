@@ -253,8 +253,8 @@ static void handleKeyboard(void)
 	}
 	else
 	{
-		player->dx *= 0.99;
-		player->dy *= 0.99;
+		player->dx *= 0.95;
+		player->dy *= 0.95;
 	}
 }
 

@@ -411,8 +411,8 @@ void awardCampaignTrophies(void)
 		awardTrophy("CAMPAIGN_1");
 	}
 
-	/* check % of missions completed */
-	completed = getPercent(game.completedMissions, game.totalMissions);
+	/* check % of missions completed - 10% increments*/
+	completed = (getPercent(game.completedMissions, game.totalMissions) / 10) * 10;
 	sprintf(trophyId, "CAMPAIGN_%d", completed);
 	awardTrophy(trophyId);
 
@@ -441,8 +441,8 @@ void awardChallengeTrophies(void)
 	char trophyId[MAX_NAME_LENGTH];
 	int completed;
 
-	/* check % of challenges completed */
-	completed = getPercent(game.completedChallenges, game.totalChallenges);
+	/* check % of challenges completed - 25% increments*/
+	completed = (getPercent(game.completedChallenges, game.totalChallenges) / 25) * 25;
 	sprintf(trophyId, "CHALLENGE_%d", completed);
 	awardTrophy(trophyId);
 }
@@ -461,7 +461,10 @@ void awardPostMissionTrophies(void)
 		}
 	}
 	
-	if (player->guns[0].type && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
+	/*
+	 * Must be a non-challenge mission, a fighter-type (has guns and missiles), must not be Sol, and must not have fired any shots or missiles
+	 */
+	if (game.currentMission->challengeData.isChallenge && player->guns[0].type && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
 	{
 		awardTrophy("PACIFIST");
 	}

@@ -238,7 +238,7 @@ void doTrophyAlerts(void)
 	}
 	else if (alertTrophy)
 	{
-		alertRect.x = MIN(alertRect.x + 16, -1);
+		alertRect.x = MIN(alertRect.x + 24, -1);
 
 		if (alertRect.x > -150)
 		{
@@ -363,6 +363,7 @@ static void loadTrophyData(char *filename)
 				t->shortDescription[MAX_NAME_LENGTH - 1] = '.';
 				t->shortDescription[MAX_NAME_LENGTH - 2] = '.';
 				t->shortDescription[MAX_NAME_LENGTH - 3] = '.';
+				t->shortDescription[MAX_NAME_LENGTH - 4] = ' ';
 			}
 			
 			t->stat = -1;
@@ -458,6 +459,11 @@ void awardPostMissionTrophies(void)
 		{
 			awardTrophy("SURVIVOR");
 		}
+	}
+	
+	if (player->guns[0].type && player->missiles && !game->starSystem->isSol && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
+	{
+		awardTrophy("PACIFIST");
 	}
 }
 

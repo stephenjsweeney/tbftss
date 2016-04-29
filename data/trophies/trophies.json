@@ -272,5 +272,11 @@
 		"description" : "Be destroyed while piloting an ATAF",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
+	},
+	{
+		"id" : "PACIFIST",
+		"title" : "Pacifist",
+		"description" : "Complete any fighter-based mission without firing",
+		"value" : "TROPHY_BRONZE"
 	}
 ]

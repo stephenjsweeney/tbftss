@@ -44,4 +44,5 @@ extern void textSize(char *text, int size, int *w, int *h);
 extern App app;
 extern Battle battle;
 extern Colors colors;
+extern Entity *player;
 extern Game game;

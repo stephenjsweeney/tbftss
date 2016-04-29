@@ -264,6 +264,11 @@ void completeMission(void)
 		player->flags |= EF_IMMORTAL;
 		
 		awardStatsTrophies();
+		
+		if (!game.currentMission->challengeData.isChallenge)
+		{
+			awardPostMissionTrophies();
+		}
 	}
 }
 

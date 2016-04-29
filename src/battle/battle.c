@@ -387,19 +387,6 @@ static void postBattle(void)
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
 
 	updateAccuracyStats(game.stats);
-
-	if (!game.currentMission->challengeData.isChallenge)
-	{
-		if (game.currentMission && !game.currentMission->completed)
-		{
-			game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
-
-			if (game.currentMission->completed)
-			{
-				awardPostMissionTrophies();
-			}
-		}
-	}
 }
 
 void destroyBattle(void)

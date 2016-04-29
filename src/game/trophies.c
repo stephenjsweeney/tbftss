@@ -461,7 +461,7 @@ void awardPostMissionTrophies(void)
 		}
 	}
 	
-	if (player->guns[0].type && player->missiles && !game->starSystem->isSol && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
+	if (player->guns[0].type && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
 	{
 		awardTrophy("PACIFIST");
 	}

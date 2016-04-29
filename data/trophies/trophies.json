@@ -264,7 +264,8 @@
 		"id" : "SURVIVOR",
 		"title" : "Survivor",
 		"description" : "Complete an epic battle without being killed",
-		"value" : "TROPHY_SILVER"
+		"value" : "TROPHY_SILVER",
+		"hidden" : 1
 	},
 	{
 		"id" : "ATAF_DESTROYED",
@@ -276,7 +277,8 @@
 	{
 		"id" : "PACIFIST",
 		"title" : "Pacifist",
-		"description" : "Complete any fighter-based mission without firing",
-		"value" : "TROPHY_BRONZE"
+		"description" : "Complete a fighter-based campaign mission without firing",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
 	}
 ]

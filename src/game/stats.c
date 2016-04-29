@@ -103,7 +103,7 @@ static void calculatePercentComplete(void)
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		if (strcmp(starSystem->name, "Sol"))
+		if (!starSystem->isSol)
 		{
 			completed += starSystem->completedMissions;
 			total += starSystem->totalMissions;

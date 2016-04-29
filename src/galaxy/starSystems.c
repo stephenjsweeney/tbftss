@@ -148,7 +148,7 @@ void updateStarSystemMissions(void)
 			}
 		}
 
-		if (strcmp(starSystem->name, "Sol") != 0)
+		if (!starSystem->isSol)
 		{
 			game.totalMissions += starSystem->totalMissions;
 			game.completedMissions += starSystem->completedMissions;
@@ -161,7 +161,7 @@ void updateStarSystemMissions(void)
 
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
-			mission->available = strcmp(starSystem->name, "Sol") == 0 || isMissionAvailable(mission, prev);
+			mission->available = starSystem->isSol || isMissionAvailable(mission, prev);
 
 			if (mission->available)
 			{
@@ -171,7 +171,7 @@ void updateStarSystemMissions(void)
 			prev = mission;
 		}
 
-		if (strcmp(starSystem->name, "Sol") != 0)
+		if (starSystem->isSol)
 		{
 			game.availableMissions += starSystem->availableMissions;
 		}

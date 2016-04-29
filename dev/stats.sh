@@ -14,7 +14,7 @@ SRC_LINES=`find src -name *.c | xargs wc -l | grep total | awk '{print $1}'`
 
 NUM_MISSIONS=`find data/missions -iname *.json | wc -l`
 NUM_CHALLENGES=`find data -name '*.json' -print0 | xargs -0 cat | grep "\"type\" : \"CHALLENGE_" | wc -l`
-NUM_TROPHIES=`cat data/trophies/trophies.json | grep id | wc -l`
+NUM_TROPHIES=`cat data/trophies/trophies.json | grep \"description\" | wc -l`
 
 NUM_CRAFT=`find data/craft/* | wc -l`
 NUM_FIGHTERS=`find data/fighters/* | wc -l`

@@ -539,8 +539,10 @@ void activateEntityGroups(char *groupNames)
 		{
 			if (strcmp(e->groupName, groupName) == 0)
 			{
+				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Activated %s (%s)", e->name, groupName);
+				
 				e->active = 1;
-
+				
 				if (e->type == ET_CAPITAL_SHIP)
 				{
 					updateCapitalShipComponentProperties(e, 0);

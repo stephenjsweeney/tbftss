@@ -133,7 +133,7 @@
 		{
 			"function" : "CAP_HEALTH HMS 781-041 1",
 			"lines" : [
-				"MSG_BOX HMS 781-041;This is HMS 781-041! We surrender! We surrender!",
+				"IMPORTANT_MSG_BOX HMS 781-041;This is HMS 781-041 of the Nation of Tzac! We surrender! Repeat, we surrender!",
 				"MSG_BOX Wingmate;Did anyone else get that?",
 				"MSG_BOX Lee;HMS 781-041, please repeat."
 			]

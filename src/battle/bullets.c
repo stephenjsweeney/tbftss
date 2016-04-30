@@ -108,11 +108,6 @@ void doBullets(void)
 
 		if (--b->life <= 0)
 		{
-			if (player != NULL && player->alive == ALIVE_ALIVE && b->type == BT_MISSILE && b->damage > 0 && b->target == player)
-			{
-				battle.stats[STAT_MISSILES_EVADED]++;
-			}
-
 			if (b == battle.bulletTail)
 			{
 				battle.bulletTail = prev;
@@ -206,7 +201,13 @@ static void checkCollisions(Bullet *b)
 						battle.stats[STAT_MISSILES_STRUCK]++;
 					}
 				}
-
+				
+				/* missile was targetting player, but hit something else */
+				if (b->type == BT_MISSILE && b->target == player && e != player)
+				{
+					battle.stats[STAT_MISSILES_EVADED]++;
+				}
+				
 				/* assuming that health <= 0 will always mean killed */
 				if (e->health <= 0)
 				{
@@ -318,6 +319,8 @@ static void huntTarget(Bullet *b)
 			b->life = 0;
 			addMissileExplosion(b);
 			playBattleSound(SND_EXPLOSION_1, b->x, b->y);
+			
+			battle.stats[STAT_MISSILES_EVADED]++;
 		}
 	}
 	else

@@ -115,6 +115,14 @@
 		"statValue" : 1
 	},
 	{
+		"id" : "GIANT_SLAYER",
+		"title" : "Giant Slayer",
+		"description" : "Destroy 25 enemy capital ships",
+		"value" : "TROPHY_GOLD",
+		"stat" : "STAT_CAPITAL_SHIPS_DESTROYED",
+		"statValue" : 25
+	},
+	{
 		"id" : "PANDORAN",
 		"title" : "Plenty more where that came from, unfortunately",
 		"description" : "Destroy a Pandoran-controlled craft",
@@ -211,23 +219,23 @@
 		"statValue" : 1000
 	},
 	{
-		"id" : "ECM_100",
+		"id" : "ECM",
 		"title" : "Isn't technology wonderful?",
-		"description" : "Use the ECM 100 times",
+		"description" : "Use the ECM 250 times",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_ECM",
-		"statValue" : 100
+		"statValue" : 250
 	},
 	{
-		"id" : "BOOST_100",
+		"id" : "BOOST",
 		"title" : "Runaway!",
-		"description" : "Boost 100 times",
+		"description" : "Boost 250 times",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_BOOST",
-		"statValue" : 100
+		"statValue" : 250
 	},
 	{
-		"id" : "EVADE_50",
+		"id" : "EVADE",
 		"title" : "Missed, you f**kers!",
 		"description" : "Evade 50 missiles",
 		"value" : "TROPHY_BRONZE",
@@ -236,7 +244,7 @@
 		"hidden" : 1
 	},
 	{
-		"id" : "WAYPOINT_100",
+		"id" : "WAYPOINT",
 		"title" : "Sightseer",
 		"description" : "Visit 100 waypoints",
 		"value" : "TROPHY_BRONZE",

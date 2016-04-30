@@ -196,13 +196,13 @@ static void handleArguments(int argc, char *argv[])
 		}
 	}
 	
+	if (fileExists(getSaveFilePath(SAVE_FILENAME)))
+	{
+		loadGame();
+	}
+	
 	if (!testingMission)
 	{
-		if (fileExists(getSaveFilePath(SAVE_FILENAME)))
-		{
-			loadGame();
-		}
-		
 		initTitle();
 	}
 }

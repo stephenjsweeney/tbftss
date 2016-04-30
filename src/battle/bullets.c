@@ -93,7 +93,7 @@ void doBullets(void)
 		{
 			addMissileEngineEffect(b);
 
-			if (b->life < MISSILE_LIFE - (FPS / 2))
+			if (b->life < MISSILE_LIFE - (FPS / 4))
 			{
 				huntTarget(b);
 			}

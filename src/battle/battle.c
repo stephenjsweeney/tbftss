@@ -388,6 +388,8 @@ static void postBattle(void)
 
 	updateAccuracyStats(game.stats);
 	
+	game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
+	
 	saveGame();
 }
 

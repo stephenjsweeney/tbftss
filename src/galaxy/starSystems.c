@@ -171,7 +171,7 @@ void updateStarSystemMissions(void)
 			prev = mission;
 		}
 
-		if (starSystem->isSol)
+		if (!starSystem->isSol)
 		{
 			game.availableMissions += starSystem->availableMissions;
 		}

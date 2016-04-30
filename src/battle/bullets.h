@@ -49,6 +49,7 @@ extern void awardTrophy(char *id);
 extern int isOnBattleScreen(int x, int y, int w, int h);
 extern int getDistance(int x1, int y1, int x2, int y2);
 
+extern App app;
 extern Battle battle;
 extern Colors colors;
 extern Entity *player;

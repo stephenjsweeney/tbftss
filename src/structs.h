@@ -384,6 +384,12 @@ struct Trophy {
 };
 
 typedef struct {
+	int friendlyFire;
+	int autoSwitchPlayerTarget;
+	int missileReTarget;
+} Gameplay;
+
+typedef struct {
 	StarSystem starSystemHead;
 	Mission challengeMissionHead;
 	Mission *currentMission;
@@ -453,6 +459,7 @@ typedef struct {
 	int fullscreen;
 	int musicVolume;
 	int soundVolume;
+	Gameplay gameplay;
 	Mouse mouse;
 	int keyboard[MAX_KEYBOARD_KEYS];
 	SDL_Texture *backBuffer;

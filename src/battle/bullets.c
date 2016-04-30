@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void huntTarget(Bullet *b);
 static void checkCollisions(Bullet *b);
 static void resizeDrawList(void);
+static void selectNewTarget(Bullet *b);
 
 static Bullet bulletDef[BT_MAX];
 static Bullet **bulletsToDraw;
@@ -165,7 +166,7 @@ static void checkCollisions(Bullet *b)
 
 			if (b->owner != e && e->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, e->x - e->w / 2, e->y - e->h / 2, e->w, e->h))
 			{
-				if (b->owner->side == e->side)
+				if (b->owner->side == e->side && !app.gameplay.friendlyFire)
 				{
 					b->damage = 0;
 				}
@@ -325,7 +326,35 @@ static void huntTarget(Bullet *b)
 	}
 	else
 	{
-		b->target = NULL;
+		selectNewTarget(b);
+	}
+}
+
+static void selectNewTarget(Bullet *b)
+{
+	int i;
+	Entity *e, **candidates;
+	
+	b->target = NULL;
+	
+	candidates = getAllEntsWithin(b->x - (SCREEN_WIDTH / 2), b->y - (SCREEN_HEIGHT / 2), SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
+	
+	if (app.gameplay.missileReTarget)
+	{
+		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+		{
+			if (e->type == ET_FIGHTER && e->side != b->owner->side && e->health > 0)
+			{
+				b->target = e;
+				
+				if (b->target == player)
+				{
+					playSound(SND_INCOMING);
+				}
+				
+				return;
+			}
+		}
 	}
 }
 
@@ -429,7 +458,7 @@ void fireMissile(Entity *owner)
 
 	playBattleSound(b->sound, owner->x, owner->y);
 
-	if (owner->target == player)
+	if (b->target == player)
 	{
 		playSound(SND_INCOMING);
 	}

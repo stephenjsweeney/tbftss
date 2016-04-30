@@ -216,12 +216,15 @@ static void loadConfig(void)
 	{
 		loadConfigFile(configFilename);
 	}
+	
+	/* so that the player doesn't get confused if this is a new game */
+	saveConfig();
 }
 
 static void loadConfigFile(char *filename)
 {
 	int i;
-	cJSON *root, *controlsJSON, *node;
+	cJSON *root, *controlsJSON, *node, *gameplayJSON;
 	char *text;
 
 	text = readFile(filename);
@@ -257,19 +260,24 @@ static void loadConfigFile(char *filename)
 			node = node->next;
 		}
 	}
+	
+	gameplayJSON = cJSON_GetObjectItem(root, "gameplay");
+	if (gameplayJSON)
+	{
+		app.gameplay.friendlyFire = cJSON_GetObjectItem(gameplayJSON, "friendlyFire")->valueint;
+		app.gameplay.autoSwitchPlayerTarget = cJSON_GetObjectItem(gameplayJSON, "autoSwitchPlayerTarget")->valueint;
+		app.gameplay.missileReTarget = cJSON_GetObjectItem(gameplayJSON, "missileReTarget")->valueint;
+	}
 
 	cJSON_Delete(root);
 	free(text);
-
-	/* so that the player doesn't get confused if this is a new game */
-	saveConfig();
 }
 
 void saveConfig(void)
 {
 	int i;
 	char *out, *configFilename;
-	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON;
+	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON, *gameplayJSON;
 
 	configFilename = getSaveFilePath(CONFIG_FILENAME);
 
@@ -297,8 +305,13 @@ void saveConfig(void)
 	controlsJSON = cJSON_CreateObject();
 	cJSON_AddItemToObject(controlsJSON, "keys", keysJSON);
 	cJSON_AddItemToObject(controlsJSON, "mouse", mouseJSON);
-
 	cJSON_AddItemToObject(root, "controls", controlsJSON);
+	
+	gameplayJSON = cJSON_CreateObject();
+	cJSON_AddNumberToObject(gameplayJSON, "friendlyFire", app.gameplay.friendlyFire);
+	cJSON_AddNumberToObject(gameplayJSON, "autoSwitchPlayerTarget", app.gameplay.autoSwitchPlayerTarget);
+	cJSON_AddNumberToObject(gameplayJSON, "missileReTarget", app.gameplay.missileReTarget);
+	cJSON_AddItemToObject(root, "gameplay", gameplayJSON);
 
 	out = cJSON_Print(root);
 

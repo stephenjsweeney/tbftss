@@ -35,6 +35,7 @@ static void handleMouse(void);
 static void preFireMissile(void);
 static void applyRestrictions(void);
 static int isPriorityMissionTarget(Entity *e, int dist, int closest);
+static int targetOutOfRange(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -107,7 +108,7 @@ void doPlayer(void)
 
 			handleMouse();
 
-			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0)
+			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || targetOutOfRange())
 			{
 				selectTarget();
 			}
@@ -157,6 +158,11 @@ void doPlayer(void)
 	{
 		deactivateBoost();
 	}
+}
+
+static int targetOutOfRange(void)
+{
+	return (app.gameplay.autoSwitchPlayerTarget && getDistance(player->x, player->y, player->target->x, player->target->y) > SCREEN_WIDTH * 2);
 }
 
 static void applyRestrictions(void)

@@ -253,8 +253,7 @@ static void handleKeyboard(void)
 	}
 	else
 	{
-		player->dx *= 0.95;
-		player->dy *= 0.95;
+		applyFighterBrakes();
 	}
 }
 

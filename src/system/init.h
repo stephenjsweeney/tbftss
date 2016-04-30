@@ -71,6 +71,7 @@ extern char *getLookupName(char *prefix, long num);
 extern long lookup(char *name);
 extern void initStars(void);
 extern void initTrophies(void);
+extern void saveGame(void);
 
 extern App app;
 extern Colors colors;

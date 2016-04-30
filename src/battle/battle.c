@@ -387,6 +387,8 @@ static void postBattle(void)
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
 
 	updateAccuracyStats(game.stats);
+	
+	saveGame();
 }
 
 void destroyBattle(void)

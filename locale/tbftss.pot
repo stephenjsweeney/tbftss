@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-29 14:25:07+0100\n"
+"POT-Creation-Date: 2016-04-30 17:23:10+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -1354,6 +1354,39 @@ msgstr ""
 msgid "We'll make sure their deaths weren't in vain."
 msgstr ""
 
+msgid "HMS 781-110 sighted. All fighters free to engage at will. Follow my lead."
+msgstr ""
+
+msgid "Control, HMS 781-110 has been taken down."
+msgstr ""
+
+msgid "Infinites, HMS 781-041 has arrived in the area. Engage and destroy."
+msgstr ""
+
+msgid "Acknowledged."
+msgstr ""
+
+msgid "Did anyone else get that?"
+msgstr ""
+
+msgid "HMS 781-041, please repeat."
+msgstr ""
+
+msgid "Hell! Too late!"
+msgstr ""
+
+msgid "Infinites, it appears remaining enemy forces are retreating. Please stand down."
+msgstr ""
+
+msgid "Received."
+msgstr ""
+
+msgid "That was unexpected."
+msgstr ""
+
+msgid "Sure was. We'd better get to debriefing."
+msgstr ""
+
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
 msgstr ""
 
@@ -1448,9 +1481,6 @@ msgid "Enemy fighters spotted. No sign of the squadron wing commander, though. W
 msgstr ""
 
 msgid "Rose, we'll be relying on you to disable his fighter as soon as he puts in an appearance."
-msgstr ""
-
-msgid "Acknowledged."
 msgstr ""
 
 msgid "Tzac commander sighted, Commander."
@@ -1879,6 +1909,12 @@ msgstr ""
 msgid "Destroy an enemy capital ship"
 msgstr ""
 
+msgid "Giant Slayer"
+msgstr ""
+
+msgid "Destroy 25 enemy capital ships"
+msgstr ""
+
 msgid "Plenty more where that came from, unfortunately"
 msgstr ""
 
@@ -1966,13 +2002,13 @@ msgstr ""
 msgid "Isn't technology wonderful?"
 msgstr ""
 
-msgid "Use the ECM 100 times"
+msgid "Use the ECM 250 times"
 msgstr ""
 
 msgid "Runaway!"
 msgstr ""
 
-msgid "Boost 100 times"
+msgid "Boost 250 times"
 msgstr ""
 
 msgid "Missed, you f**kers!"

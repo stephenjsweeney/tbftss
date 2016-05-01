@@ -1,0 +1,209 @@
+{
+	"name" : "Alba Defence #2",
+	"description" : "",
+	"requires" : 50,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"music" : "music/battle/heroism.ogg",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemy targets",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Destroy HMS 821-283",
+			"targetName" : "HMS 821-283",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy INF Burnside",
+			"targetName" : "INF Burnside",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "Leopard",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "1st Lt. Curtis Rice",
+		"squadron" : "Eightballers",
+		"x" : 25,
+		"y" : 5
+	},
+	"fighters" : [
+		{
+			"name" : "Wingmate",
+			"types" : "Leopard;Firefly;Nymph",
+			"number" : 11,
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 5,
+			"scatter" : 500
+		},
+		{
+			"types" : "Shale;Razor;SK-31;SK-34",
+			"number" : 5,
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 12,
+			"scatter" : 500
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Shale;Razor;SK-31;SK-34",
+			"number" : 4,
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : -1,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "Shale;Razor;SK-31;SK-34",
+			"number" : 4,
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : -1,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Shale;Razor;SK-31;SK-34",
+			"number" : 48,
+			"side" : "SIDE_REBEL",
+			"x" : -1,
+			"y" : 35,
+			"scatter" : 8500,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		},
+		{
+			"groupName" : "Pandorans",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
+			"number" : 48,
+			"side" : "SIDE_PANDORAN",
+			"x" : 51,
+			"y" : 35,
+			"scatter" : 8500,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		},
+		{
+			"groupName" : "White Knights",
+			"name" : "de Winter",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : -1,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"groupName" : "White Knights",
+			"types" : "ATAF",
+			"number" : 4,
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : -1,
+			"scatter" : 500,
+			"active" : 0
+		}
+	],
+	"capitalShips" : [
+		{
+			"groupName" : "CapShips",
+			"name" : "HMS 821-283",
+			"types" : "HMS Corvette 01",
+			"side" : "SIDE_REBEL",
+			"x" : -1,
+			"y" : 35,
+			"flags" : "+EF_AI_LEADER",
+			"active" : 0
+		},
+		{
+			"groupName" : "CapShips",
+			"name" : "INF Burnside",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 51,
+			"y" : 35,
+			"flags" : "+EF_AI_LEADER",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Rice;Break and attack, lads. Let's send these guys back home."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 5",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wingmate;More Tzac fighters incoming.",
+				"ACTIVATE_ENTITY_GROUPS Rebels-1"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 13",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_ENTITY_GROUPS Rebels-2;Pandorans",
+				"MSG_BOX Rice;Steel yourself, lads. Even more Tzac forces are heading our way.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Destroy HMS 821-283;Destroy INF Burnside",
+				"ACTIVATE_ENTITY_GROUPS CapShips",
+				"MSG_BOX Wingmate;Picking up two capital ships, moving in.",
+				"MSG_BOX Rice;Wait, those aren't only Tzac forces ... ",
+				"MSG_BOX Rice;Ah, hell! Now we've got Pandorans, too?!"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 8",
+			"lines" : [
+				"MSG_BOX Wingmate;Commander, we're getting shot to ribbons here! We need to fallback!",
+				"MSG_BOX Rice;We can't let EITHER of these two win! That would be a major loss for all of us."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 11",
+			"lines" : [
+				"WAIT 5",
+				"MSG_BOX de Winter;Eightballers, de Winter of the White Knights, here to assist.",
+				"MSG_BOX Rice;White Knights! Am I glad to see you. Your timing couldn't be better.",
+				"ACTIVATE_ENTITY_GROUPS White Knights"
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 3",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Rice;I owe you my life, Knights.",
+				"MSG_BOX de Winter;We're all in this together, Rice. I'm sorry we arrived too late to save your wingmates.",
+				"MSG_BOX Rice;They were good guys. They'll be missed.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_JUMPGATE 1",
+				"RETREAT_ALLIES",
+				"WAIT 3",
+				"MSG_BOX de Winter;We're needed in Mace. We'll see you soon.",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

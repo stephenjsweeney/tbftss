@@ -425,7 +425,7 @@ static void drawHealthBar(Entity *e)
 {
 	SDL_Rect r;
 	
-	if (!(e->flags & EF_NO_HEALTH_BAR) && e->health > 0)
+	if (app.gameplay.healthBars && !(e->flags & EF_NO_HEALTH_BAR) && e->health > 0)
 	{
 		r.x = e->x - (e->w / 2) - battle.camera.x;
 		r.y = e->y - e->h - battle.camera.y;

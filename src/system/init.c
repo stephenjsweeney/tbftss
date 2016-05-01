@@ -267,6 +267,7 @@ static void loadConfigFile(char *filename)
 		app.gameplay.friendlyFire = cJSON_GetObjectItem(gameplayJSON, "friendlyFire")->valueint;
 		app.gameplay.autoSwitchPlayerTarget = cJSON_GetObjectItem(gameplayJSON, "autoSwitchPlayerTarget")->valueint;
 		app.gameplay.missileReTarget = cJSON_GetObjectItem(gameplayJSON, "missileReTarget")->valueint;
+		app.gameplay.healthBars = cJSON_GetObjectItem(gameplayJSON, "healthBars")->valueint;
 	}
 
 	cJSON_Delete(root);
@@ -311,6 +312,7 @@ void saveConfig(void)
 	cJSON_AddNumberToObject(gameplayJSON, "friendlyFire", app.gameplay.friendlyFire);
 	cJSON_AddNumberToObject(gameplayJSON, "autoSwitchPlayerTarget", app.gameplay.autoSwitchPlayerTarget);
 	cJSON_AddNumberToObject(gameplayJSON, "missileReTarget", app.gameplay.missileReTarget);
+	cJSON_AddNumberToObject(gameplayJSON, "healthBars", app.gameplay.healthBars);
 	cJSON_AddItemToObject(root, "gameplay", gameplayJSON);
 
 	out = cJSON_Print(root);

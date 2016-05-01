@@ -387,6 +387,7 @@ typedef struct {
 	int friendlyFire;
 	int autoSwitchPlayerTarget;
 	int missileReTarget;
+	int healthBars;
 } Gameplay;
 
 typedef struct {

@@ -39,7 +39,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Wingmate",
 			"types" : "Leopard;Firefly;Nymph",
 			"number" : 11,
 			"side" : "SIDE_ALLIES",
@@ -91,6 +90,7 @@
 		},
 		{
 			"groupName" : "Pandorans",
+			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
 			"number" : 48,
 			"side" : "SIDE_PANDORAN",

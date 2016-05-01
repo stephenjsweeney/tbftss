@@ -37,7 +37,6 @@
 	],
 	"fighters" : [
 		{
-			"name" : "Wingmate",
 			"types" : "Rook",
 			"side" : "SIDE_ALLIES",
 			"x" : 5,
@@ -45,7 +44,6 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "Wingmate",
 			"types" : "Hammerhead;Lynx",
 			"number" : 10,
 			"side" : "SIDE_ALLIES",

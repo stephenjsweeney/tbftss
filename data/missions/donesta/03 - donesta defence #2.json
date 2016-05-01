@@ -58,7 +58,7 @@
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Wing Commander;All enemies down.",
-				"MSG_BOX Wingmate #23;Let's hope we never see the day when they get hold of one of the ATAFs.",
+				"MSG_BOX Wingmate;Let's hope we never see the day when they get hold of one of the ATAFs.",
 				"MSG_BOX Wing Commander;Agreed. Let's regroup and prepare for whatever's coming next.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"

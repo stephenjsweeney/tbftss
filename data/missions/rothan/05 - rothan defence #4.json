@@ -48,7 +48,7 @@
 		{
 			"function" : "TIME 2",
 			"lines" : [
-				"MSG_BOX Wingmate #6;Hell, they're outnumbering us, a good two-to-one!",
+				"MSG_BOX Wingmate;Hell, they're outnumbering us, a good two-to-one!",
 				"MSG_BOX Wing Commander;There are Swarmers in their ranks, making up the bulk. Don't lose faith people, we can do this."
 			]
 		},

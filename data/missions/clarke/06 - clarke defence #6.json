@@ -91,7 +91,7 @@
 			"function" : "TIME 2",
 			"lines" : [
 				"MSG_BOX Wing Commander;The Twilight Lancers are on their way.",
-				"MSG_BOX Wingmate #62;Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!",
+				"MSG_BOX Wingmate;Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!",
 				"MSG_BOX Wing Commander;At this point, any additional support is welcome. And we still have the support of Cleopatra and Artemis."
 			]
 		},
@@ -107,17 +107,17 @@
 			"function" : "ENEMIES_KILLED 50",
 			"lines" : [
 				"MSG_BOX Wing Commander;We're wearing them down. Keep up the pressure.",
-				"MSG_BOX Wingmate #31;Think they're pull back if we hit them hard enough?",
+				"MSG_BOX Wingmate;Think they're pull back if we hit them hard enough?",
 				"MSG_BOX Wing Commander;Too early to speculate. Just concentrate on taking down their fighters."
 			]
 		},
 		{
 			"function" : "ENEMIES_KILLED 75",
 			"lines" : [
-				"MSG_BOX Wingmate #88;I've just been tailed by something I've never seen before! Small, highly maneuverable, rapid fire particle cannon.",
+				"MSG_BOX Wingmate;I've just been tailed by something I've never seen before! Small, highly maneuverable, rapid fire particle cannon.",
 				"MSG_BOX Welch;Swarmers! The enemy have deployed them here, too!",
 				"MSG_BOX Wing Commander;How many?",
-				"MSG_BOX Wingmate #82;Tracking a dozen, but the numbers are growing rapidly",
+				"MSG_BOX Wingmate;Tracking a dozen, but the numbers are growing rapidly",
 				"WAIT_MSG_BOX",
 				"ACTIVATE_SPAWNER 1 SwarmerSpawner"
 			]
@@ -125,16 +125,16 @@
 		{
 			"function" : "ALLIES_KILLED 150",
 			"lines" : [
-				"MSG_BOX Wingmate #88;I've lost count how many of these damn swarmers I've taken down.",
-				"MSG_BOX Wingmate #120;It's like fighting a hydra! You cut off one head, and two more spring up!"
+				"MSG_BOX Wingmate;I've lost count how many of these damn swarmers I've taken down.",
+				"MSG_BOX Wingmate;It's like fighting a hydra! You cut off one head, and two more spring up!"
 			]
 		},
 		{
 			"function" : "ALLIES_KILLED 195",
 			"lines" : [
-				"MSG_BOX Wingmate #181;There's too many of them!",
-				"MSG_BOX Wingmate #31;Keep fighting, we can still win this!",
-				"MSG_BOX Wingmate #111;They're everywhere! I--"
+				"MSG_BOX Wingmate;There's too many of them!",
+				"MSG_BOX Wingmate;Keep fighting, we can still win this!",
+				"MSG_BOX Wingmate;They're everywhere! I--"
 			]
 		},
 		{

@@ -42,7 +42,6 @@
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
-			"name" : "Wingmate",
 			"types" : "TAF;Ray",
 			"number" : 6,
 			"side" : "SIDE_ALLIES",

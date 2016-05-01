@@ -147,18 +147,36 @@ void drawMessageBox(void)
 
 static void nextMessage(void)
 {
-	Entity *e;
+	Entity *e, *wingmate;
+	
+	wingmate = NULL;
 	
 	playSound(SND_RADIO);
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (strcmp(e->name, head.next->title) == 0)
+		if (e->active && e != player)
 		{
-			battle.messageSpeaker = e;
-			return;
+			if (strcmp(e->name, head.next->title) == 0)
+			{
+				battle.messageSpeaker = e;
+				return;
+			}
+			
+			if (strcmp(head.next->title, "Wingmate") == 0 && e->type == ET_FIGHTER && e->speed > 0)
+			{
+				wingmate = e;
+				
+				if (rand() % 2)
+				{
+					battle.messageSpeaker = e;
+					return;
+				}
+			}
 		}
 	}
+	
+	battle.messageSpeaker = wingmate;
 }
 
 void resetMessageBox(void)

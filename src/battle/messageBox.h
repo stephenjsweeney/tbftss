@@ -28,3 +28,4 @@ extern void playSound(int sound);
 extern App app;
 extern Battle battle;
 extern Colors colors;
+extern Entity *player;

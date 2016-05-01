@@ -9,6 +9,10 @@ You can support development of this game by purchasing one of the books in the t
 Website: www.battleforthesolarsystem.com
 Email: stephenjsweeney@battleforthesolarsystem.com
 
+## SCREENSHOTS
+
+Screenshots from various versions can be found here: https://github.com/stephenjsweeney/tbftss/tree/master/dev/screenshots
+
 ## CREDITS
 
 ### GRAPHICS

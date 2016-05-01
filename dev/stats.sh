@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-STATS_FILE="stats.md"
+STATS_FILE="STATS.md"
 
 cd ..
 
@@ -37,7 +37,7 @@ echo "* Size of sound: $SND_SIZE" >> $STATS_FILE
 echo "* Size of music: $MUSIC_SIZE" >> $STATS_FILE
 echo "" >> $STATS_FILE
 
-echo "* Number of missions: $NUM_MISSIONS" >> $STATS_FILE
+echo "* Number of missions: $NUM_MISSIONS (inc. Sol)" >> $STATS_FILE
 echo "* Number of challenges: $NUM_CHALLENGES" >> $STATS_FILE
 echo "* Number of spacecraft: $TOTAL_CRAFT" >> $STATS_FILE
 echo "* Number of trophies: $NUM_TROPHIES" >> $STATS_FILE

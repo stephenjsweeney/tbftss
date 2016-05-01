@@ -335,12 +335,12 @@ static void selectNewTarget(Bullet *b)
 	int i;
 	Entity *e, **candidates;
 	
-	b->target = NULL;
-	
-	candidates = getAllEntsWithin(b->x - (SCREEN_WIDTH / 2), b->y - (SCREEN_HEIGHT / 2), SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
-	
 	if (app.gameplay.missileReTarget)
 	{
+		b->target = NULL;
+	
+		candidates = getAllEntsWithin(b->x - (SCREEN_WIDTH / 2), b->y - (SCREEN_HEIGHT / 2), SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
+		
 		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 		{
 			if (e->type == ET_FIGHTER && e->side != b->owner->side && e->health > 0)
@@ -356,6 +356,11 @@ static void selectNewTarget(Bullet *b)
 			}
 		}
 	}
+	
+	/* no target, just explode */
+	b->life = 0;
+	addMissileExplosion(b);
+	playBattleSound(SND_EXPLOSION_1, b->x, b->y);
 }
 
 static Bullet *createBullet(int type, int x, int y, Entity *owner)

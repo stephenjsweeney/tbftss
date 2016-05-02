@@ -194,7 +194,8 @@ static void doFighterAI(void)
 		return;
 	}
 	
-	r = rand() % 100;
+	/* if your target is disabled, just shoot it..! */
+	r = (self->target->flags & EF_DISABLED) ? 100 : rand() % 100;
 	
 	if (r <= getActionChance(AI_EVADE))
 	{

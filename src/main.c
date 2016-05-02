@@ -48,6 +48,11 @@ int main(int argc, char *argv[])
 	
 	createScreenshotFolder();
 	
+	if (fileExists(getSaveFilePath(SAVE_FILENAME)))
+	{
+		loadGame();
+	}
+	
 	handleArguments(argc, argv);
 	
 	dev.fps = frames = td = 0;
@@ -194,11 +199,6 @@ static void handleArguments(int argc, char *argv[])
 				SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 			}
 		}
-	}
-	
-	if (fileExists(getSaveFilePath(SAVE_FILENAME)))
-	{
-		loadGame();
 	}
 	
 	if (!testingMission)

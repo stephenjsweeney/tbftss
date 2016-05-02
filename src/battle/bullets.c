@@ -282,8 +282,8 @@ static void faceTarget(Bullet *b)
 
 		b->angle = mod(b->angle, 360);
 		
-		b->dx *= 0.75;
-		b->dy *= 0.75;
+		b->dx *= 0.5;
+		b->dy *= 0.5;
 	}
 }
 

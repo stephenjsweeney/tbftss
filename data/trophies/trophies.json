@@ -260,6 +260,14 @@
 		"statValue" : 255
 	},
 	{
+		"id" : "DISABLE",
+		"title" : "Get out and push",
+		"description" : "Disable 500 opponents",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_ENEMIES_DISABLED",
+		"statValue" : 500
+	},
+	{
 		"id" : "EPIC_KILL_13",
 		"title" : "Yippie-ki-yay",
 		"description" : "Destroy 13 or more enemies in an epic battle, without being killed",

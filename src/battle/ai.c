@@ -148,7 +148,7 @@ static void doFighterAI(void)
 		self->target = NULL;
 	}
 
-	if (!self->target || self->target->systemPower <= 0)
+	if (!self->target || (self->target->systemPower <= 0 && (self->target->flags & EF_MUST_DISABLE)))
 	{
 		findTarget();
 		
@@ -344,18 +344,26 @@ static int canAttack(Entity *e)
 		return 0;
 	}
 	
-	if (!(e->flags & EF_AI_TARGET))
+	if (!(self->aiFlags & AIF_ASSASSIN))
 	{
-		if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
+		if (e->flags & EF_MUST_DISABLE)
 		{
-			return !(rand() % 5);
+			return e->systemPower > 0;
 		}
-	}
-	
-	/* low chance of attacking something else */
-	if ((self->aiFlags & AIF_TARGET_FOCUS) && (!(e->flags & EF_AI_TARGET)))
-	{
-		return !(rand() % 100);
+		
+		if (!(e->flags & EF_AI_TARGET))
+		{
+			if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
+			{
+				return !(rand() % 5);
+			}
+		}
+		
+		/* low chance of attacking something else */
+		if ((self->aiFlags & AIF_TARGET_FOCUS) && (!(e->flags & EF_AI_TARGET)))
+		{
+			return !(rand() % 100);
+		}
 	}
 	
 	return 1;
@@ -370,12 +378,7 @@ static int selectWeaponForTarget(Entity *e)
 	{
 		if (e->flags & EF_MUST_DISABLE)
 		{
-			if (e->systemPower > 0)
-			{
-				return selectWeapon(BT_MAG);
-			}
-			
-			return 0;
+			return selectWeapon(BT_MAG);
 		}
 		
 		if (e->flags & EF_NO_KILL)
@@ -482,7 +485,7 @@ static void preAttack(void)
 			{
 				fireGuns(self);
 			}
-			else if (self->missiles && (!(self->target->flags & EF_NO_KILL)) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
+			else if (self->missiles && (!(self->target->flags & (EF_NO_KILL|EF_MUST_DISABLE))) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
 			{
 				fireMissile(self);
 				

@@ -327,6 +327,7 @@ void doFighter(void)
 			adjustObjectiveTargetValue(self->name, TT_ESCAPED, -1);
 
 			updateCondition(self->name, TT_DESTROY);
+			updateCondition(self->groupName, TT_DESTROY);
 		}
 	}
 }
@@ -409,19 +410,26 @@ void damageFighter(Entity *e, int amount, long flags)
 
 	e->aiDamageTimer = FPS;
 	e->aiDamagePerSec += amount;
-
+	
 	if (flags & BF_SYSTEM_DAMAGE)
 	{
-		playBattleSound(SND_MAG_HIT, e->x, e->y);
-
-		e->systemPower = MAX(0, e->systemPower - amount);
-
-		e->systemHit = 255;
-
-		if (e->systemPower == 0)
+		if (e->shield > 0)
 		{
-			e->shield = e->maxShield = 0;
-			e->action = NULL;
+			e->shield = MAX(0, e->shield - amount / 2);
+		}
+		else
+		{
+			playBattleSound(SND_MAG_HIT, e->x, e->y);
+
+			e->systemPower = MAX(0, e->systemPower - amount);
+
+			e->systemHit = 255;
+
+			if (e->systemPower == 0)
+			{
+				e->shield = e->maxShield = 0;
+				e->action = NULL;
+			}
 		}
 	}
 	else if (flags & BF_SHIELD_DAMAGE)
@@ -441,13 +449,7 @@ void damageFighter(Entity *e, int amount, long flags)
 	{
 		if (e->shield > 0)
 		{
-			e->shield -= amount;
-
-			if (e->shield < 0)
-			{
-				e->health += e->shield;
-				e->shield = 0;
-			}
+			e->shield = MAX(0, e->shield - amount);
 		}
 		else
 		{

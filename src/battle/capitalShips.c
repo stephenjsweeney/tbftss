@@ -33,6 +33,7 @@ static void loadCapitalShipDef(char *filename);
 static void loadComponents(Entity *parent, cJSON *components);
 static void loadGuns(Entity *parent, cJSON *guns);
 static void loadEngines(Entity *parent, cJSON *engines);
+static void disable(void);
 
 static Entity defHead, *defTail;
 
@@ -275,7 +276,7 @@ static void gunDie(void)
 	
 	if (--self->owner->systemPower == 1)
 	{
-		runScriptFunction("CAP_HELPLESS %s", self->owner->name);
+		disable();
 	}
 }
 
@@ -315,7 +316,7 @@ static void engineDie(void)
 	
 	if (--self->owner->systemPower == 1)
 	{
-		runScriptFunction("CAP_HELPLESS %s", self->owner->name);
+		disable();
 	}
 }
 
@@ -354,6 +355,25 @@ static void handleDisabled(void)
 		self->shield = self->maxShield = 0;
 		self->action = NULL;
 	}
+}
+
+static void disable(void)
+{
+	Entity *e;
+	
+	runScriptFunction("CAP_HELPLESS %s", self->owner->name);
+		
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->owner == self->owner)
+		{
+			e->systemPower = 0;
+			e->flags |= EF_DISABLED;
+		}
+	}
+	
+	updateObjective(self->owner->name, TT_DISABLE);
+	updateObjective(self->owner->groupName, TT_DISABLE);
 }
 
 void loadCapitalShipDefs(void)
@@ -593,10 +613,16 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 	{
 		if (e->owner == parent)
 		{
+			if (flags != -1)
+			{
+				e->flags |= flags;
+			}
+			
 			switch (e->type)
 			{
 				case ET_COMPONENT_ENGINE:
 					sprintf(e->name, _("%s (Engine)"), parent->name);
+					e->flags &= ~EF_AI_IGNORE;
 					break;
 
 				case ET_COMPONENT:
@@ -605,15 +631,11 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 
 				case ET_COMPONENT_GUN:
 					sprintf(e->name, _("%s (Gun)"), parent->name);
+					e->flags &= ~EF_AI_IGNORE;
 					break;
 			}
 
 			e->active = parent->active;
-			
-			if (flags != -1)
-			{
-				e->flags |= flags;
-			}
 		}
 	}
 }

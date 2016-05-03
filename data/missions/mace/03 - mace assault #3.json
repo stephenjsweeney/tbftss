@@ -90,8 +90,8 @@
 		{
 			"function" : "TIME 1",
 			"lines" : [
-				"MSG_BOX Carr;As you know, our we need to mag a good number of those enemy fighters, and destroy as few as possible.",
-				"MSG_BOX Carr;We need to take down those sentry guns, though, so watch your fire."
+				"MSG_BOX Carr;We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?",
+				"MSG_BOX Carr;Watch your fire: remember, a stray shot could easily destroy a disabled craft."
 			]
 		},
 		{
@@ -111,7 +111,7 @@
 		{
 			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
-				"MSG_BOX Carr;Great work, everyone. That should give the PR something to brag about."
+				"MSG_BOX Carr;Great work, everyone. That should give the PR guys something to brag about."
 			]
 		}
 	]

@@ -36,8 +36,8 @@
 	},
 	"gameplay" : {
 		"friendlyFire" : 0,
-		"autoSwitchPlayerTarget" : 0,
+		"autoSwitchPlayerTarget" : 1,
 		"missileReTarget" : 0,
-		"healthBars" : 0
+		"healthBars" : 1
 	}
 }

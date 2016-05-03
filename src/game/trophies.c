@@ -172,9 +172,9 @@ void drawTrophies(void)
 				blitRotated(sparkle, x + 32, y + 32, -sparkleAngle);
 				
 				blitScaled(trophyIcons[t->value], x, y, 64, 64);
-				drawText(x + 85, y - 10, 20, TA_LEFT, colors.white, t->title);
-				drawText(x + 85, y + 20, 18, TA_LEFT, colors.lightGrey, t->description);
-				drawText(x + 85, y + 48, 18, TA_LEFT, colors.lightGrey, t->awardDateStr);
+				drawText(x + 85, y - 10, 20, TA_LEFT, colors.yellow, t->title);
+				drawText(x + 85, y + 20, 18, TA_LEFT, colors.white, t->description);
+				drawText(x + 85, y + 48, 18, TA_LEFT, colors.white, t->awardDateStr);
 			}
 			else
 			{
@@ -182,9 +182,9 @@ void drawTrophies(void)
 				
 				if (!t->hidden)
 				{
-					drawText(x + 85, y - 10, 20, TA_LEFT, colors.white, t->title);
-					drawText(x + 85, y + 20, 18, TA_LEFT, colors.lightGrey, t->description);
-					drawText(x + 85, y + 48, 18, TA_LEFT, colors.lightGrey, "-");
+					drawText(x + 85, y - 10, 20, TA_LEFT, colors.lightGrey, t->title);
+					drawText(x + 85, y + 20, 18, TA_LEFT, colors.darkGrey, t->description);
+					drawText(x + 85, y + 48, 18, TA_LEFT, colors.darkGrey, "-");
 				}
 				else
 				{

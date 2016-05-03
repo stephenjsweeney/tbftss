@@ -256,10 +256,27 @@ static void componentDie(void)
 
 static void gunDie(void)
 {
+	Entity *e;
+	
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	addDebris(self->x, self->y, 3 + rand() % 4);
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e != self && e->health > 0 && e->owner == self->owner && e->type == ET_COMPONENT_GUN)
+		{
+			return;
+		}
+	}
+	
+	runScriptFunction("CAP_GUNS_DESTROYED %s", self->owner->name);
+	
+	if (--self->owner->systemPower == 1)
+	{
+		runScriptFunction("CAP_HELPLESS %s", self->owner->name);
+	}
 }
 
 static void engineThink(void)
@@ -280,7 +297,7 @@ static void engineDie(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e != self && e->owner == self->owner && e->type == ET_COMPONENT_ENGINE)
+		if (e != self && e->health > 0 && e->owner == self->owner && e->type == ET_COMPONENT_ENGINE)
 		{
 			return;
 		}
@@ -294,6 +311,11 @@ static void engineDie(void)
 		self->owner->dx = self->owner->dy = 0;
 
 		runScriptFunction("CAP_ENGINES_DESTROYED %s", self->owner->name);
+	}
+	
+	if (--self->owner->systemPower == 1)
+	{
+		runScriptFunction("CAP_HELPLESS %s", self->owner->name);
 	}
 }
 
@@ -385,7 +407,7 @@ static void loadCapitalShipDef(char *filename)
 		e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
 		e->speed = 1;
-		e->systemPower = MAX_SYSTEM_POWER;
+		e->systemPower = 3;
 		e->flags = EF_NO_HEALTH_BAR;
 
 		e->action = think;

@@ -21,8 +21,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TURN_SPEED 		0.1
 #define TURN_THRESHOLD 	2
 
-#define AVOID_FORCE		500
-
 #include "../common.h"
 
 #include "../json/cJSON.h"
@@ -52,6 +50,8 @@ extern char *getTranslatedString(char *string);
 extern void addLargeExplosion(void);
 extern char **toTypeArray(char *types, int *numTypes);
 extern void updateCondition(char *name, int type);
+extern void addMessageBox(char *title, char *body, int important);
 
 extern Battle battle;
+extern Entity *player;
 extern Entity *self;

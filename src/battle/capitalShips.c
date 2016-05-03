@@ -34,6 +34,9 @@ static void loadComponents(Entity *parent, cJSON *components);
 static void loadGuns(Entity *parent, cJSON *guns);
 static void loadEngines(Entity *parent, cJSON *engines);
 static void disable(void);
+static void issueEnginesDestroyedMessage(Entity *cap);
+static void issueGunsDestroyedMessage(Entity *cap);
+static void issueDamageMessage(Entity *cap);
 
 static Entity defHead, *defTail;
 
@@ -252,6 +255,11 @@ static void componentDie(void)
 	if (self->owner->health > 0)
 	{
 		runScriptFunction("CAP_HEALTH %s %d", self->owner->name, self->owner->health);
+		
+		if (self->side == player->side)
+		{
+			issueDamageMessage(self->owner);
+		}
 	}
 }
 
@@ -273,6 +281,11 @@ static void gunDie(void)
 	}
 	
 	runScriptFunction("CAP_GUNS_DESTROYED %s", self->owner->name);
+	
+	if (self->side == player->side)
+	{
+		issueGunsDestroyedMessage(self->owner);
+	}
 	
 	if (--self->owner->systemPower == 1)
 	{
@@ -312,6 +325,11 @@ static void engineDie(void)
 		self->owner->dx = self->owner->dy = 0;
 
 		runScriptFunction("CAP_ENGINES_DESTROYED %s", self->owner->name);
+		
+		if (self->side == player->side)
+		{
+			issueEnginesDestroyedMessage(self->owner);
+		}
 	}
 	
 	if (--self->owner->systemPower == 1)
@@ -726,6 +744,32 @@ void loadCapitalShips(cJSON *node)
 
 			free(types);
 		}
+	}
+}
+
+static void issueEnginesDestroyedMessage(Entity *cap)
+{
+	addMessageBox(cap->name, _("We've lost engines! We're a sitting duck!"), 1);
+}
+
+static void issueGunsDestroyedMessage(Entity *cap)
+{
+	addMessageBox(cap->name, _("Our guns have been shot out! We have no defences!"), 1);
+}
+
+static void issueDamageMessage(Entity *cap)
+{
+	if (cap->health == cap->maxHealth - 1)
+	{
+		addMessageBox(cap->name, _("Be advised, we're taking damage here. Please step up support."), 1);
+	}
+	else if (cap->health == cap->maxHealth / 2)
+	{
+		addMessageBox(cap->name, _("We're sustaining heavy damage! All fighters, please assist, ASAP!"), 1);
+	}
+	else if (cap->health == 1)
+	{
+		addMessageBox(cap->name, _("Mayday! Mayday! Defences are critical. We can't hold out much longer!"), 1);
 	}
 }
 

@@ -107,30 +107,6 @@
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"
 			]
-		},
-		{
-			"function" : "CAP_ENGINES_DESTROYED UNF Hopper",
-			"lines" : [
-				"IMPORTANT_MSG_BOX UNF Hopper;Our engines have been shot out! We're a sitting duck!"
-			]
-		},
-		{
-			"function" : "CAP_HEALTH UNF Hopper 6",
-			"lines" : [
-				"IMPORTANT_MSG_BOX UNF Hopper;We're taking damage here, guys! Please step it up."
-			]
-		},
-		{
-			"function" : "CAP_HEALTH UNF Hopper 3",
-			"lines" : [
-				"IMPORTANT_MSG_BOX UNF Hopper;We're sustaining heavy damage! All fighters, please assist, ASAP!"
-			]
-		},
-		{
-			"function" : "CAP_HEALTH UNF Hopper 1",
-			"lines" : [
-				"IMPORTANT_MSG_BOX UNF Hopper;Mayday! Mayday! Defences are critical. We can't hold out much longer!"
-			]
 		}
 	]
 }

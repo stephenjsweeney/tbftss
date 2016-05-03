@@ -403,18 +403,13 @@ void awardCampaignTrophies(void)
 {
 	char trophyId[MAX_NAME_LENGTH];
 	char name[MAX_NAME_LENGTH];
-	int completed, i, len;
+	int i, len;
 	StarSystem *starSystem;
 	
 	if (game.completedMissions)
 	{
 		awardTrophy("CAMPAIGN_1");
 	}
-
-	/* check % of missions completed - 10% increments*/
-	completed = (getPercent(game.completedMissions, game.totalMissions) / 10) * 10;
-	sprintf(trophyId, "CAMPAIGN_%d", completed);
-	awardTrophy(trophyId);
 
 	/* check if all star system missions are completed */
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)

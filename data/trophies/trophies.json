@@ -7,57 +7,9 @@
 	},
 	{
 		"id" : "CAMPAIGN_1",
-		"title" : "2nd Lieutenant",
+		"title" : "Gentle start",
 		"description" : "Complete a campaign mission",
 		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "_CAMPAIGN_10",
-		"title" : "1st Lieutenant",
-		"description" : "Complete 10%% of all missions",
-		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "_CAMPAIGN_20",
-		"title" : "Lieutenant Commander",
-		"description" : "Complete 20%% of all missions",
-		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "_CAMPAIGN_40",
-		"title" : "Commander",
-		"description" : "Complete 40%% of all missions",
-		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "_CAMPAIGN_50",
-		"title" : "Captain",
-		"description" : "Complete 50%% of all missions",
-		"value" : "TROPHY_SILVER"
-	},
-	{
-		"id" : "_CAMPAIGN_60",
-		"title" : "Commodore",
-		"description" : "Complete 60%% of all missions",
-		"value" : "TROPHY_SILVER"
-	},
-	{
-		"id" : "_CAMPAIGN_80",
-		"title" : "Rear Admiral",
-		"description" : "Complete 80%% of all missions",
-		"value" : "TROPHY_SILVER"
-	},
-	{
-		"id" : "_CAMPAIGN_90",
-		"title" : "Admiral",
-		"description" : "Complete 90%% of all missions",
-		"value" : "TROPHY_GOLD"
-	},
-	{
-		"id" : "_CAMPAIGN_100",
-		"title" : "Fleet Admiral",
-		"description" : "Complete all campaign missions",
-		"value" : "TROPHY_GOLD"
 	},
 	{
 		"id" : "CAMPAIGN_SOL",

@@ -200,7 +200,7 @@
 				"ACTIVATE_JUMPGATE 1",
 				"RETREAT_ALLIES",
 				"WAIT 3",
-				"MSG_BOX de Winter;We're needed in Mace. We'll see you soon.",
+				"MSG_BOX de Winter;We're needed elsewhere. We'll see you soon.",
 				"COMPLETE_MISSION"
 			]
 		}

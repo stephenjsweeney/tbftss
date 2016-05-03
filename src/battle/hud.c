@@ -515,6 +515,15 @@ static void drawDistancesInfo(void)
 		
 		y += 25;
 	}
+	
+	if (battle.messageSpeaker)
+	{
+		distance = distanceToKM(player->x, player->y, battle.messageSpeaker->x, battle.messageSpeaker->y);
+		
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.white, "%s: %.2fkm", battle.messageSpeaker->name, distance);
+		
+		y += 25;
+	}
 }
 
 static void drawHudMessages(void)

@@ -21,7 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 
 #define TRIGGER_RANGE	150
-#define DAMAGE_RANGE	255
+#define DAMAGE_RANGE	275
 #define SYSTEM_POWER	50
 
 extern Entity *spawnEntity(void);
@@ -33,6 +33,7 @@ extern void damageFighter(Entity *e, int amount, long flags);
 extern void playBattleSound(int id, int x, int y);
 extern void updateObjective(char *name, int type);
 extern void runScriptFunction(const char *format, ...);
+extern void awardTrophy(char *id);
 
 extern Battle battle;
 extern Entity *player;

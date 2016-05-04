@@ -196,10 +196,12 @@ static void die(void)
 static void doSplashDamage(void)
 {
 	Entity *e, **candidates;
-	int i, dist;
+	int i, dist, kills;
 	float damage, percent;
 
 	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	
+	kills = 0;
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
@@ -213,12 +215,17 @@ static void doSplashDamage(void)
 				percent /= DAMAGE_RANGE;
 				percent = 1 - percent;
 				
-				damage = 255;
+				damage = DAMAGE_RANGE;
 				damage *= percent;
 				
 				if (e->type == ET_FIGHTER)
 				{
 					damageFighter(e, damage, 0);
+					
+					if (self->killedBy == player && e != player && e->health <= 0)
+					{
+						kills++;
+					}
 				}
 				else if (e->type == ET_MINE)
 				{
@@ -230,5 +237,10 @@ static void doSplashDamage(void)
 				}
 			}
 		}
+	}
+	
+	if (kills >= 2)
+	{
+		awardTrophy("2_BIRDS");
 	}
 }

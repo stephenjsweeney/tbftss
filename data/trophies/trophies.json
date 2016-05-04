@@ -248,5 +248,12 @@
 		"description" : "Complete a fighter-based campaign mission without firing",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
+	},
+	{
+		"id" : "2_BIRDS",
+		"title" : "2 birds, 1 stone",
+		"description" : "Destroy two or more fighters by shooting one mine",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
 	}
 ]

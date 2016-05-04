@@ -461,7 +461,7 @@ void awardPostMissionTrophies(void)
 	/*
 	 * Must be a non-challenge mission, a fighter-type (has guns and missiles), must not be Sol, and must not have fired any shots or missiles
 	 */
-	if (game.currentMission->challengeData.isChallenge && player->guns[0].type && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
+	if (!game.currentMission->challengeData.isChallenge && player->guns[0].type && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
 	{
 		awardTrophy("PACIFIST");
 	}

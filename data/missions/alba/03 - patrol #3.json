@@ -4,7 +4,7 @@
 	],
 	"name" : "Patrol #3",
 	"description" : "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter.",
-	"requires" : 28,
+	"requires" : 27,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",
 	"music" : "",

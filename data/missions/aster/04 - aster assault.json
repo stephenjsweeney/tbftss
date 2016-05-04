@@ -1,7 +1,7 @@
 {
 	"name" : "Aster Assault",
 	"description" : "",
-	"requires" : 55,
+	"requires" : 54,
 	"background" : "gfx/backgrounds/background04.jpg",
 	"planet" : "gfx/planets/star.png",
 	"music" : "music/battle/Battle in the winter.mp3",

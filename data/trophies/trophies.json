@@ -160,7 +160,7 @@
 		"description" : "Fire 100,000 shots",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_SHOTS_FIRED",
-		"statValue" : 10000
+		"statValue" : 100000
 	},
 	{
 		"id" : "MISSILE_1000",

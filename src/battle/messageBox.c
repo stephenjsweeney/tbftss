@@ -148,8 +148,11 @@ void drawMessageBox(void)
 static void nextMessage(void)
 {
 	Entity *e, *wingmate;
+	int isWingmate;
 	
 	wingmate = NULL;
+	
+	isWingmate = strcmp(head.next->title, "Wingmate") == 0;
 	
 	playSound(SND_RADIO);
 	
@@ -163,7 +166,7 @@ static void nextMessage(void)
 				return;
 			}
 			
-			if (strcmp(head.next->title, "Wingmate") == 0 && e->type == ET_FIGHTER && e->speed > 0)
+			if (isWingmate && e->type == ET_FIGHTER && e->speed > 0)
 			{
 				wingmate = e;
 				

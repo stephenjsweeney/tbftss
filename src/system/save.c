@@ -64,13 +64,16 @@ static void saveStarSystems(cJSON *gameJSON)
 
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		starSystemJSON = cJSON_CreateObject();
+		if (starSystem->totalMissions > 0)
+		{
+			starSystemJSON = cJSON_CreateObject();
 
-		cJSON_AddStringToObject(starSystemJSON, "name", starSystem->name);
-		cJSON_AddStringToObject(starSystemJSON, "side", getLookupName("SIDE_", starSystem->side));
-		cJSON_AddItemToObject(starSystemJSON, "missions", getMissionsJSON(starSystem));
+			cJSON_AddStringToObject(starSystemJSON, "name", starSystem->name);
+			cJSON_AddStringToObject(starSystemJSON, "side", getLookupName("SIDE_", starSystem->side));
+			cJSON_AddItemToObject(starSystemJSON, "missions", getMissionsJSON(starSystem));
 
-		cJSON_AddItemToArray(starSystemsJSON, starSystemJSON);
+			cJSON_AddItemToArray(starSystemsJSON, starSystemJSON);
+		}
 	}
 
 	cJSON_AddItemToObject(gameJSON, "starSystems", starSystemsJSON);

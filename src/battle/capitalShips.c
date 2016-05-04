@@ -109,6 +109,8 @@ void doCapitalShip(void)
 
 				runScriptFunction("CAPITAL_SHIPS_DESTROYED %d", battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]);
 			}
+			
+			runScriptFunction(self->name);
 		}
 	}
 }

@@ -101,7 +101,7 @@ static void action(void)
 	Entity *e, **candidates;
 	int i;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	candidates = getAllEntsInRadius(self->x, self->y, MAX(self->w, self->h), self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{

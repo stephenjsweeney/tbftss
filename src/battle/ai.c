@@ -312,9 +312,9 @@ static void findTarget(void)
 	Entity *e, **candidates;
 	unsigned int dist, closest;
 	
-	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 1000;
+	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : SCREEN_WIDTH;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - dist, self->y - (self->h / 2) - dist, self->w + (dist * 2), self->h + (dist * 2), self);
+	candidates = getAllEntsInRadius(self->x, self->y, dist, self);
 	
 	self->target = NULL;
 	
@@ -588,7 +588,7 @@ static int nearEnemies(void)
 	int i, numEnemies, x, y;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH, self);
 	
 	self->target = NULL;
 	x = y = 0;
@@ -604,7 +604,7 @@ static int nearEnemies(void)
 				continue;
 			}
 			
-			if (getDistance(e->x, e->y, self->x, self->y) < 1000)
+			if (getDistance(e->x, e->y, self->x, self->y) <= SCREEN_WIDTH)
 			{
 				x += e->x;
 				y += e->y;
@@ -658,7 +658,7 @@ static int nearMines(void)
 	int i, numMines;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_HEIGHT, self);
 	
 	self->targetLocation.x = self->targetLocation.y = 0;
 	
@@ -666,7 +666,7 @@ static int nearMines(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->side != self->side && e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) < 500)
+		if (e->side != self->side && e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) <= SCREEN_HEIGHT)
 		{
 			self->targetLocation.x += e->x;
 			self->targetLocation.y += e->y;
@@ -774,7 +774,7 @@ static int nearItems(void)
 	
 	closest = MAX_TARGET_RANGE;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - (SCREEN_WIDTH / 4), self->y - (self->h / 2) - (SCREEN_HEIGHT / 4), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, self);
+	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH / 2, self);
 	
 	self->target = NULL;
 	
@@ -822,7 +822,7 @@ static int nearTowableCraft(void)
 	
 	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 2000;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - dist, self->y - (self->h / 2) - dist, self->w + (dist * 2), self->h + (dist * 2), self);
+	candidates = getAllEntsInRadius(self->x, self->y, dist, self);
 	
 	self->target = NULL;
 	

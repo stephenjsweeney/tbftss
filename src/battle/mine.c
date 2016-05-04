@@ -99,7 +99,7 @@ static void lookForFighters(void)
 	Entity *e, **candidates;
 	int i;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - DAMAGE_RANGE, self->y - (self->h / 2) - DAMAGE_RANGE, self->w + DAMAGE_RANGE, self->h + DAMAGE_RANGE, self);
+	candidates = getAllEntsInRadius(self->x, self->y, DAMAGE_RANGE, self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
@@ -199,7 +199,7 @@ static void doSplashDamage(void)
 	int i, dist, kills;
 	float damage, percent;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	candidates = getAllEntsInRadius(self->x, self->y, DAMAGE_RANGE, self);
 	
 	kills = 0;
 

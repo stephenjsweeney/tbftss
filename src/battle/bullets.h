@@ -41,6 +41,7 @@ extern void addMissileEngineEffect(Bullet *b);
 extern float mod(float n, float x);
 extern void addMissileExplosion(Bullet *b);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void playSound(int id);
 extern char *getTranslatedString(char *string);

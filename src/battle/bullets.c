@@ -339,7 +339,7 @@ static void selectNewTarget(Bullet *b)
 	{
 		b->target = NULL;
 	
-		candidates = getAllEntsWithin(b->x - (SCREEN_WIDTH / 2), b->y - (SCREEN_HEIGHT / 2), SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
+		candidates = getAllEntsInRadius(b->x, b->y, SCREEN_HEIGHT, NULL);
 		
 		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 		{

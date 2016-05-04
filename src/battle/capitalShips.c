@@ -193,7 +193,7 @@ static int steer(void)
 	count = 0;
 	force = 0;
 
-	candidates = getAllEntsWithin(self->x - 1000, self->y - 1000, 2000, 2000, self);
+	candidates = getAllEntsInRadius(self->x, self->y, 2000, self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{

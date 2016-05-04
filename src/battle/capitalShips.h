@@ -39,7 +39,7 @@ extern float mod(float n, float x);
 extern void applyFighterThrust(void);
 extern void addLargeEngineEffect(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
-extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern void addDebris(int x, int y, int amount);
 extern void runScriptFunction(char *format, ...);
 extern void updateObjective(char *name, int type);

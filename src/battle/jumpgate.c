@@ -172,11 +172,11 @@ static void handleFleeingEntities(void)
 	Entity *e, **candidates;
 	int i;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	candidates = getAllEntsInRadius(self->x, self->y, ESCAPE_DISTANCE * 2, self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->health > 0 && e->flags & EF_RETREATING && getDistance(self->x, self->y, e->x, e->y) <= 255)
+		if (e->health > 0 && e->flags & EF_RETREATING && getDistance(self->x, self->y, e->x, e->y) <= ESCAPE_DISTANCE)
 		{
 			e->alive = ALIVE_ESCAPED;
 

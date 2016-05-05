@@ -95,8 +95,8 @@ void createChristabelLocation(void)
 			STRNCPY(l->name, "CristabelLocation", MAX_NAME_LENGTH);
 			l->x = e->x;
 			l->y = e->y;
-			l->size = 250;
-			l->active = 0;
+			l->size = 500;
+			l->active = 1;
 
 			l->x -= l->size / 2;
 			l->y -= l->size / 2;

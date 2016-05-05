@@ -652,6 +652,10 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 				case ET_COMPONENT_GUN:
 					sprintf(e->name, _("%s (Gun)"), parent->name);
 					e->flags &= ~EF_AI_IGNORE;
+					if (parent->aiFlags & AIF_ASSASSIN)
+					{
+						e->aiFlags |= AIF_ASSASSIN;
+					}
 					break;
 			}
 

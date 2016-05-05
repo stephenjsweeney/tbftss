@@ -347,8 +347,7 @@ static int canAttack(Entity *e)
 	
 	if (!(self->aiFlags & AIF_ASSASSIN))
 	{
-		/* Pandorans will ignore the disable flag - Prisoners will not be taken, lives will not be spared */
-		if (e->flags & EF_MUST_DISABLE && e->side != SIDE_PANDORAN)
+		if (e->flags & EF_MUST_DISABLE)
 		{
 			return e->systemPower > 0;
 		}

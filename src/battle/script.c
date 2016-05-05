@@ -183,7 +183,7 @@ void runScriptTimeFunctions(void)
 static void executeNextLine(ScriptRunner *runner)
 {
 	char *line;
-	char command[24];
+	char command[32];
 	char strParam[3][256];
 	int intParam[2];
 
@@ -268,6 +268,15 @@ static void executeNextLine(ScriptRunner *runner)
 	{
 		battle.isEpic = 0;
 		retreatEnemies();
+	}
+	else if (strcmp(command, "CREATE_CRISTABEL_LOCATION") == 0)
+	{
+		createChristabelLocation();
+	}
+	else if (strcmp(command, "KILL_ENTITY") == 0)
+	{
+		sscanf(line, "%*s %[^\n]", strParam[0]);
+		killEntity(strParam[0]);
 	}
 	else
 	{

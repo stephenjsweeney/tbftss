@@ -75,6 +75,37 @@ void activateLocations(char *locations)
 	}
 }
 
+/*
+ * Literally only used when Christabel's shuttle is disabled
+ */
+void createChristabelLocation(void)
+{
+	Location *l;
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (strcmp(e->name, "Christabel") == 0)
+		{
+			l = malloc(sizeof(Location));
+			memset(l, 0, sizeof(Location));
+			battle.locationTail->next = l;
+			battle.locationTail = l;
+
+			STRNCPY(l->name, "CristabelLocation", MAX_NAME_LENGTH);
+			l->x = e->x;
+			l->y = e->y;
+			l->size = 250;
+			l->active = 0;
+
+			l->x -= l->size / 2;
+			l->y -= l->size / 2;
+			
+			return;
+		}
+	}
+}
+
 void loadLocations(cJSON *node)
 {
 	int active;

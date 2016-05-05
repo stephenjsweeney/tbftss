@@ -634,6 +634,20 @@ static int drawComparator(const void *a, const void *b)
 	return e2->type - e1->type;
 }
 
+void killEntity(char *name)
+{
+	Entity *e;
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (strcmp(e->name, name) == 0)
+		{
+			e->health = 0;
+			e->deathType = DT_INSTANT;
+		}
+	}
+}
+
 void destroyEntities(void)
 {
 	Entity *e;

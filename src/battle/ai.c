@@ -347,7 +347,8 @@ static int canAttack(Entity *e)
 	
 	if (!(self->aiFlags & AIF_ASSASSIN))
 	{
-		if (e->flags & EF_MUST_DISABLE)
+		/* Pandorans will ignore the disable flag - Prisoners will not be taken, lives will not be spared */
+		if (e->flags & EF_MUST_DISABLE && e->side != SIDE_PANDORAN)
 		{
 			return e->systemPower > 0;
 		}
@@ -759,6 +760,8 @@ static int nearJumpgate(void)
 
 static void moveToJumpgate(void)
 {
+	self->target = battle.jumpgate;
+	
 	faceTarget(self->target);
 		
 	applyFighterThrust();

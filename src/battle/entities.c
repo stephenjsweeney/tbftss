@@ -604,7 +604,7 @@ void countNumEnemies(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->side != SIDE_ALLIES && e->type == ET_FIGHTER)
+		if (e->side != SIDE_ALLIES && e->type == ET_FIGHTER && (!(e->flags & EF_NO_THREAT)))
 		{
 			battle.numInitialEnemies++;
 		}

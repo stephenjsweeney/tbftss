@@ -67,6 +67,7 @@ void initLookups(void)
 	addLookup("EF_NO_MT_BOX", EF_NO_MT_BOX);
 	addLookup("EF_FRIENDLY_HEALTH_BAR", EF_FRIENDLY_HEALTH_BAR);
 	addLookup("EF_AI_IGNORE", EF_AI_IGNORE);
+	addLookup("EF_NO_THREAT", EF_NO_THREAT);
 
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);

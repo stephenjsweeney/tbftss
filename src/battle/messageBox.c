@@ -25,11 +25,14 @@ static void nextMessage(void);
 
 static MessageBox head;
 static MessageBox *tail;
+static Entity *lastWingmate;
 
 void initMessageBox(void)
 {
 	memset(&head, 0, sizeof(MessageBox));
 	tail = &head;
+	
+	lastWingmate = NULL;
 }
 
 void addMessageBox(char *title, char *body, int important)
@@ -170,9 +173,9 @@ static void nextMessage(void)
 			{
 				wingmate = e;
 				
-				if (rand() % 2)
+				if (rand() % 2 && e != lastWingmate)
 				{
-					battle.messageSpeaker = e;
+					battle.messageSpeaker = lastWingmate = e;
 					return;
 				}
 			}

@@ -604,7 +604,6 @@ void countNumEnemies(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->side != SIDE_ALLIES && e->type == ET_FIGHTER && (!(e->flags & EF_NO_THREAT)))
 		if (e->side != SIDE_ALLIES && (e->type == ET_FIGHTER || e->type == ET_CAPITAL_SHIP) && (!(e->flags & EF_NO_THREAT)))
 		{
 			battle.numInitialEnemies++;
@@ -645,6 +644,10 @@ void killEntity(char *name)
 		{
 			e->health = 0;
 			e->deathType = DT_INSTANT;
+			
+			/* prevent objectives and conditions from firing */
+			strcpy(e->name, "");
+			strcpy(e->groupName, "");
 		}
 	}
 }

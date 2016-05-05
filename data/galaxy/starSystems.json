@@ -144,9 +144,10 @@
       },
       {
         "name": "Mace",
-        "side" : "SIDE_UNF",
+        "side" : "SIDE_REBEL",
         "x": 444,
-        "y": 359
+        "y": 359,
+        "fallsToPandorans" : 1
       },
       {
         "name": "Clarke",

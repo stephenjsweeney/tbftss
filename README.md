@@ -26,9 +26,11 @@ gfx/trophies/unearned.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http:
 
 All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 
-### DATA FILES (with the exception of Roboto font)
+### DATA FILES
 
-CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
+data/fonts/Roboto-Medium.ttf, by Christian Robertson. Licensed under the Apache License, version 2.0
+
+All other data files are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 
 ### SOUND
 

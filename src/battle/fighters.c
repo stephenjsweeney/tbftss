@@ -312,7 +312,7 @@ void doFighter(void)
 				else
 				{
 					battle.stats[STAT_ALLIES_KILLED]++;
-					if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
+					if (!battle.isEpic && !game.currentMission->challengeData.isChallenge)
 					{
 						addHudMessage(colors.red, _("Ally has been killed"));
 					}
@@ -415,12 +415,18 @@ void damageFighter(Entity *e, int amount, long flags)
 	{
 		if (e->shield > 0)
 		{
-			e->shield = MAX(0, e->shield - amount / 2);
+			amount /= 2;
+			
+			e->shield -= amount;
+			
+			if (e->shield < 0)
+			{
+				amount = -e->shield;
+			}
 		}
-		else
+		
+		if (amount >= 0)
 		{
-			playBattleSound(SND_MAG_HIT, e->x, e->y);
-
 			e->systemPower = MAX(0, e->systemPower - amount);
 
 			e->systemHit = 255;
@@ -430,6 +436,8 @@ void damageFighter(Entity *e, int amount, long flags)
 				e->shield = e->maxShield = 0;
 				e->action = NULL;
 			}
+			
+			playBattleSound(SND_MAG_HIT, e->x, e->y);
 		}
 	}
 	else if (flags & BF_SHIELD_DAMAGE)
@@ -449,9 +457,17 @@ void damageFighter(Entity *e, int amount, long flags)
 	{
 		if (e->shield > 0)
 		{
-			e->shield = MAX(0, e->shield - amount);
+			e->shield -= amount;
+			
+			amount = 0;
+			
+			if (e->shield < 0)
+			{
+				amount = -e->shield;
+			}
 		}
-		else
+		
+		if (amount >= 0)
 		{
 			e->health -= amount;
 			e->armourHit = 255;
@@ -464,11 +480,11 @@ void damageFighter(Entity *e, int amount, long flags)
 	{
 		e->shieldHit = 255;
 
-		/* don't allow the shield to recharge immediately after taking a hit */
-		e->shieldRecharge = e->shieldRechargeRate;
-
 		playBattleSound(SND_SHIELD_HIT, e->x, e->y);
 	}
+	
+	/* don't allow the shield to recharge immediately after taking a hit */
+	e->shieldRecharge = e->shieldRechargeRate;
 
 	/*
 	 * Sometimes run away if you take too much damage in a short space of time
@@ -542,6 +558,11 @@ static void die(void)
 		{
 			awardTrophy("PANDORAN");
 		}
+	}
+	
+	if (self->flags & EF_DROPS_ITEMS)
+	{
+		addRandomItem(self->x, self->y);
 	}
 }
 

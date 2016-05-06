@@ -50,6 +50,7 @@ extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char **toTypeArray(char *types, int *numTypes);
 extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 extern void awardTrophy(char *id);
+extern void addRandomItem(int x, int y);
 
 extern App app;
 extern Battle battle;

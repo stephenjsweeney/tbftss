@@ -253,6 +253,7 @@ typedef struct {
 	int killLimit;
 	int lossLimit;
 	int itemLimit;
+	int playerItemLimit;
 	int escapeLimit;
 	int waypointLimit;
 	int rescueLimit;

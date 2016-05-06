@@ -613,10 +613,12 @@ int playerHasGun(int type)
 void loadPlayer(cJSON *node)
 {
 	char *type;
-	int side;
+	int side, addFlags;
+	long flags;
 
 	type = cJSON_GetObjectItem(node, "type")->valuestring;
 	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
+	flags = -1;
 
 	player = spawnFighter(type, 0, 0, side);
 	player->x = BATTLE_AREA_WIDTH / 2;
@@ -626,6 +628,25 @@ void loadPlayer(cJSON *node)
 	{
 		player->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
 		player->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
+	}
+	
+	if (cJSON_GetObjectItem(node, "flags"))
+	{
+		flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
+	}
+	
+	if (flags != -1)
+	{
+		if (addFlags)
+		{
+			player->flags |= flags;
+		}
+		else
+		{
+			player->flags = flags;
+
+			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for Player replaced");
+		}
 	}
 
 	if (strcmp(type, "Tug") == 0)

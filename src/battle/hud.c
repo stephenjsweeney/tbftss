@@ -450,6 +450,10 @@ static void drawObjectives(void)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
 		}
+		else if (game.currentMission->challengeData.playerItemLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.playerItemLimit);
+		}
 		else if (game.currentMission->challengeData.rescueLimit)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);

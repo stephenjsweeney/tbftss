@@ -30,7 +30,6 @@ extern char *getTranslatedString(char *string);
 extern char *getLookupName(char *prefix, long num);
 extern char *timeToString(long millis, int showHours);
 extern void updateAccuracyStats(unsigned int *stats);
-extern char *timeToString(long millis, int showHours);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern long lookup(char *name);
 extern void awardStatsTrophies(void);

@@ -30,6 +30,7 @@ function cleanHeader($headerFile)
 
 	$func_pattern = "/(([A-Z0-9_]+)\\()/i";
 	$struct_pattern = "/([A-Z]+);/i";
+	$define_pattern = "/#define ([A-Z]+)/i";
 
 	$bodyFile = $headerFile;
 	$bodyFile[strlen($bodyFile) - 1] = 'c';
@@ -38,21 +39,37 @@ function cleanHeader($headerFile)
 	{
 		$header = file($headerFile);
 		$body = file_get_contents($bodyFile);
+		$lines = [];
 	
 		$i = 0;
 		$hasChanges = false;
 		
 		foreach ($header as $line)
 		{
-			if (strstr($line, "extern") !== FALSE && strstr($line, "getTranslatedString") === FALSE)
+			if (preg_match("/extern|define/", $line) && strstr($line, "getTranslatedString") === FALSE)
 			{
 				preg_match($func_pattern, $line, $matches);
-
+				
 				if (count($matches) == 3)
 				{
 					$extern = $matches[2];
 				
 					if (strstr($body, $extern) === FALSE)
+					{
+						if (!$hasChanges)
+						{
+							echo "$headerFile\n";
+							$hasChanges = true;
+						}
+						echo "\t- $line";
+						unset($header[$i]);
+					}
+					
+					if (!in_array($line, $lines))
+					{
+						$lines[] = $line;
+					}
+					else
 					{
 						if (!$hasChanges)
 						{
@@ -70,7 +87,59 @@ function cleanHeader($headerFile)
 				{
 					$extern = $matches[1];
 					
+					$externs[] = $extern;
+					
 					if (strstr($body, "$extern") === FALSE)
+					{
+						if (!$hasChanges)
+						{
+							echo "$headerFile\n";
+							$hasChanges = true;
+						}
+						echo "\t- $line";
+						unset($header[$i]);
+					}
+					
+					if (!in_array($line, $lines))
+					{
+						$lines[] = $line;
+					}
+					else
+					{
+						if (!$hasChanges)
+						{
+							echo "$headerFile\n";
+							$hasChanges = true;
+						}
+						echo "\t- $line";
+						unset($header[$i]);
+					}
+				}
+				
+				preg_match($define_pattern, $line, $matches);
+
+				if (count($matches) == 2)
+				{
+					$extern = $matches[1];
+					
+					$externs[] = $extern;
+					
+					if (strstr($body, "$extern") === FALSE)
+					{
+						if (!$hasChanges)
+						{
+							echo "$headerFile\n";
+							$hasChanges = true;
+						}
+						echo "\t- $line";
+						unset($header[$i]);
+					}
+					
+					if (!in_array($line, $lines))
+					{
+						$lines[] = $line;
+					}
+					else
 					{
 						if (!$hasChanges)
 						{
@@ -95,17 +164,20 @@ function cleanHeader($headerFile)
 
 function recurseDir($dir)
 {
-	$files = array_diff(scandir($dir), array('..', '.'));
-	
-	foreach ($files as $file)
+	if ($dir != "../src/json")
 	{
-		if (is_dir("$dir/$file"))
+		$files = array_diff(scandir($dir), array('..', '.'));
+		
+		foreach ($files as $file)
 		{
-			recurseDir("$dir/$file");
-		}
-		else if (strstr($file, ".h") !== FALSE)
-		{
-			cleanHeader("$dir/$file");
+			if (is_dir("$dir/$file"))
+			{
+				recurseDir("$dir/$file");
+			}
+			else if (strstr($file, ".h") !== FALSE)
+			{
+				cleanHeader("$dir/$file");
+			}
 		}
 	}
 }

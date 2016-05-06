@@ -34,7 +34,6 @@ extern char *readFile(char *filename);
 extern long flagsToLong(char *flags, int *add);
 extern long lookup(char *name);
 extern void doAI(void);
-extern float getAngle(int x1, int y1, int x2, int y2);
 extern float mod(float n, float x);
 extern void applyFighterThrust(void);
 extern void addLargeEngineEffect(void);

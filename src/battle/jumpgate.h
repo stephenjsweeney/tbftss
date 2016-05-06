@@ -30,7 +30,6 @@ extern void playBattleSound(int id, int x, int y);
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern char *getTranslatedString(char *string);
 extern void addSmallExplosion(void);
-extern void playBattleSound(int id, int x, int y);
 extern void addDebris(int x, int y, int amount);
 extern void runScriptFunction(char *format, ...);
 extern void updateObjective(char *name, int type);

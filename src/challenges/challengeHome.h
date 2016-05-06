@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define MAX_ITEMS	14
+#define CHALLENGES_PER_PAGE	14
 
 #define SHOW_CHALLENGES 	0
 #define SHOW_MENU 			1

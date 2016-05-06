@@ -37,21 +37,28 @@ static void unlockChallenges(void);
 static void quit(void);
 static void updateChallengeMissionData(void);
 static char *listRestrictions(void);
+static void prevPage(void);
+static void nextPage(void);
 
 static SDL_Texture *background;
 static SDL_Texture *planetTexture;
 static SDL_Texture *challengeIcon;
 static SDL_Texture *challengeIconHighlight;
-static int startIndex;
 static Widget *start;
 static PointF planet;
 static int show;
+static int page;
+static float maxPages;
 static char timeLimit[MAX_DESCRIPTION_LENGTH];
 static char restrictions[MAX_DESCRIPTION_LENGTH];
 static int hasRestrictions;
+static Widget *prev;
+static Widget *next;
 
 void initChallengeHome(void)
 {
+	Mission *m;
+	
 	startSectionTransition();
 
 	stopMusic();
@@ -79,8 +86,16 @@ void initChallengeHome(void)
 
 	planet.x = rand() % SCREEN_WIDTH;
 	planet.y = rand() % SCREEN_HEIGHT;
-
-	startIndex = 0;
+	
+	maxPages = page = 0;
+	
+	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
+	{
+		maxPages++;
+	}
+	
+	maxPages /= CHALLENGES_PER_PAGE;
+	maxPages = ceil(maxPages);
 
 	show = SHOW_CHALLENGES;
 
@@ -97,6 +112,14 @@ void initChallengeHome(void)
 
 	getWidget("ok", "stats")->action = ok;
 	getWidget("ok", "trophies")->action = ok;
+	
+	prev = getWidget("prev", "challenges");
+	prev->action = prevPage;
+	prev->visible = 0;
+	
+	next = getWidget("next", "challenges");
+	next->action = nextPage;
+	next->visible = 1;
 
 	/* select first challenge if none chosen */
 	if (!game.currentMission)
@@ -108,6 +131,22 @@ void initChallengeHome(void)
 	endSectionTransition();
 
 	playMusic("music/main/covert_operations.mp3");
+}
+
+static void nextPage(void)
+{
+	page = MIN(page + 1, maxPages - 1);
+	
+	next->visible = page < maxPages - 1;
+	prev->visible = 1;
+}
+
+static void prevPage(void)
+{
+	page = MAX(0, page - 1);
+	
+	next->visible = 1;
+	prev->visible = page > 0;
 }
 
 static void unlockChallenges(void)
@@ -173,10 +212,15 @@ static void logic(void)
 static void doChallenges(void)
 {
 	Mission *c;
-
+	int i, startIndex, end;
+	
+	i = 0;
+	startIndex = page * CHALLENGES_PER_PAGE;
+	end = startIndex + CHALLENGES_PER_PAGE;
+	
 	for (c = game.challengeMissionHead.next ; c != NULL ; c = c->next)
 	{
-		if (app.mouse.button[SDL_BUTTON_LEFT] && collision(app.mouse.x, app.mouse.y, 3, 3, c->rect.x, c->rect.y, c->rect.w, c->rect.h))
+		if (i >= startIndex && i < end && app.mouse.button[SDL_BUTTON_LEFT] && collision(app.mouse.x, app.mouse.y, 3, 3, c->rect.x, c->rect.y, c->rect.w, c->rect.h))
 		{
 			if (c->available)
 			{
@@ -191,6 +235,8 @@ static void doChallenges(void)
 
 			app.mouse.button[SDL_BUTTON_LEFT] = 0;
 		}
+		
+		i++;
 	}
 }
 
@@ -238,10 +284,10 @@ static void draw(void)
 	blit(planetTexture, planet.x, planet.y, 1);
 
 	drawStars();
-
-	drawText(SCREEN_WIDTH / 2, 50, 30, TA_CENTER, colors.white, _("Challenges"));
-
-	drawText(SCREEN_WIDTH / 2, 100, 24, TA_CENTER, colors.white, "%d / %d", game.completedChallenges, game.totalChallenges);
+	
+	drawText(SCREEN_WIDTH / 2, 40, 28, TA_CENTER, colors.white, _("Challenges"));
+	drawText(SCREEN_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, _("Completed : %d / %d"), game.completedChallenges, game.totalChallenges);
+	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, _("Page : %d / %d"), page + 1, (int)maxPages);
 
 	drawChallenges();
 
@@ -276,20 +322,22 @@ static void drawChallenges(void)
 	Mission *m;
 	Challenge *c;
 	SDL_Rect r;
-	int i, endIndex;
+	int i, start, end;
 
 	r.x = 135;
 	r.y = 165;
 	r.w = r.h = 96;
 
-	endIndex = startIndex + MAX_ITEMS;
+	start = page * CHALLENGES_PER_PAGE;
+	end = start + CHALLENGES_PER_PAGE;
+	
 	i = 0;
 
 	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
 	{
 		m->rect = r;
 
-		if (i >= startIndex && i <= endIndex)
+		if (i >= start && i < end)
 		{
 			if (game.currentMission == m)
 			{

@@ -1,10 +1,12 @@
 [
 	{
-		"name" : "crate",
+		"defName" : "crate",
+		"name" : "Crate",
 		"texture" : "gfx/items/crate.png"
 	},
 	{
-		"name" : "smallCrate",
+		"defName" : "smallCrate",
+		"name" : "Small Crate",
 		"texture" : "gfx/items/smallCrate.png"
 	}
 ]

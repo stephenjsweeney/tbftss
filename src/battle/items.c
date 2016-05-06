@@ -78,17 +78,29 @@ Entity *spawnItem(char *name)
 
 void addRandomItem(int x, int y)
 {
-	Entity *e;
-
-	e = spawnItem("smallCrate");
-	e->x = x;
-	e->y = y;
+	Entity *e, *def, *item;
 	
-	e->speed = 1;
-	e->dx = rand() % 200 - rand() % 200;
-	e->dy = rand() % 200 - rand() % 200;
-	e->dx *= 0.01;
-	e->dy *= 0.01;
+	def = item = e = NULL;
+
+	for (e = defHead.next ; e != NULL ; e = e->next)
+	{
+		if (!def || rand() % 2)
+		{
+			def = e;
+		}
+	}
+	
+	item = spawnEntity();
+	memcpy(item, def, sizeof(Entity));
+	
+	item->x = x;
+	item->y = y;
+	item->speed = 1;
+	item->dx = rand() % 200 - rand() % 200;
+	item->dy = rand() % 200 - rand() % 200;
+	item->dx *= 0.01;
+	item->dy *= 0.01;
+	item->action = action;
 }
 
 static Entity *getItemDef(char *defName)

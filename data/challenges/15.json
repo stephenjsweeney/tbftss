@@ -69,6 +69,12 @@
 	],
 	"script" : [
 		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Boss;Blow apart those shuttles and grab the spoils before the CSN gets here. No fighting over the packages, you dogs, this is a team effort."
+			]
+		},
+		{
 			"function" : "TIME 10",
 			"lines" : [
 				"ACTIVATE_SPAWNER 1 tafSpawner"

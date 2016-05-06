@@ -132,7 +132,7 @@ void drawTrophies(void)
 {
 	Trophy *t;
 	SDL_Rect r;
-	int start, i, x, y;
+	int start, end, i, x, y;
 	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -159,11 +159,12 @@ void drawTrophies(void)
 	x = r.x + 15;
 	y = 180;
 	start = page * TROPHIES_PER_PAGE;
+	end = start + TROPHIES_PER_PAGE;
 	i = 0;
 	
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
-		if (i >= start && i < start + TROPHIES_PER_PAGE)
+		if (i >= start && i < end)
 		{
 			if (t->awarded)
 			{

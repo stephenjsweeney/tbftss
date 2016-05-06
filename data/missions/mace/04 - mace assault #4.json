@@ -1,7 +1,7 @@
 {
 	"name" : "Mace Assault #4",
 	"description" : "",
-	"requires" : 50,
+	"requires" : 56,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",

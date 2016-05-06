@@ -467,7 +467,7 @@ void damageFighter(Entity *e, int amount, long flags)
 			}
 		}
 		
-		if (amount >= 0)
+		if (amount > 0)
 		{
 			e->health -= amount;
 			e->armourHit = 255;

@@ -97,7 +97,7 @@ void doCapitalShip(void)
 				battle.missionTarget = NULL;
 			}
 
-			if (self->side == SIDE_ALLIES)
+			if (self->side != player->side)
 			{
 				battle.stats[STAT_CAPITAL_SHIPS_LOST]++;
 
@@ -381,7 +381,7 @@ static void disable(void)
 {
 	Entity *e;
 	
-	runScriptFunction("CAP_HELPLESS %s", self->owner->name);
+	runScriptFunction("CAP_DISABLED %s", self->owner->name);
 		
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{

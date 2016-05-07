@@ -220,7 +220,7 @@
 			]
 		},
 		{
-			"function" : "CAP_HELPLESS HMS 121-008",
+			"function" : "CAP_DISABLED HMS 121-008",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Dodds;Brings back memories, doesn't it?",

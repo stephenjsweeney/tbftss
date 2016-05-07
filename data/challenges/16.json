@@ -13,6 +13,7 @@
 		"y" : 25
 	},
 	"challenge" : {
+		"timeLimit" : 240,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_TIME",

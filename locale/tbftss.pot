@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-04 09:39:49+0100\n"
+"POT-Creation-Date: 2016-05-07 13:40:57+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -148,6 +148,9 @@ msgstr ""
 msgid "Mission Failed!"
 msgstr ""
 
+msgid "Challenge Failed!"
+msgstr ""
+
 msgid "Cannot activate waypoint - outstanding objectives not yet complete"
 msgstr ""
 
@@ -167,6 +170,12 @@ msgid "No Guns"
 msgstr ""
 
 msgid "Challenges"
+msgstr ""
+
+msgid "Completed : %d / %d"
+msgstr ""
+
+msgid "Page : %d / %d"
 msgstr ""
 
 msgid "[Locked]"
@@ -215,6 +224,9 @@ msgid "Collect %d packages"
 msgstr ""
 
 msgid "Rescue %d civilians"
+msgstr ""
+
+msgid "Complete challenge in %s or less"
 msgstr ""
 
 msgid "%s has fallen to the Pandorans"
@@ -350,9 +362,6 @@ msgid "Trophies"
 msgstr ""
 
 msgid "Awarded : %d / %d"
-msgstr ""
-
-msgid "Page : %d / %d"
 msgstr ""
 
 msgid "[Hidden]"
@@ -1513,6 +1522,78 @@ msgstr ""
 msgid "Great work, everyone. That should give the PR guys something to brag about."
 msgstr ""
 
+msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
+msgstr ""
+
+msgid "Therefore, you have permission to destroy any and all opposing forces, no need to mag these guys."
+msgstr ""
+
+msgid "Commander, we've got Darts and Shales incoming."
+msgstr ""
+
+msgid "Looks like some mercenaries decided to stick around. Let's show them why that was a bad move."
+msgstr ""
+
+msgid "That's them seen to. Onwards to the jumpgate."
+msgstr ""
+
+msgid "Got INF fighters incoming."
+msgstr ""
+
+msgid "Knew it wouldn't be long."
+msgstr ""
+
+msgid "Patriots, a Tzac warship just arrived in the area, but it has Imperial fighter escorts. Most likely it's been acquired by the Pandroans. It needs to be taken down before Cristabel makes her escape bid, as it might be here to kill her."
+msgstr ""
+
+msgid "Got it. You all heard that. Let's get to it."
+msgstr ""
+
+msgid "Christabel's shuttle has been disabled."
+msgstr ""
+
+msgid "Excellent work! Now let's finish off the rest of these fighters."
+msgstr ""
+
+msgid "All enemies down. Let's get over to Christabel's shuttle and secure the empress."
+msgstr ""
+
+msgid "Empress Christabel, this is Cdr. de Winter of the Confederation Stellar Navy."
+msgstr ""
+
+msgid "Acting under the authority of the allied forces, I am hereby placing you under arrest, for breaches of intergalactic law."
+msgstr ""
+
+msgid "You will be escorted to a neutral court, where you will be tried for your crimes."
+msgstr ""
+
+msgid "If found guilty, the intergalactic community will decide on your punishment."
+msgstr ""
+
+msgid "Sorry, your Highness. I wish it didn't have to go this way, but the galaxy has enough problems as it is."
+msgstr ""
+
+msgid "If--"
+msgstr ""
+
+msgid "Woah! What the hell just happened?!"
+msgstr ""
+
+msgid "Did anyone fire?!"
+msgstr ""
+
+msgid "All guns cold, Commander. Looks like she might have self destructed her own ship."
+msgstr ""
+
+msgid "Dammit!"
+msgstr ""
+
+msgid "Now what?"
+msgstr ""
+
+msgid "Nothing more we can do. We should evacuate the area before more Pandoran forces arrive."
+msgstr ""
+
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
 msgstr ""
 
@@ -1970,6 +2051,12 @@ msgid "Turret Takedown"
 msgstr ""
 
 msgid "Swarms of Swarmers"
+msgstr ""
+
+msgid "Piracy"
+msgstr ""
+
+msgid "Swelling the Ranks"
 msgstr ""
 
 msgid "One of the seven"

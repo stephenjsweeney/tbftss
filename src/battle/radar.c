@@ -63,21 +63,17 @@ void drawRadar(void)
 				r.x--;
 				r.y--;
 				
-				switch (e->side)
+				if (e->side == SIDE_NONE)
 				{
-					case SIDE_ALLIES:
-						SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
-						break;
-						
-					case SIDE_PIRATE:
-					case SIDE_PANDORAN:
-					case SIDE_REBEL:
-						SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
-						break;
-						
-					case SIDE_NONE:
-						SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
-						break;
+					SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+				}
+				else if (e->side == player->side)
+				{
+					SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
+				}
+				else
+				{
+					SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
 				}
 				
 				if (e->type == ET_MINE || e->type == ET_SHADOW_MINE || e->type == ET_JUMPGATE || (e->owner && e->owner->type == ET_JUMPGATE))

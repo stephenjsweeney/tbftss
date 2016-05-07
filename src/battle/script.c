@@ -255,6 +255,11 @@ static void executeNextLine(ScriptRunner *runner)
 		addHudMessage(colors.red, _("Mission Failed!"));
 		failMission();
 	}
+	else if (strcmp(command, "FAIL_CHALLENGE") == 0)
+	{
+		addHudMessage(colors.red, _("Challenge Failed!"));
+		failMission();
+	}
 	else if (strcmp(command, "END_CHALLENGE") == 0)
 	{
 		game.currentMission->challengeData.scriptedEnd = 1;

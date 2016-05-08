@@ -483,10 +483,6 @@ static void completeChallenge(void)
 
 		game.stats[STAT_CHALLENGES_COMPLETED]++;
 
-		retreatAllies();
-
-		retreatEnemies();
-
 		player->flags |= EF_IMMORTAL;
 		
 		awardStatsTrophies();
@@ -500,10 +496,6 @@ static void failChallenge(void)
 		battle.status = MS_FAILED;
 		battle.missionFinishedTimer = FPS;
 		selectWidget("retry", "battleLost");
-
-		retreatAllies();
-
-		retreatEnemies();
 
 		player->flags |= EF_IMMORTAL;
 		

@@ -147,7 +147,12 @@ void doChallenges(void)
 	{
 		if (challengeFinished())
 		{
-			passed = updateChallenges();
+			passed = 0;
+			
+			if (player->health > 0 || (player->health <= 0 && game.currentMission->challengeData.allowPlayerDeath))
+			{
+				passed = updateChallenges();
+			}
 			
 			if (passed)
 			{

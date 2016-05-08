@@ -176,7 +176,7 @@ static void handleFleeingEntities(void)
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->health > 0 && e->flags & EF_RETREATING && getDistance(self->x, self->y, e->x, e->y) <= ESCAPE_DISTANCE)
+		if (e->health > 0 && (e->flags & EF_RETREATING) && getDistance(self->x, self->y, e->x, e->y) <= ESCAPE_DISTANCE)
 		{
 			e->alive = ALIVE_ESCAPED;
 

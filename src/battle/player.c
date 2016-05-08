@@ -142,6 +142,16 @@ void doPlayer(void)
 				initPlayerSelect();
 			}
 		}
+		
+		/* really only used in challenge mode */
+		if (player->systemPower <= 0 && battle.status == MS_IN_PROGRESS)
+		{
+			if (game.currentMission->challengeData.isChallenge)
+			{
+				addHudMessage(colors.red, _("Challenge Failed!"));
+				failMission();
+			}
+		}
 
 		if (battle.status == MS_IN_PROGRESS)
 		{

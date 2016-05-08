@@ -458,6 +458,10 @@ static void drawObjectives(void)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);
 		}
+		else if (player->flags & EF_MUST_DISABLE)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, _("System Power : %d%%"), player->systemPower);
+		}
 	}
 }
 

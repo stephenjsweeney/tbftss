@@ -1,0 +1,73 @@
+{
+	"name" : "Most Wanted",
+	"description" : "Most Wanted",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Shale",
+		"side" : "SIDE_REBEL",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25,
+		"flags" : "+EF_MUST_DISABLE+EF_RETREATING"
+	},
+	"challenge" : {
+		"timeLimit" : 120,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 120
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 1
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 2
+			}
+		]
+	},
+	"entities" : [
+		{
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_NONE",
+			"x" : 25,
+			"y" : 25,
+			"flags" : "EF_DISABLED+EF_NO_HEALTH_BAR"
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Ray",
+			"side" : "SIDE_ALLIES",
+			"interval" : 20,
+			"total" : 5,
+			"step" : 1,
+			"offscreen" : 1
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Help;The jumpgate will come online in just under 2 minutes, for 5 SECONDS ONLY! Evade the CSN until then."
+			]
+		},
+		{
+			"function" : "TIME 114",
+			"lines" : [
+				"ACTIVATE_JUMPGATE 1"
+			]
+		},
+		{
+			"function" : "TIME 119",
+			"lines" : [
+				"ACTIVATE_JUMPGATE 0"
+			]
+		}
+	]
+}

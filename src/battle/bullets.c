@@ -99,7 +99,7 @@ void doBullets(void)
 				huntTarget(b);
 			}
 
-			if (b->target == player && player != NULL && player->health > 0)
+			if (b->target == player && player->alive == ALIVE_ALIVE && player->health > 0)
 			{
 				incomingMissile = 1;
 			}

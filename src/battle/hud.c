@@ -138,7 +138,7 @@ void addHudMessage(SDL_Color c, char *format, ...)
 
 void drawHud(void)
 {
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		drawHealthBars();
 		

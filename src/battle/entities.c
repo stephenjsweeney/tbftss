@@ -178,8 +178,6 @@ void doEntities(void)
 
 				if (e == player)
 				{
-					player = NULL;
-
 					battle.playerSelect = battle.isEpic;
 				}
 
@@ -464,7 +462,7 @@ static void drawTargetRects(Entity *e)
 
 	int size = MAX(e->w, e->h) + 16;
 
-	if (player != NULL && e == player->target)
+	if (player->alive == ALIVE_ALIVE && e == player->target)
 	{
 		r.x = e->x - (size / 2) - battle.camera.x;
 		r.y = e->y - (size / 2) - battle.camera.y;

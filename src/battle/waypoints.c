@@ -67,7 +67,7 @@ static void think(void)
 	{
 		self->aiActionTime = 0;
 		
-		if (self->health && player != NULL && getDistance(player->x, player->y, self->x, self->y) <= 128 && isCurrentObjective() && teamMatesClose())
+		if (self->health && player->alive == ALIVE_ALIVE && getDistance(player->x, player->y, self->x, self->y) <= 128 && isCurrentObjective() && teamMatesClose())
 		{
 			self->health = 0;
 			

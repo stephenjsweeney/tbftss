@@ -122,7 +122,7 @@ static void logic(void)
 
 static void doBattle(void)
 {
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		ssx = player->dx;
 		ssy = player->dy;
@@ -155,7 +155,7 @@ static void doBattle(void)
 
 	doPlayer();
 
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		doSpawners();
 
@@ -196,7 +196,7 @@ static void doBattle(void)
 
 static void draw(void)
 {
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		battle.camera.x = player->x - (SCREEN_WIDTH / 2);
 		battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
@@ -223,7 +223,7 @@ static void draw(void)
 
 	drawHud();
 
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		drawMessageBox();
 	}

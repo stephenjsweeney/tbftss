@@ -124,7 +124,7 @@ static void lookForPlayer(void)
 	float dx, dy, norm;
 	int distance;
 	
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		distance = getDistance(self->x, self->y, player->x, player->y);
 		

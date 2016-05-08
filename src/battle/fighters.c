@@ -284,7 +284,7 @@ void doFighter(void)
 
 	if (self->alive == ALIVE_DEAD)
 	{
-		if (player != NULL && self != player)
+		if (player->alive == ALIVE_ALIVE && self != player)
 		{
 			if (self->side != SIDE_ALLIES)
 			{

@@ -159,7 +159,7 @@ static void doFighterAI(void)
 			{
 				if (!lookForLeader())
 				{
-					if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
+					if (self->aiFlags & AIF_MOVES_TO_PLAYER && player->alive == ALIVE_ALIVE)
 					{
 						moveToPlayer();
 					}
@@ -173,7 +173,7 @@ static void doFighterAI(void)
 			{
 				doWander();
 			}
-			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
+			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player->alive == ALIVE_ALIVE)
 			{
 				moveToPlayer();
 			}
@@ -864,7 +864,7 @@ static int lookForPlayer(void)
 {
 	int range = (self->aiFlags & AIF_MOVES_TO_PLAYER) ? MAX_TARGET_RANGE : 2000;
 	
-	if (player != NULL && getDistance(self->x, self->y, player->x, player->y) < range)
+	if (player->alive == ALIVE_ALIVE && getDistance(self->x, self->y, player->x, player->y) < range)
 	{
 		moveToPlayer();
 		return 1;

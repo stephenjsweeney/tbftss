@@ -93,7 +93,7 @@ void doPlayer(void)
 	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
 	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
 
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		self = player;
 		
@@ -416,6 +416,8 @@ void doPlayerSelect(void)
 
 static void selectNewPlayer(int dir)
 {
+	player = NULL;
+	
 	do
 	{
 		selectedPlayerIndex += dir;

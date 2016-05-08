@@ -22,11 +22,11 @@
 			},
 			{
 				"type" : "CHALLENGE_PLAYER_KILLS",
-				"value" : 1
+				"value" : 2
 			},
 			{
 				"type" : "CHALLENGE_PLAYER_KILLS",
-				"value" : 2
+				"value" : 3
 			}
 		]
 	},
@@ -44,8 +44,8 @@
 			"name" : "spawner",
 			"types" : "Ray",
 			"side" : "SIDE_ALLIES",
-			"interval" : 20,
-			"total" : 5,
+			"interval" : 15,
+			"total" : 8,
 			"step" : 1,
 			"offscreen" : 1
 		}

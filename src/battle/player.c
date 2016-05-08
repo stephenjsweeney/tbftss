@@ -93,7 +93,7 @@ void doPlayer(void)
 	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
 	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
 
-	if (player->alive == ALIVE_ALIVE)
+	if (player->alive == ALIVE_ALIVE && player->systemPower > 0)
 	{
 		self = player;
 		
@@ -142,16 +142,6 @@ void doPlayer(void)
 				initPlayerSelect();
 			}
 		}
-		
-		/* really only used in challenge mode */
-		if (player->systemPower <= 0 && battle.status == MS_IN_PROGRESS)
-		{
-			if (game.currentMission->challengeData.isChallenge)
-			{
-				addHudMessage(colors.red, _("Challenge Failed!"));
-				failMission();
-			}
-		}
 
 		if (battle.status == MS_IN_PROGRESS)
 		{
@@ -161,6 +151,16 @@ void doPlayer(void)
 		if (dev.playerUnlimitedMissiles)
 		{
 			player->missiles = 999;
+		}
+	}
+	
+	/* really only used in challenge mode */
+	if (player->systemPower <= 0 && battle.status == MS_IN_PROGRESS)
+	{
+		if (game.currentMission->challengeData.isChallenge)
+		{
+			addHudMessage(colors.red, _("Challenge Failed!"));
+			failMission();
 		}
 	}
 

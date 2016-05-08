@@ -253,12 +253,12 @@ void doFighter(void)
 
 	if (self->alive == ALIVE_ESCAPED)
 	{
-		if (self == player)
+		if (self == player && !game.currentMission->challengeData.isChallenge)
 		{
 			completeMission();
 		}
 
-		if (self->side != SIDE_ALLIES && (!(self->flags & EF_DISABLED)))
+		if (self->side != player->side && (!(self->flags & EF_DISABLED)))
 		{
 			addHudMessage(colors.red, _("Mission target has escaped."));
 			battle.stats[STAT_ENEMIES_ESCAPED]++;

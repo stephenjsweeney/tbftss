@@ -199,17 +199,7 @@ static int challengeFinished(void)
 		return 1;
 	}
 	
-	if (game.currentMission->challengeData.scriptedEnd)
-	{
-		return 1;
-	}
-	
-	if (player->health <= 0)
-	{
-		return 1;
-	}
-	
-	return 0;
+	return (player->health <= 0 || player->alive == ALIVE_ESCAPED || game.currentMission->challengeData.scriptedEnd);
 }
 
 static int updateChallenges(void)

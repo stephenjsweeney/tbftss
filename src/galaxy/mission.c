@@ -201,7 +201,7 @@ void loadMission(char *filename)
 
 static char *getAutoBackground(char *filename)
 {
-	int hash;
+	unsigned long hash;
 
 	if (!game.currentMission->challengeData.isChallenge)
 	{
@@ -217,7 +217,7 @@ static char *getAutoBackground(char *filename)
 
 static char *getAutoPlanet(char *filename)
 {
-	int hash;
+	unsigned long hash;
 
 	if (!game.currentMission->challengeData.isChallenge)
 	{
@@ -233,7 +233,7 @@ static char *getAutoPlanet(char *filename)
 
 static char *getAutoMusic(char *filename)
 {
-	int hash;
+	unsigned long hash;
 
 	if (!game.currentMission->challengeData.isChallenge)
 	{
@@ -241,7 +241,7 @@ static char *getAutoMusic(char *filename)
 	}
 	else
 	{
-		hash = hashcode(filename);
+		hash = hashcode(game.currentMission->description);
 	}
 
 	return getMusicFilename(hash);

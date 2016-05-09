@@ -32,3 +32,4 @@ extern Battle battle;
 extern Colors colors;
 extern Entity *self;
 extern Entity *player;
+extern Game game;

@@ -96,6 +96,13 @@ static int isCurrentObjective(void)
 		return 0;
 	}
 	
+	if (game.currentMission->challengeData.isChallenge && game.currentMission->challengeData.clearWaypointEnemies && battle.numEnemies > 0)
+	{
+		addHudMessage(colors.cyan, _("Cannot activate waypoint - eliminate enemies first"));
+		self->aiActionTime = FPS;
+		return 0;
+	}
+	
 	return 1;
 }
 

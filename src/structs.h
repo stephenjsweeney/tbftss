@@ -263,6 +263,7 @@ typedef struct {
 	int noGuns;
 	int scriptedEnd;
 	int allowPlayerDeath;
+	int clearWaypointEnemies;
 	Challenge *challenges[MAX_CHALLENGES];
 } ChallengeData;
 

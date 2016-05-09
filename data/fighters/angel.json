@@ -1,0 +1,33 @@
+{
+	"name" : "Angel",
+	"health" : 80,
+	"shield" : 80,
+	"speed" : 1.8,
+	"reloadTime" : 15,
+	"shieldRechargeRate" : 55,
+	"texture" : "gfx/fighters/angel.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : -12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 12,
+			"y" : -12
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : -8,
+			"y" : -12
+		},
+		{
+			"type" : "BT_MAG",
+			"x" : 8,
+			"y" : -12
+		}
+	],
+	"missiles" : 3,
+	"flags" : "EF_TAKES_DAMAGE"
+}

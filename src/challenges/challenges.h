@@ -24,8 +24,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Mission *loadMissionMeta(char *filename);
 extern char **getFileList(char *dir, int *count);
 extern void selectWidget(const char *name, const char *group);
-extern void retreatAllies(void);
-extern void retreatEnemies(void);
 extern char *getTranslatedString(char *string);
 extern char *getLookupName(char *prefix, long num);
 extern char *timeToString(long millis, int showHours);

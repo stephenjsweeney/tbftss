@@ -20,7 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "main.h"
 
-static void handleArguments(int argc, char *argv[]);
+static void handleMissionArgs(int argc, char *argv[]);
+static void handleLoggingArgs(int argc, char *argv[]);
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 	long expireTextTimer;
 	SDL_Event event;
 	
-	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
+	handleLoggingArgs(argc, argv);
 	
 	memset(&app, 0, sizeof(App));
 	memset(&dev, 0, sizeof(Dev));
@@ -53,7 +54,7 @@ int main(int argc, char *argv[])
 		loadGame();
 	}
 	
-	handleArguments(argc, argv);
+	handleMissionArgs(argc, argv);
 	
 	dev.fps = frames = td = 0;
 	then = SDL_GetTicks();
@@ -171,7 +172,34 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-static void handleArguments(int argc, char *argv[])
+static void handleLoggingArgs(int argc, char *argv[])
+{
+	int i;
+	
+	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
+	
+	for (i = 1 ; i < argc ; i++)
+	{
+		if (strcmp(argv[i], "-debug") == 0)
+		{
+			dev.debug = 1;
+			
+			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG);
+		}
+		
+		if (strcmp(argv[i], "-warn") == 0)
+		{
+			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
+		}
+		
+		if (strcmp(argv[i], "-info") == 0)
+		{
+			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
+		}
+	}
+}
+
+static void handleMissionArgs(int argc, char *argv[])
 {
 	int i;
 	int testingMission = 0;
@@ -184,20 +212,6 @@ static void handleArguments(int argc, char *argv[])
 			loadTestMission(argv[i]);
 			
 			testingMission = 1;
-		}
-		else
-		{
-			if (strcmp(argv[i], "-debug") == 0)
-			{
-				dev.debug = 1;
-				
-				SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG);
-			}
-			
-			if (strcmp(argv[i], "-warn") == 0)
-			{
-				SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
-			}
 		}
 	}
 	

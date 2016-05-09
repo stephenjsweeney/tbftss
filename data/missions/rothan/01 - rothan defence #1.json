@@ -4,7 +4,7 @@
 	"requires" : 29,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
-	"music" : "music/battle/track-1.mp3",
+	"music" : "music/battle/track-4.mp3",
 	"manualComplete" : 1,
 	"objectives" : [
 		{

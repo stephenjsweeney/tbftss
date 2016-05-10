@@ -30,10 +30,10 @@ int main(int argc, char *argv[])
 	long expireTextTimer;
 	SDL_Event event;
 	
-	handleLoggingArgs(argc, argv);
-	
 	memset(&app, 0, sizeof(App));
 	memset(&dev, 0, sizeof(Dev));
+	
+	handleLoggingArgs(argc, argv);
 	
 	atexit(cleanup);
 

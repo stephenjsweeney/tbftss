@@ -257,6 +257,7 @@ typedef struct {
 	int escapeLimit;
 	int waypointLimit;
 	int rescueLimit;
+	int disableLimit;
 	int noMissiles;
 	int noBoost;
 	int noECM;

@@ -89,6 +89,8 @@ void loadChallenge(Mission *mission, cJSON *node)
 	int i;
 	Challenge *challenge;
 	
+	memset(&mission->challengeData, 0, sizeof(ChallengeData));
+	
 	mission->challengeData.isChallenge = 1;
 
 	/* limits */
@@ -99,6 +101,7 @@ void loadChallenge(Mission *mission, cJSON *node)
 	mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
 	mission->challengeData.playerItemLimit = getJSONValue(node, "playerItemLimit", 0);
 	mission->challengeData.rescueLimit = getJSONValue(node, "rescueLimit", 0);
+	mission->challengeData.disableLimit = getJSONValue(node, "disableLimit", 0);
 
 	/* restrictions */
 	mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);

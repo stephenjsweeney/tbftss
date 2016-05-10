@@ -14,8 +14,9 @@
 	},
 	"challenge" : {
 		"allowPlayerDeath" : 1,
-		"killLimit" : 5,
+		"disableLimit" : 5,
 		"timeLimit" : 180,
+		"eliminateThreats" : 1,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_DISABLE",

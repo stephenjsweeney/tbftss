@@ -93,65 +93,62 @@ void doPlayer(void)
 	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
 	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
 
+	self = player;
+	
+	if (game.currentMission->challengeData.isChallenge)
+	{
+		applyRestrictions();
+	}
+	
 	if (player->alive == ALIVE_ALIVE && player->systemPower > 0)
 	{
-		self = player;
+		handleKeyboard();
+
+		handleMouse();
+
+		if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || targetOutOfRange())
+		{
+			selectTarget();
+		}
+	}
+
+	player->angle = ((int)player->angle) % 360;
+
+	if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
+	{
+		battle.stats[STAT_PLAYER_KILLED]++;
+		
+		/* the player is known as "Player", so we need to check the craft they were assigned to */
+		if (strcmp(game.currentMission->craft, "ATAF") == 0)
+		{
+			awardTrophy("ATAF_DESTROYED");
+		}
 		
 		if (game.currentMission->challengeData.isChallenge)
 		{
-			applyRestrictions();
-		}
-		
-		if (player->alive == ALIVE_ALIVE)
-		{
-			handleKeyboard();
-
-			handleMouse();
-
-			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || targetOutOfRange())
-			{
-				selectTarget();
-			}
-		}
-
-		player->angle = ((int)player->angle) % 360;
-
-		if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
-		{
-			battle.stats[STAT_PLAYER_KILLED]++;
-			
-			/* the player is known as "Player", so we need to check the craft they were assigned to */
-			if (strcmp(game.currentMission->craft, "ATAF") == 0)
-			{
-				awardTrophy("ATAF_DESTROYED");
-			}
-			
-			if (game.currentMission->challengeData.isChallenge)
-			{
-				if (!game.currentMission->challengeData.allowPlayerDeath)
-				{
-					failMission();
-				}
-			}
-			else if (!battle.isEpic)
+			if (!game.currentMission->challengeData.allowPlayerDeath)
 			{
 				failMission();
 			}
-			else if (player->health == -FPS)
-			{
-				initPlayerSelect();
-			}
 		}
-
-		if (battle.status == MS_IN_PROGRESS)
+		else if (!battle.isEpic)
 		{
-			selectMissionTarget();
+			failMission();
 		}
-
-		if (dev.playerUnlimitedMissiles)
+		else if (player->health == -FPS)
 		{
-			player->missiles = 999;
+			initPlayerSelect();
 		}
+	}
+
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		selectMissionTarget();
+	}
+
+	if (dev.playerUnlimitedMissiles)
+	{
+		player->missiles = 999;
 	}
 	
 	/* really only used in challenge mode */

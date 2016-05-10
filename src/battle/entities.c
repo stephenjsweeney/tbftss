@@ -67,7 +67,7 @@ void doEntities(void)
 
 	prev = &battle.entityHead;
 
-	numAllies = numEnemies = numActiveAllies = numActiveEnemies = numSpawnedEnemies = 0;
+	battle.hasThreats = numAllies = numEnemies = numActiveAllies = numActiveEnemies = numSpawnedEnemies = 0;
 
 	if (dev.playerImmortal)
 	{
@@ -217,6 +217,11 @@ void doEntities(void)
 					{
 						numSpawnedEnemies++;
 					}
+				}
+				
+				if (e->health > 0 && !(e->flags & EF_DISABLED))
+				{
+					battle.hasThreats = 1;
 				}
 			}
 		}

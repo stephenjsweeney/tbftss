@@ -262,9 +262,9 @@ typedef struct {
 	int noBoost;
 	int noECM;
 	int noGuns;
-	int scriptedEnd;
 	int allowPlayerDeath;
 	int clearWaypointEnemies;
+	int eliminateThreats;
 	Challenge *challenges[MAX_CHALLENGES];
 } ChallengeData;
 
@@ -345,6 +345,8 @@ typedef struct {
 	int radarRange;
 	int numPlayerGuns;
 	int numObjectivesComplete, numObjectivesTotal, numConditions;
+	int scriptedEnd;
+	int hasThreats;
 	Entity *missionTarget;
 	Entity *jumpgate;
 	Entity *messageSpeaker;

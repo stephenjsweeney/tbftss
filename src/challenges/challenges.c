@@ -89,8 +89,6 @@ void loadChallenge(Mission *mission, cJSON *node)
 	int i;
 	Challenge *challenge;
 	
-	memset(&mission->challengeData, 0, sizeof(ChallengeData));
-	
 	mission->challengeData.isChallenge = 1;
 
 	/* limits */
@@ -117,6 +115,7 @@ void loadChallenge(Mission *mission, cJSON *node)
 	/* misc */
 	mission->challengeData.allowPlayerDeath = getJSONValue(node, "allowPlayerDeath", 0);
 	mission->challengeData.clearWaypointEnemies = getJSONValue(node, "clearWaypointEnemies", 0);
+	mission->challengeData.eliminateThreats = getJSONValue(node, "eliminateThreats", 0);
 
 	node = cJSON_GetObjectItem(node, "challenges");
 
@@ -208,7 +207,12 @@ static int challengeFinished(void)
 		return 1;
 	}
 	
-	return (player->health <= 0 || player->alive == ALIVE_ESCAPED || game.currentMission->challengeData.scriptedEnd);
+	if (game.currentMission->challengeData.eliminateThreats && !battle.hasThreats)
+	{
+		return 1;
+	}
+	
+	return (player->health <= 0 || player->alive == ALIVE_ESCAPED || battle.scriptedEnd);
 }
 
 static int updateChallenges(void)

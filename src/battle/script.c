@@ -262,7 +262,7 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "END_CHALLENGE") == 0)
 	{
-		game.currentMission->challengeData.scriptedEnd = 1;
+		battle.scriptedEnd = 1;
 	}
 	else if (strcmp(command, "RETREAT_ALLIES") == 0)
 	{

@@ -120,7 +120,7 @@ void updateObjective(char *name, int type)
 					}
 				}
 				
-				if (o->isEliminateAll && o->status != OS_COMPLETE && (battle.stats[STAT_ENEMIES_KILLED] + battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]) == battle.numInitialEnemies)
+				if (o->isEliminateAll && o->status != OS_COMPLETE && !battle.hasThreats)
 				{
 					addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
 					

@@ -446,7 +446,11 @@ static void drawObjectives(void)
 			blit(clock, (SCREEN_WIDTH / 2) - 50, 14, 0);
 		}
 		
-		if (game.currentMission->challengeData.itemLimit)
+		if (game.currentMission->challengeData.killLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.killLimit);
+		}
+		else if (game.currentMission->challengeData.itemLimit)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
 		}
@@ -457,6 +461,10 @@ static void drawObjectives(void)
 		else if (game.currentMission->challengeData.rescueLimit)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);
+		}
+		else if (game.currentMission->challengeData.disableLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.disableLimit);
 		}
 		else if (player->flags & EF_MUST_DISABLE)
 		{

@@ -233,7 +233,7 @@ void doFighter(void)
 				updateObjective(self->name, TT_DISABLE);
 				updateObjective(self->groupName, TT_DISABLE);
 				
-				if (self->side != SIDE_ALLIES)
+				if (self->side != player->side)
 				{
 					runScriptFunction("ENEMIES_DISABLED %d", battle.stats[STAT_ENEMIES_DISABLED]);
 				}
@@ -286,7 +286,7 @@ void doFighter(void)
 	{
 		if (player->alive == ALIVE_ALIVE && self != player)
 		{
-			if (self->side != SIDE_ALLIES)
+			if (self->side != player->side)
 			{
 				if (!(self->flags & EF_NO_KILL_INC))
 				{
@@ -633,7 +633,7 @@ void retreatEnemies(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
+		if (e->type == ET_FIGHTER && e->side != player->side)
 		{
 			e->flags |= EF_RETREATING;
 			
@@ -651,7 +651,7 @@ void retreatAllies(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
+		if (e->type == ET_FIGHTER && e->side == player->side)
 		{
 			e->flags |= EF_RETREATING;
 

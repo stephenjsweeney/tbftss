@@ -196,7 +196,7 @@ void doEntities(void)
 
 		if (e->type == ET_FIGHTER || e->type == ET_CAPITAL_SHIP)
 		{
-			if (e->side == SIDE_ALLIES)
+			if (e->side == player->side)
 			{
 				numAllies++;
 
@@ -430,7 +430,7 @@ static void drawHealthBar(Entity *e)
 		r.w = 32;
 		r.h = 1;
 		
-		if (e->side == SIDE_ALLIES || e->flags & EF_FRIENDLY_HEALTH_BAR)
+		if (e->side == player->side || e->flags & EF_FRIENDLY_HEALTH_BAR)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 0, 128, 0, 255);
 		}
@@ -443,7 +443,7 @@ static void drawHealthBar(Entity *e)
 		
 		r.w = 32 * (e->health * 1.0f / e->maxHealth);
 		
-		if (e->side == SIDE_ALLIES || e->flags & EF_FRIENDLY_HEALTH_BAR)
+		if (e->side == player->side || e->flags & EF_FRIENDLY_HEALTH_BAR)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
 		}

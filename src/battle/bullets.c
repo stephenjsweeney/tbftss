@@ -166,7 +166,7 @@ static void checkCollisions(Bullet *b)
 
 			if (b->owner != e && e->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, e->x - e->w / 2, e->y - e->h / 2, e->w, e->h))
 			{
-				if (b->owner->side == e->side && !app.gameplay.friendlyFire && (!(e->flags & EF_DISABLED)))
+				if (b->owner->side == e->side && !app.gameplay.friendlyFire && (!(e->flags & EF_DISABLED)) && e->type != ET_MINE)
 				{
 					b->damage = 0;
 				}

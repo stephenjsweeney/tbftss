@@ -80,7 +80,6 @@ All other data files are CC BY-NC-SA 3.0, with the following attribution: Copyri
 * Pressure.ogg, by yd (CC-0) - http://opengameart.org/content/pressure
 * Rise of Spirit, by Alexandr Zhelanov (CC-0) - https://soundcloud.com/alexandr-zhelanov
 * Showdown.mp3, by el-corleo (CC-BY) - http://opengameart.org/content/showdown
-* track-1.mp3, by Alexandr Zhelanov (CC-BY) - https://soundcloud.com/alexandr-zhelanov
 * track-3.mp3, by Alexandr Zhelanov (CC-BY) - https://soundcloud.com/alexandr-zhelanov
 * track-4.mp3, by Alexandr Zhelanov (CC-BY) - https://soundcloud.com/alexandr-zhelanov
 * DST-RailJet-LongSeamlessLoop.ogg, by Deceased Superior Technician (CC-BY) - http://opengameart.org/content/railjet-long-seamless-loop

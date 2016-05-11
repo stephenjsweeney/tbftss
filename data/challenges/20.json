@@ -1,0 +1,43 @@
+{
+	"name" : "No survivors",
+	"description" : "No survivors",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Scarab",
+		"side" : "SIDE_PANDORAN",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"killLimit" : 25,
+		"timeLimit" : 210,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 20
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 25
+			},
+			{
+				"type" : "CHALLENGE_ROCKET_ACCURACY",
+				"value" : 80
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"types" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 5000,
+			"number" : 25
+		}
+	]
+}

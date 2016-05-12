@@ -95,6 +95,11 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 
 	e->action = doAI;
 	e->die = die;
+	
+	if (game.currentMission->challengeData.isDeathMatch)
+	{
+		e->side = SDL_GetTicks();
+	}
 
 	return e;
 }

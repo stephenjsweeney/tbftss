@@ -116,6 +116,8 @@ void loadChallenge(Mission *mission, cJSON *node)
 	mission->challengeData.allowPlayerDeath = getJSONValue(node, "allowPlayerDeath", 0);
 	mission->challengeData.clearWaypointEnemies = getJSONValue(node, "clearWaypointEnemies", 0);
 	mission->challengeData.eliminateThreats = getJSONValue(node, "eliminateThreats", 0);
+	mission->challengeData.isDeathMatch = getJSONValue(node, "isDeathMatch", 0);
+	mission->challengeData.isTeamDeathMatch = getJSONValue(node, "isTeamDeathMatch", 0);
 
 	node = cJSON_GetObjectItem(node, "challenges");
 

@@ -265,6 +265,8 @@ typedef struct {
 	int allowPlayerDeath;
 	int clearWaypointEnemies;
 	int eliminateThreats;
+	int isDeathMatch;
+	int isTeamDeathMatch;
 	Challenge *challenges[MAX_CHALLENGES];
 } ChallengeData;
 

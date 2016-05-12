@@ -43,4 +43,3 @@ extern void killEntity(char *name);
 
 extern Battle battle;
 extern Colors colors;
-extern Game game;

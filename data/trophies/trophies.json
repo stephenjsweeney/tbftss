@@ -46,9 +46,23 @@
 		"hidden" : 1
 	},
 	{
-		"id" : "_CAMPAIGN_MACE",
+		"id" : "CAMPAIGN_MACE",
 		"title" : "Going out with a bang",
 		"description" : "Complete all missions at Mace",
+		"value" : "TROPHY_SILVER",
+		"hidden" : 1
+	},
+	{
+		"id" : "CAMPAIGN_ROTHAN",
+		"title" : "Back against the wall",
+		"description" : "Complete all missions at Rothan",
+		"value" : "TROPHY_SILVER",
+		"hidden" : 1
+	},
+	{
+		"id" : "CAMPAIGN_CLARKE",
+		"title" : "Now what do we do?",
+		"description" : "Complete all missions at Clarke",
 		"value" : "TROPHY_SILVER",
 		"hidden" : 1
 	},
@@ -185,6 +199,14 @@
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_BOOST",
 		"statValue" : 250
+	},
+	{
+		"id" : "ITEMS",
+		"title" : "Hoarder",
+		"description" : "Collect 100 items",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_ITEMS_COLLECTED_PLAYER",
+		"statValue" : 100
 	},
 	{
 		"id" : "EVADE",

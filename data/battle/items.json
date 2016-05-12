@@ -1,12 +1,17 @@
 [
 	{
 		"defName" : "crate",
-		"name" : "Crate",
+		"name" : "a crate",
 		"texture" : "gfx/items/crate.png"
 	},
 	{
 		"defName" : "smallCrate",
-		"name" : "Small Crate",
+		"name" : "a small crate",
 		"texture" : "gfx/items/smallCrate.png"
+	},
+	{
+		"defName" : "powerCore01",
+		"name" : "a power core",
+		"texture" : "gfx/items/powerCore01.png"
 	}
 ]

@@ -52,7 +52,6 @@ extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 extern void awardTrophy(char *id);
 extern void addRandomItem(int x, int y);
 
-extern App app;
 extern Battle battle;
 extern Colors colors;
 extern Entity *player;

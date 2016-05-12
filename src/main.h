@@ -51,6 +51,7 @@ extern void doKeyUp(SDL_KeyboardEvent *event);
 extern void createScreenshotFolder(void);
 extern int isControl(int type);
 extern void clearControl(int type);
+extern void saveGame(void);
 
 App app;
 Colors colors;

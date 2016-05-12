@@ -390,7 +390,7 @@ static void postBattle(void)
 	
 	game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
 	
-	saveGame();
+	app.saveGame = 1;
 }
 
 void destroyBattle(void)

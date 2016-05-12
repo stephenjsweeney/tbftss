@@ -163,6 +163,13 @@ int main(int argc, char *argv[])
 			expireTextTimer = SDL_GetTicks() + (1000 * 10);
 		}
 		
+		/* trophy unlocks might cause the game to save several times in one frame */
+		if (app.saveGame)
+		{
+			saveGame();
+			app.saveGame = 0;
+		}
+		
 		/* always zero the mouse motion */
 		app.mouse.dx = app.mouse.dy = 0;
 

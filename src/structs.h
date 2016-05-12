@@ -460,6 +460,7 @@ typedef struct {
 typedef struct {
 	int resetTimeDelta;
 	char saveDir[MAX_FILENAME_LENGTH];
+	int saveGame;
 	int winWidth;
 	int winHeight;
 	float scaleX;

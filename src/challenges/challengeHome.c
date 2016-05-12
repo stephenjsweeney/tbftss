@@ -71,7 +71,7 @@ void initChallengeHome(void)
 
 	awardStatsTrophies();
 
-	saveGame();
+	app.saveGame = 1;
 
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;

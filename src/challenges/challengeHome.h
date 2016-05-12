@@ -44,7 +44,6 @@ extern void drawText(int x, int y, int size, int align, SDL_Color c, const char 
 extern void drawWidgets(char *groupName);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern Widget *getWidget(const char *name, const char *group);
-extern void saveGame(void);
 extern void initTitle(void);
 extern void initStatsDisplay(void);
 extern void drawOptions(void);

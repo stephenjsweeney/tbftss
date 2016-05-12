@@ -33,7 +33,6 @@ extern void loadMission(char *filename);
 extern SDL_Texture *getTexture(char *filename);
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
-extern void saveGame(void);
 extern void blit(SDL_Texture *t, int x, int y, int centered);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a);

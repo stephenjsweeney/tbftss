@@ -218,6 +218,8 @@ void awardTrophy(char *id)
 			t->notify = 1;
 			
 			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Awarding trophy '%s'", id);
+			
+			app.saveGame = 1;
 		}
 		
 		if (!t->awarded)

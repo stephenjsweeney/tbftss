@@ -93,7 +93,7 @@ void initGalacticMap(void)
 
 	awardStatsTrophies();
 
-	saveGame();
+	app.saveGame = 1;
 
 	pulseTimer = 0;
 

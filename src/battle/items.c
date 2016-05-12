@@ -71,6 +71,8 @@ Entity *spawnItem(char *name)
 
 	memcpy(item, def, sizeof(Entity));
 	
+	item->next = NULL;
+	
 	item->action = action;
 
 	return item;
@@ -91,7 +93,10 @@ void addRandomItem(int x, int y)
 	}
 	
 	item = spawnEntity();
+	
 	memcpy(item, def, sizeof(Entity));
+	
+	item->next = NULL;
 	
 	item->x = x;
 	item->y = y;

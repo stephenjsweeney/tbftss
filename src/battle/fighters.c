@@ -464,15 +464,16 @@ void damageFighter(Entity *e, int amount, long flags)
 		{
 			e->shield -= amount;
 			
-			amount = 0;
-			
-			if (e->shield < 0)
+			if (e->shield <= 0)
 			{
-				amount = -e->shield;
+				e->armourHit = 255;
+				e->health += e->shield;
+				e->shield = 0;
+				
+				playBattleSound(SND_ARMOUR_HIT, e->x, e->y);
 			}
 		}
-		
-		if (amount > 0)
+		else
 		{
 			e->health -= amount;
 			e->armourHit = 255;

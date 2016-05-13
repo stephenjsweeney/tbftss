@@ -13,5 +13,55 @@
 		"defName" : "powerCore01",
 		"name" : "a power core",
 		"texture" : "gfx/items/powerCore01.png"
+	},
+	{
+		"defName" : "powerCore02",
+		"name" : "a power core",
+		"texture" : "gfx/items/powerCore02.png"
+	},
+	{
+		"defName" : "powerCore03",
+		"name" : "a power core",
+		"texture" : "gfx/items/powerCore03.png"
+	},
+	{
+		"defName" : "coin01",
+		"name" : "a coin",
+		"texture" : "gfx/items/coin01.png"
+	},
+	{
+		"defName" : "coin02",
+		"name" : "a coin",
+		"texture" : "gfx/items/coin02.png"
+	},
+	{
+		"defName" : "diamond01",
+		"name" : "a diamond",
+		"texture" : "gfx/items/diamond01.png"
+	},
+	{
+		"defName" : "diamond02",
+		"name" : "a diamond",
+		"texture" : "gfx/items/diamond02.png"
+	},
+	{
+		"defName" : "diamond03",
+		"name" : "a diamond",
+		"texture" : "gfx/items/diamond03.png"
+	},
+	{
+		"defName" : "gem01",
+		"name" : "a gem",
+		"texture" : "gfx/items/gem01.png"
+	},
+	{
+		"defName" : "gem02",
+		"name" : "a gem",
+		"texture" : "gfx/items/gem02.png"
+	},
+	{
+		"defName" : "gem03",
+		"name" : "a gem",
+		"texture" : "gfx/items/gem03.png"
 	}
 ]

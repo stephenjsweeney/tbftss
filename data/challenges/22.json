@@ -1,0 +1,45 @@
+{
+	"name" : "Destroy all Darts #4",
+	"description" : "Destroy all Darts #4",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Shale",
+		"side" : "SIDE_REBEL",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 30,
+		"killLimit" : 5,
+		"noMissiles" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 30
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 27
+			},
+			{
+				"type" : "CHALLENGE_SHOT_ACCURACY",
+				"value" : 55
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"name" : "Dart",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"x" : 25,
+			"y" : 22,
+			"number" : 5,
+			"scatter" : 1000
+		}
+	]
+}

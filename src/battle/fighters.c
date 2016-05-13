@@ -645,8 +645,12 @@ void retreatEnemies(void)
 			
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
-			e->aiFlags |= AIF_GOAL_JUMPGATE;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
+			
+			if (!game.currentMission->challengeData.isChallenge)
+			{
+				e->aiFlags |= AIF_GOAL_JUMPGATE;
+			}
 		}
 	}
 }
@@ -663,10 +667,14 @@ void retreatAllies(void)
 
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
-			e->aiFlags |= AIF_GOAL_JUMPGATE;
 			e->aiFlags &= ~AIF_FOLLOWS_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
+			
+			if (!game.currentMission->challengeData.isChallenge)
+			{
+				e->aiFlags |= AIF_GOAL_JUMPGATE;
+			}
 		}
 	}
 }

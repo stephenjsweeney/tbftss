@@ -494,6 +494,10 @@ static void completeChallenge(void)
 
 		player->flags |= EF_IMMORTAL;
 		
+		retreatAllies();
+		
+		retreatEnemies();
+		
 		awardStatsTrophies();
 	}
 }
@@ -512,6 +516,10 @@ static void failChallenge(void)
 		{
 			battle.status = MS_TIME_UP;
 		}
+		
+		retreatAllies();
+		
+		retreatEnemies();
 		
 		awardStatsTrophies();
 	}

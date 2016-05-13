@@ -31,6 +31,8 @@ extern void updateAccuracyStats(unsigned int *stats);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern long lookup(char *name);
 extern void awardStatsTrophies(void);
+extern void retreatAllies(void);
+extern void retreatEnemies(void);
 
 extern Dev dev;
 extern Battle battle;

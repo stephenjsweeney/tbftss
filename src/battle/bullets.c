@@ -399,7 +399,7 @@ void fireGuns(Entity *owner)
 
 	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
 	{
-		if (owner->guns[i].type == owner->selectedGunType || (owner->guns[i].type != BT_NONE && owner->combinedGuns))
+		if (owner->guns[i].type != BT_NONE && (owner->guns[i].type == owner->selectedGunType || owner->combinedGuns))
 		{
 			s = sin(TO_RAIDANS(owner->angle));
 			c = cos(TO_RAIDANS(owner->angle));

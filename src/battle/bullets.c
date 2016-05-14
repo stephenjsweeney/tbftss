@@ -320,8 +320,6 @@ static void huntTarget(Bullet *b)
 			b->life = 0;
 			addMissileExplosion(b);
 			playBattleSound(SND_EXPLOSION_1, b->x, b->y);
-			
-			battle.stats[STAT_MISSILES_EVADED]++;
 		}
 	}
 	else

@@ -211,10 +211,10 @@
 	{
 		"id" : "EVADE",
 		"title" : "Missed, you f**kers!",
-		"description" : "Evade 50 missiles",
+		"description" : "Evade 10 missiles",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_MISSILES_EVADED",
-		"statValue" : 50,
+		"statValue" : 10,
 		"hidden" : 1
 	},
 	{

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-07 13:40:57+0100\n"
+"POT-Creation-Date: 2016-05-14 12:43:16+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -82,6 +82,9 @@ msgstr ""
 msgid "Missiles (%d)"
 msgstr ""
 
+msgid "System Power : %d%%"
+msgstr ""
+
 msgid "%s (Leader)"
 msgstr ""
 
@@ -133,6 +136,9 @@ msgstr ""
 msgid "New Objective : %s"
 msgstr ""
 
+msgid "Challenge Failed!"
+msgstr ""
+
 msgid "Target not in range"
 msgstr ""
 
@@ -148,10 +154,10 @@ msgstr ""
 msgid "Mission Failed!"
 msgstr ""
 
-msgid "Challenge Failed!"
+msgid "Cannot activate waypoint - outstanding objectives not yet complete"
 msgstr ""
 
-msgid "Cannot activate waypoint - outstanding objectives not yet complete"
+msgid "Cannot activate waypoint - eliminate enemies first"
 msgstr ""
 
 msgid "Cannot activate waypoint - team mates too far away"
@@ -2017,7 +2023,13 @@ msgstr ""
 msgid "Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ...."
 msgstr ""
 
-msgid "Destroy all Darts"
+msgid "Destroy all Darts #1"
+msgstr ""
+
+msgid "Destroy all Darts #2"
+msgstr ""
+
+msgid "Destroy all Darts #3"
 msgstr ""
 
 msgid "Destroy all Lynxes"
@@ -2057,6 +2069,24 @@ msgid "Piracy"
 msgstr ""
 
 msgid "Swelling the Ranks"
+msgstr ""
+
+msgid "Most Wanted"
+msgstr ""
+
+msgid "Solo Patrol"
+msgstr ""
+
+msgid "Set Phasers to Stun"
+msgstr ""
+
+msgid "No survivors"
+msgstr ""
+
+msgid "Initiation"
+msgstr ""
+
+msgid "Destroy all Darts #4"
 msgstr ""
 
 msgid "One of the seven"
@@ -2105,6 +2135,18 @@ msgid "Going out with a bang"
 msgstr ""
 
 msgid "Complete all missions at Mace"
+msgstr ""
+
+msgid "Back against the wall"
+msgstr ""
+
+msgid "Complete all missions at Rothan"
+msgstr ""
+
+msgid "Now what do we do?"
+msgstr ""
+
+msgid "Complete all missions at Clarke"
 msgstr ""
 
 msgid "Truly epic"
@@ -2219,6 +2261,12 @@ msgid "Runaway!"
 msgstr ""
 
 msgid "Boost 250 times"
+msgstr ""
+
+msgid "Hoarder"
+msgstr ""
+
+msgid "Collect 100 items"
 msgstr ""
 
 msgid "Missed, you f**kers!"

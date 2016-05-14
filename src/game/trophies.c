@@ -263,7 +263,7 @@ void doTrophyAlerts(void)
 
 static void nextAlert(void)
 {
-	int h;
+	int w, h;
 	Trophy *t;
 
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
@@ -282,8 +282,10 @@ static void nextAlert(void)
 		playSound(SND_TROPHY);
 		
 		textSize(alertTrophy->title, 30, &alertRect.w, &h);
+		textSize(alertTrophy->description, 20, &w, &h);
+		
+		alertRect.w = MAX(alertRect.w, w);
 		alertRect.w += 125;
-		alertRect.w = MAX(alertRect.w, 500);
 		alertRect.x = -alertRect.w;
 	}
 }
@@ -307,7 +309,7 @@ void drawTrophyAlert(void)
 		SDL_RenderDrawRect(app.renderer, &alertRect);
 
 		drawText(alertRect.x + 15, alertRect.y + 5, 30, TA_LEFT, colors.white, alertTrophy->title);
-		drawText(alertRect.x + 15, alertRect.y + 45, 20, TA_LEFT, colors.white, alertTrophy->shortDescription);
+		drawText(alertRect.x + 15, alertRect.y + 45, 20, TA_LEFT, colors.white, alertTrophy->description);
 		
 		setSparkleColor(alertTrophy);
 		
@@ -359,17 +361,8 @@ static void loadTrophyData(char *filename)
 			STRNCPY(t->id, cJSON_GetObjectItem(node, "id")->valuestring, MAX_NAME_LENGTH);
 			STRNCPY(t->title, _(cJSON_GetObjectItem(node, "title")->valuestring), MAX_DESCRIPTION_LENGTH);
 			STRNCPY(t->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
-			STRNCPY(t->shortDescription, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_NAME_LENGTH);
 			t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
 			t->hidden = getJSONValue(node, "hidden", 0);
-			
-			if (strlen(t->description) > MAX_NAME_LENGTH)
-			{
-				t->shortDescription[MAX_NAME_LENGTH - 1] = '.';
-				t->shortDescription[MAX_NAME_LENGTH - 2] = '.';
-				t->shortDescription[MAX_NAME_LENGTH - 3] = '.';
-				t->shortDescription[MAX_NAME_LENGTH - 4] = ' ';
-			}
 			
 			t->stat = -1;
 			

@@ -178,7 +178,7 @@
 		{
 			"groupName" : "CapShips",
 			"name" : "HMS 121-008",
-			"types" : "HMS Corvette 01",
+			"types" : "HMS Corvette 02",
 			"side" : "SIDE_REBEL",
 			"x" : 20,
 			"y" : 20,
@@ -187,7 +187,7 @@
 		{
 			"groupName" : "CapShips",
 			"name" : "HMS 711-555",
-			"types" : "HMS Corvette 01",
+			"types" : "HMS Corvette 02",
 			"side" : "SIDE_REBEL",
 			"x" : 30,
 			"y" : 30,

@@ -361,8 +361,10 @@ static void die(void)
 	}
 
 	updateObjective(self->name, TT_DESTROY);
+	updateObjective(self->groupName, TT_DESTROY);
 	
 	updateCondition(self->name, TT_DESTROY);
+	updateCondition(self->groupName, TT_DESTROY);
 }
 
 static void handleDisabled(void)

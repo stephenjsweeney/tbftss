@@ -708,12 +708,12 @@ static void moveToPlayer(void)
 	
 	if (dist <= 250)
 	{
-		wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 1000), player->y + (player->dy * 1000));
-		
-		turnToFace(wantedAngle);
-		
 		if (player->thrust > 0.1)
 		{
+			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 1000), player->y + (player->dy * 1000));
+		
+			turnToFace(wantedAngle);
+			
 			if (self->thrust > player->thrust)
 			{
 				applyFighterBrakes();

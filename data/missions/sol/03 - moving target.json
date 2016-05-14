@@ -24,7 +24,16 @@
 			"types" : "Unarmed Dart",
 			"side" : "SIDE_PIRATE",
 			"x" : 25,
-			"y" : 24
+			"y" : 24,
+			"aiFlags" : "+AIF_DEFENSIVE"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Earth Orbital #1;This Dart has control over its engines, but not its weapons. Practice chasing it down and destroying it."
+			]
 		}
 	]
 }

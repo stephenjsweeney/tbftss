@@ -27,5 +27,13 @@
 			"x" : 26,
 			"y" : 20
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Earth Orbital #1;Final course. Use all your training to defeat the three opponents."
+			]
+		}
 	]
 }

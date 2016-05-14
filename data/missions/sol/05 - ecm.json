@@ -26,5 +26,13 @@
 			"x" : 25,
 			"y" : 24
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Earth Orbital #1;Use your ECM to destroy the missiles fired at you. Remember, the ECM needs several seconds to recharge between uses."
+			]
+		}
 	]
 }

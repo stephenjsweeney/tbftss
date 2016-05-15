@@ -67,6 +67,15 @@
 		"hidden" : 1
 	},
 	{
+		"id" : "TRESPASSER",
+		"title" : "Trespasser",
+		"description" : "Complete all optional missions",
+		"value" : "TROPHY_GOLD",
+		"stat" : "STAT_OPTIONAL_COMPLETED",
+		"statValue" : 4,
+		"hidden" : 1
+	},
+	{
 		"id" : "EPIC",
 		"title" : "Truly epic",
 		"description" : "Survive an epic battle",

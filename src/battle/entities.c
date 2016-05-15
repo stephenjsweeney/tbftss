@@ -655,6 +655,10 @@ void killEntity(char *name)
 	}
 }
 
+void updateEntitySide(char *side, char *entity)
+{
+}
+
 void destroyEntities(void)
 {
 	Entity *e;

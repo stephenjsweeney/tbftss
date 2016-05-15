@@ -288,6 +288,11 @@ static void executeNextLine(ScriptRunner *runner)
 		sscanf(line, "%*s %[^\n]", strParam[0]);
 		killEntity(strParam[0]);
 	}
+	else if (strcmp(command, "UPDATE_ENTITY_SIDE") == 0)
+	{
+		sscanf(line, "%*s %s %[^\n]", strParam[0], strParam[1]);
+		updateEntitySide(strParam[0], strParam[1]);
+	}
 	else
 	{
 		printf("ERROR: Unrecognised script command '%s'\n", command);

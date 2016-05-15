@@ -40,6 +40,7 @@ extern void activateSpawner(char *name, int active);
 extern void completeAllObjectives(void);
 extern void createChristabelLocation(void);
 extern void killEntity(char *name);
+extern void updateEntitySide(char *side, char *entity);
 
 extern Battle battle;
 extern Colors colors;

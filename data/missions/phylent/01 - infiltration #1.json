@@ -105,7 +105,7 @@
 			"x" : 15,
 			"y" : 25,
 			"scatter" : 500,
-			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_ASSASSIN+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
 			"active" : 0
 		},
 		{
@@ -116,7 +116,7 @@
 			"x" : 25,
 			"y" : 48,
 			"scatter" : 500,
-			"aiFlags" : "AIF_ASSASSIN+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"aiFlags" : "AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
 			"active" : 0
 		},
 		{
@@ -127,7 +127,7 @@
 			"x" : 35,
 			"y" : 25,
 			"scatter" : 500,
-			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_ASSASSIN+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
 			"active" : 0
 		}
 	],

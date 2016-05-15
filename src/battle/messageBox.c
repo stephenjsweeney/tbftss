@@ -35,7 +35,7 @@ void initMessageBox(void)
 	lastWingmate = NULL;
 }
 
-void addMessageBox(char *title, char *body, int important)
+void addMessageBox(char *title, char *body, int type)
 {
 	MessageBox *msg;
 	int isFirst;
@@ -54,7 +54,7 @@ void addMessageBox(char *title, char *body, int important)
 	STRNCPY(msg->title, title, MAX_NAME_LENGTH);
 	STRNCPY(msg->body, body, MAX_DESCRIPTION_LENGTH);
 	msg->time = time * FPS;
-	msg->important = important;
+	msg->type = type;
 	
 	if (isFirst)
 	{
@@ -124,13 +124,13 @@ void drawMessageBox(void)
 		
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 		
-		if (!msg->important)
+		if (msg->type == MB_IMPORTANT)
 		{
-			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+			SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 64);
 		}
 		else
 		{
-			SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 64);
+			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 		}
 		SDL_RenderFillRect(app.renderer, &r);
 		
@@ -142,7 +142,7 @@ void drawMessageBox(void)
 		
 		limitTextWidth(575);
 		
-		drawText(r.x + 10, r.y + 30, 18, TA_LEFT, (!msg->important) ? colors.white : colors.red, msg->body);
+		drawText(r.x + 10, r.y + 30, (msg->type == MB_PANDORAN) ? 0 : 18, TA_LEFT, (msg->type != MB_IMPORTANT) ? colors.white : colors.red, msg->body);
 		
 		limitTextWidth(0);
 	}

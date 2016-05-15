@@ -135,6 +135,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define BOOST_FINISHED_TIME 	(FPS * 0.75)
 #define ECM_RECHARGE_TIME		(FPS * 7)
 
+#define MB_NORMAL				0
+#define MB_IMPORTANT			1
+#define MB_PANDORAN				2
+
 enum
 {
 	CONTROL_FIRE,

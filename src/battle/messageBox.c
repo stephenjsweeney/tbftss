@@ -169,7 +169,7 @@ static void nextMessage(void)
 				return;
 			}
 			
-			if (isWingmate && e->type == ET_FIGHTER && e->speed > 0)
+			if (isWingmate &&  e->side == player->side && e->type == ET_FIGHTER && e->speed > 0)
 			{
 				wingmate = e;
 				

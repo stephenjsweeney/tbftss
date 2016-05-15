@@ -311,6 +311,8 @@ static void addPulses(void)
 					break;
 					
 				case SS_PANDORAN:
+					pulse->r = 128;
+					pulse->g = 128;
 					pulse->b = 255;
 					break;
 			}
@@ -479,7 +481,7 @@ static void drawGalaxy(void)
 						break;
 						
 					case SS_PANDORAN:
-						SDL_SetTextureColorMod(arrowTexture, 0, 0, 255);
+						SDL_SetTextureColorMod(arrowTexture, 64, 128, 255);
 						break;
 				}
 				
@@ -602,7 +604,11 @@ static void drawStarSystemDetail(void)
 	}
 	else if (game.currentMission->epic)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, _("Note: this is an Epic Mission."));
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, _("Note: this is an epic mission."));
+	}
+	else if (selectedStarSystem->side == SIDE_PANDORAN)
+	{
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.cyan, _("Note: this is an optional mission."));
 	}
 
 	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->type == SS_SOL);

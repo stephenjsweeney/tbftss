@@ -217,11 +217,11 @@ void doEntities(void)
 					{
 						numSpawnedEnemies++;
 					}
-					
-					if (!(e->flags & EF_DISABLED))
-					{
-						battle.hasThreats = 1;
-					}
+				}
+				
+				if (!(e->flags & EF_DISABLED))
+				{
+					battle.hasThreats = 1;
 				}
 			}
 		}

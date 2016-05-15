@@ -274,6 +274,7 @@ struct Mission {
 	char description[MAX_DESCRIPTION_LENGTH];
 	char filename[MAX_DESCRIPTION_LENGTH];
 	int requires;
+	int requiresOptional;
 	char pilot[MAX_NAME_LENGTH];
 	char squadron[MAX_NAME_LENGTH];
 	char craft[MAX_NAME_LENGTH];
@@ -282,6 +283,7 @@ struct Mission {
 	int completedChallenges;
 	int totalChallenges;
 	int epic;
+	int isOptional;
 	ChallengeData challengeData;
 	SDL_Rect rect;
 	Mission *next;

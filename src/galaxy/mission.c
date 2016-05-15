@@ -51,7 +51,10 @@ Mission *loadMissionMeta(char *filename)
 		STRNCPY(mission->filename, filename, MAX_DESCRIPTION_LENGTH);
 
 		mission->requires = getJSONValue(root, "requires", 0);
-
+		
+		mission->isOptional = getJSONValue(root, "isOptional", 0);
+		mission->requiresOptional = getJSONValue(root, "requiresOptional", 0);
+		
 		if (cJSON_GetObjectItem(root, "epic"))
 		{
 			mission->epic = 1;
@@ -256,6 +259,11 @@ void completeMission(void)
 		selectWidget("continue", "battleWon");
 
 		game.stats[STAT_MISSIONS_COMPLETED]++;
+		
+		if (game.currentMission->isOptional)
+		{
+			game.stats[STAT_OPTIONAL_COMPLETED]++;	
+		}
 
 		completeConditions();
 
@@ -448,7 +456,7 @@ void updateAllMissions(void)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
-	return (prev->completed && mission->requires <= game.completedMissions) || dev.debug;
+	return (prev->completed && mission->requires <= game.completedMissions && game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional) || dev.debug;
 }
 
 static unsigned long hashcode(const char *str)

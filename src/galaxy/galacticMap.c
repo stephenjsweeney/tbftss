@@ -606,7 +606,7 @@ static void drawStarSystemDetail(void)
 	{
 		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, _("Note: this is an epic mission."));
 	}
-	else if (selectedStarSystem->side == SIDE_PANDORAN)
+	else if (game.currentMission->isOptional)
 	{
 		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.cyan, _("Note: this is an optional mission."));
 	}

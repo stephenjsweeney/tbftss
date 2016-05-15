@@ -1,0 +1,187 @@
+{
+	"name" : "Infiltration #1",
+	"description" : "",
+	"requires" : 0,
+	"isOptional" : 1,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/phylent.png",
+	"music" : "music/battle/Battle in the winter.mp3",
+	"manualComplete" : 1,
+	"player" : {
+		"type" : "TAF",
+		"pilot" : "PJ Burgess",
+		"squadron" : "Drunken Bakers",
+		"side" : "SIDE_ALLIES",
+		"x" : 45,
+		"y" : 5
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemies",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Disable Angel",
+			"targetName" : "Angel",
+			"targetType" : "TT_DISABLE",
+			"targetValue" : 1
+		},
+		{
+			"description" : "Bring Angel to designated location",
+			"targetName" : "Waypoint",
+			"targetType" : "TT_WAYPOINT",
+			"targetValue" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Do not destroy Angel",
+			"targetName" : "Angel",
+			"targetType" : "TT_DESTROY",
+			"targetValue" : 1,
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not allow Ray or tug to be destroyed",
+			"targetName" : "Tug",
+			"targetType" : "TT_DESTROY",
+			"targetValue" : 1,
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"groupName" : "Tug",
+			"name" : "Ray",
+			"types" : "Ray",
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 5,
+			"scatter" : 500
+		},
+		{
+			"name" : "Tug",
+			"groupName" : "Tug",
+			"types" : "Tug",
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 5,
+			"scatter" : 500,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"types" : "TAF;Nymph",
+			"number" : 3,
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 5,
+			"scatter" : 500
+		},
+		{
+			"name" : "Angel",
+			"types" : "Angel",
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500,
+			"flags" : "+EF_MUST_DISABLE+EF_MISSION_TARGET+EF_AI_TARGET"
+		},
+		{
+			"types" : "Dart",
+			"number" : 8,
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"groupName" : "RocketDarts",
+			"types" : "Rocket Dart",
+			"number" : 4,
+			"side" : "SIDE_MERC",
+			"x" : 20,
+			"y" : 48,
+			"scatter" : 500,
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_ASSASSIN+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"active" : 0
+		},
+		{
+			"groupName" : "RocketDarts",
+			"types" : "Rocket Dart",
+			"number" : 5,
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 48,
+			"scatter" : 500,
+			"aiFlags" : "AIF_ASSASSIN+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"active" : 0
+		},
+		{
+			"groupName" : "RocketDarts",
+			"types" : "Rocket Dart",
+			"number" : 4,
+			"side" : "SIDE_MERC",
+			"x" : 30,
+			"y" : 48,
+			"scatter" : 500,
+			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_ASSASSIN+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 25,
+			"y" : 48,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Burgess;I've sighted the Angel. Let's move in and secure it.",
+				"MSG_BOX Wingmate;I've never heard of an Angel. What is it? Some kind of INF super weapon?",
+				"MSG_BOX Burgess;I don't think so. I don't think the INF ever had an ATAF-like fighter.",
+				"MSG_BOX Wingmate;They'd have given us something more powerful to work with, if that was an uber-craft.",
+				"MSG_BOX Wingmate;Whatever it is, they want it pretty badly.",
+				"MSG_BOX Burgess;I'll just be glad to get out of here. This is Pandoran space now."
+			]
+		},
+		{
+			"function" : "Disable Angel",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Ray;Angel has been disabled.",
+				"MSG_BOX Burgess;Good, let's hook the Tug up ASAP and move on to the next step."
+			]
+		},
+		{
+			"function" : "TOWING Angel",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_OBJECTIVES Bring Angel to designated location",
+				"ACTIVATE_NEXT_WAYPOINT",
+				"MSG_BOX Burgess;We have our goal, let's head over to it. Nearly done.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_ENTITY_GROUPS RocketDarts",
+				"MSG_BOX Wingmate;PJ, I'm reading Darts all around the waypoint. Some are heading our way.",
+				"MSG_BOX Tug;They're scanning me!",
+				"MSG_BOX Burgess;Hell! They clearly don't want us to have it if they can't have it. Prepare to engage!"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Burgess;Okay, we're done. We're to wait here for pickup. Shouldn't be more than a few minutes.",
+				"MSG_BOX Wingmate;What do you think they've got planned for this thing?",
+				"MSG_BOX Burgess;No idea. But what I do know is that we're not involved any further.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

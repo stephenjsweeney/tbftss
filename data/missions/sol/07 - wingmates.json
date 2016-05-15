@@ -41,5 +41,13 @@
 			"x" : 26,
 			"y" : 20
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Earth Orbital #1;Wingmate will often assist you in battle. When you're ready, approach the Darts and engage."
+			]
+		}
 	]
 }

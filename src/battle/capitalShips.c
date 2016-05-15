@@ -33,6 +33,10 @@ static void loadCapitalShipDef(char *filename);
 static void loadComponents(Entity *parent, cJSON *components);
 static void loadGuns(Entity *parent, cJSON *guns);
 static void loadEngines(Entity *parent, cJSON *engines);
+static void disable(void);
+static void issueEnginesDestroyedMessage(Entity *cap);
+static void issueGunsDestroyedMessage(Entity *cap);
+static void issueDamageMessage(Entity *cap);
 
 static Entity defHead, *defTail;
 
@@ -93,7 +97,7 @@ void doCapitalShip(void)
 				battle.missionTarget = NULL;
 			}
 
-			if (self->side == SIDE_ALLIES)
+			if (self->side != player->side)
 			{
 				battle.stats[STAT_CAPITAL_SHIPS_LOST]++;
 
@@ -105,6 +109,8 @@ void doCapitalShip(void)
 
 				runScriptFunction("CAPITAL_SHIPS_DESTROYED %d", battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]);
 			}
+			
+			runScriptFunction(self->name);
 		}
 	}
 }
@@ -187,7 +193,7 @@ static int steer(void)
 	count = 0;
 	force = 0;
 
-	candidates = getAllEntsWithin(self->x - 1000, self->y - 1000, 2000, 2000, self);
+	candidates = getAllEntsInRadius(self->x, self->y, 2000, self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
@@ -251,15 +257,42 @@ static void componentDie(void)
 	if (self->owner->health > 0)
 	{
 		runScriptFunction("CAP_HEALTH %s %d", self->owner->name, self->owner->health);
+		
+		if (self->side == player->side)
+		{
+			issueDamageMessage(self->owner);
+		}
 	}
 }
 
 static void gunDie(void)
 {
+	Entity *e;
+	
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	addDebris(self->x, self->y, 3 + rand() % 4);
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e != self && e->health > 0 && e->owner == self->owner && e->type == ET_COMPONENT_GUN)
+		{
+			return;
+		}
+	}
+	
+	runScriptFunction("CAP_GUNS_DESTROYED %s", self->owner->name);
+	
+	if (self->side == player->side)
+	{
+		issueGunsDestroyedMessage(self->owner);
+	}
+	
+	if (--self->owner->systemPower == 1)
+	{
+		disable();
+	}
 }
 
 static void engineThink(void)
@@ -280,7 +313,7 @@ static void engineDie(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e != self && e->owner == self->owner && e->type == ET_COMPONENT_ENGINE)
+		if (e != self && e->health > 0 && e->owner == self->owner && e->type == ET_COMPONENT_ENGINE)
 		{
 			return;
 		}
@@ -294,6 +327,16 @@ static void engineDie(void)
 		self->owner->dx = self->owner->dy = 0;
 
 		runScriptFunction("CAP_ENGINES_DESTROYED %s", self->owner->name);
+		
+		if (self->side == player->side)
+		{
+			issueEnginesDestroyedMessage(self->owner);
+		}
+	}
+	
+	if (--self->owner->systemPower == 1)
+	{
+		disable();
 	}
 }
 
@@ -318,8 +361,10 @@ static void die(void)
 	}
 
 	updateObjective(self->name, TT_DESTROY);
+	updateObjective(self->groupName, TT_DESTROY);
 	
 	updateCondition(self->name, TT_DESTROY);
+	updateCondition(self->groupName, TT_DESTROY);
 }
 
 static void handleDisabled(void)
@@ -332,6 +377,25 @@ static void handleDisabled(void)
 		self->shield = self->maxShield = 0;
 		self->action = NULL;
 	}
+}
+
+static void disable(void)
+{
+	Entity *e;
+	
+	runScriptFunction("CAP_DISABLED %s", self->owner->name);
+		
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->owner == self->owner)
+		{
+			e->systemPower = 0;
+			e->flags |= EF_DISABLED;
+		}
+	}
+	
+	updateObjective(self->owner->name, TT_DISABLE);
+	updateObjective(self->owner->groupName, TT_DISABLE);
 }
 
 void loadCapitalShipDefs(void)
@@ -385,7 +449,8 @@ static void loadCapitalShipDef(char *filename)
 		e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
 		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
 		e->speed = 1;
-		e->systemPower = MAX_SYSTEM_POWER;
+		e->systemPower = 3;
+		e->flags = EF_NO_HEALTH_BAR;
 
 		e->action = think;
 		e->die = die;
@@ -561,16 +626,25 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 {
 	Entity *e;
 	
-	flags &= ~EF_AI_LEADER;
+	if (flags != -1)
+	{
+		flags &= ~EF_AI_LEADER;
+	}
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->owner == parent)
 		{
+			if (flags != -1)
+			{
+				e->flags |= flags;
+			}
+			
 			switch (e->type)
 			{
 				case ET_COMPONENT_ENGINE:
 					sprintf(e->name, _("%s (Engine)"), parent->name);
+					e->flags &= ~EF_AI_IGNORE;
 					break;
 
 				case ET_COMPONENT:
@@ -579,12 +653,15 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 
 				case ET_COMPONENT_GUN:
 					sprintf(e->name, _("%s (Gun)"), parent->name);
+					e->flags &= ~EF_AI_IGNORE;
+					if (parent->aiFlags & AIF_ASSASSIN)
+					{
+						e->aiFlags |= AIF_ASSASSIN;
+					}
 					break;
 			}
 
 			e->active = parent->active;
-			
-			e->flags |= flags;
 		}
 	}
 }
@@ -659,9 +736,9 @@ void loadCapitalShips(cJSON *node)
 
 						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
 					}
-					
-					updateCapitalShipComponentProperties(e, flags);
 				}
+				
+				updateCapitalShipComponentProperties(e, flags);
 				
 				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "%s (%d / %d)", e->name, e->health, e->maxHealth);
 			}
@@ -675,6 +752,32 @@ void loadCapitalShips(cJSON *node)
 
 			free(types);
 		}
+	}
+}
+
+static void issueEnginesDestroyedMessage(Entity *cap)
+{
+	addMessageBox(cap->name, _("We've lost engines! We're a sitting duck!"), 1);
+}
+
+static void issueGunsDestroyedMessage(Entity *cap)
+{
+	addMessageBox(cap->name, _("Our guns have been shot out! We have no defences!"), 1);
+}
+
+static void issueDamageMessage(Entity *cap)
+{
+	if (cap->health == cap->maxHealth - 1)
+	{
+		addMessageBox(cap->name, _("Be advised, we're taking damage here. Please step up support."), 1);
+	}
+	else if (cap->health == cap->maxHealth / 2)
+	{
+		addMessageBox(cap->name, _("We're sustaining heavy damage! All fighters, please assist, ASAP!"), 1);
+	}
+	else if (cap->health == 1)
+	{
+		addMessageBox(cap->name, _("Mayday! Mayday! Defences are critical. We can't hold out much longer!"), 1);
 	}
 }
 

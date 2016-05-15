@@ -1,0 +1,46 @@
+{
+	"name" : "Set Phasers to Stun",
+	"description" : "Set Phasers to Stun",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Angel",
+		"side" : "SIDE_PANDORAN",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"allowPlayerDeath" : 1,
+		"disableLimit" : 5,
+		"timeLimit" : 180,
+		"eliminateThreats" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_DISABLE",
+				"value" : 2
+			},
+			{
+				"type" : "CHALLENGE_DISABLE",
+				"value" : 4
+			},
+			{
+				"type" : "CHALLENGE_DISABLE",
+				"value" : 5
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"types" : "Khepri",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 12000,
+			"number" : 5,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_DROPS_MINES"
+		}
+	]
+}

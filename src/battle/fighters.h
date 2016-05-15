@@ -33,7 +33,7 @@ extern void playBattleSound(int id, int x, int y);
 extern void updateObjective(char *name, int type);
 extern void updateCondition(char *name, int type);
 extern void addHudMessage(SDL_Color c, char *format, ...);
-extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern Entity *spawnEntity(void);
 extern void adjustObjectiveTargetValue(char *name, int type, int amount);
 extern void attachRope(void);
@@ -50,8 +50,8 @@ extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char **toTypeArray(char *types, int *numTypes);
 extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 extern void awardTrophy(char *id);
+extern void addRandomItem(int x, int y);
 
-extern App app;
 extern Battle battle;
 extern Colors colors;
 extern Entity *player;

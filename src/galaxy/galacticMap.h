@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_MENU				2
 #define SHOW_OPTIONS			3
 #define SHOW_STATS				4
+#define SHOW_TROPHIES			5
 
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void initBattle(void);
@@ -32,7 +33,6 @@ extern void loadMission(char *filename);
 extern SDL_Texture *getTexture(char *filename);
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
-extern void saveGame(void);
 extern void blit(SDL_Texture *t, int x, int y, int centered);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a);
@@ -60,10 +60,13 @@ extern StarSystem *getStarSystem(char *name);
 extern void showOKDialog(void (*callback)(void), const char *format, ...);
 extern char *getTranslatedString(char *string);
 extern void clearInput(void);
-extern void doTrophies(void);
+extern void doTrophyAlerts(void);
 extern void drawTrophyAlert(void);
 extern void awardCampaignTrophies(void);
 extern void awardStatsTrophies(void);
+extern void initTrophiesDisplay(void);
+extern void drawTrophies(void);
+extern void doTrophies(void);
 
 extern App app;
 extern Colors colors;

@@ -34,13 +34,15 @@ void drawRadar(void)
 {
 	SDL_Rect r;
 	Entity *e;
-	int dist, inRange;
+	int dist, inRange, blink;
 	
 	blit(radarTexture, SCREEN_WIDTH - 85, SCREEN_HEIGHT - 85, 1);
 	
 	drawText(SCREEN_WIDTH - 160, SCREEN_HEIGHT - 30, 14, TA_RIGHT, colors.white, "%dx", battle.radarRange + 1);
 	
 	r.w = r.h = 3;
+	
+	blink = battle.stats[STAT_TIME] % 60 < 30;
 	
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
@@ -61,36 +63,35 @@ void drawRadar(void)
 				r.x--;
 				r.y--;
 				
-				switch (e->side)
-				{
-					case SIDE_ALLIES:
-						SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
-						break;
-						
-					case SIDE_PIRATE:
-					case SIDE_PANDORAN:
-					case SIDE_REBEL:
-						SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
-						break;
-						
-					case SIDE_NONE:
-						SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
-						break;
-				}
-				
-				if (e == player->target)
-				{
-					SDL_SetRenderDrawColor(app.renderer, 255, 255, 0, 255);
-				}
-				
-				if (e == battle.missionTarget)
+				if (e->side == SIDE_NONE)
 				{
 					SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+				}
+				else if (e->side == player->side)
+				{
+					SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
+				}
+				else
+				{
+					SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
 				}
 				
 				if (e->type == ET_MINE || e->type == ET_SHADOW_MINE || e->type == ET_JUMPGATE || (e->owner && e->owner->type == ET_JUMPGATE))
 				{
 					SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+				}
+				
+				if (blink)
+				{
+					if (e == player->target || e == battle.missionTarget)
+					{
+						SDL_SetRenderDrawColor(app.renderer, 255, 255, 0, 255);
+					}
+					
+					if (e->flags & EF_DISABLED)
+					{
+						SDL_SetRenderDrawColor(app.renderer, 0, 192, 255, 255);
+					}
 				}
 				
 				SDL_RenderFillRect(app.renderer, &r);

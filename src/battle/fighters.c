@@ -95,6 +95,11 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 
 	e->action = doAI;
 	e->die = die;
+	
+	if (game.currentMission->challengeData.isDeathMatch)
+	{
+		e->side = SDL_GetTicks();
+	}
 
 	return e;
 }
@@ -231,8 +236,9 @@ void doFighter(void)
 				battle.stats[STAT_ENEMIES_DISABLED]++;
 
 				updateObjective(self->name, TT_DISABLE);
+				updateObjective(self->groupName, TT_DISABLE);
 				
-				if (self->side != SIDE_ALLIES)
+				if (self->side != player->side)
 				{
 					runScriptFunction("ENEMIES_DISABLED %d", battle.stats[STAT_ENEMIES_DISABLED]);
 				}
@@ -252,12 +258,12 @@ void doFighter(void)
 
 	if (self->alive == ALIVE_ESCAPED)
 	{
-		if (self == player)
+		if (self == player && !game.currentMission->challengeData.isChallenge)
 		{
 			completeMission();
 		}
 
-		if (self->side != SIDE_ALLIES && (!(self->flags & EF_DISABLED)))
+		if (self->side != player->side && (!(self->flags & EF_DISABLED)))
 		{
 			addHudMessage(colors.red, _("Mission target has escaped."));
 			battle.stats[STAT_ENEMIES_ESCAPED]++;
@@ -283,50 +289,50 @@ void doFighter(void)
 
 	if (self->alive == ALIVE_DEAD)
 	{
-		if (player != NULL && self != player)
+		if (player->alive == ALIVE_ALIVE && self != player)
 		{
-			if (player->alive == ALIVE_ALIVE)
+			if (self->side != player->side)
 			{
-				if (self->side != SIDE_ALLIES)
+				if (!(self->flags & EF_NO_KILL_INC))
 				{
-					if (!(self->flags & EF_NO_KILL_INC))
-					{
-						battle.stats[STAT_ENEMIES_KILLED]++;
+					battle.stats[STAT_ENEMIES_KILLED]++;
 
-						runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
+					runScriptFunction("ENEMIES_KILLED %d", battle.stats[STAT_ENEMIES_KILLED]);
+					
+					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Enemies killed [%d / %d]", battle.stats[STAT_ENEMIES_KILLED], battle.numInitialEnemies);
+				}
+			}
+			else
+			{
+				if (strcmp(self->name, "Civilian") == 0)
+				{
+					battle.stats[STAT_CIVILIANS_KILLED]++;
+					if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
+					{
+						addHudMessage(colors.red, _("Civilian has been killed"));
 					}
+					
+					runScriptFunction("CIVILIANS_KILLED %d", battle.stats[STAT_CIVILIANS_KILLED]);
 				}
 				else
 				{
-					if (strcmp(self->name, "Civilian") == 0)
+					battle.stats[STAT_ALLIES_KILLED]++;
+					if (!battle.isEpic && !game.currentMission->challengeData.isChallenge)
 					{
-						battle.stats[STAT_CIVILIANS_KILLED]++;
-						if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
-						{
-							addHudMessage(colors.red, _("Civilian has been killed"));
-						}
-						
-						runScriptFunction("CIVILIANS_KILLED %d", battle.stats[STAT_CIVILIANS_KILLED]);
+						addHudMessage(colors.red, _("Ally has been killed"));
 					}
-					else
-					{
-						battle.stats[STAT_ALLIES_KILLED]++;
-						if (!battle.isEpic || game.currentMission->challengeData.isChallenge)
-						{
-							addHudMessage(colors.red, _("Ally has been killed"));
-						}
 
-						runScriptFunction("ALLIES_KILLED %d", battle.stats[STAT_ALLIES_KILLED]);
-					}
+					runScriptFunction("ALLIES_KILLED %d", battle.stats[STAT_ALLIES_KILLED]);
 				}
 			}
-
+			
 			updateObjective(self->name, TT_DESTROY);
 			updateObjective(self->groupName, TT_DESTROY);
 
 			adjustObjectiveTargetValue(self->name, TT_ESCAPED, -1);
 
 			updateCondition(self->name, TT_DESTROY);
+			updateCondition(self->groupName, TT_DESTROY);
 		}
 	}
 }
@@ -344,7 +350,7 @@ static void separate(void)
 	count = 0;
 	force = 0;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	candidates = getAllEntsInRadius(self->x, self->y, self->separationRadius, self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
@@ -409,19 +415,34 @@ void damageFighter(Entity *e, int amount, long flags)
 
 	e->aiDamageTimer = FPS;
 	e->aiDamagePerSec += amount;
-
+	
 	if (flags & BF_SYSTEM_DAMAGE)
 	{
-		playBattleSound(SND_MAG_HIT, e->x, e->y);
-
-		e->systemPower = MAX(0, e->systemPower - amount);
-
-		e->systemHit = 255;
-
-		if (e->systemPower == 0)
+		if (e->shield > 0)
 		{
-			e->shield = e->maxShield = 0;
-			e->action = NULL;
+			amount /= 2;
+			
+			e->shield -= amount;
+			
+			if (e->shield < 0)
+			{
+				amount = -e->shield;
+			}
+		}
+		
+		if (amount >= 0)
+		{
+			e->systemPower = MAX(0, e->systemPower - amount);
+
+			e->systemHit = 255;
+
+			if (e->systemPower == 0)
+			{
+				e->shield = e->maxShield = 0;
+				e->action = NULL;
+			}
+			
+			playBattleSound(SND_MAG_HIT, e->x, e->y);
 		}
 	}
 	else if (flags & BF_SHIELD_DAMAGE)
@@ -442,11 +463,14 @@ void damageFighter(Entity *e, int amount, long flags)
 		if (e->shield > 0)
 		{
 			e->shield -= amount;
-
-			if (e->shield < 0)
+			
+			if (e->shield <= 0)
 			{
+				e->armourHit = 255;
 				e->health += e->shield;
 				e->shield = 0;
+				
+				playBattleSound(SND_ARMOUR_HIT, e->x, e->y);
 			}
 		}
 		else
@@ -462,11 +486,11 @@ void damageFighter(Entity *e, int amount, long flags)
 	{
 		e->shieldHit = 255;
 
-		/* don't allow the shield to recharge immediately after taking a hit */
-		e->shieldRecharge = e->shieldRechargeRate;
-
 		playBattleSound(SND_SHIELD_HIT, e->x, e->y);
 	}
+	
+	/* don't allow the shield to recharge immediately after taking a hit */
+	e->shieldRecharge = e->shieldRechargeRate;
 
 	/*
 	 * Sometimes run away if you take too much damage in a short space of time
@@ -541,6 +565,11 @@ static void die(void)
 			awardTrophy("PANDORAN");
 		}
 	}
+	
+	if (self->flags & EF_DROPS_ITEMS)
+	{
+		addRandomItem(self->x, self->y);
+	}
 }
 
 static void immediateDie(void)
@@ -610,14 +639,18 @@ void retreatEnemies(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->type == ET_FIGHTER && e->side != SIDE_ALLIES)
+		if (e->type == ET_FIGHTER && e->side != player->side)
 		{
 			e->flags |= EF_RETREATING;
 			
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
-			e->aiFlags |= AIF_GOAL_JUMPGATE;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
+			
+			if (!game.currentMission->challengeData.isChallenge)
+			{
+				e->aiFlags |= AIF_GOAL_JUMPGATE;
+			}
 		}
 	}
 }
@@ -628,16 +661,20 @@ void retreatAllies(void)
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
+		if (e->type == ET_FIGHTER && e->side == player->side)
 		{
 			e->flags |= EF_RETREATING;
 
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
-			e->aiFlags |= AIF_GOAL_JUMPGATE;
 			e->aiFlags &= ~AIF_FOLLOWS_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
+			
+			if (!game.currentMission->challengeData.isChallenge)
+			{
+				e->aiFlags |= AIF_GOAL_JUMPGATE;
+			}
 		}
 	}
 }
@@ -780,14 +817,16 @@ static void loadFighterDef(char *filename)
 void loadFighters(cJSON *node)
 {
 	Entity *e;
-	char **types, *name, *groupName, *type;
+	char **types, *name, *groupName, *type, *strpos;
 	int side, scatter, number, active;
-	int i, numTypes, addFlags, addAIFlags;
+	int i, numTypes, addFlags, addAIFlags, id;
 	long flags, aiFlags;
 	float x, y;
 
 	if (node)
 	{
+		id = 0;
+		
 		node = node->child;
 
 		while (node)
@@ -867,6 +906,14 @@ void loadFighters(cJSON *node)
 				if (name)
 				{
 					STRNCPY(e->name, name, MAX_NAME_LENGTH);
+					
+					/* update 'name #?' to 'name #1', etc. */
+					strpos = strstr(e->name, "#?");
+					
+					if (strpos)
+					{
+						*(++strpos) = ('0' + ++id);
+					}
 				}
 
 				if (groupName)

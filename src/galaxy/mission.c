@@ -126,7 +126,7 @@ void loadMission(char *filename)
 	battle.unwinnable = getJSONValue(root, "unwinnable", 0);
 	battle.waypointAutoAdvance = getJSONValue(root, "waypointAutoAdvance", 0);
 
-	initScript(cJSON_GetObjectItem(root, "script"));
+	initScript(root);
 
 	/* music, planet, and background loading must come last, so AUTO works properly */
 
@@ -201,7 +201,7 @@ void loadMission(char *filename)
 
 static char *getAutoBackground(char *filename)
 {
-	int hash;
+	unsigned long hash;
 
 	if (!game.currentMission->challengeData.isChallenge)
 	{
@@ -217,7 +217,7 @@ static char *getAutoBackground(char *filename)
 
 static char *getAutoPlanet(char *filename)
 {
-	int hash;
+	unsigned long hash;
 
 	if (!game.currentMission->challengeData.isChallenge)
 	{
@@ -233,7 +233,7 @@ static char *getAutoPlanet(char *filename)
 
 static char *getAutoMusic(char *filename)
 {
-	int hash;
+	unsigned long hash;
 
 	if (!game.currentMission->challengeData.isChallenge)
 	{
@@ -241,7 +241,7 @@ static char *getAutoMusic(char *filename)
 	}
 	else
 	{
-		hash = hashcode(filename);
+		hash = hashcode(game.currentMission->description);
 	}
 
 	return getMusicFilename(hash);
@@ -262,6 +262,13 @@ void completeMission(void)
 		retreatEnemies();
 
 		player->flags |= EF_IMMORTAL;
+		
+		awardStatsTrophies();
+		
+		if (!game.currentMission->challengeData.isChallenge)
+		{
+			awardPostMissionTrophies();
+		}
 	}
 }
 
@@ -276,6 +283,8 @@ void failMission(void)
 		failIncompleteObjectives();
 
 		player->flags |= EF_IMMORTAL;
+		
+		awardStatsTrophies();
 	}
 }
 

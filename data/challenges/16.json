@@ -1,0 +1,55 @@
+{
+	"name" : "Swelling the Ranks",
+	"description" : "Swelling the Ranks",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Scarab",
+		"side" : "SIDE_PANDORAN",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 240,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 120
+			},
+			{
+				"type" : "CHALLENGE_ROCKET_ACCURACY",
+				"value" : 75
+			},
+			{
+				"type" : "CHALLENGE_ARMOUR",
+				"value" : 80
+			}
+		]
+	},
+	"capitalShips" : [
+		{
+			"name" : "CSN Denier",
+			"types" : "CSN Corvette 01",
+			"side" : "SIDE_ALLIES",
+			"x" : 20,
+			"y" : 25
+		}
+	],
+	"script" : [
+		{
+			"function" : "CAP_DISABLED CSN Denier",
+			"lines" : [
+				"END_CHALLENGE"
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 1",
+			"lines" : [
+				"FAIL_CHALLENGE"
+			]
+		}
+	]
+}

@@ -1,0 +1,168 @@
+{
+	"name" : "Mace Assault #1",
+	"description" : "",
+	"requires" : 50,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/battleThemeA.mp3",
+	"manualComplete" : 1,
+	"player" : {
+		"type" : "Hammerhead",
+		"pilot" : "Lt. Cdr. Ian Barclay",
+		"squadron" : "Iron Wolves",
+		"side" : "SIDE_ALLIES",
+		"x" : 45,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Knock jumpgate offline",
+			"targetName" : "Jumpgate",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate all enemies",
+			"targetName" : "ENEMY",
+			"targetType" : "TT_DESTROY",
+			"targetValue" : 1,
+			"isEliminateAll" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Wolfenden",
+			"fullname" : "Tamara Wolfenden",
+			"types" : "Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 25,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER+EF_IMMORTAL",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "TAF;Ray",
+			"number" : 6,
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 25,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"types" : "Rapid Plasma Turret",
+			"number" : 8,
+			"side" : "SIDE_REBEL",
+			"x" : 10,
+			"y" : 25,
+			"scatter" : 700
+		},
+		{
+			"types" : "Shale;Razor",
+			"number" : 7,
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 28,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"scatter" : 500
+		},
+		{
+			"groupName" : "Rebels-1",
+			"types" : "SK-31;SK-34",
+			"number" : 7,
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 28,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Blizzard",
+			"number" : 5,
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : 25,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"scatter" : 500,
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_REBEL",
+			"x" : 10,
+			"y" : 25
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Wolfenden;Our goal is the jumpgate. Expect a lot of resistance.",
+				"MSG_BOX Wolfenden;Once we're they, we need to destroy the control nodes to shut it down. Barclay, that's your job."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 7",
+			"lines" : [
+				"WAIT 2",
+				"MSG_BOX Wingmate;More enemies incoming.",
+				"ACTIVATE_ENTITY_GROUPS Rebels-1"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 14",
+			"lines" : [
+				"WAIT 5",
+				"MSG_BOX Wingmate;Commander, I'm detecting a wing of Blizzards, incoming.",
+				"MSG_BOX Wolfenden;Couldn't expect Tzac not to bring out the heavy guns. Let's take it to them, people.",
+				"ACTIVATE_ENTITY_GROUPS Rebels-2"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 19",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wolfenden;We're clear for the run against the gate.",
+				"MSG_BOX Wolfenden;It's guarded by several rapid-fire plasma turrets. Try not to let those things get a lock on you."
+			]
+		},
+		{
+			"function" : "JUMPGATE_HEALTH 5",
+			"lines" : [
+				"MSG_BOX Barclay;Half the nodes are down.",
+				"MSG_BOX Wolfenden;Keep at it!"
+			]
+		},
+		{
+			"function" : "JUMPGATE_HEALTH 1",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Barclay;Jumpgate is down."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wolfenden;Control, this is Wolfenden. Tzac's outer jumpgate is offline.",
+				"MSG_BOX Control;Acknowledged. Hold position there. We'll need you to guard that gate and prevent the enemy from affecting repairs.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 6",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wolfenden;Dammit, the team's been cut down! Looks like it's up to you and me, Ian.",
+				"MSG_BOX Barclay;We'll make sure their deaths weren't in vain."
+			]
+		}
+	]
+}

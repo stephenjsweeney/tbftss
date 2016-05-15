@@ -1,0 +1,118 @@
+{
+	"name" : "Mace Assault #3",
+	"description" : "",
+	"requires" : 50,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/track-3.mp3",
+	"player" : {
+		"pilot" : "2nd Lt. Jim Goddard",
+		"squadron" : "Iron Patriots",
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"x" : 5,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate Tzac opposition",
+			"targetName" : "Destroy",
+			"targetValue" : 45,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Disable 50%% of Tzac craft",
+			"targetName" : "Disable",
+			"targetValue" : 20,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Do not destroy tagged Tzac craft",
+			"targetName" : "Disable",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Carr",
+			"types" : "Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 25,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER+EF_IMMORTAL",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "TAF;Hyena-A",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 25,
+			"scatter" : 500,
+			"number" : 6,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Destroy",
+			"types" : "Shale;SK-31;SK-34;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 15000,
+			"number" : 20,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Disable",
+			"types" : "Shale;SK-31;SK-34;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 15000,
+			"number" : 20,
+			"flags" : "+EF_MUST_DISABLE+EF_MISSION_TARGET",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Destroy",
+			"types" : "Rapid Plasma Turret;Rocket Turret",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 8000,
+			"number" : 25,
+			"flags" : "+EF_AI_LEADER"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Carr;We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?",
+				"MSG_BOX Carr;Watch your fire: remember, a stray shot could easily destroy a disabled craft."
+			]
+		},
+		{
+			"function" : "Disable 50%% of Tzac craft",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wingmate;All tagged Tzac fighters have been disabled."
+			]
+		},
+		{
+			"function" : "Eliminate Tzac opposition",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wingmate;Tzac opposition has been destroyed."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"MSG_BOX Carr;Great work, everyone. That should give the PR guys something to brag about."
+			]
+		}
+	]
+}

@@ -82,35 +82,49 @@ void updateObjective(char *name, int type)
 	Objective *o;
 	int completed, hasHidden;
 	
-	completed = battle.numObjectivesComplete;
-	
-	hasHidden = 0;
-	
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	if (strlen(name))
 	{
-		if (o->active && o->status != OS_COMPLETE)
+		completed = battle.numObjectivesComplete;
+		
+		hasHidden = 0;
+		
+		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 		{
-			if (!o->isEliminateAll && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+			if (o->active && o->status != OS_COMPLETE)
 			{
-				o->currentValue++;
-				
-				if (!o->hideNumbers)
+				if (!o->isEliminateAll && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 				{
-					if (o->targetValue - o->currentValue <= 10)
+					o->currentValue++;
+					
+					if (!o->hideNumbers)
 					{
-						addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+						if (o->targetValue - o->currentValue <= 10)
+						{
+							addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+						}
+						else if (o->currentValue % 10 == 0)
+						{
+							addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+						}
 					}
-					else if (o->currentValue % 10 == 0)
+					
+					if (o->currentValue == o->targetValue)
 					{
-						addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+						addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
+						
+						runScriptFunction(o->description);
+						
+						o->status = OS_COMPLETE;
+						
+						runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
 					}
 				}
 				
-				if (o->currentValue == o->targetValue)
+				if (o->isEliminateAll && o->status != OS_COMPLETE && !battle.hasThreats)
 				{
 					addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
 					
-					runScriptFunction(o->description);
+					o->currentValue = o->targetValue;
 					
 					o->status = OS_COMPLETE;
 					
@@ -118,27 +132,16 @@ void updateObjective(char *name, int type)
 				}
 			}
 			
-			if (o->isEliminateAll && o->status != OS_COMPLETE && battle.stats[STAT_ENEMIES_KILLED] == battle.numInitialEnemies)
+			if (!o->active)
 			{
-				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
-				
-				o->currentValue = o->targetValue;
-				
-				o->status = OS_COMPLETE;
-				
-				runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
+				hasHidden = 1;
 			}
 		}
 		
-		if (!o->active)
+		if (completed == battle.numObjectivesTotal && !hasHidden)
 		{
-			hasHidden = 1;
+			runScriptFunction("ALL_OBJECTIVES_COMPLETE");
 		}
-	}
-	
-	if (completed == battle.numObjectivesTotal && !hasHidden)
-	{
-		runScriptFunction("ALL_OBJECTIVES_COMPLETE");
 	}
 }
 
@@ -166,20 +169,23 @@ void updateCondition(char *name, int type)
 {
 	Objective *o;
 	
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	if (strlen(name))
 	{
-		if (o->active && o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
+		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 		{
-			o->currentValue++;
-			
-			if (o->currentValue == o->targetValue)
+			if (o->active && o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 			{
-				o->status = OS_FAILED;
-				addHudMessage(colors.red, _("%s - Objective Failed!"), o->description);
-			}
-			else if (!o->hideNumbers)
-			{
-				addHudMessage(colors.red, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+				o->currentValue++;
+				
+				if (o->currentValue == o->targetValue)
+				{
+					o->status = OS_FAILED;
+					addHudMessage(colors.red, _("%s - Objective Failed!"), o->description);
+				}
+				else if (!o->hideNumbers)
+				{
+					addHudMessage(colors.red, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
+				}
 			}
 		}
 	}

@@ -110,6 +110,11 @@ static void logic(void)
 				doPlayerSelect();
 			}
 		}
+		
+		if (battle.status != MS_IN_PROGRESS && battle.missionFinishedTimer <= -FPS * 2)
+		{
+			doTrophyAlerts();
+		}
 	}
 
 	doWidgets();
@@ -117,7 +122,7 @@ static void logic(void)
 
 static void doBattle(void)
 {
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		ssx = player->dx;
 		ssy = player->dy;
@@ -150,7 +155,7 @@ static void doBattle(void)
 
 	doPlayer();
 
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		doSpawners();
 
@@ -177,21 +182,21 @@ static void doBattle(void)
 	if (battle.status != MS_IN_PROGRESS)
 	{
 		battle.missionFinishedTimer--;
-	}
+		
+		if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
+		{
+			postBattle();
 
-	if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
-	{
-		postBattle();
+			destroyBattle();
 
-		destroyBattle();
-
-		initGalacticMap();
+			initGalacticMap();
+		}
 	}
 }
 
 static void draw(void)
 {
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		battle.camera.x = player->x - (SCREEN_WIDTH / 2);
 		battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
@@ -218,7 +223,7 @@ static void draw(void)
 
 	drawHud();
 
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		drawMessageBox();
 	}
@@ -234,6 +239,11 @@ static void draw(void)
 		case SHOW_OPTIONS:
 			drawOptions();
 			break;
+	}
+	
+	if (battle.status != MS_IN_PROGRESS && battle.status != MS_PAUSED && battle.missionFinishedTimer <= -FPS * 2)
+	{
+		drawTrophyAlert();
 	}
 }
 
@@ -373,21 +383,14 @@ static void postBattle(void)
 			game.stats[i] += battle.stats[i];
 		}
 	}
+	
+	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
 
 	updateAccuracyStats(game.stats);
-
-	if (!game.currentMission->challengeData.isChallenge)
-	{
-		if (game.currentMission && !game.currentMission->completed)
-		{
-			game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
-
-			if (game.currentMission->completed)
-			{
-				awardPostMissionTrophies();
-			}
-		}
-	}
+	
+	game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
+	
+	app.saveGame = 1;
 }
 
 void destroyBattle(void)

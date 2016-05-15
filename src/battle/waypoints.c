@@ -44,9 +44,8 @@ Entity *spawnWaypoint(void)
 	waypoint->active = 0;
 	waypoint->health = waypoint->maxHealth = FPS;
 	waypoint->texture = getTexture("gfx/entities/waypoint.png");
-	waypoint->flags = EF_MISSION_TARGET;
+	waypoint->flags = EF_NO_MT_BOX+EF_MISSION_TARGET+EF_NO_HEALTH_BAR;
 	waypoint->action = think;
-	waypoint->flags |= EF_NO_MT_BOX;
 	
 	SDL_QueryTexture(waypoint->texture, NULL, NULL, &waypoint->w, &waypoint->h);
 	
@@ -68,7 +67,7 @@ static void think(void)
 	{
 		self->aiActionTime = 0;
 		
-		if (self->health && player != NULL && getDistance(player->x, player->y, self->x, self->y) <= 128 && isCurrentObjective() && teamMatesClose())
+		if (self->health && player->alive == ALIVE_ALIVE && getDistance(player->x, player->y, self->x, self->y) <= 128 && isCurrentObjective() && teamMatesClose())
 		{
 			self->health = 0;
 			
@@ -93,6 +92,13 @@ static int isCurrentObjective(void)
 	if (numActiveObjectives > 1)
 	{
 		addHudMessage(colors.cyan, _("Cannot activate waypoint - outstanding objectives not yet complete"));
+		self->aiActionTime = FPS;
+		return 0;
+	}
+	
+	if (game.currentMission->challengeData.isChallenge && game.currentMission->challengeData.clearWaypointEnemies && battle.numEnemies > 0)
+	{
+		addHudMessage(colors.cyan, _("Cannot activate waypoint - eliminate enemies first"));
 		self->aiActionTime = FPS;
 		return 0;
 	}

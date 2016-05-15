@@ -26,5 +26,13 @@
 			"x" : 25,
 			"y" : 24
 		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Earth Orbital #1;This Dart is armed! Watch yourself."
+			]
+		}
 	]
 }

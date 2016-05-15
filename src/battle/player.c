@@ -35,6 +35,7 @@ static void handleMouse(void);
 static void preFireMissile(void);
 static void applyRestrictions(void);
 static int isPriorityMissionTarget(Entity *e, int dist, int closest);
+static int targetOutOfRange(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -83,10 +84,8 @@ void initPlayer(void)
 
 	battle.boostTimer = BOOST_RECHARGE_TIME;
 	battle.ecmTimer = ECM_RECHARGE_TIME;
-
-	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
-
-	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
+	
+	player->flags |= EF_NO_HEALTH_BAR;
 }
 
 void doPlayer(void)
@@ -94,64 +93,71 @@ void doPlayer(void)
 	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
 	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
 
-	if (player != NULL)
+	self = player;
+	
+	if (game.currentMission->challengeData.isChallenge)
 	{
-		self = player;
+		applyRestrictions();
+	}
+	
+	if (player->alive == ALIVE_ALIVE && player->systemPower > 0)
+	{
+		handleKeyboard();
+
+		handleMouse();
+
+		if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || targetOutOfRange())
+		{
+			selectTarget();
+		}
+	}
+
+	player->angle = ((int)player->angle) % 360;
+
+	if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
+	{
+		battle.stats[STAT_PLAYER_KILLED]++;
+		
+		/* the player is known as "Player", so we need to check the craft they were assigned to */
+		if (strcmp(game.currentMission->craft, "ATAF") == 0)
+		{
+			awardTrophy("ATAF_DESTROYED");
+		}
 		
 		if (game.currentMission->challengeData.isChallenge)
 		{
-			applyRestrictions();
-		}
-		
-		if (player->alive == ALIVE_ALIVE)
-		{
-			handleKeyboard();
-
-			handleMouse();
-
-			if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0)
-			{
-				selectTarget();
-			}
-		}
-
-		player->angle = ((int)player->angle) % 360;
-
-		if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
-		{
-			battle.stats[STAT_PLAYER_KILLED]++;
-			
-			/* the player is known as "Player", so we need to check the craft they were assigned to */
-			if (strcmp(game.currentMission->craft, "ATAF") == 0)
-			{
-				awardTrophy("ATAF_DESTROYED");
-			}
-			
-			if (game.currentMission->challengeData.isChallenge)
-			{
-				if (!game.currentMission->challengeData.allowPlayerDeath)
-				{
-					failMission();
-				}
-			}
-			else if (!battle.isEpic)
+			if (!game.currentMission->challengeData.allowPlayerDeath)
 			{
 				failMission();
 			}
-			else if (player->health == -FPS)
-			{
-				initPlayerSelect();
-			}
 		}
-
-		if (battle.status == MS_IN_PROGRESS)
+		else if (!battle.isEpic)
 		{
-			selectMissionTarget();
+			failMission();
 		}
-
-		if (dev.playerUnlimitedMissiles)
+		else if (player->health == -FPS)
 		{
-			player->missiles = 999;
+			initPlayerSelect();
+		}
+	}
+
+	if (battle.status == MS_IN_PROGRESS)
+	{
+		selectMissionTarget();
+	}
+
+	if (dev.playerUnlimitedMissiles)
+	{
+		player->missiles = 999;
+	}
+	
+	/* really only used in challenge mode */
+	if (player->systemPower <= 0 && battle.status == MS_IN_PROGRESS)
+	{
+		if (game.currentMission->challengeData.isChallenge)
+		{
+			addHudMessage(colors.red, _("Challenge Failed!"));
+			failMission();
 		}
 	}
 
@@ -159,6 +165,11 @@ void doPlayer(void)
 	{
 		deactivateBoost();
 	}
+}
+
+static int targetOutOfRange(void)
+{
+	return (app.gameplay.autoSwitchPlayerTarget && getDistance(player->x, player->y, player->target->x, player->target->y) > SCREEN_WIDTH * 2);
 }
 
 static void applyRestrictions(void)
@@ -255,8 +266,7 @@ static void handleKeyboard(void)
 	}
 	else
 	{
-		player->dx *= 0.99;
-		player->dy *= 0.99;
+		applyFighterBrakes();
 	}
 }
 
@@ -403,6 +413,8 @@ void doPlayerSelect(void)
 
 static void selectNewPlayer(int dir)
 {
+	player = NULL;
+	
 	do
 	{
 		selectedPlayerIndex += dir;
@@ -610,10 +622,12 @@ int playerHasGun(int type)
 void loadPlayer(cJSON *node)
 {
 	char *type;
-	int side;
+	int side, addFlags;
+	long flags;
 
 	type = cJSON_GetObjectItem(node, "type")->valuestring;
 	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);
+	flags = -1;
 
 	player = spawnFighter(type, 0, 0, side);
 	player->x = BATTLE_AREA_WIDTH / 2;
@@ -623,6 +637,25 @@ void loadPlayer(cJSON *node)
 	{
 		player->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
 		player->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
+	}
+	
+	if (cJSON_GetObjectItem(node, "flags"))
+	{
+		flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
+	}
+	
+	if (flags != -1)
+	{
+		if (addFlags)
+		{
+			player->flags |= flags;
+		}
+		else
+		{
+			player->flags = flags;
+
+			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for Player replaced");
+		}
 	}
 
 	if (strcmp(type, "Tug") == 0)

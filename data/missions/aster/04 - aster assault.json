@@ -1,0 +1,268 @@
+{
+	"name" : "Aster Assault",
+	"description" : "",
+	"requires" : 54,
+	"background" : "gfx/backgrounds/background04.jpg",
+	"planet" : "gfx/planets/star.png",
+	"music" : "music/battle/Battle in the winter.mp3",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Disable all fighters",
+			"targetName" : "Rebels",
+			"targetValue" : 32,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Disable all capital ships",
+			"targetName" : "CapShips",
+			"targetValue" : 4,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Do not destroy any fighters",
+			"targetName" : "Rebels",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not destroy any capital ships",
+			"targetName" : "CapShips",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Lt. Cdr. Simon Dodds",
+		"squadron" : "White Knights",
+		"x" : 5,
+		"y" : 45
+	},
+	"fighters" : [
+		{
+			"name" : "de Winter",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Todd",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Taylor",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"name" : "Koonan",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "SK-31;SK-34;Shale;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 10,
+			"y" : 10,
+			"scatter" : 500,
+			"flags" : "+EF_MUST_DISABLE+EF_AI_LEADER",
+			"aiFlags" : "+AIF_WANDERS"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "SK-31;SK-34;Shale;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 10,
+			"y" : 10,
+			"scatter" : 5000,
+			"number" : 7,
+			"flags" : "+EF_MUST_DISABLE",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "SK-31;SK-34;Shale;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : 20,
+			"scatter" : 500,
+			"flags" : "+EF_MUST_DISABLE+EF_AI_LEADER",
+			"aiFlags" : "+AIF_WANDERS"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "SK-31;SK-34;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : 20,
+			"scatter" : 5000,
+			"number" : 7,
+			"flags" : "+EF_MUST_DISABLE",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "SK-31;SK-34;Shale;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 30,
+			"scatter" : 500,
+			"flags" : "+EF_MUST_DISABLE+EF_AI_LEADER",
+			"aiFlags" : "+AIF_WANDERS"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "SK-31;SK-34;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 30,
+			"scatter" : 5000,
+			"number" : 7,
+			"flags" : "+EF_MUST_DISABLE",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "SK-31;SK-34;Shale;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 40,
+			"y" : 40,
+			"scatter" : 500,
+			"flags" : "+EF_MUST_DISABLE+EF_AI_LEADER",
+			"aiFlags" : "+AIF_WANDERS"
+		},
+		{
+			"groupName" : "Rebels",
+			"types" : "SK-31;SK-34;Razor",
+			"side" : "SIDE_REBEL",
+			"x" : 40,
+			"y" : 40,
+			"scatter" : 5000,
+			"number" : 7,
+			"flags" : "+EF_MUST_DISABLE",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		}
+	],
+	"capitalShips" : [
+		{
+			"groupName" : "CapShips",
+			"name" : "HMS 281-024",
+			"types" : "HMS Corvette 01",
+			"side" : "SIDE_REBEL",
+			"x" : 10,
+			"y" : 10,
+			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"
+		},
+		{
+			"groupName" : "CapShips",
+			"name" : "HMS 121-008",
+			"types" : "HMS Corvette 02",
+			"side" : "SIDE_REBEL",
+			"x" : 20,
+			"y" : 20,
+			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"
+		},
+		{
+			"groupName" : "CapShips",
+			"name" : "HMS 711-555",
+			"types" : "HMS Corvette 02",
+			"side" : "SIDE_REBEL",
+			"x" : 30,
+			"y" : 30,
+			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"
+		},
+		{
+			"groupName" : "CapShips",
+			"name" : "HMS 613-910",
+			"types" : "HMS Corvette 01",
+			"side" : "SIDE_REBEL",
+			"x" : 40,
+			"y" : 40,
+			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX de Winter;Remember, guys: mags only against the fighters. We're not here to take any more lives.",
+				"MSG_BOX de Winter;For the corvettes, concentrate fire on the engines and the guns. Once it's out of the game, move onto the next one.",
+				"MSG_BOX Dodds;Got it."
+			]
+		},
+		{
+			"function" : "TIME 30",
+			"lines" : [
+				"MSG_BOX Koonan;We should lure the fighters away from the capital ships. Stray fire against a disabled ship could destroy it.",
+				"MSG_BOX de Winter;Good point, Chaz, we should be mindful of friendly-fire."
+			]
+		},
+		{
+			"function" : "CAP_DISABLED HMS 121-008",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Dodds;Brings back memories, doesn't it?",
+				"MSG_BOX Todd;So long as we don't end up back in Phylent after this."
+			]
+		},
+		{
+			"function" : "ENEMIES_DISABLED 20",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Dodds;This going in your journal, Kelly?",
+				"MSG_BOX Taylor;Everything. It could be important one day.",
+				"MSG_BOX Todd;Have fun with the names of Tzac's cap ships.",
+				"MSG_BOX Taylor;I'll just refer to the battle logs. Military records tend to be accurate.",
+				"MSG_BOX Dodds;Most of the time."
+			]
+		},
+		{
+			"function" : "Disable all fighters",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Koonan;All fighters disabled."
+			]
+		},
+		{
+			"function" : "Disable all capital ships",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX de Winter;Corvettes are all out of the game."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX de Winter;Griffin, this is de Winter. Opposing forces are no longer a threat.",
+				"MSG_BOX CSN Griffin;Any casualties?",
+				"MSG_BOX de Winter;No. All fighters and caps have been shutdown, and ready for pickup.",
+				"MSG_BOX CSN Griffin;Great work, Knights. Clean up will commence shortly. Standby for new instructions.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

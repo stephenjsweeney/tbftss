@@ -21,8 +21,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TURN_SPEED 		0.1
 #define TURN_THRESHOLD 	2
 
-#define AVOID_FORCE		500
-
 #include "../common.h"
 
 #include "../json/cJSON.h"
@@ -36,12 +34,10 @@ extern char *readFile(char *filename);
 extern long flagsToLong(char *flags, int *add);
 extern long lookup(char *name);
 extern void doAI(void);
-extern float getAngle(int x1, int y1, int x2, int y2);
-extern float mod(float n, float x);
 extern void applyFighterThrust(void);
 extern void addLargeEngineEffect(void);
 extern int getDistance(int x1, int y1, int x2, int y2);
-extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern void addDebris(int x, int y, int amount);
 extern void runScriptFunction(char *format, ...);
 extern void updateObjective(char *name, int type);
@@ -52,6 +48,8 @@ extern char *getTranslatedString(char *string);
 extern void addLargeExplosion(void);
 extern char **toTypeArray(char *types, int *numTypes);
 extern void updateCondition(char *name, int type);
+extern void addMessageBox(char *title, char *body, int important);
 
 extern Battle battle;
+extern Entity *player;
 extern Entity *self;

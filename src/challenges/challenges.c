@@ -59,6 +59,7 @@ void initChallenges(void)
 	challengeDescription[CHALLENGE_PLAYER_KILLS] = _("Take down %d enemy targets");
 	challengeDescription[CHALLENGE_DISABLE] = _("Disable %d or more enemy fighters");
 	challengeDescription[CHALLENGE_ITEMS] = _("Collect %d packages");
+	challengeDescription[CHALLENGE_PLAYER_ITEMS] = _("Collect %d packages");
 	challengeDescription[CHALLENGE_RESCUE] = _("Rescue %d civilians");
 
 	tail = &game.challengeMissionHead;
@@ -96,7 +97,9 @@ void loadChallenge(Mission *mission, cJSON *node)
 	mission->challengeData.escapeLimit = getJSONValue(node, "escapeLimit", 0);
 	mission->challengeData.waypointLimit = getJSONValue(node, "waypointLimit", 0);
 	mission->challengeData.itemLimit = getJSONValue(node, "itemLimit", 0);
+	mission->challengeData.playerItemLimit = getJSONValue(node, "playerItemLimit", 0);
 	mission->challengeData.rescueLimit = getJSONValue(node, "rescueLimit", 0);
+	mission->challengeData.disableLimit = getJSONValue(node, "disableLimit", 0);
 
 	/* restrictions */
 	mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
@@ -111,6 +114,9 @@ void loadChallenge(Mission *mission, cJSON *node)
 	
 	/* misc */
 	mission->challengeData.allowPlayerDeath = getJSONValue(node, "allowPlayerDeath", 0);
+	mission->challengeData.clearWaypointEnemies = getJSONValue(node, "clearWaypointEnemies", 0);
+	mission->challengeData.eliminateThreats = getJSONValue(node, "eliminateThreats", 0);
+	mission->challengeData.isDeathMatch = getJSONValue(node, "isDeathMatch", 0);
 
 	node = cJSON_GetObjectItem(node, "challenges");
 
@@ -145,7 +151,12 @@ void doChallenges(void)
 	{
 		if (challengeFinished())
 		{
-			passed = updateChallenges();
+			passed = 0;
+			
+			if (player->health > 0 || (player->health <= 0 && game.currentMission->challengeData.allowPlayerDeath))
+			{
+				passed = updateChallenges();
+			}
 			
 			if (passed)
 			{
@@ -187,22 +198,22 @@ static int challengeFinished(void)
 		return 1;
 	}
 	
+	if (game.currentMission->challengeData.playerItemLimit > 0 && battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= game.currentMission->challengeData.playerItemLimit)
+	{
+		return 1;
+	}
+	
 	if (game.currentMission->challengeData.rescueLimit > 0 && (battle.stats[STAT_CIVILIANS_RESCUED] + battle.stats[STAT_CIVILIANS_KILLED]) >= game.currentMission->challengeData.rescueLimit)
 	{
 		return 1;
 	}
 	
-	if (game.currentMission->challengeData.scriptedEnd)
+	if (game.currentMission->challengeData.eliminateThreats && !battle.hasThreats)
 	{
 		return 1;
 	}
 	
-	if (player->health <= 0)
-	{
-		return 1;
-	}
-	
-	return 0;
+	return (player->health <= 0 || player->alive == ALIVE_ESCAPED || battle.scriptedEnd);
 }
 
 static int updateChallenges(void)
@@ -257,6 +268,7 @@ static int updateChallenges(void)
 						break;
 						
 					case CHALLENGE_ITEMS:
+					case CHALLENGE_PLAYER_ITEMS:
 						updateItemsChallenge(c);
 						break;
 				}
@@ -384,12 +396,31 @@ static void updateItemsChallenge(Challenge *c)
 {
 	if (!c->passed)
 	{
-		c->passed = battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= c->value;
+		if (c->type == CHALLENGE_ITEMS)
+		{
+			c->passed = battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= c->value;
+		}
+		else
+		{
+			c->passed = battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= c->value;
+		}
 	}
 }
 
 char *getChallengeDescription(Challenge *c)
 {
+	if (c->type == CHALLENGE_TIME)
+	{
+		if (c->value <= 90)
+		{
+			return getFormattedChallengeDescription(challengeDescription[CHALLENGE_TIME], c->value);
+		}
+		else
+		{
+			return getFormattedChallengeDescription(_("Complete challenge in %s or less"), timeToString(c->value * FPS, 0));
+		}
+	}
+	
 	return getFormattedChallengeDescription(challengeDescription[c->type], c->value);
 }
 
@@ -461,11 +492,13 @@ static void completeChallenge(void)
 
 		game.stats[STAT_CHALLENGES_COMPLETED]++;
 
-		retreatAllies();
-
-		retreatEnemies();
-
 		player->flags |= EF_IMMORTAL;
+		
+		retreatAllies();
+		
+		retreatEnemies();
+		
+		awardStatsTrophies();
 	}
 }
 
@@ -477,16 +510,18 @@ static void failChallenge(void)
 		battle.missionFinishedTimer = FPS;
 		selectWidget("retry", "battleLost");
 
-		retreatAllies();
-
-		retreatEnemies();
-
 		player->flags |= EF_IMMORTAL;
 		
 		if (alreadyPassed())
 		{
 			battle.status = MS_TIME_UP;
 		}
+		
+		retreatAllies();
+		
+		retreatEnemies();
+		
+		awardStatsTrophies();
 	}
 }
 

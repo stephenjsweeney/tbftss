@@ -1,0 +1,154 @@
+{
+	"name" : "Mace Assault #2",
+	"description" : "",
+	"requires" : 50,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
+	"manualComplete" : 1,
+	"player" : {
+		"type" : "Leopard",
+		"pilot" : "Cdr. Chao Lee",
+		"squadron" : "The Infinites",
+		"side" : "SIDE_ALLIES",
+		"x" : 5,
+		"y" : 45
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy HMS 781-110",
+			"targetName" : "HMS 781-110",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Destroy HMS 781-041",
+			"targetName" : "HMS 781-041",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate all enemies",
+			"targetName" : "ENEMY",
+			"targetType" : "TT_DESTROY",
+			"targetValue" : 1,
+			"isEliminateAll" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"types" : "Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500
+		},
+		{
+			"types" : "Hammerhead;Lynx",
+			"number" : 10,
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500
+		},
+		{
+			"types" : "Shale",
+			"number" : 5,
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : 35,
+			"scatter" : 600,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"groupName" : "Cap02",
+			"types" : "Shale",
+			"number" : 5,
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : 35,
+			"scatter" : 600,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Shale",
+			"number" : 15,
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : 51,
+			"scatter" : 600,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "HMS 781-110",
+			"types" : "HMS Corvette 01",
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : 35,
+			"flags" : "+EF_AI_LEADER"
+		},
+		{
+			"groupName" : "Cap02",
+			"name" : "HMS 781-041",
+			"types" : "HMS Corvette 02",
+			"side" : "SIDE_REBEL",
+			"x" : 15,
+			"y" : 51,
+			"flags" : "+EF_AI_LEADER",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Lee;HMS 781-110 sighted. All fighters free to engage at will. Follow my lead."
+			]
+		},
+		{
+			"function" : "Destroy HMS 781-110",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Lee;Control, HMS 781-110 has been taken down.",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"ACTIVATE_ENTITY_GROUPS Cap02",
+				"MSG_BOX Control;Infinites, HMS 781-041 has arrived in the area. Engage and destroy.",
+				"MSG_BOX Lee;Acknowledged."
+			]
+		},
+		{
+			"function" : "CAP_HEALTH HMS 781-041 3",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS Rebels-2"
+			]
+		},
+		{
+			"function" : "CAP_HEALTH HMS 781-041 1",
+			"lines" : [
+				"IMPORTANT_MSG_BOX HMS 781-041;This is HMS 781-041 of the Nation of Tzac! We surrender! Repeat, we surrender!",
+				"MSG_BOX Wingmate;Did anyone else get that?",
+				"MSG_BOX Lee;HMS 781-041, please repeat."
+			]
+		},
+		{
+			"function" : "Destroy HMS 781-041",
+			"lines" : [
+				"RETREAT_ENEMIES",
+				"WAIT 1",
+				"MSG_BOX Lee;Hell! Too late!",
+				"MSG_BOX Control;Infinites, it appears remaining enemy forces are retreating. Please stand down.",
+				"MSG_BOX Lee;Received.",
+				"MSG_BOX Wingmate;That was unexpected.",
+				"MSG_BOX Lee;Sure was. We'd better get to debriefing.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

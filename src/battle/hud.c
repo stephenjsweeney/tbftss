@@ -138,7 +138,7 @@ void addHudMessage(SDL_Color c, char *format, ...)
 
 void drawHud(void)
 {
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		drawHealthBars();
 		
@@ -330,7 +330,7 @@ static void drawPlayerTargeter(void)
 	float angle;
 	int x, y;
 	
-	if (player->target || battle.missionTarget || jumpgateEnabled())
+	if (player->target || battle.missionTarget || jumpgateEnabled() || battle.messageSpeaker)
 	{
 		if (player->target)
 		{
@@ -339,6 +339,10 @@ static void drawPlayerTargeter(void)
 		else if (battle.missionTarget)
 		{
 			SDL_SetTextureColorMod(targetCircle, 0, 255, 0);
+		}
+		else if (battle.messageSpeaker)
+		{
+			SDL_SetTextureColorMod(targetCircle, 255, 255, 255);
 		}
 		else
 		{
@@ -389,6 +393,20 @@ static void drawPlayerTargeter(void)
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
+	
+	if (battle.messageSpeaker && battle.messageSpeaker != player)
+	{
+		angle = getAngle(player->x, player->y, battle.messageSpeaker->x, battle.messageSpeaker->y);
+		x = player->x;
+		y = player->y;
+		
+		x += sin(TO_RAIDANS(angle)) * 45;
+		y += -cos(TO_RAIDANS(angle)) * 45;
+		
+		SDL_SetTextureColorMod(targetPointer, 255, 255, 255);
+		
+		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
+	}
 }
 
 static void drawNumFighters(void)
@@ -428,13 +446,29 @@ static void drawObjectives(void)
 			blit(clock, (SCREEN_WIDTH / 2) - 50, 14, 0);
 		}
 		
-		if (game.currentMission->challengeData.itemLimit)
+		if (game.currentMission->challengeData.killLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.killLimit);
+		}
+		else if (game.currentMission->challengeData.itemLimit)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
+		}
+		else if (game.currentMission->challengeData.playerItemLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.playerItemLimit);
 		}
 		else if (game.currentMission->challengeData.rescueLimit)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);
+		}
+		else if (game.currentMission->challengeData.disableLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.disableLimit);
+		}
+		else if (player->flags & EF_MUST_DISABLE)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, _("System Power : %d%%"), player->systemPower);
 		}
 	}
 }
@@ -462,7 +496,14 @@ static void drawDistancesInfo(void)
 	
 	if (player->target)
 	{
-		drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
+		if (player->target->flags & EF_AI_LEADER && player->target->speed > 0)
+		{
+			drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, _("%s (Leader)"), player->target->name);
+		}
+		else
+		{
+			drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
+		}
 		
 		y += 30;
 		
@@ -487,6 +528,15 @@ static void drawDistancesInfo(void)
 		distance = distanceToKM(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		
 		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, _("Jumpgate: %.2fkm"), distance);
+		
+		y += 25;
+	}
+	
+	if (battle.messageSpeaker)
+	{
+		distance = distanceToKM(player->x, player->y, battle.messageSpeaker->x, battle.messageSpeaker->y);
+		
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.white, "%s: %.2fkm", battle.messageSpeaker->name, distance);
 		
 		y += 25;
 	}

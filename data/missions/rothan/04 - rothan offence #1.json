@@ -1,7 +1,7 @@
 {
 	"name" : "Rothan Offensive #1",
 	"description" : "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed.",
-	"requires" : 45,
+	"requires" : 44,
 	"manualComplete" : 1,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
@@ -56,7 +56,8 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "Roselyn Rose",
+			"name" : "Rose",
+			"fullname" : "Roselyn Rose",
 			"types" : "Ray",
 			"side" : "SIDE_ALLIES",
 			"x" : 10,

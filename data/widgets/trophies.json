@@ -1,0 +1,32 @@
+[
+	{
+		"name" : "ok",
+		"group" : "trophies",
+		"type" : "WT_BUTTON",
+		"text" : "OK",
+		"x" : -1,
+		"y" : 665,
+		"w" : 150,
+		"h": 34
+	},
+	{
+		"name" : "prev",
+		"group" : "trophies",
+		"type" : "WT_IMG_BUTTON",
+		"x" : 540,
+		"y" : 110,
+		"w" : 150,
+		"h": 34,
+		"texture" : "gfx/widgets/optionsLeft.png"
+	},
+	{
+		"name" : "next",
+		"group" : "trophies",
+		"type" : "WT_IMG_BUTTON",
+		"x" : 720,
+		"y" : 110,
+		"w" : 150,
+		"h": 34,
+		"texture" : "gfx/widgets/optionsRight.png"
+	}
+]

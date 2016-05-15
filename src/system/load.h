@@ -29,5 +29,6 @@ extern int lookup(char *lookup);
 extern char *getSaveFilePath(char *filename);
 extern char *getLookupName(char *prefix, long num);
 extern StarSystem *getStarSystem(char *name);
+extern Trophy *getTrophy(char *id);
 
 extern Game game;

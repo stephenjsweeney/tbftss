@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern char *readFile(char *filename);
 extern SDL_Texture *getTexture(char *filename);
 extern Entity *spawnEntity(void);
-extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void playBattleSound(int id, int x, int y);
 extern void addHudMessage(SDL_Color c, char *format, ...);

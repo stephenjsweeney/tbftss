@@ -20,15 +20,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
+#define ESCAPE_DISTANCE 256
+
 extern SDL_Texture *getTexture(char *filename);
 extern Entity *spawnEntity(void);
-extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void playBattleSound(int id, int x, int y);
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern char *getTranslatedString(char *string);
 extern void addSmallExplosion(void);
-extern void playBattleSound(int id, int x, int y);
 extern void addDebris(int x, int y, int amount);
 extern void runScriptFunction(char *format, ...);
 extern void updateObjective(char *name, int type);

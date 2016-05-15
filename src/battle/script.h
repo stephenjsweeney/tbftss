@@ -38,7 +38,8 @@ extern void activateNextWaypoint(void);
 extern void activateJumpgate(int activate);
 extern void activateSpawner(char *name, int active);
 extern void completeAllObjectives(void);
+extern void createChristabelLocation(void);
+extern void killEntity(char *name);
 
 extern Battle battle;
 extern Colors colors;
-extern Game game;

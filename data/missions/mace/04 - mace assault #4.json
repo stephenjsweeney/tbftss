@@ -1,0 +1,257 @@
+{
+	"name" : "Mace Assault #4",
+	"description" : "",
+	"requires" : 56,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
+	"manualComplete" : 1,
+	"player" : {
+		"pilot" : "2nd Lt. Jim Goddard",
+		"squadron" : "Iron Patriots",
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"x" : 5,
+		"y" : 45
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate all opposing forces",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Destroy HMS 881-491",
+			"targetName" : "HMS 881-491",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Disable Christabel's transport",
+			"targetName" : "Christabel",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Do not destroy Christabel's transport",
+			"targetName" : "Christabel",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not allow Christabel to escape",
+			"targetName" : "Christabel",
+			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED",
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "de Winter",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "TAF;Hammerhead;Lynx;Firefly;Nymph;Leopard;Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500,
+			"number" : 12,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"types" : "Rapid Plasma Turret",
+			"side" : "SIDE_REBEL",
+			"x" : 35,
+			"y" : 25,
+			"scatter" : 1000,
+			"number" : 12
+		},
+		{
+			"types" : "Blizzard;Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 35,
+			"y" : 25,
+			"scatter" : 500,
+			"number" : 12
+		},
+		{
+			"groupName" : "CapShip",
+			"types" : "Jackal;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 51,
+			"y" : 25,
+			"scatter" : 500,
+			"number" : 6,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_ASSASSIN",
+			"active" : 0
+		},
+		{
+			"groupName" : "ChristabelGroup",
+			"name" : "Christabel",
+			"types" : "Shuttle",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : -1,
+			"flags" : "+EF_RETREATING+EF_MUST_DISABLE+EF_NO_THREAT+EF_MISSION_TARGET+EF_AI_TARGET+EF_AI_LEADER",
+			"aiFlags" : "+AIF_GOAL_JUMPGATE+AIF_UNLIMITED_RANGE+AIF_DEFENSIVE",
+			"active" : 0
+		},
+		{
+			"groupName" : "ChristabelGroup",
+			"types" : "Shale",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : -1,
+			"number" : 2,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		}
+	],
+	"capitalShips" : [
+		{
+			"groupName" : "CapShip",
+			"name" : "HMS 881-491",
+			"types" : "HMS Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 51,
+			"y" : 25,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_ASSASSIN",
+			"active" : 0
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "rebelSpawner",
+			"types" : "Dart;Shale",
+			"side" : "SIDE_REBEL",
+			"interval" : 3,
+			"total" : 15,
+			"step" : 1,
+			"offscreen" : 1,
+			"active" : 0
+		},
+		{
+			"name" : "pandoranSpawner",
+			"types" : "Jackal;Thunderhead;Mantis;Sphinx;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"interval" : 30,
+			"total" : -1,
+			"step" : 1,
+			"active" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		}
+	],
+	"entities" : [
+		{
+			"name" : "Jumpgate",
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_NONE",
+			"x" : 35,
+			"y" : 25,
+			"flags" : "EF_AI_IGNORE+EF_NO_HEALTH_BAR"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX de Winter;All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly.",
+				"MSG_BOX de Winter;Therefore, you have permission to destroy any and all opposing forces, no need to mag these guys."
+			]
+		},
+		{
+			"function" : "TIME 20",
+			"lines" : [
+				"MSG_BOX Wingmate;Commander, we've got Darts and Shales incoming.",
+				"MSG_BOX de Winter;Looks like some mercenaries decided to stick around. Let's show them why that was a bad move.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_SPAWNER 1 rebelSpawner"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 15",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX de Winter;That's them seen to. Onwards to the jumpgate.",
+				"WAIT_MSG_BOX",
+				"WAIT 2",
+				"MSG_BOX Wingmate;Got INF fighters incoming.",
+				"MSG_BOX de Winter;Knew it wouldn't be long.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_SPAWNER 1 pandoranSpawner"
+			]
+		},
+		{
+			"function" : "TIME 270",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_ENTITY_GROUPS CapShip",
+				"MSG_BOX Control;Patriots, a Tzac warship just arrived in the area, but it has Imperial fighter escorts. Most likely it's been acquired by the Pandroans. It needs to be taken down before Cristabel makes her escape bid, as it might be here to kill her.",
+				"MSG_BOX de Winter;Got it. You all heard that. Let's get to it.",
+				"ACTIVATE_OBJECTIVES Destroy HMS 881-491"
+			]
+		},
+		{
+			"function" : "TIME 300",
+			"lines" : [
+				"ACTIVATE_ENTITY_GROUPS ChristabelGroup",
+				"IMPORTANT_MSG_BOX Wingmate;I'm picking up a shuttle on radar. Looks like Christabel.",
+				"IMPORTANT_MSG_BOX de Winter;Goddard, you're up! Mag that shuttle before it gets away.",
+				"IMPORTANT_MSG_BOX Goddard;On it!"
+			]
+		},
+		{
+			"function" : "Disable Christabel's transport",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Goddard;Christabel's shuttle has been disabled.",
+				"MSG_BOX de Winter;Excellent work! Now let's finish off the rest of these fighters.",
+				"ACTIVATE_SPAWNER 0 pandoranSpawner"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"CREATE_CRISTABEL_LOCATION",
+				"MSG_BOX de Winter;All enemies down. Let's get over to Christabel's shuttle and secure the empress."
+			]
+		},
+		{
+			"function" : "CristabelLocation",
+			"lines" : [
+				"MSG_BOX de Winter;Empress Christabel, this is Cdr. de Winter of the Confederation Stellar Navy.",
+				"MSG_BOX de Winter;Acting under the authority of the allied forces, I am hereby placing you under arrest, for breaches of intergalactic law.",
+				"MSG_BOX de Winter;You will be escorted to a neutral court, where you will be tried for your crimes.",
+				"MSG_BOX de Winter;If found guilty, the intergalactic community will decide on your punishment.",
+				"MSG_BOX de Winter;Sorry, your Highness. I wish it didn't have to go this way, but the galaxy has enough problems as it is.",
+				"WAIT_MSG_BOX",
+				"MSG_BOX de Winter;If--",
+				"KILL_ENTITY Christabel",
+				"MSG_BOX Wingmate;Woah! What the hell just happened?!",
+				"MSG_BOX de Winter;Did anyone fire?!",
+				"MSG_BOX Goddard;All guns cold, Commander. Looks like she might have self destructed her own ship.",
+				"MSG_BOX de Winter;Dammit!",
+				"WAIT_MSG_BOX",
+				"WAIT 2",
+				"MSG_BOX Goddard;Now what?",
+				"MSG_BOX de Winter;Nothing more we can do. We should evacuate the area before more Pandoran forces arrive.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

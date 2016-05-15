@@ -20,12 +20,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define MAX_ITEMS	14
+#define CHALLENGES_PER_PAGE	14
 
 #define SHOW_CHALLENGES 	0
 #define SHOW_MENU 			1
 #define SHOW_OPTIONS 		2
 #define SHOW_STATS 			3
+#define SHOW_TROPHIES		4
 
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
@@ -43,7 +44,6 @@ extern void drawText(int x, int y, int size, int align, SDL_Color c, const char 
 extern void drawWidgets(char *groupName);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern Widget *getWidget(const char *name, const char *group);
-extern void saveGame(void);
 extern void initTitle(void);
 extern void initStatsDisplay(void);
 extern void drawOptions(void);
@@ -60,10 +60,13 @@ extern void playMusic(char *filename);
 extern char *timeToString(long millis, int showHours);
 extern char *getChallengeDescription(Challenge *c);
 extern void clearInput(void);
-extern void doTrophies(void);
+extern void doTrophyAlerts(void);
 extern void drawTrophyAlert(void);
 extern void awardStatsTrophies(void);
 extern void awardChallengeTrophies(void);
+extern void initTrophiesDisplay(void);
+extern void drawTrophies(void);
+extern void doTrophies(void);
 
 extern App app;
 extern Battle battle;

@@ -233,6 +233,11 @@ Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore)
 	return candidates;
 }
 
+Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore)
+{
+	return getAllEntsWithin(x - radius / 2, y - radius / 2, radius, radius, ignore);
+}
+
 static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Quadtree *root)
 {
 	int index, i;

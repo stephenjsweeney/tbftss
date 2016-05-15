@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void huntTarget(Bullet *b);
 static void checkCollisions(Bullet *b);
 static void resizeDrawList(void);
+static void selectNewTarget(Bullet *b);
 
 static Bullet bulletDef[BT_MAX];
 static Bullet **bulletsToDraw;
@@ -93,9 +94,12 @@ void doBullets(void)
 		{
 			addMissileEngineEffect(b);
 
-			huntTarget(b);
+			if (b->life < MISSILE_LIFE - (FPS / 4))
+			{
+				huntTarget(b);
+			}
 
-			if (b->target == player && player != NULL && player->health > 0)
+			if (b->target == player && player->alive == ALIVE_ALIVE && player->health > 0)
 			{
 				incomingMissile = 1;
 			}
@@ -105,11 +109,6 @@ void doBullets(void)
 
 		if (--b->life <= 0)
 		{
-			if (player != NULL && player->alive == ALIVE_ALIVE && b->type == BT_MISSILE && b->damage > 0 && b->target == player)
-			{
-				battle.stats[STAT_MISSILES_EVADED]++;
-			}
-
 			if (b == battle.bulletTail)
 			{
 				battle.bulletTail = prev;
@@ -167,7 +166,7 @@ static void checkCollisions(Bullet *b)
 
 			if (b->owner != e && e->health > 0 && collision(b->x - b->w / 2, b->y - b->h / 2, b->w, b->h, e->x - e->w / 2, e->y - e->h / 2, e->w, e->h))
 			{
-				if (b->owner->side == e->side)
+				if (b->owner->side == e->side && !app.gameplay.friendlyFire && (!(e->flags & EF_DISABLED)) && e->type != ET_MINE)
 				{
 					b->damage = 0;
 				}
@@ -203,15 +202,28 @@ static void checkCollisions(Bullet *b)
 						battle.stats[STAT_MISSILES_STRUCK]++;
 					}
 				}
-
+				
+				/* missile was targetting player, but hit something else */
+				if (b->type == BT_MISSILE && b->target == player && e != player)
+				{
+					battle.stats[STAT_MISSILES_EVADED]++;
+				}
+				
 				/* assuming that health <= 0 will always mean killed */
 				if (e->health <= 0)
 				{
 					e->killedBy = b->owner;
 					
-					if (b->type == BT_MISSILE && e == player && b->target != player)
+					if (b->type == BT_MISSILE && b->target != e)
 					{
-						awardTrophy("TEAM_PLAYER");
+						if (e == player)
+						{
+							awardTrophy("TEAM_PLAYER");
+						}
+						else if (b->owner == player && (e->aiFlags & AIF_MOVES_TO_LEADER) && (b->target->flags & EF_AI_LEADER))
+						{
+							awardTrophy("BODYGUARD");
+						}
 					}
 				}
 				
@@ -244,22 +256,34 @@ void drawBullets(void)
 
 static void faceTarget(Bullet *b)
 {
-	int dir;
-	int wantedAngle = getAngle(b->x, b->y, b->target->x, b->target->y);
-
-	wantedAngle %= 360;
+	int dir, wantedAngle, dist;
+	
+	wantedAngle = (int)getAngle(b->x, b->y, b->target->x, b->target->y) % 360;
 
 	if (fabs(wantedAngle - b->angle) > TURN_THRESHOLD)
 	{
 		dir = (wantedAngle - b->angle + 360) % 360 > 180 ? -1 : 1;
 
 		b->angle += dir * TURN_SPEED;
+		
+		dist = getDistance(b->x, b->y, b->target->x, b->target->y);
+		
+		if (dist < 250)
+		{
+			dist = 250 - dist;
+			
+			while (dist > 0)
+			{
+				b->angle += dir;
+				
+				dist -= 50;
+			}
+		}
 
 		b->angle = mod(b->angle, 360);
-
-		/* lower your speed while you're not at the correct angle */
-		b->dx *= 0.38;
-		b->dy *= 0.38;
+		
+		b->dx *= 0.5;
+		b->dy *= 0.5;
 	}
 }
 
@@ -300,8 +324,41 @@ static void huntTarget(Bullet *b)
 	}
 	else
 	{
-		b->target = NULL;
+		selectNewTarget(b);
 	}
+}
+
+static void selectNewTarget(Bullet *b)
+{
+	int i;
+	Entity *e, **candidates;
+	
+	if (app.gameplay.missileReTarget)
+	{
+		b->target = NULL;
+	
+		candidates = getAllEntsInRadius(b->x, b->y, SCREEN_HEIGHT, NULL);
+		
+		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+		{
+			if (e->type == ET_FIGHTER && e->side != b->owner->side && e->health > 0)
+			{
+				b->target = e;
+				
+				if (b->target == player)
+				{
+					playSound(SND_INCOMING);
+				}
+				
+				return;
+			}
+		}
+	}
+	
+	/* no target, just explode */
+	b->life = 0;
+	addMissileExplosion(b);
+	playBattleSound(SND_EXPLOSION_1, b->x, b->y);
 }
 
 static Bullet *createBullet(int type, int x, int y, Entity *owner)
@@ -335,10 +392,12 @@ void fireGuns(Entity *owner)
 	int i;
 	float x, y;
 	float c, s;
+	
+	b = NULL;
 
 	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
 	{
-		if (owner->guns[i].type == owner->selectedGunType || (owner->guns[i].type != BT_NONE && owner->combinedGuns))
+		if (owner->guns[i].type != BT_NONE && (owner->guns[i].type == owner->selectedGunType || owner->combinedGuns))
 		{
 			s = sin(TO_RAIDANS(owner->angle));
 			c = cos(TO_RAIDANS(owner->angle));
@@ -360,7 +419,10 @@ void fireGuns(Entity *owner)
 
 	owner->reload = owner->reloadTime;
 
-	playBattleSound(b->sound, owner->x, owner->y);
+	if (b)
+	{
+		playBattleSound(b->sound, owner->x, owner->y);
+	}
 }
 
 void fireRocket(Entity *owner)
@@ -384,8 +446,11 @@ void fireMissile(Entity *owner)
 	Bullet *b;
 
 	b = createBullet(BT_MISSILE, owner->x, owner->y, owner);
+	
+	b->dx *= 0.5;
+	b->dy *= 0.5;
 
-	b->life = FPS * 30;
+	b->life = MISSILE_LIFE;
 
 	owner->missiles--;
 
@@ -396,7 +461,7 @@ void fireMissile(Entity *owner)
 
 	playBattleSound(b->sound, owner->x, owner->y);
 
-	if (owner->target == player)
+	if (b->target == player)
 	{
 		playSound(SND_INCOMING);
 	}

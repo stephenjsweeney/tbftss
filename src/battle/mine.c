@@ -49,7 +49,7 @@ Entity *spawnMine(int type)
 	mine->texture = (type == ET_MINE) ? mineNormal : shadowMine;
 	mine->action = think;
 	mine->die = die;
-	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET+EF_SHORT_RADAR_RANGE+EF_NON_SOLID;
+	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET+EF_SHORT_RADAR_RANGE+EF_NON_SOLID+EF_NO_HEALTH_BAR;
 	
 	if (type == ET_SHADOW_MINE)
 	{
@@ -99,7 +99,7 @@ static void lookForFighters(void)
 	Entity *e, **candidates;
 	int i;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - DAMAGE_RANGE, self->y - (self->h / 2) - DAMAGE_RANGE, self->w + DAMAGE_RANGE, self->h + DAMAGE_RANGE, self);
+	candidates = getAllEntsInRadius(self->x, self->y, DAMAGE_RANGE, self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
@@ -124,7 +124,7 @@ static void lookForPlayer(void)
 	float dx, dy, norm;
 	int distance;
 	
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		distance = getDistance(self->x, self->y, player->x, player->y);
 		
@@ -196,10 +196,12 @@ static void die(void)
 static void doSplashDamage(void)
 {
 	Entity *e, **candidates;
-	int i, dist;
+	int i, dist, kills;
 	float damage, percent;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	candidates = getAllEntsInRadius(self->x, self->y, DAMAGE_RANGE, self);
+	
+	kills = 0;
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
@@ -213,12 +215,17 @@ static void doSplashDamage(void)
 				percent /= DAMAGE_RANGE;
 				percent = 1 - percent;
 				
-				damage = 255;
+				damage = DAMAGE_RANGE;
 				damage *= percent;
 				
 				if (e->type == ET_FIGHTER)
 				{
 					damageFighter(e, damage, 0);
+					
+					if (self->killedBy == player && e != player && e->health <= 0)
+					{
+						kills++;
+					}
 				}
 				else if (e->type == ET_MINE)
 				{
@@ -230,5 +237,10 @@ static void doSplashDamage(void)
 				}
 			}
 		}
+	}
+	
+	if (kills >= 2)
+	{
+		awardTrophy("2_BIRDS");
 	}
 }

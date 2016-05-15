@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_TITLE				0
 #define SHOW_STATS				1
 #define SHOW_OPTIONS			2
+#define SHOW_TROPHIES			3
 
 #define NUM_FIGHTERS 12
 
@@ -56,6 +57,9 @@ extern void selectWidget(const char *name, const char *group);
 extern void drawStats(void);
 extern void updateAllMissions(void);
 extern void clearInput(void);
+extern void initTrophiesDisplay(void);
+extern void drawTrophies(void);
+extern void doTrophies(void);
 
 extern App app;
 extern Battle battle;

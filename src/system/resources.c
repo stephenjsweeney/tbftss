@@ -81,17 +81,17 @@ void initResources(void)
 	free(filenames);
 }
 
-char *getBackgroundTextureName(int i)
+char *getBackgroundTextureName(unsigned long i)
 {
 	return backgrounds[i % numBackgrounds];
 }
 
-char *getPlanetTextureName(int i)
+char *getPlanetTextureName(unsigned long i)
 {
 	return planets[i % numPlanets];
 }
 
-char *getMusicFilename(int i)
+char *getMusicFilename(unsigned long i)
 {
 	return musicFiles[i % numMusicFiles];
 }

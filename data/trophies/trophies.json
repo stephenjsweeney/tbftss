@@ -1,63 +1,15 @@
 [
 	{
-		"id" : "PLATINUM",
+		"id" : "_PLATINUM",
 		"title" : "One of the seven",
 		"description" : "Earn all other trophies",
 		"value" : "TROPHY_PLATINUM"
 	},
 	{
 		"id" : "CAMPAIGN_1",
-		"title" : "2nd Lieutenant",
+		"title" : "Gentle start",
 		"description" : "Complete a campaign mission",
 		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "CAMPAIGN_10",
-		"title" : "1st Lieutenant",
-		"description" : "Complete 10% of all missions",
-		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "CAMPAIGN_20",
-		"title" : "Lieutenant Commander",
-		"description" : "Complete 20% of all missions",
-		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "CAMPAIGN_40",
-		"title" : "Commander",
-		"description" : "Complete 40% of all missions",
-		"value" : "TROPHY_BRONZE"
-	},
-	{
-		"id" : "CAMPAIGN_50",
-		"title" : "Captain",
-		"description" : "Complete 50% of all missions",
-		"value" : "TROPHY_SILVER"
-	},
-	{
-		"id" : "CAMPAIGN_60",
-		"title" : "Commodore",
-		"description" : "Complete 60% of all missions",
-		"value" : "TROPHY_SILVER"
-	},
-	{
-		"id" : "CAMPAIGN_80",
-		"title" : "Rear Admiral",
-		"description" : "Complete 80% of all missions",
-		"value" : "TROPHY_SILVER"
-	},
-	{
-		"id" : "CAMPAIGN_90",
-		"title" : "Admiral",
-		"description" : "Complete 90% of all missions",
-		"value" : "TROPHY_GOLD"
-	},
-	{
-		"id" : "CAMPAIGN_100",
-		"title" : "Fleet Admiral",
-		"description" : "Complete all campaign missions",
-		"value" : "TROPHY_GOLD"
 	},
 	{
 		"id" : "CAMPAIGN_SOL",
@@ -95,8 +47,22 @@
 	},
 	{
 		"id" : "CAMPAIGN_MACE",
-		"title" : "Going out with a bang.",
+		"title" : "Going out with a bang",
 		"description" : "Complete all missions at Mace",
+		"value" : "TROPHY_SILVER",
+		"hidden" : 1
+	},
+	{
+		"id" : "CAMPAIGN_ROTHAN",
+		"title" : "Back against the wall",
+		"description" : "Complete all missions at Rothan",
+		"value" : "TROPHY_SILVER",
+		"hidden" : 1
+	},
+	{
+		"id" : "CAMPAIGN_CLARKE",
+		"title" : "Now what do we do?",
+		"description" : "Complete all missions at Clarke",
 		"value" : "TROPHY_SILVER",
 		"hidden" : 1
 	},
@@ -115,6 +81,14 @@
 		"statValue" : 1
 	},
 	{
+		"id" : "GIANT_SLAYER",
+		"title" : "Giant Slayer",
+		"description" : "Destroy 25 enemy capital ships",
+		"value" : "TROPHY_GOLD",
+		"stat" : "STAT_CAPITAL_SHIPS_DESTROYED",
+		"statValue" : 25
+	},
+	{
 		"id" : "PANDORAN",
 		"title" : "Plenty more where that came from, unfortunately",
 		"description" : "Destroy a Pandoran-controlled craft",
@@ -122,7 +96,7 @@
 	},
 	{
 		"id" : "ATAF",
-		"title" : "Man, I gotta get me one of these!",
+		"title" : "Oh man, I gotta get me one of these!",
 		"description" : "Pilot an ATAF during the campaign",
 		"value" : "TROPHY_BRONZE"
 	},
@@ -142,25 +116,57 @@
 		"id" : "TEAM_PLAYER",
 		"title" : "Taking one for the team",
 		"description" : "Be killed by a missile that was meant for someone else",
-		"value" : "TROPHY_SILVER"
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
 	},
 	{
-		"id" : "CHALLENGE_25",
-		"title" : "",
-		"description" : "Complete 25% of all challenges",
+		"id" : "BODYGUARD",
+		"title" : "The bodyguard",
+		"description" : "Kill an enemy with a missile intended for their wing leader",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
+	},
+	{
+		"id" : "_CHALLENGE_25",
+		"title" : "Dedicated",
+		"description" : "Complete 25%% of all challenges",
 		"value" : "TROPHY_BRONZE"
 	},
 	{
-		"id" : "CHALLENGE_50",
-		"title" : "",
-		"description" : "Complete 50% of all challenges",
+		"id" : "_CHALLENGE_50",
+		"title" : "Obssessed",
+		"description" : "Complete 50%% of all challenges",
 		"value" : "TROPHY_SILVER"
 	},
 	{
-		"id" : "CHALLENGE_100",
-		"title" : "",
-		"description" : "Complete 100% of all challenges",
+		"id" : "_CHALLENGE_100",
+		"title" : "Completitonist",
+		"description" : "Complete 100%% of all challenges",
 		"value" : "TROPHY_GOLD"
+	},
+	{
+		"id" : "ENEMY_50",
+		"title" : "Hero",
+		"description" : "Take down 50 enemies (player only)",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
+		"statValue" : 50
+	},
+	{
+		"id" : "ENEMY_500",
+		"title" : "Veteran",
+		"description" : "Take down 500 enemies (player only)",
+		"value" : "TROPHY_SILVER",
+		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
+		"statValue" : 500
+	},
+	{
+		"id" : "ENEMY_5000",
+		"title" : "Legend",
+		"description" : "Take down 5,000 enemies (player only)",
+		"value" : "TROPHY_GOLD",
+		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
+		"statValue" : 5000
 	},
 	{
 		"id" : "FIRE_100000",
@@ -168,7 +174,7 @@
 		"description" : "Fire 100,000 shots",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_SHOTS_FIRED",
-		"statValue" : 10000
+		"statValue" : 100000
 	},
 	{
 		"id" : "MISSILE_1000",
@@ -179,32 +185,40 @@
 		"statValue" : 1000
 	},
 	{
-		"id" : "ECM_100",
+		"id" : "ECM",
 		"title" : "Isn't technology wonderful?",
-		"description" : "Use the ECM 100 times",
+		"description" : "Use the ECM 250 times",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_ECM",
-		"statValue" : 100
+		"statValue" : 250
 	},
 	{
-		"id" : "BOOST_100",
+		"id" : "BOOST",
 		"title" : "Runaway!",
-		"description" : "Boost 100 times",
+		"description" : "Boost 250 times",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_BOOST",
+		"statValue" : 250
+	},
+	{
+		"id" : "ITEMS",
+		"title" : "Hoarder",
+		"description" : "Collect 100 items",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_ITEMS_COLLECTED_PLAYER",
 		"statValue" : 100
 	},
 	{
-		"id" : "EVADE_50",
+		"id" : "EVADE",
 		"title" : "Missed, you f**kers!",
-		"description" : "Evade 50 missiles",
+		"description" : "Evade 10 missiles",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_MISSILES_EVADED",
-		"statValue" : 50,
+		"statValue" : 10,
 		"hidden" : 1
 	},
 	{
-		"id" : "WAYPOINT_100",
+		"id" : "WAYPOINT",
 		"title" : "Sightseer",
 		"description" : "Visit 100 waypoints",
 		"value" : "TROPHY_BRONZE",
@@ -212,17 +226,55 @@
 		"statValue" : 100
 	},
 	{
+		"id" : "MINESWEEPER",
+		"title" : "Minesweeper",
+		"description" : "Destroy 255 mines (player only)",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_MINES_DESTROYED",
+		"statValue" : 255
+	},
+	{
+		"id" : "DISABLE",
+		"title" : "Get out and push",
+		"description" : "Disable 500 opponents",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_ENEMIES_DISABLED",
+		"statValue" : 500
+	},
+	{
 		"id" : "EPIC_KILL_13",
 		"title" : "Yippie-ki-yay",
-		"description" : "Destroy 13 or more enemies in an epic battle without being killed",
+		"description" : "Destroy 13 or more enemies in an epic battle, without being killed",
 		"value" : "TROPHY_SILVER",
 		"stat" : "STAT_EPIC_KILL_STREAK",
-		"statValue" : 13
+		"statValue" : 13,
+		"hidden" : 1
+	},
+	{
+		"id" : "SURVIVOR",
+		"title" : "Survivor",
+		"description" : "Complete an epic battle without being killed",
+		"value" : "TROPHY_SILVER",
+		"hidden" : 1
 	},
 	{
 		"id" : "ATAF_DESTROYED",
-		"title" : "Almost indestructable. Almost.",
+		"title" : "Almost indestructable. Almost",
 		"description" : "Be destroyed while piloting an ATAF",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
+	},
+	{
+		"id" : "PACIFIST",
+		"title" : "Pacifist",
+		"description" : "Complete a fighter-based campaign mission without firing",
+		"value" : "TROPHY_BRONZE",
+		"hidden" : 1
+	},
+	{
+		"id" : "2_BIRDS",
+		"title" : "2 birds, 1 stone",
+		"description" : "Destroy two or more fighters by shooting one mine",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
 	}

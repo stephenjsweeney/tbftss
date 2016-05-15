@@ -33,5 +33,11 @@
 			"CONTROL_NEXT_FIGHTER" : 5,
 			"CONTROL_SCREENSHOT" : 0
 		}
+	},
+	"gameplay" : {
+		"friendlyFire" : 0,
+		"autoSwitchPlayerTarget" : 1,
+		"missileReTarget" : 0,
+		"healthBars" : 1
 	}
 }

@@ -253,15 +253,19 @@ typedef struct {
 	int killLimit;
 	int lossLimit;
 	int itemLimit;
+	int playerItemLimit;
 	int escapeLimit;
 	int waypointLimit;
 	int rescueLimit;
+	int disableLimit;
 	int noMissiles;
 	int noBoost;
 	int noECM;
 	int noGuns;
-	int scriptedEnd;
 	int allowPlayerDeath;
+	int clearWaypointEnemies;
+	int eliminateThreats;
+	int isDeathMatch;
 	Challenge *challenges[MAX_CHALLENGES];
 } ChallengeData;
 
@@ -342,8 +346,11 @@ typedef struct {
 	int radarRange;
 	int numPlayerGuns;
 	int numObjectivesComplete, numObjectivesTotal, numConditions;
+	int scriptedEnd;
+	int hasThreats;
 	Entity *missionTarget;
 	Entity *jumpgate;
+	Entity *messageSpeaker;
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
 	int planetWidth, planetHeight;
@@ -370,6 +377,7 @@ struct Trophy {
 	char id[MAX_NAME_LENGTH];
 	char title[MAX_DESCRIPTION_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
+	char awardDateStr[MAX_NAME_LENGTH];
 	int value;
 	int hidden;
 	int stat;
@@ -379,6 +387,13 @@ struct Trophy {
 	int notify;
 	Trophy *next;
 };
+
+typedef struct {
+	int friendlyFire;
+	int autoSwitchPlayerTarget;
+	int missileReTarget;
+	int healthBars;
+} Gameplay;
 
 typedef struct {
 	StarSystem starSystemHead;
@@ -441,7 +456,9 @@ typedef struct {
 } Mouse;
 
 typedef struct {
+	int resetTimeDelta;
 	char saveDir[MAX_FILENAME_LENGTH];
+	int saveGame;
 	int winWidth;
 	int winHeight;
 	float scaleX;
@@ -449,6 +466,7 @@ typedef struct {
 	int fullscreen;
 	int musicVolume;
 	int soundVolume;
+	Gameplay gameplay;
 	Mouse mouse;
 	int keyboard[MAX_KEYBOARD_KEYS];
 	SDL_Texture *backBuffer;

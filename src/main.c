@@ -20,7 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "main.h"
 
-static void handleArguments(int argc, char *argv[]);
+static void handleMissionArgs(int argc, char *argv[]);
+static void handleLoggingArgs(int argc, char *argv[]);
 
 int main(int argc, char *argv[])
 {
@@ -29,10 +30,10 @@ int main(int argc, char *argv[])
 	long expireTextTimer;
 	SDL_Event event;
 	
-	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
-	
 	memset(&app, 0, sizeof(App));
 	memset(&dev, 0, sizeof(Dev));
+	
+	handleLoggingArgs(argc, argv);
 	
 	atexit(cleanup);
 
@@ -48,7 +49,12 @@ int main(int argc, char *argv[])
 	
 	createScreenshotFolder();
 	
-	handleArguments(argc, argv);
+	if (fileExists(getSaveFilePath(SAVE_FILENAME)))
+	{
+		loadGame();
+	}
+	
+	handleMissionArgs(argc, argv);
 	
 	dev.fps = frames = td = 0;
 	then = SDL_GetTicks();
@@ -103,7 +109,15 @@ int main(int argc, char *argv[])
 		while (td >= LOGIC_RATE)
 		{
 			app.delegate.logic();
+			
 			td -= LOGIC_RATE;
+			
+			if (app.resetTimeDelta)
+			{
+				td = 0;
+				then = SDL_GetTicks();
+				app.resetTimeDelta = 0;
+			}
 			
 			game.stats[STAT_TIME]++;
 		}
@@ -149,6 +163,13 @@ int main(int argc, char *argv[])
 			expireTextTimer = SDL_GetTicks() + (1000 * 10);
 		}
 		
+		/* trophy unlocks might cause the game to save several times in one frame */
+		if (app.saveGame)
+		{
+			saveGame();
+			app.saveGame = 0;
+		}
+		
 		/* always zero the mouse motion */
 		app.mouse.dx = app.mouse.dy = 0;
 
@@ -158,7 +179,34 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-static void handleArguments(int argc, char *argv[])
+static void handleLoggingArgs(int argc, char *argv[])
+{
+	int i;
+	
+	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
+	
+	for (i = 1 ; i < argc ; i++)
+	{
+		if (strcmp(argv[i], "-debug") == 0)
+		{
+			dev.debug = 1;
+			
+			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG);
+		}
+		
+		if (strcmp(argv[i], "-warn") == 0)
+		{
+			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
+		}
+		
+		if (strcmp(argv[i], "-info") == 0)
+		{
+			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
+		}
+	}
+}
+
+static void handleMissionArgs(int argc, char *argv[])
 {
 	int i;
 	int testingMission = 0;
@@ -172,29 +220,10 @@ static void handleArguments(int argc, char *argv[])
 			
 			testingMission = 1;
 		}
-		else
-		{
-			if (strcmp(argv[i], "-debug") == 0)
-			{
-				dev.debug = 1;
-				
-				SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG);
-			}
-			
-			if (strcmp(argv[i], "-info") == 0)
-			{
-				SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
-			}
-		}
 	}
 	
 	if (!testingMission)
 	{
-		if (fileExists(getSaveFilePath(SAVE_FILENAME)))
-		{
-			loadGame();
-		}
-		
 		initTitle();
 	}
 }

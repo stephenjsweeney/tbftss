@@ -67,7 +67,7 @@ void playBattleSound(int id, int x, int y)
 	int channel;
 	float vol;
 
-	if (player != NULL)
+	if (player->alive == ALIVE_ALIVE)
 	{
 		lastPlayerX = player->x;
 		lastPlayerY = player->y;

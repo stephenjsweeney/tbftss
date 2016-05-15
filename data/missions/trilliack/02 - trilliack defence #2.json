@@ -100,30 +100,6 @@
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"
 			]
-		},
-		{
-			"function" : "CAP_ENGINES_DESTROYED UNF Lovelace",
-			"lines" : [
-				"IMPORTANT_MSG_BOX UNF Lovelace;Our engines have been shot out! We're a sitting duck!"
-			]
-		},
-		{
-			"function" : "CAP_HEALTH UNF Lovelace 6",
-			"lines" : [
-				"IMPORTANT_MSG_BOX UNF Lovelace;We're taking damage here, Sparrows. Please step it up."
-			]
-		},
-		{
-			"function" : "CAP_HEALTH UNF Lovelace 3",
-			"lines" : [
-				"IMPORTANT_MSG_BOX UNF Lovelace;We're sustaining heavy damage! All fighters, please assist, ASAP!"
-			]
-		},
-		{
-			"function" : "CAP_HEALTH UNF Lovelace 1",
-			"lines" : [
-				"IMPORTANT_MSG_BOX UNF Lovelace;Mayday! Mayday! Defences are critical. We can't hold out much longer!"
-			]
 		}
 	]
 }

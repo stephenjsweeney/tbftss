@@ -148,7 +148,7 @@ static void doFighterAI(void)
 		self->target = NULL;
 	}
 
-	if (!self->target || self->target->systemPower <= 0)
+	if (!self->target || (self->target->systemPower <= 0 && (self->target->flags & EF_MUST_DISABLE)))
 	{
 		findTarget();
 		
@@ -159,7 +159,7 @@ static void doFighterAI(void)
 			{
 				if (!lookForLeader())
 				{
-					if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
+					if (self->aiFlags & AIF_MOVES_TO_PLAYER && player->alive == ALIVE_ALIVE)
 					{
 						moveToPlayer();
 					}
@@ -173,7 +173,7 @@ static void doFighterAI(void)
 			{
 				doWander();
 			}
-			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player != NULL)
+			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player->alive == ALIVE_ALIVE)
 			{
 				moveToPlayer();
 			}
@@ -194,7 +194,8 @@ static void doFighterAI(void)
 		return;
 	}
 	
-	r = rand() % 100;
+	/* if your target is disabled, just shoot it..! */
+	r = (self->target->flags & EF_DISABLED) ? 100 : rand() % 100;
 	
 	if (r <= getActionChance(AI_EVADE))
 	{
@@ -311,9 +312,9 @@ static void findTarget(void)
 	Entity *e, **candidates;
 	unsigned int dist, closest;
 	
-	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 1000;
+	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : SCREEN_WIDTH;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - dist, self->y - (self->h / 2) - dist, self->w + (dist * 2), self->h + (dist * 2), self);
+	candidates = getAllEntsInRadius(self->x, self->y, dist, self);
 	
 	self->target = NULL;
 	
@@ -344,18 +345,26 @@ static int canAttack(Entity *e)
 		return 0;
 	}
 	
-	if (!(e->flags & EF_AI_TARGET))
+	if (!(self->aiFlags & AIF_ASSASSIN))
 	{
-		if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
+		if (e->flags & EF_MUST_DISABLE)
 		{
-			return !(rand() % 5);
+			return e->systemPower > 0;
 		}
-	}
-	
-	/* low chance of attacking something else */
-	if ((self->aiFlags & AIF_TARGET_FOCUS) && (!(e->flags & EF_AI_TARGET)))
-	{
-		return !(rand() % 100);
+		
+		if (!(e->flags & EF_AI_TARGET))
+		{
+			if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE) || e->flags & EF_SECONDARY_TARGET)
+			{
+				return !(rand() % 5);
+			}
+		}
+		
+		/* low chance of attacking something else */
+		if ((self->aiFlags & AIF_TARGET_FOCUS) && (!(e->flags & EF_AI_TARGET)))
+		{
+			return !(rand() % 100);
+		}
 	}
 	
 	return 1;
@@ -370,12 +379,7 @@ static int selectWeaponForTarget(Entity *e)
 	{
 		if (e->flags & EF_MUST_DISABLE)
 		{
-			if (e->systemPower > 0)
-			{
-				return selectWeapon(BT_MAG);
-			}
-			
-			return 0;
+			return selectWeapon(BT_MAG);
 		}
 		
 		if (e->flags & EF_NO_KILL)
@@ -482,7 +486,7 @@ static void preAttack(void)
 			{
 				fireGuns(self);
 			}
-			else if (self->missiles && (!(self->target->flags & EF_NO_KILL)) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
+			else if (self->missiles && (!(self->target->flags & (EF_NO_KILL|EF_MUST_DISABLE))) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
 			{
 				fireMissile(self);
 				
@@ -584,7 +588,7 @@ static int nearEnemies(void)
 	int i, numEnemies, x, y;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH, self);
 	
 	self->target = NULL;
 	x = y = 0;
@@ -600,7 +604,7 @@ static int nearEnemies(void)
 				continue;
 			}
 			
-			if (getDistance(e->x, e->y, self->x, self->y) < 1000)
+			if (getDistance(e->x, e->y, self->x, self->y) <= SCREEN_WIDTH)
 			{
 				x += e->x;
 				y += e->y;
@@ -654,7 +658,7 @@ static int nearMines(void)
 	int i, numMines;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(self->x - 500, self->y - 500, 1000, 1000, self);
+	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_HEIGHT, self);
 	
 	self->targetLocation.x = self->targetLocation.y = 0;
 	
@@ -662,7 +666,7 @@ static int nearMines(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->side != self->side && e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) < 500)
+		if (e->side != self->side && e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) <= SCREEN_HEIGHT)
 		{
 			self->targetLocation.x += e->x;
 			self->targetLocation.y += e->y;
@@ -701,22 +705,18 @@ static void moveToPlayer(void)
 {
 	int wantedAngle;
 	int dist = getDistance(self->x, self->y, player->x, player->y);
-	float oldSpeed;
 	
 	if (dist <= 250)
 	{
-		wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 1000), player->y + (player->dy * 1000));
-		
-		turnToFace(wantedAngle);
-		
 		if (player->thrust > 0.1)
 		{
-			if (self->speed > player->speed)
+			wantedAngle = getAngle(player->x, player->y, player->x + (player->dx * 1000), player->y + (player->dy * 1000));
+		
+			turnToFace(wantedAngle);
+			
+			if (self->thrust > player->thrust)
 			{
-				oldSpeed = self->speed;
-				self->speed = sqrt(player->thrust);
-				applyFighterThrust();
-				self->speed = oldSpeed;
+				applyFighterBrakes();
 			}
 			else
 			{
@@ -759,6 +759,8 @@ static int nearJumpgate(void)
 
 static void moveToJumpgate(void)
 {
+	self->target = battle.jumpgate;
+	
 	faceTarget(self->target);
 		
 	applyFighterThrust();
@@ -774,7 +776,7 @@ static int nearItems(void)
 	
 	closest = MAX_TARGET_RANGE;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - (SCREEN_WIDTH / 4), self->y - (self->h / 2) - (SCREEN_HEIGHT / 4), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, self);
+	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH / 2, self);
 	
 	self->target = NULL;
 	
@@ -822,7 +824,7 @@ static int nearTowableCraft(void)
 	
 	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 2000;
 	
-	candidates = getAllEntsWithin(self->x - (self->w / 2) - dist, self->y - (self->h / 2) - dist, self->w + (dist * 2), self->h + (dist * 2), self);
+	candidates = getAllEntsInRadius(self->x, self->y, dist, self);
 	
 	self->target = NULL;
 	
@@ -862,7 +864,7 @@ static int lookForPlayer(void)
 {
 	int range = (self->aiFlags & AIF_MOVES_TO_PLAYER) ? MAX_TARGET_RANGE : 2000;
 	
-	if (player != NULL && getDistance(self->x, self->y, player->x, player->y) < range)
+	if (player->alive == ALIVE_ALIVE && getDistance(self->x, self->y, player->x, player->y) < range)
 	{
 		moveToPlayer();
 		return 1;
@@ -908,7 +910,6 @@ static void moveToLeader(void)
 {
 	int wantedAngle;
 	int dist = getDistance(self->x, self->y, self->leader->x, self->leader->y);
-	float oldSpeed;
 	
 	if (dist <= ((self->leader->type != ET_CAPITAL_SHIP) ? 350 : 550))
 	{
@@ -918,12 +919,9 @@ static void moveToLeader(void)
 			
 			turnToFace(wantedAngle);
 			
-			if (self->speed > self->leader->speed)
+			if (self->thrust > self->leader->thrust)
 			{
-				oldSpeed = self->speed;
-				self->speed = sqrt(self->leader->thrust);
-				applyFighterThrust();
-				self->speed = oldSpeed;
+				applyFighterBrakes();
 			}
 			else
 			{

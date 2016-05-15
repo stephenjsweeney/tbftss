@@ -46,11 +46,11 @@ void loadItemDefs(void)
 		e->type = ET_ITEM;
 		e->active = 1;
 		STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
-		STRNCPY(e->defName, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
+		STRNCPY(e->defName, cJSON_GetObjectItem(node, "defName")->valuestring, MAX_NAME_LENGTH);
 		e->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
-
 		e->health = e->maxHealth = FPS;
-
+		e->flags = EF_NO_HEALTH_BAR;
+		
 		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 
 		defTail->next = e;
@@ -70,29 +70,57 @@ Entity *spawnItem(char *name)
 	def = getItemDef(name);
 
 	memcpy(item, def, sizeof(Entity));
-
-	item->dx = rand() % 100 - rand() % 100;
-	item->dx *= 0.01;
-	item->dy = rand() % 100 - rand() % 100;
-	item->dy *= 0.01;
+	
+	item->next = NULL;
+	
 	item->action = action;
 
 	return item;
 }
 
-static Entity *getItemDef(char *name)
+void addRandomItem(int x, int y)
+{
+	Entity *e, *def, *item;
+	
+	def = item = e = NULL;
+
+	for (e = defHead.next ; e != NULL ; e = e->next)
+	{
+		if (!def || rand() % 2)
+		{
+			def = e;
+		}
+	}
+	
+	item = spawnEntity();
+	
+	memcpy(item, def, sizeof(Entity));
+	
+	item->next = NULL;
+	
+	item->x = x;
+	item->y = y;
+	item->speed = 1;
+	item->dx = rand() % 200 - rand() % 200;
+	item->dy = rand() % 200 - rand() % 200;
+	item->dx *= 0.01;
+	item->dy *= 0.01;
+	item->action = action;
+}
+
+static Entity *getItemDef(char *defName)
 {
 	Entity *e;
 
 	for (e = defHead.next ; e != NULL ; e = e->next)
 	{
-		if (strcmp(e->name, name) == 0)
+		if (strcmp(e->defName, defName) == 0)
 		{
 			return e;
 		}
 	}
 
-	printf("Error: no such item '%s'\n", name);
+	printf("Error: no such item '%s'\n", defName);
 	exit(1);
 }
 
@@ -101,11 +129,11 @@ static void action(void)
 	Entity *e, **candidates;
 	int i;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	candidates = getAllEntsInRadius(self->x, self->y, MAX(self->w, self->h), self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if ((e->flags & EF_COLLECTS_ITEMS) && collision(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h))
+		if (e->alive == ALIVE_ALIVE && (e->flags & EF_COLLECTS_ITEMS) && collision(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h))
 		{
 			self->health = 0;
 			playBattleSound(SND_GET_ITEM, self->x, self->y);

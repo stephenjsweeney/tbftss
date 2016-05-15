@@ -45,12 +45,12 @@ extern int fileExists(char *filename);
 extern char *getSaveFilePath(char *filename);
 extern void init18N(int argc, char *argv[]);
 extern void initLookups(void);
-extern void initGame(void);
 extern void doKeyDown(SDL_KeyboardEvent *event);
 extern void doKeyUp(SDL_KeyboardEvent *event);
 extern void createScreenshotFolder(void);
 extern int isControl(int type);
 extern void clearControl(int type);
+extern void saveGame(void);
 
 App app;
 Colors colors;

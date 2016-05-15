@@ -20,15 +20,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "trophies.h"
 
+static void prevPage(void);
+static void nextPage(void);
 static void loadTrophyData(char *filename);
 static void resetAlert(void);
 static void awardCraftTrophy(void);
+static void setSparkleColor(Trophy *t);
+static void nextAlert(void);
 
 static Trophy *alertTrophy;
 static SDL_Texture *trophyIcons[TROPHY_MAX];
+static SDL_Texture *sparkle;
+static SDL_Texture *alertSphere;
 static SDL_Rect alertRect;
-static float alertDX;
 static int alertTimer;
+static int page;
+static int awarded;
+static int total;
+static int boxWidth;
+static float sparkleAngle;
+static float maxPages;
+static Widget *prev;
+static Widget *next;
 
 void initTrophies(void)
 {
@@ -38,14 +51,164 @@ void initTrophies(void)
 	trophyIcons[TROPHY_SILVER] = getTexture("gfx/trophies/silver.png");
 	trophyIcons[TROPHY_GOLD] = getTexture("gfx/trophies/gold.png");
 	trophyIcons[TROPHY_PLATINUM] = getTexture("gfx/trophies/platinum.png");
+	trophyIcons[TROPHY_UNEARNED] = getTexture("gfx/trophies/unearned.png");
+	sparkle = getTexture("gfx/trophies/sparkle.png");
+	alertSphere = getTexture("gfx/trophies/alertSphere.png");
+	
+	alertRect.h = 90;
+	alertRect.y = 10;
 
 	resetAlert();
+}
+
+void initTrophiesDisplay(void)
+{
+	int w, h;
+	Trophy *t;
+	
+	boxWidth = total = awarded = 0;
+	
+	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	{
+		total++;
+		
+		if (t->awarded)
+		{
+			awarded++;
+			
+			STRNCPY(t->awardDateStr, timeToDate(t->awardDate), MAX_NAME_LENGTH);
+		}
+		
+		textSize(t->description, 18, &w, &h);
+		
+		boxWidth = MAX(boxWidth, w);
+	}
+	
+	boxWidth += 125;
+	
+	page = 0;
+	
+	maxPages = total;
+	maxPages /= TROPHIES_PER_PAGE;
+	maxPages = ceil(maxPages);
+	
+	prev = getWidget("prev", "trophies");
+	prev->action = prevPage;
+	prev->visible = 0;
+	
+	next = getWidget("next", "trophies");
+	next->action = nextPage;
+	next->visible = 1;
+	
+	sparkleAngle = 0;
+}
+
+static void nextPage(void)
+{
+	page = MIN(page + 1, maxPages - 1);
+	
+	next->visible = page < maxPages - 1;
+	prev->visible = 1;
+}
+
+static void prevPage(void)
+{
+	page = MAX(0, page - 1);
+	
+	next->visible = 1;
+	prev->visible = page > 0;
+}
+
+void doTrophies(void)
+{
+	sparkleAngle += 0.25;
+	if (sparkleAngle >= 360)
+	{
+		sparkleAngle = 0;
+	}
+}
+
+void drawTrophies(void)
+{
+	Trophy *t;
+	SDL_Rect r;
+	int start, end, i, x, y;
+	
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+	SDL_RenderFillRect(app.renderer, NULL);
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	
+	r.w = boxWidth;
+	r.h = 650;
+	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
+	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
+	SDL_RenderFillRect(app.renderer, &r);
+	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
+	SDL_RenderDrawRect(app.renderer, &r);
+	
+	drawText(SCREEN_WIDTH / 2, 40, 28, TA_CENTER, colors.white, _("Trophies"));
+	drawText(SCREEN_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, _("Awarded : %d / %d"), awarded, total);
+	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, _("Page : %d / %d"), page + 1, (int)maxPages);
+	
+	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
+	SDL_RenderDrawLine(app.renderer, r.x, 150, r.x + r.w, 150);
+	
+	x = r.x + 15;
+	y = 180;
+	start = page * TROPHIES_PER_PAGE;
+	end = start + TROPHIES_PER_PAGE;
+	i = 0;
+	
+	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	{
+		if (i >= start && i < end)
+		{
+			if (t->awarded)
+			{
+				setSparkleColor(t);
+				blitRotated(sparkle, x + 32, y + 32, sparkleAngle);
+				blitRotated(sparkle, x + 32, y + 32, -sparkleAngle);
+				
+				blitScaled(trophyIcons[t->value], x, y, 64, 64);
+				drawText(x + 85, y - 10, 20, TA_LEFT, colors.yellow, t->title);
+				drawText(x + 85, y + 20, 18, TA_LEFT, colors.white, t->description);
+				drawText(x + 85, y + 48, 18, TA_LEFT, colors.white, t->awardDateStr);
+			}
+			else
+			{
+				blitScaled(trophyIcons[TROPHY_UNEARNED], x, y, 64, 64);
+				
+				if (!t->hidden)
+				{
+					drawText(x + 85, y - 10, 20, TA_LEFT, colors.lightGrey, t->title);
+					drawText(x + 85, y + 20, 18, TA_LEFT, colors.darkGrey, t->description);
+					drawText(x + 85, y + 48, 18, TA_LEFT, colors.darkGrey, "-");
+				}
+				else
+				{
+					drawText(x + 85, y + 20, 20, TA_LEFT, colors.darkGrey, _("[Hidden]"));
+				}
+			}
+			
+			y += 120;
+		}
+		
+		i++;
+	}
+		
+	drawWidgets("trophies");
 }
 
 void awardTrophy(char *id)
 {
 	Trophy *t;
-
+	int numRemaining;
+	
+	numRemaining = 0;
+	
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
 		if (!t->awarded && strcmp(t->id, id) == 0)
@@ -53,55 +216,90 @@ void awardTrophy(char *id)
 			t->awarded = 1;
 			t->awardDate = time(NULL);
 			t->notify = 1;
+			
+			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Awarding trophy '%s'", t->id);
+			
+			app.saveGame = 1;
 		}
+		
+		if (!t->awarded)
+		{
+			numRemaining++;
+		}
+	}
+	
+	/* the Platinum will always be the last trophy to unlock */
+	if (numRemaining == 1)
+	{
+		awardTrophy("PLATINUM");
 	}
 }
 
-void doTrophies(void)
+void doTrophyAlerts(void)
 {
+	if (!alertTrophy)
+	{
+		nextAlert();
+	}
+	else if (alertTrophy)
+	{
+		alertRect.x = MIN(alertRect.x + 24, -1);
+
+		if (alertRect.x > -150)
+		{
+			alertTimer--;
+		}
+
+		if (alertTimer <= 0)
+		{
+			alertTrophy->notify = 0;
+			resetAlert();
+		}
+		
+		/* do the sparkle rotation */
+		doTrophies();
+	}
+}
+
+static void nextAlert(void)
+{
+	int w, h;
 	Trophy *t;
 
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
 		if (t->notify)
 		{
-			if (alertTrophy != t)
+			if (!alertTrophy || t->awardDate < alertTrophy->awardDate)
 			{
 				alertTrophy = t;
-				playSound(SND_TROPHY);
 			}
-
-			alertRect.x += alertDX;
-
-			if (alertRect.x > -50)
-			{
-				alertDX *= 0.9;
-			}
-
-			if (--alertTimer <= 0)
-			{
-				t->notify = 0;
-				resetAlert();
-			}
-
-			return;
 		}
+	}
+	
+	if (alertTrophy)
+	{
+		playSound(SND_TROPHY);
+		
+		textSize(alertTrophy->title, 30, &alertRect.w, &h);
+		textSize(alertTrophy->description, 20, &w, &h);
+		
+		alertRect.w = MAX(alertRect.w, w);
+		alertRect.w += 125;
+		alertRect.x = -alertRect.w;
 	}
 }
 
 static void resetAlert(void)
 {
-	alertRect.w = 300;
-	alertRect.h = 100;
-	alertRect.x = -alertRect.w;
-	alertRect.y = 10;
-
-	alertDX = 3;
 	alertTimer = FPS * 3;
+	alertTrophy = NULL;
 }
 
 void drawTrophyAlert(void)
 {
+	int x, y;
+	
 	if (alertTrophy)
 	{
 		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
@@ -110,15 +308,19 @@ void drawTrophyAlert(void)
 		SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
 		SDL_RenderDrawRect(app.renderer, &alertRect);
 
-		drawText(alertRect.x + 5, alertRect.y + 5, 30, TA_LEFT, colors.white, alertTrophy->title);
-		drawText(alertRect.x + 5, alertRect.y + 45, 20, TA_LEFT, colors.white, alertTrophy->description);
+		drawText(alertRect.x + 15, alertRect.y + 5, 30, TA_LEFT, colors.white, alertTrophy->title);
+		drawText(alertRect.x + 15, alertRect.y + 45, 20, TA_LEFT, colors.white, alertTrophy->description);
+		
+		setSparkleColor(alertTrophy);
+		
+		x = alertRect.x + alertRect.w - 72;
+		y = alertRect.y + 20;
 
-		blit(trophyIcons[alertTrophy->value], alertRect.x + alertRect.w - 64, alertRect.y + 10, 0);
+		blit(alertSphere, x + 24, y + 24, 1);
+		blitRotated(sparkle, x + 24, y + 24, sparkleAngle);
+		blitRotated(sparkle, x + 24, y + 24, -sparkleAngle);
+		blitScaled(trophyIcons[alertTrophy->value], x, y, 48, 48);
 	}
-}
-
-void drawTrophies(void)
-{
 }
 
 Trophy *getTrophy(char *id)
@@ -138,7 +340,6 @@ Trophy *getTrophy(char *id)
 
 static void loadTrophyData(char *filename)
 {
-	/*
 	cJSON *root, *node;
 	char *text;
 	Trophy *t, *tail;
@@ -152,29 +353,33 @@ static void loadTrophyData(char *filename)
 
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
-		t = malloc(sizeof(Trophy));
-		memset(t, 0, sizeof(Trophy));
-
-		STRNCPY(t->id, cJSON_GetObjectItem(node, "id")->valuestring, MAX_NAME_LENGTH);
-		STRNCPY(t->title, _(cJSON_GetObjectItem(node, "title")->valuestring), MAX_DESCRIPTION_LENGTH);
-		STRNCPY(t->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
-		t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
-		t->hidden = getJSONValue(node, "hidden", 0);
-
-		// can't use the getJSONValue here, as it could lead to false positives
-		if (cJSON_GetObjectItem(node, "stat"))
+		if (cJSON_GetObjectItem(node, "id")->valuestring[0] != '_')
 		{
-			t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring);
-			t->statValue = cJSON_GetObjectItem(node, "statValue")->valueint;
-		}
+			t = malloc(sizeof(Trophy));
+			memset(t, 0, sizeof(Trophy));
 
-		tail->next = t;
-		tail = t;
+			STRNCPY(t->id, cJSON_GetObjectItem(node, "id")->valuestring, MAX_NAME_LENGTH);
+			STRNCPY(t->title, _(cJSON_GetObjectItem(node, "title")->valuestring), MAX_DESCRIPTION_LENGTH);
+			STRNCPY(t->description, _(cJSON_GetObjectItem(node, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
+			t->value = lookup(cJSON_GetObjectItem(node, "value")->valuestring);
+			t->hidden = getJSONValue(node, "hidden", 0);
+			
+			t->stat = -1;
+			
+			/* can't use the getJSONValue here, as it could lead to false positives */
+			if (cJSON_GetObjectItem(node, "stat"))
+			{
+				t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring);
+				t->statValue = cJSON_GetObjectItem(node, "statValue")->valueint;
+			}
+
+			tail->next = t;
+			tail = t;
+		}
 	}
 
 	cJSON_Delete(root);
 	free(text);
-	*/
 }
 
 void awardStatsTrophies(void)
@@ -183,11 +388,15 @@ void awardStatsTrophies(void)
 
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
-		if (!t->awarded && game.stats[t->stat] >= t->statValue)
+		if (t->stat != -1 && !t->awarded && (game.stats[t->stat] + battle.stats[t->stat]) >= t->statValue)
 		{
 			t->awarded = 1;
 			t->awardDate = time(NULL);
 			t->notify = 1;
+			
+			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Awarding trophy '%s'", t->id);
+			
+			app.saveGame = 1;
 		}
 	}
 }
@@ -196,13 +405,13 @@ void awardCampaignTrophies(void)
 {
 	char trophyId[MAX_NAME_LENGTH];
 	char name[MAX_NAME_LENGTH];
-	int completed, i, len;
+	int i, len;
 	StarSystem *starSystem;
-
-	/* check % of missions completed */
-	completed = getPercent(game.completedMissions, game.totalMissions);
-	sprintf(trophyId, "CAMPAIGN_%d", completed);
-	awardTrophy(trophyId);
+	
+	if (game.completedMissions)
+	{
+		awardTrophy("CAMPAIGN_1");
+	}
 
 	/* check if all star system missions are completed */
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
@@ -217,6 +426,7 @@ void awardCampaignTrophies(void)
 			{
 				name[i] = toupper(starSystem->name[i]);
 			}
+			
 			sprintf(trophyId, "CAMPAIGN_%s", name);
 			awardTrophy(trophyId);
 		}
@@ -228,8 +438,8 @@ void awardChallengeTrophies(void)
 	char trophyId[MAX_NAME_LENGTH];
 	int completed;
 
-	/* check % of challenges completed */
-	completed = getPercent(game.completedChallenges, game.totalChallenges);
+	/* check % of challenges completed - 25% increments*/
+	completed = (getPercent(game.completedChallenges, game.totalChallenges) / 25) * 25;
 	sprintf(trophyId, "CHALLENGE_%d", completed);
 	awardTrophy(trophyId);
 }
@@ -241,6 +451,19 @@ void awardPostMissionTrophies(void)
 	if (game.currentMission->epic)
 	{
 		awardTrophy("EPIC");
+		
+		if (battle.stats[STAT_PLAYER_KILLED] == 0)
+		{
+			awardTrophy("SURVIVOR");
+		}
+	}
+	
+	/*
+	 * Must be a non-challenge mission, a fighter-type (has guns and missiles), must not be Sol, and must not have fired any shots or missiles
+	 */
+	if (!game.currentMission->challengeData.isChallenge && player->guns[0].type && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
+	{
+		awardTrophy("PACIFIST");
 	}
 }
 
@@ -260,4 +483,26 @@ static void awardCraftTrophy(void)
 	}
 
 	awardTrophy(trophyId);
+}
+
+static void setSparkleColor(Trophy *t)
+{
+	switch (t->value)
+	{
+		case TROPHY_BRONZE:
+			SDL_SetTextureColorMod(sparkle, 255, 128, 0);
+			break;
+		
+		case TROPHY_SILVER:
+			SDL_SetTextureColorMod(sparkle, 192, 192, 192);
+			break;
+		
+		case TROPHY_GOLD:
+			SDL_SetTextureColorMod(sparkle, 255, 255, 0);
+			break;
+		
+		case TROPHY_PLATINUM:
+			SDL_SetTextureColorMod(sparkle, 0, 128, 255);
+			break;
+	}
 }

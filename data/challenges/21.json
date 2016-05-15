@@ -1,0 +1,57 @@
+{
+	"name" : "Initiation",
+	"description" : "Initiation",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Dart",
+		"side" : "SIDE_PIRATE",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25,
+		"flags" : "+EF_COLLECTS_ITEMS"
+	},
+	"challenge" : {
+		"timeLimit" : 120,
+		"playerItemLimit" : 8,
+		"allowPlayerDeath" : 1,
+		"isDeathMatch" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 3
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 6
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 8
+			}
+		]
+	},
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"interval" : 5,
+			"total" : -1,
+			"step" : 1,
+			"offscreen" : 1,
+			"flags" : "+EF_COLLECTS_ITEMS+EF_DROPS_ITEMS",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_COLLECTS_ITEMS"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Boss;Three kills to join the team, dogs! Don't forget to collect the kill!"
+			]
+		}
+	]
+}

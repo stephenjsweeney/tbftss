@@ -26,7 +26,7 @@ span.highlight {font-weight:bold; color: #0bf;}
 <div style="text-align:center">
 <p><img src="logo.png"></p>
 <p><img src="pandoran.png"></p>
-<p>Last updated: 21st April 2016</p>
+<p>Last updated: 14th May 2016</p>
 </div>
 
 <div>
@@ -350,6 +350,15 @@ To start challenge mission, click on the numbered mission box and then click on 
 </ol>
 </p>
 
+<h3>Trophies</h3>
+<p>
+The Pandoran War offers an optional achievement award system, in the form of trophies. Trophies are earned through various gameplay actions, such as completing missions, defeating enemies, and racking up stats. Earned and available trophies can be viewed in the menu from the title screen, the galactic map, and the challenges menu. A notification will be shown when a trophy is unlocked, sliding in from the left-hand side of the screen. So as not to interupt the game, potentially spoiling a hard-fought mission, notifications are only shown at certain points during the game.
+</p>
+<img src="trophies.png" class="screenshot">
+<p>
+Note that this is not an online system, and is local to the machine on which the game is saved.
+</p>
+
 <h3>Misc. gameplay details</h3>
 
 <h4>Shuttles</h4>
@@ -398,20 +407,40 @@ To change a control, click on the box and then press the key or mouse button you
 Controls be can restored to their default settings by clicking the "Restore Defaults" button.
 </p>
 
+<h4>Gameplay settings</h4>
+<p>
+Some minor gameplay settings can be tweaked in the <b>config.json</b> save file:
+</p>
+<p>
+<ul>
+<li><span class="highlight">friendlyFire</span> - whether friendly fire between craft of the same side is allowed. 0, Off. 1 On. Default is 0 (off).<br>
+<li><span class="highlight">autoSwitchPlayerTarget</span> - whether the player's enemy targeter should automatically switch if the target goes out of a range. 0, Off. 1 On. Default is 1 (on).<br>
+<li><span class="highlight">missileReTarget</span> - whether missiles should select a new target if their current one is destroyed. Note that missiles will only make one attempt to do so, before automatically self-destructing. 0, Off, 1 On. Default is 0 (off).<br>
+<li><span class="highlight">healthBars</span> - whether or not to show health bars above fighters and other units, in game. 0, Off. 1 On. Default is 1 (on).<br>
+</ul>
+</p>
+<p>
+To alter a gameplay element, update the setting and restart the game. It is not recommended that you fiddle with these settings unless you are comfortable editing such files, as it could result in the loss of data or the game not working properly.
+</p>
+
 <h3>Misc. Information</h3>
 <p>
-Saved game files are stored in:
+The Pandoran War creates two save game files when run, config.json and game.save. Both files are human-readable and saved in JSON format. The files are stored in:
+</p>
 <ul>
 <li>Linux: $HOME/.local/share/tbftss</li>
 <li>Windows: $USERPROFILE/tbftss</li>
 </ul>
-Note that as the source code for this game is freely available, these settings may have been changed. Typically on Windows $USERPROFILE is C:/Users/&lt;userid&gt;.
+<p>
+Note that as the source code for this game is freely available, these settings may have been changed.
+</p>
+<p>
+$HOME on Linux will be /home/&lt;userId&gt;, where userId is your login username. Typically on Windows, $USERPROFILE is C:/Users/&lt;userId&gt;, where userId is your Windows login.
 </p>
 
 <h3>License</h3>
-
 <p>
-See the LICENSE and README.md files that came with this game for information on the various copyrights of the source code, graphics, sound, and data. Additionally, you may visit <a href="https://github.com/stephenjsweeney/tbftss">https://github.com/stephenjsweeney/tbftss</a> to get the source code itself, and view the files there.
+Please refer to the LICENSE and README.md files that came with this game for information on the various copyrights of the source code, graphics, sound, and data. Additionally, you may visit <a href="https://github.com/stephenjsweeney/tbftss">https://github.com/stephenjsweeney/tbftss</a> to get the source code itself, and view the files there.
 </p>
 
 <h3>About</h3>

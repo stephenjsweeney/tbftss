@@ -47,7 +47,8 @@ Entity *spawnJumpgate(int side, long flags)
 	jumpgate->action = think;
 	jumpgate->draw = draw;
 	jumpgate->side = side;
-	jumpgate->flags = EF_NO_MT_BOX+EF_IMMORTAL+EF_AI_IGNORE+EF_NON_SOLID;
+	jumpgate->flags = EF_NO_MT_BOX+EF_IMMORTAL+EF_AI_IGNORE+EF_NON_SOLID+EF_NO_HEALTH_BAR;
+	
 	if (flags != -1 && flags & EF_DISABLED)
 	{
 		jumpgate->flags |= EF_DISABLED;
@@ -87,6 +88,11 @@ static void addNodes(Entity *jumpgate, long flags)
 		node->flags = EF_TAKES_DAMAGE+EF_AI_IGNORE;
 		node->die = nodeDie;
 		SDL_QueryTexture(node->texture, NULL, NULL, &node->w, &node->h);
+		
+		if (jumpgate->side == SIDE_NONE)
+		{
+			node->flags |= EF_NO_HEALTH_BAR;
+		}
 		
 		if (flags != -1)
 		{
@@ -166,11 +172,11 @@ static void handleFleeingEntities(void)
 	Entity *e, **candidates;
 	int i;
 
-	candidates = getAllEntsWithin(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, self);
+	candidates = getAllEntsInRadius(self->x, self->y, ESCAPE_DISTANCE * 2, self);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if (e->health > 0 && e->flags & EF_RETREATING && getDistance(self->x, self->y, e->x, e->y) <= 255)
+		if (e->health > 0 && (e->flags & EF_RETREATING) && getDistance(self->x, self->y, e->x, e->y) <= ESCAPE_DISTANCE)
 		{
 			e->alive = ALIVE_ESCAPED;
 

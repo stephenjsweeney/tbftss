@@ -1,0 +1,159 @@
+{
+	"name" : "Rothan Defence #5",
+	"description" : "",
+	"requires" : 54,
+	"manualComplete" : 1,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/Tactical Pursuit.mp3",
+	"unwinnable" : 1,
+	"epic" : {
+		"fighterLimit" : 18
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Destroy INF Mora",
+			"targetName" : "INF Mora",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Destroy INF Karambit",
+			"targetName" : "INF Karambit",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		}
+	],
+	"player" : {
+		"type" : "Rook",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "(Multiple)",
+		"squadron" : "(Multiple)"
+	},
+	"fighters" : [
+		{
+			"types" : "Firefly;Nymph;TAF;Ray;Leopard;Hyena-A;Hyena-B;Kingfisher;Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 100,
+			"scatter" : 5000,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Scarab;Mantis;Thunderhead;Dart;Khepri;Swarmer",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 15,
+			"number" : 999,
+			"scatter" : 5000,
+			"flags" : "+EF_AI_TARGET"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "UNF Hopper",
+			"types" : "UNF Corvette 01",
+			"side" : "SIDE_ALLIES",
+			"x" : 20,
+			"y" : 20,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "UNF Blackburn",
+			"types" : "UNF Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 20,
+			"y" : 40,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "INF Mora",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 40,
+			"y" : 20,
+			"flags" : "+EF_MISSION_TARGET"
+		},
+		{
+			"name" : "INF Karambit",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 40,
+			"y" : 40,
+			"flags" : "+EF_MISSION_TARGET"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Wing Commander;Brace yourselves, lads.",
+				"MSG_BOX Wingmate;Picking up two Mitikas corvettes: Mora and Karambit.",
+				"MSG_BOX Wing Commander;We need to give Hopper and Blackburn support in dealing with them. Get to it."
+			]
+		},
+		{
+			"function" : "TIME 60",
+			"lines" : [
+				"MSG_BOX Wingmate;Hell, where'd they get those Khepris from?",
+				"MSG_BOX Wingmate;Crystabel must've decided to try and attack the Pandorans directly. Went as well for her as it did for us."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 30",
+			"lines" : [
+				"MSG_BOX Wingmate;Commander, we're taking heavy losses!",
+				"MSG_BOX Wing Commander;We won before, we can win again! Keep up the fight!"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 80",
+			"lines" : [
+				"MSG_BOX Wingmate;Commander, I strongly suggest we pull back.",
+				"MSG_BOX Wing Commander;We can't keep running. We'll run out of places to run to."
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 90",
+			"lines" : [
+				"MSG_BOX Wingmate;All fighters, be advised: the wing commander has been killed.",
+				"MSG_BOX Wingmate;Who's leading this operation now?",
+				"MSG_BOX Wingmate;We have to retreat!"
+			]
+		},
+		{
+			"function" : "ALLIES_KILLED 98",
+			"lines" : [
+				"MSG_BOX Wingmate;This the end of the line, guys. It's been great serving with you."
+			]
+		},
+		{
+			"function" : "UNF Hopper",
+			"lines" : [
+				"MSG_BOX Wingmate;Hopper is down!"
+			]
+		},
+		{
+			"function" : "UNF Blackburn",
+			"lines" : [
+				"MSG_BOX Wingmate;They've taken out Blackburn!"
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 2",
+			"lines" : [
+				"MSG_BOX Wingmate;That's both of our corvettes down. The rest is up to us."
+			]
+		}
+	]
+}
+ 

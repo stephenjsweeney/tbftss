@@ -1,0 +1,72 @@
+{
+	"name" : "Solo Patrol",
+	"description" : "Solo Patrol",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"waypointAutoAdvance" : 1,
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 240,
+		"waypointLimit" : 5,
+		"clearWaypointEnemies" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 240
+			},
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 180
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 19
+			}
+		]
+	},
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"interval" : 12,
+			"total" : -1,
+			"step" : 1,
+			"offscreen" : 1,
+			"aiFlags" : "AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 10000,
+			"number" : 5,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "Waypoint #1",
+			"lines" : [
+				"ACTIVATE_SPAWNER 1 spawner"
+			]
+		},
+		{
+			"function" : "Waypoint #5",
+			"lines" : [
+				"ACTIVATE_SPAWNER 0 spawner"
+			]
+		}
+	]
+}

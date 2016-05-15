@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-23 08:08:20+0100\n"
+"POT-Creation-Date: 2016-05-14 12:43:16+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -29,6 +29,21 @@ msgid "%s (Component)"
 msgstr ""
 
 msgid "%s (Gun)"
+msgstr ""
+
+msgid "We've lost engines! We're a sitting duck!"
+msgstr ""
+
+msgid "Our guns have been shot out! We have no defences!"
+msgstr ""
+
+msgid "Be advised, we're taking damage here. Please step up support."
+msgstr ""
+
+msgid "We're sustaining heavy damage! All fighters, please assist, ASAP!"
+msgstr ""
+
+msgid "Mayday! Mayday! Defences are critical. We can't hold out much longer!"
 msgstr ""
 
 msgid "Mission target has escaped."
@@ -65,6 +80,12 @@ msgid "(Combined Guns)"
 msgstr ""
 
 msgid "Missiles (%d)"
+msgstr ""
+
+msgid "System Power : %d%%"
+msgstr ""
+
+msgid "%s (Leader)"
 msgstr ""
 
 msgid "Target: %.2fkm"
@@ -115,6 +136,9 @@ msgstr ""
 msgid "New Objective : %s"
 msgstr ""
 
+msgid "Challenge Failed!"
+msgstr ""
+
 msgid "Target not in range"
 msgstr ""
 
@@ -133,6 +157,9 @@ msgstr ""
 msgid "Cannot activate waypoint - outstanding objectives not yet complete"
 msgstr ""
 
+msgid "Cannot activate waypoint - eliminate enemies first"
+msgstr ""
+
 msgid "Cannot activate waypoint - team mates too far away"
 msgstr ""
 
@@ -149,6 +176,12 @@ msgid "No Guns"
 msgstr ""
 
 msgid "Challenges"
+msgstr ""
+
+msgid "Completed : %d / %d"
+msgstr ""
+
+msgid "Page : %d / %d"
 msgstr ""
 
 msgid "[Locked]"
@@ -197,6 +230,9 @@ msgid "Collect %d packages"
 msgstr ""
 
 msgid "Rescue %d civilians"
+msgstr ""
+
+msgid "Complete challenge in %s or less"
 msgstr ""
 
 msgid "%s has fallen to the Pandorans"
@@ -328,6 +364,15 @@ msgstr ""
 msgid "Page %d / %d"
 msgstr ""
 
+msgid "Trophies"
+msgstr ""
+
+msgid "Awarded : %d / %d"
+msgstr ""
+
+msgid "[Hidden]"
+msgstr ""
+
 msgid "Fire"
 msgstr ""
 
@@ -361,6 +406,9 @@ msgstr ""
 msgid "Previous Fighter"
 msgstr ""
 
+msgid "Screenshot"
+msgstr ""
+
 msgid "Controls"
 msgstr ""
 
@@ -391,13 +439,13 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-msgid "Start Challenge Mission"
-msgstr ""
-
 msgid "Resume"
 msgstr ""
 
 msgid "Return to Title"
+msgstr ""
+
+msgid "Start Challenge Mission"
 msgstr ""
 
 msgid "OK"
@@ -457,7 +505,7 @@ msgstr ""
 msgid "And what'll they do then? Bite you to death?"
 msgstr ""
 
-msgid "Eyes open, lads"
+msgid "Eyes open, lads."
 msgstr ""
 
 msgid "We're done. Anyone detect anything unusual?"
@@ -466,7 +514,7 @@ msgstr ""
 msgid "Same old, same old."
 msgstr ""
 
-msgid "Believe me, that's a good thing. Right, let's head home and report in"
+msgid "Believe me, that's a good thing. Right, let's head home and report in."
 msgstr ""
 
 msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presense is reducing the amount of illegal activity in this sector, with reported incidents down 80%. Still, we cannot afford to become complacent, and must continue with our sweeps."
@@ -622,6 +670,48 @@ msgstr ""
 msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
 msgstr ""
 
+msgid "Break and attack, lads. Let's send these guys back home."
+msgstr ""
+
+msgid "More Tzac fighters incoming."
+msgstr ""
+
+msgid "Steel yourself, lads. Even more Tzac forces are heading our way."
+msgstr ""
+
+msgid "Picking up two capital ships, moving in."
+msgstr ""
+
+msgid "Wait, those aren't only Tzac forces ... "
+msgstr ""
+
+msgid "Ah, hell! Now we've got Pandorans, too?!"
+msgstr ""
+
+msgid "Commander, we're getting shot to ribbons here! We need to fallback!"
+msgstr ""
+
+msgid "We can't let EITHER of these two win! That would be a major loss for all of us."
+msgstr ""
+
+msgid "Eightballers, de Winter of the White Knights, here to assist."
+msgstr ""
+
+msgid "White Knights! Am I glad to see you. Your timing couldn't be better."
+msgstr ""
+
+msgid "I owe you my life, Knights."
+msgstr ""
+
+msgid "We're all in this together, Rice. I'm sorry we arrived too late to save your wingmates."
+msgstr ""
+
+msgid "They were good guys. They'll be missed."
+msgstr ""
+
+msgid "We're needed elsewhere. We'll see you soon."
+msgstr ""
+
 msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
 msgstr ""
 
@@ -665,6 +755,12 @@ msgid "Good. Not often we end up having to protect the enemy from another."
 msgstr ""
 
 msgid "Tugs are on the way. Should be here in the next few minutes"
+msgstr ""
+
+msgid "People, divide yourselves between the fighters and the Sharpfinger."
+msgstr ""
+
+msgid "We couldn't spare any bombers, so we just need to get in there and take them all on."
 msgstr ""
 
 msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
@@ -755,6 +851,60 @@ msgid "I noticed that none of those Darts tripped any mines. Maybe those were Tz
 msgstr ""
 
 msgid "Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing."
+msgstr ""
+
+msgid "Remember, guys: mags only against the fighters. We're not here to take any more lives."
+msgstr ""
+
+msgid "For the corvettes, concentrate fire on the engines and the guns. Once it's out of the game, move onto the next one."
+msgstr ""
+
+msgid "Got it."
+msgstr ""
+
+msgid "We should lure the fighters away from the capital ships. Stray fire against a disabled ship could destroy it."
+msgstr ""
+
+msgid "Good point, Chaz, we should be mindful of friendly-fire."
+msgstr ""
+
+msgid "Brings back memories, doesn't it?"
+msgstr ""
+
+msgid "So long as we don't end up back in Phylent after this."
+msgstr ""
+
+msgid "This going in your journal, Kelly?"
+msgstr ""
+
+msgid "Everything. It could be important one day."
+msgstr ""
+
+msgid "Have fun with the names of Tzac's cap ships."
+msgstr ""
+
+msgid "I'll just refer to the battle logs. Military records tend to be accurate."
+msgstr ""
+
+msgid "Most of the time."
+msgstr ""
+
+msgid "All fighters disabled."
+msgstr ""
+
+msgid "Corvettes are all out of the game."
+msgstr ""
+
+msgid "Griffin, this is de Winter. Opposing forces are no longer a threat."
+msgstr ""
+
+msgid "Any casualties?"
+msgstr ""
+
+msgid "No. All fighters and caps have been shutdown, and ready for pickup."
+msgstr ""
+
+msgid "Great work, Knights. Clean up will commence shortly. Standby for new instructions."
 msgstr ""
 
 msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
@@ -1033,6 +1183,21 @@ msgstr ""
 msgid "Secure the commander, and then take down those bombers. Just watch your fire."
 msgstr ""
 
+msgid "Remember everyone: the Pandorans are using UNF fighters."
+msgstr ""
+
+msgid "Using your radar and HUD is the way to go in this fight."
+msgstr ""
+
+msgid "All enemies down."
+msgstr ""
+
+msgid "Let's hope we never see the day when they get hold of one of the ATAFs."
+msgstr ""
+
+msgid "Agreed. Let's regroup and prepare for whatever's coming next."
+msgstr ""
+
 msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
 msgstr ""
 
@@ -1273,6 +1438,168 @@ msgstr ""
 msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
 msgstr ""
 
+msgid "Our goal is the jumpgate. Expect a lot of resistance."
+msgstr ""
+
+msgid "Once we're they, we need to destroy the control nodes to shut it down. Barclay, that's your job."
+msgstr ""
+
+msgid "More enemies incoming."
+msgstr ""
+
+msgid "Commander, I'm detecting a wing of Blizzards, incoming."
+msgstr ""
+
+msgid "Couldn't expect Tzac not to bring out the heavy guns. Let's take it to them, people."
+msgstr ""
+
+msgid "We're clear for the run against the gate."
+msgstr ""
+
+msgid "It's guarded by several rapid-fire plasma turrets. Try not to let those things get a lock on you."
+msgstr ""
+
+msgid "Half the nodes are down."
+msgstr ""
+
+msgid "Keep at it!"
+msgstr ""
+
+msgid "Jumpgate is down."
+msgstr ""
+
+msgid "Control, this is Wolfenden. Tzac's outer jumpgate is offline."
+msgstr ""
+
+msgid "Acknowledged. Hold position there. We'll need you to guard that gate and prevent the enemy from affecting repairs."
+msgstr ""
+
+msgid "Dammit, the team's been cut down! Looks like it's up to you and me, Ian."
+msgstr ""
+
+msgid "We'll make sure their deaths weren't in vain."
+msgstr ""
+
+msgid "HMS 781-110 sighted. All fighters free to engage at will. Follow my lead."
+msgstr ""
+
+msgid "Control, HMS 781-110 has been taken down."
+msgstr ""
+
+msgid "Infinites, HMS 781-041 has arrived in the area. Engage and destroy."
+msgstr ""
+
+msgid "Acknowledged."
+msgstr ""
+
+msgid "Did anyone else get that?"
+msgstr ""
+
+msgid "HMS 781-041, please repeat."
+msgstr ""
+
+msgid "Hell! Too late!"
+msgstr ""
+
+msgid "Infinites, it appears remaining enemy forces are retreating. Please stand down."
+msgstr ""
+
+msgid "Received."
+msgstr ""
+
+msgid "That was unexpected."
+msgstr ""
+
+msgid "Sure was. We'd better get to debriefing."
+msgstr ""
+
+msgid "We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?"
+msgstr ""
+
+msgid "Watch your fire: remember, a stray shot could easily destroy a disabled craft."
+msgstr ""
+
+msgid "All tagged Tzac fighters have been disabled."
+msgstr ""
+
+msgid "Tzac opposition has been destroyed."
+msgstr ""
+
+msgid "Great work, everyone. That should give the PR guys something to brag about."
+msgstr ""
+
+msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
+msgstr ""
+
+msgid "Therefore, you have permission to destroy any and all opposing forces, no need to mag these guys."
+msgstr ""
+
+msgid "Commander, we've got Darts and Shales incoming."
+msgstr ""
+
+msgid "Looks like some mercenaries decided to stick around. Let's show them why that was a bad move."
+msgstr ""
+
+msgid "That's them seen to. Onwards to the jumpgate."
+msgstr ""
+
+msgid "Got INF fighters incoming."
+msgstr ""
+
+msgid "Knew it wouldn't be long."
+msgstr ""
+
+msgid "Patriots, a Tzac warship just arrived in the area, but it has Imperial fighter escorts. Most likely it's been acquired by the Pandroans. It needs to be taken down before Cristabel makes her escape bid, as it might be here to kill her."
+msgstr ""
+
+msgid "Got it. You all heard that. Let's get to it."
+msgstr ""
+
+msgid "Christabel's shuttle has been disabled."
+msgstr ""
+
+msgid "Excellent work! Now let's finish off the rest of these fighters."
+msgstr ""
+
+msgid "All enemies down. Let's get over to Christabel's shuttle and secure the empress."
+msgstr ""
+
+msgid "Empress Christabel, this is Cdr. de Winter of the Confederation Stellar Navy."
+msgstr ""
+
+msgid "Acting under the authority of the allied forces, I am hereby placing you under arrest, for breaches of intergalactic law."
+msgstr ""
+
+msgid "You will be escorted to a neutral court, where you will be tried for your crimes."
+msgstr ""
+
+msgid "If found guilty, the intergalactic community will decide on your punishment."
+msgstr ""
+
+msgid "Sorry, your Highness. I wish it didn't have to go this way, but the galaxy has enough problems as it is."
+msgstr ""
+
+msgid "If--"
+msgstr ""
+
+msgid "Woah! What the hell just happened?!"
+msgstr ""
+
+msgid "Did anyone fire?!"
+msgstr ""
+
+msgid "All guns cold, Commander. Looks like she might have self destructed her own ship."
+msgstr ""
+
+msgid "Dammit!"
+msgstr ""
+
+msgid "Now what?"
+msgstr ""
+
+msgid "Nothing more we can do. We should evacuate the area before more Pandoran forces arrive."
+msgstr ""
+
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
 msgstr ""
 
@@ -1369,9 +1696,6 @@ msgstr ""
 msgid "Rose, we'll be relying on you to disable his fighter as soon as he puts in an appearance."
 msgstr ""
 
-msgid "Acknowledged."
-msgstr ""
-
 msgid "Tzac commander sighted, Commander."
 msgstr ""
 
@@ -1391,6 +1715,66 @@ msgid "Bagged and tagged."
 msgstr ""
 
 msgid "Excellent work, Jesters. Everything looks clear, so we'll dispatch a tug to your location to bring him in. See you soon."
+msgstr ""
+
+msgid "The Pandorans have launched a sudden attack against the system. It appears that they are capitalizing on the chaos that the Kingdom of Tzac has thrown us into. We need to repel this attack, as defeat here could mean a major setback in our struggle against both enemies."
+msgstr ""
+
+msgid "Hell, they're outnumbering us, a good two-to-one!"
+msgstr ""
+
+msgid "There are Swarmers in their ranks, making up the bulk. Don't lose faith people, we can do this."
+msgstr ""
+
+msgid "That's the last of 'em. Not often we win an engagement like this."
+msgstr ""
+
+msgid "Brace yourselves, lads."
+msgstr ""
+
+msgid "Picking up two Mitikas corvettes: Mora and Karambit."
+msgstr ""
+
+msgid "We need to give Hopper and Blackburn support in dealing with them. Get to it."
+msgstr ""
+
+msgid "Hell, where'd they get those Khepris from?"
+msgstr ""
+
+msgid "Crystabel must've decided to try and attack the Pandorans directly. Went as well for her as it did for us."
+msgstr ""
+
+msgid "Commander, we're taking heavy losses!"
+msgstr ""
+
+msgid "We won before, we can win again! Keep up the fight!"
+msgstr ""
+
+msgid "Commander, I strongly suggest we pull back."
+msgstr ""
+
+msgid "We can't keep running. We'll run out of places to run to."
+msgstr ""
+
+msgid "All fighters, be advised: the wing commander has been killed."
+msgstr ""
+
+msgid "Who's leading this operation now?"
+msgstr ""
+
+msgid "We have to retreat!"
+msgstr ""
+
+msgid "This the end of the line, guys. It's been great serving with you."
+msgstr ""
+
+msgid "Hopper is down!"
+msgstr ""
+
+msgid "They've taken out Blackburn!"
+msgstr ""
+
+msgid "That's both of our corvettes down. The rest is up to us."
 msgstr ""
 
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
@@ -1457,9 +1841,6 @@ msgid "Allied intelligence have managed to locate one of the pirate ring lieuten
 msgstr ""
 
 msgid "Seth, the lieutenant's Dart should be tagged on your HUD. Disable that ship as soon as possible."
-msgstr ""
-
-msgid "Got it."
 msgstr ""
 
 msgid "The rest of us will take down his buddies. Watch your stray fire around the mission target."
@@ -1642,7 +2023,13 @@ msgstr ""
 msgid "Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ...."
 msgstr ""
 
-msgid "Destroy all Darts"
+msgid "Destroy all Darts #1"
+msgstr ""
+
+msgid "Destroy all Darts #2"
+msgstr ""
+
+msgid "Destroy all Darts #3"
 msgstr ""
 
 msgid "Destroy all Lynxes"
@@ -1678,64 +2065,40 @@ msgstr ""
 msgid "Swarms of Swarmers"
 msgstr ""
 
+msgid "Piracy"
+msgstr ""
+
+msgid "Swelling the Ranks"
+msgstr ""
+
+msgid "Most Wanted"
+msgstr ""
+
+msgid "Solo Patrol"
+msgstr ""
+
+msgid "Set Phasers to Stun"
+msgstr ""
+
+msgid "No survivors"
+msgstr ""
+
+msgid "Initiation"
+msgstr ""
+
+msgid "Destroy all Darts #4"
+msgstr ""
+
 msgid "One of the seven"
 msgstr ""
 
 msgid "Earn all other trophies"
 msgstr ""
 
-msgid "2nd Lieutenant"
+msgid "Gentle start"
 msgstr ""
 
 msgid "Complete a campaign mission"
-msgstr ""
-
-msgid "1st Lieutenant"
-msgstr ""
-
-msgid "Complete 10% of all missions"
-msgstr ""
-
-msgid "Lieutenant Commander"
-msgstr ""
-
-msgid "Complete 20% of all missions"
-msgstr ""
-
-msgid "Commander"
-msgstr ""
-
-msgid "Complete 40% of all missions"
-msgstr ""
-
-msgid "Captain"
-msgstr ""
-
-msgid "Complete 50% of all missions"
-msgstr ""
-
-msgid "Commodore"
-msgstr ""
-
-msgid "Complete 60% of all missions"
-msgstr ""
-
-msgid "Rear Admiral"
-msgstr ""
-
-msgid "Complete 80% of all missions"
-msgstr ""
-
-msgid "Admiral"
-msgstr ""
-
-msgid "Complete 90% of all missions"
-msgstr ""
-
-msgid "Fleet Admiral"
-msgstr ""
-
-msgid "Complete all campaign missions"
 msgstr ""
 
 msgid "Ready for duty"
@@ -1768,10 +2131,22 @@ msgstr ""
 msgid "Complete all missions at Temper"
 msgstr ""
 
-msgid "Going out with a bang."
+msgid "Going out with a bang"
 msgstr ""
 
 msgid "Complete all missions at Mace"
+msgstr ""
+
+msgid "Back against the wall"
+msgstr ""
+
+msgid "Complete all missions at Rothan"
+msgstr ""
+
+msgid "Now what do we do?"
+msgstr ""
+
+msgid "Complete all missions at Clarke"
 msgstr ""
 
 msgid "Truly epic"
@@ -1786,13 +2161,19 @@ msgstr ""
 msgid "Destroy an enemy capital ship"
 msgstr ""
 
+msgid "Giant Slayer"
+msgstr ""
+
+msgid "Destroy 25 enemy capital ships"
+msgstr ""
+
 msgid "Plenty more where that came from, unfortunately"
 msgstr ""
 
 msgid "Destroy a Pandoran-controlled craft"
 msgstr ""
 
-msgid "Man, I gotta get me one of these!"
+msgid "Oh man, I gotta get me one of these!"
 msgstr ""
 
 msgid "Pilot an ATAF during the campaign"
@@ -1816,13 +2197,46 @@ msgstr ""
 msgid "Be killed by a missile that was meant for someone else"
 msgstr ""
 
-msgid "Complete 25% of all challenges"
+msgid "The bodyguard"
 msgstr ""
 
-msgid "Complete 50% of all challenges"
+msgid "Kill an enemy with a missile intended for their wing leader"
 msgstr ""
 
-msgid "Complete 100% of all challenges"
+msgid "Dedicated"
+msgstr ""
+
+msgid "Complete 25%% of all challenges"
+msgstr ""
+
+msgid "Obssessed"
+msgstr ""
+
+msgid "Complete 50%% of all challenges"
+msgstr ""
+
+msgid "Completitonist"
+msgstr ""
+
+msgid "Complete 100%% of all challenges"
+msgstr ""
+
+msgid "Hero"
+msgstr ""
+
+msgid "Take down 50 enemies (player only)"
+msgstr ""
+
+msgid "Veteran"
+msgstr ""
+
+msgid "Take down 500 enemies (player only)"
+msgstr ""
+
+msgid "Legend"
+msgstr ""
+
+msgid "Take down 5,000 enemies (player only)"
 msgstr ""
 
 msgid "Your name's on one of these!"
@@ -1840,13 +2254,19 @@ msgstr ""
 msgid "Isn't technology wonderful?"
 msgstr ""
 
-msgid "Use the ECM 100 times"
+msgid "Use the ECM 250 times"
 msgstr ""
 
 msgid "Runaway!"
 msgstr ""
 
-msgid "Boost 100 times"
+msgid "Boost 250 times"
+msgstr ""
+
+msgid "Hoarder"
+msgstr ""
+
+msgid "Collect 100 items"
 msgstr ""
 
 msgid "Missed, you f**kers!"
@@ -1861,15 +2281,45 @@ msgstr ""
 msgid "Visit 100 waypoints"
 msgstr ""
 
+msgid "Minesweeper"
+msgstr ""
+
+msgid "Destroy 255 mines (player only)"
+msgstr ""
+
+msgid "Get out and push"
+msgstr ""
+
+msgid "Disable 500 opponents"
+msgstr ""
+
 msgid "Yippie-ki-yay"
 msgstr ""
 
-msgid "Destroy 13 or more enemies in an epic battle without being killed"
+msgid "Destroy 13 or more enemies in an epic battle, without being killed"
 msgstr ""
 
-msgid "Almost indestructable. Almost."
+msgid "Survivor"
+msgstr ""
+
+msgid "Complete an epic battle without being killed"
+msgstr ""
+
+msgid "Almost indestructable. Almost"
 msgstr ""
 
 msgid "Be destroyed while piloting an ATAF"
+msgstr ""
+
+msgid "Pacifist"
+msgstr ""
+
+msgid "Complete a fighter-based campaign mission without firing"
+msgstr ""
+
+msgid "2 birds, 1 stone"
+msgstr ""
+
+msgid "Destroy two or more fighters by shooting one mine"
 msgstr ""
 

@@ -103,7 +103,7 @@ static void calculatePercentComplete(void)
 	
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		if (!starSystem->isSol)
+		if (starSystem->type == SS_NORMAL)
 		{
 			completed += starSystem->completedMissions;
 			total += starSystem->totalMissions;

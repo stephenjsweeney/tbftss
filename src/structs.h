@@ -297,7 +297,7 @@ struct StarSystem {
 	int totalMissions;
 	int availableMissions;
 	int fallsToPandorans;
-	int isSol;
+	int type;
 	Mission missionHead;
 	StarSystem *next;
 };

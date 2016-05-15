@@ -57,10 +57,12 @@ static StarSystem *loadStarSystem(cJSON *starSystemJSON)
 	starSystem->x = cJSON_GetObjectItem(starSystemJSON, "x")->valueint;
 	starSystem->y = cJSON_GetObjectItem(starSystemJSON, "y")->valueint;
 	starSystem->fallsToPandorans = getJSONValue(starSystemJSON, "fallsToPandorans", 0);
+	
+	starSystem->type = (starSystem->side != SIDE_PANDORAN) ? SS_NORMAL : SS_PANDORAN;
 
 	if (strcmp(starSystem->name, "Sol") == 0)
 	{
-		starSystem->isSol = 1;
+		starSystem->type = SS_SOL;
 	}
 
 	starSystem->missionHead.completed = 1;
@@ -148,7 +150,7 @@ void updateStarSystemMissions(void)
 			}
 		}
 
-		if (!starSystem->isSol)
+		if (starSystem->type == SS_NORMAL)
 		{
 			game.totalMissions += starSystem->totalMissions;
 			game.completedMissions += starSystem->completedMissions;
@@ -161,7 +163,7 @@ void updateStarSystemMissions(void)
 
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
-			mission->available = starSystem->isSol || isMissionAvailable(mission, prev);
+			mission->available = starSystem->type == SS_SOL || isMissionAvailable(mission, prev);
 
 			if (mission->available)
 			{
@@ -171,7 +173,7 @@ void updateStarSystemMissions(void)
 			prev = mission;
 		}
 
-		if (!starSystem->isSol)
+		if (starSystem->type == SS_NORMAL)
 		{
 			game.availableMissions += starSystem->availableMissions;
 		}

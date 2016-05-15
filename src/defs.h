@@ -139,6 +139,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MB_IMPORTANT			1
 #define MB_PANDORAN				2
 
+#define SS_NORMAL				0
+#define SS_SOL					1
+#define SS_PANDORAN				2
+
 enum
 {
 	CONTROL_FIRE,

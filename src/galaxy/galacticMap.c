@@ -299,16 +299,22 @@ static void addPulses(void)
 			pulse->x = starSystem->x;
 			pulse->y = starSystem->y;
 			pulse->life = 255;
-
-			if (!starSystem->isSol)
+			
+			switch (starSystem->type)
 			{
-				pulse->r = 255;
+				case SS_NORMAL:
+					pulse->r = 255;
+					break;
+					
+				case SS_SOL:
+					pulse->g = 255;
+					break;
+					
+				case SS_PANDORAN:
+					pulse->b = 255;
+					break;
 			}
-			else
-			{
-				pulse->g = 255;
-			}
-
+			
 			pulseTail->next = pulse;
 			pulseTail = pulse;
 		}
@@ -462,15 +468,21 @@ static void drawGalaxy(void)
 
 			if (aa != -1)
 			{
-				if (!starSystem->isSol)
+				switch (starSystem->type)
 				{
-					SDL_SetTextureColorMod(arrowTexture, 255, 0, 0);
+					case SS_NORMAL:
+						SDL_SetTextureColorMod(arrowTexture, 255, 0, 0);
+						break;
+						
+					case SS_SOL:
+						SDL_SetTextureColorMod(arrowTexture, 0, 255, 0);
+						break;
+						
+					case SS_PANDORAN:
+						SDL_SetTextureColorMod(arrowTexture, 0, 0, 255);
+						break;
 				}
-				else
-				{
-					SDL_SetTextureColorMod(arrowTexture, 0, 255, 0);
-				}
-
+				
 				blitRotated(arrowTexture, ax, ay, aa);
 			}
 		}
@@ -593,7 +605,7 @@ static void drawStarSystemDetail(void)
 		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, _("Note: this is an Epic Mission."));
 	}
 
-	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->isSol);
+	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->type == SS_SOL);
 
 	drawWidgets("starSystem");
 }

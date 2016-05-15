@@ -276,8 +276,15 @@ void expireTexts(int all)
 static void loadFont(int size)
 {
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "loadFonts(%d)", size);
-
-	font[size] = TTF_OpenFont(getFileLocation("data/fonts/Roboto-Medium.ttf"), size);
+	
+	if (size != 0)
+	{
+		font[size] = TTF_OpenFont(getFileLocation("data/fonts/Roboto-Medium.ttf"), size);
+	}
+	else
+	{
+		font[size] = TTF_OpenFont(getFileLocation("data/fonts/Khosrau.ttf"), 18);
+	}
 }
 
 static unsigned long hashcode(const char *str, int size)

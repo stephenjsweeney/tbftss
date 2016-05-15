@@ -42,6 +42,17 @@ void doObjectives(void)
 			{
 				battle.numConditions++;
 			}
+			
+			if (o->isEliminateAll && o->status != OS_COMPLETE && !battle.hasThreats)
+			{
+				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
+				
+				o->currentValue = o->targetValue;
+				
+				o->status = OS_COMPLETE;
+				
+				runScriptFunction("OBJECTIVES_COMPLETE %d", battle.numObjectivesComplete + 1);
+			}
 		}
 		else
 		{
@@ -118,17 +129,6 @@ void updateObjective(char *name, int type)
 						
 						runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
 					}
-				}
-				
-				if (o->isEliminateAll && o->status != OS_COMPLETE && !battle.hasThreats)
-				{
-					addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
-					
-					o->currentValue = o->targetValue;
-					
-					o->status = OS_COMPLETE;
-					
-					runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
 				}
 			}
 			

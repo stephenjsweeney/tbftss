@@ -52,6 +52,8 @@ void initBattle(void)
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+	
+	battle.hasThreats = 1;
 
 	initQuadtree(&battle.quadtree);
 

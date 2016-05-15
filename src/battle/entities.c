@@ -84,7 +84,7 @@ void doEntities(void)
 			e->health = e->maxHealth;
 			e->shield = e->maxShield;
 		}
-
+		
 		if (e->active)
 		{
 			self = e;
@@ -217,11 +217,11 @@ void doEntities(void)
 					{
 						numSpawnedEnemies++;
 					}
-				}
-				
-				if (e->health > 0 && !(e->flags & EF_DISABLED))
-				{
-					battle.hasThreats = 1;
+					
+					if (!(e->flags & EF_DISABLED))
+					{
+						battle.hasThreats = 1;
+					}
 				}
 			}
 		}

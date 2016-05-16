@@ -36,6 +36,7 @@ static void preFireMissile(void);
 static void applyRestrictions(void);
 static int isPriorityMissionTarget(Entity *e, int dist, int closest);
 static int targetOutOfRange(void);
+static void setPilotName(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -77,8 +78,8 @@ void initPlayer(void)
 	{
 		player->selectedGunType = 0;
 	}
-
-	STRNCPY(player->name, "Player", MAX_NAME_LENGTH);
+	
+	setPilotName();
 
 	player->action = NULL;
 
@@ -86,6 +87,30 @@ void initPlayer(void)
 	battle.ecmTimer = ECM_RECHARGE_TIME;
 	
 	player->flags |= EF_NO_HEALTH_BAR;
+}
+
+static void setPilotName(void)
+{
+	int i, pos;
+	
+	pos = -1;
+	
+	for (i = 0 ; i < strlen(game.currentMission->pilot) ; i++)
+	{
+		if (game.currentMission->pilot[i] == ' ')
+		{
+			pos = i;
+		}
+	}
+	
+	memset(player->name, '\0', MAX_NAME_LENGTH);
+	
+	if (pos != -1)
+	{
+		memcpy(player->name, game.currentMission->pilot + pos + 1, strlen(game.currentMission->pilot) - pos - 1);
+	}
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Pilot name = '%s'", player->name);
 }
 
 void doPlayer(void)

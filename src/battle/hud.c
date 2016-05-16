@@ -606,11 +606,11 @@ static void drawSuspicionLevel(void)
 	
 	if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.5))
 	{
-		SDL_SetRenderDrawColor(app.renderer, 255, 128, 0, 255);
+		SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
 	}
 	else if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.75))
 	{
-		SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+		SDL_SetRenderDrawColor(app.renderer, 255, 128, 0, 255);
 	}
 	else
 	{

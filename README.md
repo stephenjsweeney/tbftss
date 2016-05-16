@@ -29,6 +29,7 @@ All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyrigh
 ### DATA FILES
 
 data/fonts/Roboto-Medium.ttf, by Christian Robertson. Licensed under the Apache License, version 2.0
+data/fonts/Khosrau.ttf, by Fereydoun Rostam. Free for non-commercial use (http://www.dafont.com/khosrau.font)
 
 All other data files are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 

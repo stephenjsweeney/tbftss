@@ -311,6 +311,11 @@ static void handleMouse(void)
 			{
 				fireRocket(player);
 			}
+			
+			if (battle.hasSuspicionLevel && !battle.numEnemies)
+			{
+				battle.suspicionLevel += (MAX_SUSPICION_LEVEL * 0.05);
+			}
 		}
 		
 		if (isControl(CONTROL_ACCELERATE))
@@ -489,6 +494,11 @@ static void activateECM(void)
 	addECMEffect(player);
 
 	battle.stats[STAT_ECM]++;
+	
+	if (battle.hasSuspicionLevel && !battle.numEnemies)
+	{
+		battle.suspicionLevel += (MAX_SUSPICION_LEVEL * 0.25);
+	}
 }
 
 static void switchGuns(void)

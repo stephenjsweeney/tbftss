@@ -587,12 +587,19 @@ static void drawSuspicionLevel(void)
 {
 	SDL_Rect r;
 	
+	battle.suspicionLevel = MIN(battle.suspicionLevel, MAX_SUSPICION_LEVEL);
+	
 	drawText((SCREEN_WIDTH / 2) - 150, SCREEN_HEIGHT - 60, 18, TA_RIGHT, colors.white, _("Suspicion"));
 	
 	r.x = (SCREEN_WIDTH / 2) - 140;
 	r.y = SCREEN_HEIGHT - 58;
 	r.w = 400;
 	r.h = 20;
+	
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+	SDL_RenderFillRect(app.renderer, &r);
+	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
 	SDL_SetRenderDrawColor(app.renderer, 192, 192, 192, 255);
 	SDL_RenderDrawRect(app.renderer, &r);

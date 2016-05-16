@@ -16,8 +16,8 @@ to access some (rather crude) debugging and development stuff, activated by pres
 * [9] - Show the current frames per second
 * [0] - Take a screenshot once per second, saving to /tmp/tbftss on Linux.
 
-By default, the game will output WARN level messages, or greater. To see INFO level messages, you can use:
+By default, the game will output INFO level messages, or greater. To reduce to WARN level messages, you can use:
 
-`./tbftss -info`
+`./tbftss -warn`
 
 Note that using `-debug` will automatically output DEBUG level messages.

@@ -165,7 +165,7 @@ static void nextMessage(void)
 		{
 			if (strcmp(e->name, head.next->title) == 0)
 			{
-				battle.messageSpeaker = e;
+				battle.messageSpeaker = lastWingmate = e;
 				return;
 			}
 			

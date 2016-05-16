@@ -350,6 +350,8 @@ typedef struct {
 	int numObjectivesComplete, numObjectivesTotal, numConditions;
 	int scriptedEnd;
 	int hasThreats;
+	int hasSuspicionLevel;
+	int suspicionLevel;
 	Entity *missionTarget;
 	Entity *jumpgate;
 	Entity *messageSpeaker;

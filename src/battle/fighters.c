@@ -254,6 +254,11 @@ void doFighter(void)
 				self->action = doAI;
 			}
 		}
+		
+		if (self->aiFlags & AIF_SUSPICIOUS)
+		{
+			checkSuspicionLevel();
+		}
 	}
 
 	if (self->alive == ALIVE_ESCAPED)
@@ -554,6 +559,11 @@ static void die(void)
 	if (self->killedBy == player && (!(self->flags & EF_NO_KILL_INC)))
 	{
 		battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
+		
+		if (battle.hasSuspicionLevel)
+		{
+			battle.suspicionLevel = MAX(0, battle.suspicionLevel - (MAX_SUSPICION_LEVEL * 0.1));
+		}
 		
 		if (battle.isEpic)
 		{

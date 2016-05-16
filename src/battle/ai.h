@@ -39,6 +39,7 @@ extern void addHudMessage(SDL_Color c, char *format, ...);
 extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern char *getTranslatedString(char *string);
 extern Entity *spawnMine(int type);
+extern void addMessageBox(char *title, char *body, int type);
 
 extern Battle battle;
 extern Colors colors;

@@ -961,6 +961,36 @@ static void wander(void)
 	{
 		self->aiActionTime = 0;
 	}
+}
+
+/*
+ * Used only for the optional missions, in Pandoran-controlled space. We can therefore hardcode the response.
+ */
+void checkSuspicionLevel(void)
+{
+	battle.hasSuspicionLevel = 0;
 	
-	nextAction();
+	if (self->side == player->side)
+	{
+		battle.hasSuspicionLevel = 1;
+		
+		/* raise if player is too far away */
+		if (getDistance(self->x, self->y, player->x, player->y) > SCREEN_WIDTH / 2)
+		{
+			battle.suspicionLevel++;
+		}
+		
+		/* raise if there are active enemies */
+		if (battle.numEnemies)
+		{
+			battle.suspicionLevel++;
+		}
+		
+		if (battle.suspicionLevel >= MAX_SUSPICION_LEVEL)
+		{
+			player->side = SIDE_ALLIES;
+			
+			addMessageBox(self->name, "Intruder alert! We have an intruder! All units, target and destroy that fighter!", MB_PANDORAN);
+		}
+	}
 }

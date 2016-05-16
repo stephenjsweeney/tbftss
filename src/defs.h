@@ -129,6 +129,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_TARGET_FOCUS		(2 << 16)
 #define AIF_DROPS_MINES			(2 << 17)
 #define AIF_ASSASSIN			(2 << 18)
+#define AIF_SUSPICIOUS			(2 << 19)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)
@@ -142,6 +143,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SS_NORMAL				0
 #define SS_SOL					1
 #define SS_PANDORAN				2
+
+#define MAX_SUSPICION_LEVEL		5000.0
 
 enum
 {

@@ -31,6 +31,7 @@ static void drawPlayerSelect(void);
 static void drawAbilityBars(void);
 static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, int b);
 static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b, int flashLow);
+static void drawSuspicionLevel(void);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
@@ -157,6 +158,11 @@ void drawHud(void)
 		drawRadar();
 		
 		drawRadarRangeWarning();
+		
+		if (battle.hasSuspicionLevel)
+		{
+			drawSuspicionLevel();
+		}
 	}
 	
 	drawHudMessages();
@@ -575,6 +581,43 @@ static void drawPlayerSelect(void)
 	
 	blit(arrowLeft, (SCREEN_WIDTH / 2) - 200, 520, 1);
 	blit(arrowRight, (SCREEN_WIDTH / 2) + 200, 520, 1);
+}
+
+static void drawSuspicionLevel(void)
+{
+	SDL_Rect r;
+	
+	drawText((SCREEN_WIDTH / 2) - 150, SCREEN_HEIGHT - 60, 18, TA_RIGHT, colors.white, _("Suspicion"));
+	
+	r.x = (SCREEN_WIDTH / 2) - 140;
+	r.y = SCREEN_HEIGHT - 58;
+	r.w = 400;
+	r.h = 20;
+	
+	SDL_SetRenderDrawColor(app.renderer, 192, 192, 192, 255);
+	SDL_RenderDrawRect(app.renderer, &r);
+	
+	r.x += 2;
+	r.y += 2;
+	r.w -= 4;
+	r.h -= 4;
+	
+	r.w = (r.w / MAX_SUSPICION_LEVEL) * battle.suspicionLevel;
+	
+	if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.5))
+	{
+		SDL_SetRenderDrawColor(app.renderer, 255, 128, 0, 255);
+	}
+	else if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.75))
+	{
+		SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+	}
+	else
+	{
+		SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
+	}
+	
+	SDL_RenderFillRect(app.renderer, &r);
 }
 
 void resetHud(void)

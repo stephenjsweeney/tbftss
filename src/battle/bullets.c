@@ -180,6 +180,11 @@ static void checkCollisions(Bullet *b)
 					{
 						battle.stats[STAT_ROCKETS_HIT]++;
 					}
+					
+					if (battle.hasSuspicionLevel)
+					{
+						battle.suspicionLevel = MAX(0, battle.suspicionLevel - (MAX_SUSPICION_LEVEL * 0.01));
+					}
 				}
 				
 				if (e->flags & EF_IMMORTAL)

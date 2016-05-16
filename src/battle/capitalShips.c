@@ -757,27 +757,27 @@ void loadCapitalShips(cJSON *node)
 
 static void issueEnginesDestroyedMessage(Entity *cap)
 {
-	addMessageBox(cap->name, _("We've lost engines! We're a sitting duck!"), 1);
+	addMessageBox(cap->name, _("We've lost engines! We're a sitting duck!"), MB_IMPORTANT);
 }
 
 static void issueGunsDestroyedMessage(Entity *cap)
 {
-	addMessageBox(cap->name, _("Our guns have been shot out! We have no defences!"), 1);
+	addMessageBox(cap->name, _("Our guns have been shot out! We have no defences!"), MB_IMPORTANT);
 }
 
 static void issueDamageMessage(Entity *cap)
 {
 	if (cap->health == cap->maxHealth - 1)
 	{
-		addMessageBox(cap->name, _("Be advised, we're taking damage here. Please step up support."), 1);
+		addMessageBox(cap->name, _("Be advised, we're taking damage here. Please step up support."), MB_IMPORTANT);
 	}
 	else if (cap->health == cap->maxHealth / 2)
 	{
-		addMessageBox(cap->name, _("We're sustaining heavy damage! All fighters, please assist, ASAP!"), 1);
+		addMessageBox(cap->name, _("We're sustaining heavy damage! All fighters, please assist, ASAP!"), MB_IMPORTANT);
 	}
 	else if (cap->health == 1)
 	{
-		addMessageBox(cap->name, _("Mayday! Mayday! Defences are critical. We can't hold out much longer!"), 1);
+		addMessageBox(cap->name, _("Mayday! Mayday! Defences are critical. We can't hold out much longer!"), MB_IMPORTANT);
 	}
 }
 

@@ -322,4 +322,6 @@ void destroyScript(void)
 	}
 
 	tail = &head;
+	
+	scriptJSON = NULL;
 }

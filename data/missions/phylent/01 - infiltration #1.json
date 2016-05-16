@@ -1,6 +1,6 @@
 {
 	"name" : "Infiltration #1",
-	"description" : "",
+	"description" : "An opportunity has been granted for us to infiltrate Mitikas space, the Pandoran army, and ultimate get close to Jason Zackaria or Julian Rissard. If nothing else, we could still discover the whereabouts of these two elusive men, which could assist in future operations to capture them. Your goal is to acquire an Angel, an outdated INF fighter that currently lies in the hands of mercenaries. They have retreated to Phylent to affect repairs, so now is the chance to strike.",
 	"requires" : 0,
 	"isOptional" : 1,
 	"background" : "gfx/backgrounds/background01.jpg",

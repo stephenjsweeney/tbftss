@@ -1,0 +1,33 @@
+{
+	"name" : "Unique Sphinx",
+	"health" : 999,
+	"shield" : 999,
+	"speed" : 1.85,
+	"reloadTime" : 14,
+	"shieldRechargeRate" : 0,
+	"texture" : "gfx/fighters/zakSphinx.png",
+	"guns" : [
+		{
+			"type" : "BT_PLASMA",
+			"x" : 0,
+			"y" : -4
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : 9,
+			"y" : 0
+		},
+		{
+			"type" : "BT_PLASMA",
+			"x" : -9,
+			"y" : 0
+		},
+		{
+			"type" : "BT_LASER",
+			"x" : 0,
+			"y" : 0
+		}
+	],
+	"missiles" : 2,
+	"flags" : "EF_TAKES_DAMAGE+EF_IMMORTAL+EF_MISSION_TARGET"
+}

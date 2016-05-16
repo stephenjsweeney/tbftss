@@ -95,7 +95,7 @@ static void calculateMessageBoxHeight(MessageBox *msg)
 {
 	limitTextWidth(575);
 	
-	msg->height = getWrappedTextHeight(msg->body, 18);
+	msg->height = getWrappedTextHeight(msg->body, (msg->type == MB_PANDORAN) ? 0 : 18);
 	
 	limitTextWidth(0);
 }

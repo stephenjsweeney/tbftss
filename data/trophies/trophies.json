@@ -72,7 +72,7 @@
 		"description" : "Complete all optional missions",
 		"value" : "TROPHY_GOLD",
 		"stat" : "STAT_OPTIONAL_COMPLETED",
-		"statValue" : 4,
+		"statValue" : 5,
 		"hidden" : 1
 	},
 	{

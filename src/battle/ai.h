@@ -40,6 +40,8 @@ extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern char *getTranslatedString(char *string);
 extern Entity *spawnMine(int type);
 extern void addMessageBox(char *title, char *body, int type);
+extern void destroyScript(void);
+extern void activateTrespasserSpawner(void);
 
 extern Battle battle;
 extern Colors colors;

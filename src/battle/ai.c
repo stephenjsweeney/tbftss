@@ -993,6 +993,10 @@ void checkSuspicionLevel(void)
 			addMessageBox(self->name, "Intruder alert! We have an intruder! All units, target and destroy that fighter!", MB_PANDORAN);
 			
 			addMessageBox(player->name, _("Hell! My cover's been blown, they're on to me!"), MB_IMPORTANT);
+			
+			destroyScript();
+			
+			activateTrespasserSpawner();
 		}
 	}
 }

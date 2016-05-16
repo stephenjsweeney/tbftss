@@ -123,9 +123,31 @@ void activateSpawner(char *name, int active)
 	}
 }
 
+void activateTrespasserSpawner(void)
+{
+	Spawner *s;
+	char types[MAX_DESCRIPTION_LENGTH];
+	
+	s = malloc(sizeof(Spawner));
+	memset(s, 0, sizeof(Spawner));
+	battle.spawnerTail->next = s;
+	battle.spawnerTail = s;
+	
+	STRNCPY(types, "Jackal;Mantis;Sphinx;Scarab", MAX_DESCRIPTION_LENGTH);
+
+	s->types = toTypeArray(types, &s->numTypes);
+	s->side = SIDE_PANDORAN;
+	s->interval = 5 * FPS;
+	s->total = -1;
+	s->step = 5;
+	s->offscreen = 1;
+	s->active = 1;
+	STRNCPY(s->flags, "+EF_IMMORTAL", MAX_DESCRIPTION_LENGTH);
+	STRNCPY(s->aiFlags, "+AIF_UNLIMITED_RANGE", MAX_DESCRIPTION_LENGTH);
+}
+
 void loadSpawners(cJSON *node)
 {
-	int active;
 	Spawner *s;
 
 	if (node)
@@ -146,7 +168,7 @@ void loadSpawners(cJSON *node)
 			s->total = getJSONValue(node, "total", 0);
 			s->step = cJSON_GetObjectItem(node, "step")->valueint;
 			s->offscreen = getJSONValue(node, "offscreen", 0);
-			s->active = active = getJSONValue(node, "active", 1);
+			s->active = getJSONValue(node, "active", 1);
 			STRNCPY(s->flags, getJSONValueStr(node, "flags", ""), MAX_DESCRIPTION_LENGTH);
 			STRNCPY(s->aiFlags, getJSONValueStr(node, "aiFlags", ""), MAX_DESCRIPTION_LENGTH);
 

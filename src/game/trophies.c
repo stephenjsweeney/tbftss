@@ -385,6 +385,7 @@ static void loadTrophyData(char *filename)
 void awardStatsTrophies(void)
 {
 	Trophy *t;
+	Tuple *tp;
 
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
 	{
@@ -399,6 +400,17 @@ void awardStatsTrophies(void)
 			app.saveGame = 1;
 		}
 	}
+	
+	/* check to see if we've destroyed one of each common starfighter */
+	for (tp = game.fighterStatHead.next ; tp != NULL ; tp = tp->next)
+	{
+		if (tp->value == 0)
+		{
+			return;
+		}
+	}
+	
+	awardTrophy("FREQUENT_FLYER");
 }
 
 void awardCampaignTrophies(void)

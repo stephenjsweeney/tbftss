@@ -108,6 +108,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_FRIENDLY_HEALTH_BAR	(2 << 22)
 #define EF_NO_THREAT			(2 << 23)
 #define EF_DROPS_ITEMS			(2 << 24)
+#define EF_COMMON_FIGHTER		(2 << 25)
 
 #define AIF_NONE				0
 #define AIF_FOLLOWS_PLAYER		(2 << 0)

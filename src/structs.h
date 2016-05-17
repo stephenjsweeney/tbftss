@@ -39,6 +39,7 @@ typedef struct ScriptRunner ScriptRunner;
 typedef struct Location Location;
 typedef struct Bucket Bucket;
 typedef struct Trophy Trophy;
+typedef struct Tuple Tuple;
 
 typedef struct {
 	int debug;
@@ -400,6 +401,12 @@ typedef struct {
 	int healthBars;
 } Gameplay;
 
+struct Tuple {
+	char key[MAX_NAME_LENGTH];
+	int value;
+	Tuple *next;
+};
+
 typedef struct {
 	StarSystem starSystemHead;
 	Mission challengeMissionHead;
@@ -412,6 +419,7 @@ typedef struct {
 	int totalChallenges;
 	unsigned int stats[STAT_MAX];
 	Trophy trophyHead;
+	Tuple fighterStatHead;
 } Game;
 
 struct Widget {

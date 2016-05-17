@@ -31,6 +31,8 @@ static void randomizeDartGuns(Entity *dart);
 static void loadFighterDef(char *filename);
 static void loadFighterDefList(char *filename);
 static Entity *getFighterDef(char *name);
+static void addFighterStat(char *name);
+static void incFighterStat(char *key);
 
 static Entity defHead, *defTail;
 
@@ -562,6 +564,11 @@ static void die(void)
 	{
 		battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
 		
+		if (self->flags & EF_COMMON_FIGHTER)
+		{
+			incFighterStat(self->defName);
+		}
+		
 		if (battle.hasSuspicionLevel)
 		{
 			battle.suspicionLevel = MAX(0, battle.suspicionLevel - (MAX_SUSPICION_LEVEL * 0.1));
@@ -817,6 +824,11 @@ static void loadFighterDef(char *filename)
 		{
 			e->deathType = lookup(cJSON_GetObjectItem(root, "deathType")->valuestring);
 		}
+		
+		if (e->flags & EF_COMMON_FIGHTER)
+		{
+			addFighterStat(e->name);
+		}
 
 		e->separationRadius = MAX(e->w, e->h) * 3;
 
@@ -830,6 +842,47 @@ static void loadFighterDef(char *filename)
 	}
 
 	free(text);
+}
+
+static void addFighterStat(char *key)
+{
+	Tuple *t, *tail;
+	
+	tail = &game.fighterStatHead;
+	
+	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
+	{
+		if (strcmp(t->key, key) == 0)
+		{
+			return;
+		}
+		
+		tail = t;
+	}
+	
+	t = malloc(sizeof(Tuple));
+	memset(t, 0, sizeof(Tuple));
+	
+	STRNCPY(t->key, key, MAX_NAME_LENGTH);
+	t->value = 0;
+	
+	tail->next = t;
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Added '%s' to fighter stats", key);
+}
+
+static void incFighterStat(char *key)
+{
+	Tuple *t;
+	
+	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
+	{
+		if (strcmp(t->key, key) == 0)
+		{
+			t->value++;
+			return;
+		}
+	}
 }
 
 void loadFighters(cJSON *node)

@@ -25,6 +25,7 @@ static void loadStarSystems(cJSON *starSystemsJSON);
 static void loadMissions(cJSON *missionsCJSON);
 static void loadChallenges(cJSON *challengesCJSON);
 static void loadTrophies(cJSON *trophiesJSON);
+static void loadFighterStats(cJSON *fighterStatsJSON);
 
 void loadGame(void)
 {
@@ -45,6 +46,8 @@ void loadGame(void)
 	loadStats(cJSON_GetObjectItem(gameJSON, "stats"));
 	
 	loadTrophies(cJSON_GetObjectItem(gameJSON, "trophies"));
+	
+	loadFighterStats(cJSON_GetObjectItem(gameJSON, "fighterStats"));
 
 	cJSON_Delete(root);
 	free(text);
@@ -142,6 +145,29 @@ static void loadTrophies(cJSON *trophiesJSON)
 				t->awardDate = cJSON_GetObjectItem(trophyJSON, "awardDate")->valueint;
 				t->awarded = 1;
 			}
+		}
+	}
+}
+
+static void loadFighterStats(cJSON *fighterStatsJSON)
+{
+	Tuple *t, *tail;
+	cJSON *fighterStatJSON;
+	
+	tail = &game.fighterStatHead;
+	
+	if (fighterStatsJSON)
+	{
+		for (fighterStatJSON = fighterStatsJSON->child ; fighterStatJSON != NULL ; fighterStatJSON = fighterStatJSON->next)
+		{
+			t = malloc(sizeof(Tuple));
+			memset(t, 0, sizeof(Tuple));
+			
+			STRNCPY(t->key, cJSON_GetObjectItem(fighterStatJSON, "key")->valuestring, MAX_NAME_LENGTH);
+			t->value = cJSON_GetObjectItem(fighterStatJSON, "value")->valueint;
+			
+			tail->next = t;
+			tail = t;
 		}
 	}
 }

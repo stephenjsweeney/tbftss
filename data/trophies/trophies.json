@@ -286,5 +286,11 @@
 		"description" : "Destroy two or more fighters by shooting one mine",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
+	},
+	{
+		"id" : "FREQUENT_FLYER",
+		"title" : "Frequent flyer",
+		"description" : "Destroy one of each common type of starfighter",
+		"value" : "TROPHY_SILVER"
 	}
 ]

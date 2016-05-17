@@ -29,5 +29,5 @@
 		}
 	],
 	"missiles" : 6,
-	"flags" : "EF_TAKES_DAMAGE"
+	"flags" : "EF_TAKES_DAMAGE+EF_COMMON_FIGHTER"
 }

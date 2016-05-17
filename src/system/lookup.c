@@ -70,6 +70,7 @@ void initLookups(void)
 	addLookup("EF_NO_THREAT", EF_NO_THREAT);
 	addLookup("EF_NO_HEALTH_BAR", EF_NO_HEALTH_BAR);
 	addLookup("EF_DROPS_ITEMS", EF_DROPS_ITEMS);
+	addLookup("EF_COMMON_FIGHTER", EF_COMMON_FIGHTER);
 
 	addLookup("AIF_NONE", AIF_NONE);
 	addLookup("AIF_MOVES_TO_PLAYER", AIF_MOVES_TO_PLAYER);

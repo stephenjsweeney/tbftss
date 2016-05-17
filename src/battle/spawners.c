@@ -137,9 +137,9 @@ void activateTrespasserSpawner(void)
 
 	s->types = toTypeArray(types, &s->numTypes);
 	s->side = SIDE_PANDORAN;
-	s->interval = 5 * FPS;
+	s->interval = FPS;
 	s->total = -1;
-	s->step = 5;
+	s->step = 1;
 	s->offscreen = 1;
 	s->active = 1;
 	STRNCPY(s->flags, "+EF_IMMORTAL", MAX_DESCRIPTION_LENGTH);

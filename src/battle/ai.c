@@ -974,16 +974,19 @@ void checkSuspicionLevel(void)
 	{
 		battle.hasSuspicionLevel = 1;
 		
-		/* raise if player is too far away */
-		if (getDistance(self->x, self->y, player->x, player->y) > SCREEN_WIDTH / 2)
+		battle.suspicionCoolOff = MAX(battle.suspicionCoolOff - 1, 0);
+		
+		/* raise if player is too far away and there are no enemies */
+		if (battle.suspicionCoolOff == 0 && battle.numEnemies == 0 && getDistance(self->x, self->y, player->x, player->y) > SCREEN_HEIGHT / 2)
 		{
 			battle.suspicionLevel++;
 		}
 		
-		/* raise if there are active enemies */
-		if (battle.numEnemies)
+		/* raise while there are enemies around, to spir the player into taking action */
+		if (battle.numEnemies > 0 && battle.stats[STAT_TIME] % 5 == 0)
 		{
 			battle.suspicionLevel++;
+			battle.suspicionCoolOff = FPS * 10;
 		}
 		
 		if (battle.suspicionLevel >= MAX_SUSPICION_LEVEL)

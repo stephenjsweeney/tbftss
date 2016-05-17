@@ -352,6 +352,7 @@ typedef struct {
 	int hasThreats;
 	int hasSuspicionLevel;
 	int suspicionLevel;
+	int suspicionCoolOff;
 	Entity *missionTarget;
 	Entity *jumpgate;
 	Entity *messageSpeaker;

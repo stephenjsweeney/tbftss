@@ -656,6 +656,7 @@ void retreatEnemies(void)
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
+			e->aiFlags &= ~AIF_WANDERS;
 			
 			if (!game.currentMission->challengeData.isChallenge)
 			{
@@ -680,6 +681,7 @@ void retreatAllies(void)
 			e->aiFlags &= ~AIF_FOLLOWS_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
+			e->aiFlags &= ~AIF_WANDERS;
 			
 			if (!game.currentMission->challengeData.isChallenge)
 			{

@@ -25,7 +25,7 @@
 			"description" : "Bring in stranded Dart",
 			"targetName" : "Stranded Dart",
 			"targetValue" : 1,
-			"targetType" : "TT_ESCAPED",
+			"targetType" : "TT_STOLEN",
 			"active" : 0
 		},
 		{
@@ -100,7 +100,7 @@
 			"type" : "ET_WAYPOINT",
 			"number" : 4,
 			"x" : 12,
-			"y" : 18,
+			"y" : 25,
 			"scatter" : 10000,
 			"active" : 0
 		},
@@ -109,7 +109,7 @@
 			"type" : "ET_JUMPGATE",
 			"x" : 10,
 			"y" : 8,
-			"flags" : "+EF_DISABLED"
+			"flags" : "+EF_DISABLED+EF_NO_HEALTH_BAR"
 		}
 	],
 	"items" : [
@@ -119,8 +119,8 @@
 			"type" : "smallCrate",
 			"x" : 10,
 			"y" : 18,
-			"scatter" : 1000,
-			"flags" : "EF_MISSION_TARGET",
+			"scatter" : 2000,
+			"flags" : "+EF_MISSION_TARGET",
 			"active" : 0
 		}
 	],
@@ -132,7 +132,7 @@
 				"MSG_BOX Alexandria Orbital;Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up.",
 				"ACTIVATE_ENTITIES package",
 				"ACTIVATE_OBJECTIVES Retrieve packages",
-				"MSG_BOX Carr;Got it. Heading to the first one now"
+				"MSG_BOX Carr;Got it. Heading to the first one now."
 			]
 		},
 		{
@@ -143,7 +143,7 @@
 				"MSG_BOX Carr;Know anything about the occupant, or affiliation?",
 				"MSG_BOX Alexandria Orbital;Negative, Lieutenant. We'll know more once it's brought in.",
 				"ACTIVATE_ENTITIES Stranded Dart;Tug",
-				"ACTIVATE_OBJECTIVES Bring in Stranded Dart;Do not destroy Stranded Dart"
+				"ACTIVATE_OBJECTIVES Bring in stranded Dart;Do not destroy stranded Dart"
 			]
 		},
 		{
@@ -164,7 +164,7 @@
 			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
-				"MSG_BOX Carr;Alexandria, packaged delivered.",
+				"MSG_BOX Carr;Alexandria, package delivered.",
 				"MSG_BOX Carr;Excellent work, Lieutenant. Let's see what all this tell us. Come on home.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"

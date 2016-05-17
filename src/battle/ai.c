@@ -597,7 +597,7 @@ static int nearEnemies(void)
 	
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 	{
-		if ((e->flags & EF_TAKES_DAMAGE) && e->side != self->side && !(e->flags & EF_DISABLED))
+		if ((e->flags & EF_TAKES_DAMAGE) && e->side != SIDE_NONE && e->side != self->side && !(e->flags & EF_DISABLED))
 		{
 			if ((self->aiFlags & AIF_TARGET_FOCUS) && (e->flags & EF_AI_TARGET))
 			{

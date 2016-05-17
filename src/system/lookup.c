@@ -101,7 +101,6 @@ void initLookups(void)
 	addLookup("TT_DISABLE", TT_DISABLE);
 	addLookup("TT_WAYPOINT", TT_WAYPOINT);
 	addLookup("TT_ESCAPED", TT_ESCAPED);
-	addLookup("TT_PLAYER_ESCAPED", TT_PLAYER_ESCAPED);
 	addLookup("TT_ITEM", TT_ITEM);
 	addLookup("TT_STOLEN", TT_STOLEN);
 	addLookup("TT_MISC", TT_MISC);

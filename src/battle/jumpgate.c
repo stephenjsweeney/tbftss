@@ -130,15 +130,23 @@ int jumpgateEnabled(void)
 
 void activateJumpgate(int activate)
 {
+	Entity *e;
+	
 	if (battle.jumpgate && battle.jumpgate->health > 1)
 	{
-		if (activate)
+		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
-			battle.jumpgate->flags &= ~EF_DISABLED;
-		}
-		else
-		{
-			battle.jumpgate->flags |= EF_DISABLED;
+			if (e == battle.jumpgate || e->owner == battle.jumpgate)
+			{
+				if (activate)
+				{
+					e->flags &= ~EF_DISABLED;
+				}
+				else
+				{
+					e->flags |= EF_DISABLED;
+				}
+			}
 		}
 	}
 }

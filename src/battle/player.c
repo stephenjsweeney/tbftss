@@ -312,7 +312,7 @@ static void handleMouse(void)
 				fireRocket(player);
 			}
 			
-			if (battle.hasSuspicionLevel && !battle.numEnemies)
+			if (battle.hasSuspicionLevel && !battle.numEnemies && !battle.suspicionCoolOff)
 			{
 				battle.suspicionLevel += (MAX_SUSPICION_LEVEL * 0.05);
 			}

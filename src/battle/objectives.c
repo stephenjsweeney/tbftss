@@ -156,7 +156,7 @@ void adjustObjectiveTargetValue(char *name, int type, int amount)
 			o->targetValue += amount;
 			o->currentValue = MIN(o->currentValue, o->targetValue);
 			
-			if (o->currentValue >= o->targetValue)
+			if (o->currentValue >= o->targetValue && o->targetValue > 0)
 			{
 				o->status = OS_COMPLETE;
 				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);

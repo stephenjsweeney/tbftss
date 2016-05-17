@@ -265,6 +265,8 @@ void doFighter(void)
 	{
 		if (self == player && !game.currentMission->challengeData.isChallenge)
 		{
+			updateObjective("Player", TT_ESCAPED);
+			
 			completeMission();
 		}
 

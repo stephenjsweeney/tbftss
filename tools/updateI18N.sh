@@ -97,7 +97,7 @@ function extractJSON($filename)
 			{
 				foreach ($scripts->{"lines"} as $line)
 				{
-					if (strpos($line, "MSG_BOX") === 0)
+					if (strpos($line, "MSG_BOX") === 0 || strpos($line, "IMPORTANT_MSG_BOX") === 0)
 					{
 						$i = strpos($line, ";") + 1;
 						

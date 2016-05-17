@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-14 12:43:16+0100\n"
+"POT-Creation-Date: 2016-05-17 17:37:13+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "%s is retreating!"
+msgstr ""
+
+msgid "Hell! My cover's been blown, they're on to me!"
 msgstr ""
 
 msgid "WARNING: INCOMING MISSILE!"
@@ -98,6 +101,9 @@ msgid "Jumpgate: %.2fkm"
 msgstr ""
 
 msgid "SELECT NEW FIGHTER"
+msgstr ""
+
+msgid "Suspicion"
 msgstr ""
 
 msgid "Picked up %s"
@@ -250,7 +256,10 @@ msgstr ""
 msgid "This mission has been completed."
 msgstr ""
 
-msgid "Note: this is an Epic Mission."
+msgid "Note: this is an epic mission."
+msgstr ""
+
+msgid "Note: this is an optional mission."
 msgstr ""
 
 msgid "Percent Complete"
@@ -260,6 +269,9 @@ msgid "Missions Started"
 msgstr ""
 
 msgid "Missons Completed"
+msgstr ""
+
+msgid "Optional Missions Completed"
 msgstr ""
 
 msgid "Challenges Started"
@@ -1105,6 +1117,12 @@ msgstr ""
 msgid "They're everywhere! I--"
 msgstr ""
 
+msgid "People, we are down one capital ship! We need to step things up!"
+msgstr ""
+
+msgid "Both caps are down, all hands lost. Let's not let this go to waste."
+msgstr ""
+
 msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
 msgstr ""
 
@@ -1151,6 +1169,9 @@ msgid "We're getting our arses kicked here! Any chance of any backup?!"
 msgstr ""
 
 msgid "The White Knights are here! Finally!"
+msgstr ""
+
+msgid "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate."
 msgstr ""
 
 msgid "You all heard the Captain - fall back, we'll cover the retreat."
@@ -1210,7 +1231,7 @@ msgstr ""
 msgid "Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up."
 msgstr ""
 
-msgid "Got it. Heading to the first one now"
+msgid "Got it. Heading to the first one now."
 msgstr ""
 
 msgid "Iron Patriots, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location."
@@ -1234,7 +1255,7 @@ msgstr ""
 msgid "Prepare to engage. Protect the asset!"
 msgstr ""
 
-msgid "Alexandria, packaged delivered."
+msgid "Alexandria, package delivered."
 msgstr ""
 
 msgid "Excellent work, Lieutenant. Let's see what all this tell us. Come on home."
@@ -1492,6 +1513,9 @@ msgstr ""
 msgid "Acknowledged."
 msgstr ""
 
+msgid "This is HMS 781-041 of the Nation of Tzac! We surrender! Repeat, we surrender!"
+msgstr ""
+
 msgid "Did anyone else get that?"
 msgstr ""
 
@@ -1555,6 +1579,15 @@ msgstr ""
 msgid "Got it. You all heard that. Let's get to it."
 msgstr ""
 
+msgid "I'm picking up a shuttle on radar. Looks like Christabel."
+msgstr ""
+
+msgid "Goddard, you're up! Mag that shuttle before it gets away."
+msgstr ""
+
+msgid "On it!"
+msgstr ""
+
 msgid "Christabel's shuttle has been disabled."
 msgstr ""
 
@@ -1598,6 +1631,54 @@ msgid "Now what?"
 msgstr ""
 
 msgid "Nothing more we can do. We should evacuate the area before more Pandoran forces arrive."
+msgstr ""
+
+msgid "An opportunity has been granted for us to infiltrate Mitikas space, the Pandoran army, and ultimate get close to Jason Zackaria or Julian Rissard. If nothing else, we could still discover the whereabouts of these two elusive men, which could assist in future operations to capture them. Your goal is to acquire an Angel, an outdated INF fighter that currently lies in the hands of mercenaries. They have retreated to Phylent to affect repairs, so now is the chance to strike."
+msgstr ""
+
+msgid "I've sighted the Angel. Let's move in and secure it."
+msgstr ""
+
+msgid "Are the specs for this fighter correct? I've never heard of an Angel before? Sure it's not some kind of INF super weapon?"
+msgstr ""
+
+msgid "It's an old, outdated class. I don't think the INF ever had an ATAF-like fighter."
+msgstr ""
+
+msgid "They'd have given us something more powerful to work with, if that was an uber-craft."
+msgstr ""
+
+msgid "Whatever it is, the secret service want it pretty badly."
+msgstr ""
+
+msgid "I'll just be glad to get out of here. This is Pandoran-controlled space we're in."
+msgstr ""
+
+msgid "Angel has been disabled."
+msgstr ""
+
+msgid "Good, let's hook the Tug up ASAP and move on to the next step."
+msgstr ""
+
+msgid "We have our goal, let's head over to it. Nearly done."
+msgstr ""
+
+msgid "PJ, I'm reading Darts all around the waypoint. Others closing in from the sides."
+msgstr ""
+
+msgid "They're scanning me!"
+msgstr ""
+
+msgid "Hell! They clearly don't want us to have it if they can't have it. Prepare to engage!"
+msgstr ""
+
+msgid "Okay, we're done. We're to wait here for pickup. Shouldn't be more than a few minutes."
+msgstr ""
+
+msgid "What do you think they've got planned for this thing?"
+msgstr ""
+
+msgid "No idea. But what I do know is that we're not involved any further."
 msgstr ""
 
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
@@ -1777,6 +1858,15 @@ msgstr ""
 msgid "That's both of our corvettes down. The rest is up to us."
 msgstr ""
 
+msgid "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what."
+msgstr ""
+
+msgid "(I'm in very deep this time.)"
+msgstr ""
+
+msgid "(Better get back to the wing commander, before they think I'm slacking)"
+msgstr ""
+
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
 msgstr ""
 
@@ -1798,10 +1888,19 @@ msgstr ""
 msgid "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around."
 msgstr ""
 
+msgid "This Dart has control over its engines, but not its weapons. Practice chasing it down and destroying it."
+msgstr ""
+
 msgid "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge."
 msgstr ""
 
+msgid "This Dart is armed! Watch yourself."
+msgstr ""
+
 msgid "Practice using your ECM in the next encounter. The Dart here is equipped with missiles, which will home in on you. You can thwart these attacks by careful use of your ECM. Once you are done practicing, you can destroy the Dart and move on."
+msgstr ""
+
+msgid "Use your ECM to destroy the missiles fired at you. Remember, the ECM needs several seconds to recharge between uses."
 msgstr ""
 
 msgid "Use your mag cannons to disable the enemy Dart. Disabling enemy craft and bringing the target in alive is sometimes an important step in securing lasting victory."
@@ -1813,7 +1912,13 @@ msgstr ""
 msgid "Battle along side two team mates to take on 3 enemy fighters."
 msgstr ""
 
+msgid "Wingmate will often assist you in battle. When you're ready, approach the Darts and engage."
+msgstr ""
+
 msgid "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand."
+msgstr ""
+
+msgid "Final course. Use all your training to defeat the three opponents."
 msgstr ""
 
 msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presense at Temper."
@@ -2149,6 +2254,12 @@ msgstr ""
 msgid "Complete all missions at Clarke"
 msgstr ""
 
+msgid "Trespasser"
+msgstr ""
+
+msgid "Complete all optional missions"
+msgstr ""
+
 msgid "Truly epic"
 msgstr ""
 
@@ -2272,7 +2383,7 @@ msgstr ""
 msgid "Missed, you f**kers!"
 msgstr ""
 
-msgid "Evade 50 missiles"
+msgid "Evade 10 missiles"
 msgstr ""
 
 msgid "Sightseer"

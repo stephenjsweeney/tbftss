@@ -658,6 +658,8 @@ void retreatEnemies(void)
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
 			e->aiFlags &= ~AIF_WANDERS;
 			
+			e->aiActionTime = MIN(e->aiActionTime, FPS);
+			
 			if (!game.currentMission->challengeData.isChallenge)
 			{
 				e->aiFlags |= AIF_GOAL_JUMPGATE;
@@ -682,6 +684,8 @@ void retreatAllies(void)
 			e->aiFlags &= ~AIF_MOVES_TO_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
 			e->aiFlags &= ~AIF_WANDERS;
+			
+			e->aiActionTime = MIN(e->aiActionTime, FPS);
 			
 			if (!game.currentMission->challengeData.isChallenge)
 			{

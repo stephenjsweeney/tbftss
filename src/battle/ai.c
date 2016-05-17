@@ -957,7 +957,7 @@ static void wander(void)
 {
 	moveToTargetLocation();
 	
-	if (nearEnemies())
+	if (nearEnemies() || getDistance(self->x, self->y, self->targetLocation.x, self->targetLocation.y) <= 100)
 	{
 		self->aiActionTime = 0;
 	}

@@ -57,7 +57,7 @@
 		{
 			"groupName" : "Destroy",
 			"types" : "Shale;SK-31;SK-34;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 15000,
@@ -67,7 +67,7 @@
 		{
 			"groupName" : "Disable",
 			"types" : "Shale;SK-31;SK-34;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 15000,
@@ -78,7 +78,7 @@
 		{
 			"groupName" : "Destroy",
 			"types" : "Rapid Plasma Turret;Rocket Turret",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 8000,

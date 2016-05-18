@@ -63,7 +63,7 @@
 		},
 		{
 			"types" : "Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 5,
 			"number" : 6,
@@ -72,7 +72,7 @@
 		},
 		{
 			"types" : "Khepri",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 5,
 			"scatter" : 350,
@@ -81,7 +81,7 @@
 		{
 			"groupName" : "Rebels-1",
 			"types" : "SK-31;Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 52,
 			"number" : 4,
@@ -92,7 +92,7 @@
 		{
 			"groupName" : "Rebels-1",
 			"types" : "Khepri",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 52,
 			"number" : 2,
@@ -103,7 +103,7 @@
 		{
 			"groupName" : "Rebels-2",
 			"types" : "SK-31;Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : -2,
 			"number" : 4,
@@ -114,7 +114,7 @@
 		{
 			"groupName" : "Rebels-2",
 			"types" : "Khepri",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : -2,
 			"number" : 2,

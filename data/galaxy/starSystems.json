@@ -144,7 +144,7 @@
       },
       {
         "name": "Mace",
-        "side" : "SIDE_REBEL",
+        "side" : "SIDE_TZAC",
         "x": 444,
         "y": 359,
         "fallsToPandorans" : 1

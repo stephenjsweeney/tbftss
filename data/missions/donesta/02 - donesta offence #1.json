@@ -39,7 +39,7 @@
 		{
 			"groupName" : "Rebels-1",
 			"types" : "Khepri",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 15,
 			"y" : 25,
 			"number" : 5,
@@ -49,7 +49,7 @@
 		{
 			"name" : "Tzac Commander",
 			"types" : "Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 15,
 			"y" : 25,
 			"flags" : "+EF_AI_LEADER+EF_MISSION_TARGET",

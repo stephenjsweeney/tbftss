@@ -70,7 +70,7 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 			e->aiAggression = 3 + rand() % 2;
 			break;
 
-		case SIDE_REBEL:
+		case SIDE_TZAC:
 			e->aiAggression = 1 + rand() % 3;
 			break;
 	}

@@ -43,7 +43,7 @@
 		{
 			"name" : "TAF",
 			"types" : "TAF",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 25,
 			"number" : 2,
@@ -53,7 +53,7 @@
 		{
 			"name" : "Dart",
 			"types" : "Dart",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 25,
 			"number" : 4,

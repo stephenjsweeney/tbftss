@@ -37,7 +37,7 @@
 			"types" : "Dart",
 			"x" : 25,
 			"y" : 28,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"scatter" : 5000,
 			"number" : 12,
 			"flags" : "+EF_RETREATING",

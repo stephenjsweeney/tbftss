@@ -98,7 +98,7 @@
 			"name" : "Tzac Commander",
 			"groupName" : "skirmishGroup",
 			"types" : "Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 15,
 			"y" : 40,
 			"flags" : "EF_NO_KILL+EF_MISSION_TARGET",
@@ -107,7 +107,7 @@
 		{
 			"groupName" : "skirmishGroup",
 			"types" : "Razor;Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"number" : 8,
 			"x" : 15,
 			"y" : 40,

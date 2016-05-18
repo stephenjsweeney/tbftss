@@ -72,7 +72,7 @@
 		},
 		{
 			"types" : "Rapid Plasma Turret",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 35,
 			"y" : 25,
 			"scatter" : 1000,
@@ -80,7 +80,7 @@
 		},
 		{
 			"types" : "Blizzard;Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 35,
 			"y" : 25,
 			"scatter" : 500,
@@ -101,7 +101,7 @@
 			"groupName" : "ChristabelGroup",
 			"name" : "Christabel",
 			"types" : "Shuttle",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : -1,
 			"flags" : "+EF_RETREATING+EF_MUST_DISABLE+EF_NO_THREAT+EF_MISSION_TARGET+EF_AI_TARGET+EF_AI_LEADER",
@@ -111,7 +111,7 @@
 		{
 			"groupName" : "ChristabelGroup",
 			"types" : "Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : -1,
 			"number" : 2,
@@ -136,7 +136,7 @@
 		{
 			"name" : "rebelSpawner",
 			"types" : "Dart;Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"interval" : 3,
 			"total" : 15,
 			"step" : 1,

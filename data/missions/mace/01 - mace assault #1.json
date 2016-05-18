@@ -53,7 +53,7 @@
 		{
 			"types" : "Rapid Plasma Turret",
 			"number" : 8,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 10,
 			"y" : 25,
 			"scatter" : 700
@@ -61,7 +61,7 @@
 		{
 			"types" : "Shale;Razor",
 			"number" : 7,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 28,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
@@ -71,7 +71,7 @@
 			"groupName" : "Rebels-1",
 			"types" : "SK-31;SK-34",
 			"number" : 7,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 28,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
@@ -82,7 +82,7 @@
 			"groupName" : "Rebels-2",
 			"types" : "Blizzard",
 			"number" : 5,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 20,
 			"y" : 25,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
@@ -94,7 +94,7 @@
 		{
 			"name" : "Jumpgate",
 			"type" : "ET_JUMPGATE",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 10,
 			"y" : 25
 		}

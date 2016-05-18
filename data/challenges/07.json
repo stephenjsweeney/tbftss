@@ -37,7 +37,7 @@
 			"types" : "Rocket Turret",
 			"x" : 30,
 			"y" : 30,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"scatter" : 1000,
 			"number" : 2
 		},
@@ -46,7 +46,7 @@
 			"types" : "Rocket Turret",
 			"x" : 30,
 			"y" : 20,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"scatter" : 1000,
 			"number" : 2
 		},
@@ -55,7 +55,7 @@
 			"types" : "Rocket Turret",
 			"x" : 20,
 			"y" : 20,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"scatter" : 1000,
 			"number" : 2
 		},
@@ -64,7 +64,7 @@
 			"types" : "Rocket Turret",
 			"x" : 20,
 			"y" : 30,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"scatter" : 1000,
 			"number" : 2
 		},
@@ -73,7 +73,7 @@
 			"types" : "Rocket Turret",
 			"x" : 25,
 			"y" : 25,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"scatter" : 1000,
 			"number" : 2,
 			"active" : 0

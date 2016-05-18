@@ -83,7 +83,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "SK-31;SK-34;Shale;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 10,
 			"y" : 10,
 			"scatter" : 500,
@@ -93,7 +93,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "SK-31;SK-34;Shale;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 10,
 			"y" : 10,
 			"scatter" : 5000,
@@ -104,7 +104,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "SK-31;SK-34;Shale;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 20,
 			"y" : 20,
 			"scatter" : 500,
@@ -114,7 +114,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "SK-31;SK-34;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 20,
 			"y" : 20,
 			"scatter" : 5000,
@@ -125,7 +125,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "SK-31;SK-34;Shale;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 30,
 			"scatter" : 500,
@@ -135,7 +135,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "SK-31;SK-34;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 30,
 			"scatter" : 5000,
@@ -146,7 +146,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "SK-31;SK-34;Shale;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 40,
 			"y" : 40,
 			"scatter" : 500,
@@ -156,7 +156,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "SK-31;SK-34;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 40,
 			"y" : 40,
 			"scatter" : 5000,
@@ -170,7 +170,7 @@
 			"groupName" : "CapShips",
 			"name" : "HMS 281-024",
 			"types" : "HMS Corvette 01",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 10,
 			"y" : 10,
 			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"
@@ -179,7 +179,7 @@
 			"groupName" : "CapShips",
 			"name" : "HMS 121-008",
 			"types" : "HMS Corvette 02",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 20,
 			"y" : 20,
 			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"
@@ -188,7 +188,7 @@
 			"groupName" : "CapShips",
 			"name" : "HMS 711-555",
 			"types" : "HMS Corvette 02",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 30,
 			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"
@@ -197,7 +197,7 @@
 			"groupName" : "CapShips",
 			"name" : "HMS 613-910",
 			"types" : "HMS Corvette 01",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 40,
 			"y" : 40,
 			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"

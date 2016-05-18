@@ -74,7 +74,7 @@
 		{
 			"groupName" : "Tzac-1",
 			"types" : "Shale;Razor;SK-31;SK-34;Khepri",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : -1,
 			"scatter" : 500,
@@ -106,7 +106,7 @@
 		{
 			"name" : "Tzac-Spawner",
 			"types" : "Shale;Razor;SK-31;SK-34;Khepri",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"interval" : 1,
 			"total" : 32,
 			"step" : 1,

@@ -34,7 +34,7 @@
 		{
 			"name" : "Lynx",
 			"types" : "Lynx",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 25,
 			"number" : 5,

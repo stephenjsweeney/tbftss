@@ -53,7 +53,7 @@
 		},
 		{
 			"types" : "Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 30,
 			"scatter" : 1000,
@@ -63,7 +63,7 @@
 		{
 			"groupName" : "Rebels-2",
 			"types" : "Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 30,
 			"y" : 51,
 			"scatter" : 1000,
@@ -74,7 +74,7 @@
 		{
 			"groupName" : "Rebels-3",
 			"types" : "Shale",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 20,
 			"y" : 51,
 			"scatter" : 1000,

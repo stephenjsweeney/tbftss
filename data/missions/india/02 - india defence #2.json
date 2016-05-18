@@ -73,7 +73,7 @@
 		{
 			"name" : "dartSpawner",
 			"types" : "Dart;Dart;Rocket Dart",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"interval" : 30,
 			"total" : 125,
 			"step" : 20,

@@ -66,7 +66,7 @@
 		{
 			"name" : "Tzac Commander",
 			"types" : "SK-31",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 35,
 			"y" : 25,
 			"scatter" : 1000,
@@ -76,7 +76,7 @@
 		{
 			"name" : "Tzac Commander",
 			"types" : "SK-34",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 35,
 			"y" : 25,
 			"scatter" : 1000,
@@ -86,7 +86,7 @@
 		{
 			"groupName" : "Rebels-1",
 			"types" : "Shale;Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 35,
 			"y" : 25,
 			"number" : 8,

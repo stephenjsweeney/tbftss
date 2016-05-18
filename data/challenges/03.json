@@ -34,7 +34,7 @@
 		{
 			"name" : "Nymph",
 			"types" : "Nymph",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 25,
 			"y" : 22,
 			"number" : 3,

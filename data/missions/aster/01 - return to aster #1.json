@@ -76,7 +76,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "Razor",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 10,
 			"y" : 51,
 			"number" : 4,
@@ -87,7 +87,7 @@
 		{
 			"groupName" : "Rebels",
 			"types" : "Khepri",
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"x" : 10,
 			"y" : 51,
 			"number" : 8,

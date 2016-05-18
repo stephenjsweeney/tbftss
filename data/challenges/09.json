@@ -48,7 +48,7 @@
 			"types" : "Dart",
 			"x" : 25,
 			"y" : 25,
-			"side" : "SIDE_REBEL",
+			"side" : "SIDE_TZAC",
 			"scatter" : 10000,
 			"number" : 9999,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"

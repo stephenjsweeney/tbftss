@@ -114,11 +114,13 @@ void initLookups(void)
 	addLookup("SIDE_NONE", SIDE_NONE);
 	addLookup("SIDE_ALLIES", SIDE_ALLIES);
 	addLookup("SIDE_PIRATE", SIDE_PIRATE);
-	addLookup("SIDE_REBEL", SIDE_REBEL);
+	addLookup("SIDE_TZAC", SIDE_TZAC);
 	addLookup("SIDE_MERC", SIDE_MERC);
 	addLookup("SIDE_PANDORAN", SIDE_PANDORAN);
 	addLookup("SIDE_CSN", SIDE_CSN);
 	addLookup("SIDE_UNF", SIDE_UNF);
+	/* for compatibility with older saves */
+	addLookup("SIDE_REBEL", SIDE_TZAC);
 
 	addLookup("SND_PARTICLE", SND_PARTICLE);
 	addLookup("SND_PLASMA", SND_PLASMA);

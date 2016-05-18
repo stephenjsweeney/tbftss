@@ -6,7 +6,7 @@
 	"music" : "AUTO",
 	"player" : {
 		"type" : "Shale",
-		"side" : "SIDE_REBEL",
+		"side" : "SIDE_TZAC",
 		"pilot" : "-",
 		"squadron" : "-",
 		"x" : 25,

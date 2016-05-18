@@ -231,6 +231,11 @@ void doEntities(void)
 
 	battle.numAllies = (battle.isEpic) ? numAllies : numActiveAllies;
 	battle.numEnemies = (battle.isEpic) ? numEnemies : numActiveEnemies;
+	
+	if (battle.stats[STAT_TIME] % (FPS * 30) == 0)
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "numEnemies=%d, numActiveEnemies=%d, hasThreats=%d", numEnemies, numActiveEnemies, battle.hasThreats);
+	}
 
 	if (battle.isEpic && battle.stats[STAT_TIME] % FPS == 0)
 	{

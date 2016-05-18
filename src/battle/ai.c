@@ -986,7 +986,7 @@ void checkSuspicionLevel(void)
 		if (battle.numEnemies > 0 && battle.stats[STAT_TIME] % 5 == 0)
 		{
 			battle.suspicionLevel++;
-			battle.suspicionCoolOff = FPS * 5;
+			battle.suspicionCoolOff = FPS * 30;
 		}
 		
 		if (battle.suspicionLevel >= MAX_SUSPICION_LEVEL)
@@ -998,6 +998,8 @@ void checkSuspicionLevel(void)
 			addMessageBox(player->name, _("Hell! My cover's been blown, they're on to me!"), MB_IMPORTANT);
 			
 			destroyScript();
+			
+			activateJumpgate(0);
 			
 			activateTrespasserSpawner();
 		}

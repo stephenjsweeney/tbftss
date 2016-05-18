@@ -42,6 +42,7 @@ extern Entity *spawnMine(int type);
 extern void addMessageBox(char *title, char *body, int type);
 extern void destroyScript(void);
 extern void activateTrespasserSpawner(void);
+extern void activateJumpgate(int activate);
 
 extern Battle battle;
 extern Colors colors;

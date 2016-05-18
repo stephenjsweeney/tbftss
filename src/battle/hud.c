@@ -609,7 +609,7 @@ static void drawSuspicionLevel(void)
 	r.w -= 4;
 	r.h -= 4;
 	
-	r.w = (r.w / MAX_SUSPICION_LEVEL) * battle.suspicionLevel;
+	r.w = MAX((r.w / MAX_SUSPICION_LEVEL) * battle.suspicionLevel, 0);
 	
 	if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.5))
 	{

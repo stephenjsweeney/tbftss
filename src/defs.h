@@ -145,7 +145,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SS_SOL					1
 #define SS_PANDORAN				2
 
-#define MAX_SUSPICION_LEVEL		2500.0
+#define MAX_SUSPICION_LEVEL		1500.0
 
 enum
 {

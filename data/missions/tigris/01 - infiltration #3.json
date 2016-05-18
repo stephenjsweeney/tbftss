@@ -1,0 +1,169 @@
+{
+	"name" : "Infiltration #3",
+	"description" : "",
+	"requires" : 52,
+	"requiresOptional" : 2,
+	"isOptional" : 1,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/InnerCore_Low.ogg",
+	"player" : {
+		"type" : "Angel",
+		"pilot" : "Cdr. Kyle Hicks",
+		"squadron" : "???",
+		"side" : "SIDE_PANDORAN",
+		"x" : 45,
+		"y" : 45
+	},
+	"objectives" : [
+		{
+			"description" : "Follow wing commander's orders",
+			"targetName" : "Player",
+			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED"
+		},
+		{
+			"description" : "Eliminate mercenaries",
+			"targetName" : "MERC",
+			"targetValue" : 32,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate Tzac forces",
+			"targetName" : "TZAC",
+			"targetValue" : 40,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Wing Commander",
+			"types" : "Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 45,
+			"scatter" : 500,
+			"flags" : "+EF_MISSION_TARGET+EF_AI_LEADER+EF_IMMORTAL",
+			"aiFlags" : "+AIF_WANDERS+AIF_UNLIMITED_RANGE+AIF_SUSPICIOUS"
+		},
+		{
+			"types" : "Jackal;Mantis;Sphinx",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 45,
+			"scatter" : 500,
+			"number" : 8,
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"groupName" : "Mercs-1",
+			"types" : "Dart;Dart;Rocket Dart",
+			"side" : "SIDE_MERC",
+			"x" : 51,
+			"y" : 25,
+			"scatter" : 500,
+			"number" : 8,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Tzac-1",
+			"types" : "Shale;Razor;SK-31;SK-34;Khepri",
+			"side" : "SIDE_REBEL",
+			"x" : 25,
+			"y" : -1,
+			"scatter" : 500,
+			"number" : 8,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_JUMPGATE",
+			"x" : 25,
+			"y" : 25,
+			"flags" : "EF_DISABLED+EF_NO_HEALTH_BAR"
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "Merc-Spawner",
+			"types" : "Dart;Dart;Rocket Dart",
+			"side" : "SIDE_MERC",
+			"interval" : 1,
+			"total" : 24,
+			"step" : 1,
+			"offscreen" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "Tzac-Spawner",
+			"types" : "Shale;Razor;SK-31;SK-34;Khepri",
+			"side" : "SIDE_REBEL",
+			"interval" : 1,
+			"total" : 32,
+			"step" : 1,
+			"offscreen" : 0,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"PANDORAN_MSG_BOX Wing Commander;Enemy forces have been reported in this sector. They are to be tracked down and eliminated."
+			]
+		},
+		{
+			"function" : "TIME 20",
+			"lines" : [
+				"PANDORAN_MSG_BOX Wingmate;Enemy forces sighted.",
+				"WAIT_MSG_BOX",
+				"PANDORAN_MSG_BOX Wing Commander;Moving towards targets. Prepare to engage.",
+				"ACTIVATE_ENTITY_GROUPS Mercs-1",
+				"ACTIVATE_OBJECTIVES Eliminate mercenaries"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 8",
+			"lines" : [
+				"WAIT 1",
+				"PANDORAN_MSG_BOX Wingmate;More opposition detected.",
+				"PANDORAN_MSG_BOX Wing Commander;Follow my lead and eliminate all.",
+				"ACTIVATE_SPAWNER 1 Merc-Spawner"
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 32",
+			"lines" : [
+				"PANDORAN_MSG_BOX Wingmate;Enemies defeated.",
+				"PANDORAN_MSG_BOX Wing Commander;Their numbers were reported to be higher. Resume search.",
+				"WAIT 30",
+				"ACTIVATE_ENTITY_GROUPS Tzac-1",
+				"ACTIVATE_SPAWNER 1 Tzac-Spawner",
+				"ACTIVATE_OBJECTIVES Eliminate Tzac forces",
+				"PANDORAN_MSG_BOX Wingmate;Enemy forces sighted.",
+				"PANDORAN_MSG_BOX Wing Commander;Break and attack, leave no survivors."
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 2",
+			"lines" : [
+				"WAIT 1",
+				"PANDORAN_MSG_BOX Wingmate;All opposition defeated.",
+				"PANDORAN_MSG_BOX Wing Commander;Sector clear. Head to jumpgate and exit the system.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_JUMPGATE",
+				"RETREAT_ALLIES"
+			]
+		}
+	]
+}

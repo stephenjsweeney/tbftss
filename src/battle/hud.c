@@ -625,6 +625,11 @@ static void drawSuspicionLevel(void)
 	}
 	
 	SDL_RenderFillRect(app.renderer, &r);
+	
+	if (dev.debug)
+	{
+		drawText(r.x + r.w + 7, SCREEN_HEIGHT - 57, 12, TA_LEFT, colors.white, "%d", (battle.suspicionLevel / 10));
+	}
 }
 
 void resetHud(void)

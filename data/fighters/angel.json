@@ -1,7 +1,7 @@
 {
 	"name" : "Angel",
-	"health" : 80,
-	"shield" : 80,
+	"health" : 40,
+	"shield" : 40,
 	"speed" : 1.8,
 	"reloadTime" : 15,
 	"shieldRechargeRate" : 55,

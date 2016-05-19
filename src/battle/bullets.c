@@ -183,7 +183,7 @@ static void checkCollisions(Bullet *b)
 					
 					if (battle.hasSuspicionLevel)
 					{
-						battle.suspicionLevel--;
+						battle.suspicionLevel -= 2;
 					}
 				}
 				

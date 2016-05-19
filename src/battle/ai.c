@@ -970,7 +970,7 @@ void checkSuspicionLevel(void)
 {
 	battle.hasSuspicionLevel = 0;
 	
-	if (self->side == player->side)
+	if (battle.status == MS_IN_PROGRESS && self->side == player->side)
 	{
 		battle.hasSuspicionLevel = 1;
 		

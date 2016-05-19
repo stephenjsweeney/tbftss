@@ -569,11 +569,6 @@ static void die(void)
 			incFighterStat(self->defName);
 		}
 		
-		if (battle.hasSuspicionLevel)
-		{
-			battle.suspicionLevel -=  (MAX_SUSPICION_LEVEL * 0.1);
-		}
-		
 		if (battle.isEpic)
 		{
 			battle.stats[STAT_EPIC_KILL_STREAK]++;

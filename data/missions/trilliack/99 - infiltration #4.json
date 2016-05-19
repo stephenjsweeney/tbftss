@@ -1,0 +1,164 @@
+{
+	"name" : "Infiltration #4",
+	"description" : "",
+	"requires" : 60,
+	"requiresOptional" : 3,
+	"isOptional" : 1,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/InnerCore_Low.ogg",
+	"player" : {
+		"type" : "Angel",
+		"pilot" : "Cdr. Kyle Hicks",
+		"squadron" : "???",
+		"side" : "SIDE_PANDORAN",
+		"x" : 5,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Knock jumpgate offline",
+			"targetName" : "Jumpgate",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Kill civilians",
+			"targetName" : "Civilian",
+			"targetValue" : 16,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate all opposition",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Wing Commander",
+			"types" : "Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x" : 5,
+			"y" : 25,
+			"scatter" : 500,
+			"flags" : "+EF_MISSION_TARGET+EF_AI_LEADER+EF_IMMORTAL",
+			"aiFlags" : "+AIF_WANDERS+AIF_UNLIMITED_RANGE+AIF_SUSPICIOUS"
+		},
+		{
+			"types" : "Jackal;Mantis;Sphinx;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 5,
+			"y" : 25,
+			"scatter" : 500,
+			"number" : 12,
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Hyena-A;Hyena-B;Lynx",
+			"number" : 12,
+			"side" : "SIDE_ALLIES",
+			"x" : 15,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"types" : "Firefly;Nymph;Leopard",
+			"number" : 12,
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"types" : "Rapid Plasma Turret;Rocket Turret;Plasma Turret",
+			"x" : 40,
+			"y" : 25,
+			"side" : "SIDE_ALLIES",
+			"scatter" : 1000,
+			"number" : 6
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "UNF Lovelace",
+			"types" : "UNF Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 23,
+			"y" : 25,
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET+EF_MISSION_TARGET+EF_NO_MT_BOX"
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_ALLIES",
+			"x" : 40,
+			"y" : 25
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "allySpawner",
+			"types" : "TAF;Ray;Rook;Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"interval" : 10,
+			"total" : 50,
+			"step" : 60,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "civilSpawner",
+			"types" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"interval" : 1,
+			"total" : 16,
+			"step" : 1,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"PANDORAN_MSG_BOX Wing Commander;Destroy everything. Focus on the fighters first, then the jumpgate.",
+				"MSG_BOX Hicks;(This ... how can I do this? These are my friends.)",
+				"MSG_BOX Hicks;(I need to maintain my cover, or this whole operation could be blown.)",
+				"MSG_BOX Hicks;(Sorry, everyone.)"
+			]
+		},
+		{
+			"function" : "Knock jumpgate offline",
+			"lines" : [
+				"ACTIVATE_SPAWNER 1 civilSpawner",
+				"ACTIVATE_OBJECTIVES Kill civilians",
+				"PANDORAN_MSG_BOX Wing Commander;Escapees sighted."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 1",
+			"lines" : [
+				"WAIT 1",
+				"PANDORAN_MSG_BOX Wingmate;Enemy capital ship destroyed.",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"PANDORAN_MSG_BOX Wingmate;Incoming fighters.",
+				"ACTIVATE_SPAWNER 1 allySpawner"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"PANDORAN_MSG_BOX Wing Commander;Mission complete. Prepare for extraction."
+			]
+		}
+	]
+}
+ 

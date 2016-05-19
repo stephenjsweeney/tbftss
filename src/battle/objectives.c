@@ -78,6 +78,8 @@ void doObjectives(void)
 	{
 		if (!battle.manualComplete && !hasHidden && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
 		{
+			runScriptFunction("ALL_OBJECTIVES_COMPLETE");
+			
 			completeMission();
 		}
 		

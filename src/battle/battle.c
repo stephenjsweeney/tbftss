@@ -164,11 +164,14 @@ static void doBattle(void)
 		doLocations();
 
 		doMessageBox();
+		
+		if (battle.status == MS_IN_PROGRESS || battle.status == MS_COMPLETE)
+		{
+			doScript();
+		}
 
 		if (battle.status == MS_IN_PROGRESS)
 		{
-			doScript();
-			
 			if (battle.stats[STAT_TIME]++ % FPS == 0)
 			{
 				runScriptFunction("TIME %d", battle.stats[STAT_TIME] / FPS);

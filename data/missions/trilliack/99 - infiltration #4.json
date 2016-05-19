@@ -64,7 +64,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 15,
 			"y" : 25,
-			"flags" : "+EF_MISSION_TARGET+EF_AI_TARGET",
+			"flags" : "+EF_AI_TARGET",
 			"scatter" : 500
 		},
 		{
@@ -74,7 +74,7 @@
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 500,
-			"flags" : "+EF_MISSION_TARGET+EF_AI_TARGET",
+			"flags" : "+EF_AI_TARGET",
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
@@ -84,7 +84,7 @@
 			"side" : "SIDE_ALLIES",
 			"scatter" : 1000,
 			"number" : 6,
-			"flags" : "+EF_MISSION_TARGET+EF_AI_TARGET"
+			"flags" : "+EF_AI_TARGET"
 		}
 	],
 	"capitalShips" : [
@@ -101,7 +101,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 23,
 			"y" : 25,
-			"flags" : "+EF_AI_LEADER+EF_AI_TARGET+EF_MISSION_TARGET+EF_NO_MT_BOX"
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET+EF_NO_MT_BOX"
 		}
 	],
 	"entities" : [
@@ -121,7 +121,7 @@
 			"total" : 30,
 			"step" : 1,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
-			"flags" : "+EF_MISSION_TARGET+EF_AI_TARGET",
+			"flags" : "+EF_AI_TARGET",
 			"active" : 0
 		},
 		{

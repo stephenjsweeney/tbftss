@@ -64,7 +64,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 15,
 			"y" : 25,
-			"flags" : "+EF_MISSION_TARGET",
+			"flags" : "+EF_MISSION_TARGET+EF_AI_TARGET",
 			"scatter" : 500
 		},
 		{
@@ -74,7 +74,7 @@
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 500,
-			"flags" : "+EF_MISSION_TARGET",
+			"flags" : "+EF_MISSION_TARGET+EF_AI_TARGET",
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
@@ -84,10 +84,17 @@
 			"side" : "SIDE_ALLIES",
 			"scatter" : 1000,
 			"number" : 6,
-			"flags" : "+EF_MISSION_TARGET"
+			"flags" : "+EF_MISSION_TARGET+EF_AI_TARGET"
 		}
 	],
 	"capitalShips" : [
+		{
+			"name" : "INF Sliv",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 4,
+			"y" : 25
+		},
 		{
 			"name" : "UNF Lovelace",
 			"types" : "UNF Corvette 02",
@@ -114,7 +121,7 @@
 			"total" : 30,
 			"step" : 1,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
-			"flags" : "+EF_MISSION_TARGET",
+			"flags" : "+EF_MISSION_TARGET+EF_AI_TARGET",
 			"active" : 0
 		},
 		{
@@ -124,6 +131,7 @@
 			"interval" : 1,
 			"total" : 16,
 			"step" : 1,
+			"flags" : "+EF_AI_TARGET",
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"active" : 0
 		}

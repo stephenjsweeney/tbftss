@@ -97,7 +97,7 @@ void doCapitalShip(void)
 				battle.missionTarget = NULL;
 			}
 
-			if (self->side != player->side)
+			if (self->side == player->side)
 			{
 				battle.stats[STAT_CAPITAL_SHIPS_LOST]++;
 

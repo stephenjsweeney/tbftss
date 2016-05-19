@@ -258,7 +258,7 @@ static void componentDie(void)
 	{
 		runScriptFunction("CAP_HEALTH %s %d", self->owner->name, self->owner->health);
 		
-		if (self->side == player->side)
+		if (self->side != SIDE_PANDORAN && self->side == player->side)
 		{
 			issueDamageMessage(self->owner);
 		}
@@ -284,7 +284,7 @@ static void gunDie(void)
 	
 	runScriptFunction("CAP_GUNS_DESTROYED %s", self->owner->name);
 	
-	if (self->side == player->side)
+	if (self->side != SIDE_PANDORAN && self->side == player->side)
 	{
 		issueGunsDestroyedMessage(self->owner);
 	}
@@ -328,7 +328,7 @@ static void engineDie(void)
 
 		runScriptFunction("CAP_ENGINES_DESTROYED %s", self->owner->name);
 		
-		if (self->side == player->side)
+		if (self->side != SIDE_PANDORAN && self->side == player->side)
 		{
 			issueEnginesDestroyedMessage(self->owner);
 		}

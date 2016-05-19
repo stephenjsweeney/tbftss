@@ -285,6 +285,7 @@ static void nextAlert(void)
 		textSize(alertTrophy->description, 20, &w, &h);
 		
 		alertRect.w = MAX(alertRect.w, w);
+		alertRect.w = MAX(400, alertRect.w);
 		alertRect.w += 125;
 		alertRect.x = -alertRect.w;
 	}

@@ -45,7 +45,7 @@
 			"x" : 5,
 			"y" : 25,
 			"scatter" : 500,
-			"flags" : "+EF_MISSION_TARGET+EF_AI_LEADER+EF_IMMORTAL",
+			"flags" : "+EF_AI_LEADER+EF_IMMORTAL",
 			"aiFlags" : "+AIF_WANDERS+AIF_UNLIMITED_RANGE+AIF_SUSPICIOUS"
 		},
 		{
@@ -64,6 +64,7 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 15,
 			"y" : 25,
+			"flags" : "+EF_MISSION_TARGET",
 			"scatter" : 500
 		},
 		{
@@ -73,6 +74,7 @@
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 500,
+			"flags" : "+EF_MISSION_TARGET",
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
@@ -81,7 +83,8 @@
 			"y" : 25,
 			"side" : "SIDE_ALLIES",
 			"scatter" : 1000,
-			"number" : 6
+			"number" : 6,
+			"flags" : "+EF_MISSION_TARGET"
 		}
 	],
 	"capitalShips" : [
@@ -107,10 +110,11 @@
 			"name" : "allySpawner",
 			"types" : "TAF;Ray;Rook;Kingfisher",
 			"side" : "SIDE_ALLIES",
-			"interval" : 10,
-			"total" : 50,
-			"step" : 60,
+			"interval" : 2,
+			"total" : 30,
+			"step" : 1,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"flags" : "+EF_MISSION_TARGET",
 			"active" : 0
 		},
 		{
@@ -156,6 +160,7 @@
 		{
 			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
+				"WAIT 1",
 				"PANDORAN_MSG_BOX Wing Commander;Mission complete. Prepare for extraction."
 			]
 		}

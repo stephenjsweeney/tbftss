@@ -626,7 +626,7 @@ static void drawSuspicionLevel(void)
 	
 	SDL_RenderFillRect(app.renderer, &r);
 	
-	drawText(r.x + r.w + 7, SCREEN_HEIGHT - 57, 12, TA_LEFT, colors.white, "%d%%", getPercent(battle.suspicionLevel, MAX_SUSPICION_LEVEL));
+	drawText(r.x + r.w + 7, SCREEN_HEIGHT - 57, 12, TA_LEFT, colors.white, "%d%%", (battle.suspicionLevel > 0) ? getPercent(battle.suspicionLevel, MAX_SUSPICION_LEVEL) : 0);
 }
 
 void resetHud(void)

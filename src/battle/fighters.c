@@ -261,6 +261,11 @@ void doFighter(void)
 		{
 			checkSuspicionLevel();
 		}
+		
+		if (self->aiFlags & AIF_ZAK_SUSPICIOUS)
+		{
+			checkZackariaSuspicionLevel();
+		}
 	}
 
 	if (self->alive == ALIVE_ESCAPED)

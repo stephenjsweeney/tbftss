@@ -43,6 +43,7 @@ extern void addMessageBox(char *title, char *body, int type);
 extern void destroyScript(void);
 extern void activateTrespasserSpawner(void);
 extern void activateJumpgate(int activate);
+extern void runScriptFunction(char *format, ...);
 
 extern Battle battle;
 extern Colors colors;

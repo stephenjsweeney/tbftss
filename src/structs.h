@@ -354,6 +354,7 @@ typedef struct {
 	int hasSuspicionLevel;
 	int suspicionLevel;
 	int suspicionCoolOff;
+	int zackariaSuspicionLevel;
 	Entity *missionTarget;
 	Entity *jumpgate;
 	Entity *messageSpeaker;

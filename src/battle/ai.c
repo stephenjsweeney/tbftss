@@ -970,7 +970,7 @@ void checkSuspicionLevel(void)
 {
 	battle.hasSuspicionLevel = 0;
 	
-	if (battle.status == MS_IN_PROGRESS && self->side == player->side)
+	if (battle.status == MS_IN_PROGRESS && player->side != SIDE_ALLIES)
 	{
 		battle.hasSuspicionLevel = 1;
 		
@@ -1002,6 +1002,27 @@ void checkSuspicionLevel(void)
 			activateJumpgate(0);
 			
 			activateTrespasserSpawner();
+		}
+	}
+}
+
+/* only used in final optional mission */
+void checkZackariaSuspicionLevel(void)
+{
+	if (battle.zackariaSuspicionLevel < MAX_ZAK_SUSPICION_LEVEL)
+	{
+		if (getDistance(self->x, self->y, player->x, player->y) < SCREEN_HEIGHT)
+		{
+			if (++battle.zackariaSuspicionLevel >= MAX_ZAK_SUSPICION_LEVEL)
+			{
+				runScriptFunction("Zackaria");
+				
+				battle.unwinnable = 1;
+				
+				battle.hasSuspicionLevel = 0;
+				
+				self->thrust = self->speed = 0;
+			}
 		}
 	}
 }

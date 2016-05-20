@@ -52,6 +52,7 @@ extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 extern void awardTrophy(char *id);
 extern void addRandomItem(int x, int y);
 extern void checkSuspicionLevel(void);
+extern void checkZackariaSuspicionLevel(void);
 
 extern Battle battle;
 extern Colors colors;

@@ -39,6 +39,5 @@ extern int jumpgateEnabled(void);
 extern App app;
 extern Battle battle;
 extern Colors colors;
-extern Dev dev;
 extern Entity *player;
 extern Game game;

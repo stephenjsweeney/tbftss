@@ -34,6 +34,7 @@ static void retry(void);
 static void start(void);
 static void options(void);
 static void returnFromOptions(void);
+static void checkSuspicionLevel(void);
 
 static int show;
 static float ssx, ssy;
@@ -156,6 +157,8 @@ static void doBattle(void)
 	doDebris();
 
 	doPlayer();
+	
+	checkSuspicionLevel();
 
 	if (player->alive == ALIVE_ALIVE)
 	{
@@ -396,6 +399,20 @@ static void postBattle(void)
 	game.currentMission->completed = (battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
 	
 	app.saveGame = 1;
+}
+
+static void checkSuspicionLevel(void)
+{
+	if (battle.hasSuspicionLevel && battle.suspicionLevel >= MAX_SUSPICION_LEVEL)
+	{
+		cancelScript();
+		
+		resetMessageBox();
+		
+		runScriptFunction("MAX_SUSPICION_LEVEL");
+		
+		battle.hasSuspicionLevel = 0;
+	}
 }
 
 void destroyBattle(void)

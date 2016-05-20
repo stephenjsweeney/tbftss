@@ -41,6 +41,7 @@ extern void completeAllObjectives(void);
 extern void createChristabelLocation(void);
 extern void killEntity(char *name);
 extern void updateEntitySide(char *side, char *entity);
+extern void activateTrespasserSpawner(void);
 
 extern Battle battle;
 extern Colors colors;

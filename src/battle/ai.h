@@ -39,10 +39,6 @@ extern void addHudMessage(SDL_Color c, char *format, ...);
 extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern char *getTranslatedString(char *string);
 extern Entity *spawnMine(int type);
-extern void addMessageBox(char *title, char *body, int type);
-extern void destroyScript(void);
-extern void activateTrespasserSpawner(void);
-extern void activateJumpgate(int activate);
 extern void runScriptFunction(char *format, ...);
 
 extern Battle battle;

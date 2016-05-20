@@ -21,10 +21,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "script.h"
 
 static void executeNextLine(ScriptRunner *runner);
+void destroyScript(void);
 
 static cJSON *scriptJSON, *rootJSON;
 static ScriptRunner head;
 static ScriptRunner *tail;
+static int runScript;
 
 void initScript(cJSON *root)
 {
@@ -34,6 +36,8 @@ void initScript(cJSON *root)
 	tail = &head;
 	
 	rootJSON = root;
+	
+	runScript = 0;
 
 	scriptJSON = cJSON_GetObjectItem(root, "script");
 	
@@ -47,6 +51,8 @@ void initScript(cJSON *root)
 			
 			function = function->next;
 		}
+		
+		runScript = 1;
 	}
 }
 
@@ -54,35 +60,38 @@ void doScript(void)
 {
 	ScriptRunner *runner, *prev;
 
-	prev = &head;
-
-	for (runner = head.next ; runner != NULL ; runner = runner->next)
+	if (runScript)
 	{
-		runner->delay = MAX(0, runner->delay - 1);
+		prev = &head;
 
-		if (runner->waitForMessageBox)
+		for (runner = head.next ; runner != NULL ; runner = runner->next)
 		{
-			runner->waitForMessageBox = showingMessageBoxes();
-		}
+			runner->delay = MAX(0, runner->delay - 1);
 
-		if (!runner->delay && !runner->waitForMessageBox)
-		{
-			executeNextLine(runner);
-
-			if (!runner->line)
+			if (runner->waitForMessageBox)
 			{
-				if (runner == tail)
-				{
-					tail = prev;
-				}
-
-				prev->next = runner->next;
-				free(runner);
-				runner = prev;
+				runner->waitForMessageBox = showingMessageBoxes();
 			}
-		}
 
-		prev = runner;
+			if (!runner->delay && !runner->waitForMessageBox)
+			{
+				executeNextLine(runner);
+
+				if (!runner->line)
+				{
+					if (runner == tail)
+					{
+						tail = prev;
+					}
+
+					prev->next = runner->next;
+					free(runner);
+					runner = prev;
+				}
+			}
+
+			prev = runner;
+		}
 	}
 }
 
@@ -94,7 +103,7 @@ void runScriptFunction(const char *format, ...)
 	char funcNameBuffer[MAX_NAME_LENGTH];
 	va_list args;
 
-	if (scriptJSON)
+	if (scriptJSON && runScript)
 	{
 		memset(&funcNameBuffer, '\0', sizeof(funcNameBuffer));
 
@@ -134,7 +143,7 @@ void runScriptTimeFunctions(void)
 	char funcNameBuffer[MAX_NAME_LENGTH];
 	int intParam;
 	
-	if (scriptJSON)
+	if (scriptJSON && runScript)
 	{
 		function = scriptJSON->child;
 		
@@ -293,14 +302,35 @@ static void executeNextLine(ScriptRunner *runner)
 		sscanf(line, "%*s %s %[^\n]", strParam[0], strParam[1]);
 		updateEntitySide(strParam[0], strParam[1]);
 	}
+	else if (strcmp(command, "ACTIVATE_TRESPASSER_SPAWNER") == 0)
+	{
+		activateTrespasserSpawner();
+	}
+	else if (strcmp(command, "STOP_SCRIPT") == 0)
+	{
+		runScript = 0;
+	}
 	else
 	{
-		printf("ERROR: Unrecognised script command '%s'\n", command);
-		printf("ERROR: Offending line: '%s'\n", line);
-		exit(1);
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "ERROR: Unrecognised script command '%s'\n", command);
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "ERROR: Offending line: '%s'\n", line);
 	}
 
 	runner->line = runner->line->next;
+}
+
+void cancelScript(void)
+{
+	ScriptRunner *runner;
+	
+	while (head.next)
+	{
+		runner = head.next;
+		head.next = runner->next;
+		free(runner);
+	}
+	
+	tail = &head;
 }
 
 void destroyScript(void)

@@ -87,6 +87,7 @@ extern void runScriptFunction(const char *format, ...);
 extern void doSpawners(void);
 extern void doTrophyAlerts(void);
 extern void drawTrophyAlert(void);
+extern void cancelScript(void);
 
 extern App app;
 extern Battle battle;

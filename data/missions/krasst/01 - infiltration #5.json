@@ -217,6 +217,17 @@
 				"ACTIVATE_JUMPGATE 0",
 				"MSG_BOX Hicks;They've shutdown the jumpgate ..."
 			]
+		},
+		{
+			"function" : "MAX_SUSPICION_LEVEL",
+			"lines" : [
+				"UPDATE_ENTITY_SIDE SIDE_ALLIES Hicks",
+				"PANDORAN_MSG_BOX Pandoran;Intruder alert! We have an intruder! All units, target and destroy that fighter!",
+				"IMPORTANT_MSG_BOX Hicks;Hell! My cover's been blown, they're on to me!",
+				"ACTIVATE_JUMPGATE 0",
+				"WAIT_MSG_BOX",
+				"STOP_SCRIPT"
+			]
 		}
 	]
 }

@@ -36,6 +36,7 @@ extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void updateCapitalShipComponentProperties(Entity *parent, long flags);
 extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern int isOnBattleScreen(int x, int y, int w, int h);
+extern long lookup(char *name);
 
 extern App app;
 extern Battle battle;

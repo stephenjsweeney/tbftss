@@ -665,8 +665,20 @@ void killEntity(char *name)
 	}
 }
 
-void updateEntitySide(char *side, char *entity)
+void updateEntitySide(char *sideStr, char *name)
 {
+	Entity *e;
+	int side;
+	
+	side = lookup(sideStr);
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (strcmp(e->name, name) == 0)
+		{
+			e->side = side;
+		}
+	}
 }
 
 void destroyEntities(void)

@@ -110,15 +110,18 @@ static int teamMatesClose(void)
 {
 	Entity *e;
 	
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	if (player->side != SIDE_PANDORAN)
 	{
-		if (e->active && e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
+		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
-			if (getDistance(player->x, player->y, e->x, e->y) > 350)
+			if (e->active && e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
 			{
-				addHudMessage(colors.cyan, _("Cannot activate waypoint - team mates too far away"));
-				self->aiActionTime = FPS;
-				return 0;
+				if (getDistance(player->x, player->y, e->x, e->y) > 350)
+				{
+					addHudMessage(colors.cyan, _("Cannot activate waypoint - team mates too far away"));
+					self->aiActionTime = FPS;
+					return 0;
+				}
 			}
 		}
 	}

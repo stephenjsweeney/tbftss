@@ -31,7 +31,7 @@ extern void addMessageBox(char *title, char *body, int type);
 extern void activateEntities(char *name);
 extern void activateEntityGroups(char *groupName);
 extern void activateLocations(char *locations);
-void activateObjectives(char *objectives);
+extern void activateObjectives(char *objectives);
 extern int showingMessageBoxes(void);
 extern char *getTranslatedString(char *string);
 extern void activateNextWaypoint(void);

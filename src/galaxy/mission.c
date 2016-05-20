@@ -128,6 +128,7 @@ void loadMission(char *filename)
 	battle.manualComplete = getJSONValue(root, "manualComplete", 0);
 	battle.unwinnable = getJSONValue(root, "unwinnable", 0);
 	battle.waypointAutoAdvance = getJSONValue(root, "waypointAutoAdvance", 0);
+	battle.hasSuspicionLevel = getJSONValue(root, "hasSuspicionLevel", 0);
 
 	initScript(root);
 

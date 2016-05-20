@@ -67,13 +67,10 @@
 		"hidden" : 1
 	},
 	{
-		"id" : "TRESPASSER",
+		"id" : "CAMPAIGN_KRASST",
 		"title" : "Trespasser",
 		"description" : "Complete all optional missions",
-		"value" : "TROPHY_GOLD",
-		"stat" : "STAT_OPTIONAL_COMPLETED",
-		"statValue" : 5,
-		"hidden" : 1
+		"value" : "TROPHY_GOLD"
 	},
 	{
 		"id" : "EPIC",

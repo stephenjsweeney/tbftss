@@ -1,0 +1,223 @@
+{
+	"comment" : "This mission intentionally has no music",
+	"name" : "Infiltration #5",
+	"description" : "",
+	"requires" : 65,
+	"requiresOptional" : 4,
+	"isOptional" : 1,
+	"hasSuspicionLevel" : 1,
+	"background" : "gfx/backgrounds/background01.jpg",
+	"planet" : "gfx/planets/hyanik.png",
+	"music" : "",
+	"player" : {
+		"type" : "Angel",
+		"pilot" : "Cdr. Kyle Hicks",
+		"squadron" : "???",
+		"side" : "SIDE_PANDORAN",
+		"x" : 45,
+		"y" : 30
+	},
+	"objectives" : [
+		{
+			"description" : "Search for Admiral Zackaria",
+			"targetName" : "Waypoint",
+			"targetValue" : 5,
+			"targetType" : "TT_WAYPOINT"
+		},
+		{
+			"description" : "Investigate unique Sphinx",
+			"targetName" : "Unique Sphinx",
+			"targetValue" : 1,
+			"targetType" : "TT_MISC",
+			"active" : 0
+		},
+		{
+			"description" : "Retreat to jumpgate",
+			"targetName" : "Player",
+			"targetValue" : 1,
+			"targetType" : "TT_ESCAPED",
+			"active" : 0
+		}
+	],
+	"fighters" : [
+		{
+			"types" : "Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 30,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER+EF_IMMORTAL",
+			"aiFlags" : "+AIF_WANDERS+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Jackal;Mantis;Sphinx;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 30,
+			"scatter" : 500,
+			"number" : 12,
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Sphinx;Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 12000,
+			"number" : 16,
+			"flags" : "+EF_AI_LEADER+EF_IMMORTAL",
+			"aiFlags" : "+AIF_WANDERS+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Jackal;Mantis;Sphinx;Scarab;Shale;Razor;SK-31;SK-34;Blizzard;Khepri",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 12000,
+			"number" : 160,
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"groupName" : "ZakGroup",
+			"types" : "Unique Sphinx",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : -5,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"groupName" : "ZakGroup",
+			"types" : "Jackal",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : -5,
+			"scatter" : 500,
+			"number" : 16,
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "INF Shiv",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 44,
+			"y" : 29
+		},
+		{
+			"name" : "Corvette",
+			"types" : "INF Corvette 01;INF Corvette 02;HMS Corvette 01;HMS Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 12000,
+			"number" : 32
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"number" : 5,
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 9000,
+			"active" : 0
+		},
+		{
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 30
+		}
+	],
+	"locations" : [
+		{
+			"name" : "JumpgateLocation",
+			"x" : 45,
+			"y" : 30,
+			"size" : 2500,
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 2",
+			"lines" : [
+				"MSG_BOX Hicks;So, this is Krasst. Never thought I'd ever find myself here.",
+				"WAIT_MSG_BOX",
+				"WAIT 10",
+				"MSG_BOX Hicks;Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely amoung them, and no raise suspicion.",
+				"WAIT_MSG_BOX",
+				"MSG_BOX Hicks;Time to start my search for the admiral.",
+				"ACTIVATE_OBJECTIVES Check all waypoints;Search for Admiral Zackaria",
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
+			"function" : "Waypoint #1",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Hicks;This isn't going to be easy. There are a lot of ships here.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
+			"function" : "Waypoint #2",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Hicks;Still nothing. I don't even know what I'm looking for. No carriers in sight, and none of the more recognizable capital ships, either.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
+			"function" : "Waypoint #3",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Hicks;I have a feeling I'm ultimately going to have to find a way to get aboard Dragon. But as soon as I'm out of this fighter they'll know I'm an imposter.",
+				"MSG_BOX Hicks;I've been lucky so far, but I've got a horrible feeling my luck is starting to run out.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_NEXT_WAYPOINT"
+			]
+		},
+		{
+			"function" : "Waypoint #4",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Hicks;Wait ... what's that? That Sphinx. It's different from the rest. I've never seen one like it before.",
+				"MSG_BOX Hicks;I should follow it, and see where it goes.",
+				"ACTIVATE_ENTITY_GROUPS ZakGroup",
+				"ACTIVATE_OBJECTIVES Investigate unique Sphinx"
+			]
+		},
+		{
+			"function" : "Zackaria",
+			"lines" : [
+				"ACTIVATE_LOCATION JumpgateLocation",
+				"MSG_BOX Unique Sphinx;I've been watching you. Who are you? What are you doing here?",
+				"MSG_BOX Hicks;Ah, crap!",
+				"MSG_BOX Unique Sphinx;You are not Dodds.",
+				"MSG_BOX Unique Sphinx;You were brave for coming this far on your own, but that was ultimately a foolish decision.",
+				"MSG_BOX Hicks;Hell! That's Zackaria for sure, but he's on to me. I need to get out of here, quickly!",
+				"WAIT_MSG_BOX",
+				"WAIT 10",
+				"PANDORAN_MSG_BOX Unique Sphinx;We have an intruder, flying the Angel. Kill him.",
+				"UPDATE_ENTITY_SIDE SIDE_ALLIES Hicks"
+			]
+		},
+		{
+			"function" : "JumpgateLocation",
+			"lines" : [
+				"ACTIVATE_JUMPGATE 0",
+				"MSG_BOX Hicks;They've shutdown the jumpgate ..."
+			]
+		}
+	]
+}
+ 

@@ -24,6 +24,7 @@ cp -r gfx $OUT
 cp -r music $OUT
 cp -r sound $OUT
 cp -r manual $OUT
+cp -r locale $OUT
 cp CHANGELOG $OUT
 cp LICENSE $OUT
 cp README.md $OUT

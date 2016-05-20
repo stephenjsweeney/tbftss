@@ -20,15 +20,7 @@ rm -rf $OUT/*
 
 mkdir -p $OUT/DEBIAN
 
-mkdir -p $OUT/usr/bin
-cp tbftss $OUT/usr/bin
-
-mkdir -p $OUT/opt/tbftss
-cp -r data $OUT/opt/tbftss
-cp -r gfx $OUT/opt/tbftss
-cp -r music $OUT/opt/tbftss
-cp -r sound $OUT/opt/tbftss
-cp -r manual $OUT/opt/tbftss
+make DESTDIR=$OUT install
 
 SIZE=`du -bs $OUT | cut -f -1`
 SIZE=`expr $SIZE / 1024`

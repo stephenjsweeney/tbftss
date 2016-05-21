@@ -1,0 +1,105 @@
+{
+	"name" : "Traitor Hunt #1",
+	"description" : "",
+	"requires" : 57,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/determination.mp3",
+	"manualComplete" : 1,
+	"waypointAutoAdvance" : 1,
+	"player" : {
+		"type" : "Hyena-A",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Malcolm D'Ath",
+		"squadron" : "Sparrows",
+		"x" : 45,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Check all waypoints",
+			"targetName" : "Waypoint",
+			"targetValue" : 2,
+			"targetType" : "TT_WAYPOINT"
+		},
+		{
+			"description" : "Capture traitors",
+			"targetName" : "Traitors",
+			"targetValue" : 8,
+			"targetType" : "TT_DISABLE",
+			"active" : 0
+		},
+		{
+			"description" : "Do not allow traitors to be killed",
+			"targetName" : "Traitors",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0,
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"types" : "Ray;Hyena-A",
+			"number" : 6,
+			"side" : "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 25,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"groupName" : "Traitors",
+			"types" : "Nymph",
+			"number" : 8,
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : -1,
+			"scatter" : 500,
+			"flags" : "+EF_MUST_DISABLE",
+			"aiFlags" : "+AIF_WANDERS+AIF_DEFENSIVE",
+			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 25,
+			"y" : 25,
+			"number" : 2,
+			"scatter" : 8000
+		},
+		{
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_ALLIES",
+			"x" : 47,
+			"y" : 25
+		}
+	],
+	"script" : [
+		{
+			"function" : "Waypoint #2",
+			"lines" : [
+				"WAIT 1",
+				"IMPORTANT_MSG_BOX Control;D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now.",
+				"MSG_BOX D'Ath;Got it, we'll mag the fighters and take it from there.",
+				"ACTIVATE_JUMPGATE 0",
+				"ACTIVATE_ENTITY_GROUPS Traitors",
+				"ACTIVATE_OBJECTIVES Capture traitors;Do not allow traitors to be killed"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'Ath;Control, this is D'Ath. Targets have been disabled. No casualties.",
+				"MSG_BOX Control;Acknowledged. Didn't look like they put up much of a fight. Seemed they spent most of the time running away.",
+				"MSG_BOX Wingmate;Barely fired back. Maybe they were covering for someone?",
+				"MSG_BOX D'Ath;Definite possibility. We'll bring these guys in and see what we can find out.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

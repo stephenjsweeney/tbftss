@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "objectives.h"
 
+static int fireObjectivesComplete;
+
 void doObjectives(void)
 {
 	int objectiveFailed;
@@ -76,11 +78,19 @@ void doObjectives(void)
 	
 	if (battle.status == MS_IN_PROGRESS)
 	{
-		if (!battle.manualComplete && !hasHidden && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
+		if (!hasHidden && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
 		{
-			runScriptFunction("ALL_OBJECTIVES_COMPLETE");
+			if (fireObjectivesComplete)
+			{
+				runScriptFunction("ALL_OBJECTIVES_COMPLETE");
+				
+				fireObjectivesComplete = 0;
+			}
 			
-			completeMission();
+			if (!battle.manualComplete)
+			{
+				completeMission();
+			}
 		}
 		
 		if (objectiveFailed)
@@ -290,4 +300,6 @@ void loadObjectives(cJSON *node)
 			node = node->next;
 		}
 	}
+	
+	fireObjectivesComplete = 1;
 }

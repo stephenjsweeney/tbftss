@@ -11,7 +11,10 @@ REVISION=$2
 SIZE=0
 
 make clean
-make
+make src-dist
+
+make clean
+make LOCALE_DIR=locale
 make dist
 
 rm -rf tbftss

@@ -25,7 +25,9 @@ CXXFLAGS += -g -lefence
 
 LFLAGS := `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 
-DIST_FILES = data gfx manual music sound src LICENSE makefile* common.mk README.md CHANGELOG
+SHARED_FILES = LICENSE README.md data gfx manual music sound
+DIST_FILES = $(SHARED_FILES) locale tbftss
+SRC_DIST_FILES = $(SHARED_FILES) src makefile* common.mk CHANGELOG
 
 # linking the program.
 $(PROG): $(OBJS)
@@ -76,6 +78,16 @@ dist:
 	$(RM) -rf $(PROG)-$(VERSION)
 	mkdir $(PROG)-$(VERSION)
 	cp -r $(DIST_FILES) $(PROG)-$(VERSION)
+	tar czf $(PROG)-$(VERSION)-$(REVISION).linux-x86.tar.gz $(PROG)-$(VERSION)
+	mkdir -p dist
+	mv $(PROG)-$(VERSION)-$(REVISION).linux-x86.tar.gz dist
+	$(RM) -rf $(PROG)-$(VERSION)
+	
+# prepare an archive for the program
+src-dist:
+	$(RM) -rf $(PROG)-$(VERSION)
+	mkdir $(PROG)-$(VERSION)
+	cp -r $(SRC_DIST_FILES) $(PROG)-$(VERSION)
 	git log --oneline --decorate >$(PROG)-$(VERSION)/CHANGELOG.raw
 	tar czf $(PROG)-$(VERSION)-$(REVISION).src.tar.gz $(PROG)-$(VERSION)
 	mkdir -p dist

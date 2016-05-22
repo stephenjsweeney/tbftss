@@ -55,6 +55,7 @@ static int selectWeaponForTarget(Entity *e);
 static void deployMine(void);
 static int isSurrendering(void);
 static void doSurrender(void);
+static void fleeWithinBattleArea(void);
 
 void doAI(void)
 {
@@ -680,13 +681,33 @@ static int nearEnemies(void)
 		self->targetLocation.x += (rand() % 100 - rand() % 100);
 		self->targetLocation.y += (rand() % 100 - rand() % 100);
 		
-		self->action = fleeEnemies;
 		self->aiActionTime = FPS * 2;
+		
+		fleeWithinBattleArea();
+		
+		self->action = fleeEnemies;
 		
 		return 1;
 	}
 	
 	return 0;
+}
+
+static void fleeWithinBattleArea(void)
+{
+	/* at the limit of the battle area, try somewhere else */
+	if (self->targetLocation.x < SCREEN_WIDTH || self->targetLocation.x >= BATTLE_AREA_WIDTH - SCREEN_WIDTH)
+	{
+		self->targetLocation.x = -self->targetLocation.x;
+		self->aiActionTime = FPS * 5;
+	}
+	
+	/* at the limit of the battle area, try somewhere else */
+	if (self->targetLocation.y < SCREEN_HEIGHT || self->targetLocation.y >= BATTLE_AREA_HEIGHT - SCREEN_HEIGHT)
+	{
+		self->targetLocation.y = -self->targetLocation.y;
+		self->aiActionTime = FPS * 5;
+	}
 }
 
 static void deployMine(void)
@@ -739,7 +760,10 @@ static int nearMines(void)
 		self->targetLocation.y += (rand() % 100 - rand() % 100);
 		
 		self->action = fleeEnemies;
+		
 		self->aiActionTime = FPS * 2;
+		
+		fleeWithinBattleArea();
 		
 		return 1;
 	}

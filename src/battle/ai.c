@@ -616,7 +616,7 @@ static int isSurrendering(void)
 				
 				battle.stats[STAT_ENEMIES_SURRENDERED]++;
 				
-				runScriptFunction("ENEMY_SURRENDERED %d", battle.stats[STAT_ENEMIES_SURRENDERED]);
+				runScriptFunction("ENEMIES_SURRENDERED %d", battle.stats[STAT_ENEMIES_SURRENDERED]);
 				
 				addHudMessage(colors.white, _("%s has surrendered"), self->name);
 				

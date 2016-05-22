@@ -498,4 +498,6 @@ void destroyBattle(void)
 	destroyBullets();
 
 	destroyEffects();
+	
+	memset(&battle, 0, sizeof(Battle));
 }

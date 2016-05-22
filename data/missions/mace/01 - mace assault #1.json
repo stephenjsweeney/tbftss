@@ -32,7 +32,6 @@
 	"fighters" : [
 		{
 			"name" : "Wolfenden",
-			"fullname" : "Tamara Wolfenden",
 			"types" : "Rook",
 			"side" : "SIDE_ALLIES",
 			"x" : 45,

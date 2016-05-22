@@ -1,0 +1,141 @@
+{
+	"name" : "Traitor Hunt #2",
+	"description" : "",
+	"requires" : 57,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Eliminate all traitors",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Do not kill surrendering targets",
+			"targetName" : "SURRENDERED",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Lt. Cdr. Seth McLeod",
+		"squadron" : "Steel Bulls",
+		"x" : 10,
+		"y" : 10
+	},
+	"fighters" : [
+		{
+			"types" : "TAF",
+			"name" : "Strickland",
+			"side": "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 10,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER+EF_IMMORTAL",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Ray;Kingfisher",
+			"side": "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 10,
+			"scatter" : 500,
+			"number" : 8,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"types" : "Simple Dart;Nymph",
+			"side": "SIDE_MERC",
+			"x" : 25,
+			"y" : 10,
+			"scatter" : 500,
+			"number" : 8,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		},
+		{
+			"types" : "Simple Dart;Nymph",
+			"side": "SIDE_MERC",
+			"x" : 35,
+			"y" : 25,
+			"scatter" : 500,
+			"number" : 8,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		},
+		{
+			"types" : "Simple Dart;Nymph;Shale",
+			"side": "SIDE_MERC",
+			"x" : 15,
+			"y" : 40,
+			"scatter" : 500,
+			"number" : 8,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		},
+		{
+			"types" : "Nymph",
+			"side": "SIDE_MERC",
+			"x" : 45,
+			"y" : 45,
+			"scatter" : 500,
+			"number" : 8,
+			"scatter" : 1000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Strickland;Our orders are to destroy all opposing fighters. However, we are to mag and disable any fighter that surrenders."
+			]
+		},
+		{
+			"function" : "ENEMIES_SURRENDERED 1",
+			"lines" : [
+				"MSG_BOX Strickland;One of them has surrendered. Mag him, ASAP."
+			]
+		},
+		{
+			"function" : "ENEMIES_SURRENDERED 2",
+			"lines" : [
+				"MSG_BOX Strickland;Another has thrown in the towel. Disable that fighter!"
+			]
+		},
+		{
+			"function" : "ENEMIES_SURRENDERED 4",
+			"lines" : [
+				"MSG_BOX Strickland;Four of them have now surrendered."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 16",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wingmate;I'd have been expecting more of them to have surrendered than this.",
+				"MSG_BOX Strickland;Some are clearly braver than others.",
+				"MSG_BOX Wingmate;Or perhaps stupider."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Strickland;Good work, everyone. Control are sending tugs to bring these guys in.",
+				"MSG_BOX Wingmate;Think they'll get a long sentence?",
+				"MSG_BOX Strickland;Depends on how many capable pilots we can afford to keep shoving behind bars ...",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

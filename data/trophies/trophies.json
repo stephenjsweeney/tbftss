@@ -289,5 +289,14 @@
 		"title" : "Frequent flyer",
 		"description" : "Destroy one of each common type of starfighter",
 		"value" : "TROPHY_SILVER"
+	},
+	{
+		"id" : "NOT_THE_FACE",
+		"title" : "Not the face!",
+		"description" : "Cause 50 enemies to surrender",
+		"value" : "TROPHY_BRONZE",
+		"stat" : "STAT_ENEMIES_SURRENDERED",
+		"statValue" : 50,
+		"hidden" : 1
 	}
 ]

@@ -345,6 +345,11 @@ void doFighter(void)
 
 			updateCondition(self->name, TT_DESTROY);
 			updateCondition(self->groupName, TT_DESTROY);
+			
+			if (self->flags & EF_SURRENDERED)
+			{
+				updateCondition("SURRENDERED", TT_DESTROY);
+			}
 		}
 	}
 }

@@ -109,6 +109,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define EF_NO_THREAT			(2 << 23)
 #define EF_DROPS_ITEMS			(2 << 24)
 #define EF_COMMON_FIGHTER		(2 << 25)
+#define EF_SURRENDERED			(2 << 26)
 
 #define AIF_NONE				0
 #define AIF_FOLLOWS_PLAYER		(2 << 0)
@@ -132,6 +133,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_ASSASSIN			(2 << 18)
 #define AIF_SUSPICIOUS			(2 << 19)
 #define AIF_ZAK_SUSPICIOUS		(2 << 20)
+#define AIF_SURRENDERS			(2 << 21)
 
 /* player abilities */
 #define BOOST_RECHARGE_TIME 	(FPS * 7)
@@ -376,6 +378,7 @@ enum
 	STAT_CAPITAL_SHIPS_DESTROYED,
 	STAT_CAPITAL_SHIPS_LOST,
 	STAT_MINES_DESTROYED,
+	STAT_ENEMIES_SURRENDERED,
 	/* add stats before here, so as not to mess up the stats screen */
 	STAT_TIME,
 	STAT_MAX

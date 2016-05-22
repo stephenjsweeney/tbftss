@@ -53,6 +53,8 @@ static void wander(void);
 static void doWander(void);
 static int selectWeaponForTarget(Entity *e);
 static void deployMine(void);
+static int isSurrendering(void);
+static void doSurrender(void);
 
 void doAI(void)
 {
@@ -99,6 +101,11 @@ void doAI(void)
 	}
 	
 	if ((self->aiFlags & AIF_RETREATS) && (battle.stats[STAT_TIME] % 60 == 0) && isRetreating())
+	{
+		return;
+	}
+	
+	if ((self->aiFlags & AIF_SURRENDERS) && (battle.stats[STAT_TIME] % 6 == 0) && isSurrendering())
 	{
 		return;
 	}
@@ -581,6 +588,54 @@ static int isRetreating(void)
 	}
 	
 	return self->flags & EF_RETREATING;
+}
+
+static int isSurrendering(void)
+{
+	float chance;
+	
+	if (!(self->flags & EF_SURRENDERED))
+	{
+		if (self->health < self->maxHealth)
+		{
+			chance = self->health;
+			chance /= self->maxHealth;
+			chance *= 100;
+			
+			if (rand() % 100 > chance)
+			{
+				self->aiActionTime = FPS * 3;
+				
+				self->aiFlags |= AIF_AVOIDS_COMBAT;
+				self->aiFlags &= ~AIF_SURRENDERS;
+				
+				self->flags |= EF_MUST_DISABLE;
+				self->flags |= EF_MISSION_TARGET;
+				
+				self->action = doSurrender;
+				
+				battle.stats[STAT_ENEMIES_SURRENDERED]++;
+				
+				runScriptFunction("ENEMY_SURRENDERED %d", battle.stats[STAT_ENEMIES_SURRENDERED]);
+				
+				addHudMessage(colors.white, _("%s has surrendered"), self->name);
+				
+				return 1;
+			}
+		}
+	}
+	
+	return 0;
+}
+
+static void doSurrender(void)
+{
+	if (--self->aiActionTime <= 0)
+	{
+		self->flags |= EF_SURRENDERED;
+		
+		nextAction();
+	}
 }
 
 static int nearEnemies(void)

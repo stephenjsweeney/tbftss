@@ -93,6 +93,7 @@ void initLookups(void)
 	addLookup("AIF_ASSASSIN", AIF_ASSASSIN);
 	addLookup("AIF_SUSPICIOUS", AIF_SUSPICIOUS);
 	addLookup("AIF_ZAK_SUSPICIOUS", AIF_ZAK_SUSPICIOUS);
+	addLookup("AIF_SURRENDERS", AIF_SURRENDERS);
 
 	addLookup("DT_ANY", DT_ANY);
 	addLookup("DT_NO_SPIN", DT_NO_SPIN);

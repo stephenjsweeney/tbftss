@@ -128,6 +128,8 @@ void runScriptFunction(const char *format, ...)
 				tail = scriptRunner;
 
 				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
+				
+				return;
 			}
 
 			function = function->next;

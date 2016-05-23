@@ -49,6 +49,7 @@ extern void addLargeExplosion(void);
 extern char **toTypeArray(char *types, int *numTypes);
 extern void updateCondition(char *name, int type);
 extern void addMessageBox(char *title, char *body, int type);
+extern float mod(float n, float x);
 
 extern Battle battle;
 extern Entity *player;

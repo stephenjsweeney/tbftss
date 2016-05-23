@@ -135,7 +135,7 @@ static void think(void)
 
 		self->angle += dir;
 
-		self->angle = fmod(self->angle, 360);
+		self->angle = mod(self->angle, 360);
 	}
 
 	applyFighterThrust();
@@ -387,7 +387,7 @@ static void disable(void)
 		
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
-		if (e->owner == self->owner)
+		if (e->owner == self->owner || e == self->owner)
 		{
 			e->systemPower = 0;
 			e->flags |= EF_DISABLED;

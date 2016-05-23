@@ -1,0 +1,119 @@
+{
+	"name" : "Traitor Hunt #3",
+	"description" : "",
+	"requires" : 57,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/track-4.mp3",
+	"manualComplete" : 1,
+	"waypointAutoAdvance" : 1,
+	"player" : {
+		"type" : "Hyena-A",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Malcolm D'Ath",
+		"squadron" : "Sparrows",
+		"x" : 10,
+		"y" : 10
+	},
+	"objectives" : [
+		{
+			"description" : "Disable CSN Drachma",
+			"targetName" : "CSN Drachma",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Defeat traitors",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Do not destroy CSN Drachma",
+			"targetName" : "CSN Drachma",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not kill surrendering targets",
+			"targetName" : "SURRENDERED",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"types" : "Ray;Firefly;Kingfisher;Hammerhead",
+			"number" : 8,
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 10,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"groupName" : "Traitors",
+			"types" : "Dart",
+			"number" : 6,
+			"side" : "SIDE_MERC",
+			"x" : 20,
+			"y" : 20,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_SURRENDERS"
+		},
+		{
+			"groupName" : "Traitors",
+			"types" : "Dart;Firefly",
+			"number" : 6,
+			"side" : "SIDE_MERC",
+			"x" : 30,
+			"y" : 30,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_SURRENDERS"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "CSN Drachma",
+			"types" : "CSN Corvette 01",
+			"side" : "SIDE_MERC",
+			"x" : 30,
+			"y" : 30,
+			"flags" : "+EF_AI_IGNORE+EF_AI_LEADER"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX D'ath;Looks like we've got a welcoming committee heading our way."
+			]
+		},
+		{
+			"function" : "TIME 30",
+			"lines" : [
+				"MSG_BOX D'ath;Remember: we need to disable the Drachma. Target the guns and engines, only. We don't want to destroy it."
+			]
+		},
+		{
+			"function" : "ENEMIES_SURRENDERED 1",
+			"lines" : [
+				"MSG_BOX D'ath;Some of them are surrendering. Disable their fighters, and we'll deal with them later. Don't kill them!"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'ath;Control, traitors have been dealt with, and the Drachma has been disabled. She's ready for boarding.",
+				"MSG_BOX Control;Acknowledged. Shuttles are on their way.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

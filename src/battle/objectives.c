@@ -221,6 +221,8 @@ void completeConditions(void)
 	{
 		if (o->isCondition)
 		{
+			o->currentValue = o->targetValue;
+			
 			o->status = OS_COMPLETE;
 		}
 	}

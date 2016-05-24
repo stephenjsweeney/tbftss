@@ -500,4 +500,11 @@ void destroyBattle(void)
 	destroyEffects();
 	
 	memset(&battle, 0, sizeof(Battle));
+	battle.bulletTail = &battle.bulletHead;
+	battle.debrisTail = &battle.debrisHead;
+	battle.entityTail = &battle.entityHead;
+	battle.effectTail = &battle.effectHead;
+	battle.objectiveTail = &battle.objectiveHead;
+	battle.locationTail = &battle.locationHead;
+	battle.spawnerTail = &battle.spawnerHead;
 }

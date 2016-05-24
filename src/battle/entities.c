@@ -681,6 +681,19 @@ void updateEntitySide(char *sideStr, char *name)
 	}
 }
 
+void awardPandoranCraftTrophy(void)
+{
+	Entity *e;
+	
+	for (e = deadHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->killedBy == player && e->side == SIDE_PANDORAN)
+		{
+			awardTrophy("PANDORAN");
+		}
+	}
+}
+
 void destroyEntities(void)
 {
 	Entity *e;

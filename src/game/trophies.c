@@ -460,6 +460,8 @@ void awardChallengeTrophies(void)
 void awardPostMissionTrophies(void)
 {
 	awardCraftTrophy();
+	
+	awardPandoranCraftTrophy();
 
 	if (game.currentMission->epic)
 	{

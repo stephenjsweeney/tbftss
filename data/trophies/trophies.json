@@ -305,5 +305,11 @@
 		"stat" : "STAT_ENEMIES_SURRENDERED",
 		"statValue" : 50,
 		"hidden" : 1
+	},
+	{
+		"id" : "REVENGE",
+		"title" : "Revenge",
+		"description" : "During an epic battle, kill an enemy that previously killed you",
+		"value" : "TROPHY_BRONZE"
 	}
 ]

@@ -230,6 +230,16 @@ static void checkCollisions(Bullet *b)
 							awardTrophy("BODYGUARD");
 						}
 					}
+					
+					if (e == player)
+					{
+						b->owner->flags |= EF_KILLED_PLAYER;
+					}
+					
+					if (b->owner == player && e->flags & EF_KILLED_PLAYER)
+					{
+						awardTrophy("REVENGE");
+					}
 				}
 				
 				if (b->owner == player && b->type == BT_MISSILE)

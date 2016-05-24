@@ -87,6 +87,10 @@ void initPlayer(void)
 	battle.ecmTimer = ECM_RECHARGE_TIME;
 	
 	player->flags |= EF_NO_HEALTH_BAR;
+	
+	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
+	
+	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
 }
 
 static void setPilotName(void)

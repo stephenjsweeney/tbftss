@@ -601,7 +601,7 @@ static int isSurrendering(void)
 		{
 			chance = self->health;
 			chance /= self->maxHealth;
-			chance *= 100;
+			chance *= 75;
 			
 			if (rand() % 100 > chance)
 			{

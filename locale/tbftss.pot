@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-17 17:37:13+0100\n"
+"POT-Creation-Date: 2016-05-24 09:40:54+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "%s is retreating!"
 msgstr ""
 
-msgid "Hell! My cover's been blown, they're on to me!"
+msgid "%s has surrendered"
 msgstr ""
 
 msgid "WARNING: INCOMING MISSILE!"
@@ -365,6 +365,9 @@ msgid "Capital Ships Lost"
 msgstr ""
 
 msgid "Mines Destroyed"
+msgstr ""
+
+msgid "Enemies Surrendered"
 msgstr ""
 
 msgid "Time Played"
@@ -722,6 +725,69 @@ msgid "They were good guys. They'll be missed."
 msgstr ""
 
 msgid "We're needed elsewhere. We'll see you soon."
+msgstr ""
+
+msgid "Our orders are to destroy all opposing fighters, except any who surrender. They're to be magged, instead."
+msgstr ""
+
+msgid "One of them has surrendered. Mag him, ASAP."
+msgstr ""
+
+msgid "Another has thrown in the towel. Disable that fighter!"
+msgstr ""
+
+msgid "Four of them have now surrendered."
+msgstr ""
+
+msgid "I'd have been expecting more of them to have surrendered than this."
+msgstr ""
+
+msgid "Some are clearly braver than others."
+msgstr ""
+
+msgid "Or perhaps stupider."
+msgstr ""
+
+msgid "Good work, everyone. Control are sending tugs to bring these guys in."
+msgstr ""
+
+msgid "Think they'll get a long sentence?"
+msgstr ""
+
+msgid "Depends on how many capable pilots we can afford to keep shoving behind bars ..."
+msgstr ""
+
+msgid "We need Burgess alive. The others should be destroyed unless they surrender."
+msgstr ""
+
+msgid "Strickland, the situation just escalated. A wing of Pandoran fighters just entered the area."
+msgstr ""
+
+msgid "Dammit! People, we need to keep those fighters away from Burgess. We can't lose that lead!"
+msgstr ""
+
+msgid "Where'd they get those Shales from?"
+msgstr ""
+
+msgid "From Christabel's ill-advised decision to attack the Enemy directly, no doubt."
+msgstr ""
+
+msgid "To hell with you! Christabel was our only hope of surviving this thing."
+msgstr ""
+
+msgid "Save it, buddy. You can spill it all at the court martial."
+msgstr ""
+
+msgid "Looks like that's it."
+msgstr ""
+
+msgid "Good flying today, Seth."
+msgstr ""
+
+msgid "Thank you. I'm just glad to have survived another day."
+msgstr ""
+
+msgid "We'll get through this. Neither of us are getting flagged before the end of this thing."
 msgstr ""
 
 msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
@@ -1459,6 +1525,54 @@ msgstr ""
 msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
 msgstr ""
 
+msgid "So, this is Krasst. Never thought I'd ever find myself here."
+msgstr ""
+
+msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely amoung them, and no raise suspicion."
+msgstr ""
+
+msgid "Time to start my search for the admiral."
+msgstr ""
+
+msgid "This isn't going to be easy. There are a lot of ships here."
+msgstr ""
+
+msgid "Still nothing. I don't even know what I'm looking for. No carriers in sight, and none of the more recognizable capital ships, either."
+msgstr ""
+
+msgid "I have a feeling I'm ultimately going to have to find a way to get aboard Dragon. But as soon as I'm out of this fighter they'll know I'm an imposter."
+msgstr ""
+
+msgid "I've been lucky so far, but I've got a horrible feeling my luck is starting to run out."
+msgstr ""
+
+msgid "Wait ... what's that? That Sphinx. It's different from the rest. I've never seen one like it before."
+msgstr ""
+
+msgid "I should follow it, and see where it goes."
+msgstr ""
+
+msgid "I've been watching you. Who are you? What are you doing here?"
+msgstr ""
+
+msgid "Ah, crap!"
+msgstr ""
+
+msgid "You are not Dodds."
+msgstr ""
+
+msgid "You were brave for coming this far on your own, but that was ultimately a foolish decision."
+msgstr ""
+
+msgid "Hell! That's Zackaria for sure, but he's on to me. I need to get out of here, quickly!"
+msgstr ""
+
+msgid "They've shutdown the jumpgate ..."
+msgstr ""
+
+msgid "Hell! My cover's been blown, they're on to me!"
+msgstr ""
+
 msgid "Our goal is the jumpgate. Expect a lot of resistance."
 msgstr ""
 
@@ -2026,6 +2140,48 @@ msgstr ""
 msgid "Stick round, Commander. We might need you later."
 msgstr ""
 
+msgid "D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now."
+msgstr ""
+
+msgid "Got it, we'll mag the fighters and take it from there."
+msgstr ""
+
+msgid "Control, this is D'Ath. Targets have been disabled. No casualties."
+msgstr ""
+
+msgid "Acknowledged. Didn't look like they put up much of a fight. Seemed they spent most of the time running away."
+msgstr ""
+
+msgid "Barely fired back. Maybe they were covering for someone?"
+msgstr ""
+
+msgid "Definite possibility. We'll bring these guys in and see what we can find out."
+msgstr ""
+
+msgid "Looks like we've got a welcoming committee heading our way."
+msgstr ""
+
+msgid "Remember: we need to disable the Drachma. Target the guns and engines, only. We don't want to destroy it."
+msgstr ""
+
+msgid "Some of them are surrendering. Disable their fighters, and we'll deal with them later. Don't kill them!"
+msgstr ""
+
+msgid "Control, traitors have been dealt with, and the Drachma has been disabled. She's ready for boarding."
+msgstr ""
+
+msgid "Acknowledged. Shuttles are on their way."
+msgstr ""
+
+msgid "(This ... how can I do this? These are my friends.)"
+msgstr ""
+
+msgid "(I need to maintain my cover, or this whole operation could be blown.)"
+msgstr ""
+
+msgid "(Sorry, everyone.)"
+msgstr ""
+
 msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilation craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
 msgstr ""
 
@@ -2432,5 +2588,17 @@ msgid "2 birds, 1 stone"
 msgstr ""
 
 msgid "Destroy two or more fighters by shooting one mine"
+msgstr ""
+
+msgid "Frequent flyer"
+msgstr ""
+
+msgid "Destroy one of each common type of starfighter"
+msgstr ""
+
+msgid "Not the face!"
+msgstr ""
+
+msgid "Cause 50 enemies to surrender"
 msgstr ""
 

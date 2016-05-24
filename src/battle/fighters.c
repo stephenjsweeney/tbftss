@@ -346,7 +346,8 @@ void doFighter(void)
 			updateCondition(self->name, TT_DESTROY);
 			updateCondition(self->groupName, TT_DESTROY);
 			
-			if (self->flags & EF_SURRENDERED)
+			/* don't fire if the opposing side is responsible */
+			if (self->flags & EF_SURRENDERED && self->killedBy->side == player->side)
 			{
 				updateCondition("SURRENDERED", TT_DESTROY);
 			}

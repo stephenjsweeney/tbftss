@@ -57,7 +57,6 @@
 			"y" : 10,
 			"scatter" : 500,
 			"number" : 8,
-			"scatter" : 1000,
 			"aiFlags" : "+AIF_SURRENDERS"
 		},
 		{
@@ -67,7 +66,6 @@
 			"y" : 25,
 			"scatter" : 500,
 			"number" : 8,
-			"scatter" : 1000,
 			"aiFlags" : "+AIF_SURRENDERS"
 		},
 		{
@@ -77,7 +75,6 @@
 			"y" : 40,
 			"scatter" : 500,
 			"number" : 8,
-			"scatter" : 1000,
 			"aiFlags" : "+AIF_SURRENDERS"
 		},
 		{
@@ -87,7 +84,6 @@
 			"y" : 45,
 			"scatter" : 500,
 			"number" : 8,
-			"scatter" : 1000,
 			"aiFlags" : "+AIF_SURRENDERS"
 		}
 	],

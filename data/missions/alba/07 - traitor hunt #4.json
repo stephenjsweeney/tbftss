@@ -1,0 +1,154 @@
+{
+	"name" : "Traitor Hunt #4",
+	"description" : "",
+	"requires" : 60,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"music" : "music/battle/heroism.ogg",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Eliminate all traitors",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Capture Roman Burgess",
+			"targetName" : "Roman Burgess",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Defeat Pandorans",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Do not kill Roman Burgess",
+			"targetName" : "Roman Burgess",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not kill surrendering targets",
+			"targetName" : "SURRENDERED",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"type" : "Ray",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Lt. Cdr. Seth McLeod",
+		"squadron" : "Steel Bulls",
+		"x" : 5,
+		"y" : 5
+	},
+	"fighters" : [
+		{
+			"types" : "TAF",
+			"name" : "Strickland",
+			"side": "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 5,
+			"scatter" : 500,
+			"flags" : "+EF_AI_LEADER+EF_IMMORTAL",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Ray;Kingfisher;Firefly;Hyena-A",
+			"side": "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 5,
+			"scatter" : 500,
+			"number" : 7,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
+		},
+		{
+			"types" : "Dart",
+			"name" : "Roman Burgess",
+			"side": "SIDE_MERC",
+			"x" : 35,
+			"y" : 35,
+			"scatter" : 9000,
+			"flags" : "+EF_MUST_DISABLE+EF_MISSION_TARGET",
+			"aiFlags" : "+AIF_WANDERS"
+		},
+		{
+			"types" : "Nymph;Dart",
+			"side": "SIDE_MERC",
+			"x" : 35,
+			"y" : 35,
+			"scatter" : 9000,
+			"number" : 12,
+			"aiFlags" : "+AIF_SURRENDERS+AIF_WANDERS"
+		},
+		{
+			"types" : "Nymph;Dart",
+			"side": "SIDE_MERC",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 9000,
+			"number" : 12
+		},
+		{
+			"groupName" : "Pandorans",
+			"types" : "Jackal;Shale",
+			"side": "SIDE_PANDORAN",
+			"x" : 55,
+			"y" : 55,
+			"scatter" : 2000,
+			"number" : 12,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Strickland;We need Burgess alive. The others should be destroyed unless they surrender."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 12",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_ENTITY_GROUPS Pandorans",
+				"ACTIVATE_OBJECTIVES Defeat Pandorans",
+				"IMPORTANT_MSG_BOX Control;Strickland, the situation just escalated. A wing of Pandoran fighters just entered the area.",
+				"MSG_BOX Strickland;Dammit! People, we need to keep those fighters away from Burgess. We can't lose that lead!",
+				"MSG_BOX Wingmate;Where'd they get those Shales from?",
+				"MSG_BOX Wingmate;From Christabel's ill-advised decision to attack the Enemy directly, no doubt."
+			]
+		},
+		{
+			"function" : "Capture Roman Burgess",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Burgess;To hell with you! Christabel was our only hope of surviving this thing.",
+				"MSG_BOX Strickland;Save it, buddy. You can spill it all at the court martial."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX McLeod;Looks like that's it.",
+				"MSG_BOX Strickland;Good flying today, Seth.",
+				"MSG_BOX McLeod;Thank you. I'm just glad to have survived another day.",
+				"MSG_BOX Strickland;We'll get through this. Neither of us are getting flagged before the end of this thing.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

@@ -67,6 +67,13 @@
 		"hidden" : 1
 	},
 	{
+		"id" : "CAMPAIGN_LENON",
+		"title" : "Plan B",
+		"description" : "Complete all campaign missions",
+		"value" : "TROPHY_GOLD",
+		"hidden" : 1
+	},
+	{
 		"id" : "CAMPAIGN_KRASST",
 		"title" : "Trespasser",
 		"description" : "Complete all optional missions",

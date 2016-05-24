@@ -3,13 +3,13 @@
 cd `dirname $0`
 
 BUILDROOT="build/win32"
-OUT="$BUILDROOT/tbftss"
 
 cd ../..
 
 VERSION=$1
 REVISION=$2
-SIZE=0
+FOLDER="tbftss-$1"
+OUT="$BUILDROOT/$FOLDER"
 
 make -f makefile.win32 clean
 make -f makefile.win32
@@ -26,14 +26,15 @@ cp -r sound $OUT
 cp -r manual $OUT
 cp -r locale $OUT
 cp LICENSE $OUT
+cp CHANGELOG $OUT
 cp README.md $OUT
 
 cp /usr/x86_64-w64-mingw32/bin/*.dll $OUT
 
 cd $BUILDROOT
 
-zip -r tbftss-${VERSION}-${REVISION}.win32.zip tbftss
+zip -r tbftss-${VERSION}-${REVISION}.win32.zip $FOLDER
 
 mv *.zip ../../dist
 
-rm -rf tbftss
+rm -rf $FOLDER

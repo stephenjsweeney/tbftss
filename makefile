@@ -25,9 +25,9 @@ CXXFLAGS += -g -lefence
 
 LFLAGS := `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 
-SHARED_FILES = LICENSE README.md data gfx manual music sound
+SHARED_FILES = CHANGELOG LICENSE README.md data gfx manual music sound
 DIST_FILES = $(SHARED_FILES) locale tbftss
-SRC_DIST_FILES = $(SHARED_FILES) src makefile* common.mk CHANGELOG
+SRC_DIST_FILES = $(SHARED_FILES) src makefile* common.mk
 
 # linking the program.
 $(PROG): $(OBJS)

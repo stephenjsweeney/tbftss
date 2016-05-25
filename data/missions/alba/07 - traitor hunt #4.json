@@ -16,7 +16,7 @@
 		},
 		{
 			"description" : "Capture Roman Burgess",
-			"targetName" : "Roman Burgess",
+			"targetName" : "Burgess",
 			"targetValue" : 1,
 			"targetType" : "TT_DISABLE"
 		},
@@ -30,7 +30,7 @@
 		},
 		{
 			"description" : "Do not kill Roman Burgess",
-			"targetName" : "Roman Burgess",
+			"targetName" : "Burgess",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isCondition" : 1
@@ -73,7 +73,7 @@
 		},
 		{
 			"types" : "Dart",
-			"name" : "Roman Burgess",
+			"name" : "Burgess",
 			"side": "SIDE_MERC",
 			"x" : 35,
 			"y" : 35,

@@ -1,0 +1,76 @@
+{
+	"name" : "Surrender!",
+	"description" : "Surrender!",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Ray",
+		"side" : "SIDE_TZAC",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"allowPlayerDeath" : 1,
+		"timeLimit" : 120,
+		"surrenderLimit" : 5,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_SURRENDER",
+				"value" : 2
+			},
+			{
+				"type" : "CHALLENGE_SURRENDER",
+				"value" : 4
+			},
+			{
+				"type" : "CHALLENGE_SURRENDER",
+				"value" : 5
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"types" : "Nymph",
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 20,
+			"scatter" : 2000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		},
+		{
+			"types" : "Firefly",
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 20,
+			"scatter" : 2000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		},
+		{
+			"types" : "Lynx",
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 20,
+			"scatter" : 2000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		},
+		{
+			"types" : "Hyena-A",
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 20,
+			"scatter" : 2000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		},
+		{
+			"types" : "Leopard",
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 20,
+			"scatter" : 2000,
+			"aiFlags" : "+AIF_SURRENDERS"
+		}
+	]
+}

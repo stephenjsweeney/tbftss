@@ -1,7 +1,7 @@
 {
 	"name" : "Traitor Hunt #4",
 	"description" : "",
-	"requires" : 60,
+	"requires" : 57,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",
 	"music" : "music/battle/heroism.ogg",

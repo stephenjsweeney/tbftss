@@ -65,6 +65,11 @@ void doAI(void)
 		deployMine();
 	}
 	
+	if ((self->aiFlags & AIF_SURRENDERS) && (battle.stats[STAT_TIME] % 6 == 0) && isSurrendering())
+	{
+		return;
+	}
+	
 	if ((self->aiFlags & (AIF_AVOIDS_COMBAT | AIF_EVADE)) && nearEnemies())
 	{
 		return;
@@ -103,11 +108,6 @@ void doAI(void)
 	}
 	
 	if ((self->aiFlags & AIF_RETREATS) && (battle.stats[STAT_TIME] % 60 == 0) && isRetreating())
-	{
-		return;
-	}
-	
-	if ((self->aiFlags & AIF_SURRENDERS) && (battle.stats[STAT_TIME] % 6 == 0) && isSurrendering())
 	{
 		return;
 	}
@@ -605,7 +605,7 @@ static int isSurrendering(void)
 		{
 			chance = self->health;
 			chance /= self->maxHealth;
-			chance *= 75;
+			chance *= 100;
 			
 			if (rand() % 100 > chance)
 			{

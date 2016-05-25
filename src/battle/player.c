@@ -649,8 +649,7 @@ static int isPriorityMissionTarget(Entity *e, int dist, int closest)
 
 static void cycleRadarZoom(void)
 {
-	battle.radarRange++;
-	battle.radarRange %= 3;
+	battle.radarRange = (battle.radarRange + 1) % 3;
 }
 
 int playerHasGun(int type)

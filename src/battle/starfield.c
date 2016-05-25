@@ -47,25 +47,8 @@ void doStars(float dx, float dy)
 		stars[i].x -= (dx * stars[i].speed);
 		stars[i].y -= (dy * stars[i].speed);
 		
-		if (stars[i].x >= SCREEN_WIDTH)
-		{
-			stars[i].x = 0;
-		}
-		
-		if (stars[i].x < 0)
-		{
-			stars[i].x = SCREEN_WIDTH - 1;
-		}
-		
-		if (stars[i].y >= SCREEN_HEIGHT)
-		{
-			stars[i].y = 0;
-		}
-		
-		if (stars[i].y < 0)
-		{
-			stars[i].y = SCREEN_HEIGHT - 1;
-		}
+		stars[i].x = mod(stars[i].x, SCREEN_WIDTH - 1);
+		stars[i].y = mod(stars[i].y, SCREEN_HEIGHT - 1);
 	}
 }
 

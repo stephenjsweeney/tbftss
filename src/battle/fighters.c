@@ -234,6 +234,12 @@ void doFighter(void)
 
 				self->flags |= EF_DISABLED;
 				self->flags |= EF_SECONDARY_TARGET;
+				
+				if (self->aiFlags & AIF_SURRENDERING)
+				{
+					self->aiFlags |= AIF_SURRENDERED;
+					self->aiFlags &= ~AIF_SURRENDERING;
+				}
 
 				battle.stats[STAT_ENEMIES_DISABLED]++;
 
@@ -347,7 +353,7 @@ void doFighter(void)
 			updateCondition(self->groupName, TT_DESTROY);
 			
 			/* don't fire if the opposing side is responsible */
-			if (self->flags & EF_SURRENDERED && self->killedBy->side == player->side)
+			if (self->aiFlags & AIF_SURRENDERED && self->killedBy->side == player->side)
 			{
 				updateCondition("SURRENDERED", TT_DESTROY);
 			}

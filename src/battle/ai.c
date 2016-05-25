@@ -595,7 +595,7 @@ static int isSurrendering(void)
 {
 	float chance;
 	
-	if (!(self->flags & EF_SURRENDERED))
+	if (!(self->aiFlags & AIF_SURRENDERED))
 	{
 		if (self->health < self->maxHealth)
 		{
@@ -605,9 +605,10 @@ static int isSurrendering(void)
 			
 			if (rand() % 100 > chance)
 			{
-				self->aiActionTime = FPS * 3;
+				self->aiActionTime = FPS * 2;
 				
 				self->aiFlags |= AIF_AVOIDS_COMBAT;
+				self->aiFlags |= AIF_SURRENDERING;
 				self->aiFlags &= ~AIF_SURRENDERS;
 				
 				self->flags |= EF_MUST_DISABLE;
@@ -633,7 +634,8 @@ static void doSurrender(void)
 {
 	if (--self->aiActionTime <= 0)
 	{
-		self->flags |= EF_SURRENDERED;
+		self->aiFlags &= ~AIF_SURRENDERING;
+		self->aiFlags |= AIF_SURRENDERED;
 		
 		nextAction();
 	}

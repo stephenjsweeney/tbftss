@@ -28,6 +28,7 @@ static void updateLossesChallenge(Challenge *c);
 static void updatePlayerKillsChallenge(Challenge *c);
 static void updateDisabledChallenge(Challenge *c);
 static void updateItemsChallenge(Challenge *c);
+static void updateSurrenderChallenge(Challenge *c);
 static void completeChallenge(void);
 static void failChallenge(void);
 static int updateChallenges(void);
@@ -61,6 +62,7 @@ void initChallenges(void)
 	challengeDescription[CHALLENGE_ITEMS] = _("Collect %d packages");
 	challengeDescription[CHALLENGE_PLAYER_ITEMS] = _("Collect %d packages");
 	challengeDescription[CHALLENGE_RESCUE] = _("Rescue %d civilians");
+	challengeDescription[CHALLENGE_SURRENDER] = _("Cause %d enemies to surrender");
 
 	tail = &game.challengeMissionHead;
 
@@ -100,6 +102,7 @@ void loadChallenge(Mission *mission, cJSON *node)
 	mission->challengeData.playerItemLimit = getJSONValue(node, "playerItemLimit", 0);
 	mission->challengeData.rescueLimit = getJSONValue(node, "rescueLimit", 0);
 	mission->challengeData.disableLimit = getJSONValue(node, "disableLimit", 0);
+	mission->challengeData.surrenderLimit = getJSONValue(node, "surrenderLimit", 0);
 
 	/* restrictions */
 	mission->challengeData.noMissiles = getJSONValue(node, "noMissiles", 0);
@@ -208,6 +211,11 @@ static int challengeFinished(void)
 		return 1;
 	}
 	
+	if (game.currentMission->challengeData.surrenderLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_SURRENDERED] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.surrenderLimit)
+	{
+		return 1;
+	}
+	
 	if (game.currentMission->challengeData.eliminateThreats && !battle.hasThreats)
 	{
 		return 1;
@@ -270,6 +278,10 @@ static int updateChallenges(void)
 					case CHALLENGE_ITEMS:
 					case CHALLENGE_PLAYER_ITEMS:
 						updateItemsChallenge(c);
+						break;
+						
+					case CHALLENGE_SURRENDER:
+						updateSurrenderChallenge(c);
 						break;
 				}
 			}
@@ -404,6 +416,14 @@ static void updateItemsChallenge(Challenge *c)
 		{
 			c->passed = battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= c->value;
 		}
+	}
+}
+
+static void updateSurrenderChallenge(Challenge *c)
+{
+	if (!c->passed)
+	{
+		c->passed = battle.stats[STAT_ENEMIES_SURRENDERED] >= c->value;
 	}
 }
 

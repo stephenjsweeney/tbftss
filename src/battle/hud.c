@@ -472,6 +472,10 @@ static void drawObjectives(void)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.disableLimit);
 		}
+		else if (game.currentMission->challengeData.surrenderLimit)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_SURRENDERED], game.currentMission->challengeData.surrenderLimit);
+		}
 		else if (player->flags & EF_MUST_DISABLE)
 		{
 			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, _("System Power : %d%%"), player->systemPower);

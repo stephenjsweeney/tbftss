@@ -1,0 +1,155 @@
+{
+	"name" : "Traitor Hunt #5",
+	"description" : "",
+	"requires" : 57,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/heroism.ogg",
+	"manualComplete" : 1,
+	"waypointAutoAdvance" : 1,
+	"player" : {
+		"type" : "Hyena-A",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Malcolm D'Ath",
+		"squadron" : "Sparrows",
+		"x" : 5,
+		"y" : 45
+	},
+	"objectives" : [
+		{
+			"description" : "Capture Isabel Nelson",
+			"targetName" : "Nelson",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE"
+		},
+		{
+			"description" : "Capture Preston Young",
+			"targetName" : "Young",
+			"targetValue" : 1,
+			"targetType" : "TT_DISABLE",
+			"active" : 0
+		},
+		{
+			"description" : "Defeat traitors",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Do not kill surrendering targets",
+			"targetName" : "SURRENDERED",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not kill Isabel Nelson",
+			"targetName" : "Nelson",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Do not kill Preston Young",
+			"targetName" : "Young",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1,
+			"active" : 0
+		}
+	],
+	"fighters" : [
+		{
+			"name" : "Young",
+			"types" : "Leopard",
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"flags" : "+EF_MUST_DISABLE",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Hyena-A;Firefly;Nymph",
+			"number" : 8,
+			"side" : "SIDE_ALLIES",
+			"x" : 5,
+			"y" : 45,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "Nelson",
+			"types" : "Rook",
+			"side" : "SIDE_MERC",
+			"x" : 35,
+			"y" : 35,
+			"flags" : "+EF_MUST_DISABLE+EF_MISSION_TARGET",
+			"aiFlags" : "+AIF_WANDERS"
+		},
+		{
+			"types" : "Rocket Dart;Dart;Ray;TAF",
+			"number" : 24,
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 9000,
+			"aiFlags" : "+AIF_WANDERS+AIF_SURRENDERS"
+		},
+		{
+			"types" : "Rocket Dart;Dart;Ray;TAF",
+			"number" : 8,
+			"side" : "SIDE_MERC",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 9000,
+			"aiFlags" : "+AIF_WANDERS+AIF_SURRENDERS"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Young;Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be.",
+				"MSG_BOX Control;Young, your orders are to bring Nelson in alive. Do not destroy that fighter.",
+				"MSG_BOX Young;Fine, we'll mag her."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 12",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wingmate;Preston's being a bit aggressive, don't you think?",
+				"MSG_BOX D'Ath;The commander's probably just fed up with all the in-fighting that's going on. Can't say I blame him."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 24",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_OBJECTIVES Capture Preston Young;Do not kill Preston Young",
+				"UPDATE_ENTITY_SIDE SIDE_TZAC Young",
+				"IMPORTANT_MSG_BOX Control;Sparrows, we have confirmed the identity of the second traitor - it's Commander Young. Disable that fighter.",
+				"MSG_BOX Wingmate;What the hell?!",
+				"MSG_BOX D'Ath;Explains things. Surrender, Commander, it's over.",
+				"MSG_BOX Young;Come and get me, Malcolm."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'Ath;What the hell, Commander, I never thought I'd see the day.",
+				"MSG_BOX Young;The CSN and UNF have lost, Malcolm, can't you see that? Time to cut our losses and get far away from here.",
+				"MSG_BOX D'Ath;We haven't lost; we defeated Christabel, and--",
+				"MSG_BOX Young;And what about the Pandorans? They're winning this war, no one else! We can't beat them.",
+				"MSG_BOX D'Ath;The Mitikans also tried running. Didn't exactly work out well for them, either.",
+				"MSG_BOX Young;Fighting didn't turn out too well, either. It's every man for himself.",
+				"MSG_BOX D'Ath;Commander, we're done here. Control, targets and area secured. Ready for pickup.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}
+ 

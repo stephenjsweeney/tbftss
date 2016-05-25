@@ -55,7 +55,8 @@ static int selectWeaponForTarget(Entity *e);
 static void deployMine(void);
 static int isSurrendering(void);
 static void doSurrender(void);
-static void fleeWithinBattleArea(void);
+static void fleeWithinBattleArea(int x, int y, int numEnemies);
+static int evadeNonKillTargets(void);
 
 void doAI(void)
 {
@@ -162,32 +163,35 @@ static void doFighterAI(void)
 		
 		if (!self->target)
 		{
-			/* move to leader and wander take priority over move to player */
-			if (self->aiFlags & AIF_MOVES_TO_LEADER)
+			if (!evadeNonKillTargets())
 			{
-				if (!lookForLeader())
+				/* move to leader and wander take priority over move to player */
+				if (self->aiFlags & AIF_MOVES_TO_LEADER)
 				{
-					if (self->aiFlags & AIF_MOVES_TO_PLAYER && player->alive == ALIVE_ALIVE)
+					if (!lookForLeader())
 					{
-						moveToPlayer();
-					}
-					else
-					{
-						applyFighterBrakes();
+						if (self->aiFlags & AIF_MOVES_TO_PLAYER && player->alive == ALIVE_ALIVE)
+						{
+							moveToPlayer();
+						}
+						else
+						{
+							applyFighterBrakes();
+						}
 					}
 				}
-			}
-			else if (self->aiFlags & AIF_WANDERS)
-			{
-				doWander();
-			}
-			else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player->alive == ALIVE_ALIVE)
-			{
-				moveToPlayer();
-			}
-			else
-			{
-				applyFighterBrakes();
+				else if (self->aiFlags & AIF_WANDERS)
+				{
+					doWander();
+				}
+				else if (self->aiFlags & AIF_MOVES_TO_PLAYER && player->alive == ALIVE_ALIVE)
+				{
+					moveToPlayer();
+				}
+				else
+				{
+					applyFighterBrakes();
+				}
 			}
 			
 			return;
@@ -673,21 +677,7 @@ static int nearEnemies(void)
 	
 	if (numEnemies)
 	{
-		self->targetLocation.x = x;
-		self->targetLocation.y = y;
-		
-		self->targetLocation.x /= numEnemies;
-		self->targetLocation.y /= numEnemies;
-		
-		/* dodge slightly */
-		self->targetLocation.x += (rand() % 100 - rand() % 100);
-		self->targetLocation.y += (rand() % 100 - rand() % 100);
-		
-		self->aiActionTime = FPS * 2;
-		
-		fleeWithinBattleArea();
-		
-		self->action = fleeEnemies;
+		fleeWithinBattleArea(x, y, numEnemies);
 		
 		return 1;
 	}
@@ -695,8 +685,55 @@ static int nearEnemies(void)
 	return 0;
 }
 
-static void fleeWithinBattleArea(void)
+static int evadeNonKillTargets(void)
 {
+	int i, numEnemies, x, y;
+	Entity *e, **candidates;
+	
+	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH, self);
+	
+	self->target = NULL;
+	x = y = 0;
+	
+	numEnemies = 0;
+	
+	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	{
+		if ((e->flags & EF_TAKES_DAMAGE) && e->side != SIDE_NONE && e->side != self->side && (!(e->flags & EF_DISABLED)))
+		{
+			if (getDistance(e->x, e->y, self->x, self->y) <= SCREEN_WIDTH)
+			{
+				x += e->x;
+				y += e->y;
+				numEnemies++;
+			}
+		}
+	}
+	
+	if (numEnemies)
+	{
+		fleeWithinBattleArea(x, y, numEnemies);
+		
+		return 1;
+	}
+	
+	return 0;
+}
+
+static void fleeWithinBattleArea(int x, int y, int numEnemies)
+{
+	self->targetLocation.x = x;
+	self->targetLocation.y = y;
+	
+	self->targetLocation.x /= numEnemies;
+	self->targetLocation.y /= numEnemies;
+	
+	/* dodge slightly */
+	self->targetLocation.x += (rand() % 100 - rand() % 100);
+	self->targetLocation.y += (rand() % 100 - rand() % 100);
+	
+	self->aiActionTime = FPS * 2;
+	
 	/* at the limit of the battle area, try somewhere else */
 	if (self->targetLocation.x < SCREEN_WIDTH || self->targetLocation.x >= BATTLE_AREA_WIDTH - SCREEN_WIDTH)
 	{
@@ -710,6 +747,8 @@ static void fleeWithinBattleArea(void)
 		self->targetLocation.y = -self->targetLocation.y;
 		self->aiActionTime = FPS * 5;
 	}
+	
+	self->action = fleeEnemies;
 }
 
 static void deployMine(void)
@@ -733,12 +772,12 @@ static void deployMine(void)
 
 static int nearMines(void)
 {
-	int i, numMines;
+	int i, numMines, x, y;
 	Entity *e, **candidates;
 	
 	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_HEIGHT, self);
 	
-	self->targetLocation.x = self->targetLocation.y = 0;
+	x = y = 0;
 	
 	numMines = 0;
 	
@@ -746,26 +785,15 @@ static int nearMines(void)
 	{
 		if (e->side != self->side && e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) <= SCREEN_HEIGHT)
 		{
-			self->targetLocation.x += e->x;
-			self->targetLocation.y += e->y;
+			x += e->x;
+			y += e->y;
 			numMines++;
 		}
 	}
 	
 	if (numMines)
 	{
-		self->targetLocation.x /= numMines;
-		self->targetLocation.y /= numMines;
-		
-		/* dodge slightly */
-		self->targetLocation.x += (rand() % 100 - rand() % 100);
-		self->targetLocation.y += (rand() % 100 - rand() % 100);
-		
-		self->action = fleeEnemies;
-		
-		self->aiActionTime = FPS * 2;
-		
-		fleeWithinBattleArea();
+		fleeWithinBattleArea(x, y, numMines);
 		
 		return 1;
 	}

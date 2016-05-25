@@ -609,7 +609,7 @@ static int isSurrendering(void)
 			
 			if (rand() % 100 > chance)
 			{
-				self->aiActionTime = FPS * 2;
+				self->aiActionTime = FPS * 3;
 				
 				self->aiFlags |= AIF_AVOIDS_COMBAT;
 				self->aiFlags |= AIF_SURRENDERING;

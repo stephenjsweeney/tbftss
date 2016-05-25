@@ -677,6 +677,11 @@ void updateEntitySide(char *sideStr, char *name)
 		if (strcmp(e->name, name) == 0)
 		{
 			e->side = side;
+			
+			if (e->side != player->side)
+			{
+				e->flags |= EF_MISSION_TARGET;
+			}
 		}
 	}
 }

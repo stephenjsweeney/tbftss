@@ -310,7 +310,7 @@
 	{
 		"id" : "REVENGE",
 		"title" : "Revenge",
-		"description" : "During an epic battle, kill an enemy that previously killed you",
+		"description" : "During an epic battle, kill the enemy that just killed you",
 		"value" : "TROPHY_BRONZE"
 	}
 ]

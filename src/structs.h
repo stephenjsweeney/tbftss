@@ -359,6 +359,7 @@ typedef struct {
 	Entity *missionTarget;
 	Entity *jumpgate;
 	Entity *messageSpeaker;
+	Entity *lastKilledPlayer;
 	SDL_Texture *background, *planetTexture;
 	PointF planet;
 	int planetWidth, planetHeight;

@@ -233,10 +233,10 @@ static void checkCollisions(Bullet *b)
 					
 					if (e == player)
 					{
-						b->owner->flags |= EF_KILLED_PLAYER;
+						battle.lastKilledPlayer = b->owner;
 					}
 					
-					if (b->owner == player && e->flags & EF_KILLED_PLAYER)
+					if (b->owner == player && e == battle.lastKilledPlayer)
 					{
 						awardTrophy("REVENGE");
 					}

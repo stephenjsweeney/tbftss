@@ -344,6 +344,7 @@ static void loadTrophyData(char *filename)
 	cJSON *root, *node;
 	char *text;
 	Trophy *t, *tail;
+	int count[TROPHY_MAX];
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
@@ -351,6 +352,8 @@ static void loadTrophyData(char *filename)
 	root = cJSON_Parse(text);
 
 	tail = &game.trophyHead;
+	
+	memset(count, 0, sizeof(int) * TROPHY_MAX);
 
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
@@ -373,11 +376,16 @@ static void loadTrophyData(char *filename)
 				t->stat = lookup(cJSON_GetObjectItem(node, "stat")->valuestring);
 				t->statValue = cJSON_GetObjectItem(node, "statValue")->valueint;
 			}
+			
+			count[t->value]++;
+			count[TROPHY_UNEARNED]++;
 
 			tail->next = t;
 			tail = t;
 		}
 	}
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Trophies (%d) [Bronze=%d, Silver=%d, Gold=%d, Platinum=%d]", count[TROPHY_UNEARNED], count[TROPHY_BRONZE], count[TROPHY_SILVER], count[TROPHY_GOLD], count[TROPHY_PLATINUM]);
 
 	cJSON_Delete(root);
 	free(text);

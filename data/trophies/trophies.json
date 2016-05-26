@@ -77,7 +77,8 @@
 		"id" : "CAMPAIGN_KRASST",
 		"title" : "Trespasser",
 		"description" : "Complete all optional missions",
-		"value" : "TROPHY_GOLD"
+		"value" : "TROPHY_GOLD",
+		"hidden" : 1
 	},
 	{
 		"id" : "EPIC",

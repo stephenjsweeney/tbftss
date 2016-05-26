@@ -163,8 +163,8 @@ int main(int argc, char *argv[])
 			expireTextTimer = SDL_GetTicks() + (1000 * 10);
 		}
 		
-		/* trophy unlocks might cause the game to save several times in one frame */
-		if (app.saveGame)
+		/* don't save more than once per request, and not in the middle of battle */
+		if (app.saveGame && battle.status != MS_IN_PROGRESS)
 		{
 			saveGame();
 			app.saveGame = 0;

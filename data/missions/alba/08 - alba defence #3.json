@@ -1,0 +1,158 @@
+{
+	"name" : "Alba Defence #3",
+	"description" : "",
+	"requires" : 50,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"music" : "music/battle/battleThemeA.mp3",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Destroy acquired Tzac craft",
+			"targetName" : "Tzac",
+			"targetValue" : 24,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Destroy HMS 381-222",
+			"targetName" : "HMS 381-222",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY"
+		},
+		{
+			"description" : "Eliminate all opposition",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Defend CSN Inca",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		}
+	],
+	"player" : {
+		"type" : "TAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "1st Lt. Serina Katz",
+		"squadron" : "Star Reapers",
+		"x" : 45,
+		"y" : 5
+	},
+	"fighters" : [
+		{
+			"types" : "Firefly",
+			"name" : "Rice",
+			"side": "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 5,
+			"scatter" : 500,
+			"flags" : "+EF_IMMORTAL",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Hammerhead;Nymph;Lynx;Ray",
+			"side": "SIDE_ALLIES",
+			"x" : 45,
+			"y" : 5,
+			"scatter" : 500,
+			"number" : 8,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"groupName" : "Tzac",
+			"types" : "Shale;SK-31;SK-34;Razor;Blizzard;Khepri",
+			"side": "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 35,
+			"scatter" : 4000,
+			"number" : 24,
+			"flags" : "+EF_DISABLED+EF_AI_TARGET+EF_MISSION_TARGET"
+		},
+		{
+			"types" : "Rapid Plasma Turret",
+			"side": "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 35,
+			"scatter" : 4000,
+			"number" : 5,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"types" : "Tug",
+			"side": "SIDE_PANDORAN",
+			"x" : 40,
+			"y" : 40,
+			"scatter" : 500,
+			"number" : 6,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "CSN Inca",
+			"side": "SIDE_ALLIES",
+			"types" : "CSN Corvette 02",
+			"x" : 36,
+			"y" : 29,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "HMS 381-222",
+			"side": "SIDE_PANDORAN",
+			"types" : "HMS Corvette 01",
+			"x" : 15,
+			"y" : 15,
+			"flags" : "+EF_AI_TARGET"
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Jackal;Mantis;Scarab",
+			"side" : "SIDE_PANDORAN",
+			"interval" : 15,
+			"total" : 18,
+			"step" : 2,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX CSN Inca;Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette.",
+				"MSG_BOX Rice;Got it. All fighters, we need Inca to survive this one. We can't afford to lose any more capital ships.",
+				"MSG_BOX Wingmate;Looks like there are some tugs trying to extract the Tzac fighters.",
+				"MSG_BOX Rice;I see them. Take them out before they can get away."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 9",
+			"lines" : [
+				"WAIT 1",
+				"ACTIVATE_SPAWNER 1 spawner",
+				"MSG_BOX Wingmate;Rice, we've got INF fighters incoming.",
+				"MSG_BOX Rice;Huh, I actually thought they'd have been here sooner. Prepare to engage."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Rice;That's the staging ground taken care of. Now--",
+				"MSG_BOX CSN Inca;Rice, we've got a big problem: a very large number of Pandoran ships just arrived in the system. Torelli is being evacuated.",
+				"MSG_BOX Rice;Never enough, is it?",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		}
+	]
+}

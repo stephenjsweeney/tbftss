@@ -6,7 +6,13 @@
 	"reloadTime" : 16,
 	"shieldRechargeRate" : 70,
 	"texture" : "gfx/fighters/leopard.png",
+	"combinedGuns" : 1,
 	"guns" : [
+		{
+			"type" : "BT_PARTICLE",
+			"x" : 0,
+			"y" : -16
+		},
 		{
 			"type" : "BT_PLASMA",
 			"x" : -12,
@@ -16,11 +22,6 @@
 			"type" : "BT_PLASMA",
 			"x" : 12,
 			"y" : -12
-		},
-		{
-			"type" : "BT_PLASMA",
-			"x" : 0,
-			"y" : -16
 		}
 	],
 	"missiles" : 3,

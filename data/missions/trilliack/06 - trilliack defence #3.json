@@ -1,0 +1,207 @@
+{
+	"name" : "Trilliack Defence #3",
+	"description" : "",
+	"requires" : 57,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "music/battle/heroism.ogg",
+	"manualComplete" : 1,
+	"player" : {
+		"type" : "Leopard",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Malcolm D'Ath",
+		"squadron" : "Sparrows",
+		"x" : 41,
+		"y" : 25
+	},
+	"objectives" : [
+		{
+			"description" : "Eliminate all enemy vessels",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Survive at least 1 capital ship",
+			"targetName" : "ALLY",
+			"targetValue" : 1,
+			"targetType" : "TT_MISC",
+			"isCondition" : 1
+		}
+	],
+	"fighters" : [
+		{
+			"types" : "TAF;Nymph;Firefly;Ray;Hyena-A;Hyena-B;Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"x" : 41,
+			"y" : 25,
+			"scatter" : 500,
+			"number" : 12,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
+			"side" : "SIDE_PANDORAN",
+			"x" : 20,
+			"y" : 25,
+			"scatter" : 500,
+			"number" : 12,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "UNF Zenobia",
+			"types" : "UNF Corvette 01",
+			"side" : "SIDE_ALLIES",
+			"x" : 40,
+			"y" : 20,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "UNF Lady Jane Grey",
+			"types" : "UNF Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 40,
+			"y" : 25,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "CSN Tangka",
+			"types" : "CSN Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 40,
+			"y" : 30
+		},
+		{
+			"name" : "HMS 111-224",
+			"types" : "HMS Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 20,
+			"y" : 20,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "INF Corvo",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 20,
+			"y" : 25,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "INF Stiletto",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 20,
+			"y" : 30,
+			"flags" : "+EF_AI_TARGET"
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "allySpawner",
+			"types" : "TAF;Nymph;Firefly;Ray;Hyena-A;Hyena-B;Kingfisher;Leopard;Rook;Hammerhead;Lynx",
+			"side" : "SIDE_ALLIES",
+			"interval" : 8,
+			"total" : -1,
+			"step" : 1,
+			"offScreen" : 1,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"name" : "pandoranSpawner",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Thunderhead;Scarab;Shale;SK-31;SK-34;Razor;Blizzard;Khepri",
+			"side" : "SIDE_PANDORAN",
+			"interval" : 12,
+			"total" : -1,
+			"step" : 1,
+			"offScreen" : 1,
+			"flags" : "+EF_AI_TARGET",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX UNF Lady Jane Grey;Enemy forces in range. Preparing to engage.",
+				"MSG_BOX D'Ath;You heard it, people. Break and attack."
+			]
+		},
+		{
+			"function" : "ENEMIES_KILLED 8",
+			"lines" : [
+				"ACTIVATE_SPAWNER 1 allySpawner",
+				"ACTIVATE_SPAWNER 1 pandoranSpawner",
+				"MSG_BOX Wingmate;More enemy fighters incoming.",
+				"MSG_BOX D'Ath;We have re-inforcements on the way, to help even the odds."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 1",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'Ath;One down, two to go."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 2",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'Ath;Another down, just one remaining. We can do this!"
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 3",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'Ath;That's all the enemy's capital ships down. Let's finish off the fighters.",
+				"ACTIVATE_SPAWNER 0 allySpawner",
+				"ACTIVATE_SPAWNER 0 pandoranSpawner"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'Ath;Not an easy battle, but we did it.",
+				"MSG_BOX D'Ath;Hope for the future.",
+				"MSG_BOX D'Ath;It's not over yet. We need to join the others and continue to hit back.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 1",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'Ath;Step it up, everyone! We can't continue to lose our corvettes."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 2",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX D'Ath;We're down to one corvette. We need to finish this now!"
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 3",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Wingmate;There were too many of them ...",
+				"ACTIVATE_SPAWNER 0 allySpawner",
+				"ACTIVATE_SPAWNER 0 pandoranSpawner",
+				"FAIL_MISSION"
+			]
+		}
+	]
+}
+ 

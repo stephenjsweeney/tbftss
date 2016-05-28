@@ -15,6 +15,13 @@
 			"isCondition" : 1
 		},
 		{
+			"description" : "Eliminate all Pandoran opposition",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		},
+		{
 			"description" : "Destroy INF Stiletto",
 			"targetName" : "INF Stiletto",
 			"targetValue" : 1,
@@ -26,14 +33,6 @@
 			"targetName" : "INF BC-41",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
-			"active" : 0
-		},
-		{
-			"description" : "Eliminate all remaining Pandoran opposition",
-			"targetName" : "ENEMY",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY",
-			"isEliminateAll" : 1,
 			"active" : 0
 		}
 	],
@@ -124,7 +123,7 @@
 			]
 		},
 		{
-			"function" : "TIME 30",
+			"function" : "TIME 45",
 			"lines" : [
 				"ACTIVATE_ENTITIES INF Stiletto",
 				"ACTIVATE_OBJECTIVES Destroy INF Stiletto",
@@ -132,7 +131,7 @@
 			]
 		},
 		{
-			"function" : "TIME 60",
+			"function" : "TIME 120",
 			"lines" : [
 				"ACTIVATE_ENTITIES INF BC-41",
 				"ACTIVATE_OBJECTIVES Destroy INF BC-41",
@@ -148,6 +147,19 @@
 				"ACTIVATE_SPAWNER 0 pandoranSpawner",
 				"ACTIVATE_SPAWNER 0 civSpawner",
 				"ACTIVATE_OBJECTIVES Eliminate all remaining Pandoran opposition"
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Taylor;Area secure.",
+				"MSG_BOX Control;How's the jumpgate looking?",
+				"MSG_BOX Taylor;Some damage, but it's still operational.",
+				"MSG_BOX Control;Good work. Continue to guard the gate, and eliminate any incoming enemy threats.",
+				"MSG_BOX Taylor;Got it.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
 			]
 		}
 	]

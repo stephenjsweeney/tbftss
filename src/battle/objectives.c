@@ -150,9 +150,11 @@ void updateObjective(char *name, int type)
 			}
 		}
 		
-		if (completed == battle.numObjectivesTotal && !hasHidden)
+		if (completed == battle.numObjectivesTotal && !hasHidden && !fireObjectivesComplete)
 		{
 			runScriptFunction("ALL_OBJECTIVES_COMPLETE");
+			
+			fireObjectivesComplete = 0;
 		}
 	}
 }

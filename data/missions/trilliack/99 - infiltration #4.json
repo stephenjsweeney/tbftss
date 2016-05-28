@@ -1,7 +1,7 @@
 {
 	"name" : "Infiltration #4",
 	"description" : "",
-	"requires" : 60,
+	"requires" : 64,
 	"requiresOptional" : 3,
 	"isOptional" : 1,
 	"background" : "gfx/backgrounds/background05.jpg",

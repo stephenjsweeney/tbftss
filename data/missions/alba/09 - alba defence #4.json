@@ -1,0 +1,154 @@
+{
+	"name" : "Alba Defence #4",
+	"description" : "",
+	"requires" : 64,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"music" : "music/battle/track-4.mp3",
+	"manualComplete" : 1,
+	"objectives" : [
+		{
+			"description" : "Defend the Jumpgate",
+			"targetName" : "Jumpgate",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition" : 1
+		},
+		{
+			"description" : "Destroy INF Stiletto",
+			"targetName" : "INF Stiletto",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy INF BC-41",
+			"targetName" : "INF BC-41",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate all remaining Pandoran opposition",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
+		}
+	],
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Lt. Kelly Taylor",
+		"squadron" : "White Knights",
+		"x" : 5,
+		"y" : 25
+	},
+	"fighters" : [
+		{
+			"types" : "Rocket Turret;Plasma Turret;Rapid Plasma Turret",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 1350,
+			"number" : 8
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"flags" : "EF_TAKES_DAMAGE+EF_AI_TARGET"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "INF Stiletto",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : -1,
+			"active" : 0
+		},
+		{
+			"name" : "INF BC-41",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 51,
+			"active" : 0
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "civSpawner",
+			"types" : "Civilian",
+			"side" : "SIDE_ALLIES",
+			"interval" : 10,
+			"total" : -1,
+			"step" : 5,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"name" : "pandoranSpawner",
+			"types" : "Jackal;Mantis;Sphinx;Thunderhead;Scarab;Shale;SK-31;SK-34;Razor;Blizzard;Khepri;Nymph;Hyena-A;Hyena-B;Firefly;Dart",
+			"side" : "SIDE_PANDORAN",
+			"interval" : 10,
+			"total" : -1,
+			"step" : 2,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Control;Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters.",
+				"MSG_BOX Taylor;There are civilians in the area. What about them?",
+				"MSG_BOX Control;Their needs are secondary. If we lose that gate, no one's getting out of here."
+			]
+		},
+		{
+			"function" : "JUMPGATE_HEALTH 10",
+			"lines" : [
+				"IMPORTANT_MSG_BOX Control;Taylor, the jumpgate is taking damage. You need to keep the Pandorans away from it!"
+			]
+		},
+		{
+			"function" : "JUMPGATE_HEALTH 5",
+			"lines" : [
+				"IMPORTANT_MSG_BOX Control;Half the jumpgate's control nodes have been destroyed. We can't afford to lose that gate!"
+			]
+		},
+		{
+			"function" : "TIME 30",
+			"lines" : [
+				"ACTIVATE_ENTITIES INF Stiletto",
+				"ACTIVATE_OBJECTIVES Destroy INF Stiletto",
+				"IMPORTANT_MSG_BOX Control;Taylor, a Pandoran corvette just jumped into the area. It's heading for the gate. You need to take it down."
+			]
+		},
+		{
+			"function" : "TIME 60",
+			"lines" : [
+				"ACTIVATE_ENTITIES INF BC-41",
+				"ACTIVATE_OBJECTIVES Destroy INF BC-41",
+				"IMPORTANT_MSG_BOX Control;Taylor, another Pandoran corvette just arrived. Identifier is INF BC-41."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_DESTROYED 2",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Taylor;Both corvettes are down.",
+				"MSG_BOX Control;Excellent work, Taylor. Eliminate the remaining enemy fighters, and await further instructions.",
+				"ACTIVATE_SPAWNER 0 pandoranSpawner",
+				"ACTIVATE_SPAWNER 0 civSpawner",
+				"ACTIVATE_OBJECTIVES Eliminate all remaining Pandoran opposition"
+			]
+		}
+	]
+}

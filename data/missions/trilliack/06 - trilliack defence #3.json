@@ -172,7 +172,7 @@
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX D'Ath;Not an easy battle, but we did it.",
-				"MSG_BOX D'Ath;Hope for the future.",
+				"MSG_BOX Wingmate;Hope for the future. If we could just win all our battle like this ...",
 				"MSG_BOX D'Ath;It's not over yet. We need to join the others and continue to hit back.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"

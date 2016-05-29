@@ -1,7 +1,7 @@
 {
 	"name" : "Alba Defence #4",
 	"description" : "",
-	"requires" : 64,
+	"requires" : 63,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",
 	"music" : "music/battle/track-4.mp3",

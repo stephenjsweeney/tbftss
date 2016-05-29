@@ -2,7 +2,7 @@
 	"comment" : "This mission intentionally has no music",
 	"name" : "Infiltration #5",
 	"description" : "",
-	"requires" : 65,
+	"requires" : 66,
 	"requiresOptional" : 4,
 	"isOptional" : 1,
 	"hasSuspicionLevel" : 1,

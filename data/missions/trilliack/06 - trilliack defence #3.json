@@ -1,7 +1,7 @@
 {
 	"name" : "Trilliack Defence #3",
 	"description" : "",
-	"requires" : 57,
+	"requires" : 63,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/heroism.ogg",

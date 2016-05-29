@@ -6,6 +6,13 @@
 		"value" : "TROPHY_PLATINUM"
 	},
 	{
+		"id" : "CAMPAIGN_COMPLETE",
+		"title" : "Plan B",
+		"description" : "Complete all campaign missions",
+		"value" : "TROPHY_GOLD",
+		"hidden" : 1
+	},
+	{
 		"id" : "CAMPAIGN_1",
 		"title" : "Gentle start",
 		"description" : "Complete a campaign mission",
@@ -64,13 +71,6 @@
 		"title" : "Now what do we do?",
 		"description" : "Complete all missions at Clarke",
 		"value" : "TROPHY_SILVER",
-		"hidden" : 1
-	},
-	{
-		"id" : "CAMPAIGN_LENON",
-		"title" : "Plan B",
-		"description" : "Complete all campaign missions",
-		"value" : "TROPHY_GOLD",
 		"hidden" : 1
 	},
 	{
@@ -258,7 +258,7 @@
 	{
 		"id" : "EPIC_KILL_13",
 		"title" : "Yippie-ki-yay",
-		"description" : "Destroy 13 or more enemies in an epic battle, without being killed",
+		"description" : "Destroy 13 or more enemies in an epic battle, without being killed (No ATAF)",
 		"value" : "TROPHY_SILVER",
 		"stat" : "STAT_EPIC_KILL_STREAK",
 		"statValue" : 13,
@@ -267,7 +267,7 @@
 	{
 		"id" : "SURVIVOR",
 		"title" : "Survivor",
-		"description" : "Complete an epic battle without being killed",
+		"description" : "Complete an epic battle without being killed (No ATAF)",
 		"value" : "TROPHY_SILVER",
 		"hidden" : 1
 	},

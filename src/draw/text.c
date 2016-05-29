@@ -28,7 +28,7 @@ static void drawTextNormal(int x, int y, int size, int align, SDL_Color c, char 
 static void drawTextSplit(int x, int y, int size, int align, SDL_Color c, char *text);
 void textSize(char *text, int size, int *w, int *h);
 
-static char drawTextBuffer[MAX_DESCRIPTION_LENGTH];
+static char drawTextBuffer[MAX_LINE_LENGTH];
 static TTF_Font *font[MAX_FONTS];
 static Texture textures[NUM_TEXT_BUCKETS]; 
 static int maxWidth = 0;

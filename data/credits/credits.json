@@ -1,0 +1,134 @@
+[
+	"0 30 MAIN PROGRAMMING",
+	"0 24 Stephen J Sweeney",
+	"0 24 Richard Sweeney",
+	
+	"75 30 ADDITIONAL CODE",
+	
+	"75 30 GRAPHICS",
+	
+	"30 24 Main Graphics",
+	"0 24 Stephen J Sweeney (CC BY-NC-SA 3.0)",
+	
+	"30 24 gfx/planets/earth.png",
+	"0 24 Derived from the the Blue Marble NASA photograph",
+	"0 24 http://visibleearth.nasa.gov/view.php?id=57723",
+	
+	"30 24 gfx/trophies/bronze.png",
+	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
+	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	
+	"30 24 gfx/trophies/gold.png",
+	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
+	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	
+	"30 24 gfx/trophies/platinum.png",
+	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
+	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	
+	"30 24 gfx/trophies/silver.png",
+	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
+	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	
+	"30 24 gfx/trophies/unearned.png",
+	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
+	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	
+	"75 30 TRANSLATIONS",
+	
+	"75 30 DEVELOPMENT SOFTWARE",
+	
+	"75 28 Simple DirectMedia Layer",
+	"0 24 Created by Sam Lantinga",
+	"0 24 Developed by the SDL Community",
+	
+	"75 28 GCC",
+	"0 24 GNU Compiler Collection",
+	"0 24 Developed by the GNU Project",
+	
+	"75 28 The GIMP",
+	"0 24 GNU Image Manipulation Program",
+	"0 24 Created by Spencer Kimball and Peter Mattis",
+	"0 24 Developed by The GIMP Development Team",
+	
+	"75 28 Kate",
+	"0 24 KDE Advanced Text Editor",
+	"0 24 Developed by the KDE Team",
+	
+	"75 28 Audacity",
+	"0 24 Created by Dominic Mazzoni and Roger Dannenberg",
+	"0 24 Developed by The Audacity Team",
+	
+	"75 30 FONTS",
+	
+	"30 24 data/fonts/Roboto-Medium.ttf",
+	"0 24 by Christian Robertson",
+	"0 24 Licensed under the Apache License, version 2.0",
+	
+	"30 24 data/fonts/Khosrau.ttf",
+	"0 24 by Fereydoun Rostam.",
+	"0 24 http://www.dafont.com/khosrau.font",
+	
+	"75 30 SOUND EFFECTS",
+	
+	"75 30 MUSIC",
+	
+	"30 24 Battle in the winter.mp3",
+	"0 24 Johan Brodd (CC-BY)",
+	"0 24 http://opengameart.org/content/battle-in-the-winter",
+	
+	"30 24 battleThemeA.mp3",
+	"0 24 cynicmusic.com | pixelsphere.org (CC-0)",
+	"0 24 http://opengameart.org/content/battle-theme-a",
+	
+	"30 24 determination.mp3",
+	"0 24 artisticdude (CC-0)",
+	"0 24 http://opengameart.org/content/determination",
+	
+	"30 24 heroism.ogg",
+	"0 24 Edward J. Blakeley (GPL 3.0)",
+	"0 24 http://opengameart.org/content/heroism",
+	
+	"30 24 InnerCore_Low.ogg",
+	"0 24 Gundatsch (CC-BY)",
+	"0 24 https://soundcloud.com/gundatsch",
+	
+	"30 24 Pressure.ogg",
+	"0 24 yd (CC-0)",
+	"0 24 http://opengameart.org/content/pressure",
+	
+	"30 24 Rise of Spirit",
+	"0 24 Alexandr Zhelanov (CC-0)",
+	"0 24 https://soundcloud.com/alexandr-zhelanov",
+	
+	"30 24 Showdown.mp3",
+	"0 24 el-corleo (CC-BY)",
+	"0 24 http://opengameart.org/content/showdown",
+	
+	"30 24 track-3.mp3",
+	"0 24 Alexandr Zhelanov (CC-BY)",
+	"0 24 https://soundcloud.com/alexandr-zhelanov",
+	
+	"30 24 track-4.mp3",
+	"0 24 Alexandr Zhelanov (CC-BY)",
+	"0 24 https://soundcloud.com/alexandr-zhelanov",
+	
+	"30 24 DST-RailJet-LongSeamlessLoop.ogg",
+	"0 24 Deceased Superior Technician (CC-BY)",
+	"0 24 http://opengameart.org/content/railjet-long-seamless-loop",
+	
+	"30 24 covert_operations.mp3",
+	"0 24 artisticdude (CC-0)",
+	"0 24 http://opengameart.org/content/covert-operations",
+	
+	"30 24 Tactical Pursuit.mp3",
+	"0 24 Matthew Pablo (CC-BY)",
+	"0 24 http://opengameart.org/content/tactical-pursuit",
+	
+	"75 30 SPECIAL THANKS",
+	"0 24 Szunti, Bertram25, bentley,  akien-mga",
+	
+	"150 24 This is a work of fiction. Names, characters, businesses, places, events and incidents are either the products of the author's imagination or used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is purely coincidental. The Battle for the Solar System : The Pandoran War is (C) 2015-2016, Stephen J Sweeney, Some Rights Reserved. The Battle for the Solar System and all related materials (including, but not limited to, characters, setting, and story elements) are (C) 2009-2016, Stephen J Sweeney, All Rights Reserved.",
+	
+	"500 30 www.battleforthesolarsystem.com"
+]

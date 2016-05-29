@@ -363,6 +363,8 @@ void cleanup(void)
 
 	destroyResources();
 	
+	destroyCredits();
+	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Done");
 
 	TTF_Quit();

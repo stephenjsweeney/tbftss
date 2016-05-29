@@ -208,8 +208,9 @@ static void handleLoggingArgs(int argc, char *argv[])
 
 static void handleMissionArgs(int argc, char *argv[])
 {
-	int i;
-	int testingMission = 0;
+	int i, testingMission, showCredits;
+	
+	showCredits = testingMission = 0;
 	
 	for (i = 1 ; i < argc ; i++)
 	{
@@ -220,9 +221,18 @@ static void handleMissionArgs(int argc, char *argv[])
 			
 			testingMission = 1;
 		}
+		
+		if (strcmp(argv[i], "-credits") == 0)
+		{
+			showCredits = 1;
+		}
 	}
 	
-	if (!testingMission)
+	if (showCredits)
+	{
+		initCredits();
+	}
+	else if (!testingMission)
 	{
 		initTitle();
 	}

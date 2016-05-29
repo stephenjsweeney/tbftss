@@ -40,6 +40,7 @@ typedef struct Location Location;
 typedef struct Bucket Bucket;
 typedef struct Trophy Trophy;
 typedef struct Tuple Tuple;
+typedef struct Credit Credit;
 
 typedef struct {
 	int debug;
@@ -511,6 +512,14 @@ typedef struct {
 	SDL_Color lightGrey;
 	SDL_Color darkGrey;
 } Colors;
+
+struct Credit {
+	char *text;
+	float y;
+	int size;
+	int h;
+	Credit *next;
+};
 
 struct Bucket {
 	char *key, *value;

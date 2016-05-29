@@ -10,7 +10,7 @@ DEPS += defs.h structs.h
 
 OBJS += ai.o
 OBJS += battle.o bullets.o
-OBJS += capitalShips.o challengeHome.o challenges.o cJSON.o controls.o
+OBJS += capitalShips.o challengeHome.o challenges.o cJSON.o controls.o credits.o
 OBJS += debris.o dev.o draw.o
 OBJS += effects.o entities.o
 OBJS += fighters.o

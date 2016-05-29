@@ -51,6 +51,7 @@ extern void createScreenshotFolder(void);
 extern int isControl(int type);
 extern void clearControl(int type);
 extern void saveGame(void);
+extern void initCredits(void);
 
 App app;
 Colors colors;

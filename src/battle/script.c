@@ -247,6 +247,12 @@ static void executeNextLine(ScriptRunner *runner)
 		completeAllObjectives();
 		completeMission();
 	}
+	else if (strcmp(command, "END_MISSION") == 0)
+	{
+		battle.unwinnable = 1;
+		completeMission();
+		battle.missionFinishedTimer = -FPS * 999;
+	}
 	else if (strcmp(command, "FAIL_MISSION") == 0)
 	{
 		addHudMessage(colors.red, _("Mission Failed!"));

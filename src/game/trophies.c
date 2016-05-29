@@ -475,7 +475,7 @@ void awardPostMissionTrophies(void)
 	{
 		awardTrophy("EPIC");
 		
-		if (battle.stats[STAT_PLAYER_KILLED] == 0)
+		if (battle.stats[STAT_PLAYER_KILLED] == 0 && player->flags & EF_COMMON_FIGHTER)
 		{
 			awardTrophy("SURVIVOR");
 		}

@@ -135,8 +135,8 @@ static void loadCredits(void)
 	
 	limitTextWidth(0);
 	
-	/* the music that plays over the credits is 2m 44s, so scroll credits roughly inline with that */
-	timeout = ((2 * 60) + 55) * FPS;
+	/* the music that plays over the credits is 2m 44s, so scroll credits roughly inline with that (plus 2 seconds) */
+	timeout = ((2 * 60) + 46) * FPS;
 	
 	creditSpeed = y;
 	creditSpeed /= timeout;
@@ -149,7 +149,7 @@ static void handleKeyboard(void)
 {
 	if (app.keyboard[SDL_SCANCODE_ESCAPE])
 	{
-		
+		timeout = 0;
 	}
 }
 

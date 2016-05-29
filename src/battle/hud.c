@@ -425,7 +425,7 @@ static void drawNumFighters(void)
 	/* Enemies */
 	SDL_SetTextureColorMod(smallFighter, 255, 100, 100);
 	blit(smallFighter, SCREEN_WIDTH - 410, 15, 0);
-	drawText(SCREEN_WIDTH - 420, 11, 14, TA_RIGHT, colors.white, battle.numEnemies < 1000 ? "(%d)" : "(999+)", battle.numEnemies);
+	drawText(SCREEN_WIDTH - 420, 11, 14, TA_RIGHT, colors.white, !battle.unlimitedEnemies ? "(%d)" : "(999+)", battle.numEnemies);
 }
 
 static void drawObjectives(void)

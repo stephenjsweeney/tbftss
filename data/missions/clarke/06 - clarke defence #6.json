@@ -9,14 +9,15 @@
 	"objectives" : [
 		{
 			"description" : "Destroy all enemy targets",
-			"targetName" : "Pandoran",
-			"targetValue" : 999,
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
-			"hideNumbers" : 1
+			"isEliminateAll" : 1
 		}
 	],
 	"epic" : {
-		"fighterLimit" : 24
+		"fighterLimit" : 24,
+		"unlimitedEnemies" : 1
 	},
 	"player" : {
 		"type" : "Rook",

@@ -8,7 +8,8 @@
 	"music" : "music/battle/Tactical Pursuit.mp3",
 	"unwinnable" : 1,
 	"epic" : {
-		"fighterLimit" : 18
+		"fighterLimit" : 18,
+		"unlimitedEnemies" : 1
 	},
 	"objectives" : [
 		{
@@ -53,7 +54,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : 15,
-			"number" : 999,
+			"number" : 100,
 			"scatter" : 5000,
 			"flags" : "+EF_AI_TARGET"
 		}

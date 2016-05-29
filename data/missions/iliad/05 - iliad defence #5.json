@@ -6,16 +6,17 @@
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/Tactical Pursuit.mp3",
 	"epic" : {
-		"fighterLimit" : 12
+		"fighterLimit" : 12,
+		"unlimitedEnemies" : 1
 	},
 	"unwinnable" : 1,
 	"objectives" : [
 		{
 			"description" : "Destroy all enemy targets",
-			"targetName" : "Pandoran",
-			"targetValue" : 999,
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
-			"hideNumbers" : 1
+			"isEliminateAll" : 1
 		}
 	],
 	"player" : {

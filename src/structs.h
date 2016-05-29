@@ -339,6 +339,7 @@ typedef struct {
 	int numInitialEnemies;
 	int status;
 	int isEpic;
+	int unlimitedEnemies;
 	int epicFighterLimit;
 	int playerSelect;
 	int manualComplete;

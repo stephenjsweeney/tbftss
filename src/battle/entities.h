@@ -38,6 +38,7 @@ extern Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
 extern int isOnBattleScreen(int x, int y, int w, int h);
 extern long lookup(char *name);
 extern void awardTrophy(char *id);
+extern void resetFighter(Entity *e);
 
 extern App app;
 extern Battle battle;

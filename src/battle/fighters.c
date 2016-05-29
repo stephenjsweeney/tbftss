@@ -190,6 +190,22 @@ static void randomizeDartGuns(Entity *dart)
 	}
 }
 
+void resetFighter(Entity *e)
+{
+	e->active = 0;
+	e->health = e->maxHealth;
+	e->systemPower = MAX_SYSTEM_POWER;
+	e->alive = ALIVE_ALIVE;
+	e->action = doAI;
+	e->die = die;
+	
+	e->next = NULL;
+	
+	battle.entityTail->next = e;
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resetting fighter '%s'", e->name);
+}
+
 void doFighter(void)
 {
 	if (self->alive == ALIVE_ALIVE)
@@ -584,7 +600,7 @@ static void die(void)
 			incFighterStat(self->defName);
 		}
 		
-		if (battle.isEpic)
+		if (battle.isEpic && player->flags & EF_COMMON_FIGHTER)
 		{
 			battle.stats[STAT_EPIC_KILL_STREAK]++;
 		}

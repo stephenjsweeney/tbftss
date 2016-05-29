@@ -407,6 +407,7 @@ static void loadEpicData(cJSON *node)
 	battle.isEpic = 1;
 
 	battle.epicFighterLimit = cJSON_GetObjectItem(node, "fighterLimit")->valueint;
+	battle.unlimitedEnemies = getJSONValue(node, "unlimitedEnemies", 0);
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{

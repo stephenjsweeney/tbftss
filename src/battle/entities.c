@@ -189,11 +189,19 @@ void doEntities(void)
 				cutRope(e);
 
 				prev->next = e->next;
-
-				/* move to dead list */
+				
 				e->next = NULL;
-				deadTail->next = e;
-				deadTail = e;
+				
+				/* Move to end of entity queue if unlimited epic enemies. Otherwise, in dead list  */
+				if (battle.isEpic && e->side != player->side && battle.unlimitedEnemies)
+				{
+					resetFighter(e);
+				}
+				else
+				{
+					deadTail->next = e;
+					deadTail = e;
+				}
 
 				e = prev;
 			}

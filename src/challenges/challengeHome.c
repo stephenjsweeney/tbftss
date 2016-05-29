@@ -130,7 +130,7 @@ void initChallengeHome(void)
 
 	endSectionTransition();
 
-	playMusic("music/main/covert_operations.mp3");
+	playMusic("music/main/covert_operations.mp3", 1);
 }
 
 static void nextPage(void)

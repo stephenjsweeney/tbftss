@@ -122,7 +122,7 @@ void initGalacticMap(void)
 
 	endSectionTransition();
 
-	playMusic("music/main/Pressure.ogg");
+	playMusic("music/main/Pressure.ogg", 1);
 }
 
 static void updatePandoranAdvance(void)

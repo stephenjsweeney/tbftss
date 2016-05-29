@@ -56,7 +56,7 @@ extern char *getTranslatedString(char *string);
 extern void blit(SDL_Texture *t, int x, int y, int centered);
 extern char *getBackgroundTextureName(int n);
 extern char *getPlanetTextureName(int n);
-extern void playMusic(char *filename);
+extern void playMusic(char *filename, int loop);
 extern char *timeToString(long millis, int showHours);
 extern char *getChallengeDescription(Challenge *c);
 extern void clearInput(void);

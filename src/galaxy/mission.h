@@ -28,7 +28,7 @@ extern char *readFile(char *filename);
 extern SDL_Texture *getTexture(char *filename);
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
-extern void playMusic(char *filename);
+extern void playMusic(char *filename, int loop);
 extern void stopMusic(void);
 extern void initPlayer(void);
 extern long flagsToLong(char *flags, int *add);

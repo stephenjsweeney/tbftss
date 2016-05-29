@@ -48,7 +48,7 @@ extern void initGalacticMap(void);
 extern void initOptions(void (*returnFromOptions)(void));
 extern void drawOptions(void);
 extern void initStatsDisplay(void);
-extern void playMusic(char *filename);
+extern void playMusic(char *filename, int loop);
 extern void destroyBattle(void);
 extern void playSound(int id);
 extern void initEffects(void);

@@ -200,7 +200,7 @@ void loadMission(char *filename)
 
 	addAllToQuadtree();
 
-	playMusic(music);
+	playMusic(music, 1);
 }
 
 static char *getAutoBackground(char *filename)

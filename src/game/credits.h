@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define CREDIT_LINE_LIMIT	(SCREEN_WIDTH - 300)
 
 extern SDL_Texture *getTexture(const char *filename);
-extern void playMusic(char *filename);
+extern void playMusic(char *filename, int loop);
 extern void drawBackground(SDL_Texture *texture);
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
@@ -34,6 +34,7 @@ extern char *readFile(char *filename);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void limitTextWidth(int width);
 extern int getWrappedTextHeight(char *text, int size);
+extern void initTitle(void);
 
 extern App app;
 extern Colors colors;

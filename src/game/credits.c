@@ -53,7 +53,7 @@ void initCredits(void)
 	
 	endSectionTransition();
 	
-	playMusic("music/main/Her Violet Eyes.mp3");
+	playMusic("music/main/Her Violet Eyes.mp3", 0);
 }
 
 static void logic(void)
@@ -74,7 +74,7 @@ static void logic(void)
 	
 	if (--timeout <= 0)
 	{
-		exit(0);
+		initTitle();
 	}
 }
 
@@ -97,8 +97,6 @@ static void draw(void)
 	}
 	
 	limitTextWidth(0);
-	
-	drawText(10, 10, 18, TA_LEFT, colors.white, "%d", timeout / FPS);
 }
 
 static void loadCredits(void)

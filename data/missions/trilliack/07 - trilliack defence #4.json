@@ -41,7 +41,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : 15,
-			"number" : 999,
+			"number" : 50,
 			"scatter" : 8000
 		}
 	],
@@ -73,7 +73,7 @@
 			"groupName" : "CapShips",
 			"name" : "HMS 711-444",
 			"types" : "HMS Corvette 01",
-			"side" : "SIDE_TZAC",
+			"side" : "SIDE_PANDORAN",
 			"x" : -1,
 			"y" : 35,
 			"flags" : "+EF_AI_TARGET",
@@ -83,7 +83,7 @@
 			"groupName" : "CapShips",
 			"name" : "HMS 313-777",
 			"types" : "HMS Corvette 02",
-			"side" : "SIDE_TZAC",
+			"side" : "SIDE_PANDORAN",
 			"x" : 51,
 			"y" : 35,
 			"flags" : "+EF_AI_TARGET",

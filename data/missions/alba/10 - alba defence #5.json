@@ -1,0 +1,192 @@
+{
+	"name" : "Alba Defence #5",
+	"description" : "",
+	"requires" : 66,
+	"background" : "gfx/backgrounds/background03.jpg",
+	"planet" : "gfx/planets/torelli.png",
+	"largePlanet" : 1,
+	"music" : "music/battle/Tactical Pursuit.mp3",
+	"epic" : {
+		"fighterLimit" : 24,
+		"unlimitedEnemies" : 1
+	},
+	"objectives" : [
+		{
+			"description" : "Destroy all enemy targets",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
+		}
+	],
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "Cdr. Estelle de Dodds",
+		"squadron" : "White Knights",
+		"x" : 25,
+		"y" : 25
+	},
+	"fighters" : [
+		{
+			"name" : "Koonan",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 5000
+		},
+		{
+			"types" : "TAF;Ray;Kingfisher;Rook;Hammerhead;Nymph;Firefly;Hyena-A;Hyena-B;Leopard;Lynx",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 200,
+			"scatter" : 5000
+		},
+		{
+			"name" : "Pandoran",
+			"types" : "Jackal;Scarab;Mantis;Sphinx;Thunderhead;Shale;Razor;SK-31;SK-34;Blizzard;Khepri",
+			"side" : "SIDE_PANDORAN",
+			"x" : 25,
+			"y" : 25,
+			"number" : 50,
+			"scatter" : 8000,
+			"aiFlags" : "+AIF_TARGET_FOCUS"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "CSN Dime",
+			"types" : "CSN Corvette 01",
+			"side" : "SIDE_ALLIES",
+			"x" : 20,
+			"y" : 20,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "CSN Marka",
+			"types" : "CSN Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 30,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "CSN Peso",
+			"types" : "CSN Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 30,
+			"y" : 20
+		},
+		{
+			"name" : "HMS 012-315",
+			"types" : "HMS Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 15,
+			"y" : 15,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "HMS 188-481",
+			"types" : "HMS Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 15,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "HMS 578-311",
+			"types" : "HMS Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 15,
+			"y" : 15,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "HMS 781-061",
+			"types" : "HMS Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 35,
+			"y" : 15,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "INF Sai",
+			"types" : "INF Corvette 01",
+			"side" : "SIDE_PANDORAN",
+			"x" : 15,
+			"y" : 45,
+			"flags" : "+EF_AI_TARGET"
+		},
+		{
+			"name" : "INF Kalis",
+			"types" : "INF Corvette 02",
+			"side" : "SIDE_PANDORAN",
+			"x" : 45,
+			"y" : 45,
+			"flags" : "+EF_AI_TARGET"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"IMPORTANT_MSG_BOX CSN Leviathan;White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!",
+				"MSG_BOX de Winter;Acknowledged. Chaz, we hit them with everything you've got."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 1",
+			"lines" : [
+				"MSG_BOX Koonan;Dammit, down to two corvettes.",
+				"IMPORTANT_MSG_BOX CSN Leviathan;Dragon is pushing through to Torelli. We need to drive it back."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 2",
+			"lines" : [
+				"MSG_BOX de Winter;Another corvette lost. We're being overrun.",
+				"MSG_BOX Wingmate;You Knights want to actually do something? We're being slaughtered out here!",
+				"MSG_BOX Koonan;Ignore him, Estelle; don't get involved."
+			]
+		},
+		{
+			"function" : "CAPITAL_SHIPS_LOST 3",
+			"lines" : [
+				"MSG_BOX Wingmate;That's all the corvettes down. We'll have to take on Dragon with fighters--",
+				"MSG_BOX Control;Dragon's powering it's anti-matter cannon. It's preparing to fire at UNF Lotan",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"MSG_BOX Control;Dragon's firing!",
+				"WAIT_MSG_BOX",
+				"WAIT 10",
+				"MSG_BOX Control;Dragon missed! Lotan managed to evade to attack!",
+				"MSG_BOX Koonan;It'll be a while before it can fire its main cannon again. This is our chance to--",
+				"MSG_BOX CSN Leviathan;The anti-matter ball is still going ... It's heading for Torelli.",
+				"MSG_BOX CSN Leviathan;Impact in 10 seconds ...",
+				"MSG_BOX CSN Leviathan;5 Seconds ...",
+				"WAIT_MSG_BOX",
+				"DESTROY_TORELLI",
+				"RETREAT_ENEMIES",
+				"RETREAT_ALLIES",
+				"MSG_BOX (Multiple);(Shouting)",
+				"MSG_BOX Koonan;Estelle, Torelli ...",
+				"MSG_BOX de Winter;Oh my God.",
+				"MSG_BOX de Winter;What the hell just happened?!",
+				"MSG_BOX Koonan;The anti-matter ball must've exploded in the atmosphere, and ignited it.",
+				"MSG_BOX de Winter;How ... how did the Pandorans know that would happen?!",
+				"MSG_BOX Koonan;I don't think they did; they just got lucky.",
+				"MSG_BOX Koonan;And now they use that against every planet they come to.",
+				"IMPORTANT_MSG_BOX CSN Leviathan;All forces, retreat immediately! Repeat: retreat immediately. White Knights, dock, and prepare for withdrawal.",
+				"MSG_BOX de Winter;...",
+				"IMPORTANT_MSG_BOX CSN Leviathan;White Knights, please acknowledge.",
+				"MSG_BOX Koonan;Acknowledged. Estelle, we have to leave. It's over.",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"END_MISSION"
+			]
+		}
+	]
+}
+ 

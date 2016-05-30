@@ -2,7 +2,7 @@
 	"name" : "Unique Sphinx",
 	"health" : 999,
 	"shield" : 999,
-	"speed" : 1.85,
+	"speed" : 1.6,
 	"reloadTime" : 14,
 	"shieldRechargeRate" : 0,
 	"texture" : "gfx/fighters/zakSphinx.png",

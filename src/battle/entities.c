@@ -192,15 +192,13 @@ void doEntities(void)
 				
 				e->next = NULL;
 				
-				/* Move to end of entity queue if unlimited epic enemies. Otherwise, in dead list  */
-				if (battle.isEpic && e->side != player->side && battle.unlimitedEnemies)
+				deadTail->next = e;
+				deadTail = e;
+				
+				/* actually just creates another fighter in this one's place */
+				if (e->type == ET_FIGHTER && battle.isEpic && e->side != player->side && battle.unlimitedEnemies)
 				{
 					resetFighter(e);
-				}
-				else
-				{
-					deadTail->next = e;
-					deadTail = e;
 				}
 
 				e = prev;

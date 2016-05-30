@@ -190,20 +190,21 @@ static void randomizeDartGuns(Entity *dart)
 	}
 }
 
-void resetFighter(Entity *e)
+void resetFighter(Entity *fighter)
 {
+	Entity *e;
+	
+	e = spawnFighter(fighter->defName, fighter->x, fighter->y, fighter->side);
+	
+	e->x += (rand() % 7500) - (rand() % 7500);
+	e->y += (rand() % 7500) - (rand() % 7500);
+	
 	e->active = 0;
-	e->health = e->maxHealth;
-	e->systemPower = MAX_SYSTEM_POWER;
-	e->alive = ALIVE_ALIVE;
-	e->action = doAI;
-	e->die = die;
 	
-	e->next = NULL;
-	
-	battle.entityTail->next = e;
-	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resetting fighter '%s'", e->name);
+	if (rand() % 4)
+	{
+		e->aiFlags |= AIF_TARGET_FOCUS;
+	}
 }
 
 void doFighter(void)

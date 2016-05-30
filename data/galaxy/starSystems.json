@@ -82,13 +82,15 @@
         "name": "Trilliack",
         "side" : "SIDE_UNF",
         "x": 501,
-        "y": 312
+        "y": 312,
+        "fallsToPandorans" : 1
       },
       {
         "name": "Alba",
         "side" : "SIDE_UNF",
         "x": 465,
-        "y": 235
+        "y": 235,
+        "fallsToPandorans" : 1
       },
       {
         "name": "Aster",

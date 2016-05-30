@@ -358,11 +358,13 @@ typedef struct {
 	int suspicionLevel;
 	int suspicionCoolOff;
 	int zackariaSuspicionLevel;
+	int destroyTorelli;
+	float torelliFireStormAlpha;
 	Entity *missionTarget;
 	Entity *jumpgate;
 	Entity *messageSpeaker;
 	Entity *lastKilledPlayer;
-	SDL_Texture *background, *planetTexture;
+	SDL_Texture *background, *planetTexture, *fireStormTexture;
 	PointF planet;
 	int planetWidth, planetHeight;
 	Entity entityHead, *entityTail;

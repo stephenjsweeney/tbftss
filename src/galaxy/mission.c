@@ -154,6 +154,7 @@ void loadMission(char *filename)
 	}
 	
 	battle.planetTexture = getTexture(planet);
+	battle.fireStormTexture = getTexture("gfx/planets/torelliFireStorm.png");
 	battle.planet.x = (SCREEN_WIDTH / 2) - (rand() % SCREEN_WIDTH) + (rand() % SCREEN_WIDTH);
 	battle.planet.y = (SCREEN_HEIGHT / 2) - (rand() % SCREEN_HEIGHT) + (rand() % SCREEN_HEIGHT);
 	
@@ -163,6 +164,14 @@ void loadMission(char *filename)
 		
 		planetScale = 75 + (rand() % 125);
 		planetScale *= 0.01;
+		
+		if (getJSONValue(root, "largePlanet", 0))
+		{
+			battle.planet.x = (SCREEN_WIDTH / 2);
+			battle.planet.y = (SCREEN_HEIGHT / 2);
+			planetScale = 5;
+		}
+		
 		battle.planetWidth *= planetScale;
 		battle.planetHeight *= planetScale;
 	}

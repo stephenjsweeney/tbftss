@@ -35,6 +35,7 @@ static void start(void);
 static void options(void);
 static void returnFromOptions(void);
 static void checkSuspicionLevel(void);
+static void doTorelliFireStorm(void);
 
 static int show;
 static float ssx, ssy;
@@ -159,6 +160,8 @@ static void doBattle(void)
 	doPlayer();
 	
 	checkSuspicionLevel();
+	
+	doTorelliFireStorm();
 
 	if (player->alive == ALIVE_ALIVE)
 	{
@@ -213,6 +216,13 @@ static void draw(void)
 	drawBackground(battle.background);
 
 	blitScaled(battle.planetTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight);
+	if (battle.destroyTorelli)
+	{
+		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+		SDL_SetTextureAlphaMod(battle.fireStormTexture, battle.torelliFireStormAlpha);
+		blitScaled(battle.fireStormTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight);
+		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	}
 
 	drawStars();
 
@@ -412,6 +422,14 @@ static void checkSuspicionLevel(void)
 		runScriptFunction("MAX_SUSPICION_LEVEL");
 		
 		battle.hasSuspicionLevel = 0;
+	}
+}
+
+static void doTorelliFireStorm(void)
+{
+	if (battle.destroyTorelli)
+	{
+		battle.torelliFireStormAlpha = MIN(battle.torelliFireStormAlpha + 0.25, 255);
 	}
 }
 

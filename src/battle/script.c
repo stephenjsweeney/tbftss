@@ -299,6 +299,10 @@ static void executeNextLine(ScriptRunner *runner)
 	{
 		runScript = 0;
 	}
+	else if (strcmp(command, "DESTROY_TORELLI") == 0)
+	{
+		battle.destroyTorelli = 1;
+	}
 	else
 	{
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "ERROR: Unrecognised script command '%s'\n", command);

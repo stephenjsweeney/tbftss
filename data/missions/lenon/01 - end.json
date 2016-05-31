@@ -1,0 +1,125 @@
+{
+	"comment" : "This mission intentionally has no music",
+	"name" : "Plan B",
+	"description" : "",
+	"requires" : 67,
+	"background" : "gfx/backgrounds/background05.jpg",
+	"planet" : "gfx/planets/bluePlanet.png",
+	"music" : "",
+	"player" : {
+		"type" : "ATAF",
+		"pilot" : "Cdr. Estelle de Winter",
+		"squadron" : "White Knights",
+		"side" : "SIDE_ALLIES",
+		"x" : 25,
+		"y" : 25
+	},
+	"fighters" : [
+		{
+			"name" : "Dodds",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"name" : "Todd",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"name" : "Taylor",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"name" : "Koonan",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500
+		},
+		{
+			"types" : "TAF;Ray;Kingfisher;Hammerhead;Nymph;Firefly;Hyena-A;Hyena-B;Lynx",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 8000,
+			"number" : 100,
+			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE"
+		},
+		{
+			"types" : "Rook;Leopard",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 8000,
+			"number" : 10,
+			"flags" : "+EF_AI_LEADER",
+			"aiFlags" : "+AIF_WANDERS"
+		}
+	],
+	"capitalShips" : [
+		{
+			"name" : "Corvette",
+			"types" : "CSN Corvette 01;CSN Corvette 02;UNF Corvette 01;UNF Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 12000,
+			"number" : 8
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Dodds;So, Torelli is dust?",
+				"MSG_BOX Koonan;Dragon's anti-matter cannon ignited the atmosphere, and created a firestorm. It engulfed the entire planet in under twelve hours.",
+				"MSG_BOX Taylor;Did no-one survive?",
+				"MSG_BOX Koonan;Unlikely.",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"MSG_BOX Todd;Think they'll do that against every planet they come to?",
+				"MSG_BOX de Winter;More effective than a nuke, and faster than a ground assault. So long as they don't need the resources, they'll fire and forget.",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"MSG_BOX Dodds;There must be something we can do.",
+				"MSG_BOX Taylor;Our only option is to destroy Dragon. And direct assaults haven't gone so well in the past.",
+				"MSG_BOX Todd;If we can even get close to it. Zackaria's going to become even more protective of that battleship now he knows what else it can do.",
+				"MSG_BOX Dodds;There has to be something ...",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"MSG_BOX de Winter;There might be.",
+				"MSG_BOX Dodds;Have you heard something, Estelle?",
+				"MSG_BOX de Winter;Mumblings. Apparently, Parks has a plan involving the Temper system. He's got orders out to get as many nukes as he can lay his hands on. I don't know any more than that, though.",
+				"MSG_BOX Todd;Sound promising?",
+				"MSG_BOX de Winter;Too early to say. But right now, I remain confident.",
+				"MSG_BOX Dodds;And what if that fails? What do we do then?",
+				"MSG_BOX de Winter;We try something else.",
+				"MSG_BOX Dodds;Like simply fighting them? Because there are nearly twenty billion of those bastards, and while we're not light on personnel, we're losing numbers rapidly.",
+				"MSG_BOX Dodds;What's to stop them doing to Helios what they just did to the Independents?",
+				"MSG_BOX Todd;You mean smash each world they come to? All the way to Earth?",
+				"MSG_BOX Dodds;Yes. Remember on Mythos? Parks said it was a very real possibilty. At this rate, we just might find ourselves having to fight a battle for the Solar System.",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"MSG_BOX de Winter;...",
+				"WAIT_MSG_BOX",
+				"WAIT 5",
+				"MSG_BOX Taylor;Don't worry, Simon. I doubt they'll ever get that far.",
+				"WAIT_MSG_BOX",
+				"WAIT 3",
+				"END_CAMPAIGN"
+			]
+		}
+	]
+}
+ 

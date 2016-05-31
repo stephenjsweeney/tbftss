@@ -3,7 +3,7 @@
 	"description" : "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution.",
 	"requires" : 42,
 	"background" : "gfx/backgrounds/background05.jpg",
-	"planet" : "gfx/planets/bluePlanet.png",
+	"planet" : "gfx/planets/flint.png",
 	"music" : "music/battle/DST-RailJet-LongSeamlessLoop.ogg",
 	"manualComplete" : 1,
 	"player" : {

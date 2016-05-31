@@ -3,7 +3,7 @@
 	"description" : "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations.",
 	"requires" : 35,
 	"background" : "gfx/backgrounds/background05.jpg",
-	"planet" : "gfx/planets/bluePlanet.png",
+	"planet" : "gfx/planets/flint.png",
 	"music" : "music/battle/track-4.mp3",
 	"player" : {
 		"type" : "Leopard",

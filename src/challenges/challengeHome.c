@@ -202,11 +202,9 @@ static void logic(void)
 			break;
 	}
 
-	doTrophyAlerts();
-
 	doWidgets();
 	
-	doTrophies();
+	app.doTrophyAlerts = 1;
 }
 
 static void doChallenges(void)
@@ -313,8 +311,6 @@ static void draw(void)
 			drawOptions();
 			break;
 	}
-
-	drawTrophyAlert();
 }
 
 static void drawChallenges(void)

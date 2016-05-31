@@ -131,7 +131,7 @@ static void logic(void)
 	
 	doEffects();
 	
-	doTrophies();
+	app.doTrophyAlerts = 1;
 	
 	doWidgets();
 }

@@ -115,10 +115,7 @@ static void logic(void)
 			}
 		}
 		
-		if (battle.status != MS_IN_PROGRESS && battle.missionFinishedTimer <= -FPS * 2)
-		{
-			doTrophyAlerts();
-		}
+		app.doTrophyAlerts = (battle.status != MS_IN_PROGRESS && battle.missionFinishedTimer <= -FPS * 2);
 	}
 
 	doWidgets();
@@ -257,11 +254,6 @@ static void draw(void)
 		case SHOW_OPTIONS:
 			drawOptions();
 			break;
-	}
-	
-	if (battle.status != MS_IN_PROGRESS && battle.status != MS_PAUSED && battle.missionFinishedTimer <= -FPS * 2)
-	{
-		drawTrophyAlert();
 	}
 }
 

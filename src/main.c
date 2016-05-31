@@ -108,9 +108,17 @@ int main(int argc, char *argv[])
 		
 		while (td >= LOGIC_RATE)
 		{
+			/* let the delegate decide during logic() */
+			app.doTrophyAlerts = 0;
+			
 			app.delegate.logic();
 			
 			td -= LOGIC_RATE;
+			
+			if (app.doTrophyAlerts)
+			{
+				doTrophyAlerts();
+			}
 			
 			if (app.resetTimeDelta)
 			{
@@ -125,6 +133,11 @@ int main(int argc, char *argv[])
 		prepareScene();
 
 		app.delegate.draw();
+		
+		if (app.doTrophyAlerts)
+		{
+			drawTrophyAlert();
+		}
 		
 		if (app.modalDialog.type != MD_NONE)
 		{

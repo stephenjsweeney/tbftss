@@ -181,9 +181,7 @@ static void logic(void)
 
 	doWidgets();
 	
-	doTrophyAlerts();
-	
-	doTrophies();
+	app.doTrophyAlerts = 1;
 }
 
 static void doStarSystems(void)
@@ -384,8 +382,6 @@ static void draw(void)
 			drawOptions();
 			break;
 	}
-
-	drawTrophyAlert();
 }
 
 static void drawPulses(void)

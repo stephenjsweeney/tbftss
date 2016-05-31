@@ -67,6 +67,8 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 			else
 			{
 				e->owner = capitalShip;
+				e->x = -SCREEN_WIDTH;
+				e->y = -SCREEN_HEIGHT;
 			}
 		}
 	}

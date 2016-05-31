@@ -88,6 +88,8 @@ extern void doSpawners(void);
 extern void doTrophyAlerts(void);
 extern void drawTrophyAlert(void);
 extern void cancelScript(void);
+extern void awardTrophy(char *id);
+extern void initCredits(void);
 
 extern App app;
 extern Battle battle;

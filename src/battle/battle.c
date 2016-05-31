@@ -433,6 +433,17 @@ static void doTorelliFireStorm(void)
 	}
 }
 
+void endCampaign(void)
+{
+	awardTrophy("CAMPAIGN_COMPLETE");
+	
+	postBattle();
+
+	destroyBattle();
+	
+	initCredits();
+}
+
 void destroyBattle(void)
 {
 	Entity *ent;

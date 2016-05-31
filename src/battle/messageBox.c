@@ -93,7 +93,7 @@ void doMessageBox(void)
 
 static void calculateMessageBoxHeight(MessageBox *msg)
 {
-	limitTextWidth(575);
+	limitTextWidth(MSG_BOX_TEXT_WIDTH);
 	
 	msg->height = getWrappedTextHeight(msg->body, (msg->type == MB_PANDORAN) ? 0 : 18);
 	
@@ -140,7 +140,7 @@ void drawMessageBox(void)
 		
 		drawText(r.x + 10, r.y + 5, 18, TA_LEFT, colors.cyan, msg->title);
 		
-		limitTextWidth(575);
+		limitTextWidth(MSG_BOX_TEXT_WIDTH);
 		
 		drawText(r.x + 10, r.y + 30, (msg->type == MB_PANDORAN) ? 0 : 18, TA_LEFT, (msg->type != MB_IMPORTANT) ? colors.white : colors.red, msg->body);
 		

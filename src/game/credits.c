@@ -51,6 +51,8 @@ void initCredits(void)
 	
 	loadCredits();
 	
+	app.hideMouse = 1;
+	
 	endSectionTransition();
 	
 	playMusic("music/main/Her Violet Eyes.mp3", 0);
@@ -74,6 +76,8 @@ static void logic(void)
 	
 	if (--timeout <= 0)
 	{
+		app.hideMouse = 0;
+		
 		initTitle();
 	}
 }

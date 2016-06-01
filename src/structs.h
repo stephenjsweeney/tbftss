@@ -488,6 +488,7 @@ typedef struct {
 	int musicVolume;
 	int soundVolume;
 	int doTrophyAlerts;
+	int hideMouse;
 	Gameplay gameplay;
 	Mouse mouse;
 	int keyboard[MAX_KEYBOARD_KEYS];

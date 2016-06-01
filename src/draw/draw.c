@@ -55,7 +55,10 @@ void presentScene(void)
 		}
 	}
 	
-	drawMouse();
+	if (!app.hideMouse)
+	{
+		drawMouse();
+	}
 	
 	SDL_SetRenderTarget(app.renderer, NULL);
 	SDL_RenderCopy(app.renderer, app.backBuffer, NULL, NULL);

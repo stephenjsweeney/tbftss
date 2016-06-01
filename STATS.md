@@ -1,17 +1,17 @@
 # Statistics
 
-* Lines of code: 18037
-* Size of source: 553K
-* Size of data: 638K
-* Size of graphics: 3.6M
+* Lines of code: 18771
+* Size of source: 572K
+* Size of data: 734K
+* Size of graphics: 3.7M
 * Size of sound: 638K
-* Size of music: 51M
+* Size of music: 55M
 
-* Number of missions: 67 (inc. optional)
-* Number of challenges: 66
-* Number of spacecraft: 49
-* Number of trophies: 40
+* Number of missions: 81 (inc. optional)
+* Number of challenges: 75
+* Number of spacecraft: 50
+* Number of trophies: 44
 
-* Translatable strings: 770
+* Translatable strings: 982
 
-* Number of GIT revisions: 1162
+* Number of GIT revisions: 1315

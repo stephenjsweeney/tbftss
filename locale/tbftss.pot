@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 09:40:54+0100\n"
+"POT-Creation-Date: 2016-06-01 09:55:54+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -236,6 +236,12 @@ msgid "Collect %d packages"
 msgstr ""
 
 msgid "Rescue %d civilians"
+msgstr ""
+
+msgid "Cause %d enemies to surrender"
+msgstr ""
+
+msgid "Reach %d waypoints"
 msgstr ""
 
 msgid "Complete challenge in %s or less"
@@ -790,6 +796,156 @@ msgstr ""
 msgid "We'll get through this. Neither of us are getting flagged before the end of this thing."
 msgstr ""
 
+msgid "Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette."
+msgstr ""
+
+msgid "Got it. All fighters, we need Inca to survive this one. We can't afford to lose any more capital ships."
+msgstr ""
+
+msgid "Looks like there are some tugs trying to extract the Tzac fighters."
+msgstr ""
+
+msgid "I see them. Take them out before they can get away."
+msgstr ""
+
+msgid "Rice, we've got INF fighters incoming."
+msgstr ""
+
+msgid "Huh, I actually thought they'd have been here sooner. Prepare to engage."
+msgstr ""
+
+msgid "That's the staging ground taken care of. Now--"
+msgstr ""
+
+msgid "Rice, we've got a big problem: a very large number of Pandoran ships just arrived in the system. Torelli is being evacuated."
+msgstr ""
+
+msgid "Never enough, is it?"
+msgstr ""
+
+msgid "Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters."
+msgstr ""
+
+msgid "There are civilians in the area. What about them?"
+msgstr ""
+
+msgid "Their needs are secondary. If we lose that gate, no one's getting out of here."
+msgstr ""
+
+msgid "Taylor, the jumpgate is taking damage. You need to keep the Pandorans away from it!"
+msgstr ""
+
+msgid "Half the jumpgate's control nodes have been destroyed. We can't afford to lose that gate!"
+msgstr ""
+
+msgid "Taylor, a Pandoran corvette just jumped into the area. It's heading for the gate. You need to take it down."
+msgstr ""
+
+msgid "Taylor, another Pandoran corvette just arrived. Identifier is INF BC-41."
+msgstr ""
+
+msgid "Both corvettes are down."
+msgstr ""
+
+msgid "Excellent work, Taylor. Eliminate the remaining enemy fighters, and await further instructions."
+msgstr ""
+
+msgid "Area secure."
+msgstr ""
+
+msgid "How's the jumpgate looking?"
+msgstr ""
+
+msgid "Some damage, but it's still operational."
+msgstr ""
+
+msgid "Good work. Continue to guard the gate, and eliminate any incoming enemy threats."
+msgstr ""
+
+msgid "Got it."
+msgstr ""
+
+msgid "White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!"
+msgstr ""
+
+msgid "Acknowledged. Chaz, we hit them with everything you've got."
+msgstr ""
+
+msgid "Dammit, down to two corvettes."
+msgstr ""
+
+msgid "Dragon is pushing through to Torelli. We need to drive it back."
+msgstr ""
+
+msgid "Another corvette lost. We're being overrun."
+msgstr ""
+
+msgid "You Knights want to actually do something? We're being slaughtered out here!"
+msgstr ""
+
+msgid "Ignore him, Estelle; don't get involved."
+msgstr ""
+
+msgid "That's all the corvettes down. We'll have to take on Dragon with fighters--"
+msgstr ""
+
+msgid "Dragon's powering it's anti-matter cannon. It's preparing to fire at UNF Lotan"
+msgstr ""
+
+msgid "Dragon's firing!"
+msgstr ""
+
+msgid "Dragon missed! Lotan managed to evade to attack!"
+msgstr ""
+
+msgid "It'll be a while before it can fire its main cannon again. This is our chance to--"
+msgstr ""
+
+msgid "The anti-matter ball is still going ... It's heading for Torelli."
+msgstr ""
+
+msgid "Impact in 10 seconds ..."
+msgstr ""
+
+msgid "5 Seconds ..."
+msgstr ""
+
+msgid "(Shouting)"
+msgstr ""
+
+msgid "Estelle, Torelli ..."
+msgstr ""
+
+msgid "Oh my God."
+msgstr ""
+
+msgid "What the hell just happened?!"
+msgstr ""
+
+msgid "The anti-matter ball must've exploded in the atmosphere, and ignited it."
+msgstr ""
+
+msgid "How ... how did the Pandorans know that would happen?!"
+msgstr ""
+
+msgid "I don't think they did; they just got lucky."
+msgstr ""
+
+msgid "And now they use that against every planet they come to."
+msgstr ""
+
+msgid "All forces, retreat immediately! Repeat: retreat immediately. White Knights, dock, and prepare for withdrawal."
+msgstr ""
+
+msgid "..."
+msgstr ""
+
+msgid "White Knights, please acknowledge."
+msgstr ""
+
+msgid "Acknowledged. Estelle, we have to leave. It's over."
+msgstr ""
+
 msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
 msgstr ""
 
@@ -935,9 +1091,6 @@ msgid "Remember, guys: mags only against the fighters. We're not here to take an
 msgstr ""
 
 msgid "For the corvettes, concentrate fire on the engines and the guns. Once it's out of the game, move onto the next one."
-msgstr ""
-
-msgid "Got it."
 msgstr ""
 
 msgid "We should lure the fighters away from the capital ships. Stray fire against a disabled ship could destroy it."
@@ -1573,6 +1726,72 @@ msgstr ""
 msgid "Hell! My cover's been blown, they're on to me!"
 msgstr ""
 
+msgid "So, Torelli is dust?"
+msgstr ""
+
+msgid "Dragon's anti-matter cannon ignited the atmosphere, and created a firestorm. It engulfed the entire planet in under twelve hours."
+msgstr ""
+
+msgid "Did no-one survive?"
+msgstr ""
+
+msgid "Unlikely."
+msgstr ""
+
+msgid "Think they'll do that against every planet they come to?"
+msgstr ""
+
+msgid "More effective than a nuke, and faster than a ground assault. So long as they don't need the resources, they'll fire and forget."
+msgstr ""
+
+msgid "There must be something we can do."
+msgstr ""
+
+msgid "Our only option is to destroy Dragon. And direct assaults haven't gone so well in the past."
+msgstr ""
+
+msgid "If we can even get close to it. Zackaria's going to become even more protective of that battleship now he knows what else it can do."
+msgstr ""
+
+msgid "There has to be something ..."
+msgstr ""
+
+msgid "There might be."
+msgstr ""
+
+msgid "Have you heard something, Estelle?"
+msgstr ""
+
+msgid "Mumblings. Apparently, Parks has a plan involving the Temper system. He's got orders out to get as many nukes as he can lay his hands on. I don't know any more than that, though."
+msgstr ""
+
+msgid "Sound promising?"
+msgstr ""
+
+msgid "Too early to say. But right now, I remain confident."
+msgstr ""
+
+msgid "And what if that fails? What do we do then?"
+msgstr ""
+
+msgid "We try something else."
+msgstr ""
+
+msgid "Like simply fighting them? Because there are nearly twenty billion of those bastards, and while we're not light on personnel, we're losing numbers rapidly."
+msgstr ""
+
+msgid "What's to stop them doing to Helios what they just did to the Independents?"
+msgstr ""
+
+msgid "You mean smash each world they come to? All the way to Earth?"
+msgstr ""
+
+msgid "Yes. Remember on Mythos? Parks said it was a very real possibilty. At this rate, we just might find ourselves having to fight a battle for the Solar System."
+msgstr ""
+
+msgid "Don't worry, Simon. I doubt they'll ever get that far."
+msgstr ""
+
 msgid "Our goal is the jumpgate. Expect a lot of resistance."
 msgstr ""
 
@@ -1936,7 +2155,7 @@ msgstr ""
 msgid "Hell, where'd they get those Khepris from?"
 msgstr ""
 
-msgid "Crystabel must've decided to try and attack the Pandorans directly. Went as well for her as it did for us."
+msgid "Christabel must've decided to try and attack the Pandorans directly. Went as well for her as it did for us."
 msgstr ""
 
 msgid "Commander, we're taking heavy losses!"
@@ -2173,6 +2392,123 @@ msgstr ""
 msgid "Acknowledged. Shuttles are on their way."
 msgstr ""
 
+msgid "Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be."
+msgstr ""
+
+msgid "Young, your orders are to bring Nelson in alive. Do not destroy that fighter."
+msgstr ""
+
+msgid "Fine, we'll mag her."
+msgstr ""
+
+msgid "Preston's being a bit aggressive, don't you think?"
+msgstr ""
+
+msgid "The commander's probably just fed up with all the in-fighting that's going on. Can't say I blame him."
+msgstr ""
+
+msgid "Sparrows, we have confirmed the identity of the second traitor - it's Commander Young. Disable that fighter."
+msgstr ""
+
+msgid "What the hell?!"
+msgstr ""
+
+msgid "Explains things. Surrender, Commander, it's over."
+msgstr ""
+
+msgid "Come and get me, Malcolm."
+msgstr ""
+
+msgid "What the hell, Commander, I never thought I'd see the day."
+msgstr ""
+
+msgid "The CSN and UNF have lost, Malcolm, can't you see that? Time to cut our losses and get far away from here."
+msgstr ""
+
+msgid "We haven't lost; we defeated Christabel, and--"
+msgstr ""
+
+msgid "And what about the Pandorans? They're winning this war, no one else! We can't beat them."
+msgstr ""
+
+msgid "The Mitikans also tried running. Didn't exactly work out well for them, either."
+msgstr ""
+
+msgid "Fighting didn't turn out too well, either. It's every man for himself."
+msgstr ""
+
+msgid "Commander, we're done here. Control, targets and area secured. Ready for pickup."
+msgstr ""
+
+msgid "Enemy forces in range. Preparing to engage."
+msgstr ""
+
+msgid "You heard it, people. Break and attack."
+msgstr ""
+
+msgid "More enemy fighters incoming."
+msgstr ""
+
+msgid "We have re-inforcements on the way, to help even the odds."
+msgstr ""
+
+msgid "One down, two to go."
+msgstr ""
+
+msgid "Another down, just one remaining. We can do this!"
+msgstr ""
+
+msgid "That's all the enemy's capital ships down. Let's finish off the fighters."
+msgstr ""
+
+msgid "Not an easy battle, but we did it."
+msgstr ""
+
+msgid "Hope for the future. If we could just win all our battle like this ..."
+msgstr ""
+
+msgid "It's not over yet. We need to join the others and continue to hit back."
+msgstr ""
+
+msgid "Step it up, everyone! We can't continue to lose our corvettes."
+msgstr ""
+
+msgid "We're down to one corvette. We need to finish this now!"
+msgstr ""
+
+msgid "There were too many of them ..."
+msgstr ""
+
+msgid "The Pandorans are overunning our frontline! We need to drive them back, now!"
+msgstr ""
+
+msgid "We're losing fighters, rapidly. We need to focus our efforts on dividing the enemy up and taking them down together."
+msgstr ""
+
+msgid "Picking up incoming Tzac corvettes."
+msgstr ""
+
+msgid "More than half the fighter defence has been eliminated! We can't continue like this!"
+msgstr ""
+
+msgid "The Pandoran forces are closing in on Flint. They will commence planetary bombardment if allowed to get any closer."
+msgstr ""
+
+msgid "Dodds, Commodore Parks has ordered that you pull out immediately."
+msgstr ""
+
+msgid "Griffin, what the hell? We can take them!"
+msgstr ""
+
+msgid "That's a negative, Dodds. You're to return to the carrier, and prepare for withdrawal."
+msgstr ""
+
+msgid "I'm not going to run away. Not again."
+msgstr ""
+
+msgid "Dodds, this is Commodore Park. I'm giving you a direct order. This isn't a battle we can win, and I'm not having you throw away your life or lose that starfighter. Get out, now. Final warning, mister."
+msgstr ""
+
 msgid "(This ... how can I do this? These are my friends.)"
 msgstr ""
 
@@ -2350,10 +2686,25 @@ msgstr ""
 msgid "Destroy all Darts #4"
 msgstr ""
 
+msgid "Surrender!"
+msgstr ""
+
+msgid "Gate Smasher"
+msgstr ""
+
+msgid "Minefield Race"
+msgstr ""
+
 msgid "One of the seven"
 msgstr ""
 
 msgid "Earn all other trophies"
+msgstr ""
+
+msgid "Plan B"
+msgstr ""
+
+msgid "Complete all campaign missions"
 msgstr ""
 
 msgid "Gentle start"
@@ -2563,13 +2914,13 @@ msgstr ""
 msgid "Yippie-ki-yay"
 msgstr ""
 
-msgid "Destroy 13 or more enemies in an epic battle, without being killed"
+msgid "Destroy 13 or more enemies in an epic battle, without being killed (No ATAF)"
 msgstr ""
 
 msgid "Survivor"
 msgstr ""
 
-msgid "Complete an epic battle without being killed"
+msgid "Complete an epic battle without being killed (No ATAF)"
 msgstr ""
 
 msgid "Almost indestructable. Almost"
@@ -2600,5 +2951,11 @@ msgid "Not the face!"
 msgstr ""
 
 msgid "Cause 50 enemies to surrender"
+msgstr ""
+
+msgid "Revenge"
+msgstr ""
+
+msgid "During an epic battle, kill the enemy that just killed you"
 msgstr ""
 

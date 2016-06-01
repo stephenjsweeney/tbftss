@@ -3,7 +3,7 @@
 	"description" : "In order to slow the advance of the Pandoran forces, we are going to target one of their supply lines. This should buy us some time while we await UNF and CSN reinforcements, and bring more of our capital ships into position.",
 	"requires" : 19,
 	"background" : "gfx/backgrounds/background01.jpg",
-	"planet" : "gfx/planets/bluePlanet.png",
+	"planet" : "gfx/planets/diso.png",
 	"music" : "music/battle/heroism.ogg",
 	"objectives" : [
 		{

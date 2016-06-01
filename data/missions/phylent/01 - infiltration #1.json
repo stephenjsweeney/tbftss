@@ -4,7 +4,7 @@
 	"requires" : 10,
 	"isOptional" : 1,
 	"background" : "gfx/backgrounds/background01.jpg",
-	"planet" : "gfx/planets/phylent.png",
+	"planet" : "gfx/planets/arlos.png",
 	"music" : "music/battle/Battle in the winter.mp3",
 	"manualComplete" : 1,
 	"player" : {

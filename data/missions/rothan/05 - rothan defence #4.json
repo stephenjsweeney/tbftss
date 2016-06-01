@@ -4,7 +4,7 @@
 	"requires" : 47,
 	"manualComplete" : 1,
 	"background" : "gfx/backgrounds/background05.jpg",
-	"planet" : "gfx/planets/bluePlanet.png",
+	"planet" : "gfx/planets/rockford.png",
 	"music" : "music/battle/Tactical Pursuit.mp3",
 	"epic" : {
 		"fighterLimit" : 18

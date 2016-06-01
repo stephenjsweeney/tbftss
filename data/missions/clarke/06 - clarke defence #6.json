@@ -3,7 +3,7 @@
 	"description" : "The enemy are beginning to overrun our frontline. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen.",
 	"requires" : 30,
 	"background" : "gfx/backgrounds/background06.jpg",
-	"planet" : "gfx/planets/bluePlanet.png",
+	"planet" : "gfx/planets/lewis.png",
 	"music" : "music/battle/Tactical Pursuit.mp3",
 	"unwinnable" : 1,
 	"objectives" : [

@@ -3,7 +3,7 @@
 	"description" : "We're ready to make a run against the Pandoran fleet's front line, and move our capital ships into strike range. Agamemnon's 1st will assist the Lady Jane Grey, and Joan of Arc, to engage three INF corvettes, under enemy control. We need to ensure that we take down the opposing capitals while ensuring our own survive. The enemy outnumber us, and we need to maintain our strength as much as possible.",
 	"requires" : 21,
 	"background" : "gfx/backgrounds/background01.jpg",
-	"planet" : "gfx/planets/bluePlanet.png",
+	"planet" : "gfx/planets/diso.png",
 	"music" : "music/battle/heroism.ogg",
 	"manualComplete" : 1,
 	"objectives" : [

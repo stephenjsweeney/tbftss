@@ -1,0 +1,58 @@
+{
+	"name" : "Gate Smasher",
+	"description" : "Gate Smasher",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Scarab",
+		"side" : "SIDE_PANDORAN",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 35
+	},
+	"challenge" : {
+		"timeLimit" : 60,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 60
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 5
+			},
+			{
+				"type" : "CHALLENGE_ARMOUR",
+				"value" : 100
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"types" : "Rapid Plasma Turret",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 30,
+			"scatter" : 1000,
+			"number" : 5
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_JUMPGATE",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 30
+		}
+	],
+	"script" : [
+		{
+			"function" : "JUMPGATE_HEALTH 1",
+			"lines" : [
+				"END_CHALLENGE"
+			]
+		}
+	]
+}

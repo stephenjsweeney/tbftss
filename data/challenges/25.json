@@ -1,0 +1,51 @@
+{
+	"name" : "Minefield Race",
+	"description" : "Minefield Race",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"waypointAutoAdvance" : 1,
+	"player" : {
+		"type" : "Shuttle",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 120,
+		"waypointLimit" : 12,
+		"noBoost" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_WAYPOINTS",
+				"value" : 5
+			},
+			{
+				"type" : "CHALLENGE_WAYPOINTS",
+				"value" : 10
+			},
+			{
+				"type" : "CHALLENGE_WAYPOINTS",
+				"value" : 12
+			}
+		]
+	},
+	"entities" : [
+		{
+			"type" : "ET_WAYPOINT",
+			"x" : 25,
+			"y" : 25,
+			"number" : 12,
+			"scatter" : 2000
+		},
+		{
+			"type" : "ET_MINE",
+			"x" : 25,
+			"y" : 25,
+			"number" : 100,
+			"scatter" : 4000
+		}
+	]
+}

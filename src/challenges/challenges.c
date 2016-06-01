@@ -29,6 +29,7 @@ static void updatePlayerKillsChallenge(Challenge *c);
 static void updateDisabledChallenge(Challenge *c);
 static void updateItemsChallenge(Challenge *c);
 static void updateSurrenderChallenge(Challenge *c);
+static void updateWaypointChallenge(Challenge *c);
 static void completeChallenge(void);
 static void failChallenge(void);
 static int updateChallenges(void);
@@ -63,6 +64,7 @@ void initChallenges(void)
 	challengeDescription[CHALLENGE_PLAYER_ITEMS] = _("Collect %d packages");
 	challengeDescription[CHALLENGE_RESCUE] = _("Rescue %d civilians");
 	challengeDescription[CHALLENGE_SURRENDER] = _("Cause %d enemies to surrender");
+	challengeDescription[CHALLENGE_WAYPOINTS] = _("Reach %d waypoints");
 
 	tail = &game.challengeMissionHead;
 
@@ -216,6 +218,11 @@ static int challengeFinished(void)
 		return 1;
 	}
 	
+	if (game.currentMission->challengeData.waypointLimit > 0 && (battle.stats[STAT_WAYPOINTS_VISITED]) >= game.currentMission->challengeData.waypointLimit)
+	{
+		return 1;
+	}
+	
 	if (game.currentMission->challengeData.eliminateThreats && !battle.hasThreats)
 	{
 		return 1;
@@ -282,6 +289,10 @@ static int updateChallenges(void)
 						
 					case CHALLENGE_SURRENDER:
 						updateSurrenderChallenge(c);
+						break;
+						
+					case CHALLENGE_WAYPOINTS:
+						updateWaypointChallenge(c);
 						break;
 				}
 			}
@@ -424,6 +435,14 @@ static void updateSurrenderChallenge(Challenge *c)
 	if (!c->passed)
 	{
 		c->passed = battle.stats[STAT_ENEMIES_SURRENDERED] >= c->value;
+	}
+}
+
+static void updateWaypointChallenge(Challenge *c)
+{
+	if (!c->passed)
+	{
+		c->passed = battle.stats[STAT_WAYPOINTS_VISITED] >= c->value;
 	}
 }
 

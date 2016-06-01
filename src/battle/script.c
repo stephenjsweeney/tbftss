@@ -305,7 +305,7 @@ static void executeNextLine(ScriptRunner *runner)
 	}
 	else if (strcmp(command, "END_CAMPAIGN") == 0)
 	{
-		endCampaign();
+		battle.campaignFinished = 1;
 	}
 	else
 	{

@@ -360,6 +360,7 @@ typedef struct {
 	int zackariaSuspicionLevel;
 	int destroyTorelli;
 	float torelliFireStormAlpha;
+	int campaignFinished;
 	Entity *missionTarget;
 	Entity *jumpgate;
 	Entity *messageSpeaker;

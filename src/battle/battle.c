@@ -36,6 +36,7 @@ static void options(void);
 static void returnFromOptions(void);
 static void checkSuspicionLevel(void);
 static void doTorelliFireStorm(void);
+static void endCampaign(void);
 
 static int show;
 static float ssx, ssy;
@@ -116,6 +117,11 @@ static void logic(void)
 		}
 		
 		app.doTrophyAlerts = (battle.status != MS_IN_PROGRESS && battle.missionFinishedTimer <= -FPS * 2);
+		
+		if (battle.campaignFinished)
+		{
+			endCampaign();
+		}
 	}
 
 	doWidgets();
@@ -425,7 +431,7 @@ static void doTorelliFireStorm(void)
 	}
 }
 
-void endCampaign(void)
+static void endCampaign(void)
 {
 	awardTrophy("CAMPAIGN_COMPLETE");
 	

@@ -154,7 +154,7 @@ void loadMission(char *filename)
 	}
 	
 	battle.planetTexture = getTexture(planet);
-	battle.fireStormTexture = getTexture("gfx/planets/torelliFireStorm.png");
+	battle.fireStormTexture = getTexture("gfx/misc/torelliFireStorm.png");
 	battle.planet.x = (SCREEN_WIDTH / 2) - (rand() % SCREEN_WIDTH) + (rand() % SCREEN_WIDTH);
 	battle.planet.y = (SCREEN_HEIGHT / 2) - (rand() % SCREEN_HEIGHT) + (rand() % SCREEN_HEIGHT);
 	

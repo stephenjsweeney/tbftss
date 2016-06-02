@@ -618,6 +618,8 @@ static int isSurrendering(void)
 				self->flags |= EF_MUST_DISABLE;
 				self->flags |= EF_MISSION_TARGET;
 				
+				nearEnemies();
+				
 				self->action = doSurrender;
 				
 				battle.stats[STAT_ENEMIES_SURRENDERED]++;

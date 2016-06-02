@@ -57,7 +57,7 @@
 		{
 			"name" : "Rebel",
 			"groupName" : "Rebels",
-			"types" : "Firefly;Nymphs",
+			"types" : "Firefly;Nymph",
 			"side" : "SIDE_TZAC",
 			"x" : -1,
 			"y" : -1,
@@ -68,7 +68,7 @@
 		{
 			"name" : "Rebel",
 			"groupName" : "Rebels",
-			"types" : "Firefly;Nymphs",
+			"types" : "Firefly;Nymph",
 			"side" : "SIDE_TZAC",
 			"x" : 15,
 			"y" : -1,
@@ -79,7 +79,7 @@
 		{
 			"name" : "Rebel",
 			"groupName" : "Rebels",
-			"types" : "Firefly;Nymphs",
+			"types" : "Firefly;Nymph",
 			"side" : "SIDE_TZAC",
 			"x" : -1,
 			"y" : 15,

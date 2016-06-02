@@ -4,6 +4,7 @@
 	"requires" : 63,
 	"requiresOptional" : 3,
 	"isOptional" : 1,
+	"hasSuspicionLevel" : 1,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/flint.png",
 	"music" : "music/battle/InnerCore_Low.ogg",

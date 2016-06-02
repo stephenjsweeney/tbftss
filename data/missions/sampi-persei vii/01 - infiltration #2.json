@@ -4,6 +4,7 @@
 	"requires" : 25,
 	"requiresOptional" : 1,
 	"isOptional" : 1,
+	"hasSuspicionLevel" : 1,
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/InnerCore_Low.ogg",

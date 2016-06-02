@@ -129,7 +129,7 @@ static void loadCredits(void)
 		c->text = malloc(sizeof(char) * strlen(node->valuestring));
 		memset(c->text, '\0', sizeof(char) * strlen(node->valuestring));
 		
-		sscanf(node->valuestring, "%d %d %[^\n]", &dist, &c->size, c->text);
+		sscanf(node->valuestring, "%d %d %1023[^\n]", &dist, &c->size, c->text);
 		
 		c->y += dist;
 		c->h = getWrappedTextHeight(c->text, c->size);

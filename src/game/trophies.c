@@ -57,6 +57,8 @@ void initTrophies(void)
 	
 	alertRect.h = 90;
 	alertRect.y = 10;
+	
+	sparkleAngle = 0;
 
 	resetAlert();
 }
@@ -99,8 +101,6 @@ void initTrophiesDisplay(void)
 	next = getWidget("next", "trophies");
 	next->action = nextPage;
 	next->visible = 1;
-	
-	sparkleAngle = 0;
 }
 
 static void nextPage(void)
@@ -117,15 +117,6 @@ static void prevPage(void)
 	
 	next->visible = 1;
 	prev->visible = page > 0;
-}
-
-void doTrophies(void)
-{
-	sparkleAngle += 0.25;
-	if (sparkleAngle >= 360)
-	{
-		sparkleAngle = 0;
-	}
 }
 
 void drawTrophies(void)
@@ -255,10 +246,9 @@ void doTrophyAlerts(void)
 			alertTrophy->notify = 0;
 			resetAlert();
 		}
-		
-		/* do the sparkle rotation */
-		doTrophies();
 	}
+	
+	sparkleAngle = mod(sparkleAngle + 0.25, 360);
 }
 
 static void nextAlert(void)

@@ -41,6 +41,7 @@ extern void drawWidgets(char *groupName);
 extern char *timeToDate(long millis);
 extern void textSize(char *text, int size, int *w, int *h);
 extern void awardPandoranCraftTrophy(void);
+extern float mod(float n, float x);
 
 extern App app;
 extern Battle battle;

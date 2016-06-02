@@ -88,7 +88,7 @@ src-dist:
 	$(RM) -rf $(PROG)-$(VERSION)
 	mkdir $(PROG)-$(VERSION)
 	cp -r $(SRC_DIST_FILES) $(PROG)-$(VERSION)
-	git log --oneline --decorate >$(PROG)-$(VERSION)/CHANGELOG.raw
+	git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short >$(PROG)-$(VERSION)/CHANGELOG.raw
 	tar czf $(PROG)-$(VERSION)-$(REVISION).src.tar.gz $(PROG)-$(VERSION)
 	mkdir -p dist
 	mv $(PROG)-$(VERSION)-$(REVISION).src.tar.gz dist

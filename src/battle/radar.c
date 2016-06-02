@@ -28,6 +28,9 @@ void initRadar(void)
 {
 	radarTexture = getTexture("gfx/hud/radar.png");
 	radarWarningTexture = getTexture("gfx/hud/radarWarning.png");
+	
+	/* medium range by default */
+	battle.radarRange = 1;
 }
 
 void drawRadar(void)

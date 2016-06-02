@@ -213,7 +213,7 @@ static int challengeFinished(void)
 		return 1;
 	}
 	
-	if (game.currentMission->challengeData.surrenderLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_SURRENDERED] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.surrenderLimit)
+	if (game.currentMission->challengeData.surrenderLimit > 0 && battle.stats[STAT_ENEMIES_SURRENDERED] >= game.currentMission->challengeData.surrenderLimit)
 	{
 		return 1;
 	}

@@ -20,11 +20,11 @@
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_ITEMS",
-				"value" : 25
+				"value" : 10
 			},
 			{
-				"type" : "CHALLENGE_TIME",
-				"value" : 240
+				"type" : "CHALLENGE_ITEMS",
+				"value" : 25
 			},
 			{
 				"type" : "CHALLENGE_PLAYER_KILLS",

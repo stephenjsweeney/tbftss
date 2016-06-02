@@ -736,18 +736,24 @@ static void fleeWithinBattleArea(int x, int y, int numEnemies)
 	
 	self->aiActionTime = FPS * 2;
 	
-	/* at the limit of the battle area, try somewhere else */
-	if (self->targetLocation.x < SCREEN_WIDTH || self->targetLocation.x >= BATTLE_AREA_WIDTH - SCREEN_WIDTH)
+	if (self->targetLocation.x < SCREEN_WIDTH)
 	{
-		self->targetLocation.x = -self->targetLocation.x;
-		self->aiActionTime = FPS * 5;
+		self->targetLocation.x = -SCREEN_WIDTH;
 	}
 	
-	/* at the limit of the battle area, try somewhere else */
-	if (self->targetLocation.y < SCREEN_HEIGHT || self->targetLocation.y >= BATTLE_AREA_HEIGHT - SCREEN_HEIGHT)
+	if (self->targetLocation.x >= BATTLE_AREA_WIDTH - SCREEN_WIDTH)
 	{
-		self->targetLocation.y = -self->targetLocation.y;
-		self->aiActionTime = FPS * 5;
+		self->targetLocation.x = BATTLE_AREA_WIDTH;
+	}
+	
+	if (self->targetLocation.y < SCREEN_HEIGHT)
+	{
+		self->targetLocation.y = -SCREEN_HEIGHT;
+	}
+	
+	if (self->targetLocation.y >= BATTLE_AREA_HEIGHT - SCREEN_HEIGHT)
+	{
+		self->targetLocation.y = BATTLE_AREA_HEIGHT;
 	}
 	
 	self->action = fleeEnemies;

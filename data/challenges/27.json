@@ -1,0 +1,84 @@
+{
+	"name" : "Piracy #2",
+	"description" : "Piracy #2",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Dart",
+		"side" : "SIDE_PIRATE",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25,
+		"flags" : "+EF_COLLECTS_ITEMS"
+	},
+	"challenge" : {
+		"timeLimit" : 180,
+		"playerItemLimit" : 10,
+		"allowPlayerDeath" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 5
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 8
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 10
+			}
+		]
+	},
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Shuttle",
+			"side" : "SIDE_ALLIES",
+			"interval" : 10,
+			"total" : -1,
+			"step" : 2,
+			"offscreen" : 1,
+			"flags" : "+EF_DROPS_ITEMS+EF_MISSION_TARGET",
+			"aiFlags" : "AIF_DEFENSIVE"
+		},
+		{
+			"name" : "spawner",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"interval" : 10,
+			"total" : -1,
+			"step" : 1,
+			"offscreen" : 1,
+			"flags" : "+EF_COLLECTS_ITEMS",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_COLLECTS_ITEMS"
+		},
+		{
+			"name" : "csnSpawner",
+			"types" : "TAF;Kingfisher;Ray;Rook",
+			"side" : "SIDE_ALLIES",
+			"interval" : 12,
+			"total" : -1,
+			"step" : 1,
+			"offscreen" : 1,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Boss;Get those packages from those shuttles. Every man for himself!"
+			]
+		},
+		{
+			"function" : "TIME 10",
+			"lines" : [
+				"ACTIVATE_SPAWNER 1 csnSpawner"
+			]
+		}
+	]
+}

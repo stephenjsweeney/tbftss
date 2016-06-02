@@ -1,0 +1,44 @@
+{
+	"name" : "ATAF Training",
+	"description" : "ATAF Training",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "ATAF",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 210,
+		"killLimit" : 120,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 100
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 115
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_KILLS",
+				"value" : 120
+			}
+		]
+	},
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"interval" : 10,
+			"total" : 120,
+			"step" : 10,
+			"offscreen" : 1
+		}
+	]
+}

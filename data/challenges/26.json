@@ -1,0 +1,46 @@
+{
+	"name" : "Surrender! #2",
+	"description" : "Surrender! #2",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "SK-34",
+		"side" : "SIDE_TZAC",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"allowPlayerDeath" : 1,
+		"timeLimit" : 90,
+		"disableLimit" : 4,
+		"eliminateThreats" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_SURRENDER",
+				"value" : 3
+			},
+			{
+				"type" : "CHALLENGE_SURRENDER",
+				"value" : 4
+			},
+			{
+				"type" : "CHALLENGE_DISABLE",
+				"value" : 4
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"types" : "Rook",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 20,
+			"scatter" : 3000,
+			"number" : 4,
+			"aiFlags" : "+AIF_SURRENDERS"
+		}
+	]
+}

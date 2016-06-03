@@ -2,6 +2,7 @@
 	"name" : "Infiltration #2",
 	"description" : "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what.",
 	"requires" : 25,
+	"expires" : 30,
 	"requiresOptional" : 1,
 	"isOptional" : 1,
 	"hasSuspicionLevel" : 1,

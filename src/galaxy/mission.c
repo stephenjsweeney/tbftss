@@ -54,6 +54,7 @@ Mission *loadMissionMeta(char *filename)
 		
 		mission->isOptional = getJSONValue(root, "isOptional", 0);
 		mission->requiresOptional = getJSONValue(root, "requiresOptional", 0);
+		mission->expires = getJSONValue(root, "expires", 0);
 		
 		if (cJSON_GetObjectItem(root, "epic"))
 		{
@@ -466,7 +467,12 @@ void updateAllMissions(void)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
-	return (prev->completed && mission->requires <= game.completedMissions && game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional) || dev.debug;
+	return (
+		prev->completed && 
+		mission->requires <= game.completedMissions && 
+		game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional &&
+		(!mission->expires || (game.completedMissions < mission->expires))
+	) || dev.debug;
 }
 
 static unsigned long hashcode(const char *str)

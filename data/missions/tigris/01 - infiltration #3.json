@@ -2,6 +2,7 @@
 	"name" : "Infiltration #3",
 	"description" : "",
 	"requires" : 52,
+	"expires" : 57,
 	"requiresOptional" : 2,
 	"isOptional" : 1,
 	"hasSuspicionLevel" : 1,

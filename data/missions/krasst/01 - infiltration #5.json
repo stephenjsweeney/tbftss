@@ -1,7 +1,7 @@
 {
 	"comment" : "This mission intentionally has no music",
 	"name" : "Infiltration #5",
-	"description" : "",
+	"description" : "You've done well so far, Hicks. We appreciate that things have not been easy, but you're in a better position than many of us had hoped for. As soon as you're able, begin your search for the admiral. Once located, you will need to open a dialog with him. Whatever you do, do not kill him.",
 	"requires" : 66,
 	"requiresOptional" : 4,
 	"isOptional" : 1,

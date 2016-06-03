@@ -1,7 +1,7 @@
 {
 	"comment" : "This mission intentionally has no music",
 	"name" : "Plan B",
-	"description" : "",
+	"description" : "The bulk of the allied forces have fallen back to Lenon, to prepare for whatever is to come next. For now, we are standing down and awaiting new instructions from senior command.",
 	"requires" : 67,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",

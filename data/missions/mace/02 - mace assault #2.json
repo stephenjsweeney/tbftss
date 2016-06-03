@@ -1,6 +1,6 @@
 {
 	"name" : "Mace Assault #2",
-	"description" : "",
+	"description" : "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces.",
 	"requires" : 50,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/tzac.png",

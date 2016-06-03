@@ -1,6 +1,6 @@
 {
 	"name" : "Mace Assault #1",
-	"description" : "",
+	"description" : "The time has come to take the fight to Tzac. We will begin by striking their outer defences, and containing their forces to the system. The Iron Wolves will lead an attack against one of the outer jumpgates. It will likely be heavily defended, and heavy-class Tzac Blizzards could well arrive in the area as soon as you begin your assault.",
 	"requires" : 50,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/tzac.png",

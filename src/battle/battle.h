@@ -88,6 +88,8 @@ extern void doSpawners(void);
 extern void cancelScript(void);
 extern void awardTrophy(char *id);
 extern void initCredits(void);
+extern void showOKCancelDialog(void (*okCallback)(void), void (*cancelCallback)(void), const char *format, ...);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Battle battle;

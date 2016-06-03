@@ -26,10 +26,12 @@ static void handleKeyboard(void);
 static void postBattle(void);
 void destroyBattle(void);
 static void doBattle(void);
+static void optQuitBattle(void);
 static void quitBattle(void);
 static void drawMenu(void);
 static void continueGame(void);
 static void resume(void);
+static void restart(void);
 static void retry(void);
 static void start(void);
 static void options(void);
@@ -86,8 +88,8 @@ void initBattle(void)
 
 	getWidget("resume", "inBattle")->action = resume;
 	getWidget("options", "inBattle")->action = options;
-	getWidget("restart", "inBattle")->action = retry;
-	getWidget("quit", "inBattle")->action = quitBattle;
+	getWidget("restart", "inBattle")->action = restart;
+	getWidget("quit", "inBattle")->action = optQuitBattle;
 
 	getWidget("continue", "battleWon")->action = continueGame;
 	getWidget("retry", "battleWon")->action = retry;
@@ -361,8 +363,20 @@ static void returnFromOptions(void)
 	selectWidget("resume", "inBattle");
 }
 
+static void ignoreRestartQuit(void)
+{
+	app.modalDialog.type = MD_NONE;
+}
+
+static void restart(void)
+{
+	showOKCancelDialog(&retry, &ignoreRestartQuit, _("Are you sure you want to restart? You will lose your current progress."));
+}
+
 static void retry(void)
 {
+	app.modalDialog.type = MD_NONE;
+	
 	postBattle();
 
 	destroyBattle();
@@ -372,8 +386,15 @@ static void retry(void)
 	loadMission(game.currentMission->filename);
 }
 
+static void optQuitBattle(void)
+{
+	showOKCancelDialog(&quitBattle, &ignoreRestartQuit, _("Are you sure you want to quit? You will lose your current progress."));
+}
+
 static void quitBattle(void)
 {
+	app.modalDialog.type = MD_NONE;
+	
 	postBattle();
 
 	destroyBattle();

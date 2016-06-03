@@ -80,7 +80,7 @@ void showOKCancelDialog(void (*okCallback)(void), void (*cancelCallback)(void), 
 	okCancelOK->action = okCallback;
 	okCancelCancel->action = cancelCallback;
 
-	enableTimer = FPS;
+	enableTimer = FPS / 4;
 	ok->enabled = okCancelOK->enabled = okCancelCancel->enabled = 0;
 }
 

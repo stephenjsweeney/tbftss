@@ -538,6 +538,8 @@ static void completeChallenge(void)
 		retreatEnemies();
 		
 		awardStatsTrophies();
+		
+		awardCraftTrophy();
 	}
 }
 

@@ -123,7 +123,7 @@
 	{
 		"id" : "SHUTTLE",
 		"title" : "Room for one more on top",
-		"description" : "Complete a mission using a Shuttle",
+		"description" : "Complete a challenge using a Shuttle",
 		"value" : "TROPHY_BRONZE"
 	},
 	{

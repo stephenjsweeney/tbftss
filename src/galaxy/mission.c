@@ -283,10 +283,9 @@ void completeMission(void)
 		
 		awardStatsTrophies();
 		
-		if (!game.currentMission->challengeData.isChallenge)
-		{
-			awardPostMissionTrophies();
-		}
+		awardPostMissionTrophies();
+		
+		awardCraftTrophy();
 	}
 }
 

@@ -33,6 +33,7 @@ extern long lookup(char *name);
 extern void awardStatsTrophies(void);
 extern void retreatAllies(void);
 extern void retreatEnemies(void);
+extern void awardCraftTrophy(void);
 
 extern Dev dev;
 extern Battle battle;

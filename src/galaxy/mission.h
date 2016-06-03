@@ -62,6 +62,7 @@ extern Entity *spawnMine(int type);
 extern void activateNextWaypoint(void);
 extern void awardStatsTrophies(void);
 extern void awardPostMissionTrophies(void);
+extern void awardCraftTrophy(void);
 
 extern Battle battle;
 extern Dev dev;

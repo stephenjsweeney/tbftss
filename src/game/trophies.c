@@ -24,7 +24,6 @@ static void prevPage(void);
 static void nextPage(void);
 static void loadTrophyData(char *filename);
 static void resetAlert(void);
-static void awardCraftTrophy(void);
 static void setSparkleColor(Trophy *t);
 static void nextAlert(void);
 
@@ -457,10 +456,6 @@ void awardChallengeTrophies(void)
 
 void awardPostMissionTrophies(void)
 {
-	awardCraftTrophy();
-	
-	awardPandoranCraftTrophy();
-
 	if (game.currentMission->epic)
 	{
 		awardTrophy("EPIC");
@@ -474,28 +469,34 @@ void awardPostMissionTrophies(void)
 	/*
 	 * Must be a non-challenge mission, a common fighter, must not be Sol, and must not have fired any shots or missiles
 	 */
-	if (!game.currentMission->challengeData.isChallenge && player->flags & EF_COMMON_FIGHTER && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
+	if (player->flags & EF_COMMON_FIGHTER && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
 	{
 		awardTrophy("PACIFIST");
 	}
 }
 
-/* the player is known as "Player", so we need to check the craft they were assigned to */
-static void awardCraftTrophy(void)
+void awardCraftTrophy(void)
 {
-	char trophyId[MAX_NAME_LENGTH];
-	int len, i;
-
-	memset(trophyId, '\0', MAX_NAME_LENGTH);
-
-	len = strlen(game.currentMission->craft);
-
-	for (i = 0 ; i < len ; i++)
+	if (!game.currentMission->challengeData.isChallenge)
 	{
-		trophyId[i] = toupper(game.currentMission->craft[i]);
+		if (strcmp(game.currentMission->craft, "ATAF") == 0)
+		{
+			awardTrophy("ATAF");
+		}
+		else if (strcmp(game.currentMission->craft, "Tug") == 0)
+		{
+			awardTrophy("TUG");
+		}
 	}
-
-	awardTrophy(trophyId);
+	else
+	{
+		if (strcmp(game.currentMission->craft, "Shuttle") == 0 && battle.stats[STAT_ITEMS_COLLECTED_PLAYER] > 0)
+		{
+			awardTrophy("SHUTTLE");
+		}
+	}
+	
+	awardPandoranCraftTrophy();
 }
 
 static void setSparkleColor(Trophy *t)

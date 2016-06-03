@@ -35,7 +35,7 @@
 	"0 24 http://game-icons.net/lorc/originals/trophy.html",
 	
 	"75 30 TRANSLATIONS",
-	"0 24 Lumidify Productions (German)",
+	"30 24 Lumidify Productions (German)",
 	
 	"75 30 DEVELOPMENT SOFTWARE",
 	
@@ -71,6 +71,13 @@
 	"0 24 http://www.dafont.com/khosrau.font",
 	
 	"75 30 SOUND EFFECTS",
+	
+	"30 24 000000_large_explosion.ogg",
+	"0 24 created by combining:",
+	"0 24 EXPLODE.WAV, by dkmedic (CC-0)",
+	"0 24 https://freesound.org/people/dkmedic/sounds/104447/",
+	"0 24 Huge rocket launcher.wav, by CGEffex (CC-BY)",
+	"0 24 https://freesound.org/people/CGEffex/sounds/100772/",
 	
 	"30 24 18380__inferno__hvrl.ogg",
 	"0 24 hvrl, by inferno (CC-Sampling+)",
@@ -259,7 +266,7 @@
 	"0 24 https://twitter.com/tgfcoder",
 	
 	"75 30 SPECIAL THANKS",
-	"0 24 Szunti, Bertram25, bentley, akien-mga, ChliHug",
+	"0 24 akien-mga, bentley, Bertram25, ChliHug, Imerion, nnesse, ptitSeb, Szunti",
 	
 	"150 24 This is a work of fiction. Names, characters, businesses, places, events and incidents are either the products of the author's imagination or used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is purely coincidental. The Battle for the Solar System : The Pandoran War is (C) 2015-2016, Stephen J Sweeney, Some Rights Reserved. The Battle for the Solar System and all related materials (including, but not limited to, characters, setting, and story elements) are (C) 2009-2016, Stephen J Sweeney, All Rights Reserved.",
 	

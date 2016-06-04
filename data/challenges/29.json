@@ -1,0 +1,57 @@
+{
+	"name" : "Initiation #2",
+	"description" : "Initiation #2",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Unarmed Dart",
+		"side" : "SIDE_PIRATE",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25,
+		"flags" : "+EF_COLLECTS_ITEMS"
+	},
+	"challenge" : {
+		"timeLimit" : 180,
+		"playerItemLimit" : 4,
+		"allowPlayerDeath" : 1,
+		"isDeathMatch" : 1,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 1
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 2
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 4
+			}
+		]
+	},
+	"spawners" : [
+		{
+			"name" : "spawner",
+			"types" : "Dart",
+			"side" : "SIDE_PIRATE",
+			"interval" : 5,
+			"total" : -1,
+			"step" : 1,
+			"offscreen" : 1,
+			"flags" : "+EF_COLLECTS_ITEMS+EF_DROPS_ITEMS",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_COLLECTS_ITEMS"
+		}
+	],
+	"script" : [
+		{
+			"function" : "TIME 1",
+			"lines" : [
+				"MSG_BOX Boss;Sorry we couldn't get you a working ship, but do your best, eh? Ha ha!"
+			]
+		}
+	]
+}

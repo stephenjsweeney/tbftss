@@ -1,6 +1,6 @@
 {
 	"name" : "Traitor Hunt #2",
-	"description" : "",
+	"description" : "While Trilliack is happy to arrest the traitors it brings in, Alba wishes to dole out swift punishment for their actions. Eliminate all enemy targets, with the exception of any fighters that surrender. Only those are to be brought in.",
 	"requires" : 57,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",

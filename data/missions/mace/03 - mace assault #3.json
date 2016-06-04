@@ -1,6 +1,6 @@
 {
 	"name" : "Mace Assault #3",
-	"description" : "",
+	"description" : "There is growing public unrest over the on-going war, with a number of high-profile voices calling for an immediate end to the attacks on Tzac. While we cannot abandon the campaign while Tzac remains a threat, we can reduce the loss of life by disabling the enemy craft, instead of destroying them. That should placate the anti-war campaigners for a time.",
 	"requires" : 50,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/tzac.png",

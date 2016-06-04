@@ -1,6 +1,6 @@
 {
 	"name" : "Traitor Hunt #4",
-	"description" : "",
+	"description" : "Roman Burgess, one of the masterminds behind the illicit arms and information smuggling to Tzac, has been located. Senior command want this man alive, so that he can be interrogated and lead us to the others. He must not under any circumstances be allowed to be killed.",
 	"requires" : 57,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",

@@ -1,6 +1,6 @@
 {
 	"name" : "Alba Defence #2",
-	"description" : "",
+	"description" : "Tzac forces are continuing to make aggressive moves against Alba. Its forces need to be driven back, and out of the system entirely. Naval power is starting to come under strain, and these continued assaults could leave us vulnerable to a Pandoran attack."
 	"requires" : 50,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",

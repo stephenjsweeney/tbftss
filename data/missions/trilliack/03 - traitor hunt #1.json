@@ -1,6 +1,6 @@
 {
 	"name" : "Traitor Hunt #1",
-	"description" : "",
+	"description" : "A number of those responsible for helping supply illegal arms and information to Tzac have been identified. They are to be tracked down, and brought in for questioning. At this point, we want to avoid killing them, as they could prove vital to bringing in the ringleaders.",
 	"requires" : 57,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/flint.png",

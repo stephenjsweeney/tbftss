@@ -56,9 +56,8 @@
 	],
 	"items" : [
 		{
-			"name" : "package",
 			"number" : 50,
-			"type" : "smallCrate",
+			"type" : "RANDOM",
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 5000,

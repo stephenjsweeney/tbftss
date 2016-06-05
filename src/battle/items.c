@@ -63,11 +63,24 @@ void loadItemDefs(void)
 
 Entity *spawnItem(char *name)
 {
-	Entity *item, *def;
+	Entity *e, *def, *item;
 
 	item = spawnEntity();
 
-	def = getItemDef(name);
+	if (strcmp(name, "RANDOM"))
+	{
+		def = getItemDef(name);
+	}
+	else
+	{
+		for (e = defHead.next ; e != NULL ; e = e->next)
+		{
+			if (!def || rand() % 2)
+			{
+				def = e;
+			}
+		}
+	}
 
 	memcpy(item, def, sizeof(Entity));
 	
@@ -80,24 +93,9 @@ Entity *spawnItem(char *name)
 
 void addRandomItem(int x, int y)
 {
-	Entity *e, *def, *item;
+	Entity *item;
 	
-	def = item = e = NULL;
-
-	for (e = defHead.next ; e != NULL ; e = e->next)
-	{
-		if (!def || rand() % 2)
-		{
-			def = e;
-		}
-	}
-	
-	item = spawnEntity();
-	
-	memcpy(item, def, sizeof(Entity));
-	
-	item->next = NULL;
-	
+	item = spawnItem("RANDOM");
 	item->x = x;
 	item->y = y;
 	item->speed = 1;

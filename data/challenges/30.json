@@ -32,7 +32,6 @@
 	},
 	"items" : [
 		{
-			"name" : "package",
 			"number" : 100,
 			"type" : "RANDOM",
 			"x" : 25,

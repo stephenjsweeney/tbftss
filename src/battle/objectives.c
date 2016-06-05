@@ -248,6 +248,9 @@ void activateObjectives(char *objectives)
 {
 	char *token;
 	Objective *o;
+	int activated;
+	
+	activated = 0;
 	
 	token = strtok(objectives, ";");
 	
@@ -264,10 +267,17 @@ void activateObjectives(char *objectives)
 				{
 					updateObjective(o->targetName, o->targetType);
 				}
+				
+				activated = 1;
 			}
 		}
 		
 		token = strtok(NULL, ";");
+	}
+	
+	if (activated)
+	{
+		playSound(SND_NEW_OBJECTIVE);
 	}
 }
 

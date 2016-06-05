@@ -28,6 +28,7 @@ extern void failMission(void);
 extern char *getTranslatedString(char *string);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern long lookup(char *name);
+extern void playSound(int id);
 
 extern Battle battle;
 extern Colors colors;

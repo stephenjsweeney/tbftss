@@ -70,6 +70,11 @@ All other data files are CC BY-NC-SA 3.0, with the following attribution: Copyri
 * 254174__kwahmah-02__s.ogg - s.wav, by kwahmah_02 (CC-0) - https://freesound.org/people/kwahmah_02/sounds/254174/
 * 172870__escortmarius__carbidexplosion.ogg - carbidexplosion.wav, by escortmarius (CC-BY) - https://freesound.org/people/escortmarius/sounds/172870/
 * 320181__dland__hint.ogg - hint.wav, by dland (CC-0) - https://freesound.org/people/dland/sounds/320181/
+* 62491__benboncan__dslr-click.ogg - DSLR Click.wav, by Benboncan (CC-BY) - https://freesound.org/people/Benboncan/sounds/62491/
+* 154934__klawykogut__empty-gun-shot.ogg - Empty Gun Shot, by KlawyKogut (CC-0) - https://freesound.org/people/KlawyKogut/sounds/154934/
+* 107786__leviclaassen__beepbeep.ogg - beepbeep.wav, by leviclaassen (CC-BY) - https://freesound.org/people/leviclaassen/sounds/107786/
+* 33785__jobro__4-beep-b.ogg - 4 beep b.wav, by jobro (CC-BY) - https://freesound.org/people/jobro/sounds/33785/
+
 
 ### MUSIC
 

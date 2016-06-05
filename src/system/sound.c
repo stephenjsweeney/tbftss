@@ -122,6 +122,10 @@ static void loadSounds(void)
 	sounds[SND_MINE_WARNING] = loadSound("sound/254174__kwahmah-02__s.ogg");
 	sounds[SND_TIME_WARNING] = loadSound("sound/320181__dland__hint.ogg");
 	sounds[SND_CAP_DEATH] = loadSound("sound/000000_large_explosion.ogg");
+	sounds[SND_ZOOM] = loadSound("sound/62491__benboncan__dslr-click.ogg");
+	sounds[SND_NO_MISSILES] = loadSound("sound/154934__klawykogut__empty-gun-shot.ogg");
+	sounds[SND_NEW_OBJECTIVE] = loadSound("sound/107786__leviclaassen__beepbeep.ogg");
+	sounds[SND_RECHARGED] = loadSound("sound/33785__jobro__4-beep-b.ogg");
 
 	sounds[SND_GUI_CLICK] = loadSound("sound/257786__xtrgamr__mouse-click.ogg");
 	sounds[SND_GUI_SELECT] = loadSound("sound/321104__nsstudios__blip2.ogg");

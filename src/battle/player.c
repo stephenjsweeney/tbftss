@@ -36,6 +36,7 @@ static void preFireMissile(void);
 static void applyRestrictions(void);
 static int isPriorityMissionTarget(Entity *e, int dist, int closest);
 static int targetOutOfRange(void);
+static void rechargeBoostECM(void);
 static void setPilotName(void);
 
 static int selectedPlayerIndex;
@@ -119,8 +120,7 @@ static void setPilotName(void)
 
 void doPlayer(void)
 {
-	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
-	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
+	rechargeBoostECM();
 
 	self = player;
 	
@@ -193,6 +193,25 @@ void doPlayer(void)
 	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
 	{
 		deactivateBoost();
+	}
+}
+
+static void rechargeBoostECM(void)
+{
+	int boostTimer, ecmTimer;
+	
+	boostTimer = battle.boostTimer;
+	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
+	if (boostTimer < BOOST_RECHARGE_TIME && battle.boostTimer == BOOST_RECHARGE_TIME)
+	{
+		playSound(SND_RECHARGED);
+	}
+	
+	ecmTimer = battle.ecmTimer;
+	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
+	if (ecmTimer < ECM_RECHARGE_TIME && battle.ecmTimer == ECM_RECHARGE_TIME)
+	{
+		playSound(SND_RECHARGED);
 	}
 }
 
@@ -384,8 +403,16 @@ static void preFireMissile(void)
 		}
 		else
 		{
+			playSound(SND_GUI_DENIED);
+			
 			addHudMessage(colors.white, _("Target not in range"));
 		}
+	}
+	else if (!player->missiles)
+	{
+		addHudMessage(colors.white, _("Out of missiles"));
+		
+		playSound(SND_NO_MISSILES);
 	}
 }
 
@@ -650,6 +677,8 @@ static int isPriorityMissionTarget(Entity *e, int dist, int closest)
 static void cycleRadarZoom(void)
 {
 	battle.radarRange = (battle.radarRange + 1) % 3;
+	
+	playSound(SND_ZOOM);
 }
 
 int playerHasGun(int type)

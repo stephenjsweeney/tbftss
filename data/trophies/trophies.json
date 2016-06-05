@@ -217,10 +217,10 @@
 	{
 		"id" : "ITEMS",
 		"title" : "Hoarder",
-		"description" : "Collect 100 items",
+		"description" : "Collect 250 items",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_ITEMS_COLLECTED_PLAYER",
-		"statValue" : 100
+		"statValue" : 250
 	},
 	{
 		"id" : "EVADE",

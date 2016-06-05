@@ -108,7 +108,7 @@
 				"MSG_BOX Dodds;Like simply fighting them? Because there are nearly twenty billion of those bastards, and while we're not light on personnel, we're losing numbers rapidly.",
 				"MSG_BOX Dodds;What's to stop them doing to Helios what they just did to the Independents?",
 				"MSG_BOX Todd;You mean smash each world they come to? All the way to Earth?",
-				"MSG_BOX Dodds;Yes. Remember on Mythos? Parks said it was a very real possibilty. At this rate, we just might find ourselves having to fight a battle for the Solar System.",
+				"MSG_BOX Dodds;Yes. Remember on Mythos? Parks said it was a very real possibility. At this rate, we just might find ourselves having to fight a battle for the Solar System.",
 				"WAIT_MSG_BOX",
 				"WAIT 5",
 				"MSG_BOX de Winter;...",

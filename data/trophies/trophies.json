@@ -148,7 +148,7 @@
 	},
 	{
 		"id" : "_CHALLENGE_50",
-		"title" : "Obssessed",
+		"title" : "Obsessed",
 		"description" : "Complete 50%% of all challenges",
 		"value" : "TROPHY_SILVER"
 	},
@@ -273,7 +273,7 @@
 	},
 	{
 		"id" : "ATAF_DESTROYED",
-		"title" : "Almost indestructable. Almost",
+		"title" : "Almost indestructible. Almost",
 		"description" : "Be destroyed while piloting an ATAF",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1

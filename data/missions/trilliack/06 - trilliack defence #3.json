@@ -141,7 +141,7 @@
 				"ACTIVATE_SPAWNER 1 allySpawner",
 				"ACTIVATE_SPAWNER 1 pandoranSpawner",
 				"MSG_BOX Wingmate;More enemy fighters incoming.",
-				"MSG_BOX D'Ath;We have re-inforcements on the way, to help even the odds."
+				"MSG_BOX D'Ath;We have reinforcements on the way, to help even the odds."
 			]
 		},
 		{

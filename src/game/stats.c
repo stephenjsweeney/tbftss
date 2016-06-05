@@ -35,7 +35,7 @@ void initStats(void)
 {
 	statDescription[STAT_PERCENT_COMPLETE] = _("Percent Complete");
 	statDescription[STAT_MISSIONS_STARTED] = _("Missions Started");
-	statDescription[STAT_MISSIONS_COMPLETED] = _("Missons Completed");
+	statDescription[STAT_MISSIONS_COMPLETED] = _("Missions Completed");
 	statDescription[STAT_OPTIONAL_COMPLETED] = _("Optional Missions Completed");
 	statDescription[STAT_CHALLENGES_STARTED] = _("Challenges Started");
 	statDescription[STAT_CHALLENGES_COMPLETED] = _("Challenges Completed");

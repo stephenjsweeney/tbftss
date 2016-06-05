@@ -94,7 +94,7 @@
 				"WAIT 1",
 				"ACTIVATE_ENTITY_GROUPS Reinforcements",
 				"ACTIVATE_OBJECTIVES Eliminate reinforcements",
-				"MSG_BOX Wingmate;Commander, enemy reinforcements are enroute. Looks like more INF fighters.",
+				"MSG_BOX Wingmate;Commander, enemy reinforcements are en route. Looks like more INF fighters.",
 				"MSG_BOX Carlyle;Dammit! Let's make sure we down the Dirk before any more turn up."
 			]
 		},

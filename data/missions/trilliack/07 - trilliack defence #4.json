@@ -94,7 +94,7 @@
 		{
 			"function" : "TIME 1",
 			"lines" : [
-				"MSG_BOX Control;The Pandorans are overunning our frontline! We need to drive them back, now!"
+				"MSG_BOX Control;The Pandorans are overunning our front line! We need to drive them back, now!"
 			]
 		},
 		{

@@ -1,6 +1,6 @@
 {
 	"name" : "Clarke Defence #6",
-	"description" : "The enemy are beginning to overrun our frontline. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen.",
+	"description" : "The enemy are beginning to overrun our front line. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen.",
 	"requires" : 30,
 	"background" : "gfx/backgrounds/background06.jpg",
 	"planet" : "gfx/planets/lewis.png",
@@ -115,7 +115,7 @@
 		{
 			"function" : "ENEMIES_KILLED 75",
 			"lines" : [
-				"MSG_BOX Wingmate;I've just been tailed by something I've never seen before! Small, highly maneuverable, rapid fire particle cannon.",
+				"MSG_BOX Wingmate;I've just been tailed by something I've never seen before! Small, highly manoeuvrable, rapid fire particle cannon.",
 				"MSG_BOX Welch;Swarmers! The enemy have deployed them here, too!",
 				"MSG_BOX Wing Commander;How many?",
 				"MSG_BOX Wingmate;Tracking a dozen, but the numbers are growing rapidly",

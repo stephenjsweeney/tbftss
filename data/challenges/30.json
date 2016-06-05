@@ -1,0 +1,44 @@
+{
+	"name" : "Feast",
+	"description" : "Feast",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Shuttle",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"timeLimit" : 240,
+		"playerItemLimit" : 100,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 70
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 95
+			},
+			{
+				"type" : "CHALLENGE_PLAYER_ITEMS",
+				"value" : 100
+			}
+		]
+	},
+	"items" : [
+		{
+			"name" : "package",
+			"number" : 100,
+			"type" : "RANDOM",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 3000,
+			"flags" : "+EF_MISSION_TARGET"
+		}
+	]
+}

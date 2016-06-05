@@ -1,6 +1,6 @@
 {
 	"name" : "Infiltration #3",
-	"description" : "",
+	"description" : "Your instructions are simple, Hicks. As before, follow the wing leader's instructions, and do as the others do. Stay close to the leader when not otherwise engaged, and do not do anything to raise your suspicion. Act quickly to assure the Pandorans you're with them.",
 	"requires" : 52,
 	"expires" : 57,
 	"requiresOptional" : 2,

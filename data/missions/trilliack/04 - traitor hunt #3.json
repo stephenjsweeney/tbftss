@@ -1,6 +1,6 @@
 {
 	"name" : "Traitor Hunt #3",
-	"description" : "",
+	"description" : "It seems that some of the traitors that were brought in earlier were acting as a distraction for a number of others, who have now commandeered CSN Drachma. The corvette must be taken back, without destroy it. All other targets are valid, unless surrendering.",
 	"requires" : 57,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/flint.png",

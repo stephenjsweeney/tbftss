@@ -1,6 +1,6 @@
 {
 	"name" : "Traitor Hunt #5",
-	"description" : "",
+	"description" : "There are now only two figureheads in the traitor group remaining: Isabel Nelson, and one other whose identity is currently being confirmed. Isabel Nelson has been located in the vicinity. As before, disable her fighter so she can be brought in. Disable any other surrendering targets.",
 	"requires" : 57,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/flint.png",

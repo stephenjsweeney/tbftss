@@ -1,6 +1,6 @@
 {
 	"name" : "Aster Assault",
-	"description" : "",
+	"description" : "A large Tzac force has gathered in Aster. The White Knights are being sent in alone to deal with it. We need to continue to show that we are capable of winning these engagements with minimal losses to the enemy force. Mag and disable all Tzac craft in the area, and do not allow any to be destroyed, even by stray fire.",
 	"requires" : 54,
 	"background" : "gfx/backgrounds/background04.jpg",
 	"planet" : "gfx/planets/star.png",

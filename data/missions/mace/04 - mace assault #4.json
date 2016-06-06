@@ -1,6 +1,6 @@
 {
 	"name" : "Mace Assault #4",
-	"description" : "",
+	"description" : "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualities to a minimum.",
 	"requires" : 56,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/tzac.png",

@@ -121,6 +121,7 @@
 		{
 			"function" : "TIME 1",
 			"lines" : [
+				"MSG_BOX Hicks;(More hunting. I hope I'm not going to be forced to kill innocent people again.)",
 				"PANDORAN_MSG_BOX Wing Commander;Enemy forces have been reported in this sector. They are to be tracked down and eliminated."
 			]
 		},
@@ -130,6 +131,7 @@
 				"PANDORAN_MSG_BOX Wingmate;Enemy forces sighted.",
 				"WAIT_MSG_BOX",
 				"PANDORAN_MSG_BOX Wing Commander;Moving towards targets. Prepare to engage.",
+				"MSG_BOX Hicks;(Mercenaries. Better than civilians, but still abhorrent. Run, you fools! Run!)",
 				"ACTIVATE_ENTITY_GROUPS Mercs-1",
 				"ACTIVATE_OBJECTIVES Eliminate mercenaries"
 			]
@@ -164,6 +166,7 @@
 				"PANDORAN_MSG_BOX Wing Commander;Sector clear. Head to jumpgate and exit the system.",
 				"WAIT_MSG_BOX",
 				"ACTIVATE_JUMPGATE",
+				"MSG_BOX Hicks;(Looks like that's it. We're heading to the jumpgate.)",
 				"RETREAT_ALLIES"
 			]
 		},

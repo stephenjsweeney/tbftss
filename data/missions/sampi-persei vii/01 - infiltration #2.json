@@ -115,7 +115,8 @@
 		{
 			"function" : "TIME 1",
 			"lines" : [
-				"MSG_BOX Hicks;(I'm in very deep this time.)",
+				"MSG_BOX Hicks;(I'm in deep this time. Just have to remain calm, focus, and do as they do.)",
+				"MSG_BOX Hicks;(Can't talk to them, can't understand their language, so I'll have to go with my instincts.)",
 				"PANDORAN_MSG_BOX Wing Commander;We're to patrol this sector and look for escapees."
 			]
 		},
@@ -134,6 +135,7 @@
 				"PANDORAN_MSG_BOX Wingmate;Confirmed. They are enemies of the Senate.",
 				"PANDORAN_MSG_BOX Wing Commander;Moving towards targets. Prepare to engage.",
 				"WAIT_MSG_BOX",
+				"MSG_BOX Hicks;(Ah, hell! We're hunting civilians. I ... I can't refuse orders ...)",
 				"ACTIVATE_ENTITY_GROUPS Civ-1",
 				"ACTIVATE_OBJECTIVES Kill civilians"
 			]
@@ -169,6 +171,7 @@
 				"PANDORAN_MSG_BOX Wingmate;All opposition defeated.",
 				"WAIT 20",
 				"PANDORAN_MSG_BOX Wing Commander;Sector clear. Head to jumpgate and exit the system.",
+				"MSG_BOX Hicks;(They're moving to the jumpgate. I should join them, and stick close.)",
 				"WAIT_MSG_BOX",
 				"ACTIVATE_JUMPGATE",
 				"RETREAT_ALLIES"

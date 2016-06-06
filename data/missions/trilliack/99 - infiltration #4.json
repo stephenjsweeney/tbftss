@@ -153,7 +153,8 @@
 			"lines" : [
 				"ACTIVATE_SPAWNER 1 civilSpawner",
 				"ACTIVATE_OBJECTIVES Kill civilians",
-				"PANDORAN_MSG_BOX Wing Commander;Escapees sighted."
+				"PANDORAN_MSG_BOX Wing Commander;Escapees sighted.",
+				"MSG_BOX Hicks;(They're going after the civilians again. I hope this ends soon. I'm not sure how much more this I can take.)"
 			]
 		},
 		{

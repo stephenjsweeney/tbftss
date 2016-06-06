@@ -1,0 +1,44 @@
+{
+	"name" : "Bomber vs Bomber",
+	"description" : "Bomber vs Bomber",
+	"background" : "AUTO",
+	"planet" : "AUTO",
+	"music" : "AUTO",
+	"player" : {
+		"type" : "Hammerhead",
+		"side" : "SIDE_ALLIES",
+		"pilot" : "-",
+		"squadron" : "-",
+		"x" : 25,
+		"y" : 25
+	},
+	"challenge" : {
+		"noMissiles" : 1,
+		"timeLimit" : 90,
+		"killLimit" : 4,
+		"challenges" : [
+			{
+				"type" : "CHALLENGE_TIME",
+				"value" : 60
+			},
+			{
+				"type" : "CHALLENGE_ARMOUR",
+				"value" : 100
+			},
+			{
+				"type" : "CHALLENGE_ROCKET_ACCURACY",
+				"value" : 100
+			}
+		]
+	},
+	"fighters" : [
+		{
+			"types" : "Scarab;Khepri;Lynx",
+			"side" : "SIDE_TZAC",
+			"number" : 4,
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 3000
+		}
+	]
+}

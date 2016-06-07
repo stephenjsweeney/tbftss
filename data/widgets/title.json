@@ -15,7 +15,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Challenges",
 		"x" : -1,
-		"y" : 290,
+		"y" : 280,
 		"w" : 200,
 		"h": 34
 	},
@@ -25,7 +25,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Trophies",
 		"x" : -1,
-		"y" : 380,
+		"y" : 360,
 		"w" : 200,
 		"h": 34
 	},
@@ -35,7 +35,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Stats",
 		"x" : -1,
-		"y" : 470,
+		"y" : 440,
 		"w" : 200,
 		"h": 34
 	},
@@ -45,7 +45,17 @@
 		"type" : "WT_BUTTON",
 		"text" : "Options",
 		"x" : -1,
-		"y" : 560,
+		"y" : 520,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "credits",
+		"group" : "title",
+		"type" : "WT_BUTTON",
+		"text" : "Credits",
+		"x" : -1,
+		"y" : 600,
 		"w" : 200,
 		"h": 34
 	},
@@ -55,7 +65,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Quit",
 		"x" : -1,
-		"y" : 650,
+		"y" : 680,
 		"w" : 200,
 		"h": 34
 	}

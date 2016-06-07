@@ -32,6 +32,7 @@ static void trophies(void);
 static void stats(void);
 static void ok(void);
 static void options(void);
+static void credits(void);
 static void quit(void);
 static void returnFromOptions(void);
 
@@ -82,6 +83,7 @@ void initTitle(void)
 	getWidget("trophies", "title")->action = trophies;
 	getWidget("stats", "title")->action = stats;
 	getWidget("options", "title")->action = options;
+	getWidget("credits", "title")->action = credits;
 	getWidget("quit", "title")->action = quit;
 	
 	getWidget("ok", "stats")->action = ok;
@@ -276,6 +278,11 @@ static void ok(void)
 static void returnFromOptions(void)
 {
 	show = SHOW_TITLE;
+}
+
+static void credits(void)
+{
+	initCredits();
 }
 
 static void quit(void)

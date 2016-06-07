@@ -59,6 +59,7 @@ extern void updateAllMissions(void);
 extern void clearInput(void);
 extern void initTrophiesDisplay(void);
 extern void drawTrophies(void);
+extern void initCredits(void);
 
 extern App app;
 extern Battle battle;

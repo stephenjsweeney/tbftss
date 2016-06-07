@@ -81,7 +81,8 @@ Mission *loadMissionMeta(char *filename)
 	}
 	else
 	{
-		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Failed to load '%s'", filename);
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Failed to load '%s'", filename);
+		exit(1);
 	}
 
 	free(text);
@@ -467,12 +468,18 @@ void updateAllMissions(void)
 
 int isMissionAvailable(Mission *mission, Mission *prev)
 {
-	return (
-		prev->completed && 
-		mission->requires <= game.completedMissions && 
-		game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional &&
-		(!mission->expires || (game.completedMissions < mission->expires))
-	) || dev.debug;
+	if (!mission->isOptional)
+	{
+		return (prev->completed && game.completedMissions >= mission->requires) || dev.debug;
+	}
+	else
+	{
+		return (
+			game.completedMissions >= mission->requires && 
+			game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional &&
+			game.completedMissions < mission->expires
+		) || dev.debug;
+	}
 }
 
 static unsigned long hashcode(const char *str)

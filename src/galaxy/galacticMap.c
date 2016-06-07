@@ -531,7 +531,7 @@ static void selectStarSystem(void)
 
 static void drawStarSystemDetail(void)
 {
-	int y;
+	int y, start, i;
 	Mission *mission;
 	SDL_Rect r;
 
@@ -558,29 +558,40 @@ static void drawStarSystemDetail(void)
 	SDL_RenderDrawLine(app.renderer, 515, 120, 515, 660);
 
 	y += 80;
+	
+	/*
+	 * this only really counts for Alba, as it has 10 missions and there's only space for 9 to display.
+	 * We need to subtract 1 from the completed missions to get the correct number (mission at the bottom will be the one to select).
+	 */
+	start = MIN(selectedStarSystem->completedMissions - 1 - MAX_LISTED_MISSIONS, 0);
+	
+	i = 0;
 
 	for (mission = selectedStarSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 	{
-		mission->rect.x = 200;
-		mission->rect.y = y - 2;
-		mission->rect.w = 300;
-		mission->rect.h = 40;
-
-		if (mission == game.currentMission)
+		if (i >= start)
 		{
-			SDL_SetRenderDrawColor(app.renderer, 32, 64, 128, 255);
-			SDL_RenderFillRect(app.renderer, &mission->rect);
+			mission->rect.x = 200;
+			mission->rect.y = y - 2;
+			mission->rect.w = 300;
+			mission->rect.h = 40;
 
-			SDL_SetRenderDrawColor(app.renderer, 64, 96, 196, 255);
-			SDL_RenderDrawRect(app.renderer, &mission->rect);
+			if (mission == game.currentMission)
+			{
+				SDL_SetRenderDrawColor(app.renderer, 32, 64, 128, 255);
+				SDL_RenderFillRect(app.renderer, &mission->rect);
+
+				SDL_SetRenderDrawColor(app.renderer, 64, 96, 196, 255);
+				SDL_RenderDrawRect(app.renderer, &mission->rect);
+			}
+
+			if (mission->available)
+			{
+				drawText(210, y, 24, TA_LEFT, mission->completed ? colors.lightGrey : colors.yellow, mission->name);
+			}
+
+			y += 50;
 		}
-
-		if (mission->available)
-		{
-			drawText(210, y, 24, TA_LEFT, mission->completed ? colors.lightGrey : colors.yellow, mission->name);
-		}
-
-		y += 50;
 	}
 
 	if (game.currentMission->available)

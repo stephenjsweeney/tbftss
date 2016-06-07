@@ -27,6 +27,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_STATS				4
 #define SHOW_TROPHIES			5
 
+#define MAX_LISTED_MISSIONS		9
+
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void initBattle(void);
 extern void loadMission(char *filename);

@@ -74,6 +74,12 @@ All other data files are CC BY-NC-SA 3.0, with the following attribution: Copyri
 * 154934__klawykogut__empty-gun-shot.ogg - Empty Gun Shot, by KlawyKogut (CC-0) - https://freesound.org/people/KlawyKogut/sounds/154934/
 * 107786__leviclaassen__beepbeep.ogg - beepbeep.wav, by leviclaassen (CC-BY) - https://freesound.org/people/leviclaassen/sounds/107786/
 * 33785__jobro__4-beep-b.ogg - 4 beep b.wav, by jobro (CC-BY) - https://freesound.org/people/jobro/sounds/33785/
+* 255729__manholo__inception-stab-l.ogg - inception-stab-l.wav, by manholo (CC-BY) - https://freesound.org/people/manholo/sounds/255729/
+* 000000_tow-rope-attach.ogg - creating by combining:
+	01857 close noise fastener.wav, by Robinhood76 (CC-BY-NC) - https://freesound.org/people/Robinhood76/sounds/98880/
+	Clean Revolver Reload, by Dredile (CC-0) - https://freesound.org/people/Dredile/sounds/177863/
+* 246420__oceanictrancer__game-sound-effect-menu.ogg - game sound effect -> menu, by oceanictrancer (CC-0) - https://freesound.org/people/oceanictrancer/sounds/246420/
+* 146311__jgeralyn__shortailenliketone2-lower.ogg - shortailenliketone2_lower.aif, by jgeralyn (CC-BY) - https://freesound.org/people/jgeralyn/sounds/146311/
 
 
 ### MUSIC

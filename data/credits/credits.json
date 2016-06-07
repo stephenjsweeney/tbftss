@@ -1,9 +1,9 @@
 [
 	"0 30 MAIN PROGRAMMING",
 	"0 24 Stephen J Sweeney",
-	"0 24 Richard Sweeney",
 	
 	"75 30 ADDITIONAL CODE",
+	"0 24 Richard Sweeney",
 	
 	"75 30 GRAPHICS",
 	
@@ -12,27 +12,27 @@
 	
 	"30 24 gfx/planets/earth.png",
 	"0 24 Derived from the the Blue Marble NASA photograph",
-	"0 24 http://visibleearth.nasa.gov/view.php?id=57723",
+	"0 24 visibleearth.nasa.gov/view.php?id=57723",
 	
 	"30 24 gfx/trophies/bronze.png",
 	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
-	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	"0 24 game-icons.net/lorc/originals/trophy.html",
 	
 	"30 24 gfx/trophies/gold.png",
 	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
-	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	"0 24 game-icons.net/lorc/originals/trophy.html",
 	
 	"30 24 gfx/trophies/platinum.png",
 	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
-	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	"0 24 game-icons.net/lorc/originals/trophy.html",
 	
 	"30 24 gfx/trophies/silver.png",
 	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
-	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	"0 24 game-icons.net/lorc/originals/trophy.html",
 	
 	"30 24 gfx/trophies/unearned.png",
 	"0 24 Dervied from Trophy icon, by Lorc (CC BY 3.0)",
-	"0 24 http://game-icons.net/lorc/originals/trophy.html",
+	"0 24 game-icons.net/lorc/originals/trophy.html",
 	
 	"75 30 TRANSLATIONS",
 	"30 24 Lumidify Productions (German)",
@@ -68,218 +68,238 @@
 	
 	"30 24 data/fonts/Khosrau.ttf",
 	"0 24 by Fereydoun Rostam.",
-	"0 24 http://www.dafont.com/khosrau.font",
+	"0 24 www.dafont.com/khosrau.font",
 	
 	"75 30 SOUND EFFECTS",
 	
 	"30 24 000000_large_explosion.ogg",
 	"0 24 created by combining:",
 	"0 24 EXPLODE.WAV, by dkmedic (CC-0)",
-	"0 24 https://freesound.org/people/dkmedic/sounds/104447/",
+	"0 24 freesound.org/people/dkmedic/sounds/104447/",
 	"0 24 Huge rocket launcher.wav, by CGEffex (CC-BY)",
-	"0 24 https://freesound.org/people/CGEffex/sounds/100772/",
+	"0 24 freesound.org/people/CGEffex/sounds/100772/",
 	
 	"30 24 18380__inferno__hvrl.ogg",
 	"0 24 hvrl, by inferno (CC-Sampling+)",
-	"0 24 https://freesound.org/people/inferno/sounds/18380/",
+	"0 24 freesound.org/people/inferno/sounds/18380/",
 
 	"30 24 18382__inferno__hvylas.ogg",
 	"0 24 hvylas, by inferno (CC-Sampling+)",
-	"0 24 https://freesound.org/people/inferno/sounds/18382/",
+	"0 24 freesound.org/people/inferno/sounds/18382/",
 
 	"30 24 42106__marcuslee__laser-wrath-4.ogg",
 	"0 24 Laser Wrath 4, by marcusless (CC-Sampling+)",
-	"0 24 https://freesound.org/people/marcuslee/sounds/42106/",
+	"0 24 freesound.org/people/marcuslee/sounds/42106/",
 
 	"30 24 47252__nthompson__bad-explosion.ogg",
 	"0 24 bad explosion, by nthompson (CC-0)",
-	"0 24 https://freesound.org/people/nthompson/sounds/47252/",
+	"0 24 freesound.org/people/nthompson/sounds/47252/",
 
 	"30 24 49678__ejfortin__energy-short-sword-7.ogg",
 	"0 24 Energy Short Sword, by ejfortin (CC-Sampling+)",
-	"0 24 https://freesound.org/people/ejfortin/sounds/49678/",
+	"0 24 freesound.org/people/ejfortin/sounds/49678/",
 
 	"30 24 56246__q-k__latch-04.ogg",
 	"0 24 Latch_04, by Q.K. (CC-0)",
-	"0 24 https://freesound.org/people/Q.K./sounds/56246/",
+	"0 24 freesound.org/people/Q.K./sounds/56246/",
 
 	"30 24 65787__iwilldstroyu__laserrocket.ogg",
 	"0 24 laserrocket, by iwilldstroyu (CC-0)",
-	"0 24 https://freesound.org/people/iwilldstroyu/sounds/65787/",
+	"0 24 freesound.org/people/iwilldstroyu/sounds/65787/",
 
 	"30 24 77087__supraliminal__laser-short.ogg",
 	"0 24 Laser short, by Supraliminal (CC-0)",
-	"0 24 https://freesound.org/people/Supraliminal/sounds/77087/",
+	"0 24 freesound.org/people/Supraliminal/sounds/77087/",
 
 	"30 24 88275__s-dij__gbc-reload-06.ogg",
 	"0 24 GBC_Reload_06, by S_Dij (CC-BY)",
-	"0 24 https://freesound.org/people/S_Dij/sounds/88275/",
+	"0 24 freesound.org/people/S_Dij/sounds/88275/",
 
 	"30 24 146725__fins__laser.ogg",
 	"0 24 laser, by fins (CC-0)",
-	"0 24 https://freesound.org/people/fins/sounds/146725/",
+	"0 24 freesound.org/people/fins/sounds/146725/",
 
 	"30 24 162265__qubodup__explosive.ogg",
 	"0 24 Explosive, by qubodup (CC-0)",
-	"0 24 https://freesound.org/people/qubodup/sounds/162265/",
+	"0 24 freesound.org/people/qubodup/sounds/162265/",
 
 	"30 24 178064__jorickhoofd__slam-door-shut.ogg",
 	"0 24 Slam door shut, by jorickhoofd (CC-BY)",
-	"0 24 https://freesound.org/people/jorickhoofd/sounds/178064/",
+	"0 24 freesound.org/people/jorickhoofd/sounds/178064/",
 
 	"30 24 207322__animationisaac__short-explosion.ogg",
 	"0 24 Short explosion, by animationIsaac (CC-0)",
-	"0 24 https://freesound.org/people/animationIsaac/sounds/207322/",
+	"0 24 freesound.org/people/animationIsaac/sounds/207322/",
 
 	"30 24 242856__plasterbrain__nuclear-alarm.ogg",
 	"0 24 Nuclear Alarm, by plasterbrain (CC-0)",
-	"0 24 https://freesound.org/people/plasterbrain/sounds/242856/",
+	"0 24 freesound.org/people/plasterbrain/sounds/242856/",
 
 	"30 24 249300__suntemple__access-denied.ogg",
 	"0 24 Access Denied, by suntemple (CC-0)",
-	"0 24 https://freesound.org/people/suntemple/sounds/249300/",
+	"0 24 freesound.org/people/suntemple/sounds/249300/",
 
 	"30 24 254071__tb0y298__firework-explosion.ogg",
 	"0 24 Firework Explosion, by TB0Y298 (CC-BY)",
-	"0 24 https://freesound.org/people/TB0Y298/sounds/254071/",
+	"0 24 freesound.org/people/TB0Y298/sounds/254071/",
 
 	"30 24 257786__xtrgamr__mouse-click.ogg",
 	"0 24 Mouse click, by xtrgamr (CC-BY)",
-	"0 24 https://freesound.org/people/xtrgamr/sounds/257786/",
+	"0 24 freesound.org/people/xtrgamr/sounds/257786/",
 
 	"30 24 263621__jamesabdulrahman__permission-to-panic.ogg",
 	"0 24 Permission to panic?, by jamesabdulrahman (CC-BY)",
-	"0 24 https://freesound.org/people/jamesabdulrahman/sounds/263621/",
+	"0 24 freesound.org/people/jamesabdulrahman/sounds/263621/",
 
 	"30 24 268344__julien-matthey__jm-noiz-laser-01.ogg",
 	"0 24 JM_NOIZ_Laser 01.wav, by Julien Matthey (CC-0)",
-	"0 24 https://freesound.org/people/Julien%20Matthey/sounds/268344/",
+	"0 24 freesound.org/people/Julien%20Matthey/sounds/268344/",
 
 	"30 24 275151__bird-man__gun-shot.ogg",
 	"0 24 Gun Shot.wav, by Bird_man (CC-0)",
-	"0 24 https://freesound.org/people/Bird_man/sounds/275151/",
+	"0 24 freesound.org/people/Bird_man/sounds/275151/",
 
 	"30 24 321104__nsstudios__blip2.ogg",
 	"0 24 blip2, by nsstudios (CC-BY)",
-	"0 24 https://freesound.org/people/nsstudios/sounds/321104/",
+	"0 24 freesound.org/people/nsstudios/sounds/321104/",
 
 	"30 24 321906__bruce965__walkie-talkie-roger-beep.ogg",
 	"0 24 Walkie Talkie - Roger Beep, by bruce965 (CC-0)",
-	"0 24 https://freesound.org/people/bruce965/sounds/321906/",
+	"0 24 freesound.org/people/bruce965/sounds/321906/",
 
 	"30 24 322603__clippysounds__glass-break.ogg",
 	"0 24 Glass Break, by clippysounds (CC-BY)",
-	"0 24 https://freesound.org/people/clippysounds/sounds/322603/",
+	"0 24 freesound.org/people/clippysounds/sounds/322603/",
 
 	"30 24 276912__pauldihor__transform.ogg",
 	"0 24 transform, by PaulDihor (CC-0)",
-	"0 24 https://freesound.org/people/PaulDihor/sounds/276912/",
+	"0 24 freesound.org/people/PaulDihor/sounds/276912/",
 
 	"30 24 329359__bassoonrckr__reed-guillotine.ogg",
 	"0 24 Reed Guillotine.wav, by bassoonrckr (CC-0)",
-	"0 24 https://freesound.org/people/bassoonrckr/sounds/329359/",
+	"0 24 freesound.org/people/bassoonrckr/sounds/329359/",
 
 	"30 24 251431__onlytheghosts__fusion-gun-flash0-by-onlytheghosts.ogg",
 	"0 24 fusion-gun_flash0_by_OnlyTheGhosts.wav, by OnlyTheGhosts (CC-BY)",
-	"0 24 https://freesound.org/people/OnlyTheGhosts/sounds/251431/",
+	"0 24 freesound.org/people/OnlyTheGhosts/sounds/251431/",
 
 	"30 24 172591__timbre__zapitydooda.ogg",
 	"0 24 d1clsstf.wav, by wildweasel (CC-BY)",
-	"0 24 https://freesound.org/people/wildweasel/sounds/39030/",
+	"0 24 freesound.org/people/wildweasel/sounds/39030/",
 
 	"30 24 39030__wildweasel__d1clsstf.ogg",
 	"0 24 push_button_switch_07.wav, by joedeshon (CC-BY)",
-	"0 24 https://freesound.org/people/joedeshon/sounds/139061/",
+	"0 24 freesound.org/people/joedeshon/sounds/139061/",
 
 	"30 24 278142__ricemaster__effect-notify.ogg",
 	"0 24 effect_notify.wav, by ricemaster (CC-0)",
-	"0 24 https://freesound.org/people/ricemaster/sounds/278142/",
+	"0 24 freesound.org/people/ricemaster/sounds/278142/",
 
 	"30 24 254174__kwahmah-02__s.ogg",
 	"0 24 s.wav, by kwahmah_02 (CC-0)",
-	"0 24 https://freesound.org/people/kwahmah_02/sounds/254174/",
+	"0 24 freesound.org/people/kwahmah_02/sounds/254174/",
 
 	"30 24 172870__escortmarius__carbidexplosion.ogg",
 	"0 24 carbidexplosion.wav, by escortmarius (CC-BY)",
-	"0 24 https://freesound.org/people/escortmarius/sounds/172870/",
+	"0 24 freesound.org/people/escortmarius/sounds/172870/",
 
 	"30 24 320181__dland__hint.ogg",
 	"0 24 hint.wav, by dland (CC-0)",
-	"0 24 https://freesound.org/people/dland/sounds/320181/",
+	"0 24 freesound.org/people/dland/sounds/320181/",
 	
 	"30 24 62491__benboncan__dslr-click.ogg",
 	"0 24 DSLR Click.wav, by Benboncan (CC-BY)",
-	"0 24 https://freesound.org/people/Benboncan/sounds/62491/",
+	"0 24 freesound.org/people/Benboncan/sounds/62491/",
 
 	"30 24 154934__klawykogut__empty-gun-shot.ogg",
 	"0 24 Empty Gun Shot, by KlawyKogut (CC-0)",
-	"0 24 https://freesound.org/people/KlawyKogut/sounds/154934/",
+	"0 24 freesound.org/people/KlawyKogut/sounds/154934/",
 
 	"30 24 107786__leviclaassen__beepbeep.ogg",
 	"0 24 beepbeep.wav, by leviclaassen (CC-BY)",
-	"0 24 https://freesound.org/people/leviclaassen/sounds/107786/",
+	"0 24 freesound.org/people/leviclaassen/sounds/107786/",
 
 	"30 24 33785__jobro__4-beep-b.ogg",
 	"0 24 4 beep b.wav, by jobro (CC-BY)",
-	"0 24 https://freesound.org/people/jobro/sounds/33785/",
+	"0 24 freesound.org/people/jobro/sounds/33785/",
+	
+	"30 24 255729__manholo__inception-stab-l.ogg",
+	"0 24 inception-stab-l.wav, by manholo (CC-BY)",
+	"0 24 freesound.org/people/manholo/sounds/255729/",
+
+	"30 24 000000_tow-rope-attach.ogg - creating by combining:",
+	"0 24 01857 close noise fastener.wav",
+	"0 24 by Robinhood76 (CC-BY-NC)",
+	"0 24 freesound.org/people/Robinhood76/sounds/98880/",
+	"0 24 Clean Revolver Reload",
+	"0 24 by Dredile (CC-0)",
+	"0 24 freesound.org/people/Dredile/sounds/177863/",
+
+	"30 24 246420__oceanictrancer__game-sound-effect-menu.ogg",
+	"0 24 game sound effect -> menu, by oceanictrancer (CC-0)",
+	"0 24 freesound.org/people/oceanictrancer/sounds/246420/",
+
+	"30 24 146311__jgeralyn__shortailenliketone2-lower.ogg",
+	"0 24 shortailenliketone2_lower.aif, by jgeralyn (CC-BY)",
+	"0 24 freesound.org/people/jgeralyn/sounds/146311/",
 	
 	"75 30 MUSIC",
 	
 	"30 24 Battle in the winter.mp3",
 	"0 24 Johan Brodd (CC-BY)",
-	"0 24 http://opengameart.org/content/battle-in-the-winter",
+	"0 24 opengameart.org/content/battle-in-the-winter",
 	
 	"30 24 battleThemeA.mp3",
 	"0 24 cynicmusic.com | pixelsphere.org (CC-0)",
-	"0 24 http://opengameart.org/content/battle-theme-a",
+	"0 24 opengameart.org/content/battle-theme-a",
 	
 	"30 24 determination.mp3",
 	"0 24 artisticdude (CC-0)",
-	"0 24 http://opengameart.org/content/determination",
+	"0 24 opengameart.org/content/determination",
 	
 	"30 24 heroism.ogg",
 	"0 24 Edward J. Blakeley (GPL 3.0)",
-	"0 24 http://opengameart.org/content/heroism",
+	"0 24 opengameart.org/content/heroism",
 	
 	"30 24 InnerCore_Low.ogg",
 	"0 24 Gundatsch (CC-BY)",
-	"0 24 https://soundcloud.com/gundatsch",
+	"0 24 soundcloud.com/gundatsch",
 	
 	"30 24 Pressure.ogg",
 	"0 24 yd (CC-0)",
-	"0 24 http://opengameart.org/content/pressure",
+	"0 24 opengameart.org/content/pressure",
 	
 	"30 24 Rise of Spirit.ogg",
 	"0 24 Alexandr Zhelanov (CC-0)",
-	"0 24 https://soundcloud.com/alexandr-zhelanov",
+	"0 24 soundcloud.com/alexandr-zhelanov",
 	
 	"30 24 Showdown.mp3",
 	"0 24 el-corleo (CC-BY)",
-	"0 24 http://opengameart.org/content/showdown",
+	"0 24 opengameart.org/content/showdown",
 	
 	"30 24 track-3.mp3",
 	"0 24 Alexandr Zhelanov (CC-BY)",
-	"0 24 https://soundcloud.com/alexandr-zhelanov",
+	"0 24 soundcloud.com/alexandr-zhelanov",
 	
 	"30 24 track-4.mp3",
 	"0 24 Alexandr Zhelanov (CC-BY)",
-	"0 24 https://soundcloud.com/alexandr-zhelanov",
+	"0 24 soundcloud.com/alexandr-zhelanov",
 	
 	"30 24 DST-RailJet-LongSeamlessLoop.ogg",
 	"0 24 Deceased Superior Technician (CC-BY)",
-	"0 24 http://opengameart.org/content/railjet-long-seamless-loop",
+	"0 24 opengameart.org/content/railjet-long-seamless-loop",
 	
 	"30 24 covert_operations.mp3",
 	"0 24 artisticdude (CC-0)",
-	"0 24 http://opengameart.org/content/covert-operations",
+	"0 24 opengameart.org/content/covert-operations",
 	
 	"30 24 Tactical Pursuit.mp3",
 	"0 24 Matthew Pablo (CC-BY)",
-	"0 24 http://opengameart.org/content/tactical-pursuit",
+	"0 24 opengameart.org/content/tactical-pursuit",
 	
 	"30 24 Her Violet Eyes.mp3",
 	"0 24 tgfcoder (CC-BY)",
-	"0 24 https://twitter.com/tgfcoder",
+	"0 24 twitter.com/tgfcoder",
 	
 	"75 30 SPECIAL THANKS",
 	"0 24 akien-mga, bentley, Bertram25, ChliHug, Imerion, nnesse, ptitSeb, Szunti",

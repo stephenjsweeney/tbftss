@@ -28,6 +28,7 @@ extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void runScriptFunction(char *format, ...);
 extern char *getTranslatedString(char *string);
+extern void playBattleSound(int id, int x, int y);
 
 extern App app;
 extern Battle battle;

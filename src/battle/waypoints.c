@@ -81,6 +81,8 @@ static void think(void)
 			}
 			
 			battle.stats[STAT_WAYPOINTS_VISITED]++;
+			
+			playSound(SND_WAYPOINT);
 		}
 	}
 }

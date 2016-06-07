@@ -52,6 +52,8 @@ void attachRope(void)
 						battle.stats[STAT_NUM_TOWED]++;
 						addHudMessage(colors.white, _("Tow rope attached"));
 					}
+					
+					playBattleSound(SND_TOW_ROPE, e->x, e->y);
 				}
 			}
 		}

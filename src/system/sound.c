@@ -124,8 +124,12 @@ static void loadSounds(void)
 	sounds[SND_CAP_DEATH] = loadSound("sound/000000_large_explosion.ogg");
 	sounds[SND_ZOOM] = loadSound("sound/62491__benboncan__dslr-click.ogg");
 	sounds[SND_NO_MISSILES] = loadSound("sound/154934__klawykogut__empty-gun-shot.ogg");
-	sounds[SND_NEW_OBJECTIVE] = loadSound("sound/107786__leviclaassen__beepbeep.ogg");
 	sounds[SND_RECHARGED] = loadSound("sound/33785__jobro__4-beep-b.ogg");
+	sounds[SND_TOW_ROPE] = loadSound("sound/000000_tow-rope-attach.ogg");
+	sounds[SND_NEW_OBJECTIVE] = loadSound("sound/246420__oceanictrancer__game-sound-effect-menu.ogg");
+	sounds[SND_OBJECTIVE_COMPLETE] = loadSound("sound/107786__leviclaassen__beepbeep.ogg");
+	sounds[SND_OBJECTIVE_FAILED] = loadSound("sound/255729__manholo__inception-stab-l.ogg");
+	sounds[SND_WAYPOINT] = loadSound("sound/146311__jgeralyn__shortailenliketone2-lower.ogg");
 
 	sounds[SND_GUI_CLICK] = loadSound("sound/257786__xtrgamr__mouse-click.ogg");
 	sounds[SND_GUI_SELECT] = loadSound("sound/321104__nsstudios__blip2.ogg");

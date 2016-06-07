@@ -54,6 +54,8 @@ void doObjectives(void)
 				o->status = OS_COMPLETE;
 				
 				runScriptFunction("OBJECTIVES_COMPLETE %d", battle.numObjectivesComplete + 1);
+				
+				playSound(SND_OBJECTIVE_COMPLETE);
 			}
 		}
 		else
@@ -140,6 +142,8 @@ void updateObjective(char *name, int type)
 						o->status = OS_COMPLETE;
 						
 						runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
+						
+						playSound(SND_OBJECTIVE_COMPLETE);
 					}
 				}
 			}
@@ -173,7 +177,10 @@ void adjustObjectiveTargetValue(char *name, int type, int amount)
 			if (o->currentValue >= o->targetValue && o->targetValue > 0)
 			{
 				o->status = OS_COMPLETE;
+				
 				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
+				
+				playSound(SND_OBJECTIVE_COMPLETE);
 			}
 		}
 	}
@@ -195,6 +202,7 @@ void updateCondition(char *name, int type)
 				{
 					o->status = OS_FAILED;
 					addHudMessage(colors.red, _("%s - Objective Failed!"), o->description);
+					playSound(SND_OBJECTIVE_FAILED);
 				}
 				else if (!o->hideNumbers)
 				{

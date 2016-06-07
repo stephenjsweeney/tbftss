@@ -27,6 +27,7 @@ extern Entity *spawnEntity(void);
 extern void updateObjective(char *name, int type);
 extern void runScriptFunction(char *format, ...);
 extern char *getTranslatedString(char *string);
+extern void playSound(int id);
 
 extern Battle battle;
 extern Colors colors;

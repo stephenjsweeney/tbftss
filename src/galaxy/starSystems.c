@@ -133,12 +133,13 @@ void updateStarSystemMissions(void)
 {
 	StarSystem *starSystem;
 	Mission *mission, *prev;
+	int numOptional, completedOptional;
 
 	game.completedMissions = game.totalMissions = game.availableMissions = 0;
 
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		starSystem->completedMissions = starSystem->availableMissions = starSystem->totalMissions = 0;
+		numOptional = completedOptional = starSystem->completedMissions = starSystem->availableMissions = starSystem->totalMissions = 0;
 
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
@@ -148,12 +149,22 @@ void updateStarSystemMissions(void)
 			{
 				starSystem->completedMissions++;
 			}
+			
+			if (mission->isOptional && starSystem->type == SS_NORMAL)
+			{
+				numOptional++;
+				
+				if (mission->completed)
+				{
+					completedOptional++;
+				}
+			}
 		}
 
 		if (starSystem->type == SS_NORMAL)
 		{
-			game.totalMissions += starSystem->totalMissions;
-			game.completedMissions += starSystem->completedMissions;
+			game.totalMissions += (starSystem->totalMissions - numOptional);
+			game.completedMissions += (starSystem->completedMissions - completedOptional);
 		}
 	}
 
@@ -168,6 +179,8 @@ void updateStarSystemMissions(void)
 			if (mission->available)
 			{
 				starSystem->availableMissions++;
+				
+				starSystem->activeMission = mission;
 			}
 
 			prev = mission;

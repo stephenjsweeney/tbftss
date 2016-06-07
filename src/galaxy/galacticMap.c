@@ -301,7 +301,16 @@ static void addPulses(void)
 			switch (starSystem->type)
 			{
 				case SS_NORMAL:
-					pulse->r = 255;
+					if (!starSystem->activeMission->isOptional)
+					{
+						pulse->r = 255;
+					}
+					else
+					{
+						pulse->r = 128;
+						pulse->g = 128;
+						pulse->b = 255;
+					}
 					break;
 					
 				case SS_SOL:
@@ -563,7 +572,7 @@ static void drawStarSystemDetail(void)
 	 * this only really counts for Alba, as it has 10 missions and there's only space for 9 to display.
 	 * We need to subtract 1 from the completed missions to get the correct number (mission at the bottom will be the one to select).
 	 */
-	start = MIN(selectedStarSystem->completedMissions - 1 - MAX_LISTED_MISSIONS, 0);
+	start = MAX(selectedStarSystem->availableMissions - MAX_LISTED_MISSIONS, 0);
 	
 	i = 0;
 
@@ -592,6 +601,8 @@ static void drawStarSystemDetail(void)
 
 			y += 50;
 		}
+		
+		i++;
 	}
 
 	if (game.currentMission->available)

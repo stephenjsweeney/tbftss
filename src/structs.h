@@ -304,6 +304,7 @@ struct StarSystem {
 	int availableMissions;
 	int fallsToPandorans;
 	int type;
+	Mission *activeMission;
 	Mission missionHead;
 	StarSystem *next;
 };

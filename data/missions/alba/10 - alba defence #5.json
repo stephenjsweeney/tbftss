@@ -1,6 +1,6 @@
 {
 	"name" : "Alba Defence #5",
-	"description" : "",
+	"description" : "The Pandorans are pressing home their advantage, and moving many of their capital ships up the field. They are presently closing in on Torelli, and will almost certainly begin a ground assault once within range. CSN Dragon is being used to clear their path to the planet, and while you're not going to engage the planet itself, we need to ensure the survival of our own capital ships as much as possible.",
 	"requires" : 66,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",

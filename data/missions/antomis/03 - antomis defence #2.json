@@ -1,6 +1,6 @@
 {
 	"name" : "Antomis Defence #2",
-	"description" : "",
+	"description" : "The Pandorans are continuing to knock on our door, and so we need to continue to engage them. Intercept and take down all enemy fighters. The Imperial frigate INF Sharpfinger is also in the sector, and needs to be destroyed.",
 	"background" : "gfx/backgrounds/background02.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",
 	"music" : "music/battle/Tactical Pursuit.mp3",

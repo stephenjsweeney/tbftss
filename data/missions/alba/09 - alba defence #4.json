@@ -1,6 +1,6 @@
 {
 	"name" : "Alba Defence #4",
-	"description" : "",
+	"description" : "With the Pandorans upping their aggression, we have taken steps to start evacuating the Alba system. Many civilians will be using craft incapable of forming of their jump points, and so will be reliant on the gates. We therefore must ensure that these gates remain functional, and that all Pandoran opposition is held back.",
 	"requires" : 63,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",
@@ -39,7 +39,7 @@
 	"player" : {
 		"type" : "ATAF",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Lt. Kelly Taylor",
+		"pilot" : "Lt. Cdr. Kelly Taylor",
 		"squadron" : "White Knights",
 		"x" : 5,
 		"y" : 25

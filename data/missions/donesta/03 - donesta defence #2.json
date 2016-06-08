@@ -1,6 +1,6 @@
 {
 	"name" : "Donesta Defence #2",
-	"description" : "",
+	"description" : "Pandoran forces are beginning their assault on Donesta. They must be engaged and driven out of the system. However, it appears that they are making use of UNF fighters, in an attempt to confuse our own pilots. Visual identification should therefore not be relied on to determine targets, as radar will help to separate their units from ours.",
 	"requires" : 44,
 	"background" : "gfx/backgrounds/background01.jpg",
 	"planet" : "gfx/planets/bluePlanet.png",

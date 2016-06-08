@@ -33,7 +33,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "Wingmate #?",
 			"types" : "TAF;Ray;Kingfisher;Rook",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,

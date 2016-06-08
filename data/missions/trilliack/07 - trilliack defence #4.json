@@ -1,6 +1,6 @@
 {
 	"name" : "Trilliack Defence #4",
-	"description" : "",
+	"description" : "The Pandorans are already deploying ground assault teams to Flint. The attack is in its early stages, with more troop carrier incoming. The enemy are meeting our defence lines aggressively, to clear a path for their landers. We need to hit back hard, and prevent Flint from being taken. Objective is simple: destroy all enemy forces.",
 	"requires" : 65,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/flint.png",

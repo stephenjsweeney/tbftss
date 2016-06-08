@@ -1,6 +1,6 @@
 {
 	"name" : "Trilliack Defence #3",
-	"description" : "",
+	"description" : "Our forces have taken heavy losses of the last few engagements, but there is still much to do. Three Pandoran corvettes have been tagged for destruction. We need to ensure that they are taken down, while we minimise losses of our own. We cannot afford to lose all of our own capital ships. Work fast, and assist Zenobia, Lady Jane Grey, and Tangka as needed.",
 	"requires" : 63,
 	"background" : "gfx/backgrounds/background05.jpg",
 	"planet" : "gfx/planets/flint.png",

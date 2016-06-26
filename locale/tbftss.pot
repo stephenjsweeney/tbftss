@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 09:55:54+0100\n"
+"POT-Creation-Date: 2016-06-07 09:34:39+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -20,6 +20,12 @@ msgid "%s is retreating!"
 msgstr ""
 
 msgid "%s has surrendered"
+msgstr ""
+
+msgid "Are you sure you want to restart? You will lose your current progress."
+msgstr ""
+
+msgid "Are you sure you want to quit? You will lose your current progress."
 msgstr ""
 
 msgid "WARNING: INCOMING MISSILE!"
@@ -148,6 +154,9 @@ msgstr ""
 msgid "Target not in range"
 msgstr ""
 
+msgid "Out of missiles"
+msgstr ""
+
 msgid "Caution: Leaving battle area - turn around."
 msgstr ""
 
@@ -274,7 +283,7 @@ msgstr ""
 msgid "Missions Started"
 msgstr ""
 
-msgid "Missons Completed"
+msgid "Missions Completed"
 msgstr ""
 
 msgid "Optional Missions Completed"
@@ -502,6 +511,9 @@ msgstr ""
 msgid "Campaign"
 msgstr ""
 
+msgid "Credits"
+msgstr ""
+
 msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
 msgstr ""
 
@@ -538,7 +550,7 @@ msgstr ""
 msgid "Believe me, that's a good thing. Right, let's head home and report in."
 msgstr ""
 
-msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presense is reducing the amount of illegal activity in this sector, with reported incidents down 80%. Still, we cannot afford to become complacent, and must continue with our sweeps."
+msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presence is reducing the amount of illegal activity in this sector, with reported incidents down 80%. Still, we cannot afford to become complacent, and must continue with our sweeps."
 msgstr ""
 
 msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
@@ -691,6 +703,9 @@ msgstr ""
 msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
 msgstr ""
 
+msgid "Tzac forces are continuing to make aggressive moves against Alba. Its forces need to be driven back, and out of the system entirely. Naval power is starting to come under strain, and these continued assaults could leave us vulnerable to a Pandoran attack."
+msgstr ""
+
 msgid "Break and attack, lads. Let's send these guys back home."
 msgstr ""
 
@@ -733,6 +748,9 @@ msgstr ""
 msgid "We're needed elsewhere. We'll see you soon."
 msgstr ""
 
+msgid "While Trilliack is happy to arrest the traitors it brings in, Alba wishes to dole out swift punishment for their actions. Eliminate all enemy targets, with the exception of any fighters that surrender. Only those are to be brought in."
+msgstr ""
+
 msgid "Our orders are to destroy all opposing fighters, except any who surrender. They're to be magged, instead."
 msgstr ""
 
@@ -761,6 +779,9 @@ msgid "Think they'll get a long sentence?"
 msgstr ""
 
 msgid "Depends on how many capable pilots we can afford to keep shoving behind bars ..."
+msgstr ""
+
+msgid "Roman Burgess, one of the masterminds behind the illicit arms and information smuggling to Tzac, has been located. Senior command want this man alive, so that he can be interrogated and lead us to the others. He must not under any circumstances be allowed to be killed."
 msgstr ""
 
 msgid "We need Burgess alive. The others should be destroyed unless they surrender."
@@ -796,6 +817,9 @@ msgstr ""
 msgid "We'll get through this. Neither of us are getting flagged before the end of this thing."
 msgstr ""
 
+msgid "The Pandorans have begun moving forces into the system, and formed a number of staging grounds. Some of these grounds consist of Tzac fighters that have been acquired from Crystabel's forces. As of now, they are non-operational, but are being defended by some mobile plasma turrets. The objective is simple: destroy those fighters."
+msgstr ""
+
 msgid "Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette."
 msgstr ""
 
@@ -821,6 +845,9 @@ msgid "Rice, we've got a big problem: a very large number of Pandoran ships just
 msgstr ""
 
 msgid "Never enough, is it?"
+msgstr ""
+
+msgid "With the Pandorans upping their aggression, we have taken steps to start evacuating the Alba system. Many civilians will be using craft incapable of forming of their jump points, and so will be reliant on the gates. We therefore must ensure that these gates remain functional, and that all Pandoran opposition is held back."
 msgstr ""
 
 msgid "Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters."
@@ -863,6 +890,9 @@ msgid "Good work. Continue to guard the gate, and eliminate any incoming enemy t
 msgstr ""
 
 msgid "Got it."
+msgstr ""
+
+msgid "The Pandorans are pressing home their advantage, and moving many of their capital ships up the field. They are presently closing in on Torelli, and will almost certainly begin a ground assault once within range. CSN Dragon is being used to clear their path to the planet, and while you're not going to engage the planet itself, we need to ensure the survival of our own capital ships as much as possible."
 msgstr ""
 
 msgid "White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!"
@@ -991,6 +1021,9 @@ msgstr ""
 msgid "Tugs are on the way. Should be here in the next few minutes"
 msgstr ""
 
+msgid "The Pandorans are continuing to knock on our door, and so we need to continue to engage them. Intercept and take down all enemy fighters. The Imperial frigate INF Sharpfinger is also in the sector, and needs to be destroyed."
+msgstr ""
+
 msgid "People, divide yourselves between the fighters and the Sharpfinger."
 msgstr ""
 
@@ -1087,6 +1120,9 @@ msgstr ""
 msgid "Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing."
 msgstr ""
 
+msgid "A large Tzac force has gathered in Aster. The White Knights are being sent in alone to deal with it. We need to continue to show that we are capable of winning these engagements with minimal losses to the enemy force. Mag and disable all Tzac craft in the area, and do not allow any to be destroyed, even by stray fire."
+msgstr ""
+
 msgid "Remember, guys: mags only against the fighters. We're not here to take any more lives."
 msgstr ""
 
@@ -1144,7 +1180,7 @@ msgstr ""
 msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down two of their corvettes: INF Dirk and INF Blackjack. Ensure the Khepri-class bombers can get in close enough to delivery a strike."
 msgstr ""
 
-msgid "Commander, enemy reinforcements are enroute. Looks like more INF fighters."
+msgid "Commander, enemy reinforcements are en route. Looks like more INF fighters."
 msgstr ""
 
 msgid "Dammit! Let's make sure we down the Dirk before any more turn up."
@@ -1162,7 +1198,7 @@ msgstr ""
 msgid "Hell. Okay, we'll return momentarily. Carlyle out."
 msgstr ""
 
-msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra is moving to intecept more enemy corvettes. Your orders are to assist it in achieving its goals."
+msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra is moving to intercept more enemy corvettes. Your orders are to assist it in achieving its goals."
 msgstr ""
 
 msgid "INF Khopesh is down."
@@ -1231,7 +1267,7 @@ msgstr ""
 msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
 msgstr ""
 
-msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive infact on ours. The frigate's support groups will need to be destroyed first."
+msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive impact on ours. The frigate's support groups will need to be destroyed first."
 msgstr ""
 
 msgid "First squadron sighted. Moving to intercept."
@@ -1276,13 +1312,13 @@ msgstr ""
 msgid "What about Alysha?"
 msgstr ""
 
-msgid "The target is no longer a priority. Clarke's frontline is collapsing. They need reinforcement, ASAP."
+msgid "The target is no longer a priority. Clarke's front line is collapsing. They need reinforcement, ASAP."
 msgstr ""
 
 msgid "Understood. Heading there now."
 msgstr ""
 
-msgid "The enemy are beginning to overrun our frontline. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen."
+msgid "The enemy are beginning to overrun our front line. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen."
 msgstr ""
 
 msgid "The Twilight Lancers are on their way."
@@ -1309,7 +1345,7 @@ msgstr ""
 msgid "Too early to speculate. Just concentrate on taking down their fighters."
 msgstr ""
 
-msgid "I've just been tailed by something I've never seen before! Small, highly maneuverable, rapid fire particle cannon."
+msgid "I've just been tailed by something I've never seen before! Small, highly manoeuvrable, rapid fire particle cannon."
 msgstr ""
 
 msgid "Swarmers! The enemy have deployed them here, too!"
@@ -1678,10 +1714,13 @@ msgstr ""
 msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
 msgstr ""
 
+msgid "You've done well so far, Hicks. We appreciate that things have not been easy, but you're in a better position than many of us had hoped for. As soon as you're able, begin your search for the admiral. Once located, you will need to open a dialog with him. Whatever you do, do not kill him."
+msgstr ""
+
 msgid "So, this is Krasst. Never thought I'd ever find myself here."
 msgstr ""
 
-msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely amoung them, and no raise suspicion."
+msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and no raise suspicion."
 msgstr ""
 
 msgid "Time to start my search for the admiral."
@@ -1724,6 +1763,9 @@ msgid "They've shutdown the jumpgate ..."
 msgstr ""
 
 msgid "Hell! My cover's been blown, they're on to me!"
+msgstr ""
+
+msgid "The bulk of the allied forces have fallen back to Lenon, to prepare for whatever is to come next. For now, we are standing down and awaiting new instructions from senior command."
 msgstr ""
 
 msgid "So, Torelli is dust?"
@@ -1786,10 +1828,13 @@ msgstr ""
 msgid "You mean smash each world they come to? All the way to Earth?"
 msgstr ""
 
-msgid "Yes. Remember on Mythos? Parks said it was a very real possibilty. At this rate, we just might find ourselves having to fight a battle for the Solar System."
+msgid "Yes. Remember on Mythos? Parks said it was a very real possibility. At this rate, we just might find ourselves having to fight a battle for the Solar System."
 msgstr ""
 
 msgid "Don't worry, Simon. I doubt they'll ever get that far."
+msgstr ""
+
+msgid "The time has come to take the fight to Tzac. We will begin by striking their outer defences, and containing their forces to the system. The Iron Wolves will lead an attack against one of the outer jumpgates. It will likely be heavily defended, and heavy-class Tzac Blizzards could well arrive in the area as soon as you begin your assault."
 msgstr ""
 
 msgid "Our goal is the jumpgate. Expect a lot of resistance."
@@ -1834,6 +1879,9 @@ msgstr ""
 msgid "We'll make sure their deaths weren't in vain."
 msgstr ""
 
+msgid "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces."
+msgstr ""
+
 msgid "HMS 781-110 sighted. All fighters free to engage at will. Follow my lead."
 msgstr ""
 
@@ -1870,6 +1918,9 @@ msgstr ""
 msgid "Sure was. We'd better get to debriefing."
 msgstr ""
 
+msgid "There is growing public unrest over the on-going war, with a number of high-profile voices calling for an immediate end to the attacks on Tzac. While we cannot abandon the campaign while Tzac remains a threat, we can reduce the loss of life by disabling the enemy craft, instead of destroying them. That should placate the anti-war campaigners for a time."
+msgstr ""
+
 msgid "We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?"
 msgstr ""
 
@@ -1883,6 +1934,9 @@ msgid "Tzac opposition has been destroyed."
 msgstr ""
 
 msgid "Great work, everyone. That should give the PR guys something to brag about."
+msgstr ""
+
+msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualities to a minimum."
 msgstr ""
 
 msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
@@ -2194,10 +2248,19 @@ msgstr ""
 msgid "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what."
 msgstr ""
 
-msgid "(I'm in very deep this time.)"
+msgid "(I'm in deep this time. Just have to remain calm, focus, and do as they do.)"
+msgstr ""
+
+msgid "(Can't talk to them, can't understand their language, so I'll have to go with my instincts.)"
+msgstr ""
+
+msgid "(Ah, hell! We're hunting civilians. I ... I can't refuse orders ...)"
 msgstr ""
 
 msgid "(Better get back to the wing commander, before they think I'm slacking)"
+msgstr ""
+
+msgid "(They're moving to the jumpgate. I should join them, and stick close.)"
 msgstr ""
 
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
@@ -2254,7 +2317,7 @@ msgstr ""
 msgid "Final course. Use all your training to defeat the three opponents."
 msgstr ""
 
-msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presense at Temper."
+msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
 msgstr ""
 
 msgid "Multiple incoming enemy fighters."
@@ -2263,7 +2326,7 @@ msgstr ""
 msgid "Follow my lead. Break and attack at will."
 msgstr ""
 
-msgid "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevelant, and there are more shielded and plasma-equipped fighters to be found in their ranks."
+msgid "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevalent, and there are more shielded and plasma-equipped fighters to be found in their ranks."
 msgstr ""
 
 msgid "As before, everyone. Let's take it to 'em."
@@ -2323,6 +2386,18 @@ msgstr ""
 msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
 msgstr ""
 
+msgid "Your instructions are simple, Hicks. As before, follow the wing leader's instructions, and do as the others do. Stay close to the leader when not otherwise engaged, and do not do anything to raise your suspicion. Act quickly to assure the Pandorans you're with them."
+msgstr ""
+
+msgid "(More hunting. I hope I'm not going to be forced to kill innocent people again.)"
+msgstr ""
+
+msgid "(Mercenaries. Better than civilians, but still abhorrent. Run, you fools! Run!)"
+msgstr ""
+
+msgid "(Looks like that's it. We're heading to the jumpgate.)"
+msgstr ""
+
 msgid "Our goal is simple, lads: destroy all enemy targets."
 msgstr ""
 
@@ -2359,6 +2434,9 @@ msgstr ""
 msgid "Stick round, Commander. We might need you later."
 msgstr ""
 
+msgid "A number of those responsible for helping supply illegal arms and information to Tzac have been identified. They are to be tracked down, and brought in for questioning. At this point, we want to avoid killing them, as they could prove vital to bringing in the ringleaders."
+msgstr ""
+
 msgid "D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now."
 msgstr ""
 
@@ -2377,6 +2455,9 @@ msgstr ""
 msgid "Definite possibility. We'll bring these guys in and see what we can find out."
 msgstr ""
 
+msgid "It seems that some of the traitors that were brought in earlier were acting as a distraction for a number of others, who have now commandeered CSN Drachma. The corvette must be taken back, without destroy it. All other targets are valid, unless surrendering."
+msgstr ""
+
 msgid "Looks like we've got a welcoming committee heading our way."
 msgstr ""
 
@@ -2390,6 +2471,9 @@ msgid "Control, traitors have been dealt with, and the Drachma has been disabled
 msgstr ""
 
 msgid "Acknowledged. Shuttles are on their way."
+msgstr ""
+
+msgid "There are now only two figureheads in the traitor group remaining: Isabel Nelson, and one other whose identity is currently being confirmed. Isabel Nelson has been located in the vicinity. As before, disable her fighter so she can be brought in. Disable any other surrendering targets."
 msgstr ""
 
 msgid "Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be."
@@ -2449,7 +2533,7 @@ msgstr ""
 msgid "More enemy fighters incoming."
 msgstr ""
 
-msgid "We have re-inforcements on the way, to help even the odds."
+msgid "We have reinforcements on the way, to help even the odds."
 msgstr ""
 
 msgid "One down, two to go."
@@ -2479,7 +2563,7 @@ msgstr ""
 msgid "There were too many of them ..."
 msgstr ""
 
-msgid "The Pandorans are overunning our frontline! We need to drive them back, now!"
+msgid "The Pandorans are overunning our front line! We need to drive them back, now!"
 msgstr ""
 
 msgid "We're losing fighters, rapidly. We need to focus our efforts on dividing the enemy up and taking them down together."
@@ -2509,6 +2593,9 @@ msgstr ""
 msgid "Dodds, this is Commodore Park. I'm giving you a direct order. This isn't a battle we can win, and I'm not having you throw away your life or lose that starfighter. Get out, now. Final warning, mister."
 msgstr ""
 
+msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both metally and physically."
+msgstr ""
+
 msgid "(This ... how can I do this? These are my friends.)"
 msgstr ""
 
@@ -2518,7 +2605,10 @@ msgstr ""
 msgid "(Sorry, everyone.)"
 msgstr ""
 
-msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilation craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
+msgid "(They're going after the civilians again. I hope this ends soon. I'm not sure how much more this I can take.)"
+msgstr ""
+
+msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilian craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
 msgstr ""
 
 msgid "ABCs, this is Control. Round up those civilians and escort them to the jumpgate as quick as you can."
@@ -2695,6 +2785,24 @@ msgstr ""
 msgid "Minefield Race"
 msgstr ""
 
+msgid "Surrender! #2"
+msgstr ""
+
+msgid "Piracy #2"
+msgstr ""
+
+msgid "Shoot 'Em Up"
+msgstr ""
+
+msgid "Initiation #2"
+msgstr ""
+
+msgid "Feast"
+msgstr ""
+
+msgid "Bomber vs Bomber"
+msgstr ""
+
 msgid "One of the seven"
 msgstr ""
 
@@ -2806,7 +2914,7 @@ msgstr ""
 msgid "Room for one more on top"
 msgstr ""
 
-msgid "Complete a mission using a Shuttle"
+msgid "Complete a challenge using a Shuttle"
 msgstr ""
 
 msgid "Taking one for the team"
@@ -2827,7 +2935,7 @@ msgstr ""
 msgid "Complete 25%% of all challenges"
 msgstr ""
 
-msgid "Obssessed"
+msgid "Obsessed"
 msgstr ""
 
 msgid "Complete 50%% of all challenges"
@@ -2884,7 +2992,7 @@ msgstr ""
 msgid "Hoarder"
 msgstr ""
 
-msgid "Collect 100 items"
+msgid "Collect 250 items"
 msgstr ""
 
 msgid "Missed, you f**kers!"
@@ -2923,7 +3031,7 @@ msgstr ""
 msgid "Complete an epic battle without being killed (No ATAF)"
 msgstr ""
 
-msgid "Almost indestructable. Almost"
+msgid "Almost indestructible. Almost"
 msgstr ""
 
 msgid "Be destroyed while piloting an ATAF"

@@ -112,13 +112,13 @@ char *timeToString(long millis, int showHours)
 	int hours, minutes, seconds;
 
 	seconds = millis / FPS;
-	minutes = (seconds / 60) % 60;
-	hours = seconds / (60 * 60);
+	minutes = (seconds / FPS) % 60;
+	hours = seconds / (FPS * FPS);
 	seconds %= 60;
 
 	if (showHours)
 	{
-		sprintf(TIME, "%dh:%02dm:%02ds", hours, minutes, seconds);
+		sprintf(TIME, "%dh %02dm %02ds", hours, minutes, seconds);
 	}
 	else
 	{

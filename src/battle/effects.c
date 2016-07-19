@@ -179,6 +179,37 @@ void drawShieldHitEffect(Entity *e)
 	blit(shieldHitTexture, e->x - battle.camera.x, e->y - battle.camera.y, 1);
 }
 
+void addBulletHitEffect(int x, int y, int r, int g, int b)
+{
+	Effect *e;
+	int i;
+	
+	for (i = 0 ; i < 4 ; i++)
+	{
+		e = malloc(sizeof(Effect));
+		memset(e, 0, sizeof(Effect));
+		battle.effectTail->next = e;
+		battle.effectTail = e;
+
+		e->type = EFFECT_TEXTURE;
+		e->texture = explosionTexture;
+		e->size = 16;
+		e->x = x;
+		e->y = y;
+		
+		e->dx = (rand() % 25) - (rand() % 25);
+		e->dx *= 0.01;
+		e->dy = (rand() % 25) - (rand() % 25);
+		e->dy *= 0.01;
+
+		e->r = r;
+		e->g = g;
+		e->b = b;
+		e->a = 64;
+		e->health = e->a;
+	}
+}
+
 void addSmallFighterExplosion(void)
 {
 	Effect *e;

@@ -49,6 +49,7 @@ extern void *resize(void *array, int oldSize, int newSize);
 extern void awardTrophy(char *id);
 extern int isOnBattleScreen(int x, int y, int w, int h);
 extern int getDistance(int x1, int y1, int x2, int y2);
+extern void addBulletHitEffect(int x, int y, int r, int g, int b);
 
 extern App app;
 extern Battle battle;

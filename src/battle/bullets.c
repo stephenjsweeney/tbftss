@@ -24,6 +24,7 @@ static void huntTarget(Bullet *b);
 static void checkCollisions(Bullet *b);
 static void resizeDrawList(void);
 static void selectNewTarget(Bullet *b);
+static void doBulletHitEffect(Bullet *b);
 
 static Bullet bulletDef[BT_MAX];
 static Bullet **bulletsToDraw;
@@ -193,6 +194,8 @@ static void checkCollisions(Bullet *b)
 				}
 				
 				damageFighter(e, b->damage, b->flags);
+				
+				doBulletHitEffect(b);
 
 				b->life = 0;
 				b->damage = 0;
@@ -250,6 +253,32 @@ static void checkCollisions(Bullet *b)
 				return;
 			}
 		}
+	}
+}
+
+void doBulletHitEffect(Bullet *b)
+{
+	switch (b->type)
+	{
+		case BT_PARTICLE:
+			addBulletHitEffect(b->x, b->y, 255, 0, 255);
+			break;
+			
+		case BT_PLASMA:
+			addBulletHitEffect(b->x, b->y, 0, 255, 0);
+			break;
+			
+		case BT_LASER:
+			addBulletHitEffect(b->x, b->y, 255, 0, 0);
+			break;
+			
+		case BT_MAG:
+			addBulletHitEffect(b->x, b->y, 196, 196, 255);
+			break;
+			
+		default:
+			addBulletHitEffect(b->x, b->y, 255, 255, 255);
+			break;
 	}
 }
 

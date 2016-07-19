@@ -31,6 +31,8 @@ static void controls(void);
 
 static void (*returnFromOptions)(void);
 static int show;
+static char *OPTIONS_TEXT;
+static char *RESOLUTION_TEXT;
 
 void initOptions(void (*rtn)(void))
 {
@@ -56,10 +58,14 @@ void initOptions(void (*rtn)(void))
 	setWidgetOption("musicVolume", "options", optionStr);
 
 	setWidgetOption("fullscreen", "options", app.fullscreen ? "On" : "Off");
+	
+	OPTIONS_TEXT = _("Options");
+	RESOLUTION_TEXT = _("Note: you must restart the game for window size and fullscreen options to take effect.");
 
 	#if FIXED_RESOLUTION
 	getWidget("windowSize", "options")->enabled = 0;
 	getWidget("fullscreen", "options")->enabled = 0;
+	RESOLUTION_TEXT = _("Note: this device does not support changing the screen resolution.");
 	#endif
 
 	returnFromOptions = rtn;
@@ -100,7 +106,7 @@ static void drawMain(void)
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 
-	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, _("Options"));
+	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, OPTIONS_TEXT);
 
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w, 120);
@@ -108,11 +114,7 @@ static void drawMain(void)
 	drawWidgets("options");
 
 	limitTextWidth(r.w - 100);
-	#if !FIXED_RESOLUTION
-	drawText(SCREEN_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, _("Note: you must restart the game for window size and fullscreen options to take effect."));
-	#else
-	drawText(SCREEN_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, _("Note: this device does not support changing the screen resolution."));
-	#endif
+	drawText(SCREEN_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, RESOLUTION_TEXT);
 	limitTextWidth(0);
 }
 

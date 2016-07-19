@@ -49,6 +49,17 @@ static SDL_Texture *clock;
 static SDL_Texture *objectives;
 static int numMessages;
 static const char *gunName[BT_MAX];
+static char *MISSILES_TEXT;
+static char *TARGET_TEXT;
+static char *NONE_TEXT;
+static char *COMBINED_TEXT;
+static char *SYSTEM_POWER_TEXT;
+static char *LEADER_DIST_TEXT;
+static char *TARGET_DIST_TEXT;
+static char *OBJECTIVE_DIST_TEXT;
+static char *JUMPGATE_DIST_TEXT;
+static char *NEW_FIGHTER_TEXT;
+static char *SUSPICION_TEXT;
 
 void initHud(void)
 {
@@ -62,6 +73,18 @@ void initHud(void)
 	gunName[BT_MAG] = _("Mag Cannon");
 	gunName[BT_ROCKET] = _("Rockets");
 	gunName[BT_MISSILE] = _("Missiles");
+	
+	MISSILES_TEXT = _("Missiles (%d)");
+	TARGET_TEXT = _("Target: %.2fkm");
+	NONE_TEXT = _("(None)");
+	COMBINED_TEXT = _("(Combined Guns)");
+	SYSTEM_POWER_TEXT = _("System Power : %d%%");
+	LEADER_DIST_TEXT = _("%s (Leader)");
+	TARGET_DIST_TEXT = _("Target: %.2fkm");
+	OBJECTIVE_DIST_TEXT = _("Objective: %.2fkm");
+	JUMPGATE_DIST_TEXT = _("Jumpgate: %.2fkm");
+	NEW_FIGHTER_TEXT = _("SELECT NEW FIGHTER");
+	SUSPICION_TEXT = _("Suspicion");
 	
 	targetPointer = getTexture("gfx/hud/targetPointer.png");
 	targetCircle = getTexture("gfx/hud/targetCircle.png");
@@ -320,15 +343,15 @@ static void drawWeaponInfo(void)
 		}
 		else
 		{
-			drawText(30, 70, 14, TA_LEFT, colors.white, _("(None)"));
+			drawText(30, 70, 14, TA_LEFT, colors.white, NONE_TEXT);
 		}
 	}
 	else
 	{
-		drawText(30, 70, 14, TA_LEFT, colors.white, _("(Combined Guns)"));
+		drawText(30, 70, 14, TA_LEFT, colors.white, COMBINED_TEXT);
 	}
 	
-	drawText(280, 70, 14, TA_RIGHT, colors.white, _("Missiles (%d)"), player->missiles);
+	drawText(280, 70, 14, TA_RIGHT, colors.white, MISSILES_TEXT, player->missiles);
 }
 
 static void drawPlayerTargeter(void)
@@ -482,7 +505,7 @@ static void drawObjectives(void)
 		}
 		else if (player->flags & EF_MUST_DISABLE)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, _("System Power : %d%%"), player->systemPower);
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, SYSTEM_POWER_TEXT, player->systemPower);
 		}
 	}
 }
@@ -512,7 +535,7 @@ static void drawDistancesInfo(void)
 	{
 		if (player->target->flags & EF_AI_LEADER && player->target->speed > 0)
 		{
-			drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, _("%s (Leader)"), player->target->name);
+			drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, LEADER_DIST_TEXT, player->target->name);
 		}
 		else
 		{
@@ -523,7 +546,7 @@ static void drawDistancesInfo(void)
 		
 		distance = distanceToKM(player->x, player->y, player->target->x, player->target->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.red, _("Target: %.2fkm"), distance);
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.red, TARGET_DIST_TEXT, distance);
 		
 		y += 25;
 	}
@@ -532,7 +555,7 @@ static void drawDistancesInfo(void)
 	{
 		distance = distanceToKM(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.green, _("Objective: %.2fkm"), distance);
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.green, OBJECTIVE_DIST_TEXT, distance);
 		
 		y += 25;
 	}
@@ -541,7 +564,7 @@ static void drawDistancesInfo(void)
 	{
 		distance = distanceToKM(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, _("Jumpgate: %.2fkm"), distance);
+		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, JUMPGATE_DIST_TEXT, distance);
 		
 		y += 25;
 	}
@@ -580,7 +603,7 @@ static void drawPlayerSelect(void)
 	
 	blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
 	
-	drawText(SCREEN_WIDTH / 2, 500, 28, TA_CENTER, colors.white, _("SELECT NEW FIGHTER"));
+	drawText(SCREEN_WIDTH / 2, 500, 28, TA_CENTER, colors.white, NEW_FIGHTER_TEXT);
 	
 	if (player->health > 0)
 	{
@@ -597,7 +620,7 @@ static void drawSuspicionLevel(void)
 	
 	battle.suspicionLevel = MIN(battle.suspicionLevel, MAX_SUSPICION_LEVEL);
 	
-	drawText((SCREEN_WIDTH / 2) - 150, SCREEN_HEIGHT - 60, 18, TA_RIGHT, colors.white, _("Suspicion"));
+	drawText((SCREEN_WIDTH / 2) - 150, SCREEN_HEIGHT - 60, 18, TA_RIGHT, colors.white, SUSPICION_TEXT);
 	
 	r.x = (SCREEN_WIDTH / 2) - 140;
 	r.y = SCREEN_HEIGHT - 58;

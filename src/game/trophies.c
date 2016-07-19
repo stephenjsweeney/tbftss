@@ -41,6 +41,10 @@ static float sparkleAngle;
 static float maxPages;
 static Widget *prev;
 static Widget *next;
+static char *TROPHIES_TEXT;
+static char *AWARDED_TEXT;
+static char *PAGE_TEXT;
+static char *HIDDEN_TEXT;
 
 void initTrophies(void)
 {
@@ -58,6 +62,11 @@ void initTrophies(void)
 	alertRect.y = 10;
 	
 	sparkleAngle = 0;
+	
+	TROPHIES_TEXT = _("Trophies");
+	AWARDED_TEXT = _("Awarded : %d / %d");
+	PAGE_TEXT = _("Page : %d / %d");
+	HIDDEN_TEXT = _("[Hidden]");
 
 	resetAlert();
 }
@@ -139,9 +148,9 @@ void drawTrophies(void)
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 	
-	drawText(SCREEN_WIDTH / 2, 40, 28, TA_CENTER, colors.white, _("Trophies"));
-	drawText(SCREEN_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, _("Awarded : %d / %d"), awarded, total);
-	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, _("Page : %d / %d"), page + 1, (int)maxPages);
+	drawText(SCREEN_WIDTH / 2, 40, 28, TA_CENTER, colors.white, TROPHIES_TEXT);
+	drawText(SCREEN_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, AWARDED_TEXT, awarded, total);
+	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
 	
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, 150, r.x + r.w, 150);
@@ -179,7 +188,7 @@ void drawTrophies(void)
 				}
 				else
 				{
-					drawText(x + 85, y + 20, 20, TA_LEFT, colors.darkGrey, _("[Hidden]"));
+					drawText(x + 85, y + 20, 20, TA_LEFT, colors.darkGrey, HIDDEN_TEXT);
 				}
 			}
 			

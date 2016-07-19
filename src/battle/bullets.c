@@ -30,6 +30,7 @@ static Bullet bulletDef[BT_MAX];
 static Bullet **bulletsToDraw;
 static int incomingMissile;
 static int drawCapacity;
+static char *WARNING_TEXT;
 
 void initBullets(void)
 {
@@ -39,6 +40,8 @@ void initBullets(void)
 
 	bulletsToDraw = malloc(sizeof(Bullet*) * drawCapacity);
 	memset(bulletsToDraw, 0, sizeof(Bullet*) * drawCapacity);
+	
+	WARNING_TEXT = _("WARNING: INCOMING MISSILE!");
 }
 
 void initBulletDefs(void)
@@ -294,7 +297,7 @@ void drawBullets(void)
 
 	if (incomingMissile && battle.stats[STAT_TIME] % FPS < 40)
 	{
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, _("WARNING: INCOMING MISSILE!"));
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, WARNING_TEXT);
 	}
 }
 

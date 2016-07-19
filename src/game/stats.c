@@ -30,6 +30,8 @@ static int page;
 static float maxPages;
 static Widget *prev;
 static Widget *next;
+static char *STATS_TEXT;
+static char *PAGE_TEXT;
 
 void initStats(void)
 {
@@ -72,6 +74,9 @@ void initStats(void)
 	statDescription[STAT_MINES_DESTROYED] = _("Mines Destroyed");
 	statDescription[STAT_ENEMIES_SURRENDERED] = _("Enemies Surrendered");
 	statDescription[STAT_TIME] = _("Time Played");
+	
+	STATS_TEXT = _("Stats");
+	PAGE_TEXT = _("Page %d / %d");
 }
 
 void initStatsDisplay(void)
@@ -141,9 +146,9 @@ void drawStats(void)
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 	
-	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, _("Stats"));
+	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, STATS_TEXT);
 	
-	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, _("Page %d / %d"), page + 1, (int)maxPages);
+	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
 	
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, 150, r.x + r.w, 150);

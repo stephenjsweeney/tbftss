@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static SDL_Texture *radarTexture;
 static SDL_Texture *radarWarningTexture;
 static int radarRanges[] = {20, 40, 60};
+static char *CAUTION_TEXT;
 
 void initRadar(void)
 {
@@ -31,6 +32,8 @@ void initRadar(void)
 	
 	/* medium range by default */
 	battle.radarRange = 1;
+	
+	CAUTION_TEXT = _("Caution: Leaving battle area - turn around.");
 }
 
 void drawRadar(void)
@@ -141,6 +144,6 @@ void drawRadarRangeWarning(void)
 	
 	if (leaving && battle.stats[STAT_TIME] % FPS < 40)
 	{
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 30, 14, TA_CENTER, colors.white, _("Caution: Leaving battle area - turn around."));
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 30, 14, TA_CENTER, colors.white, CAUTION_TEXT);
 	}
 }

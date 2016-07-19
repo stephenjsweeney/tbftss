@@ -62,6 +62,13 @@ static int show;
 static int scrollingMap;
 static PointF cameraMin, cameraMax;
 static Widget *startMissionButton;
+static char *MISSIONS_TEXT;
+static char *PILOT_TEXT;
+static char *CRAFT_TEXT;
+static char *SQUADRON_TEXT;
+static char *COMPLETED_TEXT;
+static char *EPIC_TEXT;
+static char *OPTIONAL_TEXT;
 
 void initGalacticMap(void)
 {
@@ -74,6 +81,14 @@ void initGalacticMap(void)
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
+	
+	MISSIONS_TEXT = _("Missions: %d / %d");
+	PILOT_TEXT = _("Pilot: %s");
+	CRAFT_TEXT = _("Craft: %s");
+	SQUADRON_TEXT = _("Squadron: %s");
+	COMPLETED_TEXT = _("This mission has been completed.");
+	EPIC_TEXT = _("Note: this is an epic mission.");
+	OPTIONAL_TEXT = _("Note: this is an optional mission.");
 
 	background = getTexture("gfx/backgrounds/background02.jpg");
 
@@ -532,7 +547,7 @@ static void drawInfoBars(void)
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 
-	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, _("Missions: %d / %d"), game.completedMissions, game.availableMissions);
+	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, MISSIONS_TEXT, game.completedMissions, game.availableMissions);
 }
 
 static void selectStarSystem(void)
@@ -615,9 +630,9 @@ static void drawStarSystemDetail(void)
 
 	if (game.currentMission->available)
 	{
-		drawText(525, 135, 18, TA_LEFT, colors.lightGrey, _("Pilot: %s"), game.currentMission->pilot);
-		drawText(525, 160, 18, TA_LEFT, colors.lightGrey, _("Craft: %s"), game.currentMission->craft);
-		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, _("Squadron: %s"), game.currentMission->squadron);
+		drawText(525, 135, 18, TA_LEFT, colors.lightGrey, PILOT_TEXT, game.currentMission->pilot);
+		drawText(525, 160, 18, TA_LEFT, colors.lightGrey, CRAFT_TEXT, game.currentMission->craft);
+		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, SQUADRON_TEXT, game.currentMission->squadron);
 
 		limitTextWidth(500);
 		drawText(525, 230, 22, TA_LEFT, colors.white, game.currentMission->description);
@@ -626,15 +641,15 @@ static void drawStarSystemDetail(void)
 
 	if (game.currentMission->completed)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.green, _("This mission has been completed."));
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.green, COMPLETED_TEXT);
 	}
 	else if (game.currentMission->epic)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, _("Note: this is an epic mission."));
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, EPIC_TEXT);
 	}
 	else if (game.currentMission->isOptional)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.cyan, _("Note: this is an optional mission."));
+		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.cyan, OPTIONAL_TEXT);
 	}
 
 	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->type == SS_SOL);

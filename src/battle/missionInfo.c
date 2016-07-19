@@ -30,6 +30,9 @@ static SDL_Texture *missionCompleteTexture;
 static SDL_Texture *missionFailedTexture;
 static SDL_Texture *timeUpTexture;
 static const char *objectiveStatus[OS_MAX];
+static char *OBJECTIVES_TEXT;
+static char *NONE_TEXT;
+static char *TIME_LIMIT_TEXT;
 
 void initMissionInfo(void)
 {
@@ -39,6 +42,10 @@ void initMissionInfo(void)
 	objectiveStatus[OS_COMPLETE] = _("Complete");
 	objectiveStatus[OS_FAILED] = _("Failed");
 	objectiveStatus[OS_CONDITION] = _("Condition");
+	
+	OBJECTIVES_TEXT = _("OBJECTIVES");
+	NONE_TEXT = _("(none)");
+	TIME_LIMIT_TEXT = _("Time Limit: %s");
 	
 	missionStartTexture = !isChallenge ? getTexture("gfx/battle/missionStart.png") : getTexture("gfx/battle/challengeStart.png");
 	missionInProgressTexture = !isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
@@ -116,7 +123,7 @@ static void drawObjectives(void)
 	SDL_Color color;
 	int y = 215;
 	
-	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, _("OBJECTIVES"));
+	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, OBJECTIVES_TEXT);
 		
 	y += 10;
 	
@@ -156,7 +163,7 @@ static void drawObjectives(void)
 	{
 		y += 50;
 		
-		drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, _("(none)"));
+		drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, NONE_TEXT);
 	}
 	
 	y += 75;
@@ -176,7 +183,7 @@ static void drawChallenges(void)
 	{
 		y+= 50;
 		
-		drawText(SCREEN_WIDTH / 2, y, 20, TA_CENTER, colors.white, _("Time Limit: %s"), timeToString(game.currentMission->challengeData.timeLimit, 0));
+		drawText(SCREEN_WIDTH / 2, y, 20, TA_CENTER, colors.white, TIME_LIMIT_TEXT, timeToString(game.currentMission->challengeData.timeLimit, 0));
 	}
 		
 	y += 25;

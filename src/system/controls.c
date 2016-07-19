@@ -24,6 +24,10 @@ static void restoreDefaults(void);
 
 static const char *controlName[CONTROL_MAX];
 static Widget *controlWidget[CONTROL_MAX];
+static char *CONTROLS_TEXT;
+static char *HELP_TEXT;
+static char *BACKSPACE_TEXT;
+static char *ESCAPE_TEXT;
 
 void initControls(void)
 {
@@ -52,6 +56,11 @@ void initControls(void)
 		strcpy(controlWidget[i]->options[0], "");
 		strcpy(controlWidget[i]->options[1], "");
 	}
+	
+	CONTROLS_TEXT = _("Controls");
+	HELP_TEXT = _("Click a control to change it, and then the key or mouse button you want to use.");
+	BACKSPACE_TEXT = _("[BACKSPACE] - Clear");
+	ESCAPE_TEXT = _("[ESCAPE] - Cancel");
 }
 
 void initControlsDisplay(void)
@@ -158,7 +167,7 @@ void drawControls(void)
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 
-	drawText(SCREEN_WIDTH / 2, 50, 28, TA_CENTER, colors.white, _("Controls"));
+	drawText(SCREEN_WIDTH / 2, 50, 28, TA_CENTER, colors.white, CONTROLS_TEXT);
 
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, r.y + 65, r.x + r.w, r.y + 65);
@@ -183,9 +192,9 @@ void drawControls(void)
 	}
 	
 	limitTextWidth(r.w - 100);
-	drawText(SCREEN_WIDTH / 2, 525, 16, TA_CENTER, colors.white, _("Click a control to change it, and then the key or mouse button you want to use."));
-	drawText((SCREEN_WIDTH / 2) - 50, 560, 16, TA_RIGHT, colors.white, _("[BACKSPACE] - Clear"));
-	drawText((SCREEN_WIDTH / 2) + 50, 560, 16, TA_LEFT, colors.white, _("[ESCAPE] - Cancel"));
+	drawText(SCREEN_WIDTH / 2, 525, 16, TA_CENTER, colors.white, HELP_TEXT);
+	drawText((SCREEN_WIDTH / 2) - 50, 560, 16, TA_RIGHT, colors.white, BACKSPACE_TEXT);
+	drawText((SCREEN_WIDTH / 2) + 50, 560, 16, TA_LEFT, colors.white, ESCAPE_TEXT);
 	limitTextWidth(0);
 	
 	drawWidgets("controls");

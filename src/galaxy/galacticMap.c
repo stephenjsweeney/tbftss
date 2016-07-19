@@ -280,6 +280,14 @@ static void doStarSystemView(void)
 			return;
 		}
 	}
+	
+	/* allow closing by pressing the right mouse button */
+	if (app.mouse.button[SDL_BUTTON_RIGHT])
+	{
+		show = SHOW_GALAXY;
+			
+		playSound(SND_GUI_CLOSE);
+	}
 }
 
 static void addPulses(void)
@@ -650,7 +658,6 @@ static void handleKeyboard(void)
 			case SHOW_GALAXY:
 				selectWidget("resume", "galacticMap");
 				show = SHOW_MENU;
-				playSound(SND_GUI_CLOSE);
 				break;
 
 			case SHOW_STAR_SYSTEM:
@@ -677,16 +684,14 @@ static void handleKeyboard(void)
 
 static void handleMouse(void)
 {
+	scrollingMap = 0;
+	
 	if (app.mouse.button[SDL_BUTTON_LEFT])
 	{
 		if (app.mouse.dx != 0 || app.mouse.dy != 0)
 		{
 			scrollingMap = 1;
 		}
-	}
-	else
-	{
-		scrollingMap = 0;
 	}
 }
 

@@ -153,7 +153,7 @@
 				"MSG_BOX Hicks;So, this is Krasst. Never thought I'd ever find myself here.",
 				"WAIT_MSG_BOX",
 				"WAIT 10",
-				"MSG_BOX Hicks;Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and no raise suspicion.",
+				"MSG_BOX Hicks;Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and not raise suspicion.",
 				"WAIT_MSG_BOX",
 				"MSG_BOX Hicks;Time to start my search for the admiral.",
 				"ACTIVATE_OBJECTIVES Check all waypoints;Search for Admiral Zackaria",

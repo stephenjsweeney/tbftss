@@ -25,12 +25,19 @@
 	},
 	"fighters" : [
 		{
-			"name" : "ALLIES",
+			"name" : "Koonan",
 			"types" : "ATAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 10,
 			"y" : 10,
-			"number" : 2,
+			"scatter" : 500
+		},
+		{
+			"name" : "Todd",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 10,
+			"y" : 10,
 			"scatter" : 500
 		},
 		{

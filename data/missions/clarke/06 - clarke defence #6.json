@@ -46,6 +46,16 @@
 			"flags" : "+EF_AI_TARGET"
 		},
 		{
+			"name" : "Welch",
+			"groupName" : "twilightLancers",
+			"types" : "Kingfisher",
+			"side" : "SIDE_ALLIES",
+			"x" : -1,
+			"y" : -1,
+			"scatter" : 600,
+			"active" : 0
+		},
+		{
 			"groupName" : "twilightLancers",
 			"types" : "TAF;Ray;Kingfisher;Hammerhead",
 			"side" : "SIDE_ALLIES",

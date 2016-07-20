@@ -22,7 +22,15 @@
 	"fighters" : [
 		{
 			"types" : "TAF",
-			"number" : 4,
+			"name" : "Heywood",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 250
+		},
+		{
+			"types" : "TAF",
+			"number" : 3,
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
 			"y" : 25,

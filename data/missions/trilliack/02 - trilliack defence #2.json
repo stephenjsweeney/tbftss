@@ -86,7 +86,7 @@
 			"function" : "ENEMIES_KILLED 75",
 			"lines" : [
 				"MSG_BOX Wingmate;How many of these bastards did Tzac hire?!",
-				"MSG_BOX Lovelace;Whatever the number, we'll make sure we send a clear message it wasn't enough!"
+				"MSG_BOX UNF Lovelace;Whatever the number, we'll make sure we send a clear message it wasn't enough!"
 			]
 		},
 		{

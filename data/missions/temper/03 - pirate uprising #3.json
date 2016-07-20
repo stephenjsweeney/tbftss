@@ -52,7 +52,14 @@
 		},
 		{
 			"types" : "TAF",
-			"number" : 2,
+			"name" : "Strickland",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 300
+		},
+		{
+			"types" : "TAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
 			"y" : 25,

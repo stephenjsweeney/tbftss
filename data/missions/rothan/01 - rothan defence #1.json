@@ -60,7 +60,7 @@
 	},
 	"fighters" : [
 		{
-			"name" : "ALLIES",
+			"name" : "Taylor",
 			"types" : "ATAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,

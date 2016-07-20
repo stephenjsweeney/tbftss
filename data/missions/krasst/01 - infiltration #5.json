@@ -82,6 +82,7 @@
 		},
 		{
 			"groupName" : "ZakGroup",
+			"name" : "Unique Sphinx",
 			"types" : "Unique Sphinx",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,

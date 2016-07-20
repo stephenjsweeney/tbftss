@@ -49,12 +49,30 @@
 			"scatter" : 5000
 		},
 		{
-			"name" : "ATAFs",
+			"name" : "de Winter",
 			"types" : "ATAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
 			"y" : 25,
-			"number" : 5,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"name" : "Dodds",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"scatter" : 500,
+			"active" : 0
+		},
+		{
+			"name" : "ATAF",
+			"types" : "ATAF",
+			"side" : "SIDE_ALLIES",
+			"x" : 25,
+			"y" : 25,
+			"number" : 3,
 			"scatter" : 500,
 			"active" : 0
 		},

@@ -120,9 +120,9 @@ static void setPilotName(void)
 
 void doPlayer(void)
 {
-	rechargeBoostECM();
-
 	self = player;
+	
+	rechargeBoostECM();
 	
 	if (game.currentMission->challengeData.isChallenge)
 	{
@@ -492,9 +492,9 @@ static void selectNewPlayer(int dir)
 
 static void activateBoost(void)
 {
-	self->dx += sin(TO_RAIDANS(self->angle)) * 10;
-	self->dy += -cos(TO_RAIDANS(self->angle)) * 10;
-	self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
+	player->dx += sin(TO_RAIDANS(player->angle)) * 10;
+	player->dy += -cos(TO_RAIDANS(player->angle)) * 10;
+	player->thrust = sqrt((player->dx * player->dx) + (player->dy * player->dy));
 
 	battle.boostTimer = 0;
 
@@ -507,14 +507,14 @@ static void deactivateBoost(void)
 
 	thrust = -1;
 
-	while (thrust != self->thrust)
+	while (thrust != player->thrust)
 	{
-		thrust = self->thrust;
+		thrust = player->thrust;
 
-		v = (self->speed / sqrt(self->thrust));
-		self->dx = v * self->dx;
-		self->dy = v * self->dy;
-		self->thrust = sqrt((self->dx * self->dx) + (self->dy * self->dy));
+		v = (player->speed / sqrt(player->thrust));
+		player->dx = v * player->dx;
+		player->dy = v * player->dy;
+		player->thrust = sqrt((player->dx * player->dx) + (player->dy * player->dy));
 	}
 }
 
@@ -575,7 +575,8 @@ static void selectTarget(void)
 	{
 		if (e->active && e != player && (e->flags & EF_TAKES_DAMAGE) && (!(e->flags & EF_NO_PLAYER_TARGET)) && e->side != player->side && e->alive == ALIVE_ALIVE && e->systemPower > 0 && i < MAX_SELECTABLE_TARGETS)
 		{
-			dist = getDistance(self->x, self->y, e->x, e->y);
+			dist = getDistance(player->x, player->y, e->x, e->y);
+			
 			if (dist < closest)
 			{
 				near = e;
@@ -629,7 +630,7 @@ static void selectMissionTarget(void)
 	{
 		if (e->active && e->flags & EF_MISSION_TARGET && e->alive == ALIVE_ALIVE)
 		{
-			dist = getDistance(self->x, self->y, e->x, e->y);
+			dist = getDistance(player->x, player->y, e->x, e->y);
 
 			if (battle.missionTarget == NULL)
 			{
@@ -672,6 +673,42 @@ static int isPriorityMissionTarget(Entity *e, int dist, int closest)
 	
 	/* normal distance check */
 	return dist < closest;
+}
+
+void setInitialPlayerAngle(void)
+{
+	Entity *e;
+	
+	selectMissionTarget();
+	
+	if (battle.missionTarget)
+	{
+		player->angle = getAngle(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
+	}
+	else
+	{
+		selectTarget();
+		
+		if (player->target)
+		{
+			player->angle = getAngle(player->x, player->y, player->target->x, player->target->y);
+		}
+		else
+		{
+			if (battle.jumpgate)
+			{
+				player->angle = getAngle(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
+			}
+		}
+	}
+	
+	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	{
+		if (e->side == player->side)
+		{
+			e->angle = player->angle;
+		}
+	}
 }
 
 static void cycleRadarZoom(void)

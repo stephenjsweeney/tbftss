@@ -208,6 +208,8 @@ void loadMission(char *filename)
 	initPlayer();
 
 	initMissionInfo();
+	
+	setInitialPlayerAngle();
 
 	addAllToQuadtree();
 

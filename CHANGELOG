@@ -1,5 +1,14 @@
 Changelog
 
+0.91
+	
+	* Added effects when bullets hit targets
+	* Updated Mantis sprite
+	* Updated UNF Corvette 02 sprite
+	* Player (and team) now face direction of nearest target at start of mission
+	* Performance improvements, via i18n updates
+	* Misc. tweaks and fixes
+
 0.9
 	
 	* Added final campaign missions

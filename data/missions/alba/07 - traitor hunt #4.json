@@ -4,7 +4,7 @@
 	"requires" : 57,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/torelli.png",
-	"music" : "music/battle/heroism.ogg",
+	"music" : "music/battle/Vehicle - OGA - Col Legno.ogg",
 	"manualComplete" : 1,
 	"objectives" : [
 		{

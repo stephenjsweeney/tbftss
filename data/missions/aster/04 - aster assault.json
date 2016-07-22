@@ -4,7 +4,7 @@
 	"requires" : 54,
 	"background" : "gfx/backgrounds/background04.jpg",
 	"planet" : "gfx/planets/star.png",
-	"music" : "music/battle/Battle in the winter.mp3",
+	"music" : "music/battle/Vehicle - OGA - Col Legno.ogg",
 	"manualComplete" : 1,
 	"objectives" : [
 		{

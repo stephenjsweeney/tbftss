@@ -4,7 +4,7 @@
 	"requires" : 18,
 	"background" : "gfx/backgrounds/background06.jpg",
 	"planet" : "gfx/planets/lewis.png",
-	"music" : "music/battle/heroism.ogg",
+	"music" : "music/battle/Vehicle - OGA - Col Legno.ogg",
 	"manualComplete" : 1,
 	"objectives" : [
 		{

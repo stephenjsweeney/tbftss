@@ -32,7 +32,7 @@ extern int getPercent(float current, float total);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void blit(SDL_Texture *texture, int x, int y, int centered);
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
-extern void blitScaled(SDL_Texture *t, int x, int y, int w, int h);
+extern void blitScaled(SDL_Texture *t, int x, int y, int w, int h, int center);
 extern char *getTranslatedString(char *string);
 extern SDL_Texture *getTexture(char *filename);
 extern void playSound(int id);

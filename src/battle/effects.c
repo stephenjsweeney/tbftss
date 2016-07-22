@@ -154,17 +154,17 @@ void drawEffects(void)
 
 			case EFFECT_TEXTURE:
 				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
-				blitScaled(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->size, e->size);
+				blitScaled(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->size, e->size, 0);
 				break;
 
 			case EFFECT_HALO:
 				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
-				blitScaled(e->texture, e->x - battle.camera.x - (e->size / 2), e->y - battle.camera.y - (e->size / 2), e->size, e->size);
+				blitScaled(e->texture, e->x - battle.camera.x - (e->size / 2), e->y - battle.camera.y - (e->size / 2), e->size, e->size, 0);
 				break;
 
 			case EFFECT_ECM:
 				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
-				blitScaled(e->texture, SCREEN_WIDTH / 2 - (e->size / 2), SCREEN_HEIGHT / 2 - (e->size / 2), e->size, e->size);
+				blitScaled(e->texture, SCREEN_WIDTH / 2 - (e->size / 2), SCREEN_HEIGHT / 2 - (e->size / 2), e->size, e->size, 0);
 				break;
 		}
 	}
@@ -174,9 +174,11 @@ void drawEffects(void)
 
 void drawShieldHitEffect(Entity *e)
 {
+	int size = MAX(e->w, e->h) + 32;
+	
 	SDL_SetTextureBlendMode(shieldHitTexture, SDL_BLENDMODE_BLEND);
 	SDL_SetTextureAlphaMod(shieldHitTexture, e->shieldHit);
-	blit(shieldHitTexture, e->x - battle.camera.x, e->y - battle.camera.y, 1);
+	blitScaled(shieldHitTexture, e->x - battle.camera.x, e->y - battle.camera.y, size, size, 1);
 }
 
 void addBulletHitEffect(int x, int y, int r, int g, int b)

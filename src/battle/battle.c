@@ -220,12 +220,13 @@ static void draw(void)
 
 	drawBackground(battle.background);
 
-	blitScaled(battle.planetTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight);
+	blitScaled(battle.planetTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight, 0);
+	
 	if (battle.destroyTorelli)
 	{
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 		SDL_SetTextureAlphaMod(battle.fireStormTexture, battle.torelliFireStormAlpha);
-		blitScaled(battle.fireStormTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight);
+		blitScaled(battle.fireStormTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight, 0);
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	}
 

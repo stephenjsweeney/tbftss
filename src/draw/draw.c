@@ -82,7 +82,7 @@ void blit(SDL_Texture *texture, int x, int y, int center)
 	SDL_RenderCopy(app.renderer, texture, NULL, &dstRect);
 }
 
-void blitScaled(SDL_Texture *texture, int x, int y, int w, int h)
+void blitScaled(SDL_Texture *texture, int x, int y, int w, int h, int center)
 {
 	SDL_Rect dstRect;
 	
@@ -90,6 +90,12 @@ void blitScaled(SDL_Texture *texture, int x, int y, int w, int h)
 	dstRect.y = y;
 	dstRect.w = w;
 	dstRect.h = h;
+	
+	if (center)
+	{
+		dstRect.x -= (dstRect.w / 2);
+		dstRect.y -= (dstRect.h / 2);
+	}
 
 	SDL_RenderCopy(app.renderer, texture, NULL, &dstRect);
 }
@@ -182,7 +188,7 @@ void drawBackground(SDL_Texture *texture)
 	
 	for (i = 0 ; i < 4 ; i++)
 	{
-		blitScaled(texture, backgroundPoint[i].x, backgroundPoint[i].y, SCREEN_WIDTH, SCREEN_HEIGHT);
+		blitScaled(texture, backgroundPoint[i].x, backgroundPoint[i].y, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 	}
 }
 

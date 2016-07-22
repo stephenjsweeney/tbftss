@@ -25,7 +25,8 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
 			"y" : 25,
-			"scatter" : 250
+			"scatter" : 250,
+			"flags" : "+EF_IMMORTAL"
 		},
 		{
 			"types" : "TAF",

@@ -29,7 +29,8 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 20,
 			"y" : 20,
-			"scatter" : 1000
+			"scatter" : 1000,
+			"flags" : "+EF_IMMORTAL"
 		},
 		{
 			"types" : "TAF;Ray;Rook;Hammerhead",

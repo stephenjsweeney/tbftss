@@ -97,6 +97,7 @@ All other data files are CC BY-NC-SA 3.0, with the following attribution: Copyri
 * DST-RailJet-LongSeamlessLoop.ogg, by Deceased Superior Technician (CC-BY) - http://opengameart.org/content/railjet-long-seamless-loop
 * covert_operations.mp3, by artisticdude (CC-0) - http://opengameart.org/content/covert-operations
 * Tactical Pursuit.mp3, by Matthew Pablo (CC-BY) - http://opengameart.org/content/tactical-pursuit
+* Vehicle - OGA - Col Legno.ogg, by Vehicle (CC-0) - http://opengameart.org/content/col-legno
 * Her Violet Eyes.mp3, by tgfcoder (CC-BY) https://twitter.com/tgfcoder
 
 ## ABOUT

@@ -699,14 +699,16 @@ static void handleKeyboard(void)
 
 static void handleMouse(void)
 {
-	scrollingMap = 0;
-	
 	if (app.mouse.button[SDL_BUTTON_LEFT])
 	{
 		if (app.mouse.dx != 0 || app.mouse.dy != 0)
 		{
 			scrollingMap = 1;
 		}
+	}
+	else
+	{
+		scrollingMap = 0;
 	}
 }
 

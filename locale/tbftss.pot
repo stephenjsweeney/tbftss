@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-07 09:34:39+0100\n"
+"POT-Creation-Date: 2016-07-23 08:23:30+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -82,22 +82,22 @@ msgstr ""
 msgid "Missiles"
 msgstr ""
 
+msgid "Missiles (%d)"
+msgstr ""
+
+msgid "Target: %.2fkm"
+msgstr ""
+
 msgid "(None)"
 msgstr ""
 
 msgid "(Combined Guns)"
 msgstr ""
 
-msgid "Missiles (%d)"
-msgstr ""
-
 msgid "System Power : %d%%"
 msgstr ""
 
 msgid "%s (Leader)"
-msgstr ""
-
-msgid "Target: %.2fkm"
 msgstr ""
 
 msgid "Objective: %.2fkm"
@@ -178,18 +178,6 @@ msgstr ""
 msgid "Cannot activate waypoint - team mates too far away"
 msgstr ""
 
-msgid "No Missiles"
-msgstr ""
-
-msgid "No ECM"
-msgstr ""
-
-msgid "No Boost"
-msgstr ""
-
-msgid "No Guns"
-msgstr ""
-
 msgid "Challenges"
 msgstr ""
 
@@ -206,6 +194,18 @@ msgid "Craft: %s"
 msgstr ""
 
 msgid "Restrictions: %s"
+msgstr ""
+
+msgid "No Missiles"
+msgstr ""
+
+msgid "No ECM"
+msgstr ""
+
+msgid "No Boost"
+msgstr ""
+
+msgid "No Guns"
 msgstr ""
 
 msgid "Retain at least %d%% armour"
@@ -256,9 +256,6 @@ msgstr ""
 msgid "Complete challenge in %s or less"
 msgstr ""
 
-msgid "%s has fallen to the Pandorans"
-msgstr ""
-
 msgid "Missions: %d / %d"
 msgstr ""
 
@@ -275,6 +272,9 @@ msgid "Note: this is an epic mission."
 msgstr ""
 
 msgid "Note: this is an optional mission."
+msgstr ""
+
+msgid "%s has fallen to the Pandorans"
 msgstr ""
 
 msgid "Percent Complete"
@@ -1396,7 +1396,7 @@ msgstr ""
 msgid "An ATAF. Stands for Advanced Tactical Assault Fighter."
 msgstr ""
 
-msgid "The CSN rolling those out to everyone?"
+msgid "Are the CSN rolling those out to everyone?"
 msgstr ""
 
 msgid "No, they ... were built for a different purpose."
@@ -1457,6 +1457,9 @@ msgid "You're going to have to deal with this one solo, Carpenter. There are bom
 msgstr ""
 
 msgid "Secure the commander, and then take down those bombers. Just watch your fire."
+msgstr ""
+
+msgid "Pandoran forces are beginning their assault on Donesta. They must be engaged and driven out of the system. However, it appears that they are making use of UNF fighters, in an attempt to confuse our own pilots. Visual identification should therefore not be relied on to determine targets, as radar will help to separate their units from ours."
 msgstr ""
 
 msgid "Remember everyone: the Pandorans are using UNF fighters."
@@ -1720,7 +1723,7 @@ msgstr ""
 msgid "So, this is Krasst. Never thought I'd ever find myself here."
 msgstr ""
 
-msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and no raise suspicion."
+msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and not raise suspicion."
 msgstr ""
 
 msgid "Time to start my search for the admiral."
@@ -1936,7 +1939,7 @@ msgstr ""
 msgid "Great work, everyone. That should give the PR guys something to brag about."
 msgstr ""
 
-msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualities to a minimum."
+msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualties to a minimum."
 msgstr ""
 
 msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
@@ -2195,6 +2198,9 @@ msgid "There are Swarmers in their ranks, making up the bulk. Don't lose faith p
 msgstr ""
 
 msgid "That's the last of 'em. Not often we win an engagement like this."
+msgstr ""
+
+msgid "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabitted planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance."
 msgstr ""
 
 msgid "Brace yourselves, lads."
@@ -2524,6 +2530,9 @@ msgstr ""
 msgid "Commander, we're done here. Control, targets and area secured. Ready for pickup."
 msgstr ""
 
+msgid "Our forces have taken heavy losses of the last few engagements, but there is still much to do. Three Pandoran corvettes have been tagged for destruction. We need to ensure that they are taken down, while we minimise losses of our own. We cannot afford to lose all of our own capital ships. Work fast, and assist Zenobia, Lady Jane Grey, and Tangka as needed."
+msgstr ""
+
 msgid "Enemy forces in range. Preparing to engage."
 msgstr ""
 
@@ -2563,6 +2572,9 @@ msgstr ""
 msgid "There were too many of them ..."
 msgstr ""
 
+msgid "The Pandorans are already deploying ground assault teams to Flint. The attack is in its early stages, with more troop carrier incoming. The enemy are meeting our defence lines aggressively, to clear a path for their landers. We need to hit back hard, and prevent Flint from being taken. Objective is simple: destroy all enemy forces."
+msgstr ""
+
 msgid "The Pandorans are overunning our front line! We need to drive them back, now!"
 msgstr ""
 
@@ -2593,7 +2605,7 @@ msgstr ""
 msgid "Dodds, this is Commodore Park. I'm giving you a direct order. This isn't a battle we can win, and I'm not having you throw away your life or lose that starfighter. Get out, now. Final warning, mister."
 msgstr ""
 
-msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both metally and physically."
+msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both mentally and physically."
 msgstr ""
 
 msgid "(This ... how can I do this? These are my friends.)"

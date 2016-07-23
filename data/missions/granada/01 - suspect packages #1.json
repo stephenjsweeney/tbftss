@@ -41,7 +41,7 @@
 			"x" : 25,
 			"y" : 25,
 			"scatter" : 5000,
-			"flags" : "EF_MISSION_TARGET"
+			"flags" : "+EF_MISSION_TARGET"
 		}
 	],
 	"script" : [

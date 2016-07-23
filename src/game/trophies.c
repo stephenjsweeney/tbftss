@@ -476,9 +476,9 @@ void awardPostMissionTrophies(void)
 	}
 	
 	/*
-	 * Must be a non-challenge mission, a common fighter, must not be Sol, and must not have fired any shots or missiles
+	 * Must be a non-challenge mission, a common fighter, must not be Sol, and must not have fired any shots or missiles (and there should have been some enemies present)
 	 */
-	if (player->flags & EF_COMMON_FIGHTER && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED])
+	if (player->flags & EF_COMMON_FIGHTER && player->missiles && strcmp(game.selectedStarSystem, "Sol") && !battle.stats[STAT_SHOTS_FIRED] && !battle.stats[STAT_MISSILES_FIRED] && battle.numInitialEnemies > 0)
 	{
 		awardTrophy("PACIFIST");
 	}

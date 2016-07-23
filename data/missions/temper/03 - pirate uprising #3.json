@@ -97,7 +97,7 @@
 			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
-				"MSG_BOX Strickland;Control, this is Strickland. Target has been suppressed, all other threats eliminated Will awake pickup.",
+				"MSG_BOX Strickland;Control, this is Strickland. Target has been suppressed, all other threats eliminated. Will await pickup.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"
 			]

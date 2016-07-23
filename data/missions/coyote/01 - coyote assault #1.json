@@ -165,7 +165,7 @@
 		{
 			"function" : "TIME 50",
 			"lines" : [
-				"MSG_BOX Stone;The CSN rolling those out to everyone?",
+				"MSG_BOX Stone;Are the CSN rolling those out to everyone?",
 				"MSG_BOX Todd;No, they ... were built for a different purpose."
 			]
 		},

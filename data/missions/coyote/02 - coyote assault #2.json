@@ -1,6 +1,6 @@
 {
 	"name" : "Coyote Assault #2",
-	"description" : "The initial fight back against the Pandoran has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system.",
+	"description" : "The initial fight back against the Pandorans has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system.",
 	"requires" : 4,
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/mythos.png",

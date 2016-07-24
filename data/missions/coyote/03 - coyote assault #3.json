@@ -50,6 +50,7 @@
 		},
 		{
 			"name" : "de Winter",
+			"groupName" : "ATAFs",
 			"types" : "ATAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
@@ -59,6 +60,7 @@
 		},
 		{
 			"name" : "Dodds",
+			"groupName" : "ATAFs",
 			"types" : "ATAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
@@ -68,6 +70,7 @@
 		},
 		{
 			"name" : "ATAF",
+			"groupName" : "ATAFs",
 			"types" : "ATAF",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
@@ -106,7 +109,7 @@
 			"function" : "ALLIES_KILLED 80",
 			"lines" : [
 				"MSG_BOX UNF Wingmate #2;The White Knights are here! Finally!",
-				"ACTIVATE_ENTITIES ATAFs"
+				"ACTIVATE_ENTITY_GROUPS ATAFs"
 			]
 		},
 		{

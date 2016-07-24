@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-23 08:23:30+0100\n"
+"POT-Creation-Date: 2016-07-24 09:28:47+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -1414,7 +1414,7 @@ msgstr ""
 msgid "Acknowledged, Commander. Stand by for new orders."
 msgstr ""
 
-msgid "The initial fight back against the Pandoran has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system."
+msgid "The initial fight back against the Pandorans has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system."
 msgstr ""
 
 msgid "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space."
@@ -2353,13 +2353,16 @@ msgstr ""
 msgid "The rest of us will take down his buddies. Watch your stray fire around the mission target."
 msgstr ""
 
-msgid "Control, this is Strickland. Target has been suppressed, all other threats eliminated Will awake pickup."
+msgid "Control, this is Strickland. Target has been suppressed, all other threats eliminated. Will await pickup."
 msgstr ""
 
 msgid "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down."
 msgstr ""
 
-msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate ."
+msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate."
+msgstr ""
+
+msgid "Excellent works, people. This one's a wrap."
 msgstr ""
 
 msgid "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle."
@@ -2630,6 +2633,15 @@ msgid "We're not expecting any opposition, but be prepared to engage hostiles if
 msgstr ""
 
 msgid "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised."
+msgstr ""
+
+msgid "Gaskin, INF fighters spotted! Pandorans, without a doubt!"
+msgstr ""
+
+msgid "Break and attack! Protect the civilians!"
+msgstr ""
+
+msgid "That was a close one. Looks like they were scouting. We'll have to take extra precautions in future."
 msgstr ""
 
 msgid "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now."

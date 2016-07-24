@@ -82,7 +82,13 @@
 		{
 			"function" : "TIME 1",
 			"lines" : [
-				"MSG_BOX Strickland;This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate ."
+				"MSG_BOX Strickland;This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate."
+			]
+		},
+		{
+			"function" : "ALL_OBJECTIVES_COMPLETE",
+			"lines" : [
+				"MSG_BOX Strickland;Excellent works, people. This one's a wrap."
 			]
 		}
 	]

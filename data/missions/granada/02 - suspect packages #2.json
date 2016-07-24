@@ -42,6 +42,14 @@
 			"targetValue" : 7,
 			"targetType" : "TT_DESTROY",
 			"active" : 0
+		},
+		{
+			"description" : "Protect Shuttle and Tug",
+			"targetName" : "ShuttleTug",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0,
+			"isCondition" : 1
 		}
 	],
 	"player" : {
@@ -62,6 +70,7 @@
 			"scatter" : 500
 		},
 		{
+			"groupName" : "ShuttleTug",
 			"types" : "Shuttle",
 			"side" : "SIDE_ALLIES",
 			"x" : 10.5,
@@ -78,6 +87,7 @@
 		},
 		{
 			"name" : "Tug",
+			"groupName" : "ShuttleTug",
 			"types" : "Tug",
 			"side" : "SIDE_ALLIES",
 			"x" : 10,
@@ -156,6 +166,7 @@
 				"WAIT 20",
 				"ACTIVATE_ENTITIES Dart",
 				"ACTIVATE_OBJECTIVES Destroy intercepting Darts",
+				"ACTIVATE_OBJECTIVES Protect Shuttle and Tug",
 				"MSG_BOX Wingmate;Dan, we've got hostile vessels inbound. More Darts.",
 				"MSG_BOX Carr;Prepare to engage. Protect the asset!"
 			]

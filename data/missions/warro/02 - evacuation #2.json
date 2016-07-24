@@ -5,6 +5,7 @@
 	"background" : "gfx/backgrounds/background03.jpg",
 	"planet" : "gfx/planets/oracleIX.png",
 	"music" : "music/battle/determination.mp3",
+	"manualComplete" : 1,
 	"objectives" : [
 		{
 			"description" : "Rescue all civilians",
@@ -61,39 +62,6 @@
 			"x" : 35,
 			"y" : 35,
 			"scatter" : 1500
-		},
-		{
-			"types" : "Jackal",
-			"number" : 2,
-			"name" : "Pandoran",
-			"groupName" : "Pandoran-1",
-			"side" : "SIDE_PANDORAN",
-			"x" : 27,
-			"y" : 27,
-			"scatter" : 500,
-			"active" : 0
-		},
-		{
-			"types" : "Jackal",
-			"number" : 2,
-			"name" : "Pandoran",
-			"groupName" : "Pandoran-2",
-			"side" : "SIDE_PANDORAN",
-			"x" : 25,
-			"y" : 33,
-			"scatter" : 500,
-			"active" : 0
-		},
-		{
-			"types" : "Jackal",
-			"number" : 2,
-			"name" : "Pandoran",
-			"groupName" : "Pandoran-3",
-			"side" : "SIDE_PANDORAN",
-			"x" : 25,
-			"y" : 23,
-			"scatter" : 500,
-			"active" : 0
 		}
 	],
 	"entities" : [
@@ -104,23 +72,34 @@
 			"y" : 25
 		}
 	],
+	"spawners" : [
+		{
+			"name" : "PandoranSpawner",
+			"types" : "Jackal",
+			"side" : "SIDE_PANDORAN",
+			"step" : 2,
+			"interval" : 60,
+			"total" : 6,
+			"offscreen" : 1,
+			"active" : 0
+		}
+	],
 	"script"  : [
 		{
 			"function" : "TIME 60",
 			"lines" : [
-				"ACTIVATE_ENTITY_GROUPS Pandoran-1"
+				"ACTIVATE_SPAWNER 1 PandoranSpawner",
+				"IMPORTANT_MSG_BOX Wingmate;Gaskin, INF fighters spotted! Pandorans, without a doubt!",
+				"MSG_BOX Gaskin;Break and attack! Protect the civilians!"
 			]
 		},
 		{
-			"function" : "TIME 120",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
-				"ACTIVATE_ENTITY_GROUPS Pandoran-2"
-			]
-		},
-		{
-			"function" : "TIME 180",
-			"lines" : [
-				"ACTIVATE_ENTITY_GROUPS Pandoran-3"
+				"WAIT 1",
+				"MSG_BOX Gaskin;That was a close one. Looks like they were scouting. We'll have to take extra precautions in future.",
+				"WAIT_MSG_BOX",
+				"COMPLETE_MISSION"
 			]
 		}
 	]

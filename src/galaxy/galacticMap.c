@@ -47,6 +47,7 @@ static void returnFromOptions(void);
 static void doStarSystemView(void);
 static void updatePandoranAdvance(void);
 static void fallenOK(void);
+static Mission *nextAvailableMission(StarSystem *starSystem);
 
 static StarSystem *selectedStarSystem;
 static SDL_Texture *background;
@@ -556,9 +557,24 @@ static void selectStarSystem(void)
 	{
 		show = SHOW_STAR_SYSTEM;
 		STRNCPY(game.selectedStarSystem, selectedStarSystem->name, MAX_NAME_LENGTH);
-		game.currentMission = selectedStarSystem->missionHead.next;
+		game.currentMission = nextAvailableMission(selectedStarSystem);
 		playSound(SND_GUI_SELECT);
 	}
+}
+
+static Mission *nextAvailableMission(StarSystem *starSystem)
+{
+	Mission *m;
+	
+	for (m = starSystem->missionHead.next ; m != NULL ; m = m->next)
+	{
+		if (m->available && !m->completed)
+		{
+			return m;
+		}
+	}
+	
+	return starSystem->missionHead.next;
 }
 
 static void drawStarSystemDetail(void)

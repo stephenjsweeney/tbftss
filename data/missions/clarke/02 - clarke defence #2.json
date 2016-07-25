@@ -1,6 +1,6 @@
 {
 	"name" : "Clarke Defence #2",
-	"description" : "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down two of their corvettes: INF Dirk and INF Blackjack. Ensure the Khepri-class bombers can get in close enough to delivery a strike.",
+	"description" : "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down INF Dirk. Ensure the Lynx-class bombers can get in close enough to delivery a strike.",
 	"requires" : 12,
 	"background" : "gfx/backgrounds/background06.jpg",
 	"planet" : "gfx/planets/lewis.png",
@@ -16,15 +16,8 @@
 		{
 			"description" : "Eliminate escorts",
 			"targetName" : "Pandoran",
-			"targetValue" : 4,
+			"targetValue" : 6,
 			"targetType" : "TT_DESTROY"
-		},
-		{
-			"description" : "Eliminate reinforcements",
-			"targetName" : "Reinforcements",
-			"targetValue" : 4,
-			"targetType" : "TT_DESTROY",
-			"active": 0
 		}
 	],
 	"player" : {
@@ -37,21 +30,19 @@
 	},
 	"fighters" : [
 		{
-			"name" : "ALLIES",
 			"types" : "Firefly;Nymph;Leopard;Hyena-A;Hyena-B",
 			"side" : "SIDE_ALLIES",
 			"x" : 45,
 			"y" : 45,
-			"number" : 8,
+			"number" : 10,
 			"scatter" : 500
 		},
 		{
-			"name" : "ALLIES",
 			"types" : "Lynx",
 			"side" : "SIDE_ALLIES",
 			"x" : 45,
 			"y" : 45,
-			"number" : 4,
+			"number" : 2,
 			"scatter" : 500
 		},
 		{
@@ -60,21 +51,9 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 20,
 			"y" : 40,
-			"number" : 4,
+			"number" : 6,
 			"scatter" : 0,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
-		},
-		{
-			"name" : "Pandoran",
-			"groupName" : "Reinforcements",
-			"types" : "Jackal;Sphinx;Mantis",
-			"side" : "SIDE_PANDORAN",
-			"x" : 45,
-			"y" : 25,
-			"number" : 4,
-			"scatter" : 0,
-			"aiFlags" : "+AIF_MOVES_TO_LEADER",
-			"active" : 0
 		}
 	],
 	"capitalShips" : [
@@ -89,13 +68,10 @@
 	],
 	"script" : [
 		{
-			"function" : "ENEMIES_KILLED 4",
+			"function" : "TIME 1",
 			"lines" : [
-				"WAIT 1",
-				"ACTIVATE_ENTITY_GROUPS Reinforcements",
-				"ACTIVATE_OBJECTIVES Eliminate reinforcements",
-				"MSG_BOX Wingmate;Commander, enemy reinforcements are en route. Looks like more INF fighters.",
-				"MSG_BOX Carlyle;Dammit! Let's make sure we down the Dirk before any more turn up."
+				"MSG_BOX Wingmate;Commander, I would recommend we take out the escorts first.",
+				"MSG_BOX Carlyle;Agreed. The Dirk on its own would already prove a challenge."
 			]
 		},
 		{

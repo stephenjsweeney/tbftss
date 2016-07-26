@@ -63,7 +63,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 39,
 			"y" : 39,
-			"flags" : "EF_AI_LEADER"
+			"flags" : "+EF_AI_LEADER"
 		}
 	],
 	"script" : [

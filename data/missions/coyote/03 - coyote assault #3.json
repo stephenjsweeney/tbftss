@@ -6,7 +6,8 @@
 	"planet" : "gfx/planets/mythos.png",
 	"music" : "music/battle/Tactical Pursuit.mp3",
 	"epic" : {
-		"fighterLimit" : 12
+		"fighterLimit" : 12,
+		"unlimitedEnemies" : 1
 	},
 	"objectives" : [
 		{
@@ -116,9 +117,10 @@
 			"function" : "ALLIES_KILLED 90",
 			"lines" : [
 				"IMPORTANT_MSG_BOX UNF Talos;All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate.",
+				"ACTIVATE_OBJECTIVE Retreat to jumpgate",
 				"MSG_BOX de Winter;You all heard the Captain - fall back, we'll cover the retreat.",
 				"MSG_BOX Dodds;Estelle, we've got this. We can take them.",
-				"MSG_BOX de Winter;We're taking too many losses, Dodds. Fall back now, that's an order.",
+				"MSG_BOX de Winter;We're suffering too many losses, Dodds. Fall back now, that's an order.",
 				"WAIT_MSG_BOX",
 				"ACTIVATE_JUMPGATE 1",
 				"RETREAT_ALLIES"

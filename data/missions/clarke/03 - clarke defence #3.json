@@ -1,6 +1,6 @@
 {
 	"name" : "Clarke Defence #3",
-	"description" : "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra is moving to intercept more enemy corvettes. Your orders are to assist it in achieving its goals.",
+	"description" : "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra and UNF Artemis are moving to intercept more enemy corvettes. Your orders are to assist them in achieving their goals.",
 	"requires" : 18,
 	"background" : "gfx/backgrounds/background06.jpg",
 	"planet" : "gfx/planets/lewis.png",
@@ -20,20 +20,21 @@
 			"targetType" : "TT_DESTROY"
 		},
 		{
-			"description" : "Destroy INF Asi",
-			"targetName" : "INF Asi",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY"
-		},
-		{
 			"description" : "Eliminate support fighters",
 			"targetName" : "Pandoran",
-			"targetValue" : 18,
+			"targetValue" : 6,
 			"targetType" : "TT_DESTROY"
 		},
 		{
 			"description" : "Protect UNF Cleopatra",
 			"targetName" : "UNF Cleopatra",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isCondition": 1
+		},
+		{
+			"description" : "Protect UNF Artemis",
+			"targetName" : "UNF Artemis",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isCondition": 1
@@ -50,20 +51,11 @@
 	"fighters" : [
 		{
 			"name" : "ALLIES",
-			"types" : "Firefly;Nymph;Leopard;Hyena-A;Hyena-B",
+			"types" : "Firefly;Leopard;Lynx",
 			"side" : "SIDE_ALLIES",
 			"x" : 45,
 			"y" : 45,
-			"number" : 4,
-			"scatter" : 500
-		},
-		{
-			"name" : "ALLIES",
-			"types" : "Firefly;Nymph;Leopard;Hyena-A;Hyena-B",
-			"side" : "SIDE_ALLIES",
-			"x" : 45,
-			"y" : 45,
-			"number" : 4,
+			"number" : 12,
 			"scatter" : 500,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
@@ -73,7 +65,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : 25,
-			"number" : 18,
+			"number" : 6,
 			"scatter" : 20000,
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		}
@@ -84,8 +76,8 @@
 			"types" : "INF Corvette 01",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
-			"y" : 25,
-			"flags" : "EF_AI_LEADER+EF_AI_TARGET"
+			"y" : 15,
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET"
 		},
 		{
 			"name" : "INF Blackjack",
@@ -93,15 +85,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 40,
 			"y" : 25,
-			"flags" : "EF_AI_LEADER+EF_AI_TARGET"
-		},
-		{
-			"name" : "INF Asi",
-			"types" : "INF Corvette 01",
-			"side" : "SIDE_PANDORAN",
-			"x" : 46,
-			"y" : 35,
-			"flags" : "EF_AI_LEADER+EF_AI_TARGET"
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET"
 		},
 		{
 			"name" : "UNF Cleopatra",
@@ -109,7 +93,15 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 46,
 			"y" : 45,
-			"flags" : "EF_AI_LEADER"
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET"
+		},
+		{
+			"name" : "UNF Artemis",
+			"types" : "UNF Corvette 02",
+			"side" : "SIDE_ALLIES",
+			"x" : 44,
+			"y" : 45,
+			"flags" : "+EF_AI_LEADER+EF_AI_TARGET"
 		}
 	],
 	"script" : [
@@ -128,17 +120,10 @@
 			]
 		},
 		{
-			"function" : "Destroy INF Asi",
-			"lines" : [
-				"WAIT 1",
-				"MSG_BOX Carlyle;INF Asi has been destroyed."
-			]
-		},
-		{
 			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 1",
-				"MSG_BOX Carlyle;This is Carlyle. Enemy targets have been eliminated. Cleopatra still in one piece.",
+				"MSG_BOX Carlyle;This is Carlyle. Enemy targets have been eliminated. Cleopatra and Artemis still in one piece.",
 				"MSG_BOX Control;Acknowledged. Fall back to the main fleet and await new instructions.",
 				"MSG_BOX Carlyle;This is going to be a long day, eh?",
 				"MSG_BOX Control;Maybe not, if we continue to lose ground the way we are already ...",

@@ -67,7 +67,8 @@
 			"y" : 25,
 			"side" : "SIDE_PIRATE",
 			"scatter" : 3000,
-			"number": 8
+			"number" : 8,
+			"flags" : "+EF_MISSION_TARGET"
 		},
 		{
 			"types" : "Dart",
@@ -83,7 +84,8 @@
 			"x" : 25,
 			"y" : 25,
 			"side" : "SIDE_PIRATE",
-			"number": 3
+			"number": 3,
+			"flags" : "+EF_MISSION_TARGET"
 		}
 	],
 	"script" : [

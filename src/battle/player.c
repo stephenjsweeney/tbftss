@@ -38,6 +38,7 @@ static int isPriorityMissionTarget(Entity *e, int dist, int closest);
 static int targetOutOfRange(void);
 static void rechargeBoostECM(void);
 static void setPilotName(void);
+static void updateDeathStats(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -146,27 +147,25 @@ void doPlayer(void)
 
 	if (player->health <= 0 && battle.status == MS_IN_PROGRESS)
 	{
-		battle.stats[STAT_PLAYER_KILLED]++;
-		
-		/* the player is known as "Player", so we need to check the craft they were assigned to */
-		if (strcmp(game.currentMission->craft, "ATAF") == 0)
-		{
-			awardTrophy("ATAF_DESTROYED");
-		}
-		
 		if (game.currentMission->challengeData.isChallenge)
 		{
 			if (!game.currentMission->challengeData.allowPlayerDeath)
 			{
+				updateDeathStats();
+				
 				failMission();
 			}
 		}
 		else if (!battle.isEpic)
 		{
+			updateDeathStats();
+			
 			failMission();
 		}
 		else if (player->health == -FPS)
 		{
+			updateDeathStats();
+			
 			initPlayerSelect();
 		}
 	}
@@ -194,6 +193,17 @@ void doPlayer(void)
 	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
 	{
 		deactivateBoost();
+	}
+}
+
+static void updateDeathStats(void)
+{
+	battle.stats[STAT_PLAYER_KILLED]++;
+		
+	/* the player is known as "Player", so we need to check the craft they were assigned to */
+	if (strcmp(game.currentMission->craft, "ATAF") == 0)
+	{
+		awardTrophy("ATAF_DESTROYED");
 	}
 }
 

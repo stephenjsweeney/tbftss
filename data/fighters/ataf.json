@@ -59,6 +59,6 @@
 		}
 	],
 	"missiles" : 4,
-	"flags" : "EF_NO_EPIC+EF_TAKES_DAMAGE",
+	"flags" : "EF_NO_EPIC+EF_TAKES_DAMAGE+EF_IMMORTAL",
 	"aiFlags" : "AIF_UNLIMITED_RANGE"
 }

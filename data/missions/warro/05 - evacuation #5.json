@@ -130,7 +130,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 35,
 			"y" : 35,
-			"flags" : "EF_AI_LEADER"
+			"flags" : "+EF_AI_LEADER"
 		},
 		{
 			"name" : "INF Gram",
@@ -138,7 +138,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 35,
 			"y" : 51,
-			"flags" : "EF_AI_LEADER",
+			"flags" : "+EF_AI_LEADER",
 			"active" : 0
 		},
 		{
@@ -147,7 +147,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 35,
 			"y" : 51,
-			"flags" : "EF_AI_LEADER",
+			"flags" : "+EF_AI_LEADER",
 			"active" : 0
 		},
 		{
@@ -156,7 +156,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 51,
 			"y" : 51,
-			"flags" : "EF_AI_LEADER",
+			"flags" : "+EF_AI_LEADER",
 			"active" : 0
 		},
 		{
@@ -165,7 +165,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 45,
 			"y" : 51,
-			"flags" : "EF_AI_LEADER",
+			"flags" : "+EF_AI_LEADER",
 			"active" : 0
 		}
 	],

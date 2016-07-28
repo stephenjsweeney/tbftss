@@ -1085,21 +1085,32 @@ static void wander(void)
  */
 void checkSuspicionLevel(void)
 {
+	long distance;
+	
 	if (battle.status == MS_IN_PROGRESS && player->side != SIDE_ALLIES)
 	{
 		battle.suspicionCoolOff = MAX(battle.suspicionCoolOff - 1, 0);
 		
+		distance = getDistance(self->x, self->y, player->x, player->y);
+		
 		/* raise if player is too far away and there are no enemies */
-		if (battle.suspicionCoolOff == 0 && battle.numEnemies == 0 && getDistance(self->x, self->y, player->x, player->y) > SCREEN_HEIGHT)
+		if (battle.suspicionCoolOff == 0 && battle.numEnemies == 0 && distance > SCREEN_HEIGHT)
 		{
 			battle.suspicionLevel++;
 		}
 		
-		/* raise while there are enemies around, to spir the player into taking action */
-		if (battle.numEnemies > 0 && battle.stats[STAT_TIME] % 5 == 0)
+		/* raise if there are enemies around, lower if none and player is close to leader */
+		if (battle.stats[STAT_TIME] % 5 == 0)
 		{
-			battle.suspicionLevel++;
-			battle.suspicionCoolOff = FPS * 30;
+			if (battle.numEnemies > 0)
+			{
+				battle.suspicionLevel++;
+				battle.suspicionCoolOff = FPS * 30;
+			}
+			else if (distance <= SCREEN_HEIGHT / 2)
+			{
+				battle.suspicionLevel = MAX(battle.suspicionLevel - 1, 0);
+			}
 		}
 	}
 }

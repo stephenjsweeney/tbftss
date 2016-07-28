@@ -77,8 +77,8 @@ void doSpawners(void)
 					e->y = rand() % 2 ? 0 : BATTLE_AREA_HEIGHT;
 				}
 				
-				e->x += (rand() % 2) ? -SCREEN_WIDTH : SCREEN_WIDTH;
-				e->y += (rand() % 2) ? -SCREEN_HEIGHT : SCREEN_HEIGHT;
+				e->x += (rand() % 2) ? -SCREEN_WIDTH * 3 : SCREEN_WIDTH * 3;
+				e->y += (rand() % 2) ? -SCREEN_HEIGHT * 3 : SCREEN_HEIGHT * 3;
 				
 				if (flags != -1)
 				{

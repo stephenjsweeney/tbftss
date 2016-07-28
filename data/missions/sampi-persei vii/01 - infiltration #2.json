@@ -25,7 +25,23 @@
 			"targetType" : "TT_ESCAPED"
 		},
 		{
-			"description" : "Kill civilians",
+			"description" : "Eliminate civilian group #1",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate civilian group #2",
+			"targetName" : "ENEMY",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1,
+			"active" : 0
+		},
+		{
+			"description" : "Eliminate civilian group #3",
 			"targetName" : "ENEMY",
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
@@ -53,54 +69,6 @@
 			"number" : 8,
 			"flags" : "+EF_IMMORTAL",
 			"aiFlags" : "+AIF_MOVES_TO_LEADER+AIF_UNLIMITED_RANGE"
-		},
-		{
-			"groupName" : "Civ-1",
-			"types" : "Civilian",
-			"side" : "SIDE_ALLIES",
-			"x" : -1,
-			"y" : -1,
-			"scatter" : 500,
-			"number" : 8,
-			"flags" : "EF_RETREATING+EF_TAKES_DAMAGE",
-			"aiFlags" : "AIF_AVOIDS_COMBAT+AIF_WANDERS",
-			"active" : 0
-		},
-		{
-			"groupName" : "Civ-2",
-			"types" : "Civilian",
-			"side" : "SIDE_ALLIES",
-			"x" : 25,
-			"y" : -1,
-			"scatter" : 500,
-			"number" : 16,
-			"flags" : "EF_RETREATING+EF_TAKES_DAMAGE",
-			"aiFlags" : "AIF_AVOIDS_COMBAT+AIF_WANDERS",
-			"active" : 0
-		},
-		{
-			"groupName" : "Civ-3",
-			"types" : "Civilian",
-			"side" : "SIDE_ALLIES",
-			"x" : -1,
-			"y" : 25,
-			"scatter" : 500,
-			"number" : 8,
-			"flags" : "EF_RETREATING+EF_TAKES_DAMAGE",
-			"aiFlags" : "AIF_AVOIDS_COMBAT+AIF_MOVES_TO_LEADER",
-			"active" : 0
-		},
-		{
-			"groupName" : "Civ-3",
-			"types" : "Simple Dart",
-			"side" : "SIDE_ALLIES",
-			"x" : -1,
-			"y" : 25,
-			"scatter" : 500,
-			"number" : 3,
-			"flags" : "+EF_AI_LEADER",
-			"aiFlags" : "+AIF_WANDERS+AIF_DEFENSIVE",
-			"active" : 0
 		}
 	],
 	"entities" : [
@@ -109,6 +77,44 @@
 			"x" : 25,
 			"y" : 45,
 			"flags" : "EF_DISABLED+EF_NO_HEALTH_BAR"
+		}
+	],
+	"spawners" : [
+		{
+			"name" : "Civ-1",
+			"types" : "Civilian;Simple Dart",
+			"side" : "SIDE_ALLIES",
+			"interval" : 2,
+			"total" : 12,
+			"step" : 1,
+			"flags" : "EF_RETREATING+EF_TAKES_DAMAGE",
+			"aiFlags" : "AIF_DEFENSIVE+AIF_WANDERS",
+			"offscreen" : 1,
+			"active" : 0
+		},
+		{
+			"name" : "Civ-2",
+			"types" : "Civilian;Simple Dart",
+			"side" : "SIDE_ALLIES",
+			"interval" : 2,
+			"total" : 12,
+			"step" : 1,
+			"flags" : "EF_RETREATING+EF_TAKES_DAMAGE",
+			"aiFlags" : "AIF_DEFENSIVE+AIF_WANDERS",
+			"offscreen" : 1,
+			"active" : 0
+		},
+		{
+			"name" : "Civ-3",
+			"types" : "Civilian;Simple Dart",
+			"side" : "SIDE_ALLIES",
+			"interval" : 2,
+			"total" : 12,
+			"step" : 1,
+			"flags" : "EF_RETREATING+EF_TAKES_DAMAGE",
+			"aiFlags" : "AIF_DEFENSIVE+AIF_WANDERS",
+			"offscreen" : 1,
+			"active" : 0
 		}
 	],
 	"script" : [
@@ -121,14 +127,14 @@
 			]
 		},
 		{
-			"function" : "TIME 30",
+			"function" : "TIME 15",
 			"lines" : [
 				"PANDORAN_MSG_BOX Wing Commander;Report.",
 				"PANDORAN_MSG_BOX Wingmate;Nothing to report, Commander. All clear."
 			]
 		},
 		{
-			"function" : "TIME 60",
+			"function" : "TIME 30",
 			"lines" : [
 				"PANDORAN_MSG_BOX Wing Commander;Report.",
 				"PANDORAN_MSG_BOX Wingmate;Picking up signals. Medium-sized, appear to be unarmed.",
@@ -136,40 +142,45 @@
 				"PANDORAN_MSG_BOX Wing Commander;Moving towards targets. Prepare to engage.",
 				"WAIT_MSG_BOX",
 				"MSG_BOX Hicks;(Ah, hell! We're hunting civilians. I ... I can't refuse orders ...)",
-				"ACTIVATE_ENTITY_GROUPS Civ-1",
-				"ACTIVATE_OBJECTIVES Kill civilians"
-			]
-		},
-		{
-			"function" : "ENEMIES_KILLED 8",
-			"lines" : [
-				"WAIT 1",
-				"MSG_BOX Hicks;(Better get back to the wing commander, before they think I'm slacking)",
-				"WAIT 30",
-				"PANDORAN_MSG_BOX Wingmate;More opposition detected.",
-				"PANDORAN_MSG_BOX Wing Commander;Follow my lead and eliminate all.",
-				"ACTIVATE_ENTITY_GROUPS Civ-2"
-			]
-		},
-		{
-			"function" : "ENEMIES_KILLED 32",
-			"lines" : [
-				"WAIT 30",
-				"PANDORAN_MSG_BOX Wing Commander;Report.",
-				"PANDORAN_MSG_BOX Wingmate;Nothing to report, Commander. All clear.",
+				"ACTIVATE_SPAWNER 1 Civ-1",
 				"WAIT_MSG_BOX",
-				"WAIT 30",
-				"ACTIVATE_ENTITY_GROUPS Civ-3",
-				"PANDORAN_MSG_BOX Wingmate;Enemies signal detected. Some armed.",
-				"PANDORAN_MSG_BOX Wing Commander;Follow my lead and eliminate all."
+				"ACTIVATE_OBJECTIVES Eliminate civilian group #1"
 			]
 		},
 		{
 			"function" : "OBJECTIVES_COMPLETE 1",
 			"lines" : [
 				"WAIT 1",
+				"MSG_BOX Hicks;(Better get back to the wing commander, before they think I'm slacking)",
+				"WAIT 30",
+				"PANDORAN_MSG_BOX Wingmate;More opposition detected.",
+				"PANDORAN_MSG_BOX Wing Commander;Follow my lead and eliminate all.",
+				"ACTIVATE_SPAWNER 1 Civ-2",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Eliminate civilian group #2"
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 2",
+			"lines" : [
+				"WAIT 15",
+				"PANDORAN_MSG_BOX Wing Commander;Report.",
+				"PANDORAN_MSG_BOX Wingmate;Nothing to report, Commander. All clear.",
+				"WAIT_MSG_BOX",
+				"WAIT 15",
+				"ACTIVATE_SPAWNER 1 Civ-3",
+				"PANDORAN_MSG_BOX Wingmate;Enemies signal detected. Some armed.",
+				"PANDORAN_MSG_BOX Wing Commander;Follow my lead and eliminate all.",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Eliminate civilian group #3"
+			]
+		},
+		{
+			"function" : "OBJECTIVES_COMPLETE 3",
+			"lines" : [
+				"WAIT 1",
 				"PANDORAN_MSG_BOX Wingmate;All opposition defeated.",
-				"WAIT 20",
+				"WAIT 15",
 				"PANDORAN_MSG_BOX Wing Commander;Sector clear. Head to jumpgate and exit the system.",
 				"MSG_BOX Hicks;(They're moving to the jumpgate. I should join them, and stick close.)",
 				"WAIT_MSG_BOX",

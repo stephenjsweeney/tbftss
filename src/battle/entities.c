@@ -178,7 +178,7 @@ void doEntities(void)
 				
 				if (e->killedBy == player && battle.hasSuspicionLevel)
 				{
-					battle.suspicionLevel -= (MAX_SUSPICION_LEVEL * 0.25);
+					battle.suspicionLevel -= (MAX_SUSPICION_LEVEL * 0.12);
 				}
 
 				if (e == player)

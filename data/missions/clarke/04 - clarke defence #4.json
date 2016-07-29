@@ -102,7 +102,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : 25,
-			"flags" : "EF_AI_LEADER"
+			"flags" : "+EF_AI_LEADER"
 		},
 		{
 			"name" : "INF Kongo",
@@ -110,7 +110,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 40,
 			"y" : 25,
-			"flags" : "EF_AI_LEADER"
+			"flags" : "+EF_AI_LEADER"
 		},
 		{
 			"name" : "INF Sharanga",
@@ -118,7 +118,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : 40,
-			"flags" : "EF_AI_LEADER"
+			"flags" : "+EF_AI_LEADER"
 		}
 	],
 	"script" : [

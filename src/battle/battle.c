@@ -201,6 +201,8 @@ static void doBattle(void)
 		
 		if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
 		{
+			battle.status = MS_COMPLETE;
+			
 			postBattle();
 
 			destroyBattle();

@@ -160,7 +160,7 @@
 				"ACTIVATE_OBJECTIVES Destroy INF Alysha's Calling",
 				"WAIT_MSG_BOX",
 				"ACTIVATE_ENTITY_GROUPS swarmers-1",
-				"MSG_BOX CSN Thunderbird;Welch, we are tracking a large number of fast-moving heading your way. IDs don't match anything we currently have on record.",
+				"MSG_BOX CSN Thunderbird;Welch, we're tracking a large number of fast-moving objects heading your way. IDs don't match anything we currently have on record.",
 				"MSG_BOX Welch;Missiles?",
 				"MSG_BOX CSN Thunderbird;Too large. We'll relay more information as we get it. Be prepared to engage.",
 				"ACTIVATE_OBJECTIVES Destroy incoming threat"

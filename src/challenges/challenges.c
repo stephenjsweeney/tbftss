@@ -30,6 +30,7 @@ static void updateDisabledChallenge(Challenge *c);
 static void updateItemsChallenge(Challenge *c);
 static void updateSurrenderChallenge(Challenge *c);
 static void updateWaypointChallenge(Challenge *c);
+static void updateRescueChallenge(Challenge *c);
 static void completeChallenge(void);
 static void failChallenge(void);
 static int updateChallenges(void);
@@ -294,6 +295,10 @@ static int updateChallenges(void)
 					case CHALLENGE_WAYPOINTS:
 						updateWaypointChallenge(c);
 						break;
+						
+					case CHALLENGE_RESCUE:
+						updateRescueChallenge(c);
+						break;
 				}
 			}
 			
@@ -443,6 +448,14 @@ static void updateWaypointChallenge(Challenge *c)
 	if (!c->passed)
 	{
 		c->passed = battle.stats[STAT_WAYPOINTS_VISITED] >= c->value;
+	}
+}
+
+static void updateRescueChallenge(Challenge *c)
+{
+	if (!c->passed)
+	{
+		c->passed = battle.stats[STAT_CIVILIANS_RESCUED] >= c->value;
 	}
 }
 

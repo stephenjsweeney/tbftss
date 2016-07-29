@@ -15,6 +15,7 @@
 	"challenge" : {
 		"rescueLimit" : 8,
 		"timeLimit" : 300,
+		"allowPlayerDeath" : 1,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_RESCUE",

@@ -16,8 +16,7 @@
 		}
 	],
 	"epic" : {
-		"fighterLimit" : 24,
-		"unlimitedEnemies" : 1
+		"fighterLimit" : 24
 	},
 	"player" : {
 		"type" : "Rook",
@@ -27,7 +26,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "ALLIES",
 			"types" : "TAF;Ray;Kingfisher;Hammerhead;Firefly;Nymph;Lynx;Hyena-A;Hyena-B",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,

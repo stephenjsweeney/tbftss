@@ -22,7 +22,7 @@
 			"active" : 0
 		},
 		{
-			"description" : "Defeat rebel forces",
+			"description" : "Defeat unidentified forces",
 			"targetName" : "Rebels",
 			"targetValue" : 12,
 			"targetType" : "TT_DESTROY",
@@ -134,7 +134,7 @@
 				"MSG_BOX CSN Florin;Incoming forces are on intercept vectors. We only need a few more minutes.",
 				"MSG_BOX Black;On it.",
 				"WAIT_MSG_BOX",
-				"ACTIVATE_OBJECTIVES Defeat rebel forces"
+				"ACTIVATE_OBJECTIVES Defeat unidentified forces"
 			]
 		},
 		{

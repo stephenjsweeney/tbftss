@@ -242,9 +242,9 @@ static int steer(void)
 
 static void gunThink(void)
 {
-	handleDisabled();
-	
 	doAI();
+	
+	handleDisabled();
 }
 
 static void componentDie(void)

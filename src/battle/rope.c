@@ -110,7 +110,7 @@ void cutRope(Entity *e)
 	{
 		e->towing->flags &= ~EF_RETREATING;
 		e->towing->flags &= ~EF_ROPED_ATTACHED;
-		e->towing->speed = 0;
+		e->towing->owner = NULL;
 		e->towing = NULL;
 	}
 }

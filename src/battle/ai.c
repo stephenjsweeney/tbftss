@@ -396,7 +396,12 @@ static int selectWeaponForTarget(Entity *e)
 		
 		if (e->flags & EF_NO_KILL)
 		{
-			return selectWeapon(BT_LASER) || selectWeapon(BT_MAG);
+			if (!(e->flags & EF_DISABLED))
+			{
+				return selectWeapon(BT_LASER) || selectWeapon(BT_MAG);
+			}
+			
+			return 0;
 		}
 	}
 	

@@ -108,8 +108,7 @@
 			"y" : 25,
 			"number" : 12,
 			"scatter" : 0,
-			"aiFlags" : "+AIF_MOVES_TO_LEADER",
-			"flags" : "+EF_AI_LEADER"
+			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
 			"types" : "Jackal;Sphinx;Thunderhead;Mantis",

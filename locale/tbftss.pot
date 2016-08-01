@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-25 08:49:47+0100\n"
+"POT-Creation-Date: 2016-08-01 11:00:23+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -673,6 +673,9 @@ msgstr ""
 msgid "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations."
 msgstr ""
 
+msgid "Three Tzac fighter groups has been sighted in the area. We need to hunt them down and eliminate them."
+msgstr ""
+
 msgid "Enemies sighted."
 msgstr ""
 
@@ -1177,13 +1180,13 @@ msgstr ""
 msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
 msgstr ""
 
-msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down two of their corvettes: INF Dirk and INF Blackjack. Ensure the Khepri-class bombers can get in close enough to delivery a strike."
+msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down INF Dirk. Ensure the Lynx-class bombers can get in close enough to delivery a strike."
 msgstr ""
 
-msgid "Commander, enemy reinforcements are en route. Looks like more INF fighters."
+msgid "Commander, I would recommend we take out the escorts first."
 msgstr ""
 
-msgid "Dammit! Let's make sure we down the Dirk before any more turn up."
+msgid "Agreed. The Dirk on its own would already prove a challenge."
 msgstr ""
 
 msgid "INF Dirk has been downed."
@@ -1198,7 +1201,7 @@ msgstr ""
 msgid "Hell. Okay, we'll return momentarily. Carlyle out."
 msgstr ""
 
-msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra is moving to intercept more enemy corvettes. Your orders are to assist it in achieving its goals."
+msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra and UNF Artemis are moving to intercept more enemy corvettes. Your orders are to assist them in achieving their goals."
 msgstr ""
 
 msgid "INF Khopesh is down."
@@ -1207,10 +1210,7 @@ msgstr ""
 msgid "INF Blackjack has been destroyed."
 msgstr ""
 
-msgid "INF Asi has been destroyed."
-msgstr ""
-
-msgid "This is Carlyle. Enemy targets have been eliminated. Cleopatra still in one piece."
+msgid "This is Carlyle. Enemy targets have been eliminated. Cleopatra and Artemis still in one piece."
 msgstr ""
 
 msgid "Acknowledged. Fall back to the main fleet and await new instructions."
@@ -1279,7 +1279,7 @@ msgstr ""
 msgid "Second squadron down. Moving up the field to engage Alysha's Calling."
 msgstr ""
 
-msgid "Welch, we are tracking a large number of fast-moving heading your way. IDs don't match anything we currently have on record."
+msgid "Welch, we're tracking a large number of fast-moving objects heading your way. IDs don't match anything we currently have on record."
 msgstr ""
 
 msgid "Missiles?"
@@ -1435,7 +1435,7 @@ msgstr ""
 msgid "Estelle, we've got this. We can take them."
 msgstr ""
 
-msgid "We're taking too many losses, Dodds. Fall back now, that's an order."
+msgid "We're suffering too many losses, Dodds. Fall back now, that's an order."
 msgstr ""
 
 msgid "Tzac Shales sighted. Moving to intercept."
@@ -1588,7 +1588,7 @@ msgstr ""
 msgid "Almost done here, Control, not many targets remaining."
 msgstr ""
 
-msgid "Strider, be advised that we are tracking a further five INF fighters heading your way."
+msgid "Strider, be advised that we are tracking a further three INF fighters heading your way."
 msgstr ""
 
 msgid "Dammit, spoke to soon ..."
@@ -1612,7 +1612,7 @@ msgstr ""
 msgid "Four Mitikas fighters."
 msgstr ""
 
-msgid "Agamemnon's 1st, INF Buster and INF Ragnarok on approach. Determining escort groups ..."
+msgid "Agamemnon's 1st, INF Ragnarok on approach. Determining escort group ..."
 msgstr ""
 
 msgid "Another small escort group: eight fighters."

@@ -14,11 +14,25 @@
 			"targetType" : "TT_WAYPOINT"
 		},
 		{
-			"description" : "Eliminate all enemy targets",
-			"targetName" : "ENEMY",
-			"targetValue" : 1,
+			"description" : "Defeat Tzac group #1",
+			"targetName" : "Rebels-1",
+			"targetValue" : 4,
 			"targetType" : "TT_DESTROY",
-			"isEliminateAll" : 1
+			"active" : 0
+		},
+		{
+			"description" : "Defeat Tzac group #2",
+			"targetName" : "Rebels-2",
+			"targetValue" : 5,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Defeat Tzac group #3",
+			"targetName" : "Rebels-3",
+			"targetValue" : 6,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
 		}
 	],
 	"player" : {
@@ -86,15 +100,17 @@
 	],
 	"script" : [
 		{
-			"function" : "TIME 0",
+			"function" : "TIME 1",
 			"lines" : [
-				"ACTIVATE_NEXT_WAYPOINT"
+				"ACTIVATE_NEXT_WAYPOINT",
+				"MSG_BOX Rice;Three Tzac fighter groups has been sighted in the area. We need to hunt them down and eliminate them."
 			]
 		},
 		{
 			"function" : "Waypoint #1",
 			"lines" : [
 				"ACTIVATE_ENTITY_GROUPS Rebels-1",
+				"ACTIVATE_OBJECTIVES Defeat Tzac group #1",
 				"MSG_BOX Wingmate;Enemies sighted.",
 				"MSG_BOX Rice;Break and attack, people!"
 			]
@@ -110,6 +126,7 @@
 			"function" : "Waypoint #2",
 			"lines" : [
 				"ACTIVATE_ENTITY_GROUPS Rebels-2",
+				"ACTIVATE_OBJECTIVES Defeat Tzac group #2",
 				"MSG_BOX Rice;Second group located."
 			]
 		},
@@ -124,6 +141,7 @@
 			"function" : "Waypoint #3",
 			"lines" : [
 				"ACTIVATE_ENTITY_GROUPS Rebels-3",
+				"ACTIVATE_OBJECTIVES Defeat Tzac group #3",
 				"MSG_BOX Rice;Final group spotted."
 			]
 		},

@@ -24,7 +24,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void blitScaled(SDL_Texture *texture, int x, int y, int w, int h, int center);
 extern SDL_Texture *getTexture(char *name);
-extern void blit(SDL_Texture *t, int x, int y, int center);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void *resize(void *array, int oldSize, int newSize);
 extern int isOnBattleScreen(int x, int y, int w, int h);

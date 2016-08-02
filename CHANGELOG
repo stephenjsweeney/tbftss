@@ -1,5 +1,11 @@
 Changelog
 
+0.95
+	
+	* AI fixes
+	* Campaign tweaks and bugs fixes
+	* Reset entity owner when detaching tow rope
+
 0.94
 
 	* Campaign tweaks and bug fixes

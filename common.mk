@@ -1,4 +1,4 @@
-VERSION = 0.95
+VERSION = 0.96
 REVISION = $(shell date +"%y%m%d")
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 

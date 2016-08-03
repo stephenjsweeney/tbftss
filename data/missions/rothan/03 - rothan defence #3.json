@@ -37,7 +37,8 @@
 			"y" : 25,
 			"side" : "SIDE_ALLIES",
 			"scatter" : 500,
-			"number" : 2
+			"number" : 2,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
 			"name" : "Shipyard",
@@ -66,7 +67,7 @@
 			"scatter" : 2500,
 			"number" : 7,
 			"flags" : "EF_TAKES_DAMAGE",
-			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS"
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
 			"groupName" : "Rebels-1",
@@ -77,7 +78,7 @@
 			"scatter" : 2500,
 			"number" : 4,
 			"flags" : "EF_TAKES_DAMAGE",
-			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"active" : 0
 		},
 		{
@@ -87,7 +88,7 @@
 			"y" : -1,
 			"side" : "SIDE_TZAC",
 			"scatter" : 2500,
-			"number" : 6,
+			"number" : 3,
 			"flags" : "EF_TAKES_DAMAGE",
 			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
 			"active" : 0
@@ -101,7 +102,7 @@
 			"scatter" : 2500,
 			"number" : 4,
 			"flags" : "EF_TAKES_DAMAGE",
-			"aiFlags" : "+AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"active" : 0
 		},
 		{
@@ -111,7 +112,7 @@
 			"y" : -1,
 			"side" : "SIDE_TZAC",
 			"scatter" : 2500,
-			"number" : 6,
+			"number" : 3,
 			"flags" : "EF_TAKES_DAMAGE",
 			"aiFlags" : "AIF_UNLIMITED_RANGE+AIF_TARGET_FOCUS+AIF_MISSILE_BOAT+AIF_LONG_RANGE_FIRE",
 			"active" : 0
@@ -124,7 +125,7 @@
 				"MSG_BOX Reid;We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here.",
 				"MSG_BOX Wingmate;Any backup on the way?",
 				"MSG_BOX Reid;The threat warning came in too late for any other squadrons to assist us, but we have the turrets to assist us.",
-				"MSG_BOX Reid;Expect the Tzac forces to focus on destroying the tugs and shuttles."
+				"MSG_BOX Reid;Expect the Tzac bombers to focus on destroying the tugs and shuttles."
 			]
 		},
 		{

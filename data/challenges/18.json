@@ -14,17 +14,17 @@
 		"y" : 25
 	},
 	"challenge" : {
-		"timeLimit" : 240,
+		"timeLimit" : 300,
 		"waypointLimit" : 5,
 		"clearWaypointEnemies" : 1,
 		"challenges" : [
 			{
 				"type" : "CHALLENGE_TIME",
-				"value" : 240
+				"value" : 300
 			},
 			{
 				"type" : "CHALLENGE_TIME",
-				"value" : 180
+				"value" : 240
 			},
 			{
 				"type" : "CHALLENGE_PLAYER_KILLS",

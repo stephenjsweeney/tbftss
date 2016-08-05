@@ -66,7 +66,8 @@
 			"types" : "INF Corvette 02",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
-			"y" : 10
+			"y" : 10,
+			"flags" : "+EF_MISSION_TARGET"
 		}
 	],
 	"script" : [

@@ -42,7 +42,7 @@
 			"y" : 15,
 			"number" : 80,
 			"scatter" : 5000,
-			"flags" : "+EF_FRIENDLY_HEALTH_BAR"
+			"flags" : "+EF_FRIENDLY_HEALTH_BAR+EF_NO_PLAYER_TARGET"
 		}
 	],
 	"script" : [
@@ -50,7 +50,7 @@
 			"function" : "TIME 2",
 			"lines" : [
 				"MSG_BOX Wing Commander;Remember everyone: the Pandorans are using UNF fighters.",
-				"MSG_BOX Wing Commander;Using your radar and HUD is the way to go in this fight."
+				"MSG_BOX Wing Commander;Using your radar is the way to go in this fight."
 			]
 		},
 		{

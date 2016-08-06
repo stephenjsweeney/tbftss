@@ -35,7 +35,7 @@
 		"pilot" : "1st Lt. Curtis Rice",
 		"squadron" : "Eightballers",
 		"x" : 25,
-		"y" : 5
+		"y" : 15
 	},
 	"fighters" : [
 		{
@@ -43,7 +43,7 @@
 			"number" : 11,
 			"side" : "SIDE_ALLIES",
 			"x" : 25,
-			"y" : 5,
+			"y" : 15,
 			"scatter" : 500
 		},
 		{
@@ -51,7 +51,7 @@
 			"number" : 5,
 			"side" : "SIDE_TZAC",
 			"x" : 25,
-			"y" : 12,
+			"y" : 22,
 			"scatter" : 500
 		},
 		{
@@ -79,11 +79,22 @@
 		{
 			"groupName" : "Rebels-2",
 			"types" : "Shale;Razor;SK-31;SK-34",
-			"number" : 48,
+			"number" : 24,
 			"side" : "SIDE_TZAC",
-			"x" : -1,
-			"y" : 35,
-			"scatter" : 8500,
+			"x" : 20,
+			"y" : -1,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
+			"active" : 0
+		},
+		{
+			"groupName" : "Rebels-2",
+			"types" : "Shale;Razor;SK-31;SK-34",
+			"number" : 24,
+			"side" : "SIDE_TZAC",
+			"x" : 20,
+			"y" : -1,
+			"scatter" : 500,
 			"flags" : "+EF_AI_TARGET",
 			"aiFlags" : "+AIF_MOVES_TO_LEADER",
 			"active" : 0
@@ -92,13 +103,25 @@
 			"groupName" : "Pandorans",
 			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
-			"number" : 48,
+			"number" : 24,
 			"side" : "SIDE_PANDORAN",
-			"x" : 51,
-			"y" : 35,
-			"scatter" : 8500,
+			"x" : 30,
+			"y" : -1,
+			"scatter" : 500,
 			"flags" : "+EF_AI_TARGET",
 			"aiFlags" : "+AIF_MOVES_TO_LEADER",
+			"active" : 0
+		},
+		{
+			"groupName" : "Pandorans",
+			"name" : "Pandoran",
+			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
+			"number" : 24,
+			"side" : "SIDE_PANDORAN",
+			"x" : 30,
+			"y" : -1,
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"active" : 0
 		},
 		{
@@ -128,8 +151,8 @@
 			"name" : "HMS 821-283",
 			"types" : "HMS Corvette 01",
 			"side" : "SIDE_TZAC",
-			"x" : -1,
-			"y" : 35,
+			"x" : 20,
+			"y" : -1,
 			"flags" : "+EF_AI_LEADER",
 			"active" : 0
 		},
@@ -138,10 +161,18 @@
 			"name" : "INF Burnside",
 			"types" : "INF Corvette 02",
 			"side" : "SIDE_PANDORAN",
-			"x" : 51,
-			"y" : 35,
+			"x" : 30,
+			"y" : -1,
 			"flags" : "+EF_AI_LEADER",
 			"active" : 0
+		}
+	],
+	"entities" : [
+		{
+			"type" : "ET_JUMPGATE",
+			"x" : 25,
+			"y" : 48,
+			"flags" : "+EF_DISABLED"
 		}
 	],
 	"script" : [
@@ -190,7 +221,7 @@
 			]
 		},
 		{
-			"function" : "OBJECTIVES_COMPLETE 3",
+			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 1",
 				"MSG_BOX Rice;I owe you my life, Knights.",

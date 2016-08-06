@@ -103,7 +103,7 @@
 			"function" : "TIME 2",
 			"lines" : [
 				"MSG_BOX Wolfenden;Our goal is the jumpgate. Expect a lot of resistance.",
-				"MSG_BOX Wolfenden;Once we're they, we need to destroy the control nodes to shut it down. Barclay, that's your job."
+				"MSG_BOX Wolfenden;Once we're there, we need to destroy the control nodes to shut it down. Barclay, that's your job."
 			]
 		},
 		{

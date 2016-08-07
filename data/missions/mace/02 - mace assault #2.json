@@ -41,15 +41,17 @@
 			"side" : "SIDE_ALLIES",
 			"x" : 5,
 			"y" : 45,
-			"scatter" : 500
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
-			"types" : "Hammerhead;Lynx",
-			"number" : 10,
+			"types" : "Hammerhead;Lynx;Firefly;Ray",
+			"number" : 14,
 			"side" : "SIDE_ALLIES",
 			"x" : 5,
 			"y" : 45,
-			"scatter" : 500
+			"scatter" : 500,
+			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
 			"types" : "Shale",
@@ -74,7 +76,7 @@
 		{
 			"groupName" : "Rebels-2",
 			"types" : "Shale",
-			"number" : 15,
+			"number" : 6,
 			"side" : "SIDE_TZAC",
 			"x" : 15,
 			"y" : 51,
@@ -107,7 +109,7 @@
 		{
 			"function" : "TIME 2",
 			"lines" : [
-				"MSG_BOX Lee;HMS 781-110 sighted. All fighters free to engage at will. Follow my lead."
+				"MSG_BOX Lee;HMS 781-110 sighted. All fighters free to engage at will."
 			]
 		},
 		{
@@ -125,6 +127,8 @@
 		{
 			"function" : "CAP_HEALTH HMS 781-041 3",
 			"lines" : [
+				"MSG_BOX Wingmate;Commander, a large group of Shales just arrived in the area",
+				"MSG_BOX Lee;Hell, they've calls for backup. We should take them down before dealing with HMS 781-041",
 				"ACTIVATE_ENTITY_GROUPS Rebels-2"
 			]
 		},

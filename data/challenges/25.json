@@ -16,6 +16,7 @@
 	"challenge" : {
 		"timeLimit" : 120,
 		"waypointLimit" : 12,
+		"allowPlayerDeath" : 1,
 		"noBoost" : 1,
 		"challenges" : [
 			{

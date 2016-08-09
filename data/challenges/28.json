@@ -13,7 +13,7 @@
 		"y" : 25
 	},
 	"challenge" : {
-		"timeLimit" : 210,
+		"timeLimit" : 240,
 		"killLimit" : 120,
 		"challenges" : [
 			{

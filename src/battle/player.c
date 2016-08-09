@@ -549,7 +549,7 @@ static void switchGuns(void)
 
 	i = player->selectedGunType;
 
-	if (!player->combinedGuns)
+	if (!player->combinedGuns && battle.numPlayerGuns)
 	{
 		do
 		{

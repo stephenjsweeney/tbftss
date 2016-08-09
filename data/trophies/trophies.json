@@ -129,14 +129,14 @@
 	{
 		"id" : "TEAM_PLAYER",
 		"title" : "Taking one for the team",
-		"description" : "Be killed by a missile that was meant for someone else",
+		"description" : "Be hit by a missile that was meant for someone else",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
 	},
 	{
 		"id" : "BODYGUARD",
 		"title" : "The bodyguard",
-		"description" : "Kill an enemy with a missile intended for their wing leader",
+		"description" : "Hit an enemy with a missile intended for their wing leader",
 		"value" : "TROPHY_BRONZE",
 		"hidden" : 1
 	},

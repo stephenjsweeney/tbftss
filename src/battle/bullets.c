@@ -220,22 +220,22 @@ static void checkCollisions(Bullet *b)
 					battle.stats[STAT_MISSILES_EVADED]++;
 				}
 				
+				if (b->type == BT_MISSILE && b->target != e)
+				{
+					if (e == player)
+					{
+						awardTrophy("TEAM_PLAYER");
+					}
+					else if (b->owner == player && (e->aiFlags & AIF_MOVES_TO_LEADER) && (b->target->flags & EF_AI_LEADER))
+					{
+						awardTrophy("BODYGUARD");
+					}
+				}
+				
 				/* assuming that health <= 0 will always mean killed */
 				if (e->health <= 0)
 				{
 					e->killedBy = b->owner;
-					
-					if (b->type == BT_MISSILE && b->target != e)
-					{
-						if (e == player)
-						{
-							awardTrophy("TEAM_PLAYER");
-						}
-						else if (b->owner == player && (e->aiFlags & AIF_MOVES_TO_LEADER) && (b->target->flags & EF_AI_LEADER))
-						{
-							awardTrophy("BODYGUARD");
-						}
-					}
 					
 					if (e == player)
 					{

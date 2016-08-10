@@ -70,7 +70,8 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : -1,
-			"active" : 0
+			"active" : 0,
+			"flags" : "+EF_MISSION_TARGET"
 		},
 		{
 			"name" : "INF BC-41",
@@ -78,7 +79,8 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : 51,
-			"active" : 0
+			"active" : 0,
+			"flags" : "+EF_MISSION_TARGET"
 		}
 	],
 	"spawners" : [
@@ -89,6 +91,7 @@
 			"interval" : 10,
 			"total" : -1,
 			"step" : 5,
+			"flags" : "EF_RETREATING+EF_TAKES_DAMAGE",
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{

@@ -14,7 +14,7 @@
 		"flags" : "+EF_COLLECTS_ITEMS"
 	},
 	"challenge" : {
-		"timeLimit" : 180,
+		"timeLimit" : 240,
 		"playerItemLimit" : 4,
 		"allowPlayerDeath" : 1,
 		"isDeathMatch" : 1,

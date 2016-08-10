@@ -636,9 +636,9 @@ static void drawStarSystemDetail(void)
 			if (mission->available)
 			{
 				drawText(210, y, 24, TA_LEFT, mission->completed ? colors.lightGrey : colors.yellow, mission->name);
+				
+				y += 50;
 			}
-
-			y += 50;
 		}
 		
 		i++;

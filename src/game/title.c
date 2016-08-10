@@ -182,7 +182,7 @@ static void draw(void)
 	blit(pandoranWar, SCREEN_WIDTH / 2, 110, 1);
 	
 	drawText(10, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2016");
-	drawText(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 25, 14, TA_RIGHT, colors.white, "Version %.2f.%d", VERSION, REVISION);
+	drawText(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 25, 14, TA_RIGHT, colors.white, "Version %.2f-%d", VERSION, REVISION);
 	
 	switch (show)
 	{

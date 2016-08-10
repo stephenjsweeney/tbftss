@@ -108,7 +108,7 @@
 			"types" : "HMS Corvette 01",
 			"x" : 15,
 			"y" : 15,
-			"flags" : "+EF_AI_TARGET"
+			"flags" : "+EF_AI_TARGET+EF_MISSION_TARGET"
 		}
 	],
 	"spawners" : [

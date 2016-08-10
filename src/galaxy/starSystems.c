@@ -180,7 +180,10 @@ void updateStarSystemMissions(void)
 			{
 				starSystem->availableMissions++;
 				
-				starSystem->activeMission = mission;
+				if (!mission->completed)
+				{
+					starSystem->activeMission = mission;
+				}
 			}
 
 			prev = mission;

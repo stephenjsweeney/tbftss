@@ -300,14 +300,17 @@ static void handleKeyboard(void)
 			case SHOW_OPTIONS:
 				selectWidget("resume", "inBattle");
 				show = SHOW_MENU;
+				SDL_SetWindowGrab(app.window, 0);
 				break;
 
 			case SHOW_MENU:
 				show = SHOW_BATTLE;
+				SDL_SetWindowGrab(app.window, 1);
 				break;
 
 			case SHOW_OBJECTIVES:
 				show = SHOW_BATTLE;
+				SDL_SetWindowGrab(app.window, 1);
 				break;
 		}
 
@@ -321,17 +324,23 @@ static void handleKeyboard(void)
 		battle.status = MS_PAUSED;
 		
 		selectWidget("ok", "startBattle");
+		
+		SDL_SetWindowGrab(app.window, 0);
 	}
 }
 
 static void start(void)
 {
 	battle.status = MS_IN_PROGRESS;
+	
+	SDL_SetWindowGrab(app.window, 1);
 }
 
 static void resume(void)
 {
 	show = SHOW_BATTLE;
+	
+	SDL_SetWindowGrab(app.window, 1);
 
 	clearInput();
 }

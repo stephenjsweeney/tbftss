@@ -476,7 +476,7 @@ int isMissionAvailable(Mission *mission, Mission *prev)
 	}
 	else
 	{
-		return (
+		return mission->completed || (
 			game.completedMissions >= mission->requires && 
 			game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional &&
 			game.completedMissions < mission->expires

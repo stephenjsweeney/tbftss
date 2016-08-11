@@ -98,7 +98,7 @@
 			"name" : "pandoranSpawner",
 			"types" : "Jackal;Mantis;Sphinx;Thunderhead;Scarab;Shale;SK-31;SK-34;Razor;Blizzard;Khepri;Nymph;Hyena-A;Hyena-B;Firefly;Dart",
 			"side" : "SIDE_PANDORAN",
-			"interval" : 10,
+			"interval" : 12,
 			"total" : -1,
 			"step" : 2,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"

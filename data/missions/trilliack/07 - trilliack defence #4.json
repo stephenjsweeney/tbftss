@@ -37,7 +37,7 @@
 		},
 		{
 			"name" : "Pandoran",
-			"types" : "Jackal;Scarab;Mantis;Sphinx;Thunderhead;Shale;Razor;SK-31;SK-34;Blizzard;Khepri",
+			"types" : "Jackal;Mantis;Sphinx;Thunderhead;Shale;Razor;SK-31;SK-34;Blizzard",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
 			"y" : 15,
@@ -67,7 +67,8 @@
 			"types" : "CSN Corvette 02",
 			"side" : "SIDE_ALLIES",
 			"x" : 30,
-			"y" : 30
+			"y" : 30,
+			"flags" : "+EF_AI_TARGET"
 		},
 		{
 			"groupName" : "CapShips",
@@ -98,7 +99,7 @@
 			]
 		},
 		{
-			"function" : "ALLIES_KILLED 35",
+			"function" : "ALLIES_KILLED 25",
 			"lines" : [
 				"MSG_BOX Control;We're losing fighters, rapidly. We need to focus our efforts on dividing the enemy up and taking them down together.",
 				"MSG_BOX Wingmate;Picking up incoming Tzac corvettes.",
@@ -106,20 +107,21 @@
 			]
 		},
 		{
-			"function" : "ALLIES_KILLED 75",
+			"function" : "CAPITAL_SHIPS_LOST 1",
 			"lines" : [
-				"MSG_BOX Control;More than half the fighter defence has been eliminated! We can't continue like this!"
+				"MSG_BOX Control;We're losing captial ships! We can't continue like this!"
 			]
 		},
 		{
-			"function" : "ALLIES_KILLED 100",
+			"function" : "CAPITAL_SHIPS_LOST 2",
 			"lines" : [
 				"MSG_BOX Control;The Pandoran forces are closing in on Flint. They will commence planetary bombardment if allowed to get any closer."
 			]
 		},
 		{
-			"function" : "ALLIES_KILLED 120",
+			"function" : "CAPITAL_SHIPS_LOST 3",
 			"lines" : [
+				"WAIT 10",
 				"MSG_BOX CSN Griffin;Dodds, Commodore Parks has ordered that you pull out immediately.",
 				"MSG_BOX Dodds;Griffin, what the hell? We can take them!",
 				"MSG_BOX CSN Griffin;That's a negative, Dodds. You're to return to the carrier, and prepare for withdrawal.",

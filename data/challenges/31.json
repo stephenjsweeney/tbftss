@@ -5,7 +5,7 @@
 	"planet" : "AUTO",
 	"music" : "AUTO",
 	"player" : {
-		"type" : "Hammerhead",
+		"type" : "Khepri",
 		"side" : "SIDE_ALLIES",
 		"pilot" : "-",
 		"squadron" : "-",
@@ -33,7 +33,7 @@
 	},
 	"fighters" : [
 		{
-			"types" : "Scarab;Khepri;Lynx",
+			"types" : "Scarab;Hammerhead;Lynx",
 			"side" : "SIDE_TZAC",
 			"number" : 4,
 			"x" : 25,

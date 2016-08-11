@@ -133,38 +133,22 @@ void updateStarSystemMissions(void)
 {
 	StarSystem *starSystem;
 	Mission *mission, *prev;
-	int numOptional, completedOptional;
 
 	game.completedMissions = game.totalMissions = game.availableMissions = 0;
 
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		numOptional = completedOptional = starSystem->completedMissions = starSystem->availableMissions = starSystem->totalMissions = 0;
+		starSystem->completedMissions = starSystem->availableMissions = starSystem->totalMissions = 0;
 
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
 			starSystem->totalMissions++;
-
-			if (mission->completed)
-			{
-				starSystem->completedMissions++;
-			}
 			
-			if (mission->isOptional && starSystem->type == SS_NORMAL)
+			if (starSystem->type == SS_NORMAL && !mission->isOptional)
 			{
-				numOptional++;
-				
-				if (mission->completed)
-				{
-					completedOptional++;
-				}
+				game.totalMissions++;
+				game.completedMissions++;
 			}
-		}
-
-		if (starSystem->type == SS_NORMAL)
-		{
-			game.totalMissions += (starSystem->totalMissions - numOptional);
-			game.completedMissions += (starSystem->completedMissions - completedOptional);
 		}
 	}
 
@@ -180,22 +164,28 @@ void updateStarSystemMissions(void)
 			{
 				starSystem->availableMissions++;
 				
-				if (!mission->completed)
+				if (mission->completed)
+				{
+					starSystem->completedMissions++;
+				}
+				else
 				{
 					starSystem->activeMission = mission;
+				}
+				
+				if (starSystem->type == SS_NORMAL && !mission->isOptional)
+				{
+					game.availableMissions++;
 				}
 			}
 
 			prev = mission;
 		}
 
-		if (starSystem->type == SS_NORMAL)
-		{
-			game.availableMissions += starSystem->availableMissions;
-		}
-
 		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->availableMissions);
 	}
+	
+	printf("completed=%d, available=%d, total=%d\n", game.completedMissions, game.availableMissions, game.totalMissions);
 }
 
 void destroyStarSystems(void)

@@ -225,10 +225,10 @@
 	{
 		"id" : "EVADE",
 		"title" : "Missed, you f**kers!",
-		"description" : "Evade 10 missiles",
+		"description" : "Evade 5 missiles",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_MISSILES_EVADED",
-		"statValue" : 10,
+		"statValue" : 5,
 		"hidden" : 1
 	},
 	{

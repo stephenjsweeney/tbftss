@@ -47,6 +47,8 @@ static void returnFromOptions(void);
 static void doStarSystemView(void);
 static void updatePandoranAdvance(void);
 static void fallenOK(void);
+static void updateCampaignProgress(void);
+static void campaignCompleteOK(void);
 static Mission *nextAvailableMission(StarSystem *starSystem);
 
 static StarSystem *selectedStarSystem;
@@ -61,6 +63,7 @@ static float ssx, ssy;
 static float arrowPulse;
 static int show;
 static int scrollingMap;
+static int campaignComplete = 0;
 static PointF cameraMin, cameraMax;
 static Widget *startMissionButton;
 static char *MISSIONS_TEXT;
@@ -108,6 +111,8 @@ void initGalacticMap(void)
 	awardCampaignTrophies();
 
 	awardStatsTrophies();
+	
+	updateCampaignProgress();
 
 	app.saveGame = 1;
 
@@ -139,6 +144,23 @@ void initGalacticMap(void)
 	endSectionTransition();
 
 	playMusic("music/main/Pressure.ogg", 1);
+}
+
+static void updateCampaignProgress(void)
+{
+	StarSystem *starSystem;
+	
+	if (game.completedMissions == game.totalMissions)
+	{
+		for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+		{
+			starSystem->activeMission = starSystem->missionHead.next;
+		}
+		
+		campaignComplete = 1;
+		
+		showOKDialog(&campaignCompleteOK, _("Congratulations, you have completed the campaign! You may now replay past missions, for fun, to boost stats, or to earn missing trophies!"));
+	}
 }
 
 static void updatePandoranAdvance(void)
@@ -313,7 +335,7 @@ static void addPulses(void)
 
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
-		if (starSystem->completedMissions < starSystem->availableMissions)
+		if (starSystem->completedMissions < starSystem->availableMissions || (campaignComplete && starSystem->activeMission))
 		{
 			pulse = malloc(sizeof(Pulse));
 			memset(pulse, 0, sizeof(Pulse));
@@ -668,7 +690,7 @@ static void drawStarSystemDetail(void)
 		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.cyan, OPTIONAL_TEXT);
 	}
 
-	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->type == SS_SOL);
+	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->type == SS_SOL || campaignComplete);
 
 	drawWidgets("starSystem");
 }
@@ -678,6 +700,15 @@ static void fallenOK(void)
 	show = SHOW_GALAXY;
 
 	app.modalDialog.type = MD_NONE;
+}
+
+static void campaignCompleteOK(void)
+{
+	show = SHOW_GALAXY;
+
+	app.modalDialog.type = MD_NONE;
+	
+	campaignComplete = 2;
 }
 
 static void handleKeyboard(void)

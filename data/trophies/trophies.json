@@ -175,12 +175,12 @@
 		"statValue" : 500
 	},
 	{
-		"id" : "ENEMY_5000",
+		"id" : "ENEMY_2500",
 		"title" : "Legend",
-		"description" : "Take down 5,000 enemies (player only)",
+		"description" : "Take down 2,500 enemies (player only)",
 		"value" : "TROPHY_GOLD",
 		"stat" : "STAT_ENEMIES_KILLED_PLAYER",
-		"statValue" : 5000
+		"statValue" : 2500
 	},
 	{
 		"id" : "FIRE_100000",
@@ -191,12 +191,12 @@
 		"statValue" : 100000
 	},
 	{
-		"id" : "MISSILE_1000",
+		"id" : "MISSILE_500",
 		"title" : "Dodge this!",
-		"description" : "Launch 1,000 missiles",
+		"description" : "Launch 500 missiles",
 		"value" : "TROPHY_BRONZE",
 		"stat" : "STAT_MISSILES_FIRED",
-		"statValue" : 1000
+		"statValue" : 500
 	},
 	{
 		"id" : "ECM",

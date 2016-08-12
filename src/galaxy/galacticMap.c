@@ -142,6 +142,8 @@ void initGalacticMap(void)
 	getWidget("ok", "fallen")->action = fallenOK;
 
 	endSectionTransition();
+	
+	SDL_SetWindowGrab(app.window, 0);
 
 	playMusic("music/main/Pressure.ogg", 1);
 }

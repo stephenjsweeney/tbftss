@@ -142,6 +142,8 @@ void initChallengeHome(void)
 		game.currentMission = game.challengeMissionHead.next;
 		updateChallengeMissionData();
 	}
+	
+	SDL_SetWindowGrab(app.window, 0);
 
 	endSectionTransition();
 

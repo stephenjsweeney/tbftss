@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-06 19:09:39+0100\n"
+"POT-Creation-Date: 2016-08-12 08:55:29+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -272,6 +272,9 @@ msgid "Note: this is an epic mission."
 msgstr ""
 
 msgid "Note: this is an optional mission."
+msgstr ""
+
+msgid "Congratulations, you have completed the campaign! You may now replay past missions, for fun, to boost stats, or to earn missing trophies!"
 msgstr ""
 
 msgid "%s has fallen to the Pandorans"
@@ -964,7 +967,7 @@ msgstr ""
 msgid "I don't think they did; they just got lucky."
 msgstr ""
 
-msgid "And now they use that against every planet they come to."
+msgid "And now they'll use that against every planet they come to."
 msgstr ""
 
 msgid "All forces, retreat immediately! Repeat: retreat immediately. White Knights, dock, and prepare for withdrawal."
@@ -1885,7 +1888,7 @@ msgstr ""
 msgid "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces."
 msgstr ""
 
-msgid "HMS 781-110 sighted. All fighters free to engage at will. Follow my lead."
+msgid "HMS 781-110 sighted. All fighters free to engage at will."
 msgstr ""
 
 msgid "Control, HMS 781-110 has been taken down."
@@ -1895,6 +1898,12 @@ msgid "Infinites, HMS 781-041 has arrived in the area. Engage and destroy."
 msgstr ""
 
 msgid "Acknowledged."
+msgstr ""
+
+msgid "Commander, a large group of Shales just arrived in the area"
+msgstr ""
+
+msgid "Hell, they've called for backup. We should take them down before dealing with HMS 781-041"
 msgstr ""
 
 msgid "This is HMS 781-041 of the Nation of Tzac! We surrender! Repeat, we surrender!"
@@ -2587,7 +2596,7 @@ msgstr ""
 msgid "Picking up incoming Tzac corvettes."
 msgstr ""
 
-msgid "More than half the fighter defence has been eliminated! We can't continue like this!"
+msgid "We're losing captial ships! We can't continue like this!"
 msgstr ""
 
 msgid "The Pandoran forces are closing in on Flint. They will commence planetary bombardment if allowed to get any closer."
@@ -2944,13 +2953,13 @@ msgstr ""
 msgid "Taking one for the team"
 msgstr ""
 
-msgid "Be killed by a missile that was meant for someone else"
+msgid "Be hit by a missile that was meant for someone else"
 msgstr ""
 
 msgid "The bodyguard"
 msgstr ""
 
-msgid "Kill an enemy with a missile intended for their wing leader"
+msgid "Hit an enemy with a missile intended for their wing leader"
 msgstr ""
 
 msgid "Dedicated"
@@ -2986,7 +2995,7 @@ msgstr ""
 msgid "Legend"
 msgstr ""
 
-msgid "Take down 5,000 enemies (player only)"
+msgid "Take down 2,500 enemies (player only)"
 msgstr ""
 
 msgid "Your name's on one of these!"
@@ -2998,7 +3007,7 @@ msgstr ""
 msgid "Dodge this!"
 msgstr ""
 
-msgid "Launch 1,000 missiles"
+msgid "Launch 500 missiles"
 msgstr ""
 
 msgid "Isn't technology wonderful?"
@@ -3022,7 +3031,7 @@ msgstr ""
 msgid "Missed, you f**kers!"
 msgstr ""
 
-msgid "Evade 10 missiles"
+msgid "Evade 5 missiles"
 msgstr ""
 
 msgid "Sightseer"

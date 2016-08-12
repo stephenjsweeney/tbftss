@@ -214,7 +214,10 @@ void awardTrophy(char *id)
 		{
 			t->awarded = 1;
 			t->awardDate = time(NULL);
-			t->notify = 1;
+			t->notify = SDL_GetTicks();
+			
+			/* prevent race condition */
+			SDL_Delay(1);
 			
 			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Awarding trophy '%s'", t->id);
 			
@@ -268,7 +271,7 @@ static void nextAlert(void)
 	{
 		if (t->notify)
 		{
-			if (!alertTrophy || t->awardDate < alertTrophy->awardDate)
+			if (!alertTrophy || t->notify < alertTrophy->notify)
 			{
 				alertTrophy = t;
 			}
@@ -398,13 +401,7 @@ void awardStatsTrophies(void)
 	{
 		if (t->stat != -1 && !t->awarded && (game.stats[t->stat] + battle.stats[t->stat]) >= t->statValue)
 		{
-			t->awarded = 1;
-			t->awardDate = time(NULL);
-			t->notify = 1;
-			
-			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Awarding trophy '%s'", t->id);
-			
-			app.saveGame = 1;
+			awardTrophy(t->id);
 		}
 	}
 	

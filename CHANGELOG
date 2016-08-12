@@ -1,5 +1,12 @@
 Changelog
 
+1.0
+
+	* Campaign fixes
+	* Mouse is now restricted to game window when in battle
+	* Campaign missions can now be freely played after finishing the game
+	* Some trophy requirements were reduced, to make them easier to get
+
 0.99
 
 	* Fixed a bug with switching guns when ship has no guns

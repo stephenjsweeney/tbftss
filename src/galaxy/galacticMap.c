@@ -156,7 +156,10 @@ static void updateCampaignProgress(void)
 	{
 		for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 		{
-			starSystem->activeMission = starSystem->missionHead.next;
+			if (starSystem->missionHead.next && starSystem->missionHead.next->available)
+			{
+				starSystem->activeMission = starSystem->missionHead.next;
+			}
 		}
 		
 		campaignComplete = 1;

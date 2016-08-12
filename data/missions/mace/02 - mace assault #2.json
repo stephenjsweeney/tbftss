@@ -128,7 +128,7 @@
 			"function" : "CAP_HEALTH HMS 781-041 3",
 			"lines" : [
 				"MSG_BOX Wingmate;Commander, a large group of Shales just arrived in the area",
-				"MSG_BOX Lee;Hell, they've calls for backup. We should take them down before dealing with HMS 781-041",
+				"MSG_BOX Lee;Hell, they've called for backup. We should take them down before dealing with HMS 781-041",
 				"ACTIVATE_ENTITY_GROUPS Rebels-2"
 			]
 		},

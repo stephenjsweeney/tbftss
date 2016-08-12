@@ -152,7 +152,7 @@ static void updateCampaignProgress(void)
 {
 	StarSystem *starSystem;
 	
-	if (game.completedMissions == game.totalMissions)
+	if (!campaignComplete && game.completedMissions == game.totalMissions)
 	{
 		for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 		{

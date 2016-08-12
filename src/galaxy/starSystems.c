@@ -147,7 +147,16 @@ void updateStarSystemMissions(void)
 			if (starSystem->type == SS_NORMAL && !mission->isOptional)
 			{
 				game.totalMissions++;
-				game.completedMissions++;
+			}
+			
+			if (mission->completed)
+			{
+				starSystem->completedMissions++;
+				
+				if (starSystem->type == SS_NORMAL && !mission->isOptional)
+				{
+					game.completedMissions++;
+				}
 			}
 		}
 	}
@@ -164,18 +173,14 @@ void updateStarSystemMissions(void)
 			{
 				starSystem->availableMissions++;
 				
-				if (mission->completed)
-				{
-					starSystem->completedMissions++;
-				}
-				else
-				{
-					starSystem->activeMission = mission;
-				}
-				
 				if (starSystem->type == SS_NORMAL && !mission->isOptional)
 				{
 					game.availableMissions++;
+				}
+				
+				if (!mission->completed)
+				{
+					starSystem->activeMission = mission;
 				}
 			}
 

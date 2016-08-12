@@ -184,8 +184,6 @@ void updateStarSystemMissions(void)
 
 		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->availableMissions);
 	}
-	
-	printf("completed=%d, available=%d, total=%d\n", game.completedMissions, game.availableMissions, game.totalMissions);
 }
 
 void destroyStarSystems(void)

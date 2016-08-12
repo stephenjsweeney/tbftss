@@ -26,7 +26,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "ALLIES",
 			"types" : "Firefly;Nymph;TAF;Ray;Leopard;Hyena-A;Hyena-B;Kingfisher;Rook",
 			"side" : "SIDE_ALLIES",
 			"x" : 25,

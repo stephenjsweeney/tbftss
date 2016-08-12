@@ -50,7 +50,6 @@
 	},
 	"fighters" : [
 		{
-			"name" : "ALLIES",
 			"types" : "Firefly;Leopard;Lynx",
 			"side" : "SIDE_ALLIES",
 			"x" : 45,

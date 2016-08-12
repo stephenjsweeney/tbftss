@@ -89,7 +89,6 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "Pandorans-1",
 			"types" : "Jackal;Sphinx;Mantis;Nymph;Firefly",
 			"number" : 12,
@@ -112,7 +111,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "Pandorans-2",
 			"types" : "Jackal;Sphinx;Mantis;Nymph;Firefly",
 			"number" : 12,
@@ -135,7 +133,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "Pandorans-3",
 			"types" : "Jackal;Sphinx;Mantis;Nymph;Firefly",
 			"number" : 24,

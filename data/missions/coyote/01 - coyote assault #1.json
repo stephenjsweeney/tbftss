@@ -9,9 +9,10 @@
 	"objectives" : [
 		{
 			"description" : "Destroy all enemy targets",
-			"targetName" : "Pandoran",
+			"targetName" : "ENEMY",
 			"targetValue" : 100,
-			"targetType" : "TT_DESTROY"
+			"targetType" : "TT_DESTROY",
+			"isEliminateAll" : 1
 		}
 	],
 	"player" : {
@@ -81,7 +82,6 @@
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Nymph",
 			"number" : 25,
 			"side" : "SIDE_PANDORAN",
@@ -90,7 +90,6 @@
 			"scatter" : 2500
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "pandoran-2",
 			"types" : "Jackal;Sphinx;Nymph",
 			"number" : 25,
@@ -101,7 +100,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "pandoran-3",
 			"types" : "Jackal;Sphinx;Nymph",
 			"number" : 25,
@@ -112,7 +110,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "pandoran-4",
 			"types" : "Nymph",
 			"number" : 25,

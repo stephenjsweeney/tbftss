@@ -101,7 +101,6 @@
 		},
 		{
 			"groupName" : "Pandorans",
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
 			"number" : 24,
 			"side" : "SIDE_PANDORAN",
@@ -114,7 +113,6 @@
 		},
 		{
 			"groupName" : "Pandorans",
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
 			"number" : 24,
 			"side" : "SIDE_PANDORAN",

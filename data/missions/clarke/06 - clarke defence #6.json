@@ -34,7 +34,6 @@
 			"scatter" : 10000
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Mantis;Sphinx;Scarab;Thunderhead",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,

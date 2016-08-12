@@ -89,7 +89,6 @@
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
 			"number" : 8,
 			"side" : "SIDE_PANDORAN",
@@ -99,7 +98,6 @@
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "GramStar",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
 			"number" : 14,
@@ -111,7 +109,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "DragonTrident",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead",
 			"number" : 14,

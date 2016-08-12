@@ -35,7 +35,6 @@
 			"scatter" : 5000
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Scarab;Mantis;Swarmer;Swarmer",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,

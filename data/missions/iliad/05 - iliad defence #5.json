@@ -37,7 +37,6 @@
 			"flags" : "+EF_AI_TARGET"
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Mantis;Sphinx;Scarab",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,

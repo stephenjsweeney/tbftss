@@ -35,7 +35,6 @@
 			"scatter" : 5000
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Firefly;Nymph;Nymph;Leopard;Hyena-A;Hyena-B",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,

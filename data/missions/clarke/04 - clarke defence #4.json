@@ -41,7 +41,6 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
@@ -51,7 +50,6 @@
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
 			"side" : "SIDE_PANDORAN",
 			"x" : 40,
@@ -61,7 +59,6 @@
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,
@@ -71,7 +68,6 @@
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "reinforcements",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
 			"side" : "SIDE_PANDORAN",
@@ -83,7 +79,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "reinforcements-2",
 			"types" : "Jackal;Sphinx;Mantis;Thunderhead;Scarab",
 			"side" : "SIDE_PANDORAN",

@@ -46,7 +46,7 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "Pandoran",
+			"groupName" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
 			"x" : 20,

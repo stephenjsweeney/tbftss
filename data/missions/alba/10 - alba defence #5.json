@@ -45,7 +45,6 @@
 			"scatter" : 5000
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Scarab;Mantis;Sphinx;Thunderhead;Shale;Razor;SK-31;SK-34;Blizzard;Khepri",
 			"side" : "SIDE_PANDORAN",
 			"x" : 25,

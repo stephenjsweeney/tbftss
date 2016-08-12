@@ -16,10 +16,11 @@
 		},
 		{
 			"description" : "Destroy Pandoran fighters",
-			"targetName" : "Pandoran",
-			"targetValue" : 3,
+			"targetValue" : 1,
+			"targetName" : "ENEMY",
 			"targetType" : "TT_DESTROY",
-			"active" : 0
+			"active" : 0,
+			"isEliminateAll" : 1
 		}
 	],
 	"player" : {
@@ -38,7 +39,6 @@
 			"scatter" : 350
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal",
 			"number" : 3,
 			"side" : "SIDE_PANDORAN",

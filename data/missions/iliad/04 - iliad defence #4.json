@@ -81,7 +81,6 @@
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
 			"x": 18,
@@ -91,7 +90,6 @@
 			"aiFlags" : "+AIF_UNLIMITED_RANGE"
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "Pandorans-2",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
@@ -103,7 +101,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "AstraEscorts",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
@@ -115,7 +112,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "BustRagEscorts",
 			"types" : "Jackal;Sphinx;Mantis",
 			"side" : "SIDE_PANDORAN",
@@ -127,7 +123,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "Scarabs",
 			"types" : "Scarab",
 			"side" : "SIDE_PANDORAN",

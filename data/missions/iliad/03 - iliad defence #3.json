@@ -42,7 +42,6 @@
 			"scatter" : 500
 		},
 		{
-			"name" : "Pandoran",
 			"types" : "Jackal;Sphinx;Thunderhead",
 			"side" : "SIDE_PANDORAN",
 			"x": 25,
@@ -75,7 +74,6 @@
 			"aiFlags" : "+AIF_MOVES_TO_LEADER"
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "Reinforcements-1",
 			"types" : "Jackal;Sphinx;Thunderhead",
 			"side" : "SIDE_PANDORAN",
@@ -87,7 +85,6 @@
 			"active" : 0
 		},
 		{
-			"name" : "Pandoran",
 			"groupName" : "Reinforcements-2",
 			"types" : "Jackal;Sphinx;Thunderhead",
 			"side" : "SIDE_PANDORAN",

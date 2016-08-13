@@ -1,5 +1,5 @@
-VERSION = 1.0
-REVISION = $(shell git rev-list HEAD --count)
+VERSION = 1.01
+REVISION = $(shell git rev-list HEAD | wc -l)
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
 SEARCHPATH += src/ src/battle src/challenges src/draw src/game src/galaxy src/json src/system src/test

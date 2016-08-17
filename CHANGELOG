@@ -1,5 +1,10 @@
 Changelog
 
+1.01
+	
+	* Corrected "Nation of Tzac" to "Kingdom of Tzac" in a few cases
+	* Fixed broken REVISION makefile macro when git is not available
+
 1.0
 
 	* Campaign fixes

@@ -64,6 +64,7 @@ extern void awardStatsTrophies(void);
 extern void awardPostMissionTrophies(void);
 extern void awardCraftTrophy(void);
 extern void setInitialPlayerAngle(void);
+extern void addEpicLivesObjective(void);
 
 extern Battle battle;
 extern Dev dev;

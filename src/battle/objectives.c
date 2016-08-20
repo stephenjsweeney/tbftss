@@ -325,3 +325,24 @@ void loadObjectives(cJSON *node)
 	
 	fireObjectivesComplete = 1;
 }
+
+void addEpicLivesObjective(void)
+{
+	Objective *o;
+	char id[MAX_DESCRIPTION_LENGTH];
+	
+	o = malloc(sizeof(Objective));
+	memset(o, 0, sizeof(Objective));
+	battle.objectiveTail->next = o;
+	battle.objectiveTail = o;
+	
+	sprintf(id, _("Do not lose more than %d pilots"), battle.epicLives);
+
+	STRNCPY(o->id, id, MAX_DESCRIPTION_LENGTH);
+	STRNCPY(o->description, id, MAX_DESCRIPTION_LENGTH);
+	STRNCPY(o->targetName, "PLAYER", MAX_NAME_LENGTH);
+	o->targetValue = battle.epicLives;
+	o->targetType = TT_DESTROY;
+	o->active = 1;
+	o->isCondition = 1;
+}

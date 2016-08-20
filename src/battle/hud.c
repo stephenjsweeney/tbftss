@@ -60,6 +60,7 @@ static char *OBJECTIVE_DIST_TEXT;
 static char *JUMPGATE_DIST_TEXT;
 static char *NEW_FIGHTER_TEXT;
 static char *SUSPICION_TEXT;
+static char *REMAINING_PILOTS_TEXT;
 
 void initHud(void)
 {
@@ -85,6 +86,7 @@ void initHud(void)
 	JUMPGATE_DIST_TEXT = _("Jumpgate: %.2fkm");
 	NEW_FIGHTER_TEXT = _("SELECT NEW FIGHTER");
 	SUSPICION_TEXT = _("Suspicion");
+	REMAINING_PILOTS_TEXT = _("Remaining Pilots: %d");
 	
 	targetPointer = getTexture("gfx/hud/targetPointer.png");
 	targetCircle = getTexture("gfx/hud/targetCircle.png");
@@ -459,6 +461,11 @@ static void drawObjectives(void)
 	{
 		blit(objectives, (SCREEN_WIDTH / 2) - 50, 14, 0);
 		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, (battle.numObjectivesTotal + battle.numConditions));
+		
+		if (battle.isEpic && battle.epicLives > 0)
+		{
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, REMAINING_PILOTS_TEXT, battle.epicLives);
+		}
 	}
 	else
 	{

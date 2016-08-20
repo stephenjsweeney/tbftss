@@ -46,6 +46,7 @@ extern int isAcceptControl(void);
 extern void resetAcceptControls(void);
 extern void awardTrophy(char *id);
 extern long flagsToLong(char *flags, int *add);
+extern void updateCondition(char *name, int type);
 
 extern App app;
 extern Battle battle;

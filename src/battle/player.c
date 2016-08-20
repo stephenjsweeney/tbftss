@@ -166,7 +166,12 @@ void doPlayer(void)
 		{
 			updateDeathStats();
 			
-			initPlayerSelect();
+			updateCondition("PLAYER", TT_DESTROY);
+			
+			if (battle.status == MS_IN_PROGRESS)
+			{
+				initPlayerSelect();
+			}
 		}
 	}
 
@@ -430,16 +435,19 @@ static void preFireMissile(void)
 void initPlayerSelect(void)
 {
 	Entity *e;
-
+	
 	memset(&availablePlayerUnits, 0, sizeof(Entity*) * MAX_SELECTABLE_PLAYERS);
 
 	selectedPlayerIndex = 0;
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	if (battle.epicLives > 0 && --battle.epicLives > 0)
 	{
-		if (e->active && e->type == ET_FIGHTER && e->health > 0 && e->side == SIDE_ALLIES && selectedPlayerIndex < MAX_SELECTABLE_PLAYERS)
+		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
-			availablePlayerUnits[selectedPlayerIndex++] = e;
+			if (e->active && e->type == ET_FIGHTER && e->health > 0 && e->side == SIDE_ALLIES && selectedPlayerIndex < MAX_SELECTABLE_PLAYERS)
+			{
+				availablePlayerUnits[selectedPlayerIndex++] = e;
+			}
 		}
 	}
 

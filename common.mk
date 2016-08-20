@@ -1,4 +1,4 @@
-VERSION = 1.01
+VERSION = 1.1
 REVISION = $(shell git rev-list HEAD 2>/dev/null | wc -l)
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 

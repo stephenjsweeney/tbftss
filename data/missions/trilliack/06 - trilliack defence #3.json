@@ -9,7 +9,7 @@
 	"player" : {
 		"type" : "Leopard",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Malcolm D'Ath",
+		"pilot" : "Lt. Cdr. Malcolm D'Ath",
 		"squadron" : "Sparrows",
 		"x" : 41,
 		"y" : 25

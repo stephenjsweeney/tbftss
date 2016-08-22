@@ -10,7 +10,7 @@
 	"player" : {
 		"type" : "Hyena-A",
 		"side" : "SIDE_ALLIES",
-		"pilot" : "Malcolm D'Ath",
+		"pilot" : "Lt. Cdr. Malcolm D'Ath",
 		"squadron" : "Sparrows",
 		"x" : 5,
 		"y" : 45

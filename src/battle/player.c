@@ -432,15 +432,15 @@ static void preFireMissile(void)
 	}
 }
 
-void initPlayerSelect(void)
+static void initPlayerSelect(void)
 {
 	Entity *e;
 	
 	memset(&availablePlayerUnits, 0, sizeof(Entity*) * MAX_SELECTABLE_PLAYERS);
 
 	selectedPlayerIndex = 0;
-
-	if (battle.epicLives > 0 && --battle.epicLives > 0)
+	
+	if (battle.epicLives == 0 || (battle.epicLives > 0 && --battle.epicLives > 0))
 	{
 		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 		{
@@ -460,6 +460,11 @@ void initPlayerSelect(void)
 	else
 	{
 		battle.isEpic = 0;
+		
+		if (battle.epicKills > 0 && battle.stats[STAT_ENEMIES_KILLED_PLAYER] < battle.epicKills)
+		{
+			battle.unwinnable = 0;
+		}
 
 		failMission();
 	}

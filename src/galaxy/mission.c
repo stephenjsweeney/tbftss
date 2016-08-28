@@ -421,10 +421,16 @@ static void loadEpicData(cJSON *node)
 	battle.epicFighterLimit = cJSON_GetObjectItem(node, "fighterLimit")->valueint;
 	battle.unlimitedEnemies = getJSONValue(node, "unlimitedEnemies", 0);
 	battle.epicLives = getJSONValue(node, "lives", 0);
+	battle.epicKills = getJSONValue(node, "kills", 0);
 	
 	if (battle.epicLives > 0)
 	{
 		addEpicLivesObjective();
+	}
+	
+	if (battle.epicKills != 0)
+	{
+		addEpicKillsObjective();
 	}
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)

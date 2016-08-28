@@ -363,6 +363,11 @@ void doFighter(void)
 			
 			updateObjective(self->name, TT_DESTROY);
 			updateObjective(self->groupName, TT_DESTROY);
+			
+			if (battle.isEpic && self->killedBy == player)
+			{
+				updateObjective("EPIC_PLAYER_KILLS", TT_DESTROY);
+			}
 
 			adjustObjectiveTargetValue(self->name, TT_ESCAPED, -1);
 

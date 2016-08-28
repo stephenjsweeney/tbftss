@@ -346,3 +346,23 @@ void addEpicLivesObjective(void)
 	o->active = 1;
 	o->isCondition = 1;
 }
+
+void addEpicKillsObjective(void)
+{
+	Objective *o;
+	char id[MAX_DESCRIPTION_LENGTH];
+	
+	o = malloc(sizeof(Objective));
+	memset(o, 0, sizeof(Objective));
+	battle.objectiveTail->next = o;
+	battle.objectiveTail = o;
+	
+	sprintf(id, _("Destroy at least %d enemy fighters"), battle.epicKills);
+
+	STRNCPY(o->id, id, MAX_DESCRIPTION_LENGTH);
+	STRNCPY(o->description, id, MAX_DESCRIPTION_LENGTH);
+	STRNCPY(o->targetName, "EPIC_PLAYER_KILLS", MAX_NAME_LENGTH);
+	o->targetValue = battle.epicKills;
+	o->targetType = TT_DESTROY;
+	o->active = 1;
+}

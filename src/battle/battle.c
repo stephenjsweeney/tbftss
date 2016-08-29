@@ -292,7 +292,7 @@ static void drawMenu(void)
 
 static void handleKeyboard(void)
 {
-	if (app.keyboard[SDL_SCANCODE_ESCAPE] && !app.awaitingWidgetInput)
+	if (app.keyboard[SDL_SCANCODE_ESCAPE] && !app.awaitingWidgetInput && battle.status == MS_IN_PROGRESS)
 	{
 		switch (show)
 		{

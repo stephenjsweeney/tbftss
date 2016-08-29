@@ -464,7 +464,7 @@ static void drawObjectives(void)
 		
 		if (battle.isEpic && battle.epicLives > 0)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, REMAINING_PILOTS_TEXT, battle.epicLives);
+			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, REMAINING_PILOTS_TEXT, battle.epicLives - 1);
 		}
 	}
 	else

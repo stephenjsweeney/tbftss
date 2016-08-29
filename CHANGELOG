@@ -1,5 +1,9 @@
 Changelog
 
+1.1
+
+	* Epic missions now have limited "lives". A player can only be killed a certain number of times before they automatically fail the mission. This is to discourage reckless play.
+
 1.01
 	
 	* Corrected "Nation of Tzac" to "Kingdom of Tzac" in a few cases

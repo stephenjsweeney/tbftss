@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 18:28:48+0100\n"
+"POT-Creation-Date: 2016-08-29 10:37:04+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -112,6 +112,9 @@ msgstr ""
 msgid "Suspicion"
 msgstr ""
 
+msgid "Remaining Pilots: %d"
+msgstr ""
+
 msgid "Picked up %s"
 msgstr ""
 
@@ -146,6 +149,12 @@ msgid "%s - Objective Failed!"
 msgstr ""
 
 msgid "New Objective : %s"
+msgstr ""
+
+msgid "Do not lose more than %d pilots"
+msgstr ""
+
+msgid "Destroy at least %d enemy fighters"
 msgstr ""
 
 msgid "Challenge Failed!"
@@ -2209,7 +2218,7 @@ msgstr ""
 msgid "That's the last of 'em. Not often we win an engagement like this."
 msgstr ""
 
-msgid "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabitted planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance."
+msgid "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabited planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance."
 msgstr ""
 
 msgid "Brace yourselves, lads."

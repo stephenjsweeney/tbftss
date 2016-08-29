@@ -1,6 +1,6 @@
 {
 	"name" : "Rothan Defence #5",
-	"description" : "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabitted planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance.",
+	"description" : "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabited planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance.",
 	"requires" : 54,
 	"manualComplete" : 1,
 	"background" : "gfx/backgrounds/background05.jpg",
@@ -9,6 +9,7 @@
 	"unwinnable" : 1,
 	"epic" : {
 		"fighterLimit" : 18,
+		"kills" : 55,
 		"unlimitedEnemies" : 1
 	},
 	"objectives" : [

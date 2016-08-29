@@ -7,7 +7,8 @@
 	"music" : "music/battle/Tactical Pursuit.mp3",
 	"epic" : {
 		"fighterLimit" : 12,
-		"unlimitedEnemies" : 1
+		"unlimitedEnemies" : 1,
+		"lives" : 12
 	},
 	"objectives" : [
 		{

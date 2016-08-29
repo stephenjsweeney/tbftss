@@ -6,7 +6,8 @@
 	"planet" : "gfx/planets/diso.png",
 	"music" : "music/battle/Tactical Pursuit.mp3",
 	"epic" : {
-		"fighterLimit" : 12
+		"fighterLimit" : 12,
+		"lives" : 12
 	},
 	"objectives" : [
 		{

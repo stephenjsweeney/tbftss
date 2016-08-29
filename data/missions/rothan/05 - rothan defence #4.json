@@ -7,7 +7,8 @@
 	"planet" : "gfx/planets/rockford.png",
 	"music" : "music/battle/Tactical Pursuit.mp3",
 	"epic" : {
-		"fighterLimit" : 18
+		"fighterLimit" : 18,
+		"lives" : 12
 	},
 	"objectives" : [
 		{

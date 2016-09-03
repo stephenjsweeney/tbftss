@@ -17,7 +17,7 @@
 	],
 	"epic" : {
 		"fighterLimit" : 24,
-		"kills" : 45
+		"kills" : 100
 	},
 	"player" : {
 		"type" : "Rook",

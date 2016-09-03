@@ -9,7 +9,7 @@
 	"unwinnable" : 1,
 	"epic" : {
 		"fighterLimit" : 18,
-		"kills" : 55,
+		"kills" : 45,
 		"unlimitedEnemies" : 1
 	},
 	"objectives" : [
@@ -19,18 +19,6 @@
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isEliminateAll" : 1
-		},
-		{
-			"description" : "Destroy INF Mora",
-			"targetName" : "INF Mora",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY"
-		},
-		{
-			"description" : "Destroy INF Karambit",
-			"targetName" : "INF Karambit",
-			"targetValue" : 1,
-			"targetType" : "TT_DESTROY"
 		}
 	],
 	"player" : {

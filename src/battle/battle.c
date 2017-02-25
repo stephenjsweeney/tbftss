@@ -98,6 +98,8 @@ void initBattle(void)
 	getWidget("quit", "battleLost")->action = quitBattle;
 
 	selectWidget("ok", "startBattle");
+	
+	SDL_SetWindowGrab(app.window, 1);
 }
 
 static void logic(void)

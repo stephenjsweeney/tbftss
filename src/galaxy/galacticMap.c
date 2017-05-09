@@ -762,6 +762,7 @@ static void handleMouse(void)
 	{
 		scrollingMap = 0;
 	}
+	setMouseCursor(app.mouse.button[SDL_BUTTON_LEFT] && show == SHOW_GALAXY);
 }
 
 static void startMission(void)

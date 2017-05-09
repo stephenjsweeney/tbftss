@@ -21,13 +21,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "input.h"
 
 static SDL_Texture *mousePointer;
+static SDL_Texture *mousePointerNormal;
+static SDL_Texture *mousePointerMove;
 
 void initInput(void)
 {
 	memset(&app.mouse, 0, sizeof(Mouse));
 
-	mousePointer = getTexture("gfx/input/mousePointer.png");
+	mousePointerNormal = getTexture("gfx/input/mousePointer.png");
+	mousePointerMove = getTexture("gfx/input/mousePointerMove.png");
 
+	mousePointer = mousePointerNormal;
 	SDL_QueryTexture(mousePointer, NULL, NULL, &app.mouse.w, &app.mouse.h);
 }
 
@@ -89,6 +93,18 @@ void doMouseMotion(SDL_MouseMotionEvent *event)
 	app.mouse.dy = event->yrel;
 }
 
+void setMouseCursor(int isDrag)
+{
+	if (isDrag)
+	{
+		mousePointer = mousePointerMove;
+	}
+	else
+	{
+		mousePointer = mousePointerNormal;
+	}
+}
+
 void drawMouse(void)
 {
 	int x, y;
@@ -111,4 +127,6 @@ void clearInput(void)
 	while (SDL_PollEvent(&event))
 	{
 	}
+
+	setMouseCursor(0);
 }

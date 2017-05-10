@@ -61,6 +61,7 @@ extern void updateAllMissions(void);
 extern StarSystem *getStarSystem(char *name);
 extern void showOKDialog(void (*callback)(void), const char *format, ...);
 extern char *getTranslatedString(char *string);
+extern void setMouseCursor(int isDrag);
 extern void clearInput(void);
 extern void awardCampaignTrophies(void);
 extern void awardStatsTrophies(void);

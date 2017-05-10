@@ -1,5 +1,10 @@
 Changelog
 
+1.11
+
+	* Uncoupled event handling from frame rate.
+	* Show move-like directional cursor when dragging galactic map.
+
 1.1
 
 	* Epic missions now have limited "lives". A player can only be killed a certain number of times before they automatically fail the mission. This is to discourage reckless play.

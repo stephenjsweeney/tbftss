@@ -67,47 +67,47 @@ int main(int argc, char *argv[])
 		
 		then = SDL_GetTicks();
 		
-		while (SDL_PollEvent(&event))
-		{
-			switch (event.type)
-			{
-				case SDL_MOUSEMOTION:
-					doMouseMotion(&event.motion);
-					break;
-				
-				case SDL_MOUSEWHEEL:
-					doMouseWheel(&event.wheel);
-					break;
-				
-				case SDL_MOUSEBUTTONDOWN:
-					doMouseDown(&event.button);
-					break;
-
-				case SDL_MOUSEBUTTONUP:
-					doMouseUp(&event.button);
-					break;
-				
-				case SDL_KEYDOWN:
-					doKeyDown(&event.key);
-					break;
-					
-				case SDL_KEYUP:
-					doKeyUp(&event.key);
-					break;
-
-				case SDL_QUIT:
-					exit(0);
-					break;
-			}
-		}
-		
-		if (app.modalDialog.type != MD_NONE)
-		{
-			doModalDialog();
-		}
-		
 		while (td >= LOGIC_RATE)
 		{
+			while (SDL_PollEvent(&event))
+			{
+				switch (event.type)
+				{
+					case SDL_MOUSEMOTION:
+						doMouseMotion(&event.motion);
+						break;
+					
+					case SDL_MOUSEWHEEL:
+						doMouseWheel(&event.wheel);
+						break;
+					
+					case SDL_MOUSEBUTTONDOWN:
+						doMouseDown(&event.button);
+						break;
+
+					case SDL_MOUSEBUTTONUP:
+						doMouseUp(&event.button);
+						break;
+					
+					case SDL_KEYDOWN:
+						doKeyDown(&event.key);
+						break;
+						
+					case SDL_KEYUP:
+						doKeyUp(&event.key);
+						break;
+
+					case SDL_QUIT:
+						exit(0);
+						break;
+				}
+			}
+			
+			if (app.modalDialog.type != MD_NONE)
+			{
+				doModalDialog();
+			}
+			
 			/* let the delegate decide during logic() */
 			app.doTrophyAlerts = 0;
 			
@@ -128,6 +128,9 @@ int main(int argc, char *argv[])
 			}
 			
 			game.stats[STAT_TIME]++;
+			
+			/* always zero the mouse motion */
+			app.mouse.dx = app.mouse.dy = 0;
 		}
 		
 		prepareScene();
@@ -182,9 +185,6 @@ int main(int argc, char *argv[])
 			saveGame();
 			app.saveGame = 0;
 		}
-		
-		/* always zero the mouse motion */
-		app.mouse.dx = app.mouse.dy = 0;
 
 		SDL_Delay(1);
 	}

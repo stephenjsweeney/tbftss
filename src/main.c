@@ -100,6 +100,18 @@ int main(int argc, char *argv[])
 					case SDL_QUIT:
 						exit(0);
 						break;
+
+					case SDL_WINDOWEVENT:
+						switch (event.window.event)
+						{
+							case SDL_WINDOWEVENT_FOCUS_GAINED:
+								musicSetPlaying(1);
+								break;
+							case SDL_WINDOWEVENT_FOCUS_LOST:
+								musicSetPlaying(0);
+								break;
+						}
+						break;
 				}
 			}
 			

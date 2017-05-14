@@ -8,9 +8,8 @@
 	{
 		"id" : "NORMAL_MODE",
 		"title" : "Fought back against the odds",
-		"description" : "Finished the campaign on normal",
-		"value" : "TROPHY_GOLD",
-		"hidden" : 1
+		"description" : "Finish the campaign on default difficulty",
+		"value" : "TROPHY_GOLD"
 	},
 	{
 		"id" : "CAMPAIGN_COMPLETE",

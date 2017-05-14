@@ -187,7 +187,7 @@ static void checkCollisions(Bullet *b)
 					
 					if (battle.hasSuspicionLevel)
 					{
-						battle.suspicionLevel -= 2;
+						battle.suspicionLevel -= (game.difficulty == DIFFICULTY_EASY) ? 4 : 2;
 					}
 				}
 				

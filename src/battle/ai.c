@@ -1111,9 +1111,19 @@ void checkSuspicionLevel(void)
 			{
 				battle.suspicionLevel++;
 				battle.suspicionCoolOff = FPS * 30;
+				
+				if (game.difficulty == DIFFICULTY_EASY)
+				{
+					battle.suspicionCoolOff = FPS * 60;
+				}
 			}
 			else if (distance <= SCREEN_HEIGHT / 2)
 			{
+				if (game.difficulty == DIFFICULTY_EASY)
+				{
+					battle.suspicionLevel--;
+				}
+				
 				battle.suspicionLevel = MAX(battle.suspicionLevel - 1, 0);
 			}
 		}

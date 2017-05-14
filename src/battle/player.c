@@ -94,6 +94,12 @@ void initPlayer(void)
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
 	
 	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
+	
+	if (!game.currentMission->challengeData.isChallenge && game.difficulty == DIFFICULTY_EASY)
+	{
+		player->health = player->maxHealth = (player->maxHealth * 1.25);
+		player->shield = player->maxShield = (player->maxShield * 1.25);
+	}
 }
 
 static void setPilotName(void)
@@ -214,17 +220,19 @@ static void updateDeathStats(void)
 
 static void rechargeBoostECM(void)
 {
-	int boostTimer, ecmTimer;
+	int boostTimer, ecmTimer, i;
+	
+	i = (game.currentMission->challengeData.isChallenge || game.difficulty == DIFFICULTY_NORMAL) ? 1 : 2;
 	
 	boostTimer = battle.boostTimer;
-	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
+	battle.boostTimer = MIN(battle.boostTimer + i, BOOST_RECHARGE_TIME);
 	if (boostTimer < BOOST_RECHARGE_TIME && battle.boostTimer == BOOST_RECHARGE_TIME)
 	{
 		playSound(SND_RECHARGED);
 	}
 	
 	ecmTimer = battle.ecmTimer;
-	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
+	battle.ecmTimer = MIN(battle.ecmTimer + i, ECM_RECHARGE_TIME);
 	if (ecmTimer < ECM_RECHARGE_TIME && battle.ecmTimer == ECM_RECHARGE_TIME)
 	{
 		playSound(SND_RECHARGED);

@@ -46,3 +46,4 @@ extern Colors colors;
 extern Dev dev;
 extern Entity *self;
 extern Entity *player;
+extern Game game;

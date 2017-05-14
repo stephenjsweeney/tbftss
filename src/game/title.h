@@ -24,6 +24,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_STATS				1
 #define SHOW_OPTIONS			2
 #define SHOW_TROPHIES			3
+#define SHOW_CAMPAIGN			4
+#define SHOW_CAMPAIGN_NEW		5
 
 #define NUM_FIGHTERS 12
 

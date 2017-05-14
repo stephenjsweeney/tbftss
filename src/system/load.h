@@ -30,5 +30,6 @@ extern char *getSaveFilePath(char *filename);
 extern char *getLookupName(char *prefix, long num);
 extern StarSystem *getStarSystem(char *name);
 extern Trophy *getTrophy(char *id);
+extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 
 extern Game game;

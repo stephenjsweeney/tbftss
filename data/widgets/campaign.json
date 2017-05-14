@@ -1,0 +1,64 @@
+[
+	{
+		"name" : "new",
+		"group" : "campaign",
+		"type" : "WT_BUTTON",
+		"text" : "New Campaign",
+		"x" : -1,
+		"y" : 300,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "continue",
+		"group" : "campaign",
+		"type" : "WT_BUTTON",
+		"text" : "Continue Campaign",
+		"x" : -1,
+		"y" : 400,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "back",
+		"group" : "campaign",
+		"type" : "WT_BUTTON",
+		"text" : "Back",
+		"x" : -1,
+		"y" : 680,
+		"w" : 200,
+		"h": 34
+	},
+	
+	
+	{
+		"name" : "easy",
+		"group" : "campaignDifficulty",
+		"type" : "WT_BUTTON",
+		"text" : "Easy Mode",
+		"x" : -1,
+		"y" : 200,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "normal",
+		"group" : "campaignDifficulty",
+		"type" : "WT_BUTTON",
+		"text" : "Normal",
+		"x" : -1,
+		"y" : 400,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "back",
+		"group" : "campaignDifficulty",
+		"type" : "WT_BUTTON",
+		"text" : "Back",
+		"x" : -1,
+		"y" : 680,
+		"w" : 200,
+		"h": 34
+	}
+]

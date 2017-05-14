@@ -98,6 +98,10 @@ void doEntities(void)
 					if (--e->shieldRecharge <= 0)
 					{
 						e->shield = MIN(e->shield + 1, e->maxShield);
+						if (e == player && !game.currentMission->challengeData.isChallenge && game.difficulty == DIFFICULTY_EASY)
+						{
+							e->shield = MIN(e->shield + 1, e->maxShield);
+						}
 
 						e->shieldRecharge = e->shieldRechargeRate;
 					}
@@ -179,6 +183,11 @@ void doEntities(void)
 				if (e->killedBy == player && battle.hasSuspicionLevel)
 				{
 					battle.suspicionLevel -= (MAX_SUSPICION_LEVEL * 0.12);
+					
+					if (game.difficulty == DIFFICULTY_EASY)
+					{
+						battle.suspicionLevel -= (MAX_SUSPICION_LEVEL * 0.12);
+					}
 				}
 
 				if (e == player)

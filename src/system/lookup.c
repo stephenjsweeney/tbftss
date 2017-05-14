@@ -205,6 +205,9 @@ void initLookups(void)
 	addLookup("TROPHY_SILVER", TROPHY_SILVER);
 	addLookup("TROPHY_GOLD", TROPHY_GOLD);
 	addLookup("TROPHY_PLATINUM", TROPHY_PLATINUM);
+	
+	addLookup("DIFFICULTY_NORMAL", DIFFICULTY_NORMAL);
+	addLookup("DIFFICULTY_EASY", DIFFICULTY_EASY);
 }
 
 static void addLookup(char *name, long value)

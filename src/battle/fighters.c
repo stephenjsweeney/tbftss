@@ -94,6 +94,11 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 	{
 		e->aiAggression = 4;
 	}
+	
+	if (game.difficulty == DIFFICULTY_EASY)
+	{
+		e->aiAggression = MIN(e->aiAggression, 2);
+	}
 
 	e->action = doAI;
 	e->die = die;

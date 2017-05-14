@@ -6,6 +6,13 @@
 		"value" : "TROPHY_PLATINUM"
 	},
 	{
+		"id" : "NORMAL_MODE",
+		"title" : "Fought back against the odds",
+		"description" : "Finished the campaign on normal",
+		"value" : "TROPHY_GOLD",
+		"hidden" : 1
+	},
+	{
 		"id" : "CAMPAIGN_COMPLETE",
 		"title" : "Plan B",
 		"description" : "Complete all campaign missions",

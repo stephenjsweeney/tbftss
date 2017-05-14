@@ -424,6 +424,7 @@ typedef struct {
 	Mission challengeMissionHead;
 	Mission *currentMission;
 	char selectedStarSystem[MAX_NAME_LENGTH];
+	int difficulty;
 	int completedMissions;
 	int availableMissions;
 	int totalMissions;

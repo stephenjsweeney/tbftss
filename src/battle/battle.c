@@ -470,6 +470,11 @@ static void endCampaign(void)
 {
 	awardTrophy("CAMPAIGN_COMPLETE");
 	
+	if (game.difficulty == DIFFICULTY_NORMAL)
+	{
+		awardTrophy("NORMAL_MODE");
+	}
+	
 	postBattle();
 
 	destroyBattle();

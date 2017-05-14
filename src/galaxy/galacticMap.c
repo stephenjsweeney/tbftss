@@ -73,6 +73,7 @@ static char *SQUADRON_TEXT;
 static char *COMPLETED_TEXT;
 static char *EPIC_TEXT;
 static char *OPTIONAL_TEXT;
+static char *EASY_MODE_TEXT;
 
 void initGalacticMap(void)
 {
@@ -87,6 +88,7 @@ void initGalacticMap(void)
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 	
 	MISSIONS_TEXT = _("Missions: %d / %d");
+	EASY_MODE_TEXT = _("Easy Mode");
 	PILOT_TEXT = _("Pilot: %s");
 	CRAFT_TEXT = _("Craft: %s");
 	SQUADRON_TEXT = _("Squadron: %s");
@@ -576,6 +578,11 @@ static void drawInfoBars(void)
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 
 	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, MISSIONS_TEXT, game.completedMissions, game.availableMissions);
+	
+	if (game.difficulty == DIFFICULTY_EASY)
+	{
+		drawText(10, 5, 14, TA_LEFT, colors.lightGrey, EASY_MODE_TEXT);
+	}
 }
 
 static void selectStarSystem(void)

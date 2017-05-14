@@ -23,6 +23,7 @@ gfx/trophies/gold.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://ga
 gfx/trophies/platinum.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
 gfx/trophies/silver.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
 gfx/trophies/unearned.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+gfx/input/mousePointerMove.png, by LoneCoder / para (CC0)
 
 All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 

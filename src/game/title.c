@@ -35,6 +35,11 @@ static void options(void);
 static void credits(void);
 static void quit(void);
 static void returnFromOptions(void);
+static void newCampaign(void);
+static void easyCampaign(void);
+static void normalCampaign(void);
+static void continueCampaign(void);
+static void back(void);
 
 static SDL_Texture *background;
 static SDL_Texture *logo;
@@ -85,6 +90,14 @@ void initTitle(void)
 	getWidget("options", "title")->action = options;
 	getWidget("credits", "title")->action = credits;
 	getWidget("quit", "title")->action = quit;
+	
+	getWidget("new", "campaign")->action = newCampaign;
+	getWidget("continue", "campaign")->action = continueCampaign;
+	getWidget("back", "campaign")->action = back;
+	
+	getWidget("easy", "campaignDifficulty")->action = easyCampaign;
+	getWidget("normal", "campaignDifficulty")->action = normalCampaign;
+	getWidget("back", "campaignDifficulty")->action = back;
 	
 	getWidget("ok", "stats")->action = ok;
 	getWidget("ok", "trophies")->action = ok;
@@ -190,6 +203,10 @@ static void draw(void)
 			drawWidgets("title");
 			break;
 			
+		case SHOW_CAMPAIGN:
+			drawWidgets("campaign");
+			break;
+			
 		case SHOW_STATS:
 			drawStats();
 			break;
@@ -227,6 +244,44 @@ static void handleKeyboard(void)
 
 static void campaign(void)
 {
+	show = SHOW_CAMPAIGN;
+}
+
+static void newCampaign(void)
+{
+}
+
+static void continueCampaign(void)
+{
+}
+
+static void back(void)
+{
+	switch (show)
+	{
+		case SHOW_CAMPAIGN:
+			show = SHOW_TITLE;
+			break;
+			
+		case SHOW_CAMPAIGN_NEW:
+			show = SHOW_CAMPAIGN;
+			break;
+	}
+}
+
+static void easyCampaign(void)
+{
+	game.difficulty = DIFFICULTY_EASY;
+	
+	destroyBattle();
+	
+	initGalacticMap();
+}
+
+static void normalCampaign(void)
+{
+	game.difficulty = DIFFICULTY_NORMAL;
+	
 	destroyBattle();
 	
 	initGalacticMap();

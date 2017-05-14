@@ -36,6 +36,8 @@ void loadGame(void)
 	root = cJSON_Parse(text);
 
 	gameJSON = cJSON_GetObjectItem(root, "game");
+	
+	game.difficulty = lookup(getJSONValueStr(gameJSON, "difficulty", "DIFFICULTY_NORMAL"));
 
 	STRNCPY(game.selectedStarSystem, cJSON_GetObjectItem(gameJSON, "selectedStarSystem")->valuestring, MAX_NAME_LENGTH);
 

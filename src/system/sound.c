@@ -56,6 +56,21 @@ void stopMusic(void)
 	Mix_HaltMusic();
 }
 
+void musicSetPlaying(int playing)
+{
+	if (music != NULL)
+	{
+		if (playing)
+		{
+			Mix_ResumeMusic();
+		}
+		else
+		{
+			Mix_PauseMusic();
+		}
+	}
+}
+
 void playSound(int id)
 {
 	Mix_PlayChannel(-1, sounds[id], 0);

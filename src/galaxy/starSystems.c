@@ -191,6 +191,25 @@ void updateStarSystemMissions(void)
 	}
 }
 
+int hasCompletedAnyMission(void)
+{
+	StarSystem *starSystem;
+	Mission *mission;
+
+	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	{
+		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+		{
+			if (mission->completed)
+			{
+				return 1;
+			}
+		}
+	}
+	
+	return 0;
+}
+
 void destroyStarSystems(void)
 {
 	StarSystem *starSystem;

@@ -27,6 +27,28 @@ void initGame(void)
 	STRNCPY(game.selectedStarSystem, "Sol", MAX_NAME_LENGTH);
 }
 
+void resetCampaign(int difficulty)
+{
+	StarSystem *starSystem;
+	Mission *mission;
+	
+	game.difficulty = difficulty;
+	
+	STRNCPY(game.selectedStarSystem, "Sol", MAX_NAME_LENGTH);
+	
+	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	{
+		starSystem->completedMissions = 0;
+		starSystem->activeMission = NULL;
+		
+		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+		{
+			mission->available = 0;
+			mission->completed = 0;
+		}
+	}
+}
+
 void destroyGame(void)
 {
 }

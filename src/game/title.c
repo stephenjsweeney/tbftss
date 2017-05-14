@@ -37,9 +37,12 @@ static void quit(void);
 static void returnFromOptions(void);
 static void newCampaign(void);
 static void easyCampaign(void);
-static void normalCampaign(void);
 static void continueCampaign(void);
 static void back(void);
+static void doEasyCampaign(void);
+static void doNewCampaign(void);
+static void ignoreNewCampaign(void);
+static void drawEasyModeHints(void);
 
 static SDL_Texture *background;
 static SDL_Texture *logo;
@@ -49,6 +52,7 @@ static PointF earth;
 static Entity fighters[NUM_FIGHTERS];
 static const char *fighterTextures[] = {"gfx/fighters/firefly.png", "gfx/fighters/hammerhead.png", "gfx/fighters/hyena.png", "gfx/fighters/lynx.png", "gfx/fighters/kingfisher.png", "gfx/fighters/leopard.png", "gfx/fighters/nymph.png", "gfx/fighters/ray.png", "gfx/fighters/rook.png", "gfx/fighters/taf.png"};
 static int show;
+static int hasActiveCampaign;
 
 void initTitle(void)
 {
@@ -83,6 +87,8 @@ void initTitle(void)
 	
 	updateAllMissions();
 	
+	hasActiveCampaign = hasCompletedAnyMission();
+	
 	getWidget("campaign", "title")->action = campaign;
 	getWidget("challenges", "title")->action = challenges;
 	getWidget("trophies", "title")->action = trophies;
@@ -92,12 +98,10 @@ void initTitle(void)
 	getWidget("quit", "title")->action = quit;
 	
 	getWidget("new", "campaign")->action = newCampaign;
+	getWidget("easy", "campaign")->action = easyCampaign;
 	getWidget("continue", "campaign")->action = continueCampaign;
+	getWidget("continue", "campaign")->enabled = hasActiveCampaign;
 	getWidget("back", "campaign")->action = back;
-	
-	getWidget("easy", "campaignDifficulty")->action = easyCampaign;
-	getWidget("normal", "campaignDifficulty")->action = normalCampaign;
-	getWidget("back", "campaignDifficulty")->action = back;
 	
 	getWidget("ok", "stats")->action = ok;
 	getWidget("ok", "trophies")->action = ok;
@@ -194,7 +198,7 @@ static void draw(void)
 	
 	blit(pandoranWar, SCREEN_WIDTH / 2, 110, 1);
 	
-	drawText(10, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2016");
+	drawText(10, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2017");
 	drawText(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 25, 14, TA_RIGHT, colors.white, "Version %.2f-%d", VERSION, REVISION);
 	
 	switch (show)
@@ -205,6 +209,7 @@ static void draw(void)
 			
 		case SHOW_CAMPAIGN:
 			drawWidgets("campaign");
+			drawEasyModeHints();
 			break;
 			
 		case SHOW_STATS:
@@ -247,44 +252,77 @@ static void campaign(void)
 	show = SHOW_CAMPAIGN;
 }
 
+static void drawEasyModeHints(void)
+{
+	drawText(SCREEN_WIDTH / 2, 525, 16, TA_CENTER, colors.white, _("Easy Campaign features reduced AI aggression, as well as reduced Boost and ECM recharge times."));
+	drawText(SCREEN_WIDTH / 2, 550, 16, TA_CENTER, colors.white, _("The player also benefits from increased fighter armour and shield recharge rates."));
+	drawText(SCREEN_WIDTH / 2, 575, 16, TA_CENTER, colors.white, _("Some players may find this mode more accessible than the normal campaign difficulty."));
+	drawText(SCREEN_WIDTH / 2, 600, 16, TA_CENTER, colors.white, _("Note that the difficulty cannot be changed once the campaign is started."));
+}
+
 static void newCampaign(void)
 {
-}
-
-static void continueCampaign(void)
-{
-}
-
-static void back(void)
-{
-	switch (show)
+	if (!hasActiveCampaign)
 	{
-		case SHOW_CAMPAIGN:
-			show = SHOW_TITLE;
-			break;
-			
-		case SHOW_CAMPAIGN_NEW:
-			show = SHOW_CAMPAIGN;
-			break;
+		doNewCampaign();
 	}
+	else
+	{
+		showOKCancelDialog(&doNewCampaign, &ignoreNewCampaign, _("Start a new campaign? Your current campaign progress will be lost."));
+	}
+}
+
+static void doNewCampaign(void)
+{
+	app.modalDialog.type = MD_NONE;
+	
+	resetCampaign(DIFFICULTY_NORMAL);
+	
+	destroyBattle();
+	
+	initGalacticMap();
 }
 
 static void easyCampaign(void)
 {
-	game.difficulty = DIFFICULTY_EASY;
+	if (!hasActiveCampaign)
+	{
+		doEasyCampaign();
+	}
+	else
+	{
+		showOKCancelDialog(&doEasyCampaign, &ignoreNewCampaign, _("Start a new campaign? Your current campaign progress will be lost."));
+	}
+}
+
+static void doEasyCampaign(void)
+{
+	app.modalDialog.type = MD_NONE;
+	
+	resetCampaign(DIFFICULTY_EASY);
 	
 	destroyBattle();
 	
 	initGalacticMap();
 }
 
-static void normalCampaign(void)
+static void continueCampaign(void)
 {
-	game.difficulty = DIFFICULTY_NORMAL;
+	app.modalDialog.type = MD_NONE;
 	
 	destroyBattle();
 	
 	initGalacticMap();
+}
+
+static void ignoreNewCampaign(void)
+{
+	app.modalDialog.type = MD_NONE;
+}
+
+static void back(void)
+{
+	show = SHOW_TITLE;
 }
 
 static void challenges(void)

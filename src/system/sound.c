@@ -99,7 +99,15 @@ void playBattleSound(int id, int x, int y)
 			vol /= MAX_BATTLE_SOUND_DISTANCE;
 			vol *= distance;
 
-			Mix_SetDistance(channel, vol);
+			if (distance >= MIN_BATTLE_SOUND_DISTANCE)
+			{
+				float bearing = 360 - getAngle(x, y, lastPlayerX, lastPlayerY);
+				Mix_SetPosition(channel, (Sint16)bearing, (Uint8)distance);
+			}
+			else
+			{
+				Mix_SetDistance(channel, vol);
+			}
 		}
 	}
 }

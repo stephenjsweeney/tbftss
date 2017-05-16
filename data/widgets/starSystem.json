@@ -8,5 +8,15 @@
 		"y" : 635,
 		"w" : 280,
 		"h": 34
+	},
+	{
+		"name" : "close",
+		"group" : "starSystem",
+		"type" : "WT_BUTTON",
+		"text" : "X",
+		"x" : 1060,
+		"y" : 98,
+		"w" : 34,
+		"h": 34
 	}
 ]

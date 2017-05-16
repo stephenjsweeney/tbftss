@@ -129,6 +129,7 @@ void initGalacticMap(void)
 
 	initBackground();
 
+	getWidget("close", "starSystem")->action = resume;
 	startMissionButton = getWidget("startMission", "starSystem");
 	startMissionButton->action = startMission;
 

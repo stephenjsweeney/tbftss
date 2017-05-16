@@ -43,12 +43,15 @@ static void updateDeathStats(void);
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
 static Entity *availablePlayerUnits[MAX_SELECTABLE_PLAYERS];
+static int boostFinishedTime;
 
 void initPlayer(void)
 {
 	int i, n;
 
 	memset(&availableGuns, 0, sizeof(int) * BT_MAX);
+	
+	boostFinishedTime = (game.currentMission->challengeData.isChallenge || game.difficulty == DIFFICULTY_NORMAL) ? (int)BOOST_FINISHED_TIME : (int)(BOOST_FINISHED_TIME * 2);
 
 	battle.numPlayerGuns = 0;
 
@@ -201,7 +204,7 @@ void doPlayer(void)
 		}
 	}
 
-	if (battle.boostTimer == (int)BOOST_FINISHED_TIME)
+	if (battle.boostTimer == boostFinishedTime)
 	{
 		deactivateBoost();
 	}
@@ -367,7 +370,7 @@ static void handleMouse(void)
 		
 		if (isControl(CONTROL_ACCELERATE))
 		{
-			if (battle.boostTimer > BOOST_FINISHED_TIME || game.currentMission->challengeData.noBoost)
+			if (battle.boostTimer > boostFinishedTime || game.currentMission->challengeData.noBoost)
 			{
 				applyFighterThrust();
 			}

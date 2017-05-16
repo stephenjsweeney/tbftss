@@ -61,11 +61,16 @@ void initSDL(void)
 
 	/* done in src/plat/ */
 	createSaveFolder();
-
-	rendererFlags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
-	windowFlags = 0;
-
+	
 	loadConfig();
+
+	rendererFlags = SDL_RENDERER_ACCELERATED;
+	if (app.vSync)
+	{
+		rendererFlags |= SDL_RENDERER_PRESENTVSYNC;
+	}
+	
+	windowFlags = 0;
 
 	if (app.fullscreen)
 	{
@@ -236,6 +241,8 @@ static void loadConfigFile(char *filename)
 	app.fullscreen = cJSON_GetObjectItem(root, "fullscreen")->valueint;
 	app.musicVolume = cJSON_GetObjectItem(root, "musicVolume")->valueint;
 	app.soundVolume = cJSON_GetObjectItem(root, "soundVolume")->valueint;
+	app.vSync = getJSONValue(root, "vSync", 1);
+	app.directionalAudio = getJSONValue(root, "directionalAudio", 0);
 
 	controlsJSON = cJSON_GetObjectItem(root, "controls");
 	if (controlsJSON)
@@ -290,6 +297,8 @@ void saveConfig(void)
 	cJSON_AddNumberToObject(root, "fullscreen", app.fullscreen);
 	cJSON_AddNumberToObject(root, "musicVolume", app.musicVolume);
 	cJSON_AddNumberToObject(root, "soundVolume", app.soundVolume);
+	cJSON_AddNumberToObject(root, "vSync", app.vSync);
+	cJSON_AddNumberToObject(root, "directionalAudio", app.directionalAudio);
 
 	keysJSON = cJSON_CreateObject();
 	for (i = 0 ; i < CONTROL_MAX ; i++)

@@ -148,10 +148,12 @@ void doAI(void)
 
 static void doFighterAI(void)
 {
-	int r;
+	int r, breakOffChance;
+	
+	breakOffChance = (game.currentMission->challengeData.isChallenge || game.difficulty == DIFFICULTY_NORMAL) ? 5 : 1;
 	
 	/* don't hold a grudge against current target */
-	if ((self->target != NULL && self->target->health <= 0) || rand() % 5 == 0)
+	if ((self->target != NULL && self->target->health <= 0) || rand() % breakOffChance == 0)
 	{
 		self->action = doAI;
 		self->target = NULL;

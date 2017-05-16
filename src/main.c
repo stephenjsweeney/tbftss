@@ -251,6 +251,11 @@ static void handleMissionArgs(int argc, char *argv[])
 		{
 			showCredits = 1;
 		}
+		
+		if (strcmp(argv[i], "-easy") == 0)
+		{
+			game.difficulty = DIFFICULTY_EASY;
+		}
 	}
 	
 	if (showCredits)

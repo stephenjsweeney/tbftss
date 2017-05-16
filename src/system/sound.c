@@ -78,9 +78,8 @@ void playSound(int id)
 
 void playBattleSound(int id, int x, int y)
 {
-	float distance;
+	float distance, bearing, vol;
 	int channel;
-	float vol;
 
 	if (player->alive == ALIVE_ALIVE)
 	{
@@ -101,7 +100,7 @@ void playBattleSound(int id, int x, int y)
 
 			if (distance >= MIN_BATTLE_SOUND_DISTANCE)
 			{
-				float bearing = 360 - getAngle(x, y, lastPlayerX, lastPlayerY);
+				bearing = 360 - getAngle(x, y, lastPlayerX, lastPlayerY);
 				Mix_SetPosition(channel, (Sint16)bearing, (Uint8)distance);
 			}
 			else

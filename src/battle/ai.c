@@ -237,10 +237,12 @@ static void doFighterAI(void)
 
 static void doGunAI(void)
 {
-	int r;
+	int r, breakOffChance;
+	
+	breakOffChance = (game.currentMission->challengeData.isChallenge || game.difficulty == DIFFICULTY_NORMAL) ? 5 : 1;
 	
 	/* don't hold a grudge against current target */
-	if ((self->target != NULL && self->target->health <= 0) || rand() % 5 == 0)
+	if ((self->target != NULL && self->target->health <= 0) || rand() % breakOffChance == breakOffChance)
 	{
 		self->action = doAI;
 		self->target = NULL;
@@ -257,6 +259,11 @@ static void doGunAI(void)
 	}
 	
 	r = rand() % 100;
+	
+	if (!game.currentMission->challengeData.isChallenge && game.difficulty == DIFFICULTY_EASY)
+	{
+		r -= 35;
+	}
 	
 	if (r <= 50)
 	{

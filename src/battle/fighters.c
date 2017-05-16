@@ -466,6 +466,10 @@ void damageFighter(Entity *e, int amount, long flags)
 
 	e->aiDamageTimer = FPS;
 	e->aiDamagePerSec += amount;
+	if (game.difficulty == DIFFICULTY_EASY)
+	{
+		e->aiDamagePerSec += (amount * 2);
+	}
 	
 	if (flags & BF_SYSTEM_DAMAGE)
 	{

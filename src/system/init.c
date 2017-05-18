@@ -242,7 +242,6 @@ static void loadConfigFile(char *filename)
 	app.musicVolume = cJSON_GetObjectItem(root, "musicVolume")->valueint;
 	app.soundVolume = cJSON_GetObjectItem(root, "soundVolume")->valueint;
 	app.vSync = getJSONValue(root, "vSync", 1);
-	app.directionalAudio = getJSONValue(root, "directionalAudio", 0);
 
 	controlsJSON = cJSON_GetObjectItem(root, "controls");
 	if (controlsJSON)
@@ -298,7 +297,6 @@ void saveConfig(void)
 	cJSON_AddNumberToObject(root, "musicVolume", app.musicVolume);
 	cJSON_AddNumberToObject(root, "soundVolume", app.soundVolume);
 	cJSON_AddNumberToObject(root, "vSync", app.vSync);
-	cJSON_AddNumberToObject(root, "directionalAudio", app.directionalAudio);
 
 	keysJSON = cJSON_CreateObject();
 	for (i = 0 ; i < CONTROL_MAX ; i++)

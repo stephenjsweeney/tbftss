@@ -98,10 +98,10 @@ void playBattleSound(int id, int x, int y)
 			vol /= MAX_BATTLE_SOUND_DISTANCE;
 			vol *= distance;
 
-			if (app.directionalAudio && distance >= MIN_BATTLE_SOUND_DISTANCE)
+			if (distance >= MIN_BATTLE_SOUND_DISTANCE)
 			{
 				bearing = 360 - getAngle(x, y, lastPlayerX, lastPlayerY);
-				Mix_SetPosition(channel, (Sint16)bearing, (Uint8)distance);
+				Mix_SetPosition(channel, (Sint16)bearing, (Uint8)vol);
 			}
 			else
 			{

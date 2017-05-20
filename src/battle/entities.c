@@ -98,7 +98,8 @@ void doEntities(void)
 					if (--e->shieldRecharge <= 0)
 					{
 						e->shield = MIN(e->shield + 1, e->maxShield);
-						if (e == player && !game.currentMission->challengeData.isChallenge && game.difficulty == DIFFICULTY_EASY)
+						
+						if ((e == player || (player != NULL && e->side == player->side)) && !game.currentMission->challengeData.isChallenge && game.difficulty == DIFFICULTY_EASY)
 						{
 							e->shield = MIN(e->shield + 1, e->maxShield);
 						}

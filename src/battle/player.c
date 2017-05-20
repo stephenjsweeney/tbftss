@@ -102,6 +102,7 @@ void initPlayer(void)
 	{
 		player->health = player->maxHealth = (player->maxHealth * 1.25);
 		player->shield = player->maxShield = (player->maxShield * 1.25);
+		player->missiles *= 2;
 	}
 }
 

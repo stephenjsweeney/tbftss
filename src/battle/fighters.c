@@ -95,9 +95,24 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 		e->aiAggression = 4;
 	}
 	
-	if (game.difficulty == DIFFICULTY_EASY)
+	if (!game.currentMission->challengeData.isChallenge && game.difficulty == DIFFICULTY_EASY)
 	{
 		e->aiAggression = MIN(e->aiAggression, 2);
+		
+		if (player != NULL)
+		{
+			if (e->side == player->side)
+			{
+				e->health = e->maxHealth = (e->maxHealth * 2);
+				e->shield = e->maxShield = (e->maxShield * 2);
+				e->missiles *= 2;
+			}
+			else
+			{
+				e->health = e->maxHealth = (e->maxHealth / 2);
+				e->shield = e->maxShield = (e->maxShield / 2);
+			}
+		}
 	}
 
 	e->action = doAI;

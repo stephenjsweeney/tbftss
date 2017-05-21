@@ -81,7 +81,7 @@ void playBattleSound(int id, int x, int y)
 	float distance, bearing, vol;
 	int channel;
 
-	if (player->alive == ALIVE_ALIVE)
+	if (player->alive == ALIVE_ALIVE || player->alive == ALIVE_ESCAPED)
 	{
 		lastPlayerX = player->x;
 		lastPlayerY = player->y;
@@ -92,6 +92,7 @@ void playBattleSound(int id, int x, int y)
 	if (distance <= MAX_BATTLE_SOUND_DISTANCE)
 	{
 		channel = Mix_PlayChannel(-1, sounds[id], 0);
+		
 		if (channel != -1)
 		{
 			vol = 255;

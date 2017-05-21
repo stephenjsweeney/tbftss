@@ -218,8 +218,8 @@ static void draw(void)
 {
 	if (player->alive == ALIVE_ALIVE)
 	{
-		battle.camera.x = player->x - (SCREEN_WIDTH / 2);
-		battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
+		battle.camera.x = player->x - (SCREEN_WIDTH / 2) + ((app.mouse.x - (SCREEN_WIDTH / 2)) / 4);
+		battle.camera.y = player->y - (SCREEN_HEIGHT / 2) + ((app.mouse.y - (SCREEN_HEIGHT / 2)) / 4);
 	}
 
 	drawBackground(battle.background);

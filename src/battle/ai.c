@@ -656,6 +656,7 @@ static void doSurrender(void)
 	{
 		self->aiFlags &= ~AIF_SURRENDERING;
 		self->aiFlags |= AIF_SURRENDERED;
+		self->speed = 1.5;
 		
 		nextAction();
 	}

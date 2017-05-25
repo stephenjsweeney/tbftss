@@ -218,8 +218,12 @@ static void draw(void)
 {
 	if (player->alive == ALIVE_ALIVE)
 	{
-		battle.camera.x = player->x - (SCREEN_WIDTH / 2) + ((app.mouse.x - (SCREEN_WIDTH / 2)) / 4);
-		battle.camera.y = player->y - (SCREEN_HEIGHT / 2) + ((app.mouse.y - (SCREEN_HEIGHT / 2)) / 4);
+		float targetX, targetY;
+		targetX = player->x - (SCREEN_WIDTH / 2) + ((app.mouse.x - (SCREEN_WIDTH / 2)) / 4);
+		targetY = player->y - (SCREEN_HEIGHT / 2) + ((app.mouse.y - (SCREEN_HEIGHT / 2)) / 4);
+		/* Smoothly follow target using lerp */
+		battle.camera.x += (targetX - battle.camera.x) * 0.1f;
+		battle.camera.y += (targetY - battle.camera.y) * 0.1f;
 	}
 
 	drawBackground(battle.background);

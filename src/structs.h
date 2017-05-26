@@ -491,6 +491,7 @@ typedef struct {
 	int fullscreen;
 	int musicVolume;
 	int soundVolume;
+	int vSync;
 	int doTrophyAlerts;
 	int hideMouse;
 	Gameplay gameplay;

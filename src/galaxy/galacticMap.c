@@ -127,6 +127,7 @@ void initGalacticMap(void)
 
 	initBackground();
 
+	getWidget("close", "starSystem")->action = resume;
 	startMissionButton = getWidget("startMission", "starSystem");
 	startMissionButton->action = startMission;
 
@@ -762,6 +763,7 @@ static void handleMouse(void)
 	{
 		scrollingMap = 0;
 	}
+	
 	setMouseCursor(app.mouse.button[SDL_BUTTON_LEFT] && show == SHOW_GALAXY);
 }
 

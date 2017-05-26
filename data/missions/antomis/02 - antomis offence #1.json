@@ -45,6 +45,7 @@
 	},
 	"fighters" : [
 		{
+			"name" : "Wing Commander",
 			"types" : "Leopard",
 			"side" : "SIDE_ALLIES",
 			"x" : 45,

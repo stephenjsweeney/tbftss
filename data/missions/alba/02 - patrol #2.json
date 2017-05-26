@@ -39,6 +39,7 @@
 			"scatter" : 350
 		},
 		{
+			"name" : "Pandoran",
 			"types" : "Jackal",
 			"number" : 3,
 			"side" : "SIDE_PANDORAN",

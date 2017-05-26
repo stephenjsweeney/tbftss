@@ -137,9 +137,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_SURRENDERED			(2 << 23)
 
 /* player abilities */
-#define BOOST_RECHARGE_TIME 	(FPS * 4.5)
+#define BOOST_RECHARGE_TIME 	(FPS * 7)
 #define BOOST_FINISHED_TIME 	(FPS * 0.75)
-#define ECM_RECHARGE_TIME		(FPS * 4.5)
+#define ECM_RECHARGE_TIME		(FPS * 7)
 
 #define MB_NORMAL				0
 #define MB_IMPORTANT			1

@@ -230,7 +230,7 @@ void doEntities(void)
 					}
 				}
 				
-				if (!(e->flags & EF_DISABLED))
+				if (!(e->flags & EF_DISABLED) || battle.isEpic)
 				{
 					battle.hasThreats = 1;
 				}

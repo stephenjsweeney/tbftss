@@ -84,9 +84,9 @@ void doObjectives(void)
 		{
 			if (fireObjectivesComplete)
 			{
-				runScriptFunction("ALL_OBJECTIVES_COMPLETE");
-				
 				fireObjectivesComplete = 0;
+				
+				runScriptFunction("ALL_OBJECTIVES_COMPLETE");
 			}
 			
 			if (!battle.manualComplete)
@@ -154,11 +154,11 @@ void updateObjective(char *name, int type)
 			}
 		}
 		
-		if (completed == battle.numObjectivesTotal && !hasHidden && !fireObjectivesComplete)
+		if (completed == battle.numObjectivesTotal && !hasHidden && fireObjectivesComplete)
 		{
-			runScriptFunction("ALL_OBJECTIVES_COMPLETE");
-			
 			fireObjectivesComplete = 0;
+			
+			runScriptFunction("ALL_OBJECTIVES_COMPLETE");
 		}
 	}
 }

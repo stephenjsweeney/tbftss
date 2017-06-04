@@ -503,7 +503,7 @@ static void preAttack(void)
 			{
 				fireGuns(self);
 			}
-			else if (self->missiles && (!(self->target->flags & (EF_NO_KILL|EF_MUST_DISABLE))) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
+			else if (self->missiles && (!(self->target->flags & (EF_NO_KILL|EF_MUST_DISABLE|EF_FRIENDLY_HEALTH_BAR))) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
 			{
 				fireMissile(self);
 				

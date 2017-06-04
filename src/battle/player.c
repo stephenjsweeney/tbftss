@@ -91,6 +91,8 @@ void initPlayer(void)
 	player->flags |= EF_NO_HEALTH_BAR;
 	player->flags &= ~EF_IMMORTAL;
 	
+	player->target = NULL;
+	
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
 	
 	battle.stats[STAT_EPIC_KILL_STREAK] = 0;

@@ -114,7 +114,7 @@
 				"WAIT_MSG_BOX",
 				"ACTIVATE_ENTITY_GROUPS Reinforcements-2",
 				"MSG_BOX Control;Strider, be advised that we are tracking a further three INF fighters heading your way.",
-				"MSG_BOX Strider;Dammit, spoke to soon ..."
+				"MSG_BOX Strider;Dammit, spoke too soon ..."
 			]
 		}
 	]

@@ -127,7 +127,7 @@
 			"types" : "Scarab",
 			"side" : "SIDE_PANDORAN",
 			"x": 25,
-			"y": -4,
+			"y": 52,
 			"number" : 8,
 			"scatter" : 2500,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
@@ -156,7 +156,7 @@
 			"types" : "INF Corvette 02",
 			"side" : "SIDE_PANDORAN",
 			"x" : 10,
-			"y" : -5,
+			"y" : 52,
 			"flags" : "+EF_AI_LEADER+EF_AI_TARGET",
 			"active" : 0
 		},

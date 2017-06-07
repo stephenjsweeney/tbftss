@@ -8,7 +8,7 @@
 	"epic" : {
 		"fighterLimit" : 12,
 		"unlimitedEnemies" : 1,
-		"kills" : 35
+		"kills" : 25
 	},
 	"unwinnable" : 1,
 	"objectives" : [

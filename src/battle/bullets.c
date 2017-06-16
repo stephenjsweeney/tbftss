@@ -187,7 +187,14 @@ static void checkCollisions(Bullet *b)
 					
 					if (battle.hasSuspicionLevel)
 					{
-						battle.suspicionLevel -= 2;
+						if (e->aiFlags & (AIF_AVOIDS_COMBAT|AIF_DEFENSIVE))
+						{
+							battle.suspicionLevel -= (MAX_SUSPICION_LEVEL * 0.1);
+						}
+						else
+						{
+							battle.suspicionLevel -= (MAX_SUSPICION_LEVEL * 0.001);
+						}
 					}
 				}
 				

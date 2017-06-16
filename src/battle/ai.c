@@ -1115,7 +1115,7 @@ void checkSuspicionLevel(void)
 			}
 			else if (distance <= SCREEN_HEIGHT / 2)
 			{
-				battle.suspicionLevel = MAX(battle.suspicionLevel - 1, 0);
+				battle.suspicionLevel--;
 			}
 		}
 	}

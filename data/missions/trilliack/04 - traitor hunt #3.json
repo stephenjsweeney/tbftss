@@ -47,7 +47,7 @@
 	"fighters" : [
 		{
 			"types" : "Ray;Firefly;Kingfisher;Hammerhead",
-			"number" : 8,
+			"number" : 12,
 			"side" : "SIDE_ALLIES",
 			"x" : 10,
 			"y" : 10,

@@ -96,6 +96,7 @@
 		{
 			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
+				"RETREAT_ENEMIES",
 				"WAIT 1",
 				"MSG_BOX Gaskin;That was a close one. Looks like they were scouting. We'll have to take extra precautions in future.",
 				"WAIT_MSG_BOX",

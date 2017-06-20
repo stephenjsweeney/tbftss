@@ -16,6 +16,20 @@
 			"targetValue" : 1,
 			"targetType" : "TT_DESTROY",
 			"isEliminateAll" : 1
+		},
+		{
+			"description" : "Destroy HMS 711-444",
+			"targetName" : "HMS 711-444",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
+		},
+		{
+			"description" : "Destroy HMS 313-777",
+			"targetName" : "HMS 313-777",
+			"targetValue" : 1,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
 		}
 	],
 	"player" : {
@@ -76,7 +90,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : -1,
 			"y" : 35,
-			"flags" : "+EF_AI_TARGET",
+			"flags" : "+EF_AI_TARGET+EF_MISSION_TARGET",
 			"active" : 0
 		},
 		{
@@ -86,7 +100,7 @@
 			"side" : "SIDE_PANDORAN",
 			"x" : 51,
 			"y" : 35,
-			"flags" : "+EF_AI_TARGET",
+			"flags" : "+EF_AI_TARGET+EF_MISSION_TARGET",
 			"active" : 0
 		}
 	],
@@ -102,7 +116,25 @@
 			"lines" : [
 				"MSG_BOX Control;We're losing fighters, rapidly. We need to focus our efforts on dividing the enemy up and taking them down together.",
 				"MSG_BOX Wingmate;Picking up incoming Tzac corvettes.",
-				"ACTIVATE_ENTITY_GROUPS CapShips"
+				"ACTIVATE_ENTITY_GROUPS CapShips",
+				"MSG_BOX Control;We need to take down those capital ships, right away. Lt. Cdr. Dodds, lead the strike.",
+				"MSG_BOX Dodds;On it!",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Destroy HMS 711-444;Destroy HMS 313-777"
+			]
+		},
+		{
+			"function" : "HMS 711-444",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Dodds;HMS 711-444 has been taken down."
+			]
+		},
+		{
+			"function" : "HMS 313-777",
+			"lines" : [
+				"WAIT 1",
+				"MSG_BOX Dodds;HMS 313-777 is out of the game."
 			]
 		},
 		{
@@ -120,6 +152,7 @@
 		{
 			"function" : "CAPITAL_SHIPS_LOST 3",
 			"lines" : [
+				"MSG_BOX Dodds;Shit! That's all three of our corvettes down!",
 				"WAIT 10",
 				"MSG_BOX CSN Griffin;Dodds, Commodore Parks has ordered that you pull out immediately.",
 				"MSG_BOX Dodds;Griffin, what the hell? We can take them!",

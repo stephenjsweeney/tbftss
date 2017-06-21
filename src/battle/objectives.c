@@ -269,7 +269,11 @@ void activateObjectives(char *objectives)
 			if (strcmp(token, o->id) == 0)
 			{
 				addHudMessage(colors.cyan, _("New Objective : %s"), o->description);
+				
 				o->active = 1;
+				
+				/* prevent race condition */
+				doObjectives();
 				
 				if (o->isEliminateAll)
 				{

@@ -39,6 +39,7 @@ static int targetOutOfRange(void);
 static void rechargeBoostECM(void);
 static void setPilotName(void);
 static void updateDeathStats(void);
+static void handleSuspicionLevel(void);
 
 static int selectedPlayerIndex;
 static int availableGuns[BT_MAX];
@@ -138,6 +139,8 @@ void doPlayer(void)
 		handleKeyboard();
 
 		handleMouse();
+		
+		handleSuspicionLevel();
 
 		if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || targetOutOfRange())
 		{
@@ -353,15 +356,9 @@ static void handleMouse(void)
 				fireRocket(player);
 			}
 			
-			if (battle.hasSuspicionLevel)
+			if (battle.hasSuspicionLevel && !battle.numEnemies && !battle.suspicionCoolOff)
 			{
-				if (!battle.numEnemies && !battle.suspicionCoolOff)
-				{
-					battle.suspicionLevel += (MAX_SUSPICION_LEVEL * 0.05);
-				}
-				
-				/* don't allow the suspicion level to drop too far */
-				battle.suspicionLevel = MAX(battle.suspicionLevel, -(MAX_SUSPICION_LEVEL * 0.1));
+				battle.suspicionLevel += (MAX_SUSPICION_LEVEL * 0.05);
 			}
 		}
 		
@@ -558,7 +555,7 @@ static void activateECM(void)
 
 	battle.stats[STAT_ECM]++;
 	
-	if (battle.hasSuspicionLevel && !battle.numEnemies)
+	if (battle.hasSuspicionLevel && !battle.numEnemies && !battle.suspicionCoolOff)
 	{
 		battle.suspicionLevel += (MAX_SUSPICION_LEVEL * 0.25);
 	}
@@ -753,6 +750,15 @@ static void cycleRadarZoom(void)
 int playerHasGun(int type)
 {
 	return availableGuns[type];
+}
+
+static void handleSuspicionLevel(void)
+{
+	if (battle.hasSuspicionLevel)
+	{
+		/* don't allow the suspicion level to drop too far */
+		battle.suspicionLevel = MAX(battle.suspicionLevel, -(MAX_SUSPICION_LEVEL * 0.25));
+	}
 }
 
 void loadPlayer(cJSON *node)

@@ -152,7 +152,7 @@
 		{
 			"function" : "CAPITAL_SHIPS_LOST 3",
 			"lines" : [
-				"MSG_BOX Dodds;Shit! That's all three of our corvettes down!",
+				"MSG_BOX Dodds;Dammit! That's all three of our corvettes down!",
 				"WAIT 10",
 				"MSG_BOX CSN Griffin;Dodds, Commodore Parks has ordered that you pull out immediately.",
 				"MSG_BOX Dodds;Griffin, what the hell? We can take them!",

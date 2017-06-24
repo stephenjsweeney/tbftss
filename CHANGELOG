@@ -1,5 +1,13 @@
 Changelog
 
+1.2
+
+	* Reduced missile damage from 75pts to 50pts.
+	* Rebalanced some missions, due to missile damage reduction.
+	* Fixed numerous mission bugs.
+	* Surrendering vessels will now fly away slower, to allow the player to catch them more easily.
+	* Music pauses when window focus is lost.
+
 1.11
 
 	* Uncoupled event handling from frame rate.

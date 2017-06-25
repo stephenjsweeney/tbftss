@@ -19,6 +19,13 @@
 			"targetValue" : 2,
 			"targetType" : "TT_DESTROY",
 			"isCondition" : 1
+		},
+		{
+			"description" : "Eliminate Pandoran fighters",
+			"targetName" : "Jackal",
+			"targetValue" : 6,
+			"targetType" : "TT_DESTROY",
+			"active" : 0
 		}
 	],
 	"player" : {
@@ -77,6 +84,7 @@
 			"name" : "PandoranSpawner",
 			"types" : "Jackal",
 			"side" : "SIDE_PANDORAN",
+			"aiFlags" : "+AIF_UNLIMITED_RANGE",
 			"step" : 2,
 			"interval" : 60,
 			"total" : 6,
@@ -90,13 +98,14 @@
 			"lines" : [
 				"ACTIVATE_SPAWNER 1 PandoranSpawner",
 				"IMPORTANT_MSG_BOX Wingmate;Gaskin, INF fighters spotted! Pandorans, without a doubt!",
-				"MSG_BOX Gaskin;Break and attack! Protect the civilians!"
+				"MSG_BOX Gaskin;Break and attack! Protect the civilians!",
+				"WAIT_MSG_BOX",
+				"ACTIVATE_OBJECTIVES Eliminate Pandoran fighters"
 			]
 		},
 		{
 			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
-				"RETREAT_ENEMIES",
 				"WAIT 1",
 				"MSG_BOX Gaskin;That was a close one. Looks like they were scouting. We'll have to take extra precautions in future.",
 				"WAIT_MSG_BOX",

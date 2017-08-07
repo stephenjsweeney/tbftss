@@ -1,5 +1,6 @@
 {
 	"name" : "Swarmer",
+	"description" : "TODO",
 	"health" : 5,
 	"speed" : 2,
 	"reloadTime" : 8,

@@ -1,0 +1,32 @@
+[
+	{
+		"name" : "prev",
+		"group" : "fighterDB",
+		"type" : "WT_IMG_BUTTON",
+		"x" : 540,
+		"y" : 110,
+		"w" : 150,
+		"h": 34,
+		"texture" : "gfx/widgets/optionsLeft.png"
+	},
+	{
+		"name" : "next",
+		"group" : "fighterDB",
+		"type" : "WT_IMG_BUTTON",
+		"x" : 720,
+		"y" : 110,
+		"w" : 150,
+		"h": 34,
+		"texture" : "gfx/widgets/optionsRight.png"
+	},
+	{
+		"name" : "ok",
+		"group" : "fighterDB",
+		"type" : "WT_BUTTON",
+		"text" : "OK",
+		"x" : 640,
+		"y" : 635,
+		"w" : 150,
+		"h": 34
+	}
+]

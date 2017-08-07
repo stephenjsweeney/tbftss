@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2016 Parallel Realities
+Copyright (C) 2015-2017 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -747,6 +747,36 @@ static Entity *getFighterDef(char *name)
 	exit(1);
 }
 
+Entity **getDBFighters(int *num)
+{
+	Entity *e, **dbFighters;
+	int i;
+	
+	i = *num = 0;
+
+	for (e = defHead.next ; e != NULL ; e = e->next)
+	{
+		if (strlen(e->description) > 0)
+		{
+			*num = *num + 1;
+		}
+	}
+	
+	dbFighters = malloc(sizeof(Entity*) * *num);
+	
+	for (e = defHead.next ; e != NULL ; e = e->next)
+	{
+		if (strlen(e->description) > 0)
+		{
+			dbFighters[i] = e;
+		}
+		
+		i++;
+	}
+	
+	return dbFighters;
+}
+
 void loadFighterDefs(void)
 {
 	memset(&defHead, 0, sizeof(Entity));
@@ -802,6 +832,7 @@ static void loadFighterDef(char *filename)
 
 		STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
+		STRNCPY(e->description, cJSON_GetObjectItem(root, "description")->valuestring, MAX_NAME_LENGTH);
 		e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
 		e->shield = e->maxShield = getJSONValue(root, "shield", 0);
 		e->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;

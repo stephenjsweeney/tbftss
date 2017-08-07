@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2016 Parallel Realities
+Copyright (C) 2015-2017 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -100,6 +100,7 @@ struct Entity {
 	char name[MAX_NAME_LENGTH];
 	char defName[MAX_NAME_LENGTH];
 	char groupName[MAX_NAME_LENGTH];
+	char description[MAX_DESCRIPTION_LENGTH];
 	int active;
 	int spawned;
 	int id;

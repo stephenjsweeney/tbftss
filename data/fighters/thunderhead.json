@@ -1,5 +1,6 @@
 {
 	"name" : "Thunderhead",
+	"description" : "TODO",
 	"health" : 90,
 	"shield" : 65,
 	"speed" : 1.7,

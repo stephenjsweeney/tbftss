@@ -1,5 +1,6 @@
 {
 	"name" : "Ray",
+	"description" : "TODO",
 	"health" : 70,
 	"shield" : 70,
 	"speed" : 1.85,

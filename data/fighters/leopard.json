@@ -1,5 +1,6 @@
 {
 	"name" : "Leopard",
+	"description" : "TODO",
 	"health" : 125,
 	"shield" : 75,
 	"speed" : 1.7,

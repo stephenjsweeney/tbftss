@@ -1,5 +1,6 @@
 {
 	"name" : "Sphinx",
+	"description" : "TODO",
 	"health" : 110,
 	"shield" : 75,
 	"speed" : 1.85,

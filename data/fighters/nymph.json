@@ -1,5 +1,6 @@
 {
 	"name" : "Nymph",
+	"description" : "TODO",
 	"health" : 45,
 	"shield" : 40,
 	"speed" : 2,

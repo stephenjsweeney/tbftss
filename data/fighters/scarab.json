@@ -1,5 +1,6 @@
 {
 	"name" : "Scarab",
+	"description" : "TODO",
 	"health" : 80,
 	"shield" : 65,
 	"speed" : 1.7,

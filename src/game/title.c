@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2016 Parallel Realities
+Copyright (C) 2015-2017 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@ static void campaign(void);
 static void challenges(void);
 static void trophies(void);
 static void stats(void);
+static void fighterDatabase(void);
 static void ok(void);
 static void options(void);
 static void credits(void);
@@ -82,6 +83,7 @@ void initTitle(void)
 	getWidget("challenges", "title")->action = challenges;
 	getWidget("trophies", "title")->action = trophies;
 	getWidget("stats", "title")->action = stats;
+	getWidget("fighterDB", "title")->action = fighterDatabase;
 	getWidget("options", "title")->action = options;
 	getWidget("credits", "title")->action = credits;
 	getWidget("quit", "title")->action = quit;
@@ -181,7 +183,7 @@ static void draw(void)
 	
 	blit(pandoranWar, SCREEN_WIDTH / 2, 110, 1);
 	
-	drawText(10, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2016");
+	drawText(10, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2017");
 	drawText(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 25, 14, TA_RIGHT, colors.white, "Version %.2f-%d", VERSION, REVISION);
 	
 	switch (show)
@@ -200,6 +202,10 @@ static void draw(void)
 			
 		case SHOW_TROPHIES:
 			drawTrophies();
+			break;
+			
+		case SHOW_FIGHTER_DB:
+			drawFighterDatabase();
 			break;
 	}
 }
@@ -248,6 +254,13 @@ static void trophies(void)
 	show = SHOW_TROPHIES;
 	
 	initTrophiesDisplay();
+}
+
+static void fighterDatabase(void)
+{
+	show = SHOW_FIGHTER_DB;
+	
+	initFighterDatabaseDisplay();
 }
 
 static void options(void)

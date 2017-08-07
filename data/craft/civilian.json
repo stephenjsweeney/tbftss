@@ -1,5 +1,6 @@
 {
 	"name" : "Civilian",
+	"description" : "",
 	"health" : 15,
 	"speed" : 1.85,
 	"texture" : "gfx/craft/civilian01.png",

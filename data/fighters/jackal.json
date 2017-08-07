@@ -1,5 +1,6 @@
 {
 	"name" : "Jackal",
+	"description" : "TODO",
 	"health" : 75,
 	"shield" : 75,
 	"speed" : 2,

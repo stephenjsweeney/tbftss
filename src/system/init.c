@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2016 Parallel Realities
+Copyright (C) 2015-2017 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -141,7 +141,8 @@ void initGameSystem(void)
 		initBackground,
 		initStars,
 		initControls,
-		initTrophies
+		initTrophies,
+		initFighterDatabase
 	};
 
 	numInitFuns = sizeof(initFuncs) / sizeof(void*);

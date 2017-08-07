@@ -1,5 +1,6 @@
 {
 	"name" : "SK-34",
+	"description" : "TODO",
 	"health" : 100,
 	"shield" : 45,
 	"speed" : 1.7,

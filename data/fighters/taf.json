@@ -1,5 +1,6 @@
 {
 	"name" : "TAF",
+	"description" : "TODO",
 	"health" : 35,
 	"shield" : 35,
 	"speed" : 2,

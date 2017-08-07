@@ -1,5 +1,6 @@
 {
 	"name" : "Mantis",
+	"description" : "TODO",
 	"health" : 50,
 	"shield" : 75,
 	"speed" : 1.85,

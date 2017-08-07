@@ -1,5 +1,6 @@
 {
 	"name" : "Rook",
+	"description" : "TODO",
 	"health" : 110,
 	"shield" : 80,
 	"speed" : 1.7,

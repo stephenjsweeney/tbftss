@@ -1,5 +1,6 @@
 {
 	"name" : "ATAF",
+	"description" : "TODO",
 	"health" : 150,
 	"shield" : 2500,
 	"speed" : 2.25,

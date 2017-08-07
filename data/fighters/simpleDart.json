@@ -1,5 +1,6 @@
 {
 	"name" : "Simple Dart",
+	"description" : "",
 	"health" : 15,
 	"speed" : 2.1,
 	"reloadTime" : 24,

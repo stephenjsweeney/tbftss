@@ -1,5 +1,6 @@
 {
 	"name" : "Firefly",
+	"description" : "TODO",
 	"health" : 50,
 	"shield" : 50,
 	"speed" : 1.85,

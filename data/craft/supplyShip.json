@@ -1,5 +1,6 @@
 {
 	"name" : "Supply Ship",
+	"description" : "TODO",
 	"health" : 150,
 	"shield" : 50,
 	"speed" : 1.5,

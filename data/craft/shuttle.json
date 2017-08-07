@@ -1,5 +1,6 @@
 {
 	"name" : "Shuttle",
+	"description" : "TODO",
 	"health" : 15,
 	"shield" : 15,
 	"speed" : 2,

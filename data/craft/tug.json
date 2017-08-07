@@ -1,5 +1,6 @@
 {
 	"name" : "Tug",
+	"description" : "TODO",
 	"health" : 50,
 	"speed" : 1.85,
 	"reloadTime" : 10,

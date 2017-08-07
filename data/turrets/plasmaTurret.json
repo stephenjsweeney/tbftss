@@ -1,5 +1,6 @@
 {
 	"name" : "Plasma Turret",
+	"description" : "TODO",
 	"health" : 150,
 	"shield" : 25,
 	"speed" : 0,

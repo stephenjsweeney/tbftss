@@ -24,6 +24,8 @@ extern void drawWidgets(char *groupName);
 extern Widget *getWidget(const char *name, const char *group);
 extern char *getTranslatedString(char *string);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern Entity **getDBFighters(int *num);
+extern float mod(float n, float x);
 
 extern App app;
 extern Colors colors;

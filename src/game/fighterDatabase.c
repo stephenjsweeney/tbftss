@@ -20,38 +20,56 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "fighterDatabase.h"
 
+static void prevFighter(void);
+static void nextFighter(void);
+static int countFighterGuns(Entity *fighter, int type);
+
 static int page;
 static int maxPages;
 static Widget *prev;
 static Widget *next;
 static char *DB_TEXT;
 static char *PAGE_TEXT;
-static void prevFighter(void);
-static void nextFighter(void);
+static const char *gunName[BT_MAX];
+static Entity **dbFighters;
 
 void initFighterDatabase(void)
 {
 	DB_TEXT = _("Fighter Database");
 	PAGE_TEXT = _("Page %d / %d");
+	
+	dbFighters = getDBFighters(&maxPages);
+	
+	gunName[BT_NONE] = "";
+	gunName[BT_PARTICLE] = _("Particle Cannon");
+	gunName[BT_PLASMA] = _("Plasma Cannon");
+	gunName[BT_LASER] = _("Laser Cannon");
+	gunName[BT_MAG] = _("Mag Cannon");
+	gunName[BT_ROCKET] = _("Rockets");
+	gunName[BT_MISSILE] = _("Missiles");
+}
+
+void destroyFighterDatabase(void)
+{
+	free(dbFighters);
 }
 
 void initFighterDatabaseDisplay(void)
 {
 	page = 0;
-	maxPages = 1;
 	
 	prev = getWidget("prev", "fighterDB");
 	prev->action = prevFighter;
-	prev->visible = 0;
 	
 	next = getWidget("next", "fighterDB");
 	next->action = nextFighter;
-	next->visible = 1;
 }
 
 void drawFighterDatabase(void)
 {
 	SDL_Rect r;
+	Entity *fighter;
+	int i, y, numCannons;
 	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -72,13 +90,60 @@ void drawFighterDatabase(void)
 	
 	drawText(SCREEN_WIDTH / 2, 90, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
 	
+	fighter = dbFighters[page];
+	
+	drawText(SCREEN_WIDTH / 2, 130, 28, TA_CENTER, colors.white, fighter->name);
+	
+	drawText(r.x + 25, 200, 22, TA_LEFT, colors.white, "Armour: %d", fighter->health);
+	drawText(r.x + 25, 250, 22, TA_LEFT, colors.white, "Shield: %d", fighter->shield);
+	drawText(r.x + 25, 300, 22, TA_LEFT, colors.white, "Speed: %f", fighter->speed);
+	
+	y = 200;
+	
+	for (i = 1 ; i < BT_MAX ; i++)
+	{
+		numCannons = countFighterGuns(fighter, i);
+		if (numCannons > 0)
+		{
+			drawText(r.x + r.w - 25, y, 22, TA_RIGHT, colors.white, "%s x %d", gunName[i], numCannons);
+			
+			y += 50;
+		}
+	}
+	
+	if (fighter->missiles > 0)
+	{
+		drawText(r.x + r.w - 25, y, 22, TA_RIGHT, colors.white, "Missiles x %d", fighter->missiles);
+	}
+	
+	drawText(300, 500, 18, TA_LEFT, colors.white, fighter->description);
+	
 	drawWidgets("fighterDB");
+}
+
+static int countFighterGuns(Entity *fighter, int type)
+{
+	int i, num;
+	
+	num = 0;
+	
+	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
+	{
+		if (fighter->guns[i].type == type)
+		{
+			num++;
+		}
+	}
+	
+	return num;
 }
 
 static void prevFighter(void)
 {
+	page = mod(page - 1, maxPages);
 }
 
 static void nextFighter(void)
 {
+	page = mod(page + 1, maxPages);
 }

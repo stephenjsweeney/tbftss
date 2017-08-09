@@ -63,6 +63,7 @@ extern void destroyTextures(void);
 extern void destroyGalacticMap(void);
 extern void destroyWidgets(void);
 extern void destroyResources(void);
+extern void destroyFighterDatabase(void);
 extern void expireTexts(int all);
 extern void initInput(void);
 extern void initModalDialog(void);

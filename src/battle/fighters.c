@@ -769,9 +769,9 @@ Entity **getDBFighters(int *num)
 		if (strlen(e->description) > 0)
 		{
 			dbFighters[i] = e;
+			
+			i++;
 		}
-		
-		i++;
 	}
 	
 	return dbFighters;

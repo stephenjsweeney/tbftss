@@ -25,7 +25,9 @@ extern Widget *getWidget(const char *name, const char *group);
 extern char *getTranslatedString(char *string);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern Entity **getDBFighters(int *num);
+extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern float mod(float n, float x);
+extern void limitTextWidth(int width);
 
 extern App app;
 extern Colors colors;

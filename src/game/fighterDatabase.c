@@ -32,6 +32,7 @@ static char *DB_TEXT;
 static char *PAGE_TEXT;
 static const char *gunName[BT_MAX];
 static Entity **dbFighters;
+static float rotation;
 
 void initFighterDatabase(void)
 {
@@ -47,6 +48,8 @@ void initFighterDatabase(void)
 	gunName[BT_MAG] = _("Mag Cannon");
 	gunName[BT_ROCKET] = _("Rockets");
 	gunName[BT_MISSILE] = _("Missiles");
+	
+	rotation = 0;
 }
 
 void destroyFighterDatabase(void)
@@ -65,6 +68,11 @@ void initFighterDatabaseDisplay(void)
 	next->action = nextFighter;
 }
 
+void doFighterDatabase(void)
+{
+	rotation++;
+}
+
 void drawFighterDatabase(void)
 {
 	SDL_Rect r;
@@ -76,7 +84,7 @@ void drawFighterDatabase(void)
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	r.w = 800;
+	r.w = 700;
 	r.h = 650;
 	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
 	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
@@ -94,9 +102,12 @@ void drawFighterDatabase(void)
 	
 	drawText(SCREEN_WIDTH / 2, 130, 28, TA_CENTER, colors.white, fighter->name);
 	
-	drawText(r.x + 25, 200, 22, TA_LEFT, colors.white, "Armour: %d", fighter->health);
-	drawText(r.x + 25, 250, 22, TA_LEFT, colors.white, "Shield: %d", fighter->shield);
-	drawText(r.x + 25, 300, 22, TA_LEFT, colors.white, "Speed: %f", fighter->speed);
+	blitRotated(fighter->texture, r.x + (r.w / 2), 250, rotation);
+	
+	drawText(r.x + 25, 200, 22, TA_LEFT, colors.white, "Affiliation: %s", fighter->affiliation);
+	drawText(r.x + 25, 240, 22, TA_LEFT, colors.white, "Armour: %d", fighter->health);
+	drawText(r.x + 25, 280, 22, TA_LEFT, colors.white, "Shield: %d", fighter->shield);
+	drawText(r.x + 25, 320, 22, TA_LEFT, colors.white, "Speed: %f", fighter->speed);
 	
 	y = 200;
 	
@@ -107,7 +118,7 @@ void drawFighterDatabase(void)
 		{
 			drawText(r.x + r.w - 25, y, 22, TA_RIGHT, colors.white, "%s x %d", gunName[i], numCannons);
 			
-			y += 50;
+			y += 40;
 		}
 	}
 	
@@ -116,7 +127,11 @@ void drawFighterDatabase(void)
 		drawText(r.x + r.w - 25, y, 22, TA_RIGHT, colors.white, "Missiles x %d", fighter->missiles);
 	}
 	
-	drawText(300, 500, 18, TA_LEFT, colors.white, fighter->description);
+	y = MAX(y, 320) + 75;
+	
+	limitTextWidth(r.w - 100);
+	drawText(r.x + 25, y, 18, TA_LEFT, colors.white, fighter->description);
+	limitTextWidth(0);
 	
 	drawWidgets("fighterDB");
 }

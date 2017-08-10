@@ -3,8 +3,8 @@
 		"name" : "prev",
 		"group" : "fighterDB",
 		"type" : "WT_IMG_BUTTON",
-		"x" : 540,
-		"y" : 110,
+		"x" : 500,
+		"y" : 138,
 		"w" : 150,
 		"h": 34,
 		"texture" : "gfx/widgets/optionsLeft.png"
@@ -13,8 +13,8 @@
 		"name" : "next",
 		"group" : "fighterDB",
 		"type" : "WT_IMG_BUTTON",
-		"x" : 720,
-		"y" : 110,
+		"x" : 760,
+		"y" : 138,
 		"w" : 150,
 		"h": 34,
 		"texture" : "gfx/widgets/optionsRight.png"
@@ -25,7 +25,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "OK",
 		"x" : 640,
-		"y" : 635,
+		"y" : 660,
 		"w" : 150,
 		"h": 34
 	}

@@ -90,6 +90,7 @@ void initTitle(void)
 	
 	getWidget("ok", "stats")->action = ok;
 	getWidget("ok", "trophies")->action = ok;
+	getWidget("ok", "fighterDB")->action = ok;
 	
 	show = SHOW_TITLE;
 	
@@ -136,6 +137,11 @@ static void logic(void)
 	doEffects();
 	
 	app.doTrophyAlerts = 1;
+	
+	if (show == SHOW_FIGHTER_DB)
+	{
+		doFighterDatabase();
+	}
 	
 	doWidgets();
 }

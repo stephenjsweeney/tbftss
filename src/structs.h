@@ -101,6 +101,7 @@ struct Entity {
 	char defName[MAX_NAME_LENGTH];
 	char groupName[MAX_NAME_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
+	char affiliation[MAX_NAME_LENGTH];
 	int active;
 	int spawned;
 	int id;

@@ -1,6 +1,6 @@
 {
 	"name" : "ATAF",
-	"description" : "TODO",
+	"description" : "The Advanced Tactical Assault Fighter (ATAF) is the single most powerful single-seat starfighter in existence. Only five have so far been manufactured owing to their tremendous development costs (each one said to be on par with a carrier). Their existence and even those selected to participate in the training program have been a closely guarded secret within the CSN. It is the spiritual successor to the TAF upon which a great deal of its design was based.",
 	"health" : 150,
 	"shield" : 2500,
 	"speed" : 2.25,

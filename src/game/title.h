@@ -63,6 +63,7 @@ extern void drawTrophies(void);
 extern void initCredits(void);
 extern void drawFighterDatabase(void);
 extern void initFighterDatabaseDisplay(void);
+extern void doFighterDatabase(void);
 
 extern App app;
 extern Battle battle;

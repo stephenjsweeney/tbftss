@@ -1,6 +1,7 @@
 {
 	"name" : "Leopard",
-	"description" : "TODO",
+	"description" : "Originally developed in 2580, the Leopard was redesigned from the ground up, to act as the United Naval Forces primary heavy starfighter. It is more powerful than the Sphinx and Rook, but shares their inherent weaknesses, such as poor handling and sluggish engines. Aside from bombers, it is the only UNF fighter craft to feature two pilot seats. It is also the only fighter in existence to feature plasma cannons on the port and starboard sides, operated by the second pilot. Budget restrictions meant that a third frontal plasma cannon was replaced by a particle cannon.",
+	"affiliation" : "UNF",
 	"health" : 125,
 	"shield" : 75,
 	"speed" : 1.7,

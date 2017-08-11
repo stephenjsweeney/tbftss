@@ -1,6 +1,7 @@
 {
 	"name" : "Nymph",
-	"description" : "TODO",
+	"description" : "A light class starfighter, constructed for use by the United Naval Forces. With the exception of the ATAFs, one of the latest designed and constructed starfighters in recent years.",
+	"affiliation" : "UNF",
 	"health" : 45,
 	"shield" : 40,
 	"speed" : 2,

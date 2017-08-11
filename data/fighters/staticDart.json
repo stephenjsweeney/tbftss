@@ -1,6 +1,7 @@
 {
 	"name" : "Static Dart",
 	"description" : "",
+	"affiliation" : "",
 	"health" : 15,
 	"speed" : 0,
 	"reloadTime" : 24,

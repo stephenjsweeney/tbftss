@@ -1,6 +1,7 @@
 {
 	"name" : "Thunderhead",
-	"description" : "TODO",
+	"description" : "The Thunderhead evolved from an original concept design for a new bomber, of which it still shares some features (such as a generous supply of missiles and torpedo hardpoints). It is faster than the Scarab bombers, but a lot slower than the Sphinx. It is, however, better armoured and shielded than both. It is rarely seen on the field, as it is now considered old, costly to maintain and has in recent years been superseded by the Sphinx. Despite this, it remains a formidable opponent and its offensive measures means that it is able to take down light-class vessels with ease.",
+	"affiliation" : "INF",
 	"health" : 90,
 	"shield" : 65,
 	"speed" : 1.7,

@@ -1,6 +1,7 @@
 {
 	"name" : "Scarab",
-	"description" : "TODO",
+	"description" : "A scarab beetle-shaped bomber, generally used to launch a hail of rockets and missiles at targets. Slow, but quite well armoured and shielded. As with the Hammerhead, it relies on starfighter support to protect it during operations.",
+	"affiliation" : "INF",
 	"health" : 80,
 	"shield" : 65,
 	"speed" : 1.7,

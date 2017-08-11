@@ -1,6 +1,7 @@
 {
 	"name" : "Swarmer",
 	"description" : "",
+	"affiliation" : "",
 	"health" : 5,
 	"speed" : 2,
 	"reloadTime" : 8,

@@ -1,6 +1,7 @@
 {
 	"name" : "Rook",
-	"description" : "TODO",
+	"description" : "The most heavily armed and boosting the greatest defences of all the starfighters in the CSN, the Rook generally only sees action during significant missions and operations, where its increased power can bring many benefits. It is, however, the slowest of all the CSN's starfighters and some pilots have complained that it feels very sluggish in combat.",
+	"affiliation" : "CSN",
 	"health" : 110,
 	"shield" : 80,
 	"speed" : 1.7,

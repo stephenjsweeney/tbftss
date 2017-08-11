@@ -1,6 +1,7 @@
 {
 	"name" : "Unique Sphinx",
 	"description" : "",
+	"affiliation" : "",
 	"health" : 999,
 	"shield" : 999,
 	"speed" : 1.6,

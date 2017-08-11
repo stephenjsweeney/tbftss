@@ -1,6 +1,7 @@
 {
 	"name" : "SK-34",
-	"description" : "TODO",
+	"description" : "The SK-34 is a medium-class starfighter, built and deployed by the Kingdom of Tzac. Though its exterior appearance is very different to the SK-31, it features similar internal specifications. Unlike the SK-31, however, it is equipped with Mag cannons, instead of lasers. As with the SK-34, it is unknown what the SK in the fighter's name stands for, and whether or not the 34 refers to an iteration or other internal identifier.",
+	"affiliation" : "Tzac",
 	"health" : 100,
 	"shield" : 45,
 	"speed" : 1.7,

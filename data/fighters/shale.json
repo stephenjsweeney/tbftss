@@ -1,6 +1,7 @@
 {
 	"name" : "Shale",
-	"description" : "TODO",
+	"description" : "The Shale is a light-class starfighter, based on the Nymph. It is believed to have been constructed by Tzac based on leaked information about the initial design elements of the Nymph. As such, it follows a similar form factor, but differs in both its colour scheme (green, instead of white and blue) and armaments, being equipped with three rapid-fire particle cannons, instead of the Nymph's two plasma cannons. Tzac denied any involvement in the theft of the Nymph's construction details, attesting that it believed the design documents were for a new type of Dart, and as such were not governed by any sort of intergalactic trade secrets.",
+	"affiliation" : "Tzac",
 	"health" : 50,
 	"shield" : 50,
 	"speed" : 2,

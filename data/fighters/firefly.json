@@ -1,6 +1,7 @@
 {
 	"name" : "Firefly",
-	"description" : "TODO",
+	"description" : "A relatively new starfighter, only introduced in the last seventeen years or so, the Firefly benefits from an overall reduction in manufacturing costs, while still maintaining the same defensive capabilities as other light-class fighters. It also benefits from slightly increased offensive measures, featuring two plasma cannons and one additional particle cannon. The fighter was greeted very positively when it was introduced and many hundreds were constructed exclusively for use by the UNF.",
+	"affiliation" : "UNF",
 	"health" : 50,
 	"shield" : 50,
 	"speed" : 1.85,

@@ -1,6 +1,7 @@
 {
 	"name" : "Dart",
-	"description" : "TODO",
+	"description" : "The Dart is a very common, general purpose vessel that is used commonly by both the public and by the underworld. Because of its relatively low costs and ease of maintenance, it is highly favoured by criminal organisations. It is usually sold as a single-seat, unarmed vessel, but can be purchased in a great variety of modified states, including that with an extra seat and with a number of armaments; missiles usually being attached to the tips of each of the four fins.",
+	"affiliation" : "N/A",
 	"health" : 15,
 	"speed" : 2.1,
 	"reloadTime" : 24,

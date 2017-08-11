@@ -1,6 +1,7 @@
 {
 	"name" : "Kingfisher",
-	"description" : "TODO",
+	"description" : "The Kingfisher is a medium-class, CSN starfighter, built to complement the Ray (although it arrived two years later than scheduled). Whereas the Ray features two mag cannons in addition to its plasma cannons, the Kingfisher is equipped with laser cannons. Also, unlike the Ray, the Kingfisher is a single seat fighter.",
+	"affiliation" : "CSN",
 	"health" : 65,
 	"shield" : 65,
 	"speed" : 1.85,

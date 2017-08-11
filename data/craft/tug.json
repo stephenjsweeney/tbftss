@@ -1,6 +1,7 @@
 {
 	"name" : "Tug",
 	"description" : "",
+	"affiliation" : "",
 	"health" : 50,
 	"speed" : 1.85,
 	"reloadTime" : 10,

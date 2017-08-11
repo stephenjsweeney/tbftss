@@ -1,6 +1,7 @@
 {
 	"name" : "Rocket Turret",
 	"description" : "",
+	"affiliation" : "",
 	"health" : 125,
 	"shield" : 25,
 	"speed" : 0,

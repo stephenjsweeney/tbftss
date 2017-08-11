@@ -1,6 +1,7 @@
 {
 	"name" : "SK-31",
-	"description" : "TODO",
+	"description" : "The SK-31 is a medium-class starfighter, built and deployed by the Kingdom of Tzac. Unlike the Razor and SK-34, the SK-31 is equipped with two laser cannons, to enable it to disrupt the shields of its target and make it easier to either destroy or disable. It is unknown what the SK in the fighter's name stands for, and whether or not the 31 refers to an iteration or other internal identifier.",
+	"affiliation" : "Tzac",
 	"health" : 85,
 	"shield" : 50,
 	"speed" : 1.8,

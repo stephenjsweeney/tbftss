@@ -1,6 +1,7 @@
 {
 	"name" : "Mantis",
-	"description" : "TODO",
+	"description" : "So called because of the likeness of its two upper struts to that of a praying mantis, this is one of the most well recognised starfighters in the INF. A medium starfighter, like the Confederation's own Ray, the Mantis is not only better armed, featuring an extra set of offensive weaponry, but is also faster. Like other Imperial starfighters, it has seen a great number of stable variants emerge in the past few years.",
+	"affiliation" : "INF",
 	"health" : 50,
 	"shield" : 75,
 	"speed" : 1.85,

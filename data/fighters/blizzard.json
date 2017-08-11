@@ -1,6 +1,7 @@
 {
 	"name" : "Blizzard",
 	"description" : "Like many other heavy-class starfighters, the Blizzard relies on firepower to make up for its somewhat sluggish performance in battle. In this respect, it is equipped with five cannons and five missiles, making it a formidable opponent in battle. The fighter is rarely seen outside of Mace, however, its primary function being the protection of Tzac's home system.",
+	"affiliation" : "Tzac",
 	"health" : 120,
 	"shield" : 70,
 	"speed" : 1.85,

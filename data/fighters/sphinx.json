@@ -1,6 +1,7 @@
 {
 	"name" : "Sphinx",
-	"description" : "TODO",
+	"description" : "The Imperial Naval Forces answer to the Rook, the Sphinx is more heavily armed, but equally as fast and protected. Generally a single seated craft, the Sphinx can also accept a rear gunner, making it more difficult for opponents to tail it.",
+	"affiliation" : "INF",
 	"health" : 110,
 	"shield" : 75,
 	"speed" : 1.85,

@@ -1,6 +1,7 @@
 {
 	"name" : "Jackal",
-	"description" : "TODO",
+	"description" : "The greatest mass produced starfighter in the Imperial Naval Forces, the Jackal, like the TAF, is lightly armoured and shielded, but fast. Like other INF starfighters it has been through a rapid variation process in the last few years, as a result of the Imperial Civil War.",
+	"affiliation" : "INF",
 	"health" : 75,
 	"shield" : 75,
 	"speed" : 2,

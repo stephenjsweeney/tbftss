@@ -1,6 +1,7 @@
 {
 	"name" : "Razor",
-	"description" : "TODO",
+	"description" : "The Razor is a medium-class starfighter, built and deployed by the Kingdom of Tzac. The fighter has a long service history, though it has likely undergone a number of updates and modifications to the base specification since its first appearance in 2571. Like most other Tzac starfighters, the current variation id of the fighter is not known, thought it could lie around F or G.",
+	"affiliation" : "Tzac",
 	"health" : 45,
 	"shield" : 55,
 	"speed" : 1.75,

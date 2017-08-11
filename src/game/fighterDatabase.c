@@ -107,7 +107,7 @@ void drawFighterDatabase(void)
 	drawText(r.x + 25, 200, 22, TA_LEFT, colors.white, "Affiliation: %s", fighter->affiliation);
 	drawText(r.x + 25, 240, 22, TA_LEFT, colors.white, "Armour: %d", fighter->health);
 	drawText(r.x + 25, 280, 22, TA_LEFT, colors.white, "Shield: %d", fighter->shield);
-	drawText(r.x + 25, 320, 22, TA_LEFT, colors.white, "Speed: %f", fighter->speed);
+	drawText(r.x + 25, 320, 22, TA_LEFT, colors.white, "Speed: %.0f", ((fighter->speed * fighter->speed) * FPS));
 	
 	y = 200;
 	

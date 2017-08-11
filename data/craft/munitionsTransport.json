@@ -1,6 +1,7 @@
 {
 	"name" : "Munitions Transport",
 	"description" : "",
+	"affiliation" : "",
 	"health" : 150,
 	"shield" : 50,
 	"speed" : 1.5,

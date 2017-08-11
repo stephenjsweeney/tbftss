@@ -1,6 +1,7 @@
 {
 	"name" : "TAF",
-	"description" : "TODO",
+	"description" : "An all round, multi purpose, single-seat starfighter, the TAF is the most well known and highest produced starfighter within the CSN. Both lightly armoured and shielded, the TAF is easy to handle in the hands of a rookie and praised even by the most experienced of pilots. It makes up for its lack of armour, shielding and armaments by benefiting from good speeds and ease of manoeuvrability.",
+	"affiliation" : "CSN",
 	"health" : 35,
 	"shield" : 35,
 	"speed" : 2,

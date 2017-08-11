@@ -1,6 +1,7 @@
 {
 	"name" : "Hyena-A",
-	"description" : "TODO",
+	"description" : "The Hyena is a new starfighter, introduced in the last 15 years and was constructed specifically for use by the United Naval Forces. Like most other medium-class starfighters, it treads the line between light and heavy-classes, offering high speeds and manoeuvrability, dense armour and shielding, and presenting high offensive capabilities. The Hyena is typically identified as Hyena-A or Hyena-B, depending on whether it is equipped with mag cannons or laser cannons.",
+	"affiliation" : "UNF",
 	"health" : 90,
 	"shield" : 45,
 	"speed" : 1.85,

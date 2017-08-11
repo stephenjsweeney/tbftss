@@ -1,6 +1,7 @@
 {
 	"name" : "Lynx",
-	"description" : "TODO",
+	"description" : "The Lynx was a latecomer to the UNF's spacecraft compliment, the organisation purchasing Hammerheads from the CSN and, on occasion, Khepris from the Kingdom of Tzac. Neither were desirable longterm solutions, and so the Lynx was developed to fill the gap in the navy's offerings. The bomber was heavily inspired by the Hammerhead, with the UNF having found success in the use of the CSN craft in the past, and wished to continue that way.",
+	"affiliation" : "UNF",
 	"health" : 75,
 	"shield" : 50,
 	"speed" : 1.7,

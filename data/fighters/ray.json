@@ -1,6 +1,7 @@
 {
 	"name" : "Ray",
-	"description" : "TODO",
+	"description" : "A well armed, armoured and shielded fighter, the Ray compliments a squadron of TAFs well, although it is not as fast nor as manoeuvrable. The Ray is so called due to its outward appearance being quite similar to that of Manta Ray. It also features two seats, though it is possible to fly with one crew members.",
+	"affiliation" : "CSN",
 	"health" : 70,
 	"shield" : 70,
 	"speed" : 1.85,

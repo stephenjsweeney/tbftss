@@ -1,6 +1,7 @@
 {
 	"name" : "Rocket Dart",
 	"description" : "",
+	"affiliation" : "",
 	"health" : 15,
 	"speed" : 2.1,
 	"reloadTime" : 35,

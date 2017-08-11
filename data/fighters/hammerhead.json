@@ -1,6 +1,7 @@
 {
 	"name" : "Hammerhead",
-	"description" : "TODO",
+	"description" : "Of all the bombers that the CSN can offer, the Hammerhead is one of the most well known. Slow, but sure, the Hammerhead is packed to the gills with rockets, missiles and torpedoes, making it a formidable and dangerous opponent within a conflict zone. Escorted by a wing of TAFs or Rays, a Hammerhead need only get in to range of a target to unleash a volley of rockets that would prove truly devastating. Hammerheads feature two seats, one for the pilot and one to aid with targeting and handling armaments. It also has room for an optional rear gunner.",
+	"affiliation" : "CSN",
 	"health" : 60,
 	"shield" : 50,
 	"speed" : 1.7,

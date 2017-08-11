@@ -1,6 +1,7 @@
 {
 	"name" : "Angel",
 	"description" : "One of the oldest starfighters created by the Mitikas Empire, the Angel is rarely seen, due to it being retired in 2599. A handful of Independent Worlds continue to operate the fighter, having purchased them from the empire prior to Mitikas pulling them from service. Even so, they are quite often held back from deployment, acting as reserves to bulk up numbers. Angels are notable for being the first INF fighter to be equipped with mag cannons, and for being somewhat smaller than most of the nation's other fighters. Also of note is the appearance, the fighter sporting a purple colour scheme, as opposed to the reds of more recent INF craft.",
+	"affiliation" : "INF",
 	"health" : 40,
 	"shield" : 40,
 	"speed" : 1.8,

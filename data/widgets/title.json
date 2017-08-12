@@ -15,7 +15,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Challenges",
 		"x" : -1,
-		"y" : 260,
+		"y" : 265,
 		"w" : 200,
 		"h": 34
 	},
@@ -25,7 +25,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Trophies",
 		"x" : -1,
-		"y" : 320,
+		"y" : 330,
 		"w" : 200,
 		"h": 34
 	},
@@ -35,7 +35,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Stats",
 		"x" : -1,
-		"y" : 380,
+		"y" : 395,
 		"w" : 200,
 		"h": 34
 	},
@@ -45,7 +45,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Fighter Database",
 		"x" : -1,
-		"y" : 440,
+		"y" : 460,
 		"w" : 200,
 		"h": 34
 	},
@@ -55,7 +55,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Options",
 		"x" : -1,
-		"y" : 500,
+		"y" : 525,
 		"w" : 200,
 		"h": 34
 	},
@@ -65,7 +65,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Credits",
 		"x" : -1,
-		"y" : 560,
+		"y" : 590,
 		"w" : 200,
 		"h": 34
 	},
@@ -75,7 +75,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Quit",
 		"x" : -1,
-		"y" : 620,
+		"y" : 655,
 		"w" : 200,
 		"h": 34
 	}

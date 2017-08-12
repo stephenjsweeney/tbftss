@@ -50,6 +50,7 @@ static void fallenOK(void);
 static void updateCampaignProgress(void);
 static void campaignCompleteOK(void);
 static Mission *nextAvailableMission(StarSystem *starSystem);
+static void fighterDatabase(void);
 
 static StarSystem *selectedStarSystem;
 static SDL_Texture *background;
@@ -134,11 +135,13 @@ void initGalacticMap(void)
 	getWidget("resume", "galacticMap")->action = resume;
 	getWidget("stats", "galacticMap")->action = stats;
 	getWidget("trophies", "galacticMap")->action = trophies;
+	getWidget("fighterDB", "galacticMap")->action = fighterDatabase;
 	getWidget("options", "galacticMap")->action = options;
 	getWidget("quit", "galacticMap")->action = quit;
 
 	getWidget("ok", "stats")->action = ok;
 	getWidget("ok", "trophies")->action = ok;
+	getWidget("ok", "fighterDB")->action = ok;
 
 	getWidget("ok", "fallen")->action = fallenOK;
 
@@ -224,6 +227,11 @@ static void logic(void)
 	arrowPulse += 0.1;
 
 	doWidgets();
+	
+	if (show == SHOW_FIGHTER_DB)
+	{
+		doFighterDatabase();
+	}
 	
 	app.doTrophyAlerts = 1;
 }
@@ -441,6 +449,10 @@ static void draw(void)
 
 		case SHOW_OPTIONS:
 			drawOptions();
+			break;
+			
+		case SHOW_FIGHTER_DB:
+			drawFighterDatabase();
 			break;
 	}
 }
@@ -739,6 +751,7 @@ static void handleKeyboard(void)
 			case SHOW_OPTIONS:
 			case SHOW_STATS:
 			case SHOW_TROPHIES:
+			case SHOW_FIGHTER_DB:
 				show = SHOW_MENU;
 				selectWidget("resume", "galacticMap");
 				break;
@@ -806,6 +819,13 @@ static void options(void)
 	show = SHOW_OPTIONS;
 
 	initOptions(returnFromOptions);
+}
+
+static void fighterDatabase(void)
+{
+	show = SHOW_FIGHTER_DB;
+	
+	initFighterDatabaseDisplay();
 }
 
 static void stats(void)

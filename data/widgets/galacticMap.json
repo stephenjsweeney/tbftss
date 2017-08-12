@@ -15,7 +15,17 @@
 		"type" : "WT_BUTTON",
 		"text" : "Stats",
 		"x" : -1,
-		"y" : 270,
+		"y" : 250,
+		"w" : 200,
+		"h": 34
+	},
+	{
+		"name" : "fighterDB",
+		"group" : "galacticMap",
+		"type" : "WT_BUTTON",
+		"text" : "Fighter Database",
+		"x" : -1,
+		"y" : 330,
 		"w" : 200,
 		"h": 34
 	},
@@ -25,7 +35,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Trophies",
 		"x" : -1,
-		"y" : 370,
+		"y" : 410,
 		"w" : 200,
 		"h": 34
 	},
@@ -35,7 +45,7 @@
 		"type" : "WT_BUTTON",
 		"text" : "Options",
 		"x" : -1,
-		"y" : 470,
+		"y" : 490,
 		"w" : 200,
 		"h": 34
 	},

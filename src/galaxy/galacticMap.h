@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SHOW_OPTIONS			3
 #define SHOW_STATS				4
 #define SHOW_TROPHIES			5
+#define SHOW_FIGHTER_DB			6
 
 #define MAX_LISTED_MISSIONS		9
 
@@ -67,6 +68,9 @@ extern void awardCampaignTrophies(void);
 extern void awardStatsTrophies(void);
 extern void initTrophiesDisplay(void);
 extern void drawTrophies(void);
+extern void doFighterDatabase(void);
+extern void initFighterDatabaseDisplay(void);
+extern void drawFighterDatabase(void);
 
 extern App app;
 extern Colors colors;

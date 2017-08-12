@@ -39,6 +39,7 @@ static void updateChallengeMissionData(void);
 static char *listRestrictions(void);
 static void prevPage(void);
 static void nextPage(void);
+static void fighterDatabase(void);
 
 static SDL_Texture *background;
 static SDL_Texture *planetTexture;
@@ -122,11 +123,13 @@ void initChallengeHome(void)
 	getWidget("resume", "challengesMenu")->action = resume;
 	getWidget("stats", "challengesMenu")->action = stats;
 	getWidget("trophies", "challengesMenu")->action = trophies;
+	getWidget("fighterDB", "challengesMenu")->action = fighterDatabase;
 	getWidget("options", "challengesMenu")->action = options;
 	getWidget("quit", "challengesMenu")->action = quit;
 
 	getWidget("ok", "stats")->action = ok;
 	getWidget("ok", "trophies")->action = ok;
+	getWidget("ok", "fighterDB")->action = ok;
 	
 	prev = getWidget("prev", "challenges");
 	prev->action = prevPage;
@@ -220,6 +223,11 @@ static void logic(void)
 	}
 
 	doWidgets();
+	
+	if (show == SHOW_FIGHTER_DB)
+	{
+		doFighterDatabase();
+	}
 	
 	app.doTrophyAlerts = 1;
 }
@@ -326,6 +334,10 @@ static void draw(void)
 
 		case SHOW_OPTIONS:
 			drawOptions();
+			break;
+			
+		case SHOW_FIGHTER_DB:
+			drawFighterDatabase();
 			break;
 	}
 }
@@ -470,6 +482,13 @@ static void stats(void)
 	initStatsDisplay();
 }
 
+static void fighterDatabase(void)
+{
+	show = SHOW_FIGHTER_DB;
+	
+	initFighterDatabaseDisplay();
+}
+
 static void trophies(void)
 {
 	selectWidget("ok", "trophies");
@@ -517,6 +536,7 @@ static void handleKeyboard(void)
 			case SHOW_OPTIONS:
 			case SHOW_STATS:
 			case SHOW_TROPHIES:
+			case SHOW_FIGHTER_DB:
 				show = SHOW_MENU;
 				selectWidget("resume", "challengesMenu");
 				break;

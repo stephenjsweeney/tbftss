@@ -31,3 +31,4 @@ extern void limitTextWidth(int width);
 
 extern App app;
 extern Colors colors;
+extern Game game;

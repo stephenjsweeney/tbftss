@@ -23,9 +23,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void prevFighter(void);
 static void nextFighter(void);
 static int countFighterGuns(Entity *fighter, int type);
+static void setNumDestroyed(void);
 
 static int page;
 static int maxPages;
+static int numDestroyed;
 static Widget *prev;
 static Widget *next;
 static char *DB_TEXT;
@@ -66,6 +68,8 @@ void initFighterDatabaseDisplay(void)
 	
 	next = getWidget("next", "fighterDB");
 	next->action = nextFighter;
+	
+	setNumDestroyed();
 }
 
 void doFighterDatabase(void)
@@ -103,6 +107,8 @@ void drawFighterDatabase(void)
 	drawText(SCREEN_WIDTH / 2, 130, 28, TA_CENTER, colors.white, fighter->name);
 	
 	blitRotated(fighter->texture, r.x + (r.w / 2), 250, rotation);
+	
+	drawText(r.x + (r.w / 2), 290, 18, TA_CENTER, colors.lightGrey, "Destroyed: %d", numDestroyed);
 	
 	drawText(r.x + 25, 200, 22, TA_LEFT, colors.white, "Affiliation: %s", fighter->affiliation);
 	drawText(r.x + 25, 240, 22, TA_LEFT, colors.white, "Armour: %d", fighter->health);
@@ -156,9 +162,32 @@ static int countFighterGuns(Entity *fighter, int type)
 static void prevFighter(void)
 {
 	page = mod(page - 1, maxPages);
+	
+	setNumDestroyed();
 }
 
 static void nextFighter(void)
 {
 	page = mod(page + 1, maxPages);
+	
+	setNumDestroyed();
+}
+
+static void setNumDestroyed(void)
+{
+	Tuple *t;
+	Entity *fighter;
+	
+	fighter = dbFighters[page];
+	
+	numDestroyed = 0;
+	
+	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
+	{
+		if (strcmp(t->key, fighter->name) == 0)
+		{
+			numDestroyed = t->value;
+			return;
+		}
+	}
 }

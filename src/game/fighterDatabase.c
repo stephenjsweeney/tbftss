@@ -32,6 +32,12 @@ static Widget *prev;
 static Widget *next;
 static char *DB_TEXT;
 static char *PAGE_TEXT;
+static char *DESTROYED_TEXT;
+static char *AFFILIATION_TEXT;
+static char *ARMOUR_TEXT;
+static char *SHIELD_TEXT;
+static char *SPEED_TEXT;
+static char *MISSILES_TEXT;
 static const char *gunName[BT_MAX];
 static Entity **dbFighters;
 static float rotation;
@@ -40,6 +46,13 @@ void initFighterDatabase(void)
 {
 	DB_TEXT = _("Fighter Database");
 	PAGE_TEXT = _("Page %d / %d");
+	
+	DESTROYED_TEXT = _("Destroyed");
+	AFFILIATION_TEXT = _("Affiliation");
+	ARMOUR_TEXT = _("Armour");
+	SHIELD_TEXT = _("Shield");
+	SPEED_TEXT = _("Speed");
+	MISSILES_TEXT = _("Missiles");
 	
 	dbFighters = getDBFighters(&maxPages);
 	
@@ -108,12 +121,12 @@ void drawFighterDatabase(void)
 	
 	blitRotated(fighter->texture, r.x + (r.w / 2), 250, rotation);
 	
-	drawText(r.x + (r.w / 2), 290, 18, TA_CENTER, colors.lightGrey, "Destroyed: %d", numDestroyed);
+	drawText(r.x + (r.w / 2), 290, 18, TA_CENTER, colors.lightGrey, "%s: %d", DESTROYED_TEXT, numDestroyed);
 	
-	drawText(r.x + 25, 200, 22, TA_LEFT, colors.white, "Affiliation: %s", fighter->affiliation);
-	drawText(r.x + 25, 240, 22, TA_LEFT, colors.white, "Armour: %d", fighter->health);
-	drawText(r.x + 25, 280, 22, TA_LEFT, colors.white, "Shield: %d", fighter->shield);
-	drawText(r.x + 25, 320, 22, TA_LEFT, colors.white, "Speed: %.0f", ((fighter->speed * fighter->speed) * FPS));
+	drawText(r.x + 25, 200, 22, TA_LEFT, colors.white, "%s: %s", AFFILIATION_TEXT, fighter->affiliation);
+	drawText(r.x + 25, 240, 22, TA_LEFT, colors.white, "%s: %d", ARMOUR_TEXT, fighter->health);
+	drawText(r.x + 25, 280, 22, TA_LEFT, colors.white, "%s: %d", SHIELD_TEXT, fighter->shield);
+	drawText(r.x + 25, 320, 22, TA_LEFT, colors.white, "%s: %.0f", SPEED_TEXT, ((fighter->speed * fighter->speed) * FPS));
 	
 	y = 200;
 	

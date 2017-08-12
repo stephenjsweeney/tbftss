@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-04 16:02:20+0100\n"
+"POT-Creation-Date: 2017-08-12 08:33:27+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -289,6 +289,27 @@ msgstr ""
 msgid "%s has fallen to the Pandorans"
 msgstr ""
 
+msgid "Fighter Database"
+msgstr ""
+
+msgid "Page %d / %d"
+msgstr ""
+
+msgid "Destroyed"
+msgstr ""
+
+msgid "Affiliation"
+msgstr ""
+
+msgid "Armour"
+msgstr ""
+
+msgid "Shield"
+msgstr ""
+
+msgid "Speed"
+msgstr ""
+
 msgid "Percent Complete"
 msgstr ""
 
@@ -403,9 +424,6 @@ msgstr ""
 msgid "Stats"
 msgstr ""
 
-msgid "Page %d / %d"
-msgstr ""
-
 msgid "Trophies"
 msgstr ""
 
@@ -518,6 +536,9 @@ msgid "Controls ..."
 msgstr ""
 
 msgid "Start Mission"
+msgstr ""
+
+msgid "X"
 msgstr ""
 
 msgid "Campaign"
@@ -2605,10 +2626,22 @@ msgstr ""
 msgid "Picking up incoming Tzac corvettes."
 msgstr ""
 
+msgid "We need to take down those capital ships, right away. Lt. Cdr. Dodds, lead the strike."
+msgstr ""
+
+msgid "HMS 711-444 has been taken down."
+msgstr ""
+
+msgid "HMS 313-777 is out of the game."
+msgstr ""
+
 msgid "We're losing captial ships! We can't continue like this!"
 msgstr ""
 
 msgid "The Pandoran forces are closing in on Flint. They will commence planetary bombardment if allowed to get any closer."
+msgstr ""
+
+msgid "Dammit! That's all three of our corvettes down!"
 msgstr ""
 
 msgid "Dodds, Commodore Parks has ordered that you pull out immediately."

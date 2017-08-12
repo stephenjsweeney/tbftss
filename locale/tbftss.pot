@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-12 08:33:27+0100\n"
+"POT-Creation-Date: 2017-08-12 11:56:12+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -293,6 +293,9 @@ msgid "Fighter Database"
 msgstr ""
 
 msgid "Page %d / %d"
+msgstr ""
+
+msgid "(Common)"
 msgstr ""
 
 msgid "Destroyed"
@@ -3127,7 +3130,7 @@ msgstr ""
 msgid "Frequent flyer"
 msgstr ""
 
-msgid "Destroy one of each common type of starfighter"
+msgid "Destroy one of each type of common starfighter"
 msgstr ""
 
 msgid "Not the face!"

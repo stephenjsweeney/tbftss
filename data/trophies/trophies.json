@@ -295,7 +295,7 @@
 	{
 		"id" : "FREQUENT_FLYER",
 		"title" : "Frequent flyer",
-		"description" : "Destroy one of each common type of starfighter",
+		"description" : "Destroy one of each type of common starfighter",
 		"value" : "TROPHY_SILVER"
 	},
 	{

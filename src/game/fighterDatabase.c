@@ -32,6 +32,7 @@ static Widget *prev;
 static Widget *next;
 static char *DB_TEXT;
 static char *PAGE_TEXT;
+static char *COMMON_TEXT;
 static char *DESTROYED_TEXT;
 static char *AFFILIATION_TEXT;
 static char *ARMOUR_TEXT;
@@ -47,6 +48,7 @@ void initFighterDatabase(void)
 	DB_TEXT = _("Fighter Database");
 	PAGE_TEXT = _("Page %d / %d");
 	
+	COMMON_TEXT = _("(Common)");
 	DESTROYED_TEXT = _("Destroyed");
 	AFFILIATION_TEXT = _("Affiliation");
 	ARMOUR_TEXT = _("Armour");
@@ -121,7 +123,12 @@ void drawFighterDatabase(void)
 	
 	blitRotated(fighter->texture, r.x + (r.w / 2), 250, rotation);
 	
-	drawText(r.x + (r.w / 2), 290, 18, TA_CENTER, colors.lightGrey, "%s: %d", DESTROYED_TEXT, numDestroyed);
+	if (fighter->flags & EF_COMMON_FIGHTER)
+	{
+		drawText(SCREEN_WIDTH / 2, 170, 18, TA_CENTER, colors.darkGrey, COMMON_TEXT);
+		
+		drawText(r.x + (r.w / 2), 290, 18, TA_CENTER, colors.lightGrey, "%s: %d", DESTROYED_TEXT, numDestroyed);
+	}
 	
 	drawText(r.x + 25, 200, 22, TA_LEFT, colors.white, "%s: %s", AFFILIATION_TEXT, fighter->affiliation);
 	drawText(r.x + 25, 240, 22, TA_LEFT, colors.white, "%s: %d", ARMOUR_TEXT, fighter->health);

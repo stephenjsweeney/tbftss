@@ -13,13 +13,13 @@ CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -
 CXXFLAGS += -ansi -Wstrict-prototypes
 CXXFLAGS += -g -lefence -flto -flto-odr-type-merging
 
-LFLAGS := `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
+LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 
 DIST_FILES = data gfx manual music sound src LICENSE makefile* common.mk README.md CHANGELOG
 
 # linking the program.
 $(PROG): $(OBJS)
-	$(CC) -o $@ $(OBJS) $(LFLAGS)
+	$(CC) -o $@ $(OBJS) $(LDFLAGS)
 
 install:
 	cp $(PROG) $(BIN_DIR)

@@ -338,9 +338,6 @@ void cleanup(void)
 {
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Cleaning up ...");
 
-	SDL_DestroyRenderer(app.renderer);
-	SDL_DestroyWindow(app.window);
-
 	destroyLookups();
 
 	destroyTextures();
@@ -373,9 +370,15 @@ void cleanup(void)
 	
 	destroyFighterDatabase();
 	
+	destroyFighterStats();
+	
 	destroyCredits();
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Done");
+	
+	SDL_DestroyRenderer(app.renderer);
+	
+	SDL_DestroyWindow(app.window);
 
 	TTF_Quit();
 

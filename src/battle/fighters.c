@@ -1075,3 +1075,15 @@ void destroyFighterDefs(void)
 		free(e);
 	}
 }
+
+void destroyFighterStats(void)
+{
+	Tuple *t;
+	
+	while (game.fighterStatHead.next)
+	{
+		t = game.fighterStatHead.next;
+		game.fighterStatHead.next = t->next;
+		free(t);
+	}
+}

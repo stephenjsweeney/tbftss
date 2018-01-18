@@ -1,0 +1,3147 @@
+# PO file for TBFTSS : The Pandoran War
+# Copyright 2015-2016, Stephen J Sweeney
+# This file is distributed under the GNU GPL 3.0
+# Email: stephenjsweeney@battleforthesolarsystem.com
+# https://github.com/stephenjsweeney/tbftss
+
+msgid ""
+msgstr ""
+"Project-Id-Version: TBFTSS: The Pandoran War\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-12 11:56:12+0100\n"
+"PO-Revision-Date: 2018-01-18 22:00:00+0000\n"
+"Last-Translator: Google Translate\n"
+"Language-Team: Google Translate\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%s is retreating!"
+msgstr "%s trekt zich terug!"
+
+msgid "%s has surrendered"
+msgstr "%s heeft zich overgegeven"
+
+msgid "Are you sure you want to restart? You will lose your current progress."
+msgstr "Weet je zeker dat je opnieuw wilt opstarten? Je verliest je huidige voortgang."
+
+msgid "Are you sure you want to quit? You will lose your current progress."
+msgstr "Weet je zeker dat je wilt stoppen? Je verliest je huidige voortgang."
+
+msgid "WARNING: INCOMING MISSILE!"
+msgstr "WAARSCHUWING: INKOMENDE MISSIEL!"
+
+msgid "%s (Engine)"
+msgstr "%s (Engine)"
+
+msgid "%s (Component)"
+msgstr "%s (Component)"
+
+msgid "%s (Gun)"
+msgstr "%s (Gun)"
+
+msgid "We've lost engines! We're a sitting duck!"
+msgstr "We hebben motoren verloren! Wij zijn een zittende eend!"
+
+msgid "Our guns have been shot out! We have no defences!"
+msgstr "Onze wapens zijn neergeschoten! We hebben geen verdediging!"
+
+msgid "Be advised, we're taking damage here. Please step up support."
+msgstr "Let op, we nemen hier schade op. Verhoog alstublieft de ondersteuning."
+
+msgid "We're sustaining heavy damage! All fighters, please assist, ASAP!"
+msgstr "We hebben zware schade opgelopen! Alle jagers, help alsjeblieft, ZO VLUG MOGELIJK!"
+
+msgid "Mayday! Mayday! Defences are critical. We can't hold out much longer!"
+msgstr "Mayday! Mayday! Verdedigingen zijn cruciaal. We kunnen het niet veel langer volhouden!"
+
+msgid "Mission target has escaped."
+msgstr "Missie doelwit is ontsnapt."
+
+msgid "Civilian has been killed"
+msgstr "Burger is gedood"
+
+msgid "Ally has been killed"
+msgstr "Bondgenoot is vermoord"
+
+msgid "Particle Cannon"
+msgstr "Deeltjeskanon"
+
+msgid "Plasma Cannon"
+msgstr "Plasma kanon"
+
+msgid "Laser Cannon"
+msgstr "Laserkanon"
+
+msgid "Mag Cannon"
+msgstr "Mag Cannon"
+
+msgid "Rockets"
+msgstr "Rockets"
+
+msgid "Missiles"
+msgstr "raketten"
+
+msgid "Missiles (%d)"
+msgstr "Raketten ( %d )"
+
+msgid "Target: %.2fkm"
+msgstr "Doel:% .2fkm"
+
+msgid "(None)"
+msgstr "(Geen)"
+
+msgid "(Combined Guns)"
+msgstr "(Gecombineerde geweren)"
+
+msgid "System Power : %d%%"
+msgstr "Systeemvermogen: %d %%"
+
+msgid "%s (Leader)"
+msgstr "%s (leider)"
+
+msgid "Objective: %.2fkm"
+msgstr "Doel:% .2fkm"
+
+msgid "Jumpgate: %.2fkm"
+msgstr "Jumpgate:% .2fkm"
+
+msgid "SELECT NEW FIGHTER"
+msgstr "SELECTEER NIEUWE JAGER"
+
+msgid "Suspicion"
+msgstr "achterdocht"
+
+msgid "Remaining Pilots: %d"
+msgstr "Resterende piloten: %d"
+
+msgid "Picked up %s"
+msgstr "%s opgehaald"
+
+msgid "Jumpgate System Node"
+msgstr "Jumpgate-systeemknooppunt"
+
+msgid "Incomplete"
+msgstr "Incompleet"
+
+msgid "Complete"
+msgstr "Compleet"
+
+msgid "Failed"
+msgstr "mislukt"
+
+msgid "Condition"
+msgstr "Staat"
+
+msgid "OBJECTIVES"
+msgstr "DOELEN"
+
+msgid "(none)"
+msgstr "(geen)"
+
+msgid "Time Limit: %s"
+msgstr "Tijdlimiet: %s"
+
+msgid "%s - Objective Complete!"
+msgstr "%s - Doelstelling voltooid!"
+
+msgid "%s - Objective Failed!"
+msgstr "%s - Doel mislukt!"
+
+msgid "New Objective : %s"
+msgstr "Nieuwe doelstelling: %s"
+
+msgid "Do not lose more than %d pilots"
+msgstr "Verlies niet meer dan %d pilots"
+
+msgid "Destroy at least %d enemy fighters"
+msgstr "Vernietig minstens %d vijandige jagers"
+
+msgid "Challenge Failed!"
+msgstr "Uitdaging mislukt!"
+
+msgid "Target not in range"
+msgstr "Target niet binnen bereik"
+
+msgid "Out of missiles"
+msgstr "Geen raketten meer"
+
+msgid "Caution: Leaving battle area - turn around."
+msgstr "Let op: het strijdgebied verlaten - draai je om."
+
+msgid "Tow rope attached"
+msgstr "Sleepkabel bevestigd"
+
+msgid "Mission Complete!"
+msgstr "Missie geslaagd!"
+
+msgid "Mission Failed!"
+msgstr "Missie gefaald!"
+
+msgid "Cannot activate waypoint - outstanding objectives not yet complete"
+msgstr "Kan geen waypoint activeren - uitstekende doelen nog niet voltooid"
+
+msgid "Cannot activate waypoint - eliminate enemies first"
+msgstr "Kan waypoint niet activeren - eerst vijanden elimineren"
+
+msgid "Cannot activate waypoint - team mates too far away"
+msgstr "Kan waypoint niet activeren - teamgenoten te ver weg"
+
+msgid "Challenges"
+msgstr "Uitdagingen"
+
+msgid "Completed : %d / %d"
+msgstr "Voltooid: %d / %d"
+
+msgid "Page : %d / %d"
+msgstr "Pagina: %d / %d"
+
+msgid "[Locked]"
+msgstr "[Op slot]"
+
+msgid "Craft: %s"
+msgstr "Craft: %s"
+
+msgid "Restrictions: %s"
+msgstr "Beperkingen: %s"
+
+msgid "No Missiles"
+msgstr "Geen raketten"
+
+msgid "No ECM"
+msgstr "Geen ECM"
+
+msgid "No Boost"
+msgstr "Geen boost"
+
+msgid "No Guns"
+msgstr "Geen geweren"
+
+msgid "Retain at least %d%% armour"
+msgstr "Bewaar ten minste %d %% pantsering"
+
+msgid "Complete challenge in %d seconds or less"
+msgstr "Voltooi de uitdaging in %d seconden of minder"
+
+msgid "Survive for %d seconds"
+msgstr "Overleef gedurende %d seconden"
+
+msgid "Attain a %d%% shot hit accuracy"
+msgstr "Zorg voor een %d %% nauwkeurigheid bij het maken van een schot"
+
+msgid "Attain a %d%% rocket hit accuracy"
+msgstr "Behaal een nauwkeurigheid van %d %% raket hit"
+
+msgid "Attain a %d%% missile hit accuracy"
+msgstr "Zorg voor een %d %% raket hit nauwkeurigheid"
+
+msgid "Do not lose any team mates"
+msgstr "Verlies geen teamgenoten"
+
+msgid "Do not lose more than 1 team mate"
+msgstr "Verlies niet meer dan 1 teamgenoot"
+
+msgid "Do not lose more than %d team mates"
+msgstr "Verlies niet meer dan %d teamgenoten"
+
+msgid "Take down %d enemy targets"
+msgstr "Neem %d vijandelijke doelen weg"
+
+msgid "Disable %d or more enemy fighters"
+msgstr "Schakel %d of meer vijandelijke jagers uit"
+
+msgid "Collect %d packages"
+msgstr "Verzamel %d pakketten"
+
+msgid "Rescue %d civilians"
+msgstr "Redd %d burgers"
+
+msgid "Cause %d enemies to surrender"
+msgstr "Veroorzaak %d vijanden om zich over te geven"
+
+msgid "Reach %d waypoints"
+msgstr "Bereik %d waypoints"
+
+msgid "Complete challenge in %s or less"
+msgstr "Voltooi de uitdaging in %s of minder"
+
+msgid "Missions: %d / %d"
+msgstr "Missies: %d / %d"
+
+msgid "Pilot: %s"
+msgstr "Piloot: %s"
+
+msgid "Squadron: %s"
+msgstr "Eskader: %s"
+
+msgid "This mission has been completed."
+msgstr "Deze missie is voltooid."
+
+msgid "Note: this is an epic mission."
+msgstr "Opmerking: dit is een epische missie."
+
+msgid "Note: this is an optional mission."
+msgstr "Opmerking: dit is een optionele missie."
+
+msgid "Congratulations, you have completed the campaign! You may now replay past missions, for fun, to boost stats, or to earn missing trophies!"
+msgstr "Gefeliciteerd, je hebt de campagne voltooid! Je kunt nu voorbij missies spelen, voor de lol, om statistieken te verhogen of om ontbrekende trofeeën te verdienen!"
+
+msgid "%s has fallen to the Pandorans"
+msgstr "%s is gedaald tot de Pandorans"
+
+msgid "Fighter Database"
+msgstr "Fighter Database"
+
+msgid "Page %d / %d"
+msgstr "Pagina %d / %d"
+
+msgid "(Common)"
+msgstr "(Gemeenschappelijk)"
+
+msgid "Destroyed"
+msgstr "Vernietigd"
+
+msgid "Affiliation"
+msgstr "Aansluiting"
+
+msgid "Armour"
+msgstr "Schild"
+
+msgid "Shield"
+msgstr "Schild"
+
+msgid "Speed"
+msgstr "Snelheid"
+
+msgid "Percent Complete"
+msgstr "Percentage compleet"
+
+msgid "Missions Started"
+msgstr "Missies gestart"
+
+msgid "Missions Completed"
+msgstr "Missies voltooid"
+
+msgid "Optional Missions Completed"
+msgstr "Optionele missies voltooid"
+
+msgid "Challenges Started"
+msgstr "Uitdagingen begonnen"
+
+msgid "Challenges Completed"
+msgstr "Uitdagingen voltooid"
+
+msgid "Shots Fired"
+msgstr "Schoten gelost"
+
+msgid "Shots Hit"
+msgstr "Shots Hit"
+
+msgid "Accuracy"
+msgstr "Nauwkeurigheid"
+
+msgid "Rockets Fired"
+msgstr "Rockets Fired"
+
+msgid "Rockets Hit"
+msgstr "Rockets Hit"
+
+msgid "Missiles Fired"
+msgstr "Raketten afgevuurd"
+
+msgid "Missiles Hit"
+msgstr "Raketten Hit"
+
+msgid "Enemies Killed"
+msgstr "Vijanden vermoord"
+
+msgid "Enemies Killed (Player)"
+msgstr "Vijanden gedood (speler)"
+
+msgid "Allies Killed"
+msgstr "Bondgenoten vermoord"
+
+msgid "Times Killed"
+msgstr "Times Killed"
+
+msgid "Enemies Disabled"
+msgstr "Vijanden uitgeschakeld"
+
+msgid "Enemies Escaped"
+msgstr "Vijanden zijn ontsnapt"
+
+msgid "ECM Used"
+msgstr "ECM gebruikt"
+
+msgid "Boost Used"
+msgstr "Boost gebruikt"
+
+msgid "Missiles Evaded"
+msgstr "Raketten ontweken"
+
+msgid "Missiles Struck Player"
+msgstr "Raketten Geslagen Speler"
+
+msgid "Civilians Rescued"
+msgstr "Burgers gered"
+
+msgid "Civilians Killed"
+msgstr "Burgers vermoord"
+
+msgid "Times used Tug"
+msgstr "Tijden gebruikt Tug"
+
+msgid "Times used Shuttle"
+msgstr "Times gebruikte Shuttle"
+
+msgid "Craft Towed"
+msgstr "Craft Towed"
+
+msgid "Items Collected"
+msgstr "Items verzameld"
+
+msgid "Items Collected (Player)"
+msgstr "Verzamelde items (speler)"
+
+msgid "Longest Epic Kill Streak"
+msgstr "Langste Epische Kill Streak"
+
+msgid "Waypoints Visited"
+msgstr "Waypoints bezocht"
+
+msgid "Capital Ships Destroyed"
+msgstr "Kapitaalschepen vernietigd"
+
+msgid "Capital Ships Lost"
+msgstr "Capital Ships Lost"
+
+msgid "Mines Destroyed"
+msgstr "Mijnen vernietigd"
+
+msgid "Enemies Surrendered"
+msgstr "Vijanden overgegeven"
+
+msgid "Time Played"
+msgstr "Tijd gespeeld"
+
+msgid "Stats"
+msgstr "Stats"
+
+msgid "Trophies"
+msgstr "trofeeën"
+
+msgid "Awarded : %d / %d"
+msgstr "Toegekend: %d / %d"
+
+msgid "[Hidden]"
+msgstr "[Verborgen]"
+
+msgid "Fire"
+msgstr "Brand"
+
+msgid "Accelerate"
+msgstr "Versnellen"
+
+msgid "Boost"
+msgstr "boost"
+
+msgid "ECM"
+msgstr "ECM"
+
+msgid "Brake"
+msgstr "Rem"
+
+msgid "Select Target"
+msgstr "Selecteer doel"
+
+msgid "Fire Missile"
+msgstr "Vuurraket"
+
+msgid "Cycle Guns"
+msgstr "Cycle Guns"
+
+msgid "Cycle Radar"
+msgstr "Fiets Radar"
+
+msgid "Next Fighter"
+msgstr "Volgende vechter"
+
+msgid "Previous Fighter"
+msgstr "Vorige vechter"
+
+msgid "Screenshot"
+msgstr "screenshot"
+
+msgid "Controls"
+msgstr "controls"
+
+msgid "Click a control to change it, and then the key or mouse button you want to use."
+msgstr "Klik op een besturingselement om het te wijzigen en vervolgens op de toets of de muisknop die u wilt gebruiken."
+
+msgid "[BACKSPACE] - Clear"
+msgstr "[BACKSPACE] - Wissen"
+
+msgid "[ESCAPE] - Cancel"
+msgstr "[ESCAPE] - Annuleren"
+
+msgid "Options"
+msgstr "opties"
+
+msgid "Note: you must restart the game for window size and fullscreen options to take effect."
+msgstr "Opmerking: je moet het spel opnieuw opstarten om de venstergrootte en het volledige scherm te activeren."
+
+msgid "Note: this device does not support changing the screen resolution."
+msgstr "Opmerking: dit apparaat biedt geen ondersteuning voor het wijzigen van de schermresolutie."
+
+msgid "Retry"
+msgstr "opnieuw proberen"
+
+msgid "Quit"
+msgstr "ophouden"
+
+msgid "Continue"
+msgstr "Doorgaan met"
+
+msgid "Resume"
+msgstr "Hervat"
+
+msgid "Return to Title"
+msgstr "Terug naar titel"
+
+msgid "Start Challenge Mission"
+msgstr "Start Challenge Mission"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Restore Defaults"
+msgstr "Standaardwaarden herstellen"
+
+msgid "Restart"
+msgstr "Herstarten"
+
+msgid "Cancel"
+msgstr "Annuleer"
+
+msgid "Window Size"
+msgstr "Venstergrootte"
+
+msgid "Sound Volume"
+msgstr "Geluidsvolume"
+
+msgid "Music Volume"
+msgstr "Muziekvolume"
+
+msgid "Fullscreen"
+msgstr "Volledig scherm"
+
+msgid "Controls ..."
+msgstr "Besturing ..."
+
+msgid "Start Mission"
+msgstr "Start missie"
+
+msgid "X"
+msgstr "X"
+
+msgid "Campaign"
+msgstr "Campagne"
+
+msgid "Credits"
+msgstr "credits"
+
+msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
+msgstr "Nu de Pandorans Onafhankelijke systemen binnengevallen zijn die aan het Mitikas-rijk hangen, moeten we waakzamer worden. Patrouilles rond Torelli worden opgevoerd. Zorg ervoor dat je alle waypoints raakt en meld ongebruikelijke activiteiten die je tegenkomt."
+
+msgid "Anyone got anything to report?"
+msgstr "Heeft iemand iets te melden?"
+
+msgid "You getting paranoid, Curtis?"
+msgstr "Krijg je paranoïde, Curtis?"
+
+msgid "You all saw what happened at Coyote."
+msgstr "Jullie hebben allemaal gezien wat er bij Coyote is gebeurd."
+
+msgid "So, those Pandorans are, what, robots?"
+msgstr "Dus die Pandorans zijn, wat, robots?"
+
+msgid "Alien-Human hybrid, I heard."
+msgstr "Alien-menselijke hybride, hoorde ik."
+
+msgid "Hard to kill, whatever they are. Heard they'll still be coming at you even if you take both arms off."
+msgstr "Moeilijk te doden, wat ze ook zijn. Gehoord dat ze nog steeds naar je toe komen, zelfs als je beide armen aftrekt."
+
+msgid "And what'll they do then? Bite you to death?"
+msgstr "En wat zullen ze dan doen? Je bijten tot de dood?"
+
+msgid "Eyes open, lads."
+msgstr "Ogen open, knullen."
+
+msgid "We're done. Anyone detect anything unusual?"
+msgstr "Werden gedaan. Iedereen detecteert iets ongewoons?"
+
+msgid "Same old, same old."
+msgstr "Hetzelfde oud, hetzelfde oud."
+
+msgid "Believe me, that's a good thing. Right, let's head home and report in."
+msgstr "Geloof me, dat is een goede zaak. Oké, laten we naar huis gaan en melden."
+
+msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presence is reducing the amount of illegal activity in this sector, with reported incidents down 80%%. Still, we cannot afford to become complacent, and must continue with our sweeps."
+msgstr "Patrouilles hebben tot dusver niets ongebruikelijks blootgelegd en het lijkt erop dat de toename van de militaire aanwezigheid de hoeveelheid illegale activiteiten in deze sector vermindert, met gerapporteerde incidenten met 80 %% . Toch kunnen we het ons niet veroorloven zelfgenoegzaam te worden en moeten we doorgaan met onze sweeps."
+
+msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
+msgstr "Eightballers, je hebt vijanden binnen. Geïdentificeerd als 3 Mitikas-jagers; Jakhalzen, mogelijk Pandoran. Betrokken zijn, maar wees uiterst voorzichtig."
+
+msgid "Control, enemies have been dispatched. Wasn't a comfortable fight."
+msgstr "Controle, vijanden zijn verzonden. Was geen comfortabel gevecht."
+
+msgid "Eightballers, return home immediately, and deliver a full report. Do not leave out a single detail."
+msgstr "Eightballers, ga onmiddellijk terug naar huis en bezorg een volledig rapport. Laat geen enkel detail achterwege."
+
+msgid "Got it. See you soon."
+msgstr "Begrepen. Tot ziens."
+
+msgid "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter."
+msgstr "Na het verwoestende verlies van het Iliad-systeem, moeten we waakzaam blijven tegen de inval in het Alba-systeem. Controleer alle vijf waypoints en meld direct elke ongebruikelijke of verdachte activiteit die je tegenkomt."
+
+msgid "So, Iliad has fallen?"
+msgstr "Dus Ilias is gevallen?"
+
+msgid "From what I've heard."
+msgstr "Van wat ik heb gehoord."
+
+msgid "Did they retreat, or ..."
+msgstr "Hebben ze zich teruggetrokken, of ..."
+
+msgid "They fought to the very last."
+msgstr "Ze vochten tot het allerlaatste."
+
+msgid "So that's it. The Pandorans have won?"
+msgstr "Dus dat is het. De Pandorans hebben gewonnen?"
+
+msgid "At Iliad, yes. Unless the local forces there can somehow hold off the enemy's ground assault."
+msgstr "Bij Iliad, ja. Tenzij de lokale troepen daar op de een of andere manier de grondaanval van de vijand kunnen afhouden."
+
+msgid "It's ... possible, right?"
+msgstr "Het is ... mogelijk, toch?"
+
+msgid "The Pandorans will just nuke the place when they're done. They'll take what they need, kill everyone who stands in their way ..."
+msgstr "De Pandorans zullen de plaats gewoon vernietigen als ze klaar zijn. Ze nemen wat ze nodig hebben, vermoorden iedereen die hen in de weg staat ..."
+
+msgid "And even those who don't."
+msgstr "En zelfs degenen die dat niet doen."
+
+msgid "...and move on."
+msgstr "...en ga verder."
+
+msgid "You're quiet, Wade."
+msgstr "Je bent stil, Wade."
+
+msgid "Just thinking."
+msgstr "Gewoon aan het denken."
+
+msgid "What about?"
+msgstr "Hoe zit het met?"
+
+msgid "How long it'll be before the Pandorans show up here."
+msgstr "Hoe lang zal het duren voordat de Pandorans hier verschijnen."
+
+msgid "They came by earlier, in case you don't remember."
+msgstr "Ze kwamen eerder langs, voor het geval je het je niet herinnert."
+
+msgid "And haven't been back since. Maybe we scared them off."
+msgstr "En ben sindsdien niet meer terug geweest. Misschien hebben we ze afgeschrikt."
+
+msgid "I doubt it, guys. They were probably just scouting."
+msgstr "Ik betwijfel het, jongens. Ze waren waarschijnlijk alleen maar aan het scouten."
+
+msgid "Where the hell are the CSN? Why weren't they at Iliad?"
+msgstr "Waar is het CSN in vredesnaam? Waarom waren ze niet op Iliad?"
+
+msgid "They weren't wanted, apparently. Iliad and the UNF aren't getting along so well at the moment."
+msgstr "Ze waren blijkbaar niet gewenst. Iliad en de UNF kunnen het op dit moment niet zo goed met elkaar vinden."
+
+msgid "Something to do with Adrian Parsons?"
+msgstr "Heeft het iets met Adrian Parsons te maken?"
+
+msgid "That bloody idiot? It wouldn't surprise me. He's the reason we're now in this mess! If I ever meet that guy, nothing'll stop me from-"
+msgstr "Die verdomde idioot? Het zou me niet verbazen. Hij is de reden dat we nu in deze puinhoop zitten! Als ik die kerel ooit ontmoet, zal niets me tegenhouden ..."
+
+msgid "Hey, mind what you say. All these communications are logged."
+msgstr "Hé, let goed op wat je zegt. Al deze communicatie wordt vastgelegd."
+
+msgid "(indecipherable muttering)"
+msgstr "(niet te ontcijferen gemompel)"
+
+msgid "What do you mean, it's all Parsons' fault?"
+msgstr "Wat bedoel je, het is allemaal de fout van Parsons?"
+
+msgid "He made an executive decision over in Coyote several months ago, that screwed everything up. Something about being charged with a super weapon."
+msgstr "Hij heeft een aantal maanden geleden een beslissing genomen bij Coyote, die alles verpest. Iets over opgeladen worden met een super wapen."
+
+msgid "Grendel's Mother?"
+msgstr "Grendel's moeder?"
+
+msgid "No, something it was carrying. Linked to the ATAFs, apparently."
+msgstr "Nee, iets dat het droeg. Gekoppeld aan de ATAF's, blijkbaar."
+
+msgid "The CSN built something that nuked a whole load of allied and Pandoran forces. It wasn't meant to be used in Coyote, though."
+msgstr "De CSN heeft iets gebouwd dat een hele lading geallieerde en Pandoran-troepen terugdeinsde. Het was echter niet bedoeld om in Coyote te worden gebruikt."
+
+msgid "You don't say."
+msgstr "Je zegt het niet."
+
+msgid "Okay, lads, let's wrap this topic up, eh?"
+msgstr "Oké, jongens, laten we dit onderwerp oppakken, toch?"
+
+msgid "That's it, all done. Anyone got anything to report?"
+msgstr "Dat is alles. Heeft iemand iets te melden?"
+
+msgid "Nothing."
+msgstr "Niets."
+
+msgid "Nope."
+msgstr "Nee."
+
+msgid "Okay, let's get home and report in."
+msgstr "Oké, laten we naar huis gaan en melden."
+
+msgid "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations."
+msgstr "Een aantal belangrijke onafhankelijke systemen zijn onder gelijktijdig aanvallende aanvallen van Tzac-troepen gekomen. We moeten ze wegjagen, zodat we ons kunnen blijven concentreren op de dringender bedreiging van het Pandoran-leger. Op dit moment is het van groot belang dat we voorkomen dat Christabel significante winsten boekt door haar krachten op deze locaties te bundelen."
+
+msgid "Three Tzac fighter groups has been sighted in the area. We need to hunt them down and eliminate them."
+msgstr "Drie Tzac-jagersgroepen zijn in het gebied waargenomen. We moeten ze opsporen en elimineren."
+
+msgid "Enemies sighted."
+msgstr "Vijanden waargenomen."
+
+msgid "Break and attack, people!"
+msgstr "Breek en val aan, mensen!"
+
+msgid "That's the first group handled. Let's get to the next waypoint."
+msgstr "Dat is de eerste groep die werd behandeld. Laten we naar het volgende routepunt gaan."
+
+msgid "Second group located."
+msgstr "Tweede groep gevonden."
+
+msgid "Control, this is Rice. Nine enemy fighters downed. Moving to the final waypoint."
+msgstr "Controle, dit is Rice. Negen vijandelijke jagers zijn neergestreken. Verhuizen naar het laatste waypoint."
+
+msgid "Final group spotted."
+msgstr "Laatste groep gespot."
+
+msgid "That's all of them."
+msgstr "Dat zijn ze allemaal."
+
+msgid "Not as tough as I was expecting."
+msgstr "Niet zo zwaar als ik had verwacht."
+
+msgid "I think they're testing the water, like our Pandoran friends before them."
+msgstr "Ik denk dat ze het water testen, zoals onze Pandoran-vrienden voor hen."
+
+msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
+msgstr "We kunnen ons beter voorbereiden op een grote aanval in de komende dagen. Hopelijk niet van hen beiden tegelijk."
+
+msgid "Tzac forces are continuing to make aggressive moves against Alba. Its forces need to be driven back, and out of the system entirely. Naval power is starting to come under strain, and these continued assaults could leave us vulnerable to a Pandoran attack."
+msgstr "TZAC-troepen blijven agressieve bewegingen maken tegen Alba. De krachten moeten worden teruggedrongen en volledig uit het systeem. Zee-macht begint onder druk te komen, en deze aanhoudende aanvallen kunnen ons kwetsbaar maken voor een Pandoran-aanval."
+
+msgid "Break and attack, lads. Let's send these guys back home."
+msgstr "Breek en val aan, jongens. Laten we deze mannen naar huis sturen."
+
+msgid "More Tzac fighters incoming."
+msgstr "Meer Tzac-jagers komen binnen."
+
+msgid "Steel yourself, lads. Even more Tzac forces are heading our way."
+msgstr "Steel jezelf, jongens. Zelfs meer Tzac-troepen komen op ons pad."
+
+msgid "Picking up two capital ships, moving in."
+msgstr "Twee hoofdschepen ophalen, naar binnen gaan."
+
+msgid "Wait, those aren't only Tzac forces ... "
+msgstr "Wacht, dat zijn niet alleen Tzac-krachten ... "
+
+msgid "Ah, hell! Now we've got Pandorans, too?!"
+msgstr "Ah, verdomme! Nu hebben we ook Pandorans ?!"
+
+msgid "Commander, we're getting shot to ribbons here! We need to fallback!"
+msgstr "Commandant, we worden hier doodgeschoten! We moeten terugvallen!"
+
+msgid "We can't let EITHER of these two win! That would be a major loss for all of us."
+msgstr "We kunnen niet één van deze twee laten winnen! Dat zou een groot verlies zijn voor ons allemaal."
+
+msgid "Eightballers, de Winter of the White Knights, here to assist."
+msgstr "Eightballers, de Winter of the White Knights, hier om te helpen."
+
+msgid "White Knights! Am I glad to see you. Your timing couldn't be better."
+msgstr "Witte ridders! Ben ik blij je te zien. Je timing kan niet beter zijn."
+
+msgid "I owe you my life, Knights."
+msgstr "Ik ben je mijn leven schuldig, ridders."
+
+msgid "We're all in this together, Rice. I'm sorry we arrived too late to save your wingmates."
+msgstr "We zijn hier allemaal samen in, Rice. Het spijt me dat we te laat zijn om je wingmates te redden."
+
+msgid "They were good guys. They'll be missed."
+msgstr "Het waren goeien. Ze zullen worden gemist."
+
+msgid "We're needed elsewhere. We'll see you soon."
+msgstr "We zijn ergens anders nodig. We zullen je snel zien."
+
+msgid "While Trilliack is happy to arrest the traitors it brings in, Alba wishes to dole out swift punishment for their actions. Eliminate all enemy targets, with the exception of any fighters that surrender. Only those are to be brought in."
+msgstr "Terwijl Trilliack blij is om de verraders die het binnenhaalt te arresteren, wil Alba snelle straffen voor hun daden. Elimineer alle vijandige doelen, met uitzondering van eventuele jagers die zich overgeven. Alleen die worden binnengebracht."
+
+msgid "Our orders are to destroy all opposing fighters, except any who surrender. They're to be magged, instead."
+msgstr "Onze orders zijn om alle vijandige jagers te vernietigen, behalve degenen die zich overgeven. In plaats daarvan moeten ze magged zijn."
+
+msgid "One of them has surrendered. Mag him, ASAP."
+msgstr "Een van hen heeft zich overgegeven. Mag hem, ZO VLUG MOGELIJK."
+
+msgid "Another has thrown in the towel. Disable that fighter!"
+msgstr "Een ander heeft de handdoek in de ring gegooid. Schakel die jager uit!"
+
+msgid "Four of them have now surrendered."
+msgstr "Vier van hen hebben zich nu overgegeven."
+
+msgid "I'd have been expecting more of them to have surrendered than this."
+msgstr "Ik had verwacht dat meer van hen zich hadden overgegeven dan dit."
+
+msgid "Some are clearly braver than others."
+msgstr "Sommige zijn duidelijk dapperder dan andere."
+
+msgid "Or perhaps stupider."
+msgstr "Of misschien dom."
+
+msgid "Good work, everyone. Control are sending tugs to bring these guys in."
+msgstr "Goed gedaan, allemaal. Controle stuurt sleepboten om deze jongens binnen te brengen."
+
+msgid "Think they'll get a long sentence?"
+msgstr "Denk je dat ze een lange zin krijgen?"
+
+msgid "Depends on how many capable pilots we can afford to keep shoving behind bars ..."
+msgstr "Hangt af van hoeveel capabele piloten we ons kunnen veroorloven om achter de tralies te blijven duwen ..."
+
+msgid "Roman Burgess, one of the masterminds behind the illicit arms and information smuggling to Tzac, has been located. Senior command want this man alive, so that he can be interrogated and lead us to the others. He must not under any circumstances be allowed to be killed."
+msgstr "Roman Burgess, een van de meesterbreinen achter de illegale wapens en de smokkel van informatie naar Tzac, is gelokaliseerd. Senior commandant wil deze man levend, zodat hij kan worden verhoord en ons naar de anderen kan leiden. Hij mag onder geen enkele omstandigheid worden gedood."
+
+msgid "We need Burgess alive. The others should be destroyed unless they surrender."
+msgstr "We hebben Burgess levend nodig. De anderen zouden vernietigd moeten worden tenzij ze zich overgeven."
+
+msgid "Strickland, the situation just escalated. A wing of Pandoran fighters just entered the area."
+msgstr "Strickland, de situatie is alleen geëscaleerd. Een vleugel met Pandoran-jagers kwam net het gebied binnen."
+
+msgid "Dammit! People, we need to keep those fighters away from Burgess. We can't lose that lead!"
+msgstr "Dammit! Mensen, we moeten die jagers weghouden van Burgess. We kunnen die voorsprong niet verliezen!"
+
+msgid "Where'd they get those Shales from?"
+msgstr "Waar haalden ze die schillen vandaan?"
+
+msgid "From Christabel's ill-advised decision to attack the Enemy directly, no doubt."
+msgstr "Van de onbezonnen beslissing van Christabel om de vijand direct aan te vallen, zonder twijfel."
+
+msgid "To hell with you! Christabel was our only hope of surviving this thing."
+msgstr "Naar de hel met jou! Christabel was onze enige hoop om dit ding te overleven."
+
+msgid "Save it, buddy. You can spill it all at the court martial."
+msgstr "Bewaar het, vriend. Je kunt het allemaal op de krijgshaftige moord doen."
+
+msgid "Looks like that's it."
+msgstr "Het lijkt erop dat dat het is."
+
+msgid "Good flying today, Seth."
+msgstr "Goed vliegen vandaag, Seth."
+
+msgid "Thank you. I'm just glad to have survived another day."
+msgstr "Dank je. Ik ben gewoon blij dat ik nog een dag heb overleefd."
+
+msgid "We'll get through this. Neither of us are getting flagged before the end of this thing."
+msgstr "We komen hier doorheen. We worden voor het einde van dit ding niet gevlagd."
+
+msgid "The Pandorans have begun moving forces into the system, and formed a number of staging grounds. Some of these grounds consist of Tzac fighters that have been acquired from Crystabel's forces. As of now, they are non-operational, but are being defended by some mobile plasma turrets. The objective is simple: destroy those fighters."
+msgstr "De Pandorans zijn begonnen het leger in te zetten en vormden een aantal ensceneringen. Sommige van deze gronden bestaan ​​uit Tzac-jagers die zijn verkregen van de troepen van Crystabel. Vanaf nu zijn ze niet operationeel, maar worden ze verdedigd door een aantal mobiele plasmatorentjes. Het doel is simpel: vernietig die vechters."
+
+msgid "Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette."
+msgstr "Reapers, het lijkt erop dat de oppositie zwaarder is dan eerder werd verwacht. We pakken een Tzac-korvet op."
+
+msgid "Got it. All fighters, we need Inca to survive this one. We can't afford to lose any more capital ships."
+msgstr "Begrepen. Alle vechters, we hebben Inca nodig om deze te overleven. We kunnen het ons niet veroorloven om nog meer kapitaalschepen te verliezen."
+
+msgid "Looks like there are some tugs trying to extract the Tzac fighters."
+msgstr "Lijkt erop dat er enkele sleepboten zijn die de Tzac-jagers proberen uit te pakken."
+
+msgid "I see them. Take them out before they can get away."
+msgstr "Ik zie ze. Haal ze eruit voordat ze weg kunnen komen."
+
+msgid "Rice, we've got INF fighters incoming."
+msgstr "Rijst, we hebben INF-jagers binnen."
+
+msgid "Huh, I actually thought they'd have been here sooner. Prepare to engage."
+msgstr "Huh, ik dacht eigenlijk dat ze hier eerder zouden zijn geweest. Bereid je voor om deel te nemen."
+
+msgid "That's the staging ground taken care of. Now--"
+msgstr "Dat is de enscenering waar voor gezorgd wordt. Nu--"
+
+msgid "Rice, we've got a big problem: a very large number of Pandoran ships just arrived in the system. Torelli is being evacuated."
+msgstr "Rijst, we hebben een groot probleem: een zeer groot aantal Pandoran-schepen is net aangekomen in het systeem. Torelli wordt geëvacueerd."
+
+msgid "Never enough, is it?"
+msgstr "Nooit genoeg, toch?"
+
+msgid "With the Pandorans upping their aggression, we have taken steps to start evacuating the Alba system. Many civilians will be using craft incapable of forming of their jump points, and so will be reliant on the gates. We therefore must ensure that these gates remain functional, and that all Pandoran opposition is held back."
+msgstr "Nu de Pandorans hun agressie hebben verhoogd, hebben we stappen ondernomen om het Alba-systeem te evacueren. Veel burgers zullen ambacht gebruiken die niet in staat is om hun sprongpunten te vormen, en zullen dus afhankelijk zijn van de poorten. We moeten er daarom voor zorgen dat deze poorten functioneel blijven en dat alle Pandoran-tegenstand wordt tegengehouden."
+
+msgid "Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters."
+msgstr "Taylor, ga zo snel mogelijk naar die poort en bereid je voor om het te verdedigen. Let op: de Pandorans zijn nu commandant, INF, UNF en Tzac-jagers."
+
+msgid "There are civilians in the area. What about them?"
+msgstr "Er zijn burgers in de omgeving. Wat is er met hen?"
+
+msgid "Their needs are secondary. If we lose that gate, no one's getting out of here."
+msgstr "Hun behoeften zijn secundair. Als we die poort verliezen, gaat niemand hier weg."
+
+msgid "Taylor, the jumpgate is taking damage. You need to keep the Pandorans away from it!"
+msgstr "Taylor, de Jumpgate neemt schade op. Je moet de Pandorans er vanaf houden!"
+
+msgid "Half the jumpgate's control nodes have been destroyed. We can't afford to lose that gate!"
+msgstr "De helft van de controleknooppunten van de Jumpgate is vernietigd. We kunnen het ons niet veroorloven die poort te verliezen!"
+
+msgid "Taylor, a Pandoran corvette just jumped into the area. It's heading for the gate. You need to take it down."
+msgstr "Taylor, een Pandoran-korvet sprong net het gebied in. Het gaat naar de poort. Je moet het verwijderen."
+
+msgid "Taylor, another Pandoran corvette just arrived. Identifier is INF BC-41."
+msgstr "Taylor, net een andere Pandoran-korvet. Identifier is INF BC-41."
+
+msgid "Both corvettes are down."
+msgstr "Beide korvetten zijn gedaald."
+
+msgid "Excellent work, Taylor. Eliminate the remaining enemy fighters, and await further instructions."
+msgstr "Uitstekend werk, Taylor. Elimineer de overgebleven vijandelijke jagers en wacht op verdere instructies."
+
+msgid "Area secure."
+msgstr "Beveiligde zone."
+
+msgid "How's the jumpgate looking?"
+msgstr "Hoe ziet de Jumpgate eruit?"
+
+msgid "Some damage, but it's still operational."
+msgstr "Wat schade, maar het is nog steeds operationeel."
+
+msgid "Good work. Continue to guard the gate, and eliminate any incoming enemy threats."
+msgstr "Goed werk. Blijf de poort bewaken en verwijder vijandige bedreigingen."
+
+msgid "Got it."
+msgstr "Begrepen."
+
+msgid "The Pandorans are pressing home their advantage, and moving many of their capital ships up the field. They are presently closing in on Torelli, and will almost certainly begin a ground assault once within range. CSN Dragon is being used to clear their path to the planet, and while you're not going to engage the planet itself, we need to ensure the survival of our own capital ships as much as possible."
+msgstr "De Pandorans dringen hun voordeel aan en verplaatsen veel van hun kapitaalschepen het veld op. Ze sluiten zich momenteel aan bij Torelli en zullen vrijwel zeker een grondaanval beginnen zodra ze binnen bereik zijn. CSN Dragon wordt gebruikt om hun pad naar de planeet te zuiveren, en terwijl je de planeet zelf niet gaat engageren, moeten we ervoor zorgen dat onze eigen kapitaalschepen zo veel mogelijk overleven."
+
+msgid "White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!"
+msgstr "White Knights, Alba's verdedigingslinie stort in. We moeten nu de hoofdschepen van Pandorans neerschieten!"
+
+msgid "Acknowledged. Chaz, we hit them with everything you've got."
+msgstr "Erkend. Chaz, we slaan ze met alles wat je hebt."
+
+msgid "Dammit, down to two corvettes."
+msgstr "Verdorie, tot twee korvetten."
+
+msgid "Dragon is pushing through to Torelli. We need to drive it back."
+msgstr "Dragon dringt door naar Torelli. We moeten hem terugrijden."
+
+msgid "Another corvette lost. We're being overrun."
+msgstr "Nog een korvet kwijt. We worden overspoeld."
+
+msgid "You Knights want to actually do something? We're being slaughtered out here!"
+msgstr "Jullie willen echt iets doen? We worden hier afgeslacht!"
+
+msgid "Ignore him, Estelle; don't get involved."
+msgstr "Negeer hem, Estelle; raak niet betrokken."
+
+msgid "That's all the corvettes down. We'll have to take on Dragon with fighters--"
+msgstr "Dat zijn alle korvetten. We zullen Dragon met jagers moeten opnemen--"
+
+msgid "Dragon's powering it's anti-matter cannon. It's preparing to fire at UNF Lotan"
+msgstr "Dragon voedt het anti-materiekanon in. Het bereidt zich voor om op UNF Lotan te schieten"
+
+msgid "Dragon's firing!"
+msgstr "Dragon's schiet!"
+
+msgid "Dragon missed! Lotan managed to evade to attack!"
+msgstr "Dragon gemist! Lotan wist te ontwijken en aan te vallen!"
+
+msgid "It'll be a while before it can fire its main cannon again. This is our chance to--"
+msgstr "Het zal een tijdje duren voordat het zijn hoofdkanon weer kan afvuren. Dit is onze kans om--"
+
+msgid "The anti-matter ball is still going ... It's heading for Torelli."
+msgstr "De antimateriebal gaat nog steeds ... Hij gaat op weg naar Torelli."
+
+msgid "Impact in 10 seconds ..."
+msgstr "Impact in 10 seconden ..."
+
+msgid "5 Seconds ..."
+msgstr "5 seconden ..."
+
+msgid "(Shouting)"
+msgstr "(Schreeuwen)"
+
+msgid "Estelle, Torelli ..."
+msgstr "Estelle, Torelli ..."
+
+msgid "Oh my God."
+msgstr "O mijn God."
+
+msgid "What the hell just happened?!"
+msgstr "Wat is er in hemelsnaam gebeurd ?!"
+
+msgid "The anti-matter ball must've exploded in the atmosphere, and ignited it."
+msgstr "De antimateriebal moet in de atmosfeer zijn geëxplodeerd en ontstoken."
+
+msgid "How ... how did the Pandorans know that would happen?!"
+msgstr "Hoe ... hoe wisten de Pandorans dat dat zou gebeuren ?!"
+
+msgid "I don't think they did; they just got lucky."
+msgstr "Ik denk niet dat ze dat deden; ze hebben net geluk gehad."
+
+msgid "And now they'll use that against every planet they come to."
+msgstr "En nu zullen ze dat gebruiken tegen elke planeet waar ze naar toe komen."
+
+msgid "All forces, retreat immediately! Repeat: retreat immediately. White Knights, dock, and prepare for withdrawal."
+msgstr "Alle krachten, trek je onmiddellijk terug! Herhaal: trek je onmiddellijk terug. White Knights, dok en bereid je voor op terugtrekking."
+
+msgid "..."
+msgstr "..."
+
+msgid "White Knights, please acknowledge."
+msgstr "White Knights, alsjeblieft."
+
+msgid "Acknowledged. Estelle, we have to leave. It's over."
+msgstr "Erkend. Estelle, we moeten vertrekken. Het is voorbij."
+
+msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
+msgstr "Tzac-vechters komen de Jumpgate binnen. We moeten ze stoppen voordat ze er serieuze schade aan toebrengen."
+
+msgid "Goddard, command of this operation will fall to you, if events lead to me being unable to participate fully."
+msgstr "Goddard, het bevel over deze operatie zal je vallen als gebeurtenissen ertoe leiden dat ik niet volledig kan deelnemen."
+
+msgid "Picking up a second group of fighters, incoming."
+msgstr "Een tweede groep jagers ophalen, inkomend."
+
+msgid "More fighters, inbound!"
+msgstr "Meer jagers, inkomend!"
+
+msgid "The jumpgate is taking damage!"
+msgstr "De Jumpgate neemt schade op!"
+
+msgid "Half the jumpgate's control nodes have been destroyed! We need to step up our efforts to defend it!"
+msgstr "De controleknooppunten van de Jumpgate zijn voor de helft vernietigd! We moeten onze inspanningen opvoeren om het te verdedigen!"
+
+msgid "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed."
+msgstr "Met de huursoldaat afgewend en Tzac's eerste aanvallen verijdeld, is het tijd om terug te duwen tegen de strijdkrachten van Christabel. We zijn van plan om een ​​aantal van hun commandanten te vangen, om te helpen een beter beeld te krijgen van de krachten bij Mace, voordat ze het systeem in gaan. Zoals altijd, mag de doelen en laat ze niet gedood worden."
+
+msgid "Tzac fighters spotted, both commanders are here. Goddard, disable those fighters as soon as you can."
+msgstr "Tzac-jagers zijn gespot, beide commandanten zijn hier. Goddard, schakel die vechters zo snel mogelijk uit."
+
+msgid "Squadron commanders disabled."
+msgstr "Squadron-commandanten uitgeschakeld."
+
+msgid "Great work, everyone. We just need to wait for the tugs to arrive and bring these guys in."
+msgstr "Fantastisch werk, allemaal. We moeten wachten tot de sleepboten arriveren en deze jongens binnenbrengen."
+
+msgid "Commander, I'm reading incoming fighter signature: Darts."
+msgstr "Commandant, ik lees de handtekening van de jager: Darts."
+
+msgid "I'll bet my house those are mercenaries, and given that the relationship with Tzac didn't end amicably they're probably targetting the commanders. We can't afford to lose them."
+msgstr "Ik durf te wedden dat mijn huis huursoldaten zijn, en gezien het feit dat de relatie met Tzac niet in der minne is geëindigd, richten ze zich waarschijnlijk op de commandanten. We kunnen het ons niet veroorloven ze kwijt te raken."
+
+msgid "All Darts have been dispatched, Commander."
+msgstr "Alle darts zijn verzonden, commandant."
+
+msgid "Good. Not often we end up having to protect the enemy from another."
+msgstr "Goed. Niet vaak hoeven we de vijand van een andere te beschermen."
+
+msgid "Tugs are on the way. Should be here in the next few minutes"
+msgstr "Sleepboten zijn onderweg. Moet hier in de komende minuten zijn"
+
+msgid "The Pandorans are continuing to knock on our door, and so we need to continue to engage them. Intercept and take down all enemy fighters. The Imperial frigate INF Sharpfinger is also in the sector, and needs to be destroyed."
+msgstr "De Pandorans blijven op onze deur kloppen en daarom moeten we hen blijven betrekken. Onderschep en verwijder alle vijandelijke jagers. Het imperiale fregat INF Sharpfinger bevindt zich ook in de sector en moet worden vernietigd."
+
+msgid "People, divide yourselves between the fighters and the Sharpfinger."
+msgstr "Mensen, deel jezelf tussen de jagers en de scherpschutter."
+
+msgid "We couldn't spare any bombers, so we just need to get in there and take them all on."
+msgstr "We kunnen geen bommenwerpers sparen, dus we moeten gewoon naar binnen en ze allemaal meenemen."
+
+msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
+msgstr "We hebben bericht gekregen van CSN Florin dat ze een stroomstoring hebben opgelopen en het hele schip hebben getroffen. Het gestrande vaartuig heeft de aandacht getrokken van de Pandorans, die al pendelbussen en sleepboten hebben ingezet om deze in hun gelederen op te nemen. De Salty Wildcats zullen onderscheppen en dekking bieden totdat Florin reparaties kan beïnvloeden."
+
+msgid "Florin, this is Black of the Salty Wildcats, here to assist."
+msgstr "Florin, dit is Black of the Salty Wildcats, hier om te helpen."
+
+msgid "Glad to see you, Wildcats. The Pandorans arrived shortly before you did. We've got tugs and shuttles incoming."
+msgstr "Fijn je te zien, Wildcats. De Pandorans arriveerden kort voor je. We hebben binnenkomende sleepboten en shuttles."
+
+msgid "Acknowledged, we'll secure the area while you get things up and running."
+msgstr "We erkennen dat we het gebied beveiligen terwijl u alles op poten zet."
+
+msgid "Florin, Pandoran vessels have been dealt with."
+msgstr "Florin, Pandoran-schepen zijn afgehandeld."
+
+msgid "Many thanks, Wildcats. We've identified the cause of the power outage. Should be no more than a few minutes before we can restart all systems."
+msgstr "Hartelijk dank, Wildcats. We hebben de oorzaak van de stroomuitval geïdentificeerd. Moet niet meer dan een paar minuten duren voordat we alle systemen opnieuw kunnen opstarten."
+
+msgid "Wildcats, we're picking up an incoming squadron."
+msgstr "Wilde stakingen, we pakken een inkomend squadron op."
+
+msgid "More Pandoran tugs?"
+msgstr "Meer rukboten van Pandoran?"
+
+msgid "Negative. These appear to be non-aligned forces, fighters and bombers."
+msgstr "Negatief. Dit lijken niet-geallieerde krachten, jagers en bommenwerpers te zijn."
+
+msgid "Incoming forces are on intercept vectors. We only need a few more minutes."
+msgstr "Inkomende krachten bevinden zich op onderscheppingsvectoren. We hebben nog maar een paar minuten nodig."
+
+msgid "On it."
+msgstr "Ben ermee bezig."
+
+msgid "Looks like that's all of them."
+msgstr "Het lijkt erop dat dat allemaal is."
+
+msgid "Those were Kingdom of Tzac fighters. We've heard reports of them being active in some Confederation systems."
+msgstr "Dat waren de strijders van het Kingdom of Tzac. We hebben gehoord dat ze actief zijn in sommige Confederation-systemen."
+
+msgid "Would appear that Christabel is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with."
+msgstr "Het lijkt erop dat Christabel eindelijk klaar is om alle bedreigingen goed te maken. Geweldig, dus nu hebben we zowel haar ALS de Pandorans om mee om te gaan."
+
+msgid "It never rains ..."
+msgstr "Het regent nooit ..."
+
+msgid "We're starting systems up again. Once we've completed pre-jump checks we're heading for Temper. Thank you for your assistance."
+msgstr "We beginnen de systemen opnieuw. Zodra we de controles vóór de sprong hebben voltooid, gaan we naar Temper. Dank u voor uw hulp."
+
+msgid "We'll meet you there."
+msgstr "We zullen je daar ontmoeten."
+
+msgid "Tzac bombers have been identified in the area, deploying mines. While this violates intergalactic treaties, we could never assume that Tzac, much like the Pandorans, would abide by the rules of war. We need to take down those bombers quickly. Exercise caution around the mines, as they are especially potent."
+msgstr "Tzac-bommenwerpers zijn in het gebied geïdentificeerd, waarbij ze mijnen inzetten. Hoewel dit in strijd is met intergalactische verdragen, kunnen we nooit aannemen dat Tzac, net als de Pandorans, de regels van oorlog zou naleven. We moeten die bommenwerpers snel afbreken. Wees voorzichtig in de mijnen, want ze zijn vooral krachtig."
+
+msgid "Watch out for those mines. They're on proximity triggers and have a large area of effect."
+msgstr "Pas op voor die mijnen. Ze werken op nabijheidstriggers en hebben een groot effectgebied."
+
+msgid "Take them out from a distance, otherwise you'll be in trouble."
+msgstr "Haal ze van een afstand naar buiten, anders kom je in de problemen."
+
+msgid "That's the bombers taken care of, but the area is still littered with mines."
+msgstr "Dat zijn de bommenwerpers die zijn opgevangen, maar het gebied is nog steeds bezaaid met mijnen."
+
+msgid "We'll need to get a team in here to take care of them."
+msgstr "We moeten een team hier hebben om voor hen te zorgen."
+
+msgid "Following the elimination of the Tzac bombers, we need to clear the leftover mines from the system, in case they cause us difficulties in later operations. As always, the mines should be taken down from a distance, to minimise the chances of damage being caused to your fighter during their destruction."
+msgstr "Na de eliminatie van de Tzac-bommenwerpers moeten we de overgebleven mijnen uit het systeem verwijderen, voor het geval ze ons later problemen bezorgen. Zoals altijd moeten de mijnen van een afstand worden verwijderd om de kans te verkleinen dat uw jager tijdens de vernietiging schade oploopt."
+
+msgid "Reyes, proceed with caution. Those mines are equipped with radar damping fields, that will prevent them from showing up at anything but close range."
+msgstr "Reyes, ga voorzichtig te werk. Die mijnen zijn uitgerust met radar-dempingsvelden, die voorkomen dat ze op bijna alles dichtbij komen."
+
+msgid "Remember to take them out from a distance; your TAF won't be able to withstand much impact damage from the explosions."
+msgstr "Vergeet niet om ze van een afstand te verwijderen; je TAF zal niet veel schade door de explosies kunnen weerstaan."
+
+msgid "Reyes, we're detecting incoming fighter signatures. Looks like Darts, possibly pirates. Eliminate as necessary."
+msgstr "Reyes, we detecteren inkomende handtekeningen voor jagers. Lijkt op Darts, mogelijk piraten. Schakel zo nodig uit."
+
+msgid "Control, I've dealt with both the mines and the Darts. Any idea who those guys were?"
+msgstr "Controle, ik heb zowel de mijnen als de darts afgehandeld. Enig idee wie die jongens waren?"
+
+msgid "A report is being generated right now. Should be ready by the time you return."
+msgstr "Er wordt nu een rapport gegenereerd. Moet klaar zijn tegen de tijd dat u terugkeert."
+
+msgid "I noticed that none of those Darts tripped any mines. Maybe those were Tzac fighters?"
+msgstr "Ik heb gemerkt dat geen van die darts mijnen heeft geactiveerd. Misschien waren dat Tzac-jagers?"
+
+msgid "Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing."
+msgstr "Tzac is nooit bekend geweest met het inzetten van Darts, maar dat was een belangrijke observatie. Geef ons zoveel mogelijk details tijdens de debriefing."
+
+msgid "A large Tzac force has gathered in Aster. The White Knights are being sent in alone to deal with it. We need to continue to show that we are capable of winning these engagements with minimal losses to the enemy force. Mag and disable all Tzac craft in the area, and do not allow any to be destroyed, even by stray fire."
+msgstr "Een grote Tzac-macht heeft zich verzameld in Aster. De White Knights worden alleen ingezonden om er mee om te gaan. We moeten blijven aantonen dat we in staat zijn om deze opdrachten te winnen met minimale verliezen voor de vijandelijke macht. Schakel alle Tzac-voertuigen in het gebied uit en schakel ze uit, en laat ze niet vernietigen, zelfs niet bij verdwaald vuur."
+
+msgid "Remember, guys: mags only against the fighters. We're not here to take any more lives."
+msgstr "Onthoud, jongens: mags alleen tegen de jagers. We zijn hier niet om nog meer levens te nemen."
+
+msgid "For the corvettes, concentrate fire on the engines and the guns. Once it's out of the game, move onto the next one."
+msgstr "Voor de korvetten concentreert u het vuur op de motoren en de pistolen. Als het uit het spel is, ga je naar de volgende."
+
+msgid "We should lure the fighters away from the capital ships. Stray fire against a disabled ship could destroy it."
+msgstr "We moeten de jagers lokken van de hoofdschepen. Zwerfvuur tegen een schip met een handicap kan het vernietigen."
+
+msgid "Good point, Chaz, we should be mindful of friendly-fire."
+msgstr "Goed punt, Chaz, we moeten rekening houden met vriendelijk vuur."
+
+msgid "Brings back memories, doesn't it?"
+msgstr "Brengt herinneringen terug, nietwaar?"
+
+msgid "So long as we don't end up back in Phylent after this."
+msgstr "Zolang we daarna niet meer in Phylent terechtkomen."
+
+msgid "This going in your journal, Kelly?"
+msgstr "Dit gaat in je dagboek, Kelly?"
+
+msgid "Everything. It could be important one day."
+msgstr "Alles. Het kan op een dag belangrijk zijn."
+
+msgid "Have fun with the names of Tzac's cap ships."
+msgstr "Veel plezier met de namen van de kapschepen van Tzac."
+
+msgid "I'll just refer to the battle logs. Military records tend to be accurate."
+msgstr "Ik zal alleen de strijdlogboeken raadplegen. Militaire gegevens zijn meestal correct."
+
+msgid "Most of the time."
+msgstr "Meestal."
+
+msgid "All fighters disabled."
+msgstr "Alle jagers zijn uitgeschakeld."
+
+msgid "Corvettes are all out of the game."
+msgstr "Corvettes zijn allemaal uit het spel."
+
+msgid "Griffin, this is de Winter. Opposing forces are no longer a threat."
+msgstr "Griffin, dit is de Winter. Tegengestelde krachten vormen niet langer een bedreiging."
+
+msgid "Any casualties?"
+msgstr "Alle slachtoffers?"
+
+msgid "No. All fighters and caps have been shutdown, and ready for pickup."
+msgstr "Nee. Alle jagers en petten zijn uitgeschakeld en klaar om opgehaald te worden."
+
+msgid "Great work, Knights. Clean up will commence shortly. Standby for new instructions."
+msgstr "Fantastisch werk, ridders. Opruimen begint binnenkort. Stand-by voor nieuwe instructies."
+
+msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
+msgstr "De dag die we hebben gevreesd en de gebeurtenissen die we probeerden af ​​te wenden zijn nu op ons gericht - het Pandoran-leger is begonnen zijn drijfveer te verleggen voorbij de ruimte van Mitikas en begint naburige onafhankelijke sterrenstelsels aan te vallen. We moeten terugvechten om Clarke te beschermen tegen ondergang door deze dreiging. Pas op: dit zal geen gemakkelijk gevecht zijn, maar we hebben weinig keus en moeten vandaag de overwinning behalen."
+
+msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down INF Dirk. Ensure the Lynx-class bombers can get in close enough to delivery a strike."
+msgstr "We hebben met succes een weg geslagen door verschillende squadrons van Pandoran-jagers, maar hun kapitaalschepen naderen snel Dublin. Je doel is om INF Dirk te verwijderen. Zorg ervoor dat de Lynx-klasse bommenwerpers dichtbij genoeg kunnen komen om een ​​aanval af te leveren."
+
+msgid "Commander, I would recommend we take out the escorts first."
+msgstr "Commandant, ik zou aanraden dat we eerst de escorts eruit halen."
+
+msgid "Agreed. The Dirk on its own would already prove a challenge."
+msgstr "Akkoord. De Dirk op zichzelf zou al een uitdaging zijn."
+
+msgid "INF Dirk has been downed."
+msgstr "INF Dirk is verslagen."
+
+msgid "This is Carlyle. Enemy corvette has been destroyed. All other fighters scratched."
+msgstr "Dit is Carlyle. Vijandelijke korvet is vernietigd. Alle andere vechters krabden."
+
+msgid "That's good work, Commander. We're preparing to engage more enemies, so we can't put our feet up just yet."
+msgstr "Dat is goed werk, commandant. We bereiden ons voor om meer vijanden aan te vallen, dus we kunnen nog niet goed praten."
+
+msgid "Hell. Okay, we'll return momentarily. Carlyle out."
+msgstr "Hel. Oké, we komen even terug. Carlyle eruit."
+
+msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra and UNF Artemis are moving to intercept more enemy corvettes. Your orders are to assist them in achieving their goals."
+msgstr "We moeten doorgaan met het neerhalen van de gevangene schepen van de vijand, ingraven en de lijn hier vasthouden. Meer van onze eigen kapschepen gaan het veld op om de Pandorans te ontmoeten. UNF Cleopatra en UNF Artemis gaan op weg om meer vijandige korvetten te onderscheppen. Jouw orders zijn om hen te helpen hun doelen te bereiken."
+
+msgid "INF Khopesh is down."
+msgstr "INF Khopesh is down."
+
+msgid "INF Blackjack has been destroyed."
+msgstr "INF Blackjack is vernietigd."
+
+msgid "This is Carlyle. Enemy targets have been eliminated. Cleopatra and Artemis still in one piece."
+msgstr "Dit is Carlyle. Vijandelijke doelen zijn geëlimineerd. Cleopatra en Artemis nog steeds in één stuk."
+
+msgid "Acknowledged. Fall back to the main fleet and await new instructions."
+msgstr "Erkend. Ga terug naar de hoofdvloot en wacht op nieuwe instructies."
+
+msgid "This is going to be a long day, eh?"
+msgstr "Dit gaat een lange dag worden, toch?"
+
+msgid "Maybe not, if we continue to lose ground the way we are already ..."
+msgstr "Misschien niet, als we terrein blijven verliezen zoals we al zijn ..."
+
+msgid "White Knights, Commodore Parks has identified three enemy corvettes are high level targets. He wants Dodds, Koonan and Todd to take them down, as quickly as possible. There won't be any additional fighter support, but three ATAFs should be more than enough to get the job done. de Winter and Taylor are currently on another assignment. Dodds will lead the attack."
+msgstr "White Knights, Commodore Parks heeft vastgesteld dat drie vijandige korvetten doelen op hoog niveau zijn. Hij wil dat Dodds, Koonan en Todd ze zo snel mogelijk neerhalen. Er zal geen extra ondersteuning voor jagers zijn, maar drie ATAF's zouden meer dan genoeg moeten zijn om de klus te klaren. de Winter en Taylor hebben momenteel een andere opdracht. Dodds zal de aanval leiden."
+
+msgid "Targets sighted: three capital ships, five escorts apiece."
+msgstr "Doelstellingen waargenomen: drie hoofdschepen, elk vijf escorts."
+
+msgid "You know what to do, guys. Let's take them down."
+msgstr "Je weet wat je moet doen, jongens. Laten we ze neerhalen."
+
+msgid "Want to take bets on how soon before they run?"
+msgstr "Wil je weddenschappen afsluiten over hoe snel voordat ze worden uitgevoerd?"
+
+msgid "Wouldn't call that a fair bet, mate. We all know they won't."
+msgstr "Zou dat geen redelijke gok noemen, maat. We weten allemaal dat ze dat niet zullen doen."
+
+msgid "More fighters inbound."
+msgstr "Meer jagers komen binnen."
+
+msgid "Picking up another Pandoran squadron, incoming."
+msgstr "Oppakken van een nieuw pandorand squadron."
+
+msgid "See? That's why I didn't make a bet with you!"
+msgstr "Zien? Daarom heb ik geen weddenschap met jou gesloten!"
+
+msgid "All capital ships down. That's, what, fifty of these things we've scratched, alone?"
+msgstr "Alle kapitaalschepen naar beneden. Dat is, wat, vijftig van deze dingen die we hebben gekrast, alleen?"
+
+msgid "Seriously, I've lost count."
+msgstr "Serieus, ik ben de tel kwijtgeraakt."
+
+msgid "How many more can the Pandorans have?"
+msgstr "Hoeveel meer kunnen de Pandorans hebben?"
+
+msgid "Only way we'll find out is if we go to Kethlan, and I'm not keen on heading there anytime soon."
+msgstr "De enige manier om erachter te komen is of we naar Kethlan gaan en ik ben er niet op gebrand om daar binnenkort naar toe te gaan."
+
+msgid "Chaz, anything?"
+msgstr "Chaz, iets?"
+
+msgid "Negative."
+msgstr "Negatief."
+
+msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
+msgstr "Oké, laten we teruggaan naar Leviathan en wachten tot Kelly en Estelle weer bij ons komen."
+
+msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive impact on ours. The frigate's support groups will need to be destroyed first."
+msgstr "We hebben ontdekt dat Alysha's Calling, een van de meest prominente vijandelijke fregatten, zich momenteel in het systeem bevindt. We bereiden een stakingsteam van Hammerheads voor, geleid door de Twilight Lancers, om het in dienst te nemen en te vernietigen. Het is onbekend welke effecten, indien aanwezig, de vernietiging van dit schip zal hebben op het moreel van de vijand, maar het kan alleen maar een positief effect hebben op het onze. De steungroepen van het fregat moeten eerst worden vernietigd."
+
+msgid "First squadron sighted. Moving to intercept."
+msgstr "Eerste eskader gezien. Verhuizen naar onderscheppen."
+
+msgid "First squadron taken down, preparing to engage second."
+msgstr "Eerste squadron neergehaald, voorbereid om tweede te worden."
+
+msgid "Second squadron down. Moving up the field to engage Alysha's Calling."
+msgstr "Tweede squadron naar beneden. Door het veld omhoog gaan om Alysha's Calling aan te gaan."
+
+msgid "Welch, we're tracking a large number of fast-moving objects heading your way. IDs don't match anything we currently have on record."
+msgstr "Welch, we volgen een groot aantal snel bewegende objecten op je weg. ID's komen niet overeen met alles wat we momenteel hebben vastgelegd."
+
+msgid "Missiles?"
+msgstr "Raketten?"
+
+msgid "Too large. We'll relay more information as we get it. Be prepared to engage."
+msgstr "Te groot. We zullen meer informatie doorgeven als we het krijgen. Wees bereid om deel te nemen."
+
+msgid "Whatever these things are, they're not hard to dispatch."
+msgstr "Wat deze dingen ook zijn, ze zijn niet moeilijk te verzenden."
+
+msgid "No, but there's a lot of them ..."
+msgstr "Nee, maar er zijn er veel ..."
+
+msgid "Welch, we're detecting more of the swarmer things heading your way."
+msgstr "Welch, we detecteren meer van de swarmer dingen die op je af komen."
+
+msgid "How many more?"
+msgstr "Hoeveel nog?"
+
+msgid "Tracking around three dozen, and the numbers are rising."
+msgstr "Volgt ongeveer drie dozijn en de aantallen stijgen."
+
+msgid "Thunderbird, this is Welch. Swarmers have been taken care of."
+msgstr "Thunderbird, dit is Welch. Zwervers zijn opgevangen."
+
+msgid "Good to hear, Commander. We're pulling you out there, to assist the other squadrons."
+msgstr "Goed om te horen, commandant. We trekken je eruit om de andere squadrons te helpen."
+
+msgid "What about Alysha?"
+msgstr "Hoe zit het met Alysha?"
+
+msgid "The target is no longer a priority. Clarke's front line is collapsing. They need reinforcement, ASAP."
+msgstr "Het doel heeft niet langer een prioriteit. De frontlinie van Clarke stort in. Ze moeten zo snel mogelijk worden versterkt."
+
+msgid "Understood. Heading there now."
+msgstr "Begrepen. Ik ga er nu heen."
+
+msgid "The enemy are beginning to overrun our front line. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen."
+msgstr "De vijand begint onze frontlinie te overspoelen. Je doel is simpel: betrek en vernietig alle vijandige krachten. We kunnen het ons niet veroorloven om nog meer terrein te verliezen. Dat zou neerkomen op een toegevende nederlaag en Clarke die in de Pandoran-vloot valt. Dit mag niet gebeuren."
+
+msgid "The Twilight Lancers are on their way."
+msgstr "De Twilight-lanciers zijn onderweg."
+
+msgid "Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!"
+msgstr "Acht hele extra jagers? We zijn misschien meer dan de vijand, maar ze zijn ons nog steeds te slim af!"
+
+msgid "At this point, any additional support is welcome. And we still have the support of Cleopatra and Artemis."
+msgstr "Op dit moment is elke aanvullende ondersteuning welkom. En we hebben nog steeds de steun van Cleopatra en Artemis."
+
+msgid "Welch here, engaging targets."
+msgstr "Welch hier, boeiende doelen."
+
+msgid "Not a moment too soon, Commander."
+msgstr "Geen moment te vroeg, commandant."
+
+msgid "We're wearing them down. Keep up the pressure."
+msgstr "We dragen ze naar beneden. Blijf de druk op de ketel houden."
+
+msgid "Think they're pull back if we hit them hard enough?"
+msgstr "Denk je dat ze terugtrekken als we ze hard genoeg raken?"
+
+msgid "Too early to speculate. Just concentrate on taking down their fighters."
+msgstr "Te vroeg om te speculeren. Concentreer u gewoon op het neerhalen van hun vechters."
+
+msgid "I've just been tailed by something I've never seen before! Small, highly manoeuvrable, rapid fire particle cannon."
+msgstr "Ik ben zojuist door iets gevolgd dat ik nog nooit eerder heb gezien! Klein, zeer manoeuvreerbaar, snel kanon met branddeeltjes."
+
+msgid "Swarmers! The enemy have deployed them here, too!"
+msgstr "Zwermers! De vijand heeft ze hier ook ingezet!"
+
+msgid "How many?"
+msgstr "Hoeveel?"
+
+msgid "Tracking a dozen, but the numbers are growing rapidly"
+msgstr "Een dozijn volgen, maar het aantal groeit snel"
+
+msgid "I've lost count how many of these damn swarmers I've taken down."
+msgstr "Ik ben de tel kwijtgeraakt hoeveel verdomde zwermmers ik heb neergehaald."
+
+msgid "It's like fighting a hydra! You cut off one head, and two more spring up!"
+msgstr "Het is als vechten met een hydra! Je hebt één hoofd afgesneden en er zijn er nog twee die opveren!"
+
+msgid "There's too many of them!"
+msgstr "Er zijn er te veel!"
+
+msgid "Keep fighting, we can still win this!"
+msgstr "Blijf vechten, we kunnen dit nog steeds winnen!"
+
+msgid "They're everywhere! I--"
+msgstr "Ze zijn overal! IK--"
+
+msgid "People, we are down one capital ship! We need to step things up!"
+msgstr "Mensen, we zijn één hoofdschip! We moeten de zaak op een hoger plan brengen!"
+
+msgid "Both caps are down, all hands lost. Let's not let this go to waste."
+msgstr "Beide caps zijn gevallen, alle handen verloren. Laten we dit niet laten verspillen."
+
+msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
+msgstr "Hoewel we bij Coyote zware verliezen hebben geleden, is het nog steeds belangrijk dat we proberen de vooruitgang van de Pandoran-oorlogsmachine te voorkomen of op zijn minst te vertragen. Admiraal Jenkins heeft bevolen dat de Witte Ridders een aanval uitvoeren op de vijandelijke troepen verzameld in het systeem. Het gewicht van de vijandige krachten blijft enorm, hoewel de ATAF's ons zouden moeten helpen om de strijd aan te gaan. Houd er rekening mee dat de vijand nu in het bezit is van UNF-jagers."
+
+msgid "All fighters, this is Commander de Winter. Enemy targets sighted, engage at will."
+msgstr "Alle jagers, dit is Commander de Winter. Vijandelijke doelwitten waargenomen, betrokken bij wil."
+
+msgid "More enemies inbound."
+msgstr "Meer vijanden inkomend."
+
+msgid "Man, I've got to get me one of those!"
+msgstr "Man, ik moet er een van krijgen!"
+
+msgid "What the hell are those things you're flying?"
+msgstr "Wat zijn in hemelsnaam die dingen waar je naartoe vliegt?"
+
+msgid "An ATAF. Stands for Advanced Tactical Assault Fighter."
+msgstr "Een ATAF. Staat voor Advanced Tactical Assault Fighter."
+
+msgid "Are the CSN rolling those out to everyone?"
+msgstr "Gaat het CSN die uit naar iedereen?"
+
+msgid "No, they ... were built for a different purpose."
+msgstr "Nee, ze ... zijn gebouwd voor een ander doel."
+
+msgid "What sort of purpose?"
+msgstr "Wat voor soort doel?"
+
+msgid "Sorry, for now, that's classified."
+msgstr "Sorry, voor nu is dat geclassificeerd."
+
+msgid "Griffin, this is de Winter. All targets destroyed."
+msgstr "Griffin, dit is de Winter. Alle doelen vernietigd."
+
+msgid "Acknowledged, Commander. Stand by for new orders."
+msgstr "Erkend, commandant. Stand-by voor nieuwe bestellingen."
+
+msgid "The initial fight back against the Pandorans has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system."
+msgstr "Het aanvankelijke gevecht tegen de Pandorans is goed verlopen, maar het systeem is nog steeds verslikt door hun troepen. We moeten doorgaan met hen te betrekken en hen dwingen het systeem te verlaten."
+
+msgid "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space."
+msgstr "De aanval gaat niet zo goed als we willen, en we beginnen zware verliezen te lijden als de Pandoran-troepen ons overweldigen. We moeten echter de strijd voortzetten en proberen de vijand hier vast te houden. Ze mogen niet verder komen in de Onafhankelijke ruimte."
+
+msgid "We're getting our arses kicked here! Any chance of any backup?!"
+msgstr "We krijgen onze ezels getrapt hier! Is er een kans op een back-up ?!"
+
+msgid "The White Knights are here! Finally!"
+msgstr "De White Knights zijn hier! Tenslotte!"
+
+msgid "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate."
+msgstr "Alle vechters, Captain Bailey heeft de terugtocht gesignaleerd. Coyote is verloren. Ga terug naar de Jumpgate."
+
+msgid "You all heard the Captain - fall back, we'll cover the retreat."
+msgstr "Jullie hebben allemaal de kapitein gehoord - val terug, we zullen de terugtocht bedekken."
+
+msgid "Estelle, we've got this. We can take them."
+msgstr "Estelle, we hebben dit. We kunnen ze nemen."
+
+msgid "We're suffering too many losses, Dodds. Fall back now, that's an order."
+msgstr "We lijden te veel verliezen, Dodds. Val nu terug, dat is een bevel."
+
+msgid "Tzac Shales sighted. Moving to intercept."
+msgstr "Tzac Shales waargenomen. Verhuizen naar onderscheppen."
+
+msgid "Fewer than we were expecting."
+msgstr "Minder dan we hadden verwacht."
+
+msgid "Agreed. Scouts?"
+msgstr "Akkoord. Scouts?"
+
+msgid "Zenobia, I'm detecting a large squadron of fighters and bombers, heading our way. Looks like they're focusing directly on you."
+msgstr "Zenobia, ik detecteer een groot squadron van jagers en bommenwerpers, op weg. Het lijkt erop dat ze rechtstreeks op jou gericht zijn."
+
+msgid "Dammit! The Shales were acting as bait. Specials, keep those bombers away from us."
+msgstr "Dammit! De schalen fungeerden als aas. Specials, houd die bommenwerpers bij ons vandaan."
+
+msgid "You're going to have to deal with this one solo, Carpenter. There are bombers deploying mines in the area. Any one of those detonating could kill the target."
+msgstr "Je gaat hier alleen mee te maken krijgen, Carpenter. Er zijn bommenwerpers die mijnen in het gebied inzetten. Elk van die ontploffingen kan het doelwit doden."
+
+msgid "Secure the commander, and then take down those bombers. Just watch your fire."
+msgstr "Beveilig de commandant en vernietig die bommenwerpers. Kijk gewoon naar je vuur."
+
+msgid "Pandoran forces are beginning their assault on Donesta. They must be engaged and driven out of the system. However, it appears that they are making use of UNF fighters, in an attempt to confuse our own pilots. Visual identification should therefore not be relied on to determine targets, as radar will help to separate their units from ours."
+msgstr "Pandoran-troepen beginnen hun aanval op Donesta. Ze moeten worden betrokken en uit het systeem worden verdreven. Het lijkt er echter op dat ze gebruik maken van UNF-jagers, in een poging onze eigen piloten te verwarren. Visuele identificatie moet daarom niet worden gebruikt om doelen te bepalen, aangezien radar zal helpen om hun eenheden van de onze te scheiden."
+
+msgid "Remember everyone: the Pandorans are using UNF fighters."
+msgstr "Onthoud iedereen: de Pandorans gebruiken UNF-jagers."
+
+msgid "Using your radar is the way to go in this fight."
+msgstr "Het gebruik van je radar is de manier om dit gevecht aan te gaan."
+
+msgid "All enemies down."
+msgstr "Alle vijanden neer."
+
+msgid "Let's hope we never see the day when they get hold of one of the ATAFs."
+msgstr "Laten we hopen dat we nooit de dag zullen zien wanneer ze een van de ATAF's te pakken krijgen."
+
+msgid "Agreed. Let's regroup and prepare for whatever's coming next."
+msgstr "Akkoord. Laten we ons hergroeperen en ons voorbereiden op wat er daarna komt."
+
+msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
+msgstr "Een patrouillegroep heeft een aantal kratten gezien die dichtbij Alexandrië afdrijven. De inhoud van de kratten is momenteel onbekend, maar er is bevestigd dat ze tot het CSN behoren. Er is een shuttle verzonden om ze op te halen, voor het geval ze naar scheepvaartroutes zouden afdwalen. Zodra we ze in ons bezit hebben, zullen we werken om te bepalen hoe ze hier zijn gekomen."
+
+msgid "Not expecting any company, Carr, so this should just be a routine pickup. We'll keep an eye out, though."
+msgstr "Ik verwacht geen enkel bedrijf, Carr, dus dit moet gewoon een routine-afhaling zijn. Maar we houden wel in de gaten."
+
+msgid "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more."
+msgstr "Er werd vastgesteld dat de kratten verschillende munitie droegen, hoewel we nog steeds niet zeker weten waar ze vandaan kwamen. We verzenden shuttles om de volgende paar patrouilles te begeleiden, voor het geval we er nog meer zouden tegenkomen."
+
+msgid "Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up."
+msgstr "IJzeren Patriotten, we identificeren opnieuw een handvol kratten die dicht bij je huidige positie afdrijven. Zorg ervoor dat je wordt opgehaald."
+
+msgid "Got it. Heading to the first one now."
+msgstr "Begrepen. Ga nu naar de eerste."
+
+msgid "Iron Patriots, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location."
+msgstr "Iron Patriots, een gestrande Dart is in de buurt gezien. Er is een ruk verzonden om het naar binnen te brengen. Begeleid het alsjeblieft naar de locatie van het doelwit."
+
+msgid "Know anything about the occupant, or affiliation?"
+msgstr "Weet u iets van de bewoner, of aansluiting?"
+
+msgid "Negative, Lieutenant. We'll know more once it's brought in."
+msgstr "Negatief, luitenant. We zullen meer weten zodra het is binnengebracht."
+
+msgid "Tow cable attached. Ready to head home."
+msgstr "Trekkabel bevestigd. Klaar om naar huis te gaan."
+
+msgid "We're done here. Let's bring our mystery guest in."
+msgstr "We zijn hier klaar. Laten we onze mysterieuze gast binnenbrengen."
+
+msgid "Dan, we've got hostile vessels inbound. More Darts."
+msgstr "Dan, we hebben vijandige schepen die binnenkomen. Meer Darts."
+
+msgid "Prepare to engage. Protect the asset!"
+msgstr "Bereid je voor om deel te nemen. Bescherm het actief!"
+
+msgid "Alexandria, package delivered."
+msgstr "Alexandria, pakket afgeleverd."
+
+msgid "Excellent work, Lieutenant. Let's see what all this tell us. Come on home."
+msgstr "Uitstekend werk, luitenant. Laten we eens kijken wat dit ons allemaal vertelt. Kom op naar huis."
+
+msgid "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Kingdom of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence."
+msgstr "De tussenkomst van de eerder geïntroduceerde piloot onthulde dat munitie wordt verhandeld met de eeuwenoude vijand van Helios, het koninkrijk van Tzac. De armen worden via Temper naar Rothan gestuurd. Dit zou de hoge piratenaanwezigheid langs de grens verklaren. Het verklaart niet waarom de pakketten werden gemorst, echter, en onze gast houdt moeder over het onderwerp. Patrouilles worden opgevoerd, in een poging om meer intelligentie te bieden."
+
+msgid "Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies."
+msgstr "Patrouille, we ontwikkelen een belangrijke situatie. Er vindt een schermutseling plaats tussen een aantal starfighters: Darten, Nimfen en Vuurvliegjes."
+
+msgid "Pirates? Insurgents? Kingdom of Tzac?"
+msgstr "Pirates? Opstandelingen? Kingdom of Tzac?"
+
+msgid "Too early to speculate. We want you to disable and bring in one craft from each side. The rest, you can eliminate."
+msgstr "Te vroeg om te speculeren. We willen dat je één voertuig van beide kanten uitschakelt en invoert. De rest, je kunt elimineren."
+
+msgid "This is Carr, reporting operation successful. Bagged us two squadron commanders."
+msgstr "Dit is Carr, waardoor de operatie geslaagd is. We hebben ons twee commandanten van het squadron in de maling genomen."
+
+msgid "Good work, Commander. Dispatching tugs to bring them in."
+msgstr "Goed gedaan, commandant. Dispatching sleepboten om ze binnen te brengen."
+
+msgid "We finally have all the information we need to help safeguard the Confederation in these turbulent times. By smashing the pirate ring involved in the supplying of arms to Tzac, we can regain control of our internal security matters, and refocus on the war against the Pandorans. All targets must be destroyed, but be advised that the pirates have acquired rocket cannons, that could prove costly if underestimated."
+msgstr "We hebben eindelijk alle informatie die we nodig hebben om de Confederatie te helpen beschermen in deze turbulente tijden. Door de piratenring te slaan die betrokken is bij het leveren van wapens aan Tzac, kunnen we weer controle krijgen over onze interne veiligheidszaken en ons opnieuw concentreren op de oorlog tegen de Pandorans. Alle doelen moeten worden vernietigd, maar wees gewaarschuwd dat de piraten raketkanonnen hebben aangeschaft, die duur zouden kunnen blijken als ze worden onderschat."
+
+msgid "Right, people, let's finish this. Engage at will. Leave nothing standing."
+msgstr "Oké mensen, laten we dit afmaken. Engage naar believen. Laat niets staan."
+
+msgid "Alexandria: opposition stronger than expected. Requesting reinforcements."
+msgstr "Alexandrië: oppositie sterker dan verwacht. Versterkingen aanvragen."
+
+msgid "Acknowledged. They're on their way."
+msgstr "Erkend. Ze zijn onderweg."
+
+msgid "Alexandria: reporting all captain vessels destroyed."
+msgstr "Alexandrië: melding van vernietigde kapiteinsschepen."
+
+msgid "Alexandria: sentry cannons eliminated."
+msgstr "Alexandrië: schildwachtkanonnen geëlimineerd."
+
+msgid "Alexandria: reporting all enemy fighters destroyed."
+msgstr "Alexandrië: rapporteren van alle vernietigde vijandige jagers."
+
+msgid "This is Carr. Reporting threat eliminated, operation successful."
+msgstr "Dit is Carr. Rapportering bedreiging geëlimineerd, operatie geslaagd."
+
+msgid "Excellent work, Commander. We'll get a few frosty ones ready for your return."
+msgstr "Uitstekend werk, commandant. We krijgen een paar ijzig die klaar zijn voor uw terugkeer."
+
+msgid "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle."
+msgstr "De Pandorans zijn begonnen met hun aanval op ons huis en we moeten onmiddellijk handelen om onszelf te verdedigen. Een golf bommenwerpers gaat op weg naar een van onze starports. Ze moeten met spoed worden weggehaald, voordat ze binnen bereik komen. Ze worden mogelijk alleen begeleid door jakhalzen, maar denken dat de Pandoran-piloten zeer bekwaam zijn en niet aflatend in de strijd."
+
+msgid "Recommending taking down the escorts before engaging the bombers. Just watch out for their rockets."
+msgstr "Aanbeveling om de escortes neer te halen voordat je de bommenwerpers inschakelt. Pas op voor hun raketten."
+
+msgid "Be warned, people, these Pandorans are said to be relentless in battle."
+msgstr "Wees gewaarschuwd, mensen, deze Pandorans zouden meedogenloos zijn in de strijd."
+
+msgid "The Pandoran war machine has commenced its advancement beyond Mitikas space. We must prepare to defend Iliad from this powerful foe. Exercise caution: despite outnumbering the enemy units that have entered our space, the Pandorans are said to be relentless in battle, and this small number could well still test us."
+msgstr "De Pandoran-oorlogsmachine is begonnen met zijn vooruitgang buiten de ruimte van Mitikas. We moeten ons voorbereiden om Ilias te verdedigen tegen deze krachtige vijand. Wees voorzichtig: ondanks de meer dan de vijandelijke eenheden die onze ruimte zijn binnengekomen, zijn de Pandorans meedogenloos in de strijd en dit kleine aantal zou ons nog steeds kunnen testen."
+
+msgid "In order to slow the advance of the Pandoran forces, we are going to target one of their supply lines. This should buy us some time while we await UNF and CSN reinforcements, and bring more of our capital ships into position."
+msgstr "Om de opmars van de Pandoran-troepen te vertragen, gaan we naar een van hun bevoorradingslijnen. Dit zou ons tijd moeten kosten terwijl we wachten op UNF- en CSN-versterkingen en meer van onze kapitaalschepen in positie brengen."
+
+msgid "Dust Brothers, this is Control. An INF fighter squadron is inbound. Looks like they're summoned backup."
+msgstr "Stofbroeders, dit is controle. Een INF-jagerssquadron is inkomend. Het lijkt erop dat ze een back-up hebben gemaakt."
+
+msgid "Message received. Will engage as necessary."
+msgstr "Bericht ontvangen. Zal zo nodig deelnemen."
+
+msgid "Almost done here, Control, not many targets remaining."
+msgstr "Bijna gedaan hier, controle, niet veel doelen over."
+
+msgid "Strider, be advised that we are tracking a further three INF fighters heading your way."
+msgstr "Strider, wees erop gewezen dat we nog drie INF-jagers volgen die op jouw pad komen."
+
+msgid "Dammit, spoke too soon ..."
+msgstr "Verdorie, sprak te snel ..."
+
+msgid "We're ready to make a run against the Pandoran fleet's front line, and move our capital ships into strike range. Agamemnon's 1st will assist the Lady Jane Grey, and Joan of Arc, to engage three INF corvettes, under enemy control. We need to ensure that we take down the opposing capitals while ensuring our own survive. The enemy outnumber us, and we need to maintain our strength as much as possible."
+msgstr "We zijn klaar om een ​​run te maken tegen de frontlinie van de Pandoran-vloot en onze kapitale schepen in slagbereik te verplaatsen. Agamemnon's eerste zal de Lady Jane Gray, en Jeanne d'Arc, helpen om drie INF-korvetten in dienst te nemen, onder vijandelijke controle. We moeten ervoor zorgen dat we de tegenovergestelde hoofdsteden ten val brengen en tegelijkertijd onze eigen overlevingskansen behouden. De vijand overtreft ons en we moeten onze kracht zo veel mogelijk behouden."
+
+msgid "Agamemnon's 1st, we're detecting multiple Pandoran fighters moving in to intercept. Take them down, and protect The Lady Grey and Joan of Arc."
+msgstr "Agamemnon's eerste, we detecteren meerdere Pandoran-jagers die binnenkomen om te onderscheppen. Haal ze neer en bescherm The Lady Gray en Jeanne d'Arc."
+
+msgid "Agamemnon's 1st, another wing is approaching. Continue to engage, and await your main targets."
+msgstr "Agamemnon's eerste, een andere vleugel nadert. Blijf deelnemen en wacht op je belangrijkste doelen."
+
+msgid "Agamemnon's 1st, INF Astra has just arrived in the area. Engage and destroy."
+msgstr "Agamemnon's eerste, INF Astra is net aangekomen in het gebied. Betrek en vernietig."
+
+msgid "Escorts?"
+msgstr "Escorts?"
+
+msgid "Four Mitikas fighters."
+msgstr "Vier Mitikas-jagers."
+
+msgid "Agamemnon's 1st, INF Ragnarok on approach. Determining escort group ..."
+msgstr "Agamemnon's 1e, INF Ragnarok bij nadering. Escortgroep bepalen ..."
+
+msgid "Another small escort group: eight fighters."
+msgstr "Nog een kleine escortgroep: acht jagers."
+
+msgid "They must be holding something back."
+msgstr "Ze moeten iets achterhouden."
+
+msgid "Confirmed. Pandoran forces are sending in Scarab bombers."
+msgstr "Bevestigd. Pandoran-troepen sturen Scarab-bommenwerpers in."
+
+msgid "Hell! We need to keep them away from Joan and Grey, while we take down their own capital ships."
+msgstr "Hel! We moeten ze weghouden van Joan en Gray, terwijl we hun eigen kapitaalschepen neerhalen."
+
+msgid "Williams, the Dust Brothers are heading your way, to lend assistance. They should be with you in a few minutes."
+msgstr "Williams, de Dust Brothers komen je tegemoet, om hulp te verlenen. Ze zouden binnen een paar minuten bij je moeten zijn."
+
+msgid "Much appreciated!"
+msgstr "Zeer gewaardeerd!"
+
+msgid "Control, this is Williams. Enemy capital ships have been destroyed, along with all other forces."
+msgstr "Controle, dit is Williams. Vijandelijke kapitaalschepen zijn vernietigd, samen met alle andere krachten."
+
+msgid "Great work, Williams. Rejoin the main the fleet. The enemies forces are gaining strength and we need all the help we can get."
+msgstr "Goed gedaan, Williams. Word weer lid van de vloot. De vijandenkrachten worden sterker en we hebben alle hulp nodig die we kunnen krijgen."
+
+msgid "The defence of Iliad is slipping, our forces are being decimated. We have to hit the enemy back, hard. All available fighters are to move into range and engage. If we lose here, Iliad is finished. We are the last line of defence, and we cannot afford to fail."
+msgstr "De verdediging van Iliad neemt af, onze strijdkrachten worden gedecimeerd. We moeten de vijand terug slaan, hard. Alle beschikbare vechters moeten in bereik gaan en zich engageren. Als we hier verliezen, is Iliad klaar. Wij zijn de laatste verdedigingslinie en we kunnen het ons niet veroorloven om te falen."
+
+msgid "Stay sharp, people. We need to hold the line here!"
+msgstr "Blijf scherp, mensen. We moeten hier de lijn vasthouden!"
+
+msgid "Oh my God, there's a lot of them ..."
+msgstr "Oh mijn god, er zijn veel van hen ..."
+
+msgid "Pair up, and take them down together. We stand a much better chance that way."
+msgstr "Combineer en neem ze samen neer. Op die manier hebben we een veel betere kans."
+
+msgid "Heads up, people. Four INF corvettes just entered the area."
+msgstr "Duikt op, mensen. Vier INF-korvetten kwamen net het gebied binnen."
+
+msgid "What's happened to all our own capital ships?!"
+msgstr "Wat is er met al onze eigen kapitaalschepen gebeurd ?!"
+
+msgid "They've been scratched."
+msgstr "Ze zijn gekrast."
+
+msgid "That Dust Brothers have been flagged."
+msgstr "Dat Dust Brothers zijn gemarkeerd."
+
+msgid "We have to sound the retreat!"
+msgstr "We moeten de terugtocht klinken!"
+
+msgid "Mister, you remain where you are! We're not abando--"
+msgstr "Meneer, u blijft waar u bent! We zijn niet abando--"
+
+msgid "The wing commander's dead."
+msgstr "De commandant van de vleugel is dood."
+
+msgid "Caution, everyone. The Tzac forces might be deliberately targeting the civilians in the area. We need to eliminate or drive those Shales away, as quickly as possible."
+msgstr "Voorzichtig, iedereen. De Tzac-troepen richten mogelijk doelbewust de burgers in het gebied. We moeten deze Shales zo snel mogelijk wegnemen of wegjagen."
+
+msgid "Picking up another group of Shales, incoming."
+msgstr "Een andere groep van Shales ophalen, binnenkomend."
+
+msgid "Another squadrons of Shales is inbound."
+msgstr "Een andere eskadron van Shales is inkomende."
+
+msgid "That's all of them. Let's get these civilians to safety."
+msgstr "Dat zijn ze allemaal. Laten we deze burgers in veiligheid brengen."
+
+msgid "First civilian casualty confirmed. Let's step it up, guys."
+msgstr "Eerste burgerlachtoffer bevestigd. Laten we het opvoeren, jongens."
+
+msgid "The Tzac forces are picking the civilians off. We need to act faster."
+msgstr "De Tzac-troepen pikken de burgers af. We moeten sneller handelen."
+
+msgid "Dammit, we're losing too many of them!"
+msgstr "Verdomme, we verliezen er te veel van!"
+
+msgid "Too many losses ..."
+msgstr "Te veel verliezen ..."
+
+msgid "UNF Lovelace was recently attacked by a mercenary group, believed to be aligned with Tzac. While the corvette and the Sparrows were able to see off the attackers, it was nevertheless a focused and dedicated assault, that almost ended in disaster. More are likely to come, so we should remain vigilant."
+msgstr "UNF Lovelace is onlangs aangevallen door een huursoldaat, waarvan wordt aangenomen dat het in lijn is met Tzac. Terwijl het korvet en de mussen in staat waren om de aanvallers af te leiden, was het niettemin een gerichte en toegewijde aanval, die bijna in een ramp eindigde. Er zullen waarschijnlijk meer volgen, dus we moeten waakzaam blijven."
+
+msgid "Got Darts, incoming."
+msgstr "Ik heb Darten, inkomend."
+
+msgid "Looks like Lovelace wasn't their only target. Prepare to engage, people."
+msgstr "Lijkt erop dat Lovelace niet hun enige doelwit was. Bereid je voor om deel te nemen, mensen."
+
+msgid "We're picking up a lot of chatter on the mercenaries' channels. They're not happy with how things are going."
+msgstr "We komen veel gepraat tegen op de kanalen van huurlingen. Ze zijn niet blij met hoe het gaat."
+
+msgid "Then let's concentrate on making them even more unhappy."
+msgstr "Laten we ons dan concentreren op het nog meer ongelukkig maken."
+
+msgid "The mercenaries are throwing in the towel and pulling back. They've had enough."
+msgstr "De huursoldaten gooien de handdoek in de ring en trekken zich terug. Ze hebben er genoeg van."
+
+msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
+msgstr "Goed gedaan, allemaal. We hebben zowel Tzac als die huurlingen vandaag een duidelijke boodschap gestuurd. Ik denk dat het overduidelijk is wat onze volgende zet zou moeten zijn ..."
+
+msgid "You've done well so far, Hicks. We appreciate that things have not been easy, but you're in a better position than many of us had hoped for. As soon as you're able, begin your search for the admiral. Once located, you will need to open a dialog with him. Whatever you do, do not kill him."
+msgstr "Tot nu toe heb je het goed gedaan, Hicks. We stellen het op prijs dat dingen niet gemakkelijk zijn geweest, maar je bent in een betere positie dan velen van ons hadden gehoopt. Zodra je in staat bent, begin je met zoeken naar de admiraal. Eenmaal gevonden, moet u een dialoogvenster met hem openen. Wat je ook doet, hem niet doden."
+
+msgid "So, this is Krasst. Never thought I'd ever find myself here."
+msgstr "Dus dit is Krasst. Nooit gedacht dat ik mezelf ooit hier zou vinden."
+
+msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and not raise suspicion."
+msgstr "Het lijkt er niet op dat de commandant van de vleugel mijn bewegingen meer volgt. Veel schepen hier in de buurt. Ik zou waarschijnlijk vrij tussen hen kunnen bewegen en geen achterdocht zaaien."
+
+msgid "Time to start my search for the admiral."
+msgstr "Tijd om mijn zoektocht naar de admiraal te beginnen."
+
+msgid "This isn't going to be easy. There are a lot of ships here."
+msgstr "Dit zal niet gemakkelijk zijn. Er zijn veel schepen hier."
+
+msgid "Still nothing. I don't even know what I'm looking for. No carriers in sight, and none of the more recognizable capital ships, either."
+msgstr "Nog steeds niets. Ik weet niet eens waar ik naar op zoek ben. Er zijn geen vervoerders in zicht en ook geen van de meer herkenbare kapitaalschepen."
+
+msgid "I have a feeling I'm ultimately going to have to find a way to get aboard Dragon. But as soon as I'm out of this fighter they'll know I'm an imposter."
+msgstr "Ik heb het gevoel dat ik uiteindelijk een manier moet vinden om aan boord van Dragon te komen. Maar zodra ik uit deze vechter ben, zullen ze weten dat ik een bedrieger ben."
+
+msgid "I've been lucky so far, but I've got a horrible feeling my luck is starting to run out."
+msgstr "Ik heb tot nu toe geluk gehad, maar ik heb een vreselijk gevoel dat mijn geluk begint op te raken."
+
+msgid "Wait ... what's that? That Sphinx. It's different from the rest. I've never seen one like it before."
+msgstr "Wacht ... wat is dat? Die Sfinx. Het is anders dan de rest. Ik heb nog nooit zoiets gezien."
+
+msgid "I should follow it, and see where it goes."
+msgstr "Ik zou het moeten volgen en kijken waar het naartoe gaat."
+
+msgid "I've been watching you. Who are you? What are you doing here?"
+msgstr "Ik heb je in de gaten gehouden. Wie ben je? Wat doe je hier?"
+
+msgid "Ah, crap!"
+msgstr "Ah, rotzooi!"
+
+msgid "You are not Dodds."
+msgstr "Jij bent geen Dodds."
+
+msgid "You were brave for coming this far on your own, but that was ultimately a foolish decision."
+msgstr "Je was dapper om zo ver op jezelf te komen, maar dat was uiteindelijk een dwaze beslissing."
+
+msgid "Hell! That's Zackaria for sure, but he's on to me. I need to get out of here, quickly!"
+msgstr "Hel! Dat is zeker Zackaria, maar hij is op mij aangewezen. Ik moet hier weg, snel!"
+
+msgid "They've shutdown the jumpgate ..."
+msgstr "Ze hebben de Jumpgate afgesloten ..."
+
+msgid "Hell! My cover's been blown, they're on to me!"
+msgstr "Hel! Mijn dekking is verbroken, ze zijn op mij gericht!"
+
+msgid "The bulk of the allied forces have fallen back to Lenon, to prepare for whatever is to come next. For now, we are standing down and awaiting new instructions from senior command."
+msgstr "Het gros van de geallieerde troepen is teruggevallen naar Lenon, om zich voor te bereiden op wat daarna komt. Voor nu staan ​​we neer en wachten op nieuwe instructies van het hoogste commando."
+
+msgid "So, Torelli is dust?"
+msgstr "Dus, Torelli is stof?"
+
+msgid "Dragon's anti-matter cannon ignited the atmosphere, and created a firestorm. It engulfed the entire planet in under twelve hours."
+msgstr "Dragon's anti-materiekanon ontbrandde de atmosfeer en creëerde een vuurstorm. Het overspoelde de hele planeet in minder dan twaalf uur."
+
+msgid "Did no-one survive?"
+msgstr "Heeft niemand het overleefd?"
+
+msgid "Unlikely."
+msgstr "Onwaarschijnlijk."
+
+msgid "Think they'll do that against every planet they come to?"
+msgstr "Denk je dat ze dat zullen doen tegen elke planeet waar ze naar toe komen?"
+
+msgid "More effective than a nuke, and faster than a ground assault. So long as they don't need the resources, they'll fire and forget."
+msgstr "Effectiever dan een nuke en sneller dan een grondaanval. Zolang ze de middelen niet nodig hebben, schieten ze en vergeten ze."
+
+msgid "There must be something we can do."
+msgstr "Er moet iets zijn dat we kunnen doen."
+
+msgid "Our only option is to destroy Dragon. And direct assaults haven't gone so well in the past."
+msgstr "Onze enige optie is om Dragon te vernietigen. En directe aanvallen zijn in het verleden niet zo goed gegaan."
+
+msgid "If we can even get close to it. Zackaria's going to become even more protective of that battleship now he knows what else it can do."
+msgstr "Als we er zelfs maar dichtbij kunnen komen. Zackaria zal nog meer beschermend worden tegen dat oorlogsschip nu hij weet wat het nog meer kan doen."
+
+msgid "There has to be something ..."
+msgstr "Er moet iets zijn ..."
+
+msgid "There might be."
+msgstr "Er zou kunnen zijn."
+
+msgid "Have you heard something, Estelle?"
+msgstr "Heb je iets gehoord, Estelle?"
+
+msgid "Mumblings. Apparently, Parks has a plan involving the Temper system. He's got orders out to get as many nukes as he can lay his hands on. I don't know any more than that, though."
+msgstr "Gemompel. Blijkbaar heeft Parks een plan met het Temper-systeem. Hij heeft bevelen om zoveel mogelijk kernwapens te krijgen als hij zijn handen kan opleggen. Ik weet echter niet meer dan dat."
+
+msgid "Sound promising?"
+msgstr "Klinkt het veelbelovend?"
+
+msgid "Too early to say. But right now, I remain confident."
+msgstr "Te vroeg om te zeggen. Maar op dit moment blijf ik zelfverzekerd."
+
+msgid "And what if that fails? What do we do then?"
+msgstr "En wat als dat faalt? Wat doen we dan?"
+
+msgid "We try something else."
+msgstr "We proberen iets anders."
+
+msgid "Like simply fighting them? Because there are nearly twenty billion of those bastards, and while we're not light on personnel, we're losing numbers rapidly."
+msgstr "Vind je het eenvoudig om ze te bestrijden? Omdat er bijna twintig miljard van die klootzakken zijn, en hoewel we geen licht op personeel hebben, verliezen we snel cijfers."
+
+msgid "What's to stop them doing to Helios what they just did to the Independents?"
+msgstr "Wat houdt hen tegen om Helios te doen wat ze zojuist met de Independents hebben gedaan?"
+
+msgid "You mean smash each world they come to? All the way to Earth?"
+msgstr "Je bedoelt elke wereld waar ze naar toe komen te verpletteren? Helemaal naar de aarde?"
+
+msgid "Yes. Remember on Mythos? Parks said it was a very real possibility. At this rate, we just might find ourselves having to fight a battle for the Solar System."
+msgstr "Ja. Weet je nog op Mythos? Parks zei dat het een zeer reële mogelijkheid was. In dit tempo zouden we onszelf misschien moeten vechten voor het zonnestelsel."
+
+msgid "Don't worry, Simon. I doubt they'll ever get that far."
+msgstr "Maak je geen zorgen, Simon. Ik betwijfel of ze ooit zover zullen komen."
+
+msgid "The time has come to take the fight to Tzac. We will begin by striking their outer defences, and containing their forces to the system. The Iron Wolves will lead an attack against one of the outer jumpgates. It will likely be heavily defended, and heavy-class Tzac Blizzards could well arrive in the area as soon as you begin your assault."
+msgstr "Het is tijd om het gevecht met Tzac aan te gaan. We zullen beginnen door hun uiterlijke verdedigingen te treffen en hun krachten in het systeem te houden. De Iron Wolves zullen een aanval uitvoeren tegen een van de buitenste spronghekken. Het wordt waarschijnlijk zwaar verdedigd en zware Tzac-blizzards kunnen goed in het gebied aankomen zodra je met je aanval begint."
+
+msgid "Our goal is the jumpgate. Expect a lot of resistance."
+msgstr "Ons doel is de Jumpgate. Verwacht veel weerstand."
+
+msgid "Once we're there, we need to destroy the control nodes to shut it down. Barclay, that's your job."
+msgstr "Als we er eenmaal zijn, moeten we de controleknooppunten vernietigen om het uit te schakelen. Barclay, dat is jouw taak."
+
+msgid "More enemies incoming."
+msgstr "Meer binnenkomende vijanden."
+
+msgid "Commander, I'm detecting a wing of Blizzards, incoming."
+msgstr "Commandant, ik detecteer een vleugel van sneeuwstormen, binnenkomend."
+
+msgid "Couldn't expect Tzac not to bring out the heavy guns. Let's take it to them, people."
+msgstr "Kon niet verwachten dat Tzac de zware kanonnen niet zou tevoorschijn halen. Laten we het aan hen overlaten, mensen."
+
+msgid "We're clear for the run against the gate."
+msgstr "We zijn klaar voor de aanloop tegen de poort."
+
+msgid "It's guarded by several rapid-fire plasma turrets. Try not to let those things get a lock on you."
+msgstr "Het wordt bewaakt door verschillende snelvuur plasma-torentjes. Probeer die dingen niet op slot te krijgen."
+
+msgid "Half the nodes are down."
+msgstr "De helft van de knooppunten is naar beneden."
+
+msgid "Keep at it!"
+msgstr "Ga ermee door!"
+
+msgid "Jumpgate is down."
+msgstr "Jumpgate is uitgeschakeld."
+
+msgid "Control, this is Wolfenden. Tzac's outer jumpgate is offline."
+msgstr "Controle, dit is Wolfenden. De buitenste jumpgate van Tzac is offline."
+
+msgid "Acknowledged. Hold position there. We'll need you to guard that gate and prevent the enemy from affecting repairs."
+msgstr "Erkend. Houd positie daar vast. We hebben je nodig om die poort te bewaken en te voorkomen dat de vijand reparaties beïnvloedt."
+
+msgid "Dammit, the team's been cut down! Looks like it's up to you and me, Ian."
+msgstr "Verdorie, het team is gekapt! Het lijkt erop dat jij en ik het doen, Ian."
+
+msgid "We'll make sure their deaths weren't in vain."
+msgstr "We zullen ervoor zorgen dat hun dood niet tevergeefs was."
+
+msgid "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces."
+msgstr "De eerste aanval ging buitengewoon goed en we zijn klaar om verder te gaan in het systeem. Tzac-troepen gaan omhoog om ons te ontmoeten, dus verwacht zware weerstand. Je doel is simpel: vernietig alle vijandelijke troepen."
+
+msgid "HMS 781-110 sighted. All fighters free to engage at will."
+msgstr "HMS 781-110 waargenomen. Alle vechters zijn vrij om deel te nemen op wil."
+
+msgid "Control, HMS 781-110 has been taken down."
+msgstr "Controle, HMS 781-110 is verwijderd."
+
+msgid "Infinites, HMS 781-041 has arrived in the area. Engage and destroy."
+msgstr "Infinites, HMS 781-041 is aangekomen in het gebied. Betrek en vernietig."
+
+msgid "Acknowledged."
+msgstr "Erkend."
+
+msgid "Commander, a large group of Shales just arrived in the area"
+msgstr "Commandant, een grote groep van Shales is net aangekomen in het gebied"
+
+msgid "Hell, they've called for backup. We should take them down before dealing with HMS 781-041"
+msgstr "Verdorie, ze hebben om hulp gevraagd. We moeten ze verwijderen voordat u HMS 781-041 gebruikt"
+
+msgid "This is HMS 781-041 of the Kingdom of Tzac! We surrender! Repeat, we surrender!"
+msgstr "Dit is HMS 781-041 van het Koninkrijk Tzac! We geven ons over! Herhaal, we geven ons over!"
+
+msgid "Did anyone else get that?"
+msgstr "Heeft iemand anders dat begrepen?"
+
+msgid "HMS 781-041, please repeat."
+msgstr "HMS 781-041, herhaal alstublieft."
+
+msgid "Hell! Too late!"
+msgstr "Hel! Te laat!"
+
+msgid "Infinites, it appears remaining enemy forces are retreating. Please stand down."
+msgstr "Oneindige lijkt het erop dat de resterende vijandelijke troepen zich terugtrekken. Ga alsjeblieft staan."
+
+msgid "Received."
+msgstr "Ontvangen."
+
+msgid "That was unexpected."
+msgstr "Dat was onverwachts."
+
+msgid "Sure was. We'd better get to debriefing."
+msgstr "Dat was het zeker. We kunnen maar beter naar de debriefing gaan."
+
+msgid "There is growing public unrest over the on-going war, with a number of high-profile voices calling for an immediate end to the attacks on Tzac. While we cannot abandon the campaign while Tzac remains a threat, we can reduce the loss of life by disabling the enemy craft, instead of destroying them. That should placate the anti-war campaigners for a time."
+msgstr "Er is groeiende publieke onrust over de aanhoudende oorlog, met een aantal spraakmakende stemmen waarin wordt opgeroepen tot een onmiddellijk einde aan de aanvallen op Tzac. Hoewel we de campagne niet kunnen verlaten terwijl Tzac een bedreiging blijft, kunnen we het verlies aan mensenlevens verminderen door het vijandelijke ruimteschip uit te schakelen in plaats van ze te vernietigen. Dat zou de anti-oorlogsvijanden voor een poosje moeten plezieren."
+
+msgid "We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?"
+msgstr "We gaan naar de helft van hun strijdkrachten en vernietigen de anderen. Degenen die uitgeschakeld zijn, zijn getagd. Is iedereen klaar?"
+
+msgid "Watch your fire: remember, a stray shot could easily destroy a disabled craft."
+msgstr "Let op je vuur: onthoud dat een verdwaald schot gemakkelijk een gehandicapt vaartuig kan vernietigen."
+
+msgid "All tagged Tzac fighters have been disabled."
+msgstr "Alle getagde Tzac-jagers zijn uitgeschakeld."
+
+msgid "Tzac opposition has been destroyed."
+msgstr "Tzac-oppositie is vernietigd."
+
+msgid "Great work, everyone. That should give the PR guys something to brag about."
+msgstr "Fantastisch werk, allemaal. Dat zou de PR-jongens iets moeten geven om over op te scheppen."
+
+msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualties to a minimum."
+msgstr "We komen dichter bij Tzac zelf. Dit is waar dingen lastig worden, omdat we ervoor moeten zorgen dat we de keizerin levend houden. Grondteams zullen haar uit haar paleis spoelen en ze zal waarschijnlijk rennen naar de springpoort. Haar shuttle moet worden uitgeschakeld en beschermd zodra deze wordt waargenomen. Vergeet niet om vijandige slachtoffers tot een minimum te beperken."
+
+msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
+msgstr "Alles, onze missie-parameters zijn veranderd. De Pandorans maken een actie tegen Mace. We moeten snel handelen."
+
+msgid "Therefore, you have permission to destroy any and all opposing forces, no need to mag these guys."
+msgstr "Daarom heb je toestemming om alle vijandige troepen te vernietigen, het is niet nodig om deze jongens te verslaan."
+
+msgid "Commander, we've got Darts and Shales incoming."
+msgstr "Commandant, we hebben Darten en schalen binnen."
+
+msgid "Looks like some mercenaries decided to stick around. Let's show them why that was a bad move."
+msgstr "Het lijkt erop dat sommige huursoldaten besloten om rond te blijven. Laten we hen laten zien waarom dat een slechte zet was."
+
+msgid "That's them seen to. Onwards to the jumpgate."
+msgstr "Dat is waar ze gezien hebben. Verder naar de Jumpgate."
+
+msgid "Got INF fighters incoming."
+msgstr "Kreeg INF-jagers binnen."
+
+msgid "Knew it wouldn't be long."
+msgstr "Wist dat het niet lang zou duren."
+
+msgid "Patriots, a Tzac warship just arrived in the area, but it has Imperial fighter escorts. Most likely it's been acquired by the Pandroans. It needs to be taken down before Cristabel makes her escape bid, as it might be here to kill her."
+msgstr "Patriotten, een Tzac-oorlogsschip is net aangekomen in het gebied, maar het heeft imperiale jagersescortes. Hoogstwaarschijnlijk is het overgenomen door de Pandroans. Het moet worden weggenomen voordat Cristabel haar ontsnappingsbod doet, want het kan hier zijn om haar te vermoorden."
+
+msgid "Got it. You all heard that. Let's get to it."
+msgstr "Begrepen. Dat hebben jullie allemaal gehoord. Laten we ernaar toe gaan."
+
+msgid "I'm picking up a shuttle on radar. Looks like Christabel."
+msgstr "Ik neem een ​​shuttle op op de radar. Lijkt op Christabel."
+
+msgid "Goddard, you're up! Mag that shuttle before it gets away."
+msgstr "Goddard, je bent klaar! Mag die shuttle voordat hij wegkomt."
+
+msgid "On it!"
+msgstr "Ben ermee bezig!"
+
+msgid "Christabel's shuttle has been disabled."
+msgstr "De shuttle van Christabel is uitgeschakeld."
+
+msgid "Excellent work! Now let's finish off the rest of these fighters."
+msgstr "Goed werk! Laten we de rest van deze vechters afmaken."
+
+msgid "All enemies down. Let's get over to Christabel's shuttle and secure the empress."
+msgstr "Alle vijanden neer. Laten we naar de shuttle van Christabel gaan en de keizerin beveiligen."
+
+msgid "Empress Christabel, this is Cdr. de Winter of the Confederation Stellar Navy."
+msgstr "Keizerin Christabel, dit is Cdr. de Winter of the Confederation Stellar Navy."
+
+msgid "Acting under the authority of the allied forces, I am hereby placing you under arrest, for breaches of intergalactic law."
+msgstr "Handelend onder het gezag van de geallieerden, plaats ik u hierbij onder arrest vanwege inbreuken op de intergalactische wet."
+
+msgid "You will be escorted to a neutral court, where you will be tried for your crimes."
+msgstr "Je wordt begeleid naar een neutrale rechtbank, waar je voor je misdaden wordt berecht."
+
+msgid "If found guilty, the intergalactic community will decide on your punishment."
+msgstr "Als je schuldig wordt bevonden, zal de intergalactische gemeenschap beslissen over je straf."
+
+msgid "Sorry, your Highness. I wish it didn't have to go this way, but the galaxy has enough problems as it is."
+msgstr "Sorry, edelachtbare. Ik wou dat het niet op deze manier hoefde te gaan, maar het sterrenstelsel heeft genoeg problemen zoals het is."
+
+msgid "If--"
+msgstr "Als--"
+
+msgid "Woah! What the hell just happened?!"
+msgstr "Woah! Wat is er in hemelsnaam gebeurd ?!"
+
+msgid "Did anyone fire?!"
+msgstr "Heeft iemand gebeld ?!"
+
+msgid "All guns cold, Commander. Looks like she might have self destructed her own ship."
+msgstr "Alle wapens koud, commandant. Het lijkt erop dat ze misschien zelf haar schip vernietigd heeft."
+
+msgid "Dammit!"
+msgstr "Dammit!"
+
+msgid "Now what?"
+msgstr "Wat nu?"
+
+msgid "Nothing more we can do. We should evacuate the area before more Pandoran forces arrive."
+msgstr "Niets meer wat we kunnen doen. We moeten het gebied evacueren voordat er meer Pandorese troepen aankomen."
+
+msgid "An opportunity has been granted for us to infiltrate Mitikas space, the Pandoran army, and ultimate get close to Jason Zackaria or Julian Rissard. If nothing else, we could still discover the whereabouts of these two elusive men, which could assist in future operations to capture them. Your goal is to acquire an Angel, an outdated INF fighter that currently lies in the hands of mercenaries. They have retreated to Phylent to affect repairs, so now is the chance to strike."
+msgstr "We hebben de gelegenheid gekregen om de Mitikas-ruimte, het Pandoran-leger, te infiltreren en uiteindelijk bij Jason Zackaria of Julian Rissard te komen. Als er niets anders was, konden we nog steeds de verblijfplaats van deze twee ongrijpbare mannen ontdekken, die zouden kunnen helpen bij toekomstige operaties om ze te vangen. Je doel is om een ​​Engel te verwerven, een verouderde INF-jager die momenteel in handen van huurlingen ligt. Ze zijn teruggegaan naar Phylent om reparaties te beïnvloeden, dus nu is de kans om toe te slaan."
+
+msgid "I've sighted the Angel. Let's move in and secure it."
+msgstr "Ik heb de engel gezien. Laten we naar binnen gaan en het beveiligen."
+
+msgid "Are the specs for this fighter correct? I've never heard of an Angel before? Sure it's not some kind of INF super weapon?"
+msgstr "Zijn de specificaties voor deze jager correct? Ik heb nog nooit van een engel gehoord? Natuurlijk is het geen INF-superwapen?"
+
+msgid "It's an old, outdated class. I don't think the INF ever had an ATAF-like fighter."
+msgstr "Het is een oude, verouderde klas. Ik denk niet dat de INF ooit een ATAF-achtige jager heeft gehad."
+
+msgid "They'd have given us something more powerful to work with, if that was an uber-craft."
+msgstr "Ze zouden ons iets krachtiger hebben gegeven om mee te werken, als dat een oer-ambacht was."
+
+msgid "Whatever it is, the secret service want it pretty badly."
+msgstr "Wat het ook is, de geheime dienst wil het vrij slecht."
+
+msgid "I'll just be glad to get out of here. This is Pandoran-controlled space we're in."
+msgstr "Ik zal gewoon blij zijn hier weg te gaan. Dit is Pandoran-gecontroleerde ruimte waarin we ons bevinden."
+
+msgid "Angel has been disabled."
+msgstr "Angel is uitgeschakeld."
+
+msgid "Good, let's hook the Tug up ASAP and move on to the next step."
+msgstr "Goed, laten we de Tug zo snel mogelijk aansluiten en doorgaan naar de volgende stap."
+
+msgid "We have our goal, let's head over to it. Nearly done."
+msgstr "We hebben ons doel, laten we naar het gaan. Bijna klaar."
+
+msgid "PJ, I'm reading Darts all around the waypoint. Others closing in from the sides."
+msgstr "PJ, ik lees Darts rondom het tussenpunt. Anderen sluiten vanaf de zijkanten in."
+
+msgid "They're scanning me!"
+msgstr "Ze scannen me!"
+
+msgid "Hell! They clearly don't want us to have it if they can't have it. Prepare to engage!"
+msgstr "Hel! Ze willen duidelijk niet dat we het hebben als ze het niet kunnen hebben. Bereid je voor om deel te nemen!"
+
+msgid "Okay, we're done. We're to wait here for pickup. Shouldn't be more than a few minutes."
+msgstr "Oké, we zijn klaar. We moeten hier wachten om opgehaald te worden. Moet niet meer dan een paar minuten duren."
+
+msgid "What do you think they've got planned for this thing?"
+msgstr "Wat denk je dat ze gepland hebben voor dit ding?"
+
+msgid "No idea. But what I do know is that we're not involved any further."
+msgstr "Geen idee. Maar wat ik wel weet, is dat we niet verder betrokken zijn."
+
+msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
+msgstr "Er is een noodoproep van een CSN-squadron uitgegeven, die Pandoran-doelen aannam. Het lijkt erop dat de vijand de jagers heeft gemanipuleerd in plaats van ze te vernietigen. INF-sleepboten bereiden zich voor om ze via het hek uit het systeem te leiden. We moeten die sleepboten vernietigen en die mannen en vrouwen in veiligheid brengen. We kunnen niet toestaan ​​dat de Pandorans een van onze technologie in handen krijgen."
+
+msgid "White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate."
+msgstr "White Knights, de vijandelijke sleepboten zijn al in positie en verbinden sleepkabels. Ze mogen die vechters en piloten niet naar de Jumpgate krijgen."
+
+msgid "Can you disable the gate remotely?"
+msgstr "Kun je de poort op afstand uitschakelen?"
+
+msgid "Negative, the Pandorans have control. We're working take back command functions. Stand by."
+msgstr "Negatief, de Pandorans hebben controle. We werken aan het terugnemen van commandofuncties. Stand-by."
+
+msgid "Griffin, all enemy tugs have been dispatched."
+msgstr "Griffioen, alle vijandelijke sleepboten zijn verzonden."
+
+msgid "Good work, Commander. We've regained control of the gate. We're sending our own tugs through now."
+msgstr "Goed gedaan, commandant. We hebben de controle over de poort herwonnen. We sturen nu onze eigen sleepboten door."
+
+msgid "Estelle, I'm picking up incoming INF fighters."
+msgstr "Estelle, ik neem inkomende INF-jagers op."
+
+msgid "Hell! Protect the tugs. Make sure they get everyone home."
+msgstr "Hel! Bescherm de sleepboten. Zorg dat iedereen iedereen thuis krijgt."
+
+msgid "Griffin, this is de Winter. Operation successful."
+msgstr "Griffin, dit is de Winter. Missie volbracht."
+
+msgid "I knew I could count on you, de Winter. Head back to Griffin."
+msgstr "Ik wist dat ik op je kon rekenen, de Winter. Ga terug naar Griffin."
+
+msgid "The Pandorans are preparing for a major push into Rothan, so we need to shore up defences as quickly as possible. Command have selected a number of positions that will give us a strategic advantage in the early stages of battle when the enemy arrives. The Blue Jesters are to link up with the Irregular Nomads near to one Rothan's inner jumpgates, and await further instructions."
+msgstr "De Pandorans bereiden zich voor op een grote duw in Rothan, dus we moeten de verdediging zo snel mogelijk versterken. Command heeft een aantal posities geselecteerd die ons een strategisch voordeel zullen geven in de vroege fases van de strijd wanneer de vijand arriveert. De blauwe narren moeten zich aansluiten bij de onregelmatige nomaden in de buurt van de binnenste spronghekjes van een Rothan en wachten op verdere instructies."
+
+msgid "Control, we're in position. Awaiting the Irregular Nomads."
+msgstr "Controle, we zijn in positie. In afwachting van de onregelmatige nomaden."
+
+msgid "Irregular Nomads have just exited the jumpgate. They'll be with you shortly."
+msgstr "Irregular Nomads zijn net de Jumpgate verlaten. Ze zullen binnenkort bij je zijn."
+
+msgid "Commander Spencer, we're on our way. We'll join you at the waypoint."
+msgstr "Commandant Spencer, we zijn onderweg. We gaan met je mee op het waypoint."
+
+msgid "Acknowledged, Lieutenant, we'll see you in a bit."
+msgstr "Erkend, luitenant, we zullen je een beetje zien."
+
+msgid "Control, we're ready to--"
+msgstr "Controle, we zijn klaar om ..."
+
+msgid "Commander, be advised that we are detecting UNF fighters advancing on your position, several Nymphs and Fireflies. They are not responding to requests to identify presence or purpose."
+msgstr "Commandant, wees erop gewezen dat we UNF-jagers detecteren die oprukken naar uw positie, verschillende nimfen en vuurvliegjes. Ze reageren niet op verzoeken om aanwezigheid of doel te identificeren."
+
+msgid "Pandorans?"
+msgstr "Pandorans?"
+
+msgid "Their signatures don't suggest so."
+msgstr "Hun handtekeningen suggereren dat niet."
+
+msgid "Commander, incoming fighters are hostile. Suggest you prepare to engage or fallback to the jumpgate."
+msgstr "Commandant, binnenkomende jagers zijn vijandig. Stel je voor je voor te bereiden om deel te nemen of terug te vallen naar de Jumpgate."
+
+msgid "Acknowledged, moving to engage."
+msgstr "Erkend, verhuisd om deel te nemen."
+
+msgid "Control, enemy targets have been eliminated."
+msgstr "Controle, vijandelijke doelen zijn geëlimineerd."
+
+msgid "Any survivors?"
+msgstr "Alle overlevenden?"
+
+msgid "Negative, I didn't see anyone eject from those fighters."
+msgstr "Negatief, ik zag niemand uit die jagers werpen."
+
+msgid "Commander, your current missions has been aborted. Return to the jumpgate. We need a full report as to what just happened out there."
+msgstr "Commandant, uw huidige missies zijn afgebroken. Ga terug naar de Jumpgate. We hebben een volledig rapport nodig over wat er daarnet is gebeurd."
+
+msgid "Got it, coming home."
+msgstr "Heb het, thuiskomen."
+
+msgid "We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here."
+msgstr "We hebben meerdere inkomende Tzac-jagers. We moeten voorkomen dat ze de schepen hier vernietigen."
+
+msgid "Any backup on the way?"
+msgstr "Enige back-up onderweg?"
+
+msgid "The threat warning came in too late for any other squadrons to assist us, but we have the turrets to assist us."
+msgstr "De dreigingswaarschuwing kwam te laat voor andere squadrons om ons te helpen, maar we hebben de torentjes om ons te helpen."
+
+msgid "Expect the Tzac bombers to focus on destroying the tugs and shuttles."
+msgstr "Verwacht dat de Tzac-bommenwerpers zich concentreren op het vernietigen van de sleepboten en shuttles."
+
+msgid "Enemy fighters spotted. No sign of the squadron wing commander, though. We might have to draw him out."
+msgstr "Vijandelijke strijders gespot. Geen teken van de commandant van de eskadervleugel. Misschien moeten we hem eruit halen."
+
+msgid "Rose, we'll be relying on you to disable his fighter as soon as he puts in an appearance."
+msgstr "Rose, we rekenen erop dat je zijn jager uitschakelt zodra hij verschijnt."
+
+msgid "Tzac commander sighted, Commander."
+msgstr "Tzac-commandant ziende, commandant."
+
+msgid "Get to it, Lieutenant. We'll cover you."
+msgstr "Ga erheen, luitenant. We zullen je dekken."
+
+msgid "Tzac commander's Shale has been disabled."
+msgstr "De schalie van commandant Tzac is uitgeschakeld."
+
+msgid "Control, this is Spencer. Reporting operation successful."
+msgstr "Controle, dit is Spencer. Rapportage succesvol verlopen."
+
+msgid "You have the commander?"
+msgstr "Heb je de commandant?"
+
+msgid "Bagged and tagged."
+msgstr "In de zak en getagd."
+
+msgid "Excellent work, Jesters. Everything looks clear, so we'll dispatch a tug to your location to bring him in. See you soon."
+msgstr "Uitstekend werk, Jesters. Alles ziet er duidelijk uit, dus we sturen een sleepboot naar je locatie om hem binnen te brengen. Tot binnenkort."
+
+msgid "The Pandorans have launched a sudden attack against the system. It appears that they are capitalizing on the chaos that the Kingdom of Tzac has thrown us into. We need to repel this attack, as defeat here could mean a major setback in our struggle against both enemies."
+msgstr "De Pandorans hebben een plotselinge aanval op het systeem ingezet. Het lijkt erop dat ze profiteren van de chaos waar het koninkrijk Tzac ons in heeft gegooid. We moeten deze aanval afstoten, want nederlaag hier kan een grote tegenvaller betekenen in onze strijd tegen beide vijanden."
+
+msgid "Hell, they're outnumbering us, a good two-to-one!"
+msgstr "Verdorie, ze zijn meer dan ons, een goede twee-tegen-één!"
+
+msgid "There are Swarmers in their ranks, making up the bulk. Don't lose faith people, we can do this."
+msgstr "Er zijn zwervers in hun gelederen, die het grootste deel uitmaken. Verlies geen geloofsmensen, we kunnen dit doen."
+
+msgid "That's the last of 'em. Not often we win an engagement like this."
+msgstr "Dat is de laatste van hen. Niet vaak winnen we een engagement als dit."
+
+msgid "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabited planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance."
+msgstr "De Pandorans dringen hun voordeel in en sluiten zich aan bij de bewoonde planeten van Rothan. Ze moeten verslagen worden, omdat een verlies hier betekent dat ze een grondaanval beginnen. Verwacht zware weerstand."
+
+msgid "Brace yourselves, lads."
+msgstr "Zet je schrap, jongens."
+
+msgid "Picking up two Mitikas corvettes: Mora and Karambit."
+msgstr "Oppakken van twee Mitikas-korvetten: Mora en Karambit."
+
+msgid "We need to give Hopper and Blackburn support in dealing with them. Get to it."
+msgstr "We moeten Hopper en Blackburn ondersteunen bij het omgaan met hen. Ga erheen."
+
+msgid "Hell, where'd they get those Khepris from?"
+msgstr "Waar hebben ze die Khepris vandaan?"
+
+msgid "Christabel must've decided to try and attack the Pandorans directly. Went as well for her as it did for us."
+msgstr "Christabel moet besloten hebben om de Pandorans rechtstreeks aan te vallen. Ging net zo goed voor haar als voor ons."
+
+msgid "Commander, we're taking heavy losses!"
+msgstr "Commandant, we nemen zware verliezen!"
+
+msgid "We won before, we can win again! Keep up the fight!"
+msgstr "We hebben eerder gewonnen, we kunnen opnieuw winnen! Ga zo door!"
+
+msgid "Commander, I strongly suggest we pull back."
+msgstr "Commandant, ik stel sterk voor dat we terugtrekken."
+
+msgid "We can't keep running. We'll run out of places to run to."
+msgstr "We kunnen niet blijven draaien. We hebben geen plekken meer om naar toe te rennen."
+
+msgid "All fighters, be advised: the wing commander has been killed."
+msgstr "Alle jagers worden gewaarschuwd: de commandant van de vleugel is gedood."
+
+msgid "Who's leading this operation now?"
+msgstr "Wie leidt deze operatie nu?"
+
+msgid "We have to retreat!"
+msgstr "We moeten terugtrekken!"
+
+msgid "This the end of the line, guys. It's been great serving with you."
+msgstr "Dit is het einde van de rij, jongens. Het was geweldig om met je te dienen."
+
+msgid "Hopper is down!"
+msgstr "Hopper is neer!"
+
+msgid "They've taken out Blackburn!"
+msgstr "Ze hebben Blackburn uitgeschakeld!"
+
+msgid "That's both of our corvettes down. The rest is up to us."
+msgstr "Dat zijn allebei onze korvetten. De rest is aan ons."
+
+msgid "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what."
+msgstr "Dit is een zeer gevaarlijke missie. Hoewel de Pandorans je als een van hun piloten lijken te hebben geaccepteerd, zullen ze nog steeds zeer achterdochtig zijn. Je moet daarom alles doen wat mogelijk is om hun vermoedens laag te houden. Blijf dicht bij de wing commandant als je niet in de strijd bent. Vuur niet met je wapens of gebruik je ECM niet als dat niet nodig is, en elimineer je doelen met extreme vooroordelen, wat er ook gebeurt."
+
+msgid "(I'm in deep this time. Just have to remain calm, focus, and do as they do.)"
+msgstr "(Ik ben diep in deze tijd, ik moet gewoon kalm blijven, me concentreren en doen wat ze doen.)"
+
+msgid "(Can't talk to them, can't understand their language, so I'll have to go with my instincts.)"
+msgstr "(Kan niet met ze praten, kan hun taal niet begrijpen, dus ik zal met mijn instinct moeten meegaan.)"
+
+msgid "(Ah, hell! We're hunting civilians. I ... I can't refuse orders ...)"
+msgstr "(Ah, verdorie, we jagen op burgers, ik ... ik kan geen bevelen weigeren ...)"
+
+msgid "(Better get back to the wing commander, before they think I'm slacking)"
+msgstr "(Beter terug naar de wing commandant, voordat ze denken dat ik slap ben)"
+
+msgid "(They're moving to the jumpgate. I should join them, and stick close.)"
+msgstr "(Ze gaan naar de Jumpgate, ik zou ze moeten vergezellen en dichtbij blijven.)"
+
+msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
+msgstr "Een eenvoudige testvlucht. Wen aan om je jager te besturen, zonder gevaar voor een aanval of andere gevaren. Er zijn geen doelen om in deze missie te voltooien, dus je kunt deze op elk moment verlaten en doorgaan naar de volgende."
+
+msgid "Welcome to free flight."
+msgstr "Welkom bij gratis vlucht."
+
+msgid "Practice turning, accelerating, and braking."
+msgstr "Oefen met draaien, accelereren en remmen."
+
+msgid "Don't forget about your Boost, either. That can be a life saver in certain situations."
+msgstr "Vergeet ook je Boost niet. Dat kan in bepaalde situaties levensreddend zijn."
+
+msgid "Practice using your fighter's weapons against a stationary target."
+msgstr "Oefen met het gebruik van de wapens van je jager tegen een stil doelwit."
+
+msgid "The Dart won't attack you, so when you're ready, you can blow the thing to pieces."
+msgstr "De Dart zal je niet aanvallen, dus als je klaar bent, kun je het ding opblazen."
+
+msgid "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around."
+msgstr "De meeste doelen die je tegenkomt in het veld zullen bewegen. Deze cursus geeft je de kans om te oefenen met het neerhalen van een vijand die rondloopt."
+
+msgid "This Dart has control over its engines, but not its weapons. Practice chasing it down and destroying it."
+msgstr "Deze Dart heeft controle over zijn motoren, maar niet over zijn wapens. Oefen het achterna en vernietig het."
+
+msgid "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge."
+msgstr "Neem het op tegen een tegenstander die gewapend is. De vijand in deze cursus is een Dart, uitgerust met tweeledige kanonnen. Het zou geen al te moeilijke uitdaging moeten zijn."
+
+msgid "This Dart is armed! Watch yourself."
+msgstr "Deze Dart is bewapend! Kijk uit."
+
+msgid "Practice using your ECM in the next encounter. The Dart here is equipped with missiles, which will home in on you. You can thwart these attacks by careful use of your ECM. Once you are done practicing, you can destroy the Dart and move on."
+msgstr "Oefen met je ECM in de volgende ontmoeting. De Dart hier is uitgerust met raketten, die je thuis zullen voelen. Je kunt deze aanvallen dwarsbomen door zorgvuldig gebruik te maken van je ECM. Als je klaar bent met oefenen, kun je de Dart vernietigen en verder gaan."
+
+msgid "Use your ECM to destroy the missiles fired at you. Remember, the ECM needs several seconds to recharge between uses."
+msgstr "Gebruik je ECM om de raketten af ​​te vuren die je bent afgevuurd. Onthoud dat de ECM enkele seconden nodig heeft om op te laden tussen gebruik."
+
+msgid "Use your mag cannons to disable the enemy Dart. Disabling enemy craft and bringing the target in alive is sometimes an important step in securing lasting victory."
+msgstr "Gebruik je mag-kanonnen om de vijandelijke Dart uit te schakelen. Het uitschakelen van vijandelijke vaartuigen en het levend brengen van het doelwit is soms een belangrijke stap in het veiligstellen van een blijvende overwinning."
+
+msgid "Switch to your Mag cannons and fire them at the Dart to disable it. Do not fire your plasma cannons or launch any missiles, as these could destroy the target."
+msgstr "Schakel over naar je Mag kanonnen en vuur ze af op de Dart om het uit te schakelen. Vuur je plasmakanonnen niet af en start geen raketten, omdat deze het doelwit kunnen vernietigen."
+
+msgid "Battle along side two team mates to take on 3 enemy fighters."
+msgstr "Vecht langs twee teamgenoten om het op te nemen tegen 3 vijandelijke jagers."
+
+msgid "Wingmate will often assist you in battle. When you're ready, approach the Darts and engage."
+msgstr "Wingmate zal je vaak helpen in de strijd. Als je klaar bent, nadert u de dart en gaat u aan de slag."
+
+msgid "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand."
+msgstr "Neem op eigen kracht drie vijandige doelen aan. Nogmaals, dit zijn darts uitgerust met eenvoudige deeltjeskanonnen. Een enkele TAF moet zich hier niet laten overtreffen, zolang de vijand niet de overhand krijgt."
+
+msgid "Final course. Use all your training to defeat the three opponents."
+msgstr "Laatste cursus. Gebruik al je training om de drie tegenstanders te verslaan."
+
+msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
+msgstr "De duw van de Pandoran op de onafhankelijke ruimte heeft geleid tot een toename van de piratenactiviteit langs de grens van de Confederatie. De dreiging moet onmiddellijk worden aangepakt, te beginnen met het terugbrengen van de vijandelijke aanwezigheid op Temper."
+
+msgid "Multiple incoming enemy fighters."
+msgstr "Meerdere inkomende vijandelijke jagers."
+
+msgid "Follow my lead. Break and attack at will."
+msgstr "Volg mij. Breek en val naar believen."
+
+msgid "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevalent, and there are more shielded and plasma-equipped fighters to be found in their ranks."
+msgstr "Ondanks recente pogingen, vertoont de piraat en de opstandige activiteit geen teken van afnemen. We moeten doorgaan met het breken van de ringen als we ze vinden en voorkomen dat ze voet aan de grond krijgen in Temper, omdat dit alleen maar slecht kan zijn voor het moreel en de oorlogsinspanning. Hoewel we nog steeds met Darts worden geconfronteerd, worden de wijzigingen aan deze schepen steeds gangbaarder en zijn er meer afgeschermde en met plasma uitgeruste jagers in hun gelederen te vinden."
+
+msgid "As before, everyone. Let's take it to 'em."
+msgstr "Zoals eerder iedereen. Laten we het maar aan hen nemen."
+
+msgid "Looks like these guys are all sporting modified Darts."
+msgstr "Het lijkt erop dat deze jongens allemaal sportieve, gewijzigde darts zijn."
+
+msgid "Acknowledged. Watch out for the lasers, people. They'll smash your shields to pieces if you let 'em."
+msgstr "Erkend. Pas op voor de lasers, mensen. Ze zullen je schilden kapot slaan als je ze laat schieten."
+
+msgid "Allied intelligence have managed to locate one of the pirate ring lieutenants. We need to bring this man in alive, as he could provide us with further useful information that will allow us to track down and eliminate high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the lieutenant's Dart."
+msgstr "Geallieerde intelligentie is erin geslaagd om een ​​van de luitenants van de piraatring te lokaliseren. We moeten deze man levend tot leven brengen, omdat hij ons verdere nuttige informatie kan verschaffen die ons in staat stelt om hoog geplaatste personen op te sporen en te elimineren. Je zal een straal besturen en je Mag-kanonnen gebruiken om het doel uit te schakelen. Vernietig de Dart van de luitenant niet."
+
+msgid "Seth, the lieutenant's Dart should be tagged on your HUD. Disable that ship as soon as possible."
+msgstr "Seth, de Dart van de luitenant moet worden getagd op je HUD. Schakel dat schip zo snel mogelijk uit."
+
+msgid "The rest of us will take down his buddies. Watch your stray fire around the mission target."
+msgstr "De rest van ons zal zijn maatjes neerslaan. Bekijk je verdwaalde vuur rond het doel van de missie."
+
+msgid "Control, this is Strickland. Target has been suppressed, all other threats eliminated. Will await pickup."
+msgstr "Controle, dit is Strickland. Target is onderdrukt, alle andere bedreigingen geëlimineerd. Zal afhalen wachten."
+
+msgid "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down."
+msgstr "Het heeft even geduurd, maar we hebben eindelijk de benodigde informatie van de luitenant kunnen halen die we hebben vastgelegd. Zijn informatie heeft onthuld dat de piraten een coalitie hebben gevormd om te profiteren van de brouwerijoorlog. We moeten deze alliantie verscheuren door de factieleiders te richten. Ze zijn momenteel op de vlucht voor een eerdere hinderlaag, een ontworpen om ze je kant op te sturen. De leiders zijn allemaal piloot verworven Nimfen. Haal ze neer."
+
+msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate."
+msgstr "Dit is een ongecompliceerde, jongens: haal alle vijandelijke doelen neer. Maar zorg ervoor dat geen van die nimfen de springpoort bereiken."
+
+msgid "Excellent works, people. This one's a wrap."
+msgstr "Uitstekende werken, mensen. Dit is een wrap."
+
+msgid "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle."
+msgstr "Nu de leiders allemaal zijn verdwenen, zijn we nu in een positie om het georganiseerde piraterijprobleem in Temperament voorgoed te beëindigen. We hebben een aantal Darts-massa's geïdentificeerd voor wat lijkt op een aanval tegen CSN-activa, in vergelding. We gaan de piraten niet de kans geven om dit te doen en ze als eerste slaan. Strickland zal de Steel Bulls in de strijd leiden."
+
+msgid "Enemy forces sighted."
+msgstr "Vijandelijke krachten waargenomen."
+
+msgid "This is it, boys and girls, let's stick it to 'em. Break and attack!"
+msgstr "Dit is het, jongens en meisjes, laten we het bij hen houden. Breek en val aan!"
+
+msgid "Looks like we touched a nerve. We've got more Darts incoming."
+msgstr "Het lijkt erop dat we een zenuw hebben geraakt. We hebben meer Darts in ontvangst."
+
+msgid "Another group just arrived."
+msgstr "Een andere groep is net aangekomen."
+
+msgid "They'll keep lining 'em up, and we'll keep knocking them down."
+msgstr "Ze zullen ze blijven vullen en we zullen ze blijven omverwerpen."
+
+msgid " Another group. That tallies with the numbers we were expecting."
+msgstr " Een andere groep. Dat komt overeen met de cijfers die we verwachtten."
+
+msgid " Looks like that was the last of 'em."
+msgstr " Het lijkt erop dat dit de laatste was."
+
+msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated."
+msgstr " Geest, dit is commandant Strickland. Tegengestelde krachten zijn verslagen."
+
+msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
+msgstr "Erkend. Goed gedaan, commandant. Dankzij jou zal Temper een veiliger systeem zijn en kunnen we ons richten op het versterken van onze verdediging tegen de Pandoran-troepen. Kom op naar huis."
+
+msgid "Your instructions are simple, Hicks. As before, follow the wing leader's instructions, and do as the others do. Stay close to the leader when not otherwise engaged, and do not do anything to raise your suspicion. Act quickly to assure the Pandorans you're with them."
+msgstr "Je instructies zijn eenvoudig, Hicks. Volg zoals eerder de instructies van de wing leader en doe wat de anderen doen. Blijf dicht bij de leider wanneer u niet op een andere manier betrokken bent en doe niets om uw vermoeden op te wekken. Reageer snel om te verzekeren dat de Pandorans bij jou zijn."
+
+msgid "(More hunting. I hope I'm not going to be forced to kill innocent people again.)"
+msgstr "(Meer jacht. Ik hoop dat ik niet meer gedwongen zal worden om onschuldige mensen te vermoorden.)"
+
+msgid "(Mercenaries. Better than civilians, but still abhorrent. Run, you fools! Run!)"
+msgstr "(Mercenaries. Beter dan burgers, maar nog steeds weerzinwekkend. Ren, dwazen! Rennen!)"
+
+msgid "(Looks like that's it. We're heading to the jumpgate.)"
+msgstr "(Lijkt erop dat dat het is. We gaan naar de Jumpgate.)"
+
+msgid "Our goal is simple, lads: destroy all enemy targets."
+msgstr "Ons doel is eenvoudig, jongens: vernietig alle vijandelijke doelen."
+
+msgid "Good work, everyone. Let's prepare to lend a hand to the other squadrons."
+msgstr "Goed gedaan, allemaal. Laten we ons voorbereiden om de andere squadrons een handje te helpen."
+
+msgid "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution."
+msgstr "Inlichtingenrapporten suggereren dat Tzac een aantal huursoldaten heeft ingehuurd om te helpen bij hun aanvallen op onafhankelijke systemen. Informatie verkregen uit ondergrondse bronnen zegt dat ze van plan zijn om UNF-kapitaalschepen te gebruiken. Terwijl bekende huursoftware onze schepen niet moet uitdagen, zullen voorlopig alle UNF-korvetten reizen met verlengde jagerescolors, uit voorzorg."
+
+msgid "Enemy fighter signatures detected. Looks like Darts."
+msgstr "Vijandige jager handtekeningen gedetecteerd. Lijkt op Darts."
+
+msgid "Those will be the mercenaries we've been hearing about. All fighters, prepare to engage."
+msgstr "Dat zijn de huursoldaten waarover we hebben gehoord. Alle jagers, bereid je voor om deel te nemen."
+
+msgid "How many of these bastards did Tzac hire?!"
+msgstr "Hoeveel van deze klootzakken huurden Tzac ?!"
+
+msgid "Whatever the number, we'll make sure we send a clear message it wasn't enough!"
+msgstr "Wat het nummer ook is, we zorgen ervoor dat we een duidelijke boodschap versturen dat het niet genoeg was!"
+
+msgid "Looks like that's all of them, Commander."
+msgstr "Het lijkt erop dat ze allemaal zijn, commandant."
+
+msgid "Confirmed. Tzac must have opened up the coffers to fund this. Those guys meant business."
+msgstr "Bevestigd. Tzac moet de schatkist geopend hebben om dit te financieren. Die jongens hadden zaken."
+
+msgid "I still can't believe they came at us in Darts."
+msgstr "Ik kan nog steeds niet geloven dat ze bij Darts op ons afkwamen."
+
+msgid "They must've been paid handsomely for that."
+msgstr "Daar moeten ze voor betaald zijn."
+
+msgid "Stick round, Commander. We might need you later."
+msgstr "Blijf rond, commandant. We hebben je misschien later nodig."
+
+msgid "A number of those responsible for helping supply illegal arms and information to Tzac have been identified. They are to be tracked down, and brought in for questioning. At this point, we want to avoid killing them, as they could prove vital to bringing in the ringleaders."
+msgstr "Een aantal van degenen die verantwoordelijk zijn voor het helpen leveren van illegale wapens en informatie aan Tzac zijn geïdentificeerd. Ze moeten worden opgespoord en ter discussie worden gesteld. Op dit punt willen we voorkomen dat ze worden gedood, omdat ze van vitaal belang kunnen zijn voor het binnenhalen van de kopstukken."
+
+msgid "D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now."
+msgstr "D'Ath, we hebben de doelen gezien. Ze gaan naar de Jumpgate. We sluiten het nu af."
+
+msgid "Got it, we'll mag the fighters and take it from there."
+msgstr "Ik snap het, we gaan de jagers zien en nemen het vanaf daar."
+
+msgid "Control, this is D'Ath. Targets have been disabled. No casualties."
+msgstr "Controle, dit is D'Ath. Doelen zijn uitgeschakeld. Geen slachtoffers."
+
+msgid "Acknowledged. Didn't look like they put up much of a fight. Seemed they spent most of the time running away."
+msgstr "Erkend. Het zag er niet naar uit dat ze veel vechten. Het leek erop dat ze het grootste deel van de tijd wegrenden."
+
+msgid "Barely fired back. Maybe they were covering for someone?"
+msgstr "Nauwelijks ontslagen. Misschien doken ze voor iemand?"
+
+msgid "Definite possibility. We'll bring these guys in and see what we can find out."
+msgstr "Bepaalde mogelijkheid. We brengen deze jongens naar binnen en kijken wat we te weten kunnen komen."
+
+msgid "It seems that some of the traitors that were brought in earlier were acting as a distraction for a number of others, who have now commandeered CSN Drachma. The corvette must be taken back, without destroy it. All other targets are valid, unless surrendering."
+msgstr "Het lijkt erop dat sommige van de verraders die eerder waren binnengebracht, als een afleiding voor een aantal anderen fungeerden, die nu CSN Drachma hebben opgeëist. De korvet moet worden teruggenomen, zonder hem te vernietigen. Alle andere doelen zijn geldig, tenzij u zich overgeeft."
+
+msgid "Looks like we've got a welcoming committee heading our way."
+msgstr "Het lijkt erop dat we een welkomstcomité hebben dat onze kant op komt."
+
+msgid "Remember: we need to disable the Drachma. Target the guns and engines, only. We don't want to destroy it."
+msgstr "Denk eraan: we moeten de Drachma uitschakelen. Richt de wapens en motoren alleen. We willen het niet vernietigen."
+
+msgid "Some of them are surrendering. Disable their fighters, and we'll deal with them later. Don't kill them!"
+msgstr "Sommigen geven zich over. Schakel hun vechters uit, en we zullen ze later behandelen. Dood ze niet!"
+
+msgid "Control, traitors have been dealt with, and the Drachma has been disabled. She's ready for boarding."
+msgstr "Controle, verraders zijn afgehandeld en de Drachma is uitgeschakeld. Ze is klaar om te boarden."
+
+msgid "Acknowledged. Shuttles are on their way."
+msgstr "Erkend. Shuttles zijn onderweg."
+
+msgid "There are now only two figureheads in the traitor group remaining: Isabel Nelson, and one other whose identity is currently being confirmed. Isabel Nelson has been located in the vicinity. As before, disable her fighter so she can be brought in. Disable any other surrendering targets."
+msgstr "Er zijn nu slechts twee boegbeelden in de verraderlijke groep overgebleven: Isabel Nelson en een andere waarvan de identiteit momenteel wordt bevestigd. Isabel Nelson bevindt zich in de buurt. Schakel zoals eerder haar vechter uit zodat ze kan worden binnengebracht. Schakel andere overgegeven doelen uit."
+
+msgid "Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be."
+msgstr "Het lijkt erop dat die teef Nelson een toren heeft gekregen. Wees voorzichtig en wees niet bang om haar te doden, als dat nodig is."
+
+msgid "Young, your orders are to bring Nelson in alive. Do not destroy that fighter."
+msgstr "Young, jouw orders zijn om Nelson levend te maken. Vernietig die jager niet."
+
+msgid "Fine, we'll mag her."
+msgstr "Goed, we zullen haar mageren."
+
+msgid "Preston's being a bit aggressive, don't you think?"
+msgstr "Preston is een beetje agressief, vind je niet?"
+
+msgid "The commander's probably just fed up with all the in-fighting that's going on. Can't say I blame him."
+msgstr "De commandant heeft waarschijnlijk genoeg van alle gevechten die er gaande zijn. Ik kan niet zeggen dat ik hem de schuld geef."
+
+msgid "Sparrows, we have confirmed the identity of the second traitor - it's Commander Young. Disable that fighter."
+msgstr "Mussen, we hebben de identiteit van de tweede verrader bevestigd - het is Commander Young. Schakel die jager uit."
+
+msgid "What the hell?!"
+msgstr "Wat de hel?!"
+
+msgid "Explains things. Surrender, Commander, it's over."
+msgstr "Verklaart dingen. Geef je over, commandant, het is voorbij."
+
+msgid "Come and get me, Malcolm."
+msgstr "Kom me halen, Malcolm."
+
+msgid "What the hell, Commander, I never thought I'd see the day."
+msgstr "Wat de hel, commandant, ik had nooit gedacht dat ik de dag zou zien."
+
+msgid "The CSN and UNF have lost, Malcolm, can't you see that? Time to cut our losses and get far away from here."
+msgstr "De CSN en UNF hebben verloren, Malcolm, kun je dat niet zien? Tijd om onze verliezen te snijden en ver weg te zijn van hier."
+
+msgid "We haven't lost; we defeated Christabel, and--"
+msgstr "We zijn niet verloren; we versloegen Christabel, en--"
+
+msgid "And what about the Pandorans? They're winning this war, no one else! We can't beat them."
+msgstr "En hoe zit het met de Pandorans? Ze winnen deze oorlog, niemand anders! We kunnen ze niet verslaan."
+
+msgid "The Mitikans also tried running. Didn't exactly work out well for them, either."
+msgstr "De Mitikans probeerden ook te rennen. Het werkte ook niet bepaald goed voor hen."
+
+msgid "Fighting didn't turn out too well, either. It's every man for himself."
+msgstr "Ook met vechten ging het niet zo goed. Het is elke man voor zichzelf."
+
+msgid "Commander, we're done here. Control, targets and area secured. Ready for pickup."
+msgstr "Commandant, we zijn hier klaar. Controle, doelen en gebied beveiligd. Klaar om op te halen."
+
+msgid "Our forces have taken heavy losses of the last few engagements, but there is still much to do. Three Pandoran corvettes have been tagged for destruction. We need to ensure that they are taken down, while we minimise losses of our own. We cannot afford to lose all of our own capital ships. Work fast, and assist Zenobia, Lady Jane Grey, and Tangka as needed."
+msgstr "Onze troepen hebben de laatste paar gevechten zware verliezen geleden, maar er is nog veel te doen. Drie Pandoran-korvetten zijn getagd voor vernietiging. We moeten ervoor zorgen dat ze worden vernietigd, terwijl we onze eigen verliezen minimaliseren. We kunnen het ons niet veroorloven al onze eigen kapitaalschepen te verliezen. Werk snel en help Zenobia, Lady Jane Gray en Tangka waar nodig."
+
+msgid "Enemy forces in range. Preparing to engage."
+msgstr "Vijandelijke krachten binnen bereik. Voorbereiden om deel te nemen."
+
+msgid "You heard it, people. Break and attack."
+msgstr "Je hebt het gehoord, mensen. Breek en val aan."
+
+msgid "More enemy fighters incoming."
+msgstr "Meer vijandelijke jagers komen binnen."
+
+msgid "We have reinforcements on the way, to help even the odds."
+msgstr "We hebben onderweg versterkingen om zelfs de kansen te helpen."
+
+msgid "One down, two to go."
+msgstr "Eén neer, twee om te gaan."
+
+msgid "Another down, just one remaining. We can do this!"
+msgstr "Nog een keer omlaag, er is er nog één over. We kunnen dit!"
+
+msgid "That's all the enemy's capital ships down. Let's finish off the fighters."
+msgstr "Dat zijn alle kapitaalschepen van de vijand. Laten we de jagers afmaken."
+
+msgid "Not an easy battle, but we did it."
+msgstr "Geen gemakkelijke strijd, maar we hebben het gedaan."
+
+msgid "Hope for the future. If we could just win all our battle like this ..."
+msgstr "Hoop voor de toekomst. Als we zo al onze gevechten zo zouden kunnen winnen ..."
+
+msgid "It's not over yet. We need to join the others and continue to hit back."
+msgstr "Het is nog niet gedaan. We moeten ons bij de anderen voegen en blijven terugslaan."
+
+msgid "Step it up, everyone! We can't continue to lose our corvettes."
+msgstr "Voer het op, iedereen! We kunnen onze korvetten niet blijven verliezen."
+
+msgid "We're down to one corvette. We need to finish this now!"
+msgstr "We hebben maar één korvet. We moeten dit nu afmaken!"
+
+msgid "There were too many of them ..."
+msgstr "Er waren er te veel van ..."
+
+msgid "The Pandorans are already deploying ground assault teams to Flint. The attack is in its early stages, with more troop carrier incoming. The enemy are meeting our defence lines aggressively, to clear a path for their landers. We need to hit back hard, and prevent Flint from being taken. Objective is simple: destroy all enemy forces."
+msgstr "De Pandorans zetten al grondaanval teams in op Flint. De aanval bevindt zich in een vroeg stadium, met meer troepenvervoerder binnen. De vijand ontmoet agressief onze verdedigingslinies om een ​​pad vrij te maken voor hun landers. We moeten hard terug slaan en voorkomen dat Flint wordt meegenomen. Doel is eenvoudig: vernietig alle vijandelijke troepen."
+
+msgid "The Pandorans are overunning our front line! We need to drive them back, now!"
+msgstr "De Pandorans overrompelen onze frontlinie! We moeten ze nu terugbrengen!"
+
+msgid "We're losing fighters, rapidly. We need to focus our efforts on dividing the enemy up and taking them down together."
+msgstr "We verliezen vechters snel. We moeten onze inspanningen richten op het verdelen van de vijand en ze samen afbreken."
+
+msgid "Picking up incoming Tzac corvettes."
+msgstr "Oppakkende inkomende Tzac-korvetten."
+
+msgid "We need to take down those capital ships, right away. Lt. Cdr. Dodds, lead the strike."
+msgstr "We moeten die schepen meteen neerhalen. Lt. Cdr. Dodds, leid de staking."
+
+msgid "HMS 711-444 has been taken down."
+msgstr "HMS 711-444 is verwijderd."
+
+msgid "HMS 313-777 is out of the game."
+msgstr "HMS 313-777 is uit het spel."
+
+msgid "We're losing captial ships! We can't continue like this!"
+msgstr "We verliezen captial ships! We kunnen zo niet doorgaan!"
+
+msgid "The Pandoran forces are closing in on Flint. They will commence planetary bombardment if allowed to get any closer."
+msgstr "De Pandoran-troepen sluiten zich bij Flint aan. Ze zullen een planetair bombardement beginnen als ze dichterbij mogen komen."
+
+msgid "Dammit! That's all three of our corvettes down!"
+msgstr "Dammit! Dat zijn alle drie onze korvetten!"
+
+msgid "Dodds, Commodore Parks has ordered that you pull out immediately."
+msgstr "Dodds, Commodore Parks heeft je opdracht gegeven je onmiddellijk terug te trekken."
+
+msgid "Griffin, what the hell? We can take them!"
+msgstr "Griffin, wat is er verdomme aan de hand? We kunnen ze nemen!"
+
+msgid "That's a negative, Dodds. You're to return to the carrier, and prepare for withdrawal."
+msgstr "Dat is negatief, Dodds. U moet terugkeren naar de koerier en u voorbereiden op terugtrekking."
+
+msgid "I'm not going to run away. Not again."
+msgstr "Ik ga niet weglopen. Niet weer."
+
+msgid "Dodds, this is Commodore Park. I'm giving you a direct order. This isn't a battle we can win, and I'm not having you throw away your life or lose that starfighter. Get out, now. Final warning, mister."
+msgstr "Dodds, dit is Commodore Park. Ik geef je een directe bestelling. Dit is geen gevecht dat we kunnen winnen, en ik laat je niet je leven weggooien of die starfighter verliezen. Ga er nu uit. Laatste waarschuwing, meneer."
+
+msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both mentally and physically."
+msgstr "Het spijt ons, Hicks, maar je moet doorgaan met het volgen van bestellingen. We zijn ons bewust van wat er gaat gebeuren, maar dit is voor het grotere goed. Probeer dit als één geheel door te komen. Zowel mentaal als fysiek."
+
+msgid "(This ... how can I do this? These are my friends.)"
+msgstr "(Dit ... hoe kan ik dit doen? Dit zijn mijn vrienden.)"
+
+msgid "(I need to maintain my cover, or this whole operation could be blown.)"
+msgstr "(Ik moet mijn dekking behouden, anders kan deze hele operatie worden opgeblazen.)"
+
+msgid "(Sorry, everyone.)"
+msgstr "(Sorry, allemaal.)"
+
+msgid "(They're going after the civilians again. I hope this ends soon. I'm not sure how much more this I can take.)"
+msgstr "(Ze gaan weer achter de burgers aan, ik hoop dat dit snel afloopt, ik weet niet zeker hoeveel ik dit kan doen.)"
+
+msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilian craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
+msgstr "Zoals al bevestigd door Neal Stockwell, verloopt de evacuatie van Oracle IX als reactie op de supernova niet zo snel als velen zouden willen. En nu, met het Pandoran-leger in beweging, moeten we het tempo versnellen. Een aantal burgers achterblijven is geïdentificeerd in de buurt van Oracle IX, die behoefte hebben aan escorte naar het evacuatiepunt. Je doel is om alle burgervaartuigen in het gebied te lokaliseren en binnen te brengen. Er worden geen vijandelijke troepen verwacht, maar het is het beste om op je hoede te zijn."
+
+msgid "ABCs, this is Control. Round up those civilians and escort them to the jumpgate as quick as you can."
+msgstr "ABC's, dit is controle. Verzamel die burgers en begeleid ze zo snel mogelijk naar de springpoort."
+
+msgid "We're not expecting any opposition, but be prepared to engage hostiles if needed."
+msgstr "We verwachten geen enkele oppositie, maar we zijn bereid om vijanden te bestrijden indien nodig."
+
+msgid "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised."
+msgstr "We hebben een tiental achterblijvers geïdentificeerd die moeten worden binnengebracht. Leid ze naar het evacuatiepunt als voorheen. Wees voorzichtig: intelligentie heeft gecodeerde signalen opgepikt die lijken op die gebruikt door de Pandorans voor hun uitzendingen. Vijandelijke troepen zouden bij contact moeten worden verloofd en vernietigd of gerouteerd. Civiele verliezen moeten tot een minimum worden beperkt."
+
+msgid "Gaskin, INF fighters spotted! Pandorans, without a doubt!"
+msgstr "Gaskin, INF-jagers gezien! Pandorans, zonder twijfel!"
+
+msgid "Break and attack! Protect the civilians!"
+msgstr "Breek en val aan! Bescherm de burgers!"
+
+msgid "That was a close one. Looks like they were scouting. We'll have to take extra precautions in future."
+msgstr "Dat was op het nippertje. Het lijkt erop dat ze aan het scouten waren. We zullen in de toekomst extra voorzorgsmaatregelen moeten nemen."
+
+msgid "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now."
+msgstr "De laatste fasen van de evacuatie zijn aan de gang, maar de situatie wordt krap. We hebben een SOS ontvangen van een groep burgers die met wat aaseters zijn binnengelopen. Normaal gesproken zouden we eerst het gebied beveiligen voordat we redding inzetten, maar met de situatie steeds wanhopiger worden, gaan we nu de sleepboot uitzenden. Breng elk civiel vaartuig naar huis - de vijand zou ze voorlopig moeten negeren."
+
+msgid "The Pandorans' arrival is imminent, but the evacuation is nearing completion. We need only mop up some of the stragglers. Two of the White Knights will be assisting, before moving on to hit the enemy's supply line. You should concentrate on getting the civilians to safety, and letting the ATAFs do the bulk of the work."
+msgstr "De komst van de Pandorans is aanstaande, maar de evacuatie nadert zijn voltooiing. We hoeven maar een paar van de achterblijvers op te dweilen. Twee van de White Knights zullen assisteren, voordat ze verder gaan om de toevoerlijn van de vijand te raken. Je moet je concentreren op het veilig maken van de burgers en de ATAF's het grootste deel van het werk laten doen."
+
+msgid "Enemy craft detected. Pandorans, in both INF and UNF fighters."
+msgstr "Vijandelijke vaartuigen gedetecteerd. Pandorans, zowel INF- als UNF-jagers."
+
+msgid "Chaz, you're with me. Wiley, you and your boys get those civilians to the jumpgate."
+msgstr "Chaz, jij gaat met mij mee. Wiley, jij en je jongens krijgen die burgers naar de Jumpgate."
+
+msgid "We've spotted the next group of civilians. Sending you the coordinates."
+msgstr "We hebben de volgende groep burgers gezien. U de coördinaten sturen."
+
+msgid "Picking up more Pandoran fighters, moving to intercept."
+msgstr "Meer Pandoran-jagers oppikken, overstappen om te onderscheppen."
+
+msgid "The final civilian group is here."
+msgstr "De laatste civiele groep is hier."
+
+msgid "More Pandorans. Keep knocking them down, Chaz. We're almost done."
+msgstr "Meer Pandorans. Blijf ze neerslaan, Chaz. We zijn bijna klaar."
+
+msgid "Control, this is Wiley. Civilians have been extracted."
+msgstr "Controle, dit is Wiley. Burgers zijn gewonnen."
+
+msgid "Wiley, ensure all enemy forces have been eliminated."
+msgstr "Wiley, zorg dat alle vijandelijke troepen zijn uitgeschakeld."
+
+msgid "Control, this is de Winter. All enemy forces have been destroyed."
+msgstr "Controle, dit is de Winter. Alle vijandelijke troepen zijn vernietigd."
+
+msgid "Excellent, we're very grateful for the assistance."
+msgstr "Uitstekend, we zijn erg dankbaar voor de hulp."
+
+msgid "The Pandoran fleet is closing in on Oracle IX, and their capital ships are moving rapidly up the field. We need to hold them back for as long as possible, to give the final evacuees time to escape the system. This will need to be done with fighters along. However, Lieutenant Commanders Taylor and Todd of the White Knights will be lending assistance with the ATAFs, which should give us the edge in battle."
+msgstr "De Pandoran-vloot sluit zich aan bij Oracle IX en hun kapitaalschepen gaan snel het veld op. We moeten ze zo lang mogelijk tegenhouden, om de uiteindelijke evacués tijd te geven om aan het systeem te ontsnappen. Dit moet met vechters gedaan worden. Luitenant-commandanten Taylor en Todd van de White Knights zullen echter hulp verlenen aan de ATAF's, die ons de voorsprong zouden moeten geven in de strijd."
+
+msgid "Our orders are to take down as many of the enemy corvettes as possible. Break and attack at will."
+msgstr "Het is onze opdracht om zoveel mogelijk vijandige korvetten te vernietigen. Breek en val naar believen."
+
+msgid "How many of them are we expecting?"
+msgstr "Hoeveel van ons verwachten we?"
+
+msgid "Five, at least. And they have escorts, too."
+msgstr "Vijf, tenminste. En zij hebben ook escorts."
+
+msgid "Hell, we're dropping like flies here!"
+msgstr "Verdorie, we laten vallen als vliegen hier!"
+
+msgid "Hang in there, Lieutenant, we'll try and cover you."
+msgstr "Wacht even, luitenant, we proberen je te dekken."
+
+msgid "Thunderbolt is down."
+msgstr "Thunderbolt is uitgeschakeld."
+
+msgid "Picking up two more Pandoran capital ships incoming."
+msgstr "Twee nieuwe hoofdschepen van Pandoran in ontvangst nemen."
+
+msgid "INF Gram and INF Morning Star have arrived. Follow my lead!"
+msgstr "INF Gram en INF Morning Star zijn gearriveerd. Volg mij!"
+
+msgid "Scratch another two Imperial corvettes."
+msgstr "Kras nog twee imperiale korvetten."
+
+msgid "Tracking two more corvettes heading your way: Dragonlance and Trident."
+msgstr "Volg twee extra korvetten die je tegemoet komen: Dragonlance en Trident."
+
+msgid "Dragonlance, eh? As in, a lance used for killing dragons? Yeah, they wish."
+msgstr "Dragonlance, eh? Zoals in, een lans gebruikt voor het doden van draken? Ja, dat wensen ze."
+
+msgid "They're not the only ones."
+msgstr "Ze zijn niet de enige."
+
+msgid "Leviathan, this is Taylor. All targets have been eliminated."
+msgstr "Leviathan, dit is Taylor. Alle doelen zijn geëlimineerd."
+
+msgid "Acknowledged. We're preparing to fall back and abandon Warro. Return to Leviathan as soon as possible."
+msgstr "Erkend. We bereiden ons voor om terug te vallen en Warro te verlaten. Keer zo snel mogelijk terug naar Leviathan."
+
+msgid "Understood, will see you soon."
+msgstr "Begrepen, zal je snel zien."
+
+msgid "Nice working with you, Wiley."
+msgstr "Leuk samen met jou te werken, Wiley."
+
+msgid "Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ...."
+msgstr "Hetzelfde. Misschien krijgen we het op een dag nog een keer, hoewel een deel van mij echt hoopt dat we het niet nodig zullen hebben ..."
+
+msgid "Destroy all Darts #1"
+msgstr "Vernietig alle Darts # 1"
+
+msgid "Destroy all Darts #2"
+msgstr "Vernietig alle Darts # 2"
+
+msgid "Destroy all Darts #3"
+msgstr "Vernietig alle Darts # 3"
+
+msgid "Destroy all Lynxes"
+msgstr "Vernietig alle Lynxen"
+
+msgid "Disable all targets"
+msgstr "Schakel alle doelen uit"
+
+msgid "60 second battle"
+msgstr "60 seconden strijd"
+
+msgid "Pass all Waypoints"
+msgstr "Geef alle waypoints door"
+
+msgid "Defend Jumpgate"
+msgstr "Verdedig Jumpgate"
+
+msgid "Collect Packages"
+msgstr "Verzamel pakketten"
+
+msgid "Rescue Civilians"
+msgstr "Rescue Civilians"
+
+msgid "Destroy INF Klondike and INF Canfield"
+msgstr "Vernietig INF Klondike en INF Canfield"
+
+msgid "Collect packages"
+msgstr "Verzamel pakketten"
+
+msgid "Turret Takedown"
+msgstr "Turret Takedown"
+
+msgid "Swarms of Swarmers"
+msgstr "Zwermen zwermen"
+
+msgid "Piracy"
+msgstr "zeeroof"
+
+msgid "Swelling the Ranks"
+msgstr "Zwelling van de rangen"
+
+msgid "Most Wanted"
+msgstr "Meest gezocht"
+
+msgid "Solo Patrol"
+msgstr "Solo Patrol"
+
+msgid "Set Phasers to Stun"
+msgstr "Stel Phasers in op Stun"
+
+msgid "No survivors"
+msgstr "Geen overlevenden"
+
+msgid "Initiation"
+msgstr "inwijding"
+
+msgid "Destroy all Darts #4"
+msgstr "Vernietig alle Darts # 4"
+
+msgid "Surrender!"
+msgstr "Overgave!"
+
+msgid "Gate Smasher"
+msgstr "Gate Smasher"
+
+msgid "Minefield Race"
+msgstr "Mijnenveldrace"
+
+msgid "Surrender! #2"
+msgstr "Overgave! # 2"
+
+msgid "Piracy #2"
+msgstr "Piraterij # 2"
+
+msgid "Shoot 'Em Up"
+msgstr "Schiet ze op"
+
+msgid "Initiation #2"
+msgstr "Initiatie # 2"
+
+msgid "Feast"
+msgstr "Feest"
+
+msgid "Bomber vs Bomber"
+msgstr "Bomber vs Bomber"
+
+msgid "One of the seven"
+msgstr "Een van de zeven"
+
+msgid "Earn all other trophies"
+msgstr "Verdien alle andere trofeeën"
+
+msgid "Plan B"
+msgstr "Plan B"
+
+msgid "Complete all campaign missions"
+msgstr "Voltooi alle campagnemissies"
+
+msgid "Gentle start"
+msgstr "Zachte start"
+
+msgid "Complete a campaign mission"
+msgstr "Een campagnemissie voltooien"
+
+msgid "Ready for duty"
+msgstr "Klaar voor gebruik"
+
+msgid "Complete all the training missions at Sol"
+msgstr "Voltooi alle trainingsmissies bij Sol"
+
+msgid "Coyote Ugly"
+msgstr "Coyote Lelijk"
+
+msgid "Complete all missions at Coyote"
+msgstr "Voltooi alle missies bij Coyote"
+
+msgid "Better late than never"
+msgstr "Beter laat dan nooit"
+
+msgid "Complete all missions at Warro"
+msgstr "Voltooi alle missies bij Warro"
+
+msgid "The shape of things to come"
+msgstr "De vorm van dingen die komen"
+
+msgid "Complete all missions at Iliad"
+msgstr "Voltooi alle missies op Iliad"
+
+msgid "Now get the hell out of our galaxy!"
+msgstr "Ga nu weg uit onze melkweg!"
+
+msgid "Complete all missions at Temper"
+msgstr "Voltooi alle missies bij Temper"
+
+msgid "Going out with a bang"
+msgstr "Uitgaan met een knal"
+
+msgid "Complete all missions at Mace"
+msgstr "Voltooi alle missies bij Mace"
+
+msgid "Back against the wall"
+msgstr "Terug tegen de muur"
+
+msgid "Complete all missions at Rothan"
+msgstr "Voltooi alle missies bij Rothan"
+
+msgid "Now what do we do?"
+msgstr "Wat doen we nu?"
+
+msgid "Complete all missions at Clarke"
+msgstr "Voltooi alle missies bij Clarke"
+
+msgid "Trespasser"
+msgstr "Overtreder"
+
+msgid "Complete all optional missions"
+msgstr "Voltooi alle optionele missies"
+
+msgid "Truly epic"
+msgstr "Echt episch"
+
+msgid "Survive an epic battle"
+msgstr "Overleef een epische veldslag"
+
+msgid "The bigger they are ..."
+msgstr "Hoe groter ze zijn ..."
+
+msgid "Destroy an enemy capital ship"
+msgstr "Vernietig een vijandelijk hoofdschip"
+
+msgid "Giant Slayer"
+msgstr "Giant Slayer"
+
+msgid "Destroy 25 enemy capital ships"
+msgstr "Vernietig 25 vijandige kapitale schepen"
+
+msgid "Plenty more where that came from, unfortunately"
+msgstr "Veel meer waar dat vandaan kwam, helaas"
+
+msgid "Destroy a Pandoran-controlled craft"
+msgstr "Vernietig een door Pandoran bestuurd vaartuig"
+
+msgid "Oh man, I gotta get me one of these!"
+msgstr "Oh man, ik moet een van deze voor me halen!"
+
+msgid "Pilot an ATAF during the campaign"
+msgstr "Voer tijdens de campagne een ATAF uit"
+
+msgid "The 4th emergency service"
+msgstr "De 4e hulpdienst"
+
+msgid "Complete a mission using a Tug"
+msgstr "Voltooi een missie met een Tug"
+
+msgid "Room for one more on top"
+msgstr "Ruimte voor nog eentje bovenop"
+
+msgid "Complete a challenge using a Shuttle"
+msgstr "Voltooi een uitdaging met een shuttle"
+
+msgid "Taking one for the team"
+msgstr "Een nemen voor het team"
+
+msgid "Be hit by a missile that was meant for someone else"
+msgstr "Raak geraakt door een raket die voor iemand anders bedoeld was"
+
+msgid "The bodyguard"
+msgstr "De lijfwacht"
+
+msgid "Hit an enemy with a missile intended for their wing leader"
+msgstr "Raak een vijand met een raket die bedoeld is voor hun wing leader"
+
+msgid "Dedicated"
+msgstr "Dedicated"
+
+msgid "Complete 25%% of all challenges"
+msgstr "Voltooi 25 %% van alle uitdagingen"
+
+msgid "Obsessed"
+msgstr "bezeten"
+
+msgid "Complete 50%% of all challenges"
+msgstr "Voltooi 50 %% van alle uitdagingen"
+
+msgid "Completitonist"
+msgstr "Completitonist"
+
+msgid "Complete 100%% of all challenges"
+msgstr "Voltooi 100 %% van alle uitdagingen"
+
+msgid "Hero"
+msgstr "Held"
+
+msgid "Take down 50 enemies (player only)"
+msgstr "50 vijanden neerhalen (alleen speler)"
+
+msgid "Veteran"
+msgstr "Veteraan"
+
+msgid "Take down 500 enemies (player only)"
+msgstr "500 vijanden neerhalen (alleen speler)"
+
+msgid "Legend"
+msgstr "Legende"
+
+msgid "Take down 2,500 enemies (player only)"
+msgstr "Schakel 2.500 vijanden uit (alleen speler)"
+
+msgid "Your name's on one of these!"
+msgstr "Je naam staat op een van deze!"
+
+msgid "Fire 100,000 shots"
+msgstr "Vuur 100.000 schoten af"
+
+msgid "Dodge this!"
+msgstr "Ontwijk dit!"
+
+msgid "Launch 500 missiles"
+msgstr "Lanceer 500 raketten"
+
+msgid "Isn't technology wonderful?"
+msgstr "Is technologie niet geweldig?"
+
+msgid "Use the ECM 250 times"
+msgstr "Gebruik de ECM 250 keer"
+
+msgid "Runaway!"
+msgstr "Weglopen!"
+
+msgid "Boost 250 times"
+msgstr "Boost 250 keer"
+
+msgid "Hoarder"
+msgstr "hamsteraar"
+
+msgid "Collect 250 items"
+msgstr "Verzamel 250 items"
+
+msgid "Missed, you f**kers!"
+msgstr "Gemist, jij f ** kers!"
+
+msgid "Evade 5 missiles"
+msgstr "Ontwijk 5 raketten"
+
+msgid "Sightseer"
+msgstr "Toerist"
+
+msgid "Visit 100 waypoints"
+msgstr "Bezoek 100 waypoints"
+
+msgid "Minesweeper"
+msgstr "Mijnenveger"
+
+msgid "Destroy 255 mines (player only)"
+msgstr "Vernietig 255 mijnen (alleen speler)"
+
+msgid "Get out and push"
+msgstr "Ga eruit en duw"
+
+msgid "Disable 500 opponents"
+msgstr "Schakel 500 tegenstanders uit"
+
+msgid "Yippie-ki-yay"
+msgstr "Yippie-ki-yay"
+
+msgid "Destroy 13 or more enemies in an epic battle, without being killed (No ATAF)"
+msgstr "Vernietig 13 of meer vijanden in een episch gevecht, zonder gedood te worden (No ATAF)"
+
+msgid "Survivor"
+msgstr "Overlevende"
+
+msgid "Complete an epic battle without being killed (No ATAF)"
+msgstr "Een epische strijd voltooien zonder gedood te worden (geen ATAF)"
+
+msgid "Almost indestructible. Almost"
+msgstr "Bijna onverwoestbaar. Bijna"
+
+msgid "Be destroyed while piloting an ATAF"
+msgstr "Wordt vernietigd tijdens het besturen van een ATAF"
+
+msgid "Pacifist"
+msgstr "Pacifist"
+
+msgid "Complete a fighter-based campaign mission without firing"
+msgstr "Een jager-gebaseerde campagnemissie voltooien zonder te schieten"
+
+msgid "2 birds, 1 stone"
+msgstr "2 vogels, 1 steen"
+
+msgid "Destroy two or more fighters by shooting one mine"
+msgstr "Vernietig twee of meer jagers door een mijn te schieten"
+
+msgid "Frequent flyer"
+msgstr "Frequent flyer"
+
+msgid "Destroy one of each type of common starfighter"
+msgstr "Vernietig een van elk type gemeenschappelijke starfighter"
+
+msgid "Not the face!"
+msgstr "Niet het gezicht!"
+
+msgid "Cause 50 enemies to surrender"
+msgstr "Veroorzaak 50 over te geven vijanden"
+
+msgid "Revenge"
+msgstr "Wraak"
+
+msgid "During an epic battle, kill the enemy that just killed you"
+msgstr "Tijdens een epische veldslag, dood de vijand die je net heeft gedood"
+

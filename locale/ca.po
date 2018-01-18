@@ -1,0 +1,3147 @@
+# PO file for TBFTSS : The Pandoran War
+# Copyright 2015-2016, Stephen J Sweeney
+# This file is distributed under the GNU GPL 3.0
+# Email: stephenjsweeney@battleforthesolarsystem.com
+# https://github.com/stephenjsweeney/tbftss
+
+msgid ""
+msgstr ""
+"Project-Id-Version: TBFTSS: The Pandoran War\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-12 11:56:12+0100\n"
+"PO-Revision-Date: 2018-01-18 22:00:00+0000\n"
+"Last-Translator: Google Translate\n"
+"Language-Team: Google Translate\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%s is retreating!"
+msgstr "%s s'està retirant!"
+
+msgid "%s has surrendered"
+msgstr "%s s'ha rendit"
+
+msgid "Are you sure you want to restart? You will lose your current progress."
+msgstr "Esteu segur que voleu reiniciar? Perdrà el progrés actual."
+
+msgid "Are you sure you want to quit? You will lose your current progress."
+msgstr "Esteu segur que voleu sortir? Perdrà el progrés actual."
+
+msgid "WARNING: INCOMING MISSILE!"
+msgstr "ADVERTIMENT: INCOMPLE MISSIL!"
+
+msgid "%s (Engine)"
+msgstr "%s (motor)"
+
+msgid "%s (Component)"
+msgstr "%s (component)"
+
+msgid "%s (Gun)"
+msgstr "%s (arma)"
+
+msgid "We've lost engines! We're a sitting duck!"
+msgstr "Hem perdut motors! Som un ànec assegut!"
+
+msgid "Our guns have been shot out! We have no defences!"
+msgstr "Les nostres armes s'han disparat! No tenim cap defensa!"
+
+msgid "Be advised, we're taking damage here. Please step up support."
+msgstr "Tingueu en compte que estem fent mal aquí. Augmenta el suport."
+
+msgid "We're sustaining heavy damage! All fighters, please assist, ASAP!"
+msgstr "Estem patint danys greus! Tots els lluitadors, si us plau, ajuden, ¡AVANÇ!"
+
+msgid "Mayday! Mayday! Defences are critical. We can't hold out much longer!"
+msgstr "Auxili! Auxili! Les defenses són crítiques. No podem aguantar molt més!"
+
+msgid "Mission target has escaped."
+msgstr "El blanc de la missió s'ha escapat."
+
+msgid "Civilian has been killed"
+msgstr "Civil ha estat assassinat"
+
+msgid "Ally has been killed"
+msgstr "Ally ha estat assassinada"
+
+msgid "Particle Cannon"
+msgstr "Canó de partícules"
+
+msgid "Plasma Cannon"
+msgstr "Canó de plasma"
+
+msgid "Laser Cannon"
+msgstr "Canó làser"
+
+msgid "Mag Cannon"
+msgstr "Mag Cannon"
+
+msgid "Rockets"
+msgstr "Rockets"
+
+msgid "Missiles"
+msgstr "Míssils"
+
+msgid "Missiles (%d)"
+msgstr "Míssils ( %d )"
+
+msgid "Target: %.2fkm"
+msgstr "Objectiu:% .2fkm"
+
+msgid "(None)"
+msgstr "(Cap)"
+
+msgid "(Combined Guns)"
+msgstr "(Pistoles combinades)"
+
+msgid "System Power : %d%%"
+msgstr "Potència del sistema: %d %%"
+
+msgid "%s (Leader)"
+msgstr "%s (Líder)"
+
+msgid "Objective: %.2fkm"
+msgstr "Objectiu:% .2fkm"
+
+msgid "Jumpgate: %.2fkm"
+msgstr "Jumpgate:% .2fkm"
+
+msgid "SELECT NEW FIGHTER"
+msgstr "SELECCIONEU NOU PERSONAL"
+
+msgid "Suspicion"
+msgstr "Sospita"
+
+msgid "Remaining Pilots: %d"
+msgstr "Pilots restants: %d"
+
+msgid "Picked up %s"
+msgstr "S'ha escollit %s"
+
+msgid "Jumpgate System Node"
+msgstr "Node del sistema Jumpgate"
+
+msgid "Incomplete"
+msgstr "Incompleta"
+
+msgid "Complete"
+msgstr "Complet"
+
+msgid "Failed"
+msgstr "Fracassat"
+
+msgid "Condition"
+msgstr "Condició"
+
+msgid "OBJECTIVES"
+msgstr "OBJECTIUS"
+
+msgid "(none)"
+msgstr "(cap)"
+
+msgid "Time Limit: %s"
+msgstr "Límit de temps: %s"
+
+msgid "%s - Objective Complete!"
+msgstr "%s - Objectiu complet!"
+
+msgid "%s - Objective Failed!"
+msgstr "%s - Objectiu fallit!"
+
+msgid "New Objective : %s"
+msgstr "Nou objectiu: %s"
+
+msgid "Do not lose more than %d pilots"
+msgstr "No perdis més de %d pilots"
+
+msgid "Destroy at least %d enemy fighters"
+msgstr "Destrueix com a mínim %d combatents enemics"
+
+msgid "Challenge Failed!"
+msgstr "El repte va fallar!"
+
+msgid "Target not in range"
+msgstr "Orientació no dins del rang"
+
+msgid "Out of missiles"
+msgstr "Fora de míssils"
+
+msgid "Caution: Leaving battle area - turn around."
+msgstr "Precaució: deixar la zona de batalla: girar-se."
+
+msgid "Tow rope attached"
+msgstr "Corda de remolc adjunta"
+
+msgid "Mission Complete!"
+msgstr "Missió complerta!"
+
+msgid "Mission Failed!"
+msgstr "Missió fallida!"
+
+msgid "Cannot activate waypoint - outstanding objectives not yet complete"
+msgstr "No es pot activar el waypoint: els objectius pendents encara no s'han completat"
+
+msgid "Cannot activate waypoint - eliminate enemies first"
+msgstr "No es pot activar el waypoint: elimineu primer als enemics"
+
+msgid "Cannot activate waypoint - team mates too far away"
+msgstr "No es pot activar el waypoint: companys d'equip massa lluny"
+
+msgid "Challenges"
+msgstr "Desafiaments"
+
+msgid "Completed : %d / %d"
+msgstr "S'ha completat: %d / %d"
+
+msgid "Page : %d / %d"
+msgstr "Pàgina: %d / %d"
+
+msgid "[Locked]"
+msgstr "[Bloquejat]"
+
+msgid "Craft: %s"
+msgstr "Artesania: %s"
+
+msgid "Restrictions: %s"
+msgstr "Restriccions: %s"
+
+msgid "No Missiles"
+msgstr "Sense míssils"
+
+msgid "No ECM"
+msgstr "Sense ECM"
+
+msgid "No Boost"
+msgstr "Sense impuls"
+
+msgid "No Guns"
+msgstr "Sense armes"
+
+msgid "Retain at least %d%% armour"
+msgstr "Conserveu com a mínim %d %% armadura"
+
+msgid "Complete challenge in %d seconds or less"
+msgstr "Repte complet en %d segons o menys"
+
+msgid "Survive for %d seconds"
+msgstr "Sobreviu durant %d segons"
+
+msgid "Attain a %d%% shot hit accuracy"
+msgstr "Aconsegueixi una precisió d'èxit de %d %%"
+
+msgid "Attain a %d%% rocket hit accuracy"
+msgstr "Aconsegueix una precisió de cop de coets de %d %%"
+
+msgid "Attain a %d%% missile hit accuracy"
+msgstr "Aconseguiu una precisió d'impacte de %d %% missil"
+
+msgid "Do not lose any team mates"
+msgstr "No perdeu cap company d'equip"
+
+msgid "Do not lose more than 1 team mate"
+msgstr "No perdis més de 1 company d'equip"
+
+msgid "Do not lose more than %d team mates"
+msgstr "No perdis més de %d companys d'equip"
+
+msgid "Take down %d enemy targets"
+msgstr "Elimina %d objectius enemics"
+
+msgid "Disable %d or more enemy fighters"
+msgstr "Desactiveu %d o més lluitadors enemics"
+
+msgid "Collect %d packages"
+msgstr "Recol·leu %d paquets"
+
+msgid "Rescue %d civilians"
+msgstr "Rescata %d civils"
+
+msgid "Cause %d enemies to surrender"
+msgstr "Causa que %d enemics es rendeixin"
+
+msgid "Reach %d waypoints"
+msgstr "Arribeu a %d waypoints"
+
+msgid "Complete challenge in %s or less"
+msgstr "Reptes complets en %s o menys"
+
+msgid "Missions: %d / %d"
+msgstr "Missions: %d / %d"
+
+msgid "Pilot: %s"
+msgstr "Pilot: %s"
+
+msgid "Squadron: %s"
+msgstr "Esquadrilla: %s"
+
+msgid "This mission has been completed."
+msgstr "Aquesta missió s'ha completat."
+
+msgid "Note: this is an epic mission."
+msgstr "Nota: aquesta és una missió èpica."
+
+msgid "Note: this is an optional mission."
+msgstr "Nota: aquesta és una missió opcional."
+
+msgid "Congratulations, you have completed the campaign! You may now replay past missions, for fun, to boost stats, or to earn missing trophies!"
+msgstr "Enhorabona, has completat la campanya! Ara podeu reproduir missions anteriors, per diversió, per augmentar les estadístiques o per guanyar trofeus perduts."
+
+msgid "%s has fallen to the Pandorans"
+msgstr "%s ha caigut als Pandorans"
+
+msgid "Fighter Database"
+msgstr "Base de dades de combatents"
+
+msgid "Page %d / %d"
+msgstr "Pàgina %d / %d"
+
+msgid "(Common)"
+msgstr "(Comú)"
+
+msgid "Destroyed"
+msgstr "Destruït"
+
+msgid "Affiliation"
+msgstr "Afiliació"
+
+msgid "Armour"
+msgstr "Armadura"
+
+msgid "Shield"
+msgstr "Escut"
+
+msgid "Speed"
+msgstr "Velocitat"
+
+msgid "Percent Complete"
+msgstr "Percentatge complet"
+
+msgid "Missions Started"
+msgstr "S'han iniciat missions"
+
+msgid "Missions Completed"
+msgstr "Missions finalitzades"
+
+msgid "Optional Missions Completed"
+msgstr "S'han completat les missions opcionals"
+
+msgid "Challenges Started"
+msgstr "Els reptes van començar"
+
+msgid "Challenges Completed"
+msgstr "Reptes finalitzats"
+
+msgid "Shots Fired"
+msgstr "Xuts disparats"
+
+msgid "Shots Hit"
+msgstr "Xuts colpejar"
+
+msgid "Accuracy"
+msgstr "Precisió"
+
+msgid "Rockets Fired"
+msgstr "Coets llançats"
+
+msgid "Rockets Hit"
+msgstr "Rockets Hit"
+
+msgid "Missiles Fired"
+msgstr "Míssils acomiadats"
+
+msgid "Missiles Hit"
+msgstr "Míssils colpejar"
+
+msgid "Enemies Killed"
+msgstr "Enemics assassinats"
+
+msgid "Enemies Killed (Player)"
+msgstr "Enemics killed (Jugador)"
+
+msgid "Allies Killed"
+msgstr "Aliats assassinats"
+
+msgid "Times Killed"
+msgstr "Temps matats"
+
+msgid "Enemies Disabled"
+msgstr "Enemics desactivats"
+
+msgid "Enemies Escaped"
+msgstr "Enemics escapats"
+
+msgid "ECM Used"
+msgstr "ECM utilitzat"
+
+msgid "Boost Used"
+msgstr "Boost utilitzat"
+
+msgid "Missiles Evaded"
+msgstr "Míssils evadits"
+
+msgid "Missiles Struck Player"
+msgstr "Míssils Struck Player"
+
+msgid "Civilians Rescued"
+msgstr "Civils rescatats"
+
+msgid "Civilians Killed"
+msgstr "Civils morts"
+
+msgid "Times used Tug"
+msgstr "Temps utilitzat Remolc"
+
+msgid "Times used Shuttle"
+msgstr "Els temps van utilitzar Shuttle"
+
+msgid "Craft Towed"
+msgstr "Craft Ripped"
+
+msgid "Items Collected"
+msgstr "Elements recopilats"
+
+msgid "Items Collected (Player)"
+msgstr "Elements recopilats (reproductor)"
+
+msgid "Longest Epic Kill Streak"
+msgstr "Llarga llista de matisos d'èpica"
+
+msgid "Waypoints Visited"
+msgstr "Punts de ruta visitats"
+
+msgid "Capital Ships Destroyed"
+msgstr "Vaixells de capital destruïts"
+
+msgid "Capital Ships Lost"
+msgstr "Capital Ships Lost"
+
+msgid "Mines Destroyed"
+msgstr "Mines destruïdes"
+
+msgid "Enemies Surrendered"
+msgstr "Enemics es van rendir"
+
+msgid "Time Played"
+msgstr "Temps jugat"
+
+msgid "Stats"
+msgstr "Estadístiques"
+
+msgid "Trophies"
+msgstr "Trofeus"
+
+msgid "Awarded : %d / %d"
+msgstr "Atorgat: %d / %d"
+
+msgid "[Hidden]"
+msgstr "[Amagat]"
+
+msgid "Fire"
+msgstr "Foc"
+
+msgid "Accelerate"
+msgstr "Accelerate"
+
+msgid "Boost"
+msgstr "Estímul"
+
+msgid "ECM"
+msgstr "ECM"
+
+msgid "Brake"
+msgstr "Fre"
+
+msgid "Select Target"
+msgstr "Seleccioneu Target"
+
+msgid "Fire Missile"
+msgstr "Míssils de foc"
+
+msgid "Cycle Guns"
+msgstr "Pistoles de cicle"
+
+msgid "Cycle Radar"
+msgstr "Radar de cicle"
+
+msgid "Next Fighter"
+msgstr "Següent lluitador"
+
+msgid "Previous Fighter"
+msgstr "Lluitador anterior"
+
+msgid "Screenshot"
+msgstr "Captura de pantalla"
+
+msgid "Controls"
+msgstr "Controls"
+
+msgid "Click a control to change it, and then the key or mouse button you want to use."
+msgstr "Feu clic a un control per canviar-lo i, a continuació, el botó de la tecla o del ratolí que vulgueu utilitzar."
+
+msgid "[BACKSPACE] - Clear"
+msgstr "[BACKSPACE] - Esborra"
+
+msgid "[ESCAPE] - Cancel"
+msgstr "[ESCAPE] - Cancel·la"
+
+msgid "Options"
+msgstr "Opcions"
+
+msgid "Note: you must restart the game for window size and fullscreen options to take effect."
+msgstr "Nota: heu de reiniciar el joc perquè la mida de la finestra i les opcions de la pantalla completa tinguin efecte."
+
+msgid "Note: this device does not support changing the screen resolution."
+msgstr "Nota: aquest dispositiu no suporta canviar la resolució de la pantalla."
+
+msgid "Retry"
+msgstr "Torneu a provar"
+
+msgid "Quit"
+msgstr "Sortiu"
+
+msgid "Continue"
+msgstr "Continua"
+
+msgid "Resume"
+msgstr "Resum"
+
+msgid "Return to Title"
+msgstr "Torna al títol"
+
+msgid "Start Challenge Mission"
+msgstr "Comença la Missió del desafiament"
+
+msgid "OK"
+msgstr "D'acord"
+
+msgid "Restore Defaults"
+msgstr "Restaurar els valors predeterminats"
+
+msgid "Restart"
+msgstr "Reinicia"
+
+msgid "Cancel"
+msgstr "Cancel · lar"
+
+msgid "Window Size"
+msgstr "Mida de finestra"
+
+msgid "Sound Volume"
+msgstr "Volum de so"
+
+msgid "Music Volume"
+msgstr "Volum de música"
+
+msgid "Fullscreen"
+msgstr "Pantalla completa"
+
+msgid "Controls ..."
+msgstr "Controls ..."
+
+msgid "Start Mission"
+msgstr "Inici Missió"
+
+msgid "X"
+msgstr "X"
+
+msgid "Campaign"
+msgstr "Campanya"
+
+msgid "Credits"
+msgstr "Crèdits"
+
+msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
+msgstr "Quan els Pandorans havien envaït els sistemes independents que travessen l'Imperi Mitikas, hem de ser més vigilants. S'estan intensificant les patrulles de Torelli. Assegureu-vos que toqueu tots els punts de cerca i informeu sobre qualsevol activitat inusual que trobareu."
+
+msgid "Anyone got anything to report?"
+msgstr "Algú ha rebut alguna cosa per informar?"
+
+msgid "You getting paranoid, Curtis?"
+msgstr "Et fas paranoico, Curtis?"
+
+msgid "You all saw what happened at Coyote."
+msgstr "Tots vèiem el que va passar al Coyote."
+
+msgid "So, those Pandorans are, what, robots?"
+msgstr "Per tant, els Pandorans són, què, robots?"
+
+msgid "Alien-Human hybrid, I heard."
+msgstr "Alien-Híbrid humà, he escoltat."
+
+msgid "Hard to kill, whatever they are. Heard they'll still be coming at you even if you take both arms off."
+msgstr "Difícil de matar, siguin quines siguin. Heu escoltat que encara us arribaran encara que treguis els dos braços."
+
+msgid "And what'll they do then? Bite you to death?"
+msgstr "I què faran llavors? Mossegar-te a mort?"
+
+msgid "Eyes open, lads."
+msgstr "Ulls oberts, nois."
+
+msgid "We're done. Anyone detect anything unusual?"
+msgstr "Estaven fets. Qualsevol persona detecta alguna cosa inusual?"
+
+msgid "Same old, same old."
+msgstr "Mateix vell, igual antic."
+
+msgid "Believe me, that's a good thing. Right, let's head home and report in."
+msgstr "Creieu-me, això és bo. Dret, anem a casa i ens informem."
+
+msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presence is reducing the amount of illegal activity in this sector, with reported incidents down 80%%. Still, we cannot afford to become complacent, and must continue with our sweeps."
+msgstr "Les patrulles fins ara no han descobert res inusual, i sembla que l'augment de la presència militar és reduir la quantitat d'activitat il·legal en aquest sector, amb incidents denunciats un 80 %% menys. Tot i això, no podem permetre'ns tornar-nos complaents i continuar amb els nostres escombrats."
+
+msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
+msgstr "Obleballers, tens hostils entrants. Identificat com 3 lluitadors Mitikas; Jackals, possiblement Pandoran. Participa, però exerceix una gran precaució."
+
+msgid "Control, enemies have been dispatched. Wasn't a comfortable fight."
+msgstr "Control, els enemics s'han enviat. No era una baralla confortable."
+
+msgid "Eightballers, return home immediately, and deliver a full report. Do not leave out a single detail."
+msgstr "Els obrers, tornen a casa immediatament i lliuren un informe complet. No deixeu de banda un únic detall."
+
+msgid "Got it. See you soon."
+msgstr "Ho tinc. Fins aviat."
+
+msgid "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter."
+msgstr "Després de la pèrdua devastadora del sistema Ilíada, hem de seguir vigilant contra la incursió al sistema Alba. Comproveu els cinc waypoints i informe immediatament qualsevol activitat inusual o sospitosa que trobeu."
+
+msgid "So, Iliad has fallen?"
+msgstr "Llavors, Iliad ha caigut?"
+
+msgid "From what I've heard."
+msgstr "Pel que he escoltat."
+
+msgid "Did they retreat, or ..."
+msgstr "Es van retirar, o ..."
+
+msgid "They fought to the very last."
+msgstr "Van lluitar fins al final."
+
+msgid "So that's it. The Pandorans have won?"
+msgstr "Així que això és tot. Els pandorans han guanyat?"
+
+msgid "At Iliad, yes. Unless the local forces there can somehow hold off the enemy's ground assault."
+msgstr "A Iliad, sí. A menys que les forces locals puguin, d'alguna manera, mantenir l'atac de terra de l'enemic."
+
+msgid "It's ... possible, right?"
+msgstr "És ... possible, oi?"
+
+msgid "The Pandorans will just nuke the place when they're done. They'll take what they need, kill everyone who stands in their way ..."
+msgstr "Els Pandorans acomiadran el lloc quan hagin acabat. Prendran el que necessiten, maten a tots els que s'interposen en el seu camí ..."
+
+msgid "And even those who don't."
+msgstr "I fins i tot aquells que no ho fan."
+
+msgid "...and move on."
+msgstr "... i seguir endavant."
+
+msgid "You're quiet, Wade."
+msgstr "Estàs tranquil, Wade."
+
+msgid "Just thinking."
+msgstr "Només pensant."
+
+msgid "What about?"
+msgstr "I què passa amb?"
+
+msgid "How long it'll be before the Pandorans show up here."
+msgstr "Quant de temps serà abans que els Pandorans apareguin aquí."
+
+msgid "They came by earlier, in case you don't remember."
+msgstr "Van venir abans, en cas que no us recordeu."
+
+msgid "And haven't been back since. Maybe we scared them off."
+msgstr "I no he tornat des de llavors. Potser els hem espantat."
+
+msgid "I doubt it, guys. They were probably just scouting."
+msgstr "Ho dubto, nois. Probablement només estaven explorant."
+
+msgid "Where the hell are the CSN? Why weren't they at Iliad?"
+msgstr "On són els inferns el CSN? Per què no estaven a la Ilíada?"
+
+msgid "They weren't wanted, apparently. Iliad and the UNF aren't getting along so well at the moment."
+msgstr "No eren volguts, aparentment. La Ilíada i la UNF no estan aconseguint tan bé en aquest moment."
+
+msgid "Something to do with Adrian Parsons?"
+msgstr "Alguna cosa que veure amb Adrian Parsons?"
+
+msgid "That bloody idiot? It wouldn't surprise me. He's the reason we're now in this mess! If I ever meet that guy, nothing'll stop me from-"
+msgstr "Aquest idiota sagnant? No m'estranyaria. Ell és el motiu pel qual estem ara en aquest embolic! Si alguna vegada conec a aquest noi,"
+
+msgid "Hey, mind what you say. All these communications are logged."
+msgstr "Hola, pensa en el que dius. Totes aquestes comunicacions es registren."
+
+msgid "(indecipherable muttering)"
+msgstr "(muttering indesxifrable)"
+
+msgid "What do you mean, it's all Parsons' fault?"
+msgstr "Què vol dir, és tot culpa de Parsons?"
+
+msgid "He made an executive decision over in Coyote several months ago, that screwed everything up. Something about being charged with a super weapon."
+msgstr "Va prendre una decisió executiva al Coyote fa diversos mesos, que va enderrocar tot. Alguna cosa sobre la càrrega d'una arma super."
+
+msgid "Grendel's Mother?"
+msgstr "La mare de Grendel?"
+
+msgid "No, something it was carrying. Linked to the ATAFs, apparently."
+msgstr "No, alguna cosa que portava. Vinculat als ATAF, aparentment."
+
+msgid "The CSN built something that nuked a whole load of allied and Pandoran forces. It wasn't meant to be used in Coyote, though."
+msgstr "El CSN va construir alguna cosa que va donar lloc a una gran quantitat de forces aliades i pandorenses. No obstant això, no va ser utilitzat en Coyote."
+
+msgid "You don't say."
+msgstr "No dius."
+
+msgid "Okay, lads, let's wrap this topic up, eh?"
+msgstr "D'acord, nois, anem a embolicar aquest tema, eh?"
+
+msgid "That's it, all done. Anyone got anything to report?"
+msgstr "Això és tot fet. Algú ha rebut alguna cosa per informar?"
+
+msgid "Nothing."
+msgstr "Res."
+
+msgid "Nope."
+msgstr "No."
+
+msgid "Okay, let's get home and report in."
+msgstr "D'acord, arribem a casa i us informem."
+
+msgid "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations."
+msgstr "Una sèrie de sistemes independents clau han estat atacats simultàniament per forces de Tzac. Hem d'allunyar-nos, de manera que puguem seguir centrant-nos en l'amenaça més urgent de l'exèrcit pandorenc. En aquest moment, és fonamental que evitem que Christabel obtingui guanys significatius acumulant les seves forces en aquestes ubicacions."
+
+msgid "Three Tzac fighter groups has been sighted in the area. We need to hunt them down and eliminate them."
+msgstr "S'han vist tres grups de combat Tzac a la zona. Hem de perseguir-los i eliminar-los."
+
+msgid "Enemies sighted."
+msgstr "Enemics observats."
+
+msgid "Break and attack, people!"
+msgstr "Trencar i atacar, gent!"
+
+msgid "That's the first group handled. Let's get to the next waypoint."
+msgstr "Aquest és el primer grup manejat. Anem al següent punt de referència."
+
+msgid "Second group located."
+msgstr "Segon grup situat."
+
+msgid "Control, this is Rice. Nine enemy fighters downed. Moving to the final waypoint."
+msgstr "Control, això és Arròs. Nou combatents enemics van derrocar. Passant al punt final."
+
+msgid "Final group spotted."
+msgstr "S'ha detectat el grup final."
+
+msgid "That's all of them."
+msgstr "Això és tot."
+
+msgid "Not as tough as I was expecting."
+msgstr "No tan difícil com jo esperava."
+
+msgid "I think they're testing the water, like our Pandoran friends before them."
+msgstr "Crec que estan provant l'aigua, com els nostres amics de Pandoran davant d'ells."
+
+msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
+msgstr "Anem a preparar-nos per un atac important en els pròxims dies. Tant de bo no dels dos alhora."
+
+msgid "Tzac forces are continuing to make aggressive moves against Alba. Its forces need to be driven back, and out of the system entirely. Naval power is starting to come under strain, and these continued assaults could leave us vulnerable to a Pandoran attack."
+msgstr "Les forces de Tzac continuen fent moviments agressius contra Alba. Les seves forces han de ser expulsades, i del sistema completament. El poder naval està començant a sofrir tensió, i aquests assalts continuats podrien deixar-nos vulnerables a un atac de Pandoran."
+
+msgid "Break and attack, lads. Let's send these guys back home."
+msgstr "Trencar i atacar, nois. Anem a enviar aquests nois a casa seva."
+
+msgid "More Tzac fighters incoming."
+msgstr "Més entrenadors de Tzac entrants."
+
+msgid "Steel yourself, lads. Even more Tzac forces are heading our way."
+msgstr "Acerar-vos, nois. Fins i tot encara hi ha més forces de Tzac."
+
+msgid "Picking up two capital ships, moving in."
+msgstr "Recollint dues naus capitals, en mudem"
+
+msgid "Wait, those aren't only Tzac forces ... "
+msgstr "Espera, no són només forces de Tzac ... "
+
+msgid "Ah, hell! Now we've got Pandorans, too?!"
+msgstr "Ah, l'infern! Ara tenim Pandorans també ?!"
+
+msgid "Commander, we're getting shot to ribbons here! We need to fallback!"
+msgstr "Comandant, aquí ens acomiaden les cintes! Hem de deixar enrere!"
+
+msgid "We can't let EITHER of these two win! That would be a major loss for all of us."
+msgstr "No podem deixar que ningú d'aquests dos guanyi! Aquesta seria una gran pèrdua per a tots nosaltres."
+
+msgid "Eightballers, de Winter of the White Knights, here to assist."
+msgstr "Obleballers, l'hivern dels cavallers blancs, aquí per ajudar."
+
+msgid "White Knights! Am I glad to see you. Your timing couldn't be better."
+msgstr "Cavallers blancs! Estic content de veure't. La vostra sincronització no podria ser millor."
+
+msgid "I owe you my life, Knights."
+msgstr "Et deus la vida, cavallers."
+
+msgid "We're all in this together, Rice. I'm sorry we arrived too late to save your wingmates."
+msgstr "Estem junts tots junts, Arròs. Lamento haver arribat massa tard per salvar els companys."
+
+msgid "They were good guys. They'll be missed."
+msgstr "Eren bons nois. Es perdran."
+
+msgid "We're needed elsewhere. We'll see you soon."
+msgstr "Ens calen en un altre lloc. Aviat us veurem."
+
+msgid "While Trilliack is happy to arrest the traitors it brings in, Alba wishes to dole out swift punishment for their actions. Eliminate all enemy targets, with the exception of any fighters that surrender. Only those are to be brought in."
+msgstr "Mentre que Trilliack està content d'arrestar als traïdors que introdueix, Alba vol dur a terme un càstig ràpid per les seves accions. Elimineu tots els objectius enemics, amb l'excepció de qualsevol combatent que es rendeixi. Sols s'hi han d'introduir."
+
+msgid "Our orders are to destroy all opposing fighters, except any who surrender. They're to be magged, instead."
+msgstr "Les nostres ordres són destruir tots els lluitadors oposats, excepte qui es rendeixi. S'hauran d'enregistrar, en comptes d'això."
+
+msgid "One of them has surrendered. Mag him, ASAP."
+msgstr "Un d'ells s'ha rendit. Pregunteu-lo, ASAP."
+
+msgid "Another has thrown in the towel. Disable that fighter!"
+msgstr "Un altre ha llançat a la tovallola. Desactiva aquest lluitador!"
+
+msgid "Four of them have now surrendered."
+msgstr "Ara quatre d'ells s'han rendit."
+
+msgid "I'd have been expecting more of them to have surrendered than this."
+msgstr "M'hauria esperat que s'hagin lliurat més d'això."
+
+msgid "Some are clearly braver than others."
+msgstr "Alguns són clarament més valents que altres."
+
+msgid "Or perhaps stupider."
+msgstr "O potser estúpid."
+
+msgid "Good work, everyone. Control are sending tugs to bring these guys in."
+msgstr "Bon treball, tothom. El control està enviant remolcadors per portar aquests nois."
+
+msgid "Think they'll get a long sentence?"
+msgstr "Crec que tindran una condemna llarga?"
+
+msgid "Depends on how many capable pilots we can afford to keep shoving behind bars ..."
+msgstr "Depèn de quants pilots hàbils podrem permetre's de seguir movent darrere de les barres ..."
+
+msgid "Roman Burgess, one of the masterminds behind the illicit arms and information smuggling to Tzac, has been located. Senior command want this man alive, so that he can be interrogated and lead us to the others. He must not under any circumstances be allowed to be killed."
+msgstr "Roman Burgess, un dels intel·lectuals darrere de les armes il·lícites i el tràfic d'informació a Tzac, ha estat localitzat. El comandament superior vol que aquest home sigui viu, perquè pugui ser interrogat i portar-nos als altres. En cap cas no ha de ser permès ser assassinat."
+
+msgid "We need Burgess alive. The others should be destroyed unless they surrender."
+msgstr "Necessitem viu Burgess. Els altres haurien de ser destruïts a menys que es rendeixin."
+
+msgid "Strickland, the situation just escalated. A wing of Pandoran fighters just entered the area."
+msgstr "Strickland, la situació acaba d'escalar. Una ala de combatents de Pandoran acaba d'entrar a la zona."
+
+msgid "Dammit! People, we need to keep those fighters away from Burgess. We can't lose that lead!"
+msgstr "Dammit! La gent, hem de mantenir aquests combatents fora de Burgess. No podem perdre aquest avantatge!"
+
+msgid "Where'd they get those Shales from?"
+msgstr "D'on han aconseguit aquests shales?"
+
+msgid "From Christabel's ill-advised decision to attack the Enemy directly, no doubt."
+msgstr "Des de la mala decisió de Christabel d'atacar l'enemic directament, sens dubte."
+
+msgid "To hell with you! Christabel was our only hope of surviving this thing."
+msgstr "A l'infern amb tu! Christabel era la nostra única esperança de sobreviure a això."
+
+msgid "Save it, buddy. You can spill it all at the court martial."
+msgstr "Desa-ho, amic. Podeu vessar tot a la cort marcial."
+
+msgid "Looks like that's it."
+msgstr "Sembla que això és així."
+
+msgid "Good flying today, Seth."
+msgstr "Bon dia volant, Seth."
+
+msgid "Thank you. I'm just glad to have survived another day."
+msgstr "Gràcies. M'alegro d'haver sobreviscut un altre dia."
+
+msgid "We'll get through this. Neither of us are getting flagged before the end of this thing."
+msgstr "Ho aconseguirem. Cap de nosaltres no es marca abans del final d'aquesta cosa."
+
+msgid "The Pandorans have begun moving forces into the system, and formed a number of staging grounds. Some of these grounds consist of Tzac fighters that have been acquired from Crystabel's forces. As of now, they are non-operational, but are being defended by some mobile plasma turrets. The objective is simple: destroy those fighters."
+msgstr "Els Pandorans han començat a moure les forces al sistema, i van formar una sèrie de escenaris. Alguns d'aquests motius consisteixen en lluitadors de Tzac que s'han adquirit de les forces de Crystabel. A partir d'ara, no funcionen, però són defensades per algunes torres mòbils de plasma. L'objectiu és simple: destruir aquests lluitadors."
+
+msgid "Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette."
+msgstr "Segons, sembla que l'oposició és més pesada del que s'esperava. Estem recollint una corbeta de Tzac."
+
+msgid "Got it. All fighters, we need Inca to survive this one. We can't afford to lose any more capital ships."
+msgstr "Ho tinc. Tots els lluitadors, necessitem a Inca per sobreviure a aquest. No podem permetre's perdre més vaixells de capital."
+
+msgid "Looks like there are some tugs trying to extract the Tzac fighters."
+msgstr "Sembla que hi ha alguns remolcadors que intenten extreure els combatents de Tzac."
+
+msgid "I see them. Take them out before they can get away."
+msgstr "Els veig. Tregui-les abans de poder allunyar-se."
+
+msgid "Rice, we've got INF fighters incoming."
+msgstr "Arròs, tenim els lluitadors INF entrants."
+
+msgid "Huh, I actually thought they'd have been here sooner. Prepare to engage."
+msgstr "Hola, en realitat pensava que havien estat aquí més aviat. Prepara't per participar."
+
+msgid "That's the staging ground taken care of. Now--"
+msgstr "Aquest és el terreny de muntatge atès. Ara,"
+
+msgid "Rice, we've got a big problem: a very large number of Pandoran ships just arrived in the system. Torelli is being evacuated."
+msgstr "Arròs, tenim un gran problema: una gran quantitat de vaixells de Pandoran acaben d'arribar al sistema. Torelli està sent evacuat."
+
+msgid "Never enough, is it?"
+msgstr "Mai no n'hi ha prou?"
+
+msgid "With the Pandorans upping their aggression, we have taken steps to start evacuating the Alba system. Many civilians will be using craft incapable of forming of their jump points, and so will be reliant on the gates. We therefore must ensure that these gates remain functional, and that all Pandoran opposition is held back."
+msgstr "Amb els Pandorans augmentant la seva agressió, hem pres mesures per començar a evacuar el sistema Alba. Molts civils utilitzaran embarcacions incapaces de formar els seus punts de salts i, per tant, dependran de les portes. Per tant, hem d'assegurar que aquestes portes siguin funcionals i que tota l'oposició de Pandoran sigui retinguda."
+
+msgid "Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters."
+msgstr "Taylor, cobreix la porta tan ràpid com puguis, i prepara't per defensar-la. Tingueu en compte que ara els pandorans estan comandant, els guerrers INF, UNF i Tzac."
+
+msgid "There are civilians in the area. What about them?"
+msgstr "Hi ha civils a la zona. Què hi ha d'ells?"
+
+msgid "Their needs are secondary. If we lose that gate, no one's getting out of here."
+msgstr "Les seves necessitats són secundàries. Si perdem aquesta porta, ningú no surt d'aquí."
+
+msgid "Taylor, the jumpgate is taking damage. You need to keep the Pandorans away from it!"
+msgstr "Taylor, el saltó està prenent danys. Has de mantenir allunyats els Pandorans!"
+
+msgid "Half the jumpgate's control nodes have been destroyed. We can't afford to lose that gate!"
+msgstr "S'ha destruït la meitat dels nodes de control del Jumpgate. No podem permetre's perdre aquesta porta!"
+
+msgid "Taylor, a Pandoran corvette just jumped into the area. It's heading for the gate. You need to take it down."
+msgstr "Taylor, una corbeta de Pandoran va saltar a la zona. Es dirigeix ​​cap a la porta. Has de baixar."
+
+msgid "Taylor, another Pandoran corvette just arrived. Identifier is INF BC-41."
+msgstr "Taylor, una nova corbeta de Pandoran acaba d'arribar. L'identificador és INF BC-41."
+
+msgid "Both corvettes are down."
+msgstr "Les dues corbetes estan caigudes."
+
+msgid "Excellent work, Taylor. Eliminate the remaining enemy fighters, and await further instructions."
+msgstr "Excel·lent treball, Taylor. Elimineu els lluitadors enemics restants i espereu més instruccions."
+
+msgid "Area secure."
+msgstr "Zona segura."
+
+msgid "How's the jumpgate looking?"
+msgstr "Com està el gomoteig mirant?"
+
+msgid "Some damage, but it's still operational."
+msgstr "Alguns danys, però encara està operatiu."
+
+msgid "Good work. Continue to guard the gate, and eliminate any incoming enemy threats."
+msgstr "Bon treball. Continueu vigilant la porta i elimineu les amenaces enemigues entrants."
+
+msgid "Got it."
+msgstr "Ho tinc."
+
+msgid "The Pandorans are pressing home their advantage, and moving many of their capital ships up the field. They are presently closing in on Torelli, and will almost certainly begin a ground assault once within range. CSN Dragon is being used to clear their path to the planet, and while you're not going to engage the planet itself, we need to ensure the survival of our own capital ships as much as possible."
+msgstr "Els Pandorans estan pressionant a casa el seu avantatge i mouen molts dels seus vaixells cabdals en el camp. Actualment estan tancant Torelli, i gairebé segur que començarà un assalt terrestre una vegada dins el seu rang. El CSN Dragon s'utilitza per aclarir el seu camí cap al planeta, i mentre no us comprometeu amb el planeta, hem d'assegurar tant com sigui possible la supervivència de les nostres naus capitals."
+
+msgid "White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!"
+msgstr "Cavallers blancs, la línia defensiva de Alba està en col · lapse. Hem d'acabar amb els vaixells de la capital de Pandorans, ara!"
+
+msgid "Acknowledged. Chaz, we hit them with everything you've got."
+msgstr "Reconeguda. Chaz, els toquem amb tot el que tens."
+
+msgid "Dammit, down to two corvettes."
+msgstr "Dammit, fins a dues corbetes."
+
+msgid "Dragon is pushing through to Torelli. We need to drive it back."
+msgstr "Dragon torna a atrapar a Torelli. Hem de tornar a conduir."
+
+msgid "Another corvette lost. We're being overrun."
+msgstr "Una altra corbeta perduda. Estem immersos."
+
+msgid "You Knights want to actually do something? We're being slaughtered out here!"
+msgstr "Els cavallers volen fer alguna cosa realment? Estem sent assassinats aquí!"
+
+msgid "Ignore him, Estelle; don't get involved."
+msgstr "Ignora-ho, Estelle; no et preocupis."
+
+msgid "That's all the corvettes down. We'll have to take on Dragon with fighters--"
+msgstr "Aquestes són totes les corbetes cap avall. Hem d'assumir el drac amb els lluitadors."
+
+msgid "Dragon's powering it's anti-matter cannon. It's preparing to fire at UNF Lotan"
+msgstr "El poder del drac és un canó anti-matèria. Es prepara per disparar a la UNF Lotan"
+
+msgid "Dragon's firing!"
+msgstr "El tret del drac!"
+
+msgid "Dragon missed! Lotan managed to evade to attack!"
+msgstr "El drac va fallar! Lotan va aconseguir fugir per atacar!"
+
+msgid "It'll be a while before it can fire its main cannon again. This is our chance to--"
+msgstr "Passarà un temps abans de poder disparar el canó principal de nou. Aquesta és la nostra possibilitat de -"
+
+msgid "The anti-matter ball is still going ... It's heading for Torelli."
+msgstr "La pilota anti-matèria encara està anant ... S'està dirigint a Torelli."
+
+msgid "Impact in 10 seconds ..."
+msgstr "Impacte en 10 segons ..."
+
+msgid "5 Seconds ..."
+msgstr "5 segons ..."
+
+msgid "(Shouting)"
+msgstr "(Cridar)"
+
+msgid "Estelle, Torelli ..."
+msgstr "Estelle, Torelli ..."
+
+msgid "Oh my God."
+msgstr "Oh Déu meu."
+
+msgid "What the hell just happened?!"
+msgstr "Què ha passat l'infern ?!"
+
+msgid "The anti-matter ball must've exploded in the atmosphere, and ignited it."
+msgstr "La bola anti-matèria ha d'haver explotat a l'atmosfera i encendre-la."
+
+msgid "How ... how did the Pandorans know that would happen?!"
+msgstr "Com ... com sabien els Pandorans que passaria?"
+
+msgid "I don't think they did; they just got lucky."
+msgstr "No crec que ho fessin; només van tenir sort."
+
+msgid "And now they'll use that against every planet they come to."
+msgstr "I ara ho faran servir en contra de tot el planeta al que vénen."
+
+msgid "All forces, retreat immediately! Repeat: retreat immediately. White Knights, dock, and prepare for withdrawal."
+msgstr "Totes les forces, retirada immediatament! Repetició: retirada immediatament. Cavallers blancs, molls i preparatius per a la retirada."
+
+msgid "..."
+msgstr "..."
+
+msgid "White Knights, please acknowledge."
+msgstr "Cavallers blancs, si us plau, reconegui."
+
+msgid "Acknowledged. Estelle, we have to leave. It's over."
+msgstr "Reconeguda. Estelle, hem d'anar. S'ha acabat."
+
+msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
+msgstr "Els guineus de Tzac es mouen al saltó. Hem de detenir-los abans de causar-los un dany greu."
+
+msgid "Goddard, command of this operation will fall to you, if events lead to me being unable to participate fully."
+msgstr "Goddard, el comandament d'aquesta operació et caurà, si els esdeveniments em porten a no poder participar plenament."
+
+msgid "Picking up a second group of fighters, incoming."
+msgstr "Recollint un segon grup de lluitadors, entrants."
+
+msgid "More fighters, inbound!"
+msgstr "Més lluitadors, entrants!"
+
+msgid "The jumpgate is taking damage!"
+msgstr "El saltó està prenent danys."
+
+msgid "Half the jumpgate's control nodes have been destroyed! We need to step up our efforts to defend it!"
+msgstr "S'ha destruït la meitat dels nodes de control del Jumpgate. Hem de intensificar els nostres esforços per defensar-lo!"
+
+msgid "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed."
+msgstr "Amb l'amenaça del mercenari vist i els atacs inicials de Tzac frustrats, és hora de començar a retrocedir contra les forces de Christabel. Tenim la intenció de capturar alguns dels seus comandants, per ajudar a construir una millor imatge de les forces a Mace, abans de passar al sistema. Com sempre, els objectius de la mag i no els permeten matar-los."
+
+msgid "Tzac fighters spotted, both commanders are here. Goddard, disable those fighters as soon as you can."
+msgstr "Els lluitadors de Tzac van veure, tots dos comandants estan aquí. Goddard, desactiva aquests lluitadors tan aviat com puguis."
+
+msgid "Squadron commanders disabled."
+msgstr "Els comandants de l'esquadró estan desactivats."
+
+msgid "Great work, everyone. We just need to wait for the tugs to arrive and bring these guys in."
+msgstr "Gran treball, tothom. Només hem d'esperar que arribin els remolcadors i portin aquests nois."
+
+msgid "Commander, I'm reading incoming fighter signature: Darts."
+msgstr "Comandant, estic llegint la signatura de caça entrant: Dards."
+
+msgid "I'll bet my house those are mercenaries, and given that the relationship with Tzac didn't end amicably they're probably targetting the commanders. We can't afford to lose them."
+msgstr "Vaig a apostar a la meva casa que són mercenaris, i atès que la relació amb Tzac no va acabar de manera amistosa probablement estiguessin dirigits als comandants. No podem permetre'ns perdre'ls."
+
+msgid "All Darts have been dispatched, Commander."
+msgstr "Tots els dards han estat enviats, comandant."
+
+msgid "Good. Not often we end up having to protect the enemy from another."
+msgstr "Bo No solem acabar tenint per a protegir l'enemic d'un altre."
+
+msgid "Tugs are on the way. Should be here in the next few minutes"
+msgstr "Els remolcadors estan en camí. Hauria d'estar aquí en els propers minuts"
+
+msgid "The Pandorans are continuing to knock on our door, and so we need to continue to engage them. Intercept and take down all enemy fighters. The Imperial frigate INF Sharpfinger is also in the sector, and needs to be destroyed."
+msgstr "Els Pandorans segueixen copejant la nostra porta i, per tant, hem de continuar comprometent amb ells. Interceptar i derrotar a tots els combatents enemics. La fragata imperial INF Sharpfinger també està en el sector i ha de ser destruïda."
+
+msgid "People, divide yourselves between the fighters and the Sharpfinger."
+msgstr "La gent, divideix-vos entre els lluitadors i el Sharpfinger."
+
+msgid "We couldn't spare any bombers, so we just need to get in there and take them all on."
+msgstr "No podríem estalviar cap bombarder, així que només hem d'entrar i portar-los a tots."
+
+msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
+msgstr "Hem rebut la paraula del CSN Florin que han patit un fracàs elèctric que afecta tot el vaixell. El vaixell encallat ha cridat l'atenció dels Pandorans, que ja han desplegat transbordadors i remolcadors per absorbir-lo en les seves files. Els Gats silenciosos interceptaran i proporcionaran cobertura fins que Florin pugui afectar les reparacions."
+
+msgid "Florin, this is Black of the Salty Wildcats, here to assist."
+msgstr "Florin, això és Black of the Wild Gats, aquí per ajudar."
+
+msgid "Glad to see you, Wildcats. The Pandorans arrived shortly before you did. We've got tugs and shuttles incoming."
+msgstr "M'alegro de veure't, Gats bessons. Els pandorans van arribar poc abans que ho fessis. Disposem de remolcadors i llançadores entrants."
+
+msgid "Acknowledged, we'll secure the area while you get things up and running."
+msgstr "Reconeixem que protegirem l'àrea mentre feu funcionar les coses."
+
+msgid "Florin, Pandoran vessels have been dealt with."
+msgstr "Florin, els vaixells Pandoran han estat tractats."
+
+msgid "Many thanks, Wildcats. We've identified the cause of the power outage. Should be no more than a few minutes before we can restart all systems."
+msgstr "Moltes gràcies, Gats bessons. Hem identificat la causa de l'apagada elèctrica. No ha de ser més que pocs minuts abans de poder reiniciar tots els sistemes."
+
+msgid "Wildcats, we're picking up an incoming squadron."
+msgstr "Gats bessons, anem a recollir un esquadró entrant."
+
+msgid "More Pandoran tugs?"
+msgstr "Més remolcadors de Pandoran?"
+
+msgid "Negative. These appear to be non-aligned forces, fighters and bombers."
+msgstr "Negatiu. Sembla que són forces no alineades, lluitadors i bombarders."
+
+msgid "Incoming forces are on intercept vectors. We only need a few more minutes."
+msgstr "Les forces entrants estan en vectors d'intercepció. Només necessitem uns minuts més."
+
+msgid "On it."
+msgstr "Sobre ella."
+
+msgid "Looks like that's all of them."
+msgstr "Sembla que això és tot."
+
+msgid "Those were Kingdom of Tzac fighters. We've heard reports of them being active in some Confederation systems."
+msgstr "Aquests eren els combatents del Regne de Tzac. Hem escoltat que els informes d'ells estan actius en alguns sistemes de la Confederació."
+
+msgid "Would appear that Christabel is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with."
+msgstr "Sembla que Christabel està finalment preparat per compensar totes les seves amenaces. És genial, així que ara tenim ambdós, i els Pandorans, per fer front."
+
+msgid "It never rains ..."
+msgstr "Mai plou ..."
+
+msgid "We're starting systems up again. Once we've completed pre-jump checks we're heading for Temper. Thank you for your assistance."
+msgstr "Estem iniciant els sistemes de nou. Una vegada que hàgim completat els xecs de pre-salt, ens dirigirem a Temper. Gràcies per la teva ajuda."
+
+msgid "We'll meet you there."
+msgstr "Ens trobarem allí."
+
+msgid "Tzac bombers have been identified in the area, deploying mines. While this violates intergalactic treaties, we could never assume that Tzac, much like the Pandorans, would abide by the rules of war. We need to take down those bombers quickly. Exercise caution around the mines, as they are especially potent."
+msgstr "S'han identificat bombers de Tzac a la zona, desplegant mines. Tot i que això viola els tractats intergalàctics, mai podríem suposar que Tzac, igual que els Pandoranos, complirían les regles de la guerra. Hem d'acabar amb els bombarders ràpidament. Exerciu cautela al voltant de les mines, ja que són especialment potents."
+
+msgid "Watch out for those mines. They're on proximity triggers and have a large area of effect."
+msgstr "Compte amb les mines. Estan en activadors de proximitat i tenen una gran àrea d'efecte."
+
+msgid "Take them out from a distance, otherwise you'll be in trouble."
+msgstr "Treu-los des de la distància, d'altra manera tindreu problemes."
+
+msgid "That's the bombers taken care of, but the area is still littered with mines."
+msgstr "Aquests són els bombers atesos, però la zona encara està plena de mines."
+
+msgid "We'll need to get a team in here to take care of them."
+msgstr "Hem d'aconseguir un equip aquí per cuidar-los."
+
+msgid "Following the elimination of the Tzac bombers, we need to clear the leftover mines from the system, in case they cause us difficulties in later operations. As always, the mines should be taken down from a distance, to minimise the chances of damage being caused to your fighter during their destruction."
+msgstr "Després de l'eliminació dels bombarders Tzac, hem de netejar les mines sobrants del sistema, en cas que ens causin dificultats en operacions posteriors. Com sempre, les mines s'han de reduir a distància, per minimitzar les possibilitats de dany causat al lluitador durant la seva destrucció."
+
+msgid "Reyes, proceed with caution. Those mines are equipped with radar damping fields, that will prevent them from showing up at anything but close range."
+msgstr "Reyes, procediu amb precaució. Aquestes mines estan equipades amb camps d'amortiment de radar, que impedeixen que es mostrin en qualsevol altra cosa que en un rang proper."
+
+msgid "Remember to take them out from a distance; your TAF won't be able to withstand much impact damage from the explosions."
+msgstr "Recordeu treure'ls de lluny; el vostre TAF no podrà resistir molts danys d'impacte de les explosions."
+
+msgid "Reyes, we're detecting incoming fighter signatures. Looks like Darts, possibly pirates. Eliminate as necessary."
+msgstr "Reyes, estem detectant signatures de lluitadors entrants. Sembla Darts, possiblement pirates. Elimineu-ho com sigui necessari."
+
+msgid "Control, I've dealt with both the mines and the Darts. Any idea who those guys were?"
+msgstr "Control, he tractat amb les mines i els dards. Alguna idea que aquests nois eren?"
+
+msgid "A report is being generated right now. Should be ready by the time you return."
+msgstr "Actualment s'està generant un informe. Heu d'estar preparats en el moment de tornar."
+
+msgid "I noticed that none of those Darts tripped any mines. Maybe those were Tzac fighters?"
+msgstr "Em vaig adonar que cap d'aquests dards va disparar cap mena. Potser eren els lluitadors de Tzac?"
+
+msgid "Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing."
+msgstr "Tzac mai no s'ha sabut implementar Darts, però aquesta va ser una observació important. Proporcioneu-nos tots els detalls possibles durant el debriefing."
+
+msgid "A large Tzac force has gathered in Aster. The White Knights are being sent in alone to deal with it. We need to continue to show that we are capable of winning these engagements with minimal losses to the enemy force. Mag and disable all Tzac craft in the area, and do not allow any to be destroyed, even by stray fire."
+msgstr "S'ha reunit a Aster una gran força de Tzac. Els cavallers blancs s'envien sols per tractar-lo. Hem de continuar demostrant que som capaços de guanyar aquests compromisos amb pèrdues mínimes per a la força enemiga. Feu clic a la màquina i desactiveu totes les embarcacions de Tzac a la zona i no permeti que es destrueixi, fins i tot per incendi."
+
+msgid "Remember, guys: mags only against the fighters. We're not here to take any more lives."
+msgstr "Recorda, nois: mags només contra els lluitadors. No estem aquí per tenir més vides."
+
+msgid "For the corvettes, concentrate fire on the engines and the guns. Once it's out of the game, move onto the next one."
+msgstr "Per a les corbetes, concentreu el foc als motors i als canons. Un cop fora del joc, passa al següent."
+
+msgid "We should lure the fighters away from the capital ships. Stray fire against a disabled ship could destroy it."
+msgstr "Hem d'atraure als combatents allunyats de les naus capitals. L'incendi contra un vaixell discapacitat podria destruir-lo."
+
+msgid "Good point, Chaz, we should be mindful of friendly-fire."
+msgstr "Bon punt, Chaz, hauríem de tenir present el fervorós."
+
+msgid "Brings back memories, doesn't it?"
+msgstr "Recupera els records, oi?"
+
+msgid "So long as we don't end up back in Phylent after this."
+msgstr "Sempre que no acabem en Phylent després d'això."
+
+msgid "This going in your journal, Kelly?"
+msgstr "Està anant al vostre diari, Kelly?"
+
+msgid "Everything. It could be important one day."
+msgstr "Tot. Podria ser important un dia."
+
+msgid "Have fun with the names of Tzac's cap ships."
+msgstr "Diverteix-te amb els noms dels vaixells de tacs."
+
+msgid "I'll just refer to the battle logs. Military records tend to be accurate."
+msgstr "Acabo de referir als registres de batalla. Els registres militars solen ser precisos."
+
+msgid "Most of the time."
+msgstr "La major part del temps."
+
+msgid "All fighters disabled."
+msgstr "Tots els combatents estan desactivats."
+
+msgid "Corvettes are all out of the game."
+msgstr "Les corbetes estan fora del joc."
+
+msgid "Griffin, this is de Winter. Opposing forces are no longer a threat."
+msgstr "Griffin, això és l'hivern. Les forces oposades ja no són una amenaça."
+
+msgid "Any casualties?"
+msgstr "Qualsevol baixa?"
+
+msgid "No. All fighters and caps have been shutdown, and ready for pickup."
+msgstr "Tots els lluitadors i caps han estat apagats, i estan preparats per a la seva recollida."
+
+msgid "Great work, Knights. Clean up will commence shortly. Standby for new instructions."
+msgstr "Gran treball, cavallers. La neteja començarà aviat. En espera de noves instruccions."
+
+msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
+msgstr "El dia que tenim temut i els esdeveniments que intentem evitar són ara sobre nosaltres: l'exèrcit de Pandoran ha començat a impulsar-se més enllà de l'espai de Mitikas, i comença a assaltar els sistemes d'estrelles independents veïns. Hem de lluitar, per tal de protegir a Clarke d'estar sotmès a aquesta amenaça. Tingueu en compte: aquesta no serà una batalla senzilla, però tenim poques opcions i hem de garantir la victòria aquí mateix avui."
+
+msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down INF Dirk. Ensure the Lynx-class bombers can get in close enough to delivery a strike."
+msgstr "Hem superat amb èxit diversos esquadrons de combatents de Pandoran, però les seves naus capitals s'apropen ràpidament a Dublín. El vostre objectiu és eliminar INF Dirk. Assegureu-vos que els bombarders de la classe Lynx es puguin acostar prou com per enviar una vaga."
+
+msgid "Commander, I would recommend we take out the escorts first."
+msgstr "Comandant, us recomano que prendrem primer les escorts."
+
+msgid "Agreed. The Dirk on its own would already prove a challenge."
+msgstr "Convingut. El Dirk sol ser un repte."
+
+msgid "INF Dirk has been downed."
+msgstr "INF Dirk ha estat derrocat."
+
+msgid "This is Carlyle. Enemy corvette has been destroyed. All other fighters scratched."
+msgstr "Això és Carlyle. S'ha destruït la corbeta enemiga. Tots els altres lluitadors rascades."
+
+msgid "That's good work, Commander. We're preparing to engage more enemies, so we can't put our feet up just yet."
+msgstr "Això és un bon treball, Comandant. Ens estem preparant per atraure més enemics, de manera que encara no podem posar els peus."
+
+msgid "Hell. Okay, we'll return momentarily. Carlyle out."
+msgstr "Infern. D'acord, tornarem momentàniament. Carlyle out."
+
+msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra and UNF Artemis are moving to intercept more enemy corvettes. Your orders are to assist them in achieving their goals."
+msgstr "Hem de continuar eliminant els vaixells captius de l'enemic, cavant i mantenint la línia aquí. Més dels nostres propis vaixells de caps s'estan dirigint cap al camp per conèixer el capdavant de Pandorans. La UNF Cleopatra i la UNF Artemis es mouen per interceptar més corbeta enemiga. Les seves ordres són per ajudar-los a assolir els seus objectius."
+
+msgid "INF Khopesh is down."
+msgstr "INF Khopesh ha baixat."
+
+msgid "INF Blackjack has been destroyed."
+msgstr "S'ha destruït el blackjack INF."
+
+msgid "This is Carlyle. Enemy targets have been eliminated. Cleopatra and Artemis still in one piece."
+msgstr "Això és Carlyle. S'han eliminat objectius enemics. Cleòpatra i Artemisa encara en una sola peça."
+
+msgid "Acknowledged. Fall back to the main fleet and await new instructions."
+msgstr "Reconeguda. Torna a la flota principal i espera noves instruccions."
+
+msgid "This is going to be a long day, eh?"
+msgstr "Aquest serà un dia llarg, eh?"
+
+msgid "Maybe not, if we continue to lose ground the way we are already ..."
+msgstr "Potser no, si seguim perdent terreny de la manera que ja som ..."
+
+msgid "White Knights, Commodore Parks has identified three enemy corvettes are high level targets. He wants Dodds, Koonan and Todd to take them down, as quickly as possible. There won't be any additional fighter support, but three ATAFs should be more than enough to get the job done. de Winter and Taylor are currently on another assignment. Dodds will lead the attack."
+msgstr "White Knights, Commodore Parks ha identificat tres corvetes enemigues que són objectius d'alt nivell. Ell vol que Dodds, Koonan i Todd els lleven a baix, tan aviat com sigui possible. No hi haurà cap suport addicional de combat, però tres ATAF haurien de ser més que suficients per fer el treball. Hivern i Taylor estan actualment en una altra tasca. Dodds liderarà l'atac."
+
+msgid "Targets sighted: three capital ships, five escorts apiece."
+msgstr "Objectius observats: tres naus cabdals, cinc escorts cada un."
+
+msgid "You know what to do, guys. Let's take them down."
+msgstr "Ja saps què fer, nois. Anem a baixar."
+
+msgid "Want to take bets on how soon before they run?"
+msgstr "Voleu prendre apostes sobre quina tan aviat abans d'executar?"
+
+msgid "Wouldn't call that a fair bet, mate. We all know they won't."
+msgstr "No voldria dir que una apuesta equitativa, company. Tots sabem que no ho faran."
+
+msgid "More fighters inbound."
+msgstr "Més lluitadors entrants."
+
+msgid "Picking up another Pandoran squadron, incoming."
+msgstr "Recollint un altre esquadró de Pandoran, entrant."
+
+msgid "See? That's why I didn't make a bet with you!"
+msgstr "Veure? Per això no he fet cap aposta amb tu!"
+
+msgid "All capital ships down. That's, what, fifty of these things we've scratched, alone?"
+msgstr "Tots els capitals baixen. Això és, quin, cinquanta d'aquestes coses que hem ratllat, soles?"
+
+msgid "Seriously, I've lost count."
+msgstr "De debò, he perdut el recompte."
+
+msgid "How many more can the Pandorans have?"
+msgstr "Quants més poden tenir els Pandorans?"
+
+msgid "Only way we'll find out is if we go to Kethlan, and I'm not keen on heading there anytime soon."
+msgstr "Només voldríem saber si anem a Kethlan, i no estic encantat d'anar-hi aviat."
+
+msgid "Chaz, anything?"
+msgstr "Chaz, qualsevol cosa?"
+
+msgid "Negative."
+msgstr "Negatiu."
+
+msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
+msgstr "D'acord, tornem a Leviathan, i esperem que Kelly i Estelle ens tornin a unir."
+
+msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive impact on ours. The frigate's support groups will need to be destroyed first."
+msgstr "Hem descobert que Alysha's Calling, una de les fragates enemigues de perfil més gran, es troba actualment al sistema. Estem preparant un equip de vaga de Hammerheads, liderat pels Lancers Crepuscles, per comprometre'l i destruir-lo. Es desconeix quins efectes tindran, si escau, la destrucció d'aquest vaixell en la moral enemiga, però només pot tenir un impacte positiu sobre la nostra. Els grups de suport de la fragata hauran de ser destruïts primer."
+
+msgid "First squadron sighted. Moving to intercept."
+msgstr "Primer escolta observat. S'està movent per interceptar."
+
+msgid "First squadron taken down, preparing to engage second."
+msgstr "Primer escacs esgotat, preparant-se per ocupar-se segon."
+
+msgid "Second squadron down. Moving up the field to engage Alysha's Calling."
+msgstr "Segon escuadrón avall. Moure el camp per participar a les trucades d'Alysha."
+
+msgid "Welch, we're tracking a large number of fast-moving objects heading your way. IDs don't match anything we currently have on record."
+msgstr "Welch, estem fent un seguiment d'una gran quantitat d'objectes que mouen ràpidament i que et dirigeixen. Els identificadors no coincideixen amb el que tenim actualment al registre."
+
+msgid "Missiles?"
+msgstr "Míssils"
+
+msgid "Too large. We'll relay more information as we get it. Be prepared to engage."
+msgstr "Massa massa gran. Retirem més informació a mesura que ho aconseguim. Estigueu preparats per participar."
+
+msgid "Whatever these things are, they're not hard to dispatch."
+msgstr "Sigui quina sigui aquestes coses, no són difícils d'enviar."
+
+msgid "No, but there's a lot of them ..."
+msgstr "No, però hi ha molts ..."
+
+msgid "Welch, we're detecting more of the swarmer things heading your way."
+msgstr "Welch, estem detectant més de les coses enèrgiques que es dirigeixen al vostre camí."
+
+msgid "How many more?"
+msgstr "Quants més?"
+
+msgid "Tracking around three dozen, and the numbers are rising."
+msgstr "Seguiment de tres dotzenes, i els números augmenten."
+
+msgid "Thunderbird, this is Welch. Swarmers have been taken care of."
+msgstr "Thunderbird, això és Welch. S'ha tingut cura dels estafadors."
+
+msgid "Good to hear, Commander. We're pulling you out there, to assist the other squadrons."
+msgstr "És bo escoltar, comandant. Ens estem fent fora per ajudar els altres esquadrons."
+
+msgid "What about Alysha?"
+msgstr "Què passa amb Alysha?"
+
+msgid "The target is no longer a priority. Clarke's front line is collapsing. They need reinforcement, ASAP."
+msgstr "L'objectiu ja no és una prioritat. La primera línia de Clarke està en col · lapse. Necessiten un reforç, PRÒLEGAMENT."
+
+msgid "Understood. Heading there now."
+msgstr "Entès. Encapçalant ara."
+
+msgid "The enemy are beginning to overrun our front line. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen."
+msgstr "L'enemic està començant a vèncer la nostra primera línia. El teu objectiu és simple: enganxar i destruir totes les forces hostils. No podem permetre's perdre més terreny aquí. Per fer-ho significaria concedir la derrota i Clarke caure a la flota de Pandoran. Això no pot passar."
+
+msgid "The Twilight Lancers are on their way."
+msgstr "Els Lanceros Twilight estan en camí."
+
+msgid "Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!"
+msgstr "Vuit lluitadors extra? Podríem superar en nombre a l'enemic, però encara ens superen!"
+
+msgid "At this point, any additional support is welcome. And we still have the support of Cleopatra and Artemis."
+msgstr "En aquest moment, qualsevol suport addicional és benvingut. I encara tenim el suport de Cleopatra i Artemisa."
+
+msgid "Welch here, engaging targets."
+msgstr "Aquí hi trobareu objectius atractius."
+
+msgid "Not a moment too soon, Commander."
+msgstr "No és massa aviat, Comandant."
+
+msgid "We're wearing them down. Keep up the pressure."
+msgstr "Els fem servir. Mantingueu la pressió."
+
+msgid "Think they're pull back if we hit them hard enough?"
+msgstr "Penseu que tornen a tirar-los si els arribem?"
+
+msgid "Too early to speculate. Just concentrate on taking down their fighters."
+msgstr "Ben aviat per especular. Només cal concentrar-se a treure els seus lluitadors."
+
+msgid "I've just been tailed by something I've never seen before! Small, highly manoeuvrable, rapid fire particle cannon."
+msgstr "Acabo de fer cua amb alguna cosa que mai he vist abans. Canó de partícules petites, molt manejables, ràpides de foc."
+
+msgid "Swarmers! The enemy have deployed them here, too!"
+msgstr "Escuadrents! L'enemic els ha desplegat també aquí."
+
+msgid "How many?"
+msgstr "Quants?"
+
+msgid "Tracking a dozen, but the numbers are growing rapidly"
+msgstr "Seguiment d'una dotzena, però els números creixen ràpidament"
+
+msgid "I've lost count how many of these damn swarmers I've taken down."
+msgstr "He perdut comptar quants d'aquests maldestres escarabats he eliminat."
+
+msgid "It's like fighting a hydra! You cut off one head, and two more spring up!"
+msgstr "És com lluitar contra una hidra! Es va tallar un cap i es van aixecar dos més!"
+
+msgid "There's too many of them!"
+msgstr "Hi ha massa d'ells!"
+
+msgid "Keep fighting, we can still win this!"
+msgstr "Seguiu lluitant, encara podem guanyar això!"
+
+msgid "They're everywhere! I--"
+msgstr "Estan a tot arreu! Jo--"
+
+msgid "People, we are down one capital ship! We need to step things up!"
+msgstr "Gent, som una nau de capital! Necessitem avançar les coses!"
+
+msgid "Both caps are down, all hands lost. Let's not let this go to waste."
+msgstr "Ambdues tapes estan baixes, totes les mans es van perdre. No deixem que això passi a perdre."
+
+msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
+msgstr "Tot i que patim greus pèrdues al Coyote, encara és important que intentem prevenir o, si més no, retardar l'avanç de la màquina de guerra de Pandoran. L'almirall Jenkins ha ordenat que els cavallers blancs portin un atac a les forces enemigues reunides al sistema. El pes de les forces oposades continua sent enorme, tot i que els ATAF han d'ajudar a donar-nos la vora en la batalla. Assegureu-vos que l'enemic està ara en possessió de vaixells de combat UNF."
+
+msgid "All fighters, this is Commander de Winter. Enemy targets sighted, engage at will."
+msgstr "Tots els lluitadors, aquest és el Comandant d'Hivern. Objectius enemics vistos, comprometre's a voluntat."
+
+msgid "More enemies inbound."
+msgstr "Més enemics entrants."
+
+msgid "Man, I've got to get me one of those!"
+msgstr "Home, he d'aconseguir-me un d'aquests!"
+
+msgid "What the hell are those things you're flying?"
+msgstr "Què diables són aquestes coses que voles?"
+
+msgid "An ATAF. Stands for Advanced Tactical Assault Fighter."
+msgstr "Un ATAF. Stands for Advanced Tactical Assault Fighter."
+
+msgid "Are the CSN rolling those out to everyone?"
+msgstr "El CSN fa rodar aquests a tothom?"
+
+msgid "No, they ... were built for a different purpose."
+msgstr "No, ells ... van ser construïts per a un propòsit diferent."
+
+msgid "What sort of purpose?"
+msgstr "Quin tipus de propòsit?"
+
+msgid "Sorry, for now, that's classified."
+msgstr "Ho sentim, d'ara, això està classificat."
+
+msgid "Griffin, this is de Winter. All targets destroyed."
+msgstr "Griffin, això és l'hivern. S'han destruït tots els objectius."
+
+msgid "Acknowledged, Commander. Stand by for new orders."
+msgstr "Reconegut, comandant. Demaneu-vos per a comandes noves."
+
+msgid "The initial fight back against the Pandorans has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system."
+msgstr "La lluita inicial contra els Pandorans ha anat bé, però el sistema encara està enfonsat amb les seves forces. Hem de seguir comprometent-los i forçar-los a abandonar el sistema."
+
+msgid "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space."
+msgstr "L'assalt no va tan bé com volem, i estem començant a patir grans pèrdues a mesura que les forces de Pandoran ens abrumen. No obstant això, hem de continuar la lluita enrere i intentar mantenir l'enemic aquí. No es pot permetre avançar cap a l'espai independent."
+
+msgid "We're getting our arses kicked here! Any chance of any backup?!"
+msgstr "Estem aconseguint que els nostres culos patein aquí! Qualsevol possibilitat de qualsevol còpia de seguretat?"
+
+msgid "The White Knights are here! Finally!"
+msgstr "Els cavallers blancs són aquí! Finalment!"
+
+msgid "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate."
+msgstr "Tots els lluitadors, el capità Bailey ha assenyalat la retirada. Coyote es perd. Torneu a la gatzoneta."
+
+msgid "You all heard the Captain - fall back, we'll cover the retreat."
+msgstr "Tots has sentit al capità: caureu enrere, anem a cobrir la retirada."
+
+msgid "Estelle, we've got this. We can take them."
+msgstr "Estelle, tenim això. Els podem portar."
+
+msgid "We're suffering too many losses, Dodds. Fall back now, that's an order."
+msgstr "Estem patint moltes pèrdues, Dodds. Torneu enrere, això és un ordre."
+
+msgid "Tzac Shales sighted. Moving to intercept."
+msgstr "Tales Shales vistos. S'està movent per interceptar."
+
+msgid "Fewer than we were expecting."
+msgstr "Menys del que esperàvem."
+
+msgid "Agreed. Scouts?"
+msgstr "Convingut. Escoltes"
+
+msgid "Zenobia, I'm detecting a large squadron of fighters and bombers, heading our way. Looks like they're focusing directly on you."
+msgstr "Zenobia, estic detectant un gran esquadró de lluitadors i bombarders, encapçalant el nostre camí. Sembla que se centren directament en tu."
+
+msgid "Dammit! The Shales were acting as bait. Specials, keep those bombers away from us."
+msgstr "Dammit! Els Shales estaven actuant com a esquer. Especials, fes lluny dels bombarders."
+
+msgid "You're going to have to deal with this one solo, Carpenter. There are bombers deploying mines in the area. Any one of those detonating could kill the target."
+msgstr "Vas a haver de tractar amb aquest sol, Carpenter. Hi ha bombers que despleguen mines a la zona. Qualsevol d'aquests detonants podria matar l'objectiu."
+
+msgid "Secure the commander, and then take down those bombers. Just watch your fire."
+msgstr "Assegureu-vos el comandant i, a continuació, desmunteu els bombarders. Només mireu el foc."
+
+msgid "Pandoran forces are beginning their assault on Donesta. They must be engaged and driven out of the system. However, it appears that they are making use of UNF fighters, in an attempt to confuse our own pilots. Visual identification should therefore not be relied on to determine targets, as radar will help to separate their units from ours."
+msgstr "Les forces de Pandoran comencen a atacar a Donesta. Han d'estar compromesos i expulsats del sistema. Tanmateix, sembla que fan ús dels lluitadors de la FNU, en un intent de confondre els nostres propis pilots. Per tant, no s'ha de confiar en la identificació visual per determinar els objectius, ja que el radar ajudarà a separar les unitats de la nostra."
+
+msgid "Remember everyone: the Pandorans are using UNF fighters."
+msgstr "Recordeu-vos a tothom: els pandorans utilitzen lluitadors de la FNU."
+
+msgid "Using your radar is the way to go in this fight."
+msgstr "Usar el radar és la manera d'anar en aquesta lluita."
+
+msgid "All enemies down."
+msgstr "Tots els enemics avall."
+
+msgid "Let's hope we never see the day when they get hold of one of the ATAFs."
+msgstr "Esperem que mai no veiem el dia en què s'apoderen d'un dels ATAF."
+
+msgid "Agreed. Let's regroup and prepare for whatever's coming next."
+msgstr "Convingut. Anem a reagrupar-nos i preparar-nos per allò que vingui més endavant."
+
+msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
+msgstr "Un grup de patrulla ha vist una sèrie de caixes a la deriva prop d'Alexandria. Actualment, els continguts de les caixes són desconeguts, però s'han confirmat que pertanyen al CSN. S'ha enviat un transbordador per recuperar-los, en cas que vagin a les rutes de navegació. Un cop els tenim a la nostra disposició, treballarem per determinar com van arribar aquí."
+
+msgid "Not expecting any company, Carr, so this should just be a routine pickup. We'll keep an eye out, though."
+msgstr "No esperava cap empresa, Carr, per la qual cosa això només hauria de ser una recollida rutinària. Tanmateix, seguirem vigilant."
+
+msgid "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more."
+msgstr "Es va trobar que les caixes portaven una varietat de municions, tot i que encara no sabem d'on venien. Estem enviant els autobusos per acompanyar les properes patrulles, en cas que no ens trobem més."
+
+msgid "Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up."
+msgstr "Iron Patriots, tornem a identificar un grapat de caixes a la deriva prop de la vostra posició actual. Feu efecte de recollida."
+
+msgid "Got it. Heading to the first one now."
+msgstr "Ho tinc. Encapçalant la primera ara."
+
+msgid "Iron Patriots, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location."
+msgstr "Els Patriots de Ferro, un Dard encallat, han estat detectats a prop. S'ha enviat un remolc per accedir-hi. Escolleu-lo a la ubicació de l'objectiu."
+
+msgid "Know anything about the occupant, or affiliation?"
+msgstr "Conegui res sobre l'ocupant o l'afiliació?"
+
+msgid "Negative, Lieutenant. We'll know more once it's brought in."
+msgstr "Negatiu, tinent. Ho sabrem una vegada més."
+
+msgid "Tow cable attached. Ready to head home."
+msgstr "Cable de remolc adjunt. Llest per anar a casa."
+
+msgid "We're done here. Let's bring our mystery guest in."
+msgstr "Estem acabats aquí. Portem al nostre misteri hoste."
+
+msgid "Dan, we've got hostile vessels inbound. More Darts."
+msgstr "Dan, tenim embarcacions hostils entrades. Més dards."
+
+msgid "Prepare to engage. Protect the asset!"
+msgstr "Prepara't per participar. Protegiu l'actiu!"
+
+msgid "Alexandria, package delivered."
+msgstr "Alexandria, paquet lliurat."
+
+msgid "Excellent work, Lieutenant. Let's see what all this tell us. Come on home."
+msgstr "Excel·lent treball, tinent. Vegem què ens explica tot això. Vine a casa."
+
+msgid "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Kingdom of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence."
+msgstr "La interrogació del pilot presentat anteriorment va revelar que les municions es cotitzen amb l'enemic d'Helios, el Regne de Tzac. Les armes es dirigeixen a Rothan, a través de Temper. Això explicaria la gran presència de pirates al llarg de la frontera. No explica per què els paquets s'han vessat, però, i el nostre hoste està mantenint la seva mare en el tema. S'estan incrementant les patrulles, en un esforç per ajudar a proporcionar més informació."
+
+msgid "Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies."
+msgstr "Patrulla, tenim una situació important en desenvolupament. Es produeix una escaramussa entre diversos herois: dards, nimfes i focs artificials."
+
+msgid "Pirates? Insurgents? Kingdom of Tzac?"
+msgstr "Pirates? Insurgents? Regne de Tzac?"
+
+msgid "Too early to speculate. We want you to disable and bring in one craft from each side. The rest, you can eliminate."
+msgstr "Ben aviat per especular. Volem que deshabiliteu i porteu una embarcació de cada costat. La resta, pots eliminar."
+
+msgid "This is Carr, reporting operation successful. Bagged us two squadron commanders."
+msgstr "Això és Carr, l'operació d'informes té èxit. Ens van portar dos comandants d'esquadrons."
+
+msgid "Good work, Commander. Dispatching tugs to bring them in."
+msgstr "Bon treball, comandant. Dispatching remolcadors per atraure'ls."
+
+msgid "We finally have all the information we need to help safeguard the Confederation in these turbulent times. By smashing the pirate ring involved in the supplying of arms to Tzac, we can regain control of our internal security matters, and refocus on the war against the Pandorans. All targets must be destroyed, but be advised that the pirates have acquired rocket cannons, that could prove costly if underestimated."
+msgstr "Finalment, tenim tota la informació que necessitem per protegir la Confederació en aquests temps turbulents. En esclafar l'anell pirata involucrat en el subministrament d'armes a Tzac, podem recuperar el control de les qüestions de seguretat interna i tornar a enfrontar-se a la guerra contra els Pandorans. Tots els objectius han de ser destruïts, però es recomana que els pirates hagin adquirit canons de coets, que podrien resultar costosos si es subestimen."
+
+msgid "Right, people, let's finish this. Engage at will. Leave nothing standing."
+msgstr "Bé, gent, anem a acabar això. Participi a voluntat. No deixa res de peu."
+
+msgid "Alexandria: opposition stronger than expected. Requesting reinforcements."
+msgstr "Alexandria: l'oposició més forta de l'esperada. Sol·licitud de reforços."
+
+msgid "Acknowledged. They're on their way."
+msgstr "Reconeguda. Estan en camí."
+
+msgid "Alexandria: reporting all captain vessels destroyed."
+msgstr "Alexandria: informar tots els vaixells capitans destruïts."
+
+msgid "Alexandria: sentry cannons eliminated."
+msgstr "Alexandria: eliminació de canons de centinela."
+
+msgid "Alexandria: reporting all enemy fighters destroyed."
+msgstr "Alexandria: informant a tots els lluitadors enemics destruïts."
+
+msgid "This is Carr. Reporting threat eliminated, operation successful."
+msgstr "Això és Carr. S'ha eliminat l'amenaça d'informes, l'execució és correcta."
+
+msgid "Excellent work, Commander. We'll get a few frosty ones ready for your return."
+msgstr "Excel·lent treball, comandant. Rebre uns quants gelats preparats per al seu retorn."
+
+msgid "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle."
+msgstr "Els Pandorans han iniciat el seu atac a la nostra casa, i hem d'actuar immediatament per defensar-nos. Una onada de bombarders es dirigeix ​​cap a un dels nostres starports. Han de ser retirats amb pressa, abans que entrin a l'abast. Sols poden ser escortats per Jackals, però tenint en compte que els pilots de Pandoran són altament qualificats i implacables en la batalla."
+
+msgid "Recommending taking down the escorts before engaging the bombers. Just watch out for their rockets."
+msgstr "Recomana retirar les escorts abans de participar amb els bombarders. Només cal tenir cura dels seus coets."
+
+msgid "Be warned, people, these Pandorans are said to be relentless in battle."
+msgstr "Cal avisar-se, gent, es diu que aquests pandorans són implacables en la batalla."
+
+msgid "The Pandoran war machine has commenced its advancement beyond Mitikas space. We must prepare to defend Iliad from this powerful foe. Exercise caution: despite outnumbering the enemy units that have entered our space, the Pandorans are said to be relentless in battle, and this small number could well still test us."
+msgstr "La màquina de guerra Pandoran ha iniciat el seu avenç més enllà de l'espai Mitikas. Hem de preparar-nos per defensar la Ilíada d'aquest poderós enemic. Precaució: tot i superar en nombre a les unitats enemigues que han entrat en el nostre espai, es diu que els pandorans són implacables en la batalla, i aquest petit nombre encara ens podria provar."
+
+msgid "In order to slow the advance of the Pandoran forces, we are going to target one of their supply lines. This should buy us some time while we await UNF and CSN reinforcements, and bring more of our capital ships into position."
+msgstr "Per frenar l'avanç de les forces pandoranes, anem a apuntar a una de les seves línies de subministrament. Això ens hauria de comprar una mica de temps mentre esperem reforços de la UNF i del CSN i portar més posicions de les nostres naus capitals."
+
+msgid "Dust Brothers, this is Control. An INF fighter squadron is inbound. Looks like they're summoned backup."
+msgstr "Dust Brothers, això és Control. Una escuadra de combat INF és entrant. Sembla que són una còpia de seguretat convocada."
+
+msgid "Message received. Will engage as necessary."
+msgstr "Missatge rebut. Es comprometrà segons sigui necessari."
+
+msgid "Almost done here, Control, not many targets remaining."
+msgstr "Gairebé fet aquí, controla, no hi ha molts objectius restants."
+
+msgid "Strider, be advised that we are tracking a further three INF fighters heading your way."
+msgstr "Per favor, tingueu en compte que estem seguint altres tres lluitadors de l'INF en el seu camí."
+
+msgid "Dammit, spoke too soon ..."
+msgstr "Dammit, va parlar massa aviat ..."
+
+msgid "We're ready to make a run against the Pandoran fleet's front line, and move our capital ships into strike range. Agamemnon's 1st will assist the Lady Jane Grey, and Joan of Arc, to engage three INF corvettes, under enemy control. We need to ensure that we take down the opposing capitals while ensuring our own survive. The enemy outnumber us, and we need to maintain our strength as much as possible."
+msgstr "Estem preparats per fer una carrera contra la primera línia de la flota de Pandoran i moure els nostres vaixells de capital a un marge de vaga. El primer d'Agamemnon ajudarà a Lady Jane Gray, i Joan of Arc, a involucrar-se en tres corbetes INF, sota control enemic. Hem d'assegurar-nos de retirar les capitals contràries i garantir que les nostres pròpies subsisteixin. L'enemic supera a nosaltres, i hem de mantenir la nostra força tant com sigui possible."
+
+msgid "Agamemnon's 1st, we're detecting multiple Pandoran fighters moving in to intercept. Take them down, and protect The Lady Grey and Joan of Arc."
+msgstr "El primer d'Agamemnon, estem detectant diversos lluitadors de Pandoran que s'intercepten. Desmuntar-los i protegir a The Lady Gray i Joan of Arc."
+
+msgid "Agamemnon's 1st, another wing is approaching. Continue to engage, and await your main targets."
+msgstr "El primer d'Agamemnon, s'apropa una altra ala. Continueu comprometent i espereu els vostres objectius principals."
+
+msgid "Agamemnon's 1st, INF Astra has just arrived in the area. Engage and destroy."
+msgstr "El primer, INF Astra d'Agamemnon acaba d'arribar a la zona. Participa i destrueix."
+
+msgid "Escorts?"
+msgstr "Escorts?"
+
+msgid "Four Mitikas fighters."
+msgstr "Quatre lluitadors de Mitikas."
+
+msgid "Agamemnon's 1st, INF Ragnarok on approach. Determining escort group ..."
+msgstr "El primer, INF Ragnarok d'Agamemnon en l'enfocament. Determinació del grup d'escorta ..."
+
+msgid "Another small escort group: eight fighters."
+msgstr "Un altre petit grup d'escorta: vuit lluitadors."
+
+msgid "They must be holding something back."
+msgstr "Han de mantenir alguna cosa enrere."
+
+msgid "Confirmed. Pandoran forces are sending in Scarab bombers."
+msgstr "Confirmat. Les forces de Pandoran s'envien als bombarders de Scarab."
+
+msgid "Hell! We need to keep them away from Joan and Grey, while we take down their own capital ships."
+msgstr "Infern! Hem de mantenir-los allunyats de Joan i Gris, mentre trepitem les seves pròpies naus capitals."
+
+msgid "Williams, the Dust Brothers are heading your way, to lend assistance. They should be with you in a few minutes."
+msgstr "Williams, els Dust Brothers es dirigeixen al vostre camí, presten assistència. Han d'estar amb vosaltres en pocs minuts."
+
+msgid "Much appreciated!"
+msgstr "Molt apreciat!"
+
+msgid "Control, this is Williams. Enemy capital ships have been destroyed, along with all other forces."
+msgstr "Control, això és Williams. S'han destruït naus capitals enemigues, juntament amb totes les altres forces."
+
+msgid "Great work, Williams. Rejoin the main the fleet. The enemies forces are gaining strength and we need all the help we can get."
+msgstr "Gran treball, Williams. Uniu-vos a la flota principal. Les forces enemigues estan guanyant força i necessitem tota l'ajuda que puguem aconseguir."
+
+msgid "The defence of Iliad is slipping, our forces are being decimated. We have to hit the enemy back, hard. All available fighters are to move into range and engage. If we lose here, Iliad is finished. We are the last line of defence, and we cannot afford to fail."
+msgstr "La defensa de la Ilíada està escapant, les nostres forces s'estan diezmando. Hem de tornar endavant l'enemic, dur. Tots els lluitadors disponibles són per passar a l'abast i participar. Si perdem aquí, Iliad ha acabat. Som l'última línia de defensa i no podem permetre's el fracàs."
+
+msgid "Stay sharp, people. We need to hold the line here!"
+msgstr "Mantenir-se fort, gent. Hem de mantenir la línia aquí!"
+
+msgid "Oh my God, there's a lot of them ..."
+msgstr "Oh Déu meu, hi ha molts ..."
+
+msgid "Pair up, and take them down together. We stand a much better chance that way."
+msgstr "Parleu-vos i tregui-los junts. Tenim moltes possibilitats d'aquesta manera."
+
+msgid "Heads up, people. Four INF corvettes just entered the area."
+msgstr "Cap amunt, gent. Quatre INF corbetes acaben d'entrar a la zona."
+
+msgid "What's happened to all our own capital ships?!"
+msgstr "Què ha passat amb totes les nostres naus capitals?"
+
+msgid "They've been scratched."
+msgstr "Han estat ratllats."
+
+msgid "That Dust Brothers have been flagged."
+msgstr "Que els germans Dust han estat marcats."
+
+msgid "We have to sound the retreat!"
+msgstr "Hem de sonar la retirada!"
+
+msgid "Mister, you remain where you are! We're not abando--"
+msgstr "Senyor, tu et quedes on ets! No estem abandonant"
+
+msgid "The wing commander's dead."
+msgstr "El comandant de l'ala està mort."
+
+msgid "Caution, everyone. The Tzac forces might be deliberately targeting the civilians in the area. We need to eliminate or drive those Shales away, as quickly as possible."
+msgstr "Precaució, tothom. Les forces de Tzac podrien atacar deliberadament als civils de la zona. Hem d'eliminar o allunyar aquests Shales, tan aviat com sigui possible."
+
+msgid "Picking up another group of Shales, incoming."
+msgstr "Recollint un altre grup de Shales, entrants."
+
+msgid "Another squadrons of Shales is inbound."
+msgstr "Un altre esquadró de Shales és entrant."
+
+msgid "That's all of them. Let's get these civilians to safety."
+msgstr "Això és tot. Posem a aquests civils a la seguretat."
+
+msgid "First civilian casualty confirmed. Let's step it up, guys."
+msgstr "S'ha confirmat la primera víctima civil. Anem a fer-ho, nois."
+
+msgid "The Tzac forces are picking the civilians off. We need to act faster."
+msgstr "Les forces de Tzac estan escapant als civils. Hem d'actuar més ràpidament."
+
+msgid "Dammit, we're losing too many of them!"
+msgstr "Estic perdent massa d'ells!"
+
+msgid "Too many losses ..."
+msgstr "Massa pèrdues ..."
+
+msgid "UNF Lovelace was recently attacked by a mercenary group, believed to be aligned with Tzac. While the corvette and the Sparrows were able to see off the attackers, it was nevertheless a focused and dedicated assault, that almost ended in disaster. More are likely to come, so we should remain vigilant."
+msgstr "La UNF Lovelace ha estat atacada recentment per un grup de mercenaris, que es creu que està alineat amb Tzac. Mentre que la corbeta i els Sparrows podien veure els atacants, era un assalt dedicat i dedicat que gairebé acabava amb el desastre. És probable que vinguin més, de manera que hem de seguir vigilant."
+
+msgid "Got Darts, incoming."
+msgstr "Obteniu dards, entrants."
+
+msgid "Looks like Lovelace wasn't their only target. Prepare to engage, people."
+msgstr "Sembla que Lovelace no era el seu únic objectiu. Prepara't per participar, gent."
+
+msgid "We're picking up a lot of chatter on the mercenaries' channels. They're not happy with how things are going."
+msgstr "Estem recollint moltes xerrades als canals dels mercenaris. No estan contents de com van les coses."
+
+msgid "Then let's concentrate on making them even more unhappy."
+msgstr "A continuació, ens centrem en fer-los encara més infeliços."
+
+msgid "The mercenaries are throwing in the towel and pulling back. They've had enough."
+msgstr "Els mercenaris llencen la tovallola i tornen enrere. Han tingut prou."
+
+msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
+msgstr "Bon treball, tothom. Hem enviat avui a Tignes i als mercenaris un missatge clar. Crec que és evident el que hauria de ser el nostre proper moviment ..."
+
+msgid "You've done well so far, Hicks. We appreciate that things have not been easy, but you're in a better position than many of us had hoped for. As soon as you're able, begin your search for the admiral. Once located, you will need to open a dialog with him. Whatever you do, do not kill him."
+msgstr "Has fet bé fins ara, Hicks. Agraïm que les coses no han estat fàcils, però estàs en una millor posició del que molts esperàvem. Tan aviat com sigui possible, comença la cerca de l'almirante. Un cop localitzat, haurà d'obrir un diàleg amb ell. Sigui el que faci, no el mati."
+
+msgid "So, this is Krasst. Never thought I'd ever find myself here."
+msgstr "Per tant, això és Krasst. Mai vaig pensar que alguna vegada m'he trobat aquí."
+
+msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and not raise suspicion."
+msgstr "No apareix com si el comandant de l'ala seguís els meus moviments més. Molts vaixells per aquí. Probablement podria moure's lliurement entre ells, i no plantejar sospites."
+
+msgid "Time to start my search for the admiral."
+msgstr "És hora de començar la cerca de l'almirante."
+
+msgid "This isn't going to be easy. There are a lot of ships here."
+msgstr "Això no serà fàcil. Aquí hi ha molts vaixells."
+
+msgid "Still nothing. I don't even know what I'm looking for. No carriers in sight, and none of the more recognizable capital ships, either."
+msgstr "Res encara. Ni tan sols sé el que busco. No hi ha operadors a la vista, ni cap de les naus capitals més recognoscibles."
+
+msgid "I have a feeling I'm ultimately going to have to find a way to get aboard Dragon. But as soon as I'm out of this fighter they'll know I'm an imposter."
+msgstr "Tinc la impressió que en última instància vaig a haver de trobar una manera d'aconseguir a bord del drac. Però quan estic fora d'aquest lluitador, sabran que sóc un impostor."
+
+msgid "I've been lucky so far, but I've got a horrible feeling my luck is starting to run out."
+msgstr "He tingut sort fins ara, però tinc una sensació horrible que la meva sort comença a esgotar-se."
+
+msgid "Wait ... what's that? That Sphinx. It's different from the rest. I've never seen one like it before."
+msgstr "Espera ... què és això? Aquesta Esfinx. És diferent de la resta. Mai no he vist mai semblant."
+
+msgid "I should follow it, and see where it goes."
+msgstr "He de seguir-ho i veure on va."
+
+msgid "I've been watching you. Who are you? What are you doing here?"
+msgstr "T'he estat mirant. Qui ets? Què fas aquí?"
+
+msgid "Ah, crap!"
+msgstr "Ah, merda!"
+
+msgid "You are not Dodds."
+msgstr "No ets Dodds."
+
+msgid "You were brave for coming this far on your own, but that was ultimately a foolish decision."
+msgstr "Vós era valent per venir tan sols, però això va ser finalment una decisió insensata."
+
+msgid "Hell! That's Zackaria for sure, but he's on to me. I need to get out of here, quickly!"
+msgstr "Infern! Això és segur de Zackaria, però està a mi. He de sortir d'aquí, ràpidament."
+
+msgid "They've shutdown the jumpgate ..."
+msgstr "Han apagat el saltó ..."
+
+msgid "Hell! My cover's been blown, they're on to me!"
+msgstr "Infern! La meva portada ha estat bufa, em trobo!"
+
+msgid "The bulk of the allied forces have fallen back to Lenon, to prepare for whatever is to come next. For now, we are standing down and awaiting new instructions from senior command."
+msgstr "El gruix de les forces aliades han tornat a Lenon, a preparar-se el que vingui més endavant. De moment, estem de peu i esperem noves instruccions del comandament superior."
+
+msgid "So, Torelli is dust?"
+msgstr "Per tant, Torelli és pols?"
+
+msgid "Dragon's anti-matter cannon ignited the atmosphere, and created a firestorm. It engulfed the entire planet in under twelve hours."
+msgstr "El canó anti-matèria del drac va encendre l'atmosfera i va crear una tempesta de foc. Embolicà tot el planeta en menys de dotze hores."
+
+msgid "Did no-one survive?"
+msgstr "No va sobreviure ningú?"
+
+msgid "Unlikely."
+msgstr "Improbable."
+
+msgid "Think they'll do that against every planet they come to?"
+msgstr "Crec que ho faran en contra de tot el planeta al que vénen?"
+
+msgid "More effective than a nuke, and faster than a ground assault. So long as they don't need the resources, they'll fire and forget."
+msgstr "Més eficaç que un nuke, i més ràpid que un assalt terrestre. Sempre que no necessitin els recursos, es dispararan i s'oblidin."
+
+msgid "There must be something we can do."
+msgstr "Hi ha d'haver alguna cosa que puguem fer."
+
+msgid "Our only option is to destroy Dragon. And direct assaults haven't gone so well in the past."
+msgstr "La nostra única opció és destruir Dragon. I els assalts directes no han anat tan bé en el passat."
+
+msgid "If we can even get close to it. Zackaria's going to become even more protective of that battleship now he knows what else it can do."
+msgstr "Si fins i tot podem acostar-nos-hi. Zackaria tornarà a ser encara més protector d'aquest cuirassat que ara sap què més pot fer."
+
+msgid "There has to be something ..."
+msgstr "Hi ha d'haver alguna cosa ..."
+
+msgid "There might be."
+msgstr "Pot ser que hi hagi."
+
+msgid "Have you heard something, Estelle?"
+msgstr "Has sentit alguna cosa, Estelle?"
+
+msgid "Mumblings. Apparently, Parks has a plan involving the Temper system. He's got orders out to get as many nukes as he can lay his hands on. I don't know any more than that, though."
+msgstr "Mumblings. Pel que sembla, Parks té un pla que involucra el sistema Temper. Té ordres per aconseguir tants nuclis que pugui posar-se a les mans. Tanmateix, no sé res més que això."
+
+msgid "Sound promising?"
+msgstr "Sona prometedor?"
+
+msgid "Too early to say. But right now, I remain confident."
+msgstr "Massa aviat per dir. Però ara mateix, segueixo confiat."
+
+msgid "And what if that fails? What do we do then?"
+msgstr "I què passa si això falla? Què fem llavors?"
+
+msgid "We try something else."
+msgstr "Intentem una altra cosa."
+
+msgid "Like simply fighting them? Because there are nearly twenty billion of those bastards, and while we're not light on personnel, we're losing numbers rapidly."
+msgstr "Com simplement combatre'ls? Perquè hi ha prop de vint mil milions d'aquests bastards i, tot i que no tenim llum sobre el personal, estem perdent els números ràpidament."
+
+msgid "What's to stop them doing to Helios what they just did to the Independents?"
+msgstr "Què ha d'impedir que facin a Helios el que acaben de fer als Independents?"
+
+msgid "You mean smash each world they come to? All the way to Earth?"
+msgstr "Vols dir que cada món arribi? Tot el camí cap a la Terra?"
+
+msgid "Yes. Remember on Mythos? Parks said it was a very real possibility. At this rate, we just might find ourselves having to fight a battle for the Solar System."
+msgstr "Sí. Recorda els mites? Parcs van dir que era una possibilitat molt real. A aquest ritme, només ens podríem haver de lluitar per una batalla pel Sistema Solar."
+
+msgid "Don't worry, Simon. I doubt they'll ever get that far."
+msgstr "No et preocupis, Simon. Dubto que mai arribi tan lluny."
+
+msgid "The time has come to take the fight to Tzac. We will begin by striking their outer defences, and containing their forces to the system. The Iron Wolves will lead an attack against one of the outer jumpgates. It will likely be heavily defended, and heavy-class Tzac Blizzards could well arrive in the area as soon as you begin your assault."
+msgstr "Ha arribat el moment de lluitar contra Tzac. Començarem copejant les seves defenses externes i contenint les seves forces al sistema. Els Llops de Ferro lideraran un atac contra un dels portals de sortida exterior. Probablement es defensarà fortament, i els Tzac Blizzard de classe pesada podrien arribar a la zona tan aviat com comenci l'assalt."
+
+msgid "Our goal is the jumpgate. Expect a lot of resistance."
+msgstr "El nostre objectiu és el saltó. Espereu molta resistència."
+
+msgid "Once we're there, we need to destroy the control nodes to shut it down. Barclay, that's your job."
+msgstr "Un cop estem allà, hem de destruir els nodes de control per tancar-lo. Barclay, aquest és el teu treball."
+
+msgid "More enemies incoming."
+msgstr "Més enemics entrants."
+
+msgid "Commander, I'm detecting a wing of Blizzards, incoming."
+msgstr "Comandant, estic detectant una ala de Blizzards, entrant."
+
+msgid "Couldn't expect Tzac not to bring out the heavy guns. Let's take it to them, people."
+msgstr "No es pot esperar que Tzac no traiga les armes pesades. Anem a portar-los a ells, gent."
+
+msgid "We're clear for the run against the gate."
+msgstr "Estem clars per fer la prova contra la porta."
+
+msgid "It's guarded by several rapid-fire plasma turrets. Try not to let those things get a lock on you."
+msgstr "Està protegit per diverses torres de plasma de foc ràpid. Intenteu no deixar que aquestes coses us bloqueigin."
+
+msgid "Half the nodes are down."
+msgstr "La meitat dels nodes han baixat."
+
+msgid "Keep at it!"
+msgstr "Segueix-ho!"
+
+msgid "Jumpgate is down."
+msgstr "Jumpgate ha baixat."
+
+msgid "Control, this is Wolfenden. Tzac's outer jumpgate is offline."
+msgstr "Control, això és Wolfenden. El portalló exterior de Tzac està fora de línia."
+
+msgid "Acknowledged. Hold position there. We'll need you to guard that gate and prevent the enemy from affecting repairs."
+msgstr "Reconeguda. Mantén la posició allà. Necessitem que protegiu aquesta porta i impedeixi que l'enemic no afecti les reparacions."
+
+msgid "Dammit, the team's been cut down! Looks like it's up to you and me, Ian."
+msgstr "Dammit, l'equip ha estat reduït! Sembla que depèn de tu i jo, Ian."
+
+msgid "We'll make sure their deaths weren't in vain."
+msgstr "Ens assegurarem que les seves morts no siguin en va."
+
+msgid "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces."
+msgstr "L'atac inicial va ser molt bé, i ja estem preparats per avançar cap al sistema. Les forces de Tzac es mouen per trobar-nos, així que esperen una forta resistència. El teu objectiu és simple: destrueix totes les forces enemigues."
+
+msgid "HMS 781-110 sighted. All fighters free to engage at will."
+msgstr "HMS 781-110 avistada. Tots els lluitadors poden participar lliurement."
+
+msgid "Control, HMS 781-110 has been taken down."
+msgstr "S'ha eliminat el control HMS 781-110."
+
+msgid "Infinites, HMS 781-041 has arrived in the area. Engage and destroy."
+msgstr "Infinites, HMS 781-041 ha arribat a la zona. Participa i destrueix."
+
+msgid "Acknowledged."
+msgstr "Reconeguda."
+
+msgid "Commander, a large group of Shales just arrived in the area"
+msgstr "Comandant, un gran grup de Shales acaba d'arribar a la zona"
+
+msgid "Hell, they've called for backup. We should take them down before dealing with HMS 781-041"
+msgstr "Infern, han demanat una còpia de seguretat. Hem de reduir-los abans de tractar amb l'HMS 781-041"
+
+msgid "This is HMS 781-041 of the Kingdom of Tzac! We surrender! Repeat, we surrender!"
+msgstr "Aquest és l'HMS 781-041 del Regne de Tzac! Ens rendim! Repetiu, ens rendim!"
+
+msgid "Did anyone else get that?"
+msgstr "Algú ho va aconseguir?"
+
+msgid "HMS 781-041, please repeat."
+msgstr "HMS 781-041, si us plau, repeteixi."
+
+msgid "Hell! Too late!"
+msgstr "Infern! Massa tard!"
+
+msgid "Infinites, it appears remaining enemy forces are retreating. Please stand down."
+msgstr "Infinits, sembla que les forces enemigues restants s'estan retirant. Si us plau."
+
+msgid "Received."
+msgstr "Rebut."
+
+msgid "That was unexpected."
+msgstr "Això era inesperat."
+
+msgid "Sure was. We'd better get to debriefing."
+msgstr "Segur que era. És millor que arribem a la informació breu."
+
+msgid "There is growing public unrest over the on-going war, with a number of high-profile voices calling for an immediate end to the attacks on Tzac. While we cannot abandon the campaign while Tzac remains a threat, we can reduce the loss of life by disabling the enemy craft, instead of destroying them. That should placate the anti-war campaigners for a time."
+msgstr "Cada vegada hi ha més disturbis públics sobre la guerra en curs, amb una sèrie de veus d'alt perfil que demanen un final immediat als atacs contra Tzac. Tot i que no podem abandonar la campanya mentre Tzac continua sent una amenaça, podem reduir la pèrdua de vida al desactivar l'ofici enemic en lloc de destruir-los. Això hauria d'aplacar als activistes antiguerra durant un temps."
+
+msgid "We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?"
+msgstr "Anem a mag la meitat de les seves forces i destruirem els altres. S'han etiquetat els que s'han desactivat. Tothom aclareix?"
+
+msgid "Watch your fire: remember, a stray shot could easily destroy a disabled craft."
+msgstr "Mireu el vostre foc: recordeu, un tir mort podria destruir fàcilment una embarcació amb discapacitat."
+
+msgid "All tagged Tzac fighters have been disabled."
+msgstr "Tots els lluitadors Tzac etiquetats s'han desactivat."
+
+msgid "Tzac opposition has been destroyed."
+msgstr "L'oposició de Tzac ha estat destruïda."
+
+msgid "Great work, everyone. That should give the PR guys something to brag about."
+msgstr "Gran treball, tothom. Això hauria de donar a la gent de PR alguna cosa per fer front."
+
+msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualties to a minimum."
+msgstr "Estem tancant el mateix Tzac. Aquí és on les coses es fan difícils, ja que hem d'assegurar-nos de capturar l'emperadriu amb vida. Els equips terrestres la faran sortir del seu palau, i segurament farà una carrera per a l'escullera. El seu transbordador haurà de ser inhabilitat i protegit tan aviat com sigui vist. Recordeu mantenir mínimes les víctimes de l'enemic."
+
+msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
+msgstr "Tots, els nostres paràmetres de missió han canviat. Els Pandorans estan fent un moviment contra Mace. Hem d'actuar ràpidament."
+
+msgid "Therefore, you have permission to destroy any and all opposing forces, no need to mag these guys."
+msgstr "Per tant, teniu permís per destruir totes les forces oposades, no hi ha necessitat que aquests nois siguin mag."
+
+msgid "Commander, we've got Darts and Shales incoming."
+msgstr "Comandant, tenim Darts i Shales entrants."
+
+msgid "Looks like some mercenaries decided to stick around. Let's show them why that was a bad move."
+msgstr "Sembla que alguns mercenaris van decidir quedar-se. Anem a mostrar-los el perquè d'això era un mal gest."
+
+msgid "That's them seen to. Onwards to the jumpgate."
+msgstr "Això són vistos. A l'inrevés fins al saltó."
+
+msgid "Got INF fighters incoming."
+msgstr "Van arribar els lluitadors de l'INF."
+
+msgid "Knew it wouldn't be long."
+msgstr "Sabia que no passaria molt de temps."
+
+msgid "Patriots, a Tzac warship just arrived in the area, but it has Imperial fighter escorts. Most likely it's been acquired by the Pandroans. It needs to be taken down before Cristabel makes her escape bid, as it might be here to kill her."
+msgstr "Patriots, un vaixell de guerra Tzac acaba d'arribar a la zona, però té escorts de caça imperial. El més probable és que hagin estat adquirits pels Pandroans. Ha de ser eliminat abans que Cristabel faci la seva aposta d'escapament, ja que podria estar aquí per matar-la."
+
+msgid "Got it. You all heard that. Let's get to it."
+msgstr "Ho tinc. Tots has sentit això. Anem a arribar-hi."
+
+msgid "I'm picking up a shuttle on radar. Looks like Christabel."
+msgstr "Estic recollint un transbordador al radar. Sembla que Christabel."
+
+msgid "Goddard, you're up! Mag that shuttle before it gets away."
+msgstr "Goddard, tu ets! Mag que el transbordador abans que s'escapi."
+
+msgid "On it!"
+msgstr "En això!"
+
+msgid "Christabel's shuttle has been disabled."
+msgstr "S'ha desactivat el transport de Christabel."
+
+msgid "Excellent work! Now let's finish off the rest of these fighters."
+msgstr "Excel lent treball! Ara acabarem amb la resta d'aquests lluitadors."
+
+msgid "All enemies down. Let's get over to Christabel's shuttle and secure the empress."
+msgstr "Tots els enemics avall. Anem a la llançadora de Christabel i assegurem l'emperadriu."
+
+msgid "Empress Christabel, this is Cdr. de Winter of the Confederation Stellar Navy."
+msgstr "Emperadriu Christabel, això és Cdr. L'hivern de la Confederació de la Marina Estel·lar."
+
+msgid "Acting under the authority of the allied forces, I am hereby placing you under arrest, for breaches of intergalactic law."
+msgstr "Actuant sota l'autoritat de les forces aliades, us poso sota arrest, per violacions del dret intergalàctic."
+
+msgid "You will be escorted to a neutral court, where you will be tried for your crimes."
+msgstr "Vostè serà escortat a un tribunal neutral, on serà provat pels seus crims."
+
+msgid "If found guilty, the intergalactic community will decide on your punishment."
+msgstr "Si es considera culpable, la comunitat intergalàctica decidirà sobre el vostre càstig."
+
+msgid "Sorry, your Highness. I wish it didn't have to go this way, but the galaxy has enough problems as it is."
+msgstr "Ho sentim, la vostra Alteza. M'agradaria que no haguessin d'anar d'aquesta manera, però la galàxia té prou problemes com ho és."
+
+msgid "If--"
+msgstr "Si--"
+
+msgid "Woah! What the hell just happened?!"
+msgstr "Woah! Què ha passat l'infern ?!"
+
+msgid "Did anyone fire?!"
+msgstr "Algú va disparar?"
+
+msgid "All guns cold, Commander. Looks like she might have self destructed her own ship."
+msgstr "Totes les armes fredes, comandant. Sembla que podria haver-se destruit el seu propi vaixell."
+
+msgid "Dammit!"
+msgstr "Dammit!"
+
+msgid "Now what?"
+msgstr "Ara que?"
+
+msgid "Nothing more we can do. We should evacuate the area before more Pandoran forces arrive."
+msgstr "No podem fer res més. Hem d'evacuar l'àrea abans que arribin més forces de Pandoran."
+
+msgid "An opportunity has been granted for us to infiltrate Mitikas space, the Pandoran army, and ultimate get close to Jason Zackaria or Julian Rissard. If nothing else, we could still discover the whereabouts of these two elusive men, which could assist in future operations to capture them. Your goal is to acquire an Angel, an outdated INF fighter that currently lies in the hands of mercenaries. They have retreated to Phylent to affect repairs, so now is the chance to strike."
+msgstr "S'ha concedit una oportunitat per a nosaltres infiltrar-nos en l'espai de Mitikas, l'exèrcit de Pandoran i, finalment, arribar a prop de Jason Zackaria o Julian Rissard. Si res més, encara podríem descobrir el parador d'aquests dos homes, que podrien ajudar en operacions futures per capturar-les. El seu objectiu és adquirir un Àngel, un lluitador INF obsolet que actualment està en mans de mercenaris. S'han retirat a Phylent per afectar les reparacions, de manera que ara és la possibilitat d'atacar."
+
+msgid "I've sighted the Angel. Let's move in and secure it."
+msgstr "He vist l'Àngel. Ens movem i la protegim."
+
+msgid "Are the specs for this fighter correct? I've never heard of an Angel before? Sure it's not some kind of INF super weapon?"
+msgstr "Són correctes les especificacions d'aquest lluitador? Mai he sentit parlar d'un àngel abans? Segur que no és un tipus d'arma super INF?"
+
+msgid "It's an old, outdated class. I don't think the INF ever had an ATAF-like fighter."
+msgstr "És una classe antiga i anticuada. No crec que l'INF tingui un lluitador semblant a l'ATAF."
+
+msgid "They'd have given us something more powerful to work with, if that was an uber-craft."
+msgstr "Ens havien donat alguna cosa més poderós per treballar, si això fos un artesà."
+
+msgid "Whatever it is, the secret service want it pretty badly."
+msgstr "Sigui el que sigui, el servei secret ho vol bastant malament."
+
+msgid "I'll just be glad to get out of here. This is Pandoran-controlled space we're in."
+msgstr "M'alegro simplement de sortir d'aquí. Aquest és l'espai controlat per Pandoran."
+
+msgid "Angel has been disabled."
+msgstr "L'àngel s'ha desactivat."
+
+msgid "Good, let's hook the Tug up ASAP and move on to the next step."
+msgstr "Bé, anem a enganxar el Remolc AMPLI i passar al següent pas."
+
+msgid "We have our goal, let's head over to it. Nearly done."
+msgstr "Tenim el nostre objectiu, anem a fer-ho. Gairebé fet."
+
+msgid "PJ, I'm reading Darts all around the waypoint. Others closing in from the sides."
+msgstr "PJ, estic llegint dards tot al voltant del punt de referència. Altres tancant-se des dels costats."
+
+msgid "They're scanning me!"
+msgstr "Estan escanejant-me!"
+
+msgid "Hell! They clearly don't want us to have it if they can't have it. Prepare to engage!"
+msgstr "Infern! Clarament no volem que ho tinguem si no ho poden fer. Prepara't per participar!"
+
+msgid "Okay, we're done. We're to wait here for pickup. Shouldn't be more than a few minutes."
+msgstr "D'acord, ja hem acabat. Hem d'esperar aquí per recollir-los. No ha de ser més que uns minuts."
+
+msgid "What do you think they've got planned for this thing?"
+msgstr "Què creus que teniu previst per a això?"
+
+msgid "No idea. But what I do know is that we're not involved any further."
+msgstr "No hi ha idea. Però el que sí que sé és que no estem més implicats."
+
+msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
+msgstr "Es va emetre una trucada d'angoixa d'un esquadró del CSN, que s'ocupen dels objectius de Pandoran. Sembla que l'enemic ha maggut als combatents, en lloc de destruir-los. Els remolcadors INF s'estan preparant per sortir del sistema, a través del pont de sortida. Hem de destruir aquests remolcadors i aconseguir que aquests homes i dones siguin segurs. No podem permetre que els Pandorans s'apoderi de cap de les nostres tecnologies."
+
+msgid "White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate."
+msgstr "Cavallers blancs, els remolcadors enemics ja estan en posició i s'adjunten cordes de remolc. No se'ls ha de permetre que aquests lluitadors i pilots s'aproximin."
+
+msgid "Can you disable the gate remotely?"
+msgstr "Es pot desactivar la porta de manera remota?"
+
+msgid "Negative, the Pandorans have control. We're working take back command functions. Stand by."
+msgstr "Negatius, els Pandorans tenen control. Estem treballant rebent les funcions d'ordres. Stand by"
+
+msgid "Griffin, all enemy tugs have been dispatched."
+msgstr "Griffin, tots els remolcadors enemics han estat enviats."
+
+msgid "Good work, Commander. We've regained control of the gate. We're sending our own tugs through now."
+msgstr "Bon treball, comandant. Hem recuperat el control de la porta. En aquests moments estem enviant els nostres propis remolcadors."
+
+msgid "Estelle, I'm picking up incoming INF fighters."
+msgstr "Estelle, estic recollint els lluitadors entrants de l'INF."
+
+msgid "Hell! Protect the tugs. Make sure they get everyone home."
+msgstr "Infern! Protegeix els remolcadors. Assegureu-vos que arribin a tots a casa."
+
+msgid "Griffin, this is de Winter. Operation successful."
+msgstr "Griffin, això és l'hivern. Operació exitosa."
+
+msgid "I knew I could count on you, de Winter. Head back to Griffin."
+msgstr "Sabia que podia comptar amb tu, l'hivern. Tornem a Griffin."
+
+msgid "The Pandorans are preparing for a major push into Rothan, so we need to shore up defences as quickly as possible. Command have selected a number of positions that will give us a strategic advantage in the early stages of battle when the enemy arrives. The Blue Jesters are to link up with the Irregular Nomads near to one Rothan's inner jumpgates, and await further instructions."
+msgstr "Els Pandorans es preparen per aconseguir un important impuls cap a Rothan, per la qual cosa necessitem reforçar les defenses tan aviat com sigui possible. El comandament ha seleccionat una sèrie de posicions que ens donaran un avantatge estratègic en les primeres etapes de la batalla quan arriba l'enemic. Els Jesters blaus es connecten amb els nòmades irregulars prop d'un corretges interiors de Rothan i esperen més instruccions."
+
+msgid "Control, we're in position. Awaiting the Irregular Nomads."
+msgstr "Control, estem en posició. A l'espera dels nòmades irregulars."
+
+msgid "Irregular Nomads have just exited the jumpgate. They'll be with you shortly."
+msgstr "Els nòmades irregulars acaben de sortir del pont de sortida. Aviat estaran amb tu."
+
+msgid "Commander Spencer, we're on our way. We'll join you at the waypoint."
+msgstr "Comandant Spencer, estem en el nostre camí. Ens unirem al punt de referència."
+
+msgid "Acknowledged, Lieutenant, we'll see you in a bit."
+msgstr "Agraït, tinent, us veurem una mica."
+
+msgid "Control, we're ready to--"
+msgstr "Control, estem preparats per--"
+
+msgid "Commander, be advised that we are detecting UNF fighters advancing on your position, several Nymphs and Fireflies. They are not responding to requests to identify presence or purpose."
+msgstr "Comandant, cal avisar que estem detectant que els lluitadors de la FNU avancen en la vostra posició, diverses ninfes i fogueres de foc. No responen a sol·licituds per identificar la presència o el propòsit."
+
+msgid "Pandorans?"
+msgstr "Pandorans?"
+
+msgid "Their signatures don't suggest so."
+msgstr "Les seves signatures no ho suggereixen."
+
+msgid "Commander, incoming fighters are hostile. Suggest you prepare to engage or fallback to the jumpgate."
+msgstr "Comandant, els lluitadors entrants són hostils. Suggeriu que estigueu preparat per enganxar-vos o tornar-lo a la barra de retrocés."
+
+msgid "Acknowledged, moving to engage."
+msgstr "Reconeixent, movent-se a participar."
+
+msgid "Control, enemy targets have been eliminated."
+msgstr "S'ha eliminat el control, els objectius enemics."
+
+msgid "Any survivors?"
+msgstr "Alguns supervivents?"
+
+msgid "Negative, I didn't see anyone eject from those fighters."
+msgstr "Negatiu, no vaig veure que ningú expulsés d'aquells lluitadors."
+
+msgid "Commander, your current missions has been aborted. Return to the jumpgate. We need a full report as to what just happened out there."
+msgstr "Comandant, les vostres missions actuals s'han cancel·lat. Torna al saltó. Necessitem un informe complet sobre el que acabem de passar."
+
+msgid "Got it, coming home."
+msgstr "Ho teniu, tornant a casa."
+
+msgid "We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here."
+msgstr "Tenim diversos lluitadors Tzac entrants. Hem d'evitar que destrueixin els vaixells aquí."
+
+msgid "Any backup on the way?"
+msgstr "Qualsevol còpia de seguretat en el camí?"
+
+msgid "The threat warning came in too late for any other squadrons to assist us, but we have the turrets to assist us."
+msgstr "L'advertència d'amenaça va arribar massa tard per a que altres esquadrons ens ajudessin, però tenim les torretes per ajudar-nos."
+
+msgid "Expect the Tzac bombers to focus on destroying the tugs and shuttles."
+msgstr "Espereu que els bombarders Tzac se centrin a destruir els remolcadors i els llançadors."
+
+msgid "Enemy fighters spotted. No sign of the squadron wing commander, though. We might have to draw him out."
+msgstr "Lluitadors enemics van veure. No obstant això, cap senyal del comandant de l'esquadró. Podríem haver d'extreure'l."
+
+msgid "Rose, we'll be relying on you to disable his fighter as soon as he puts in an appearance."
+msgstr "Rose, confiem en tu per desactivar el seu lluitador tan aviat com es posi en escena."
+
+msgid "Tzac commander sighted, Commander."
+msgstr "Comandant de Tzac avista, Comandant."
+
+msgid "Get to it, Lieutenant. We'll cover you."
+msgstr "Aconsegueix-ho, tinent. Et taparem."
+
+msgid "Tzac commander's Shale has been disabled."
+msgstr "El Shale del comandant de Tzac s'ha desactivat."
+
+msgid "Control, this is Spencer. Reporting operation successful."
+msgstr "Control, això és Spencer. S'ha produït un èxit en la funció d'informes."
+
+msgid "You have the commander?"
+msgstr "Teniu el comandant?"
+
+msgid "Bagged and tagged."
+msgstr "Envasat i etiquetat."
+
+msgid "Excellent work, Jesters. Everything looks clear, so we'll dispatch a tug to your location to bring him in. See you soon."
+msgstr "Excel·lent treball, Jesters. Tot sembla clar, així que enviarem un remolcador a la vostra ubicació per fer-lo entrar. Us ho veieu aviat."
+
+msgid "The Pandorans have launched a sudden attack against the system. It appears that they are capitalizing on the chaos that the Kingdom of Tzac has thrown us into. We need to repel this attack, as defeat here could mean a major setback in our struggle against both enemies."
+msgstr "Els Pandorans han llançat un atac sobtat contra el sistema. Sembla que estan capitalitzant el caos que el Regne de Tzac ens ha llançat. Hem de repeler aquest atac, ja que la derrota podria significar un gran revés en la nostra lluita contra els dos enemics."
+
+msgid "Hell, they're outnumbering us, a good two-to-one!"
+msgstr "Infern, ens superen en nombre, un bon de dos a un!"
+
+msgid "There are Swarmers in their ranks, making up the bulk. Don't lose faith people, we can do this."
+msgstr "Hi ha Swarmers en els seus rangs, constituint el gruix. No perdis la fe, nosaltres ho podem fer."
+
+msgid "That's the last of 'em. Not often we win an engagement like this."
+msgstr "Aquest és l'últim dels em. No solem guanyar un compromís com aquest."
+
+msgid "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabited planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance."
+msgstr "Els Pandorans estan pressionant a casa seva avantatge i tancant els planetes habituals de Rothan. Han de derrotar, ja que una pèrdua aquí significaria que van començar a atacar terreny. Espereu una forta resistència."
+
+msgid "Brace yourselves, lads."
+msgstr "Apareix-vos, nois."
+
+msgid "Picking up two Mitikas corvettes: Mora and Karambit."
+msgstr "Recollint dues corbeta Mitikas: Mora i Karambit."
+
+msgid "We need to give Hopper and Blackburn support in dealing with them. Get to it."
+msgstr "Hem de donar suport a Hopper i Blackburn per tractar amb ells. Accediu-hi."
+
+msgid "Hell, where'd they get those Khepris from?"
+msgstr "Infern, on han aconseguit aquests Khepris?"
+
+msgid "Christabel must've decided to try and attack the Pandorans directly. Went as well for her as it did for us."
+msgstr "Christabel ha d'haver decidit intentar atacar els Pandorans directament. Anava també per ella com ho va fer per nosaltres."
+
+msgid "Commander, we're taking heavy losses!"
+msgstr "Comandant, estem prenent fortes pèrdues!"
+
+msgid "We won before, we can win again! Keep up the fight!"
+msgstr "Hem guanyat abans, podem guanyar de nou! Seguiu la lluita!"
+
+msgid "Commander, I strongly suggest we pull back."
+msgstr "Comandant, us recomano que tornem enrere."
+
+msgid "We can't keep running. We'll run out of places to run to."
+msgstr "No podem seguir corrent. Ens quedarem fora de llocs on córrer."
+
+msgid "All fighters, be advised: the wing commander has been killed."
+msgstr "Tots els lluitadors, aconsellen: el comandant de l'ala ha estat assassinat."
+
+msgid "Who's leading this operation now?"
+msgstr "Qui dirigeix ​​aquesta operació ara?"
+
+msgid "We have to retreat!"
+msgstr "Hem de retirar-nos!"
+
+msgid "This the end of the line, guys. It's been great serving with you."
+msgstr "Això és el final de la línia, nois. Ha estat un gran servei amb vosaltres."
+
+msgid "Hopper is down!"
+msgstr "La tremuja ha baixat!"
+
+msgid "They've taken out Blackburn!"
+msgstr "Han tret Blackburn!"
+
+msgid "That's both of our corvettes down. The rest is up to us."
+msgstr "Aquestes són les dues corbetes cap avall. La resta depèn de nosaltres."
+
+msgid "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what."
+msgstr "Aquesta és una missió molt perillosa. Tot i que els Pandorans semblen haver acceptat vostè com un dels seus pilots, encara seran molt sospitosos. Per tant, hauríeu de fer tot el possible per mantenir les seves sospites baixes. Estigueu a prop del comandant de l'ala quan no estigui en combat. No dispareu les armes o utilitzeu el vostre ECM si no ho necessiteu i elimineu els vostres objectius amb prejudicis extrems, no importa què."
+
+msgid "(I'm in deep this time. Just have to remain calm, focus, and do as they do.)"
+msgstr "(Estic profund en aquesta ocasió. Només haureu de mantenir la calma, concentrar-vos i fer-ho com ho fan)."
+
+msgid "(Can't talk to them, can't understand their language, so I'll have to go with my instincts.)"
+msgstr "(No puc parlar amb ells, no puc entendre la seva llengua, així que hauré d'anar amb els meus instints)."
+
+msgid "(Ah, hell! We're hunting civilians. I ... I can't refuse orders ...)"
+msgstr "(Ah, l'infern! Estem buscant civils. Jo ... No puc negar ordres ...)"
+
+msgid "(Better get back to the wing commander, before they think I'm slacking)"
+msgstr "(Millor tornar al comandant de l'ala, abans de pensar que estic frenant)"
+
+msgid "(They're moving to the jumpgate. I should join them, and stick close.)"
+msgstr "(S'estan movent al saltó. Cal unir-me a ells i quedar-se a prop)."
+
+msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
+msgstr "Un simple vol de prova. Acostumeu a pilotar el teu lluitador, sense amenaça d'atac ni cap altre perill per afrontar. No hi ha objectius a completar en aquesta missió, de manera que podeu deixar-lo en qualsevol moment i passar al següent."
+
+msgid "Welcome to free flight."
+msgstr "Benvingut al vol lliure."
+
+msgid "Practice turning, accelerating, and braking."
+msgstr "Practiqueu girar, accelerar i frenar."
+
+msgid "Don't forget about your Boost, either. That can be a life saver in certain situations."
+msgstr "No us oblideu del Boost, tampoc. Això pot ser un estalvi de vida en determinades situacions."
+
+msgid "Practice using your fighter's weapons against a stationary target."
+msgstr "Practica l'ús de les armes del teu lluitador contra un objectiu fix."
+
+msgid "The Dart won't attack you, so when you're ready, you can blow the thing to pieces."
+msgstr "El Dart no t'atacarà, així que quan estiguis preparat, pots bufar la cosa en trossos."
+
+msgid "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around."
+msgstr "La majoria dels objectius als quals s'enfronta el camp es mouran. Aquest curs us ofereix la possibilitat de practicar l'eliminació d'un enemic que es mou tot."
+
+msgid "This Dart has control over its engines, but not its weapons. Practice chasing it down and destroying it."
+msgstr "Aquest Dard té control sobre els seus motors, però no les seves armes. Practiqueu perseguint-lo i destruint-lo."
+
+msgid "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge."
+msgstr "Davant d'un oponent que està armat. L'enemic en aquest curs és un Dart, equipat amb canons de partícules bessones. No hauria de ser un desafiament massa difícil."
+
+msgid "This Dart is armed! Watch yourself."
+msgstr "Aquest Dart està armat! Mireu-vos a tu mateix"
+
+msgid "Practice using your ECM in the next encounter. The Dart here is equipped with missiles, which will home in on you. You can thwart these attacks by careful use of your ECM. Once you are done practicing, you can destroy the Dart and move on."
+msgstr "Practica l'ús del teu ECM en la propera trobada. El Dart aquí està equipat amb míssils, que us portaran a casa. Podeu frustrar aquests atacs amb un ús acurat del vostre ECM. Una vegada que acabeu de practicar, podeu destruir el Dart i seguir endavant."
+
+msgid "Use your ECM to destroy the missiles fired at you. Remember, the ECM needs several seconds to recharge between uses."
+msgstr "Utilitza el teu ECM per destruir els míssils disparats. Recordeu que l'ECM necessita diversos segons per recarregar entre usos."
+
+msgid "Use your mag cannons to disable the enemy Dart. Disabling enemy craft and bringing the target in alive is sometimes an important step in securing lasting victory."
+msgstr "Utilitza els teus canons mag per desactivar l'enemic Dart. Inhabilitar l'ofici enemic i portar l'objectiu viu és de vegades un pas important per aconseguir una victòria duradora."
+
+msgid "Switch to your Mag cannons and fire them at the Dart to disable it. Do not fire your plasma cannons or launch any missiles, as these could destroy the target."
+msgstr "Canvia als canons Mag i dispara al Dart per desactivar-lo. No dispareu els canons de plasma ni inicieu cap míssil, ja que aquests podrien destruir l'objectiu."
+
+msgid "Battle along side two team mates to take on 3 enemy fighters."
+msgstr "Batalla al costat de dos companys d'equip per a prendre 3 lluitadors enemics."
+
+msgid "Wingmate will often assist you in battle. When you're ready, approach the Darts and engage."
+msgstr "Wingmate sovint t'ajudarà en la batalla. Quan estigueu preparat, apropeu-vos als Dards i enganxeu-vos."
+
+msgid "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand."
+msgstr "Adquireix tres objectius enemics d'una sola vegada. Una vegada més, es tracta de dards equipats amb canons de partícules simples. No es pot trobar un únic TAF aquí, sempre que l'enemic no pugui guanyar-se la mà."
+
+msgid "Final course. Use all your training to defeat the three opponents."
+msgstr "Curs final. Utilitza tota la teva formació per derrotar als tres oponents."
+
+msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
+msgstr "L'entrada de Pandoran a l'espai independent ha comportat un augment de l'activitat pirata al llarg de la frontera de la Confederació. L'amenaça s'ha de tractar immediatament, començant per retallar la presència de l'enemic a Temper."
+
+msgid "Multiple incoming enemy fighters."
+msgstr "Múltiples lluitadors enemics entrants."
+
+msgid "Follow my lead. Break and attack at will."
+msgstr "Segueix-me. Trencar i atacar a voluntat."
+
+msgid "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevalent, and there are more shielded and plasma-equipped fighters to be found in their ranks."
+msgstr "Malgrat els esforços recents, l'activitat pirata i insurgent no mostra senyals de disminució. Hem de seguir trencant els anells a mesura que els trobem i impedim que es moguin a Temper, ja que això només podria ser dolent per a la moral i l'esforç de guerra. Mentre encara ens enfrontem als Dards, les modificacions d'aquestes embarcacions són cada vegada més freqüents, i hi ha més lluitadors blindats i equipats amb plasma que es troben a les seves files."
+
+msgid "As before, everyone. Let's take it to 'em."
+msgstr "Com abans, tothom. Anem a em."
+
+msgid "Looks like these guys are all sporting modified Darts."
+msgstr "Sembla que aquests nois són esportius de dards modificats."
+
+msgid "Acknowledged. Watch out for the lasers, people. They'll smash your shields to pieces if you let 'em."
+msgstr "Reconeguda. Compte amb els làsers, la gent. Es trencaran els vostres escuts si els deixeu."
+
+msgid "Allied intelligence have managed to locate one of the pirate ring lieutenants. We need to bring this man in alive, as he could provide us with further useful information that will allow us to track down and eliminate high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the lieutenant's Dart."
+msgstr "La intel·ligència aliada ha aconseguit localitzar un dels tinents d'anells pirates. Hem de portar aquest home amb vida, ja que ens podria proporcionar més informació útil que ens permetrà rastrejar i eliminar individus d'alt rang. Vas pilotar un raig, i hauràs d'utilitzar els teus canons Mag per desactivar l'objectiu. No destrueixis el Dart del tinent."
+
+msgid "Seth, the lieutenant's Dart should be tagged on your HUD. Disable that ship as soon as possible."
+msgstr "Seth, el Dart del tinent hauria d'etiquetar-se al vostre HUD. Desactivi aquesta nau tan aviat com sigui possible."
+
+msgid "The rest of us will take down his buddies. Watch your stray fire around the mission target."
+msgstr "La resta de nosaltres derrotarem els seus amics. Mira el teu desviament al voltant de l'objectiu de la missió."
+
+msgid "Control, this is Strickland. Target has been suppressed, all other threats eliminated. Will await pickup."
+msgstr "Control, això és Strickland. Target s'ha suprimit, eliminant totes les altres amenaces. S'espera la recollida."
+
+msgid "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down."
+msgstr "Va trigar un temps, però finalment hem pogut extreure la informació requerida del tinent que vam capturar. La seva informació ha revelat que els pirates han format una coalició per aprofitar la guerra de la cervesa. Hem de trencar aquesta aliança a part de dirigir els líders de la facció. Actualment estan fugint d'una emboscada anterior, una destinada a enviar-les a la vostra manera. Els líders estan pilotant les nimfes adquirides. Desmuntar-los."
+
+msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate."
+msgstr "Aquest és un joc senzill, nois: elimineu tots els objectius enemics. Però assegureu-vos que cap d'aquestes nimfes el converteixi en el gatezador."
+
+msgid "Excellent works, people. This one's a wrap."
+msgstr "Excel·lents obres, persones. Aquest és un embolcall."
+
+msgid "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle."
+msgstr "Amb els líders desapareguts, ara estem en condicions d'acabar amb el problema de la pirateria organitzada a Temper per bé. Hem identificat una sèrie de masses de dards per al que sembla ser una vaga contra actius del CSN, en retribució. No anem a donar als pirates l'oportunitat de fer-ho, i primer copejar-los. Strickland portarà els Bulls d'Acer a la batalla."
+
+msgid "Enemy forces sighted."
+msgstr "Forces enemigues avistats."
+
+msgid "This is it, boys and girls, let's stick it to 'em. Break and attack!"
+msgstr "Això és, nois i noies, ens quedem amb ells. Trencar i atacar!"
+
+msgid "Looks like we touched a nerve. We've got more Darts incoming."
+msgstr "Sembla que hem tocat un nervi. Tenim més Darts entrants."
+
+msgid "Another group just arrived."
+msgstr "Un altre grup acaba d'arribar."
+
+msgid "They'll keep lining 'em up, and we'll keep knocking them down."
+msgstr "Ells seguiran enfrontant-los, i anem a deixar-los tocar."
+
+msgid " Another group. That tallies with the numbers we were expecting."
+msgstr " Un altre grup. Això s'ajusta als números que esperàvem."
+
+msgid " Looks like that was the last of 'em."
+msgstr " Sembla que va ser l'últim dels em."
+
+msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated."
+msgstr " Esperit, aquest és el comandant Strickland. Les forces oposades han estat derrotats."
+
+msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
+msgstr "Reconeguda. Bon treball, Commander. Gràcies a vostès, Temper serà un sistema més segur, i ens podem centrar a reforçar les nostres defenses contra les forces de Pandoran. Vine a casa."
+
+msgid "Your instructions are simple, Hicks. As before, follow the wing leader's instructions, and do as the others do. Stay close to the leader when not otherwise engaged, and do not do anything to raise your suspicion. Act quickly to assure the Pandorans you're with them."
+msgstr "Les seves instruccions són senzilles, Hicks. Com abans, segueix les instruccions del líder de l'ala i fes el que fan els altres. Mantingueu-vos a prop del líder quan no es comprometi d'una altra manera, i no feu res per augmentar la vostra sospita. Actua ràpidament per assegurar els Pandorans que estigueu amb ells."
+
+msgid "(More hunting. I hope I'm not going to be forced to kill innocent people again.)"
+msgstr "(Més caça. Espero que no estigui obligat a matar de nou a persones innocents)."
+
+msgid "(Mercenaries. Better than civilians, but still abhorrent. Run, you fools! Run!)"
+msgstr "(Mercenaris. Millor que civils, però encara avorrits. Correu, vostès, enganyats! Córrer!)"
+
+msgid "(Looks like that's it. We're heading to the jumpgate.)"
+msgstr "(Sembla que això és així. Ens dirigirem al saltó)."
+
+msgid "Our goal is simple, lads: destroy all enemy targets."
+msgstr "El nostre objectiu és simple, nois: destruir tots els objectius enemics."
+
+msgid "Good work, everyone. Let's prepare to lend a hand to the other squadrons."
+msgstr "Bon treball, tothom. Anem a preparar-nos per donar una mà als altres esquadrons."
+
+msgid "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution."
+msgstr "Els informes d'intel·ligència suggereixen que Tzac ha contractat a diversos mercenaris per ajudar-los en els seus atacs contra sistemes independents. La informació obtinguda de les fonts subterrànies diu que planeja abordar els vaixells de capital de la UNF. Encara que el maquinari mercenari conegut no ha de qüestionar els nostres vaixells, ara totes les corbates de la FNU viatjaran amb escorts de combat ampliades, com a precaució."
+
+msgid "Enemy fighter signatures detected. Looks like Darts."
+msgstr "S'han detectat signatures de lluitadors enemics. Sembla Darts."
+
+msgid "Those will be the mercenaries we've been hearing about. All fighters, prepare to engage."
+msgstr "Aquests seran els mercenaris que hem estat escoltant. Tots els lluitadors, es preparen per participar."
+
+msgid "How many of these bastards did Tzac hire?!"
+msgstr "Quants d'aquests bastards van llogar Tzac ?!"
+
+msgid "Whatever the number, we'll make sure we send a clear message it wasn't enough!"
+msgstr "Independentment del nombre, ens assegurem que enviem un missatge clar que no n'hi ha prou."
+
+msgid "Looks like that's all of them, Commander."
+msgstr "Sembla que això és tot, Comandant."
+
+msgid "Confirmed. Tzac must have opened up the coffers to fund this. Those guys meant business."
+msgstr "Confirmat. Tzac ha d'haver obert les arques per finançar-ho. Aquests nois volien dir negocis."
+
+msgid "I still can't believe they came at us in Darts."
+msgstr "Encara no puc creure que ens vinguessin en Darts."
+
+msgid "They must've been paid handsomely for that."
+msgstr "Han d'haver pagat molt bé per això."
+
+msgid "Stick round, Commander. We might need you later."
+msgstr "Stick round, Comandant. Us podríem tenir més tard."
+
+msgid "A number of those responsible for helping supply illegal arms and information to Tzac have been identified. They are to be tracked down, and brought in for questioning. At this point, we want to avoid killing them, as they could prove vital to bringing in the ringleaders."
+msgstr "S'han identificat alguns responsables d'ajudar a proporcionar armes i informació il·legals a Tzac. Han de ser seguits i portats per qüestionar-los. En aquest punt, volem evitar matar-los, ja que podrien resultar vitals per portar els capitosts."
+
+msgid "D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now."
+msgstr "D'Ath, hem detectat els objectius. Es dirigeixen a la porta de sortida. Ja ho estem tancant."
+
+msgid "Got it, we'll mag the fighters and take it from there."
+msgstr "Ho aconseguirem, farem els combatents i el farem des d'allà."
+
+msgid "Control, this is D'Ath. Targets have been disabled. No casualties."
+msgstr "Control, això és D'Ath. Els objectius s'han desactivat. Sense baixes."
+
+msgid "Acknowledged. Didn't look like they put up much of a fight. Seemed they spent most of the time running away."
+msgstr "Reconeguda. No semblava haver-se sotmès a una gran lluita. Semblava que passaven la major part del temps fugint."
+
+msgid "Barely fired back. Maybe they were covering for someone?"
+msgstr "Amb prou feines es va disparar. Potser estaven cobrint per algú?"
+
+msgid "Definite possibility. We'll bring these guys in and see what we can find out."
+msgstr "Possibilitat definitiva. Posarem aquests nois i veurem què podem trobar."
+
+msgid "It seems that some of the traitors that were brought in earlier were acting as a distraction for a number of others, who have now commandeered CSN Drachma. The corvette must be taken back, without destroy it. All other targets are valid, unless surrendering."
+msgstr "Sembla que alguns dels traïdors que van ser introduïts anteriorment actuaven com una distracció per a uns quants d'altres, que ara han enviat a CSN Drachma. La corbeta s'ha de recuperar, sense destruir-la. Tots els altres objectius són vàlids, llevat que es rendeixin."
+
+msgid "Looks like we've got a welcoming committee heading our way."
+msgstr "Sembla que tenim un comitè de benvinguda que encapçala el nostre camí."
+
+msgid "Remember: we need to disable the Drachma. Target the guns and engines, only. We don't want to destroy it."
+msgstr "Recordeu: necessitem desactivar el dracma. Target només les armes i els motors. No volem destruir-la."
+
+msgid "Some of them are surrendering. Disable their fighters, and we'll deal with them later. Don't kill them!"
+msgstr "Alguns d'ells es rendeixen. Desactiva els seus lluitadors i els tractarem després. No els matis!"
+
+msgid "Control, traitors have been dealt with, and the Drachma has been disabled. She's ready for boarding."
+msgstr "Control, els traïdors han estat tractats, i el Drachma s'ha desactivat. Està preparada per a l'embarcament."
+
+msgid "Acknowledged. Shuttles are on their way."
+msgstr "Reconeguda. Les transbordadores estan en camí."
+
+msgid "There are now only two figureheads in the traitor group remaining: Isabel Nelson, and one other whose identity is currently being confirmed. Isabel Nelson has been located in the vicinity. As before, disable her fighter so she can be brought in. Disable any other surrendering targets."
+msgstr "Ara només hi ha dos capçaleres del grup de traïdors restants: Isabel Nelson, i una altra la identitat de la qual està actualment confirmada. Isabel Nelson s'ha localitzat als voltants. Com abans, inhabiliteu el seu lluitador perquè pugui entrar. Desactiveu qualsevol altre objectiu de lliurament."
+
+msgid "Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be."
+msgstr "Sembla que aquesta femella, Nelson, es va guanyar. Tingueu precaució i no tingueu por de matar-la, si és necessari."
+
+msgid "Young, your orders are to bring Nelson in alive. Do not destroy that fighter."
+msgstr "Joves, les teves comandes portaran a Nelson amb vida. No destrueixis aquest lluitador."
+
+msgid "Fine, we'll mag her."
+msgstr "Bé, la coneixem."
+
+msgid "Preston's being a bit aggressive, don't you think?"
+msgstr "Preston és una mica agressiu, no creieu?"
+
+msgid "The commander's probably just fed up with all the in-fighting that's going on. Can't say I blame him."
+msgstr "Probablement, el comandant acaba d'alimentar amb tots els enfrontaments que s'estan produint. No puc dir que ho culpo."
+
+msgid "Sparrows, we have confirmed the identity of the second traitor - it's Commander Young. Disable that fighter."
+msgstr "Pardals, hem confirmat la identitat del segon traïdor: és el comandant jove. Desactiva aquest lluitador."
+
+msgid "What the hell?!"
+msgstr "Què dimonis?!"
+
+msgid "Explains things. Surrender, Commander, it's over."
+msgstr "Explica coses. Rendició, comandant, ja ha acabat."
+
+msgid "Come and get me, Malcolm."
+msgstr "Vine a aconseguir-me, Malcolm."
+
+msgid "What the hell, Commander, I never thought I'd see the day."
+msgstr "Que diables, comandant, mai vaig pensar que veuria el dia."
+
+msgid "The CSN and UNF have lost, Malcolm, can't you see that? Time to cut our losses and get far away from here."
+msgstr "El CSN i la UNF han perdut, Malcolm, no ho veieu? És hora de reduir les nostres pèrdues i allunyar-nos d'aquí."
+
+msgid "We haven't lost; we defeated Christabel, and--"
+msgstr "No hem perdut; vam derrotar a Christabel, i--"
+
+msgid "And what about the Pandorans? They're winning this war, no one else! We can't beat them."
+msgstr "I què passa amb els Pandorans? Estan guanyant aquesta guerra, ningú més! No podem superar-los."
+
+msgid "The Mitikans also tried running. Didn't exactly work out well for them, either."
+msgstr "Els Mitikans també van intentar córrer. No va funcionar bé per a ells, tampoc."
+
+msgid "Fighting didn't turn out too well, either. It's every man for himself."
+msgstr "La lluita tampoc va sortir bé. Cada home és per si mateix."
+
+msgid "Commander, we're done here. Control, targets and area secured. Ready for pickup."
+msgstr "Comandant, ja hem acabat aquí. Control, objectius i àrea protegida. Llest per a la recollida."
+
+msgid "Our forces have taken heavy losses of the last few engagements, but there is still much to do. Three Pandoran corvettes have been tagged for destruction. We need to ensure that they are taken down, while we minimise losses of our own. We cannot afford to lose all of our own capital ships. Work fast, and assist Zenobia, Lady Jane Grey, and Tangka as needed."
+msgstr "Les nostres forces han patit fortes pèrdues dels darrers compromisos, però encara queda molt per fer. S'han etiquetat tres corbetes Pandoran per a la seva destrucció. Hem d'assegurar-nos que es retirin, mentre que minimitzem les pèrdues pròpies. No podem permetre's perdre totes les nostres naus capitals. Treballi ràpidament i ajudi a Zenobia, Lady Jane Gray i Tangka quan sigui necessari."
+
+msgid "Enemy forces in range. Preparing to engage."
+msgstr "Forces enemigues en el rang. Preparant-se per participar."
+
+msgid "You heard it, people. Break and attack."
+msgstr "Ho has sentit, gent. Trencar i atacar."
+
+msgid "More enemy fighters incoming."
+msgstr "Més guerrers enemics entrants."
+
+msgid "We have reinforcements on the way, to help even the odds."
+msgstr "Tenim reforços en el camí, per ajudar fins i tot a les probabilitats."
+
+msgid "One down, two to go."
+msgstr "Un avall, dos per anar."
+
+msgid "Another down, just one remaining. We can do this!"
+msgstr "Un altre avall, només un restant. Podem fer això."
+
+msgid "That's all the enemy's capital ships down. Let's finish off the fighters."
+msgstr "Això és tot cap avall de l'enemic. Finalitzem els lluitadors."
+
+msgid "Not an easy battle, but we did it."
+msgstr "No és una batalla senzilla, però ho vam fer."
+
+msgid "Hope for the future. If we could just win all our battle like this ..."
+msgstr "Esperança de futur. Si poguéssim guanyar tota la nostra batalla com aquesta ..."
+
+msgid "It's not over yet. We need to join the others and continue to hit back."
+msgstr "Encara no ha acabat. Hem d'unir-nos als altres i seguir endavant."
+
+msgid "Step it up, everyone! We can't continue to lose our corvettes."
+msgstr "Fes-ho tot, tothom! No podem seguir perdent les corbetes."
+
+msgid "We're down to one corvette. We need to finish this now!"
+msgstr "Estem a una corbeta. Hem d'acabar això ara."
+
+msgid "There were too many of them ..."
+msgstr "Hi havia massa d'ells ..."
+
+msgid "The Pandorans are already deploying ground assault teams to Flint. The attack is in its early stages, with more troop carrier incoming. The enemy are meeting our defence lines aggressively, to clear a path for their landers. We need to hit back hard, and prevent Flint from being taken. Objective is simple: destroy all enemy forces."
+msgstr "Els Pandorans ja estan desplegant equips d'assalt a terra a Flint. L'atac està en les seves primeres etapes, amb més portador de tropes entrants. L'enemic compleix les nostres línies de defensa de manera agressiva, per aclarir un camí per als seus proveïdors. Hem de tornar endavant amb força, i evitar que Flint es presenti. L'objectiu és simple: destruir totes les forces enemigues."
+
+msgid "The Pandorans are overunning our front line! We need to drive them back, now!"
+msgstr "Els Pandorans estan superant la nostra primera línia! Hem de recuperar-los, ara!"
+
+msgid "We're losing fighters, rapidly. We need to focus our efforts on dividing the enemy up and taking them down together."
+msgstr "Estem perdent lluitadors ràpidament. Hem de centrar els nostres esforços en dividir l'enemic i enderrocar-los."
+
+msgid "Picking up incoming Tzac corvettes."
+msgstr "Recollint corvetes entrants de Tzac."
+
+msgid "We need to take down those capital ships, right away. Lt. Cdr. Dodds, lead the strike."
+msgstr "Hem de derrotar aquestes naus capitals, immediatament. Lt. Cdr. Dodds, dirigeix ​​la vaga."
+
+msgid "HMS 711-444 has been taken down."
+msgstr "S'ha eliminat HMS 711-444."
+
+msgid "HMS 313-777 is out of the game."
+msgstr "HMS 313-777 ha quedat fora del joc."
+
+msgid "We're losing captial ships! We can't continue like this!"
+msgstr "Estem perdent embarcacions captials! No podem continuar així!"
+
+msgid "The Pandoran forces are closing in on Flint. They will commence planetary bombardment if allowed to get any closer."
+msgstr "Les forces pandoranes estan tancant en Flint. Inicien el bombardeig planetari si se'ls permet apropar-se."
+
+msgid "Dammit! That's all three of our corvettes down!"
+msgstr "Dammit! Aquestes són les tres corbetes cap avall!"
+
+msgid "Dodds, Commodore Parks has ordered that you pull out immediately."
+msgstr "Dodds, Commodore Parks ha ordenat que sortiu immediatament."
+
+msgid "Griffin, what the hell? We can take them!"
+msgstr "Griffin, què diables? Podem prendre'ls!"
+
+msgid "That's a negative, Dodds. You're to return to the carrier, and prepare for withdrawal."
+msgstr "Això és un negatiu, Dodds. Heu de tornar al transportista i preparar-ne la retirada."
+
+msgid "I'm not going to run away. Not again."
+msgstr "No vaig a fugir. No un altre cop."
+
+msgid "Dodds, this is Commodore Park. I'm giving you a direct order. This isn't a battle we can win, and I'm not having you throw away your life or lose that starfighter. Get out, now. Final warning, mister."
+msgstr "Dodds, aquest és Commodore Park. Et dic un encàrrec directe. Aquesta no és una batalla que podem guanyar, i no tinc que tirar la vida o perdre aquest cazabombardero. Surt, ara. Avís final, senyor."
+
+msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both mentally and physically."
+msgstr "Ho sentim, Hicks, però heu de seguir fent comandes. Som conscients del que està passant, però això és per al bé més gran. Intenta fer-ho mitjançant una sola peça. Tant mentalment com físicament."
+
+msgid "(This ... how can I do this? These are my friends.)"
+msgstr "(Això ... com puc fer això? Són els meus amics)."
+
+msgid "(I need to maintain my cover, or this whole operation could be blown.)"
+msgstr "(Necessito mantenir la meva cobertura, o bé es pot explotar tota aquesta operació)."
+
+msgid "(Sorry, everyone.)"
+msgstr "(Ho sento, tothom.)"
+
+msgid "(They're going after the civilians again. I hope this ends soon. I'm not sure how much more this I can take.)"
+msgstr "(Van més enllà dels civils. Espero que això acabi aviat. No estic segur de quant més puc fer-ho)."
+
+msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilian craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
+msgstr "Com ja ha confirmat Neal Stockwell, l'evacuació d'Oracle IX en resposta a la supernova no ha avançat tan aviat com molts els agradaria. I ara, amb l'exèrcit Pandoran en moviment, hem d'accelerar el ritme. S'han identificat una sèrie de reapareguts civils propers a Oracle IX, que necessiten escorta al punt d'evacuació. El vostre objectiu és ubicar tota l'embarcació civil a la zona i introduir-los. No s'espera cap força enemiga, però el millor és estar protegit."
+
+msgid "ABCs, this is Control. Round up those civilians and escort them to the jumpgate as quick as you can."
+msgstr "ABC, això és Control. Redondeix els civils i escolta'ls fins al saltó tan ràpid com puguis."
+
+msgid "We're not expecting any opposition, but be prepared to engage hostiles if needed."
+msgstr "No esperem cap oposició, sinó que estigueu preparats per incitar hostils si és necessari."
+
+msgid "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised."
+msgstr "Hem identificat al voltant d'una dotzena de més aterridors que cal introduir. Posem-los al punt d'evacuació com abans. Aneu amb compte: la intel·ligència va recollir senyals xifrades que semblen compatibles amb les utilitzades pels Pandorans per a les seves transmissions. Les forces enemigues s'han de comprometre i destruir o dirigir-se al contacte. Les pèrdues civils s'han de minimitzar."
+
+msgid "Gaskin, INF fighters spotted! Pandorans, without a doubt!"
+msgstr "Gaskin, els lluitadors de l'INF han vist! Pandorans, sens dubte!"
+
+msgid "Break and attack! Protect the civilians!"
+msgstr "Trencar i atacar! Protegiu els civils!"
+
+msgid "That was a close one. Looks like they were scouting. We'll have to take extra precautions in future."
+msgstr "Això va ser molt proper. Sembla que estaven explorant. Hem de prendre precaucions addicionals en el futur."
+
+msgid "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now."
+msgstr "Les etapes finals de l'evacuació estan en progrés, però la situació s'està estrenyent. Hem rebut un SOS d'un grup de civils que han tingut una oportunitat amb alguns escarificadors. Normalment, aconseguirem la zona abans d'implementar el rescat, però amb la situació cada vegada més desesperada, ara enviarem el remolcador. Porti a casa cada ofici civil - l'enemic hauria d'ignorar-los per ara."
+
+msgid "The Pandorans' arrival is imminent, but the evacuation is nearing completion. We need only mop up some of the stragglers. Two of the White Knights will be assisting, before moving on to hit the enemy's supply line. You should concentrate on getting the civilians to safety, and letting the ATAFs do the bulk of the work."
+msgstr "L'arribada de Pandorans és imminent, però l'evacuació s'acosta. Només necessitem eliminar alguns dels rezagados. Dos dels cavallers blancs assistiran, abans de seguir endavant, a la línia de subministrament de l'enemic. Hauríeu de concentrar-vos en la seguretat dels civils i deixar que els ATAF facin la major part del treball."
+
+msgid "Enemy craft detected. Pandorans, in both INF and UNF fighters."
+msgstr "S'ha detectat nau enemiga. Pandorans, tant en combatents de l'INF com de la FNU."
+
+msgid "Chaz, you're with me. Wiley, you and your boys get those civilians to the jumpgate."
+msgstr "Chaz, tu ets amb mi. Wiley, tu i els teus fills arriben els civils al gomoteig."
+
+msgid "We've spotted the next group of civilians. Sending you the coordinates."
+msgstr "Hem detectat el següent grup de civils. Enviant-te les coordenades."
+
+msgid "Picking up more Pandoran fighters, moving to intercept."
+msgstr "Recollint més lluitadors de Pandoran, movent-se a interceptar."
+
+msgid "The final civilian group is here."
+msgstr "El grup civil final aquí."
+
+msgid "More Pandorans. Keep knocking them down, Chaz. We're almost done."
+msgstr "Més pandorans. No deixis de tocar-los, Chaz. Estem gairebé acabats."
+
+msgid "Control, this is Wiley. Civilians have been extracted."
+msgstr "Control, això és Wiley. S'han extret els civils."
+
+msgid "Wiley, ensure all enemy forces have been eliminated."
+msgstr "Wiley, assegura que totes les forces enemigues han estat eliminades."
+
+msgid "Control, this is de Winter. All enemy forces have been destroyed."
+msgstr "Control, això és l'hivern. Totes les forces enemigues han estat destruïdes."
+
+msgid "Excellent, we're very grateful for the assistance."
+msgstr "Excel·lent, estem molt agraïts per l'assistència."
+
+msgid "The Pandoran fleet is closing in on Oracle IX, and their capital ships are moving rapidly up the field. We need to hold them back for as long as possible, to give the final evacuees time to escape the system. This will need to be done with fighters along. However, Lieutenant Commanders Taylor and Todd of the White Knights will be lending assistance with the ATAFs, which should give us the edge in battle."
+msgstr "La flota de Pandoran està tancant en Oracle IX, i les seves naus capitals es mouen ràpidament al camp. Hem de retirar-los durant tant de temps com sigui possible, per donar-li temps als evacuats finals per escapar del sistema. Això haurà de fer-se amb lluitadors. Tanmateix, els tinents comandants Taylor i Todd dels cavallers blancs prestaran assistència als ATAF, que ens haurien de donar avantatge en la batalla."
+
+msgid "Our orders are to take down as many of the enemy corvettes as possible. Break and attack at will."
+msgstr "Les nostres ordres són eliminar totes les corbates enemigues possibles. Trencar i atacar a voluntat."
+
+msgid "How many of them are we expecting?"
+msgstr "Quants d'ells esperem?"
+
+msgid "Five, at least. And they have escorts, too."
+msgstr "Cinc, com a mínim. I també tenen escorts."
+
+msgid "Hell, we're dropping like flies here!"
+msgstr "Infern, anem a caure com mosques aquí!"
+
+msgid "Hang in there, Lieutenant, we'll try and cover you."
+msgstr "Pengeu-hi, tinent, intentarem tapar-lo."
+
+msgid "Thunderbolt is down."
+msgstr "Thunderbolt ha baixat."
+
+msgid "Picking up two more Pandoran capital ships incoming."
+msgstr "Recollint dues embarcacions de capital Pandoran més entrants."
+
+msgid "INF Gram and INF Morning Star have arrived. Follow my lead!"
+msgstr "Han arribat INF Gram i INF Morning Star. Segueix-me!"
+
+msgid "Scratch another two Imperial corvettes."
+msgstr "Rasqueu altres dues corbes imperials."
+
+msgid "Tracking two more corvettes heading your way: Dragonlance and Trident."
+msgstr "Seguiment de dues corbetes més a la vostra disposició: Dragonlance i Trident."
+
+msgid "Dragonlance, eh? As in, a lance used for killing dragons? Yeah, they wish."
+msgstr "Dragonlance, eh? Com, una llança utilitzada per matar dracs? Sí, ho desitgen."
+
+msgid "They're not the only ones."
+msgstr "No són els únics."
+
+msgid "Leviathan, this is Taylor. All targets have been eliminated."
+msgstr "Leviathan, això és Taylor. S'han eliminat tots els objectius."
+
+msgid "Acknowledged. We're preparing to fall back and abandon Warro. Return to Leviathan as soon as possible."
+msgstr "Reconeguda. Ens estem preparant per replegar-nos i abandonar Warro. Torneu a Leviathan el més aviat possible."
+
+msgid "Understood, will see you soon."
+msgstr "Entès, ja ho veuràs aviat."
+
+msgid "Nice working with you, Wiley."
+msgstr "Bon treball amb tu, Wiley."
+
+msgid "Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ...."
+msgstr "Igualment. Potser ho aconseguirem fer-ho de nou un dia, encara que una part de mi realment espera que no necessitem ..."
+
+msgid "Destroy all Darts #1"
+msgstr "Destrueix tots els dards # 1"
+
+msgid "Destroy all Darts #2"
+msgstr "Destrueix tots els dards # 2"
+
+msgid "Destroy all Darts #3"
+msgstr "Destrueix tots els dards # 3"
+
+msgid "Destroy all Lynxes"
+msgstr "Destrueix tots els llinatges"
+
+msgid "Disable all targets"
+msgstr "Desactiva tots els objectius"
+
+msgid "60 second battle"
+msgstr "60 segons de batalla"
+
+msgid "Pass all Waypoints"
+msgstr "Passa tots els Waypoints"
+
+msgid "Defend Jumpgate"
+msgstr "Defensa Jumpgate"
+
+msgid "Collect Packages"
+msgstr "Col·loqueu paquets"
+
+msgid "Rescue Civilians"
+msgstr "Rescatar a civils"
+
+msgid "Destroy INF Klondike and INF Canfield"
+msgstr "Destrueix INF Klondike i INF Canfield"
+
+msgid "Collect packages"
+msgstr "Recolliu els paquets"
+
+msgid "Turret Takedown"
+msgstr "Tret de la torre"
+
+msgid "Swarms of Swarmers"
+msgstr "Esquadrons d'esquadrons"
+
+msgid "Piracy"
+msgstr "Pirateria"
+
+msgid "Swelling the Ranks"
+msgstr "Inflar els rangs"
+
+msgid "Most Wanted"
+msgstr "El més buscat"
+
+msgid "Solo Patrol"
+msgstr "Patrulla sola"
+
+msgid "Set Phasers to Stun"
+msgstr "Establiu Phasers to Stun"
+
+msgid "No survivors"
+msgstr "Sense supervivents"
+
+msgid "Initiation"
+msgstr "Iniciació"
+
+msgid "Destroy all Darts #4"
+msgstr "Destrueix tots els dards # 4"
+
+msgid "Surrender!"
+msgstr "Rendició!"
+
+msgid "Gate Smasher"
+msgstr "Smasher de porta"
+
+msgid "Minefield Race"
+msgstr "Minefield Race"
+
+msgid "Surrender! #2"
+msgstr "Rendició! # 2"
+
+msgid "Piracy #2"
+msgstr "Pirateria # 2"
+
+msgid "Shoot 'Em Up"
+msgstr "Dispara'm cap amunt"
+
+msgid "Initiation #2"
+msgstr "Inici # 2"
+
+msgid "Feast"
+msgstr "Festa"
+
+msgid "Bomber vs Bomber"
+msgstr "Bomber vs Bomber"
+
+msgid "One of the seven"
+msgstr "Un dels set"
+
+msgid "Earn all other trophies"
+msgstr "Guanya tots els altres trofeus"
+
+msgid "Plan B"
+msgstr "Pla B"
+
+msgid "Complete all campaign missions"
+msgstr "Completa totes les missions de campanya"
+
+msgid "Gentle start"
+msgstr "Inici suau"
+
+msgid "Complete a campaign mission"
+msgstr "Completar una missió de campanya"
+
+msgid "Ready for duty"
+msgstr "Llest per al servei"
+
+msgid "Complete all the training missions at Sol"
+msgstr "Completa totes les missions de formació al Sol"
+
+msgid "Coyote Ugly"
+msgstr "Coyote lleig"
+
+msgid "Complete all missions at Coyote"
+msgstr "Completa totes les missions al Coyote"
+
+msgid "Better late than never"
+msgstr "Millor tard que mai"
+
+msgid "Complete all missions at Warro"
+msgstr "Completa totes les missions a Warro"
+
+msgid "The shape of things to come"
+msgstr "La forma de les coses per venir"
+
+msgid "Complete all missions at Iliad"
+msgstr "Completa totes les missions a Iliad"
+
+msgid "Now get the hell out of our galaxy!"
+msgstr "Ara deixa l'infern fora de la nostra galàxia."
+
+msgid "Complete all missions at Temper"
+msgstr "Completa totes les missions a Temper"
+
+msgid "Going out with a bang"
+msgstr "Sortint amb un estoc"
+
+msgid "Complete all missions at Mace"
+msgstr "Completa totes les missions a Mace"
+
+msgid "Back against the wall"
+msgstr "Tornar contra la paret"
+
+msgid "Complete all missions at Rothan"
+msgstr "Completa totes les missions a Rothan"
+
+msgid "Now what do we do?"
+msgstr "Ara què fem?"
+
+msgid "Complete all missions at Clarke"
+msgstr "Completa totes les missions a Clarke"
+
+msgid "Trespasser"
+msgstr "Trespasser"
+
+msgid "Complete all optional missions"
+msgstr "Completa totes les missions opcionals"
+
+msgid "Truly epic"
+msgstr "Veritablement èpica"
+
+msgid "Survive an epic battle"
+msgstr "Sobreviu una batalla èpica"
+
+msgid "The bigger they are ..."
+msgstr "Com més grans siguin ..."
+
+msgid "Destroy an enemy capital ship"
+msgstr "Destrueix una nau de capitania enemiga"
+
+msgid "Giant Slayer"
+msgstr "Giant Slayer"
+
+msgid "Destroy 25 enemy capital ships"
+msgstr "Destrueix 25 naus capitals enemigues"
+
+msgid "Plenty more where that came from, unfortunately"
+msgstr "Molt més on va venir, desgraciadament"
+
+msgid "Destroy a Pandoran-controlled craft"
+msgstr "Destrueix una embarcació controlada per Pandoran"
+
+msgid "Oh man, I gotta get me one of these!"
+msgstr "Ah, home, he d'aconseguir-me un d'aquests!"
+
+msgid "Pilot an ATAF during the campaign"
+msgstr "Pilot un ATAF durant la campanya"
+
+msgid "The 4th emergency service"
+msgstr "El quart servei d'emergència"
+
+msgid "Complete a mission using a Tug"
+msgstr "Completar una missió amb un remolc"
+
+msgid "Room for one more on top"
+msgstr "Habitació per a un més a la part superior"
+
+msgid "Complete a challenge using a Shuttle"
+msgstr "Completa un repte amb un llançador"
+
+msgid "Taking one for the team"
+msgstr "Prenent un per a l'equip"
+
+msgid "Be hit by a missile that was meant for someone else"
+msgstr "Ser colpejat per un míssil destinat a una altra persona"
+
+msgid "The bodyguard"
+msgstr "El guardaespatlles"
+
+msgid "Hit an enemy with a missile intended for their wing leader"
+msgstr "Aconsegueix un enemic amb un míssil destinat al seu líder d'ala"
+
+msgid "Dedicated"
+msgstr "Dedicat"
+
+msgid "Complete 25%% of all challenges"
+msgstr "Completa el 25 %% de tots els reptes"
+
+msgid "Obsessed"
+msgstr "Obsessionat"
+
+msgid "Complete 50%% of all challenges"
+msgstr "Completa el 50 %% de tots els reptes"
+
+msgid "Completitonist"
+msgstr "Completitonista"
+
+msgid "Complete 100%% of all challenges"
+msgstr "Completa el 100 %% de tots els reptes"
+
+msgid "Hero"
+msgstr "Heroi"
+
+msgid "Take down 50 enemies (player only)"
+msgstr "Baixa 50 enemics (només jugador)"
+
+msgid "Veteran"
+msgstr "Veterà"
+
+msgid "Take down 500 enemies (player only)"
+msgstr "Baixa 500 enemics (només jugador)"
+
+msgid "Legend"
+msgstr "Llegenda"
+
+msgid "Take down 2,500 enemies (player only)"
+msgstr "Baixeu 2.500 enemics (només jugador)"
+
+msgid "Your name's on one of these!"
+msgstr "El teu nom és en un d'aquests."
+
+msgid "Fire 100,000 shots"
+msgstr "Incendis 100.000 tirs"
+
+msgid "Dodge this!"
+msgstr "Esquiva això!"
+
+msgid "Launch 500 missiles"
+msgstr "Llança 500 míssils"
+
+msgid "Isn't technology wonderful?"
+msgstr "No és meravellós la tecnologia?"
+
+msgid "Use the ECM 250 times"
+msgstr "Utilitzeu l'ECM 250 vegades"
+
+msgid "Runaway!"
+msgstr "Fugitiu"
+
+msgid "Boost 250 times"
+msgstr "Augmenta 250 vegades"
+
+msgid "Hoarder"
+msgstr "Hoarder"
+
+msgid "Collect 250 items"
+msgstr "Recopila 250 articles"
+
+msgid "Missed, you f**kers!"
+msgstr "Heu perdut, f ** kers!"
+
+msgid "Evade 5 missiles"
+msgstr "Evita 5 míssils"
+
+msgid "Sightseer"
+msgstr "Sightseer"
+
+msgid "Visit 100 waypoints"
+msgstr "Visiteu 100 punts d'interès"
+
+msgid "Minesweeper"
+msgstr "Minesweeper"
+
+msgid "Destroy 255 mines (player only)"
+msgstr "Destrueix 255 mines (només jugador)"
+
+msgid "Get out and push"
+msgstr "Surt i empenta"
+
+msgid "Disable 500 opponents"
+msgstr "Desactiva 500 opositors"
+
+msgid "Yippie-ki-yay"
+msgstr "Yippie-ki-yay"
+
+msgid "Destroy 13 or more enemies in an epic battle, without being killed (No ATAF)"
+msgstr "Destrueix 13 o més enemics en una batalla èpica, sense matar (No ATAF)"
+
+msgid "Survivor"
+msgstr "Supervivent"
+
+msgid "Complete an epic battle without being killed (No ATAF)"
+msgstr "Completa una batalla èpica sense haver de matar (No ATAF)"
+
+msgid "Almost indestructible. Almost"
+msgstr "Gairebé indestructible. Gairebé"
+
+msgid "Be destroyed while piloting an ATAF"
+msgstr "Ser destruït mentre pilotes un ATAF"
+
+msgid "Pacifist"
+msgstr "Pacifista"
+
+msgid "Complete a fighter-based campaign mission without firing"
+msgstr "Completa una missió de campanya basada en lluitadors sense disparar"
+
+msgid "2 birds, 1 stone"
+msgstr "2 ocells, 1 pedra"
+
+msgid "Destroy two or more fighters by shooting one mine"
+msgstr "Destrueix dos o més lluitadors disparant una mina"
+
+msgid "Frequent flyer"
+msgstr "Viatger freqüent"
+
+msgid "Destroy one of each type of common starfighter"
+msgstr "Destrueix un de cada tipus de starfighter comú"
+
+msgid "Not the face!"
+msgstr "No la cara!"
+
+msgid "Cause 50 enemies to surrender"
+msgstr "Causa que 50 enemics es rendeixin"
+
+msgid "Revenge"
+msgstr "Revenja"
+
+msgid "During an epic battle, kill the enemy that just killed you"
+msgstr "Durant una batalla èpica, mata a l'enemic que acaba de matar-te"
+

@@ -1,0 +1,3147 @@
+# PO file for TBFTSS : The Pandoran War
+# Copyright 2015-2016, Stephen J Sweeney
+# This file is distributed under the GNU GPL 3.0
+# Email: stephenjsweeney@battleforthesolarsystem.com
+# https://github.com/stephenjsweeney/tbftss
+
+msgid ""
+msgstr ""
+"Project-Id-Version: TBFTSS: The Pandoran War\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-12 11:56:12+0100\n"
+"PO-Revision-Date: 2018-01-18 22:00:00+0000\n"
+"Last-Translator: Google Translate\n"
+"Language-Team: Google Translate\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%s is retreating!"
+msgstr "%s återgår!"
+
+msgid "%s has surrendered"
+msgstr "%s har överlämnats"
+
+msgid "Are you sure you want to restart? You will lose your current progress."
+msgstr "Är du säker på att du vill starta om? Du kommer att förlora din nuvarande framsteg."
+
+msgid "Are you sure you want to quit? You will lose your current progress."
+msgstr "Är du säker på att du vill sluta? Du kommer att förlora din nuvarande framsteg."
+
+msgid "WARNING: INCOMING MISSILE!"
+msgstr "VARNING: INGÅENDE MISSILE!"
+
+msgid "%s (Engine)"
+msgstr "%s (motor)"
+
+msgid "%s (Component)"
+msgstr "%s (komponent)"
+
+msgid "%s (Gun)"
+msgstr "%s (pistol)"
+
+msgid "We've lost engines! We're a sitting duck!"
+msgstr "Vi har förlorat motorer! Vi är en sittande anka!"
+
+msgid "Our guns have been shot out! We have no defences!"
+msgstr "Våra vapen har skjutits ut! Vi har inga försvar!"
+
+msgid "Be advised, we're taking damage here. Please step up support."
+msgstr "Vi uppmärksammas, vi tar skada här. Snälla steg upp support."
+
+msgid "We're sustaining heavy damage! All fighters, please assist, ASAP!"
+msgstr "Vi har stora skador! Alla fighters, snälla hjälp, ASAP!"
+
+msgid "Mayday! Mayday! Defences are critical. We can't hold out much longer!"
+msgstr "Mayday! Mayday! Försvar är kritiska. Vi kan inte hålla ut mycket längre!"
+
+msgid "Mission target has escaped."
+msgstr "Uppdragsmål har släppts undan."
+
+msgid "Civilian has been killed"
+msgstr "Civilen har dödats"
+
+msgid "Ally has been killed"
+msgstr "Allierat har dödats"
+
+msgid "Particle Cannon"
+msgstr "Partikelkanon"
+
+msgid "Plasma Cannon"
+msgstr "Plasma Cannon"
+
+msgid "Laser Cannon"
+msgstr "Laserkanon"
+
+msgid "Mag Cannon"
+msgstr "Mag Cannon"
+
+msgid "Rockets"
+msgstr "Rockets"
+
+msgid "Missiles"
+msgstr "missiler"
+
+msgid "Missiles (%d)"
+msgstr "Missiler ( %d )"
+
+msgid "Target: %.2fkm"
+msgstr "Mål:% .2fkm"
+
+msgid "(None)"
+msgstr "(Ingen)"
+
+msgid "(Combined Guns)"
+msgstr "(Kombinerade vapen)"
+
+msgid "System Power : %d%%"
+msgstr "Systemkrav: %d %%"
+
+msgid "%s (Leader)"
+msgstr "%s (ledare)"
+
+msgid "Objective: %.2fkm"
+msgstr "Mål:% .2fkm"
+
+msgid "Jumpgate: %.2fkm"
+msgstr "Jumpgate:% .2fkm"
+
+msgid "SELECT NEW FIGHTER"
+msgstr "VÄLJ NY NY FIGHTER"
+
+msgid "Suspicion"
+msgstr "Misstanke"
+
+msgid "Remaining Pilots: %d"
+msgstr "Återstående piloter: %d"
+
+msgid "Picked up %s"
+msgstr "Plockade upp %s"
+
+msgid "Jumpgate System Node"
+msgstr "Jumpgate System Node"
+
+msgid "Incomplete"
+msgstr "Ofullständig"
+
+msgid "Complete"
+msgstr "Komplett"
+
+msgid "Failed"
+msgstr "misslyckades"
+
+msgid "Condition"
+msgstr "Skick"
+
+msgid "OBJECTIVES"
+msgstr "MÅL"
+
+msgid "(none)"
+msgstr "(ingen)"
+
+msgid "Time Limit: %s"
+msgstr "Tidsgräns: %s"
+
+msgid "%s - Objective Complete!"
+msgstr "%s - Målet är klart!"
+
+msgid "%s - Objective Failed!"
+msgstr "%s - Objekt misslyckades!"
+
+msgid "New Objective : %s"
+msgstr "Nytt mål: %s"
+
+msgid "Do not lose more than %d pilots"
+msgstr "Förlora inte mer än %d piloter"
+
+msgid "Destroy at least %d enemy fighters"
+msgstr "Förstör minst %d fiendens fighters"
+
+msgid "Challenge Failed!"
+msgstr "Utmaningen misslyckades!"
+
+msgid "Target not in range"
+msgstr "Målet är inte inom intervallet"
+
+msgid "Out of missiles"
+msgstr "Utan missiler"
+
+msgid "Caution: Leaving battle area - turn around."
+msgstr "Varning: Lämna stridsområde - vänd dig om."
+
+msgid "Tow rope attached"
+msgstr "Dragkrok fäst"
+
+msgid "Mission Complete!"
+msgstr "Uppdrag slutfört!"
+
+msgid "Mission Failed!"
+msgstr "Uppdraget misslyckades!"
+
+msgid "Cannot activate waypoint - outstanding objectives not yet complete"
+msgstr "Kan inte aktivera waypoint - utestående mål ännu inte färdiga"
+
+msgid "Cannot activate waypoint - eliminate enemies first"
+msgstr "Kan inte aktivera waypoint - eliminera fiender först"
+
+msgid "Cannot activate waypoint - team mates too far away"
+msgstr "Kan inte aktivera waypoint - lagkamrater för långt borta"
+
+msgid "Challenges"
+msgstr "Utmaningar"
+
+msgid "Completed : %d / %d"
+msgstr "Avslutat: %d / %d"
+
+msgid "Page : %d / %d"
+msgstr "Sida: %d / %d"
+
+msgid "[Locked]"
+msgstr "[Låst]"
+
+msgid "Craft: %s"
+msgstr "Hantverk: %s"
+
+msgid "Restrictions: %s"
+msgstr "Restriktioner: %s"
+
+msgid "No Missiles"
+msgstr "Inga missiler"
+
+msgid "No ECM"
+msgstr "Ingen ECM"
+
+msgid "No Boost"
+msgstr "Ingen Boost"
+
+msgid "No Guns"
+msgstr "Inga pistoler"
+
+msgid "Retain at least %d%% armour"
+msgstr "Behåll minst %d %% rustning"
+
+msgid "Complete challenge in %d seconds or less"
+msgstr "Komplett utmaning i %d sekunder eller mindre"
+
+msgid "Survive for %d seconds"
+msgstr "Överlev i %d sekunder"
+
+msgid "Attain a %d%% shot hit accuracy"
+msgstr "Uppnå en %d %% shot träffsäkerhet"
+
+msgid "Attain a %d%% rocket hit accuracy"
+msgstr "Uppnå en %d %% raket träff noggrannhet"
+
+msgid "Attain a %d%% missile hit accuracy"
+msgstr "Uppnå en %d %% missil träffsäkerhet"
+
+msgid "Do not lose any team mates"
+msgstr "Förlora inte några lagkamrater"
+
+msgid "Do not lose more than 1 team mate"
+msgstr "Förlora inte mer än 1 lagkamrat"
+
+msgid "Do not lose more than %d team mates"
+msgstr "Förlora inte mer än %d lagkamrater"
+
+msgid "Take down %d enemy targets"
+msgstr "Ta bort %d fiendens mål"
+
+msgid "Disable %d or more enemy fighters"
+msgstr "Inaktivera %d eller fler fiendens fighters"
+
+msgid "Collect %d packages"
+msgstr "Samla %d paket"
+
+msgid "Rescue %d civilians"
+msgstr "Rädda %d civila"
+
+msgid "Cause %d enemies to surrender"
+msgstr "Orsak %d fiender att ge upp"
+
+msgid "Reach %d waypoints"
+msgstr "Räckvidd %d waypoints"
+
+msgid "Complete challenge in %s or less"
+msgstr "Komplett utmaning i %s eller mindre"
+
+msgid "Missions: %d / %d"
+msgstr "Uppdrag: %d / %d"
+
+msgid "Pilot: %s"
+msgstr "Pilot: %s"
+
+msgid "Squadron: %s"
+msgstr "Squadron: %s"
+
+msgid "This mission has been completed."
+msgstr "Detta uppdrag har slutförts."
+
+msgid "Note: this is an epic mission."
+msgstr "Obs! Det här är ett episkt uppdrag."
+
+msgid "Note: this is an optional mission."
+msgstr "Obs! Detta är ett valfritt uppdrag."
+
+msgid "Congratulations, you have completed the campaign! You may now replay past missions, for fun, to boost stats, or to earn missing trophies!"
+msgstr "Grattis, du har slutfört kampanjen! Du kan nu spela upp tidigare missioner, för skojs skull, för att öka statistiken eller för att vinna förlorade troféer!"
+
+msgid "%s has fallen to the Pandorans"
+msgstr "%s har fallit till pandorerna"
+
+msgid "Fighter Database"
+msgstr "Fighter Database"
+
+msgid "Page %d / %d"
+msgstr "Sidan %d / %d"
+
+msgid "(Common)"
+msgstr "(Allmänning)"
+
+msgid "Destroyed"
+msgstr "Förstörd"
+
+msgid "Affiliation"
+msgstr "Anslutning"
+
+msgid "Armour"
+msgstr "Rustning"
+
+msgid "Shield"
+msgstr "Skydda"
+
+msgid "Speed"
+msgstr "Fart"
+
+msgid "Percent Complete"
+msgstr "Procent Slutförd"
+
+msgid "Missions Started"
+msgstr "Uppdrag startade"
+
+msgid "Missions Completed"
+msgstr "Uppdrag slutförda"
+
+msgid "Optional Missions Completed"
+msgstr "Valfria uppdrag slutförda"
+
+msgid "Challenges Started"
+msgstr "Utmaningar startade"
+
+msgid "Challenges Completed"
+msgstr "Utmaningar slutförda"
+
+msgid "Shots Fired"
+msgstr "Skott avlossade"
+
+msgid "Shots Hit"
+msgstr "Skott träffade"
+
+msgid "Accuracy"
+msgstr "Noggrannhet"
+
+msgid "Rockets Fired"
+msgstr "Raketer avfyrade"
+
+msgid "Rockets Hit"
+msgstr "Raketer Hit"
+
+msgid "Missiles Fired"
+msgstr "Missiler Avfyrade"
+
+msgid "Missiles Hit"
+msgstr "Missiler Hit"
+
+msgid "Enemies Killed"
+msgstr "Fiender dödade"
+
+msgid "Enemies Killed (Player)"
+msgstr "Fiender dödade (spelare)"
+
+msgid "Allies Killed"
+msgstr "Allierade dödade"
+
+msgid "Times Killed"
+msgstr "Tider dödade"
+
+msgid "Enemies Disabled"
+msgstr "Fiender Inaktiverade"
+
+msgid "Enemies Escaped"
+msgstr "Fiender escaped"
+
+msgid "ECM Used"
+msgstr "ECM används"
+
+msgid "Boost Used"
+msgstr "Boost används"
+
+msgid "Missiles Evaded"
+msgstr "Missiler Evaded"
+
+msgid "Missiles Struck Player"
+msgstr "Missiler Struck Player"
+
+msgid "Civilians Rescued"
+msgstr "Civila räddade"
+
+msgid "Civilians Killed"
+msgstr "Civila dödade"
+
+msgid "Times used Tug"
+msgstr "Tider använde Tug"
+
+msgid "Times used Shuttle"
+msgstr "Tiderna använde Shuttle"
+
+msgid "Craft Towed"
+msgstr "Hantverk Towed"
+
+msgid "Items Collected"
+msgstr "Objekt samlade"
+
+msgid "Items Collected (Player)"
+msgstr "Objekt samlade (spelare)"
+
+msgid "Longest Epic Kill Streak"
+msgstr "Longest Epic Kill Streak"
+
+msgid "Waypoints Visited"
+msgstr "Vägpunkter Besökt"
+
+msgid "Capital Ships Destroyed"
+msgstr "Kapitalskepp förstörda"
+
+msgid "Capital Ships Lost"
+msgstr "Capital Ships Förlorade"
+
+msgid "Mines Destroyed"
+msgstr "Mines förstörda"
+
+msgid "Enemies Surrendered"
+msgstr "Fiender övergavs"
+
+msgid "Time Played"
+msgstr "Tid spelad"
+
+msgid "Stats"
+msgstr "stats"
+
+msgid "Trophies"
+msgstr "troféer"
+
+msgid "Awarded : %d / %d"
+msgstr "Tilldelat: %d / %d"
+
+msgid "[Hidden]"
+msgstr "[Dold]"
+
+msgid "Fire"
+msgstr "Brand"
+
+msgid "Accelerate"
+msgstr "Accelerera"
+
+msgid "Boost"
+msgstr "Lyft"
+
+msgid "ECM"
+msgstr "ECM"
+
+msgid "Brake"
+msgstr "Broms"
+
+msgid "Select Target"
+msgstr "Välj Mål"
+
+msgid "Fire Missile"
+msgstr "Brand missil"
+
+msgid "Cycle Guns"
+msgstr "Cykelvapen"
+
+msgid "Cycle Radar"
+msgstr "Cykelradar"
+
+msgid "Next Fighter"
+msgstr "Nästa Fighter"
+
+msgid "Previous Fighter"
+msgstr "Tidigare Fighter"
+
+msgid "Screenshot"
+msgstr "skärmdump"
+
+msgid "Controls"
+msgstr "kontroller"
+
+msgid "Click a control to change it, and then the key or mouse button you want to use."
+msgstr "Klicka på en kontroll för att ändra den och sedan på den tangent eller musknapp du vill använda."
+
+msgid "[BACKSPACE] - Clear"
+msgstr "[BACKSPACE] - Clear"
+
+msgid "[ESCAPE] - Cancel"
+msgstr "[ESCAPE] - Avbryt"
+
+msgid "Options"
+msgstr "alternativ"
+
+msgid "Note: you must restart the game for window size and fullscreen options to take effect."
+msgstr "Obs! Du måste starta om spelet för fönsterstorlek och fullskärmsalternativ för att träda i kraft."
+
+msgid "Note: this device does not support changing the screen resolution."
+msgstr "Obs! Den här enheten stöder inte ändringen av skärmupplösningen."
+
+msgid "Retry"
+msgstr "Försök igen"
+
+msgid "Quit"
+msgstr "Sluta"
+
+msgid "Continue"
+msgstr "Fortsätta"
+
+msgid "Resume"
+msgstr "Återuppta"
+
+msgid "Return to Title"
+msgstr "Återgå till Titel"
+
+msgid "Start Challenge Mission"
+msgstr "Starta utmaningsuppdraget"
+
+msgid "OK"
+msgstr "ok"
+
+msgid "Restore Defaults"
+msgstr "Återgå till grundinställningarna"
+
+msgid "Restart"
+msgstr "Omstart"
+
+msgid "Cancel"
+msgstr "Annullera"
+
+msgid "Window Size"
+msgstr "Fönsterstorlek"
+
+msgid "Sound Volume"
+msgstr "Ljudvolym"
+
+msgid "Music Volume"
+msgstr "Musikvolym"
+
+msgid "Fullscreen"
+msgstr "Fullskärm"
+
+msgid "Controls ..."
+msgstr "Kontroller ..."
+
+msgid "Start Mission"
+msgstr "Starta uppdraget"
+
+msgid "X"
+msgstr "X"
+
+msgid "Campaign"
+msgstr "Kampanj"
+
+msgid "Credits"
+msgstr "Credits"
+
+msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
+msgstr "När pandorerna har invaderat oberoende system som bjuder på Mitikas riket, måste vi bli mer vaksamma. Patrullerna runt Torelli ökar. Se till att du träffar alla waypoints och rapportera eventuella ovanliga aktiviteter som du stöter på."
+
+msgid "Anyone got anything to report?"
+msgstr "Någon har något att rapportera?"
+
+msgid "You getting paranoid, Curtis?"
+msgstr "Du blir paranoid, Curtis?"
+
+msgid "You all saw what happened at Coyote."
+msgstr "Du såg vad som hände på Coyote."
+
+msgid "So, those Pandorans are, what, robots?"
+msgstr "Så, dessa Pandoraner är, vad, robotar?"
+
+msgid "Alien-Human hybrid, I heard."
+msgstr "Alien-Human hybrid, hörde jag."
+
+msgid "Hard to kill, whatever they are. Heard they'll still be coming at you even if you take both arms off."
+msgstr "Svårt att döda, oavsett vad de är. Hört de kommer fortfarande att komma till dig även om du tar båda armarna av."
+
+msgid "And what'll they do then? Bite you to death?"
+msgstr "Och vad ska de då göra? Bita dig till döden?"
+
+msgid "Eyes open, lads."
+msgstr "Ögon öppna, pojkar."
+
+msgid "We're done. Anyone detect anything unusual?"
+msgstr "Var gjort. Någon upptäcker något ovanligt?"
+
+msgid "Same old, same old."
+msgstr "Samma gamla vanliga."
+
+msgid "Believe me, that's a good thing. Right, let's head home and report in."
+msgstr "Tro mig, det är en bra sak. Höger, låt oss gå hem och anmäla dig."
+
+msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presence is reducing the amount of illegal activity in this sector, with reported incidents down 80%%. Still, we cannot afford to become complacent, and must continue with our sweeps."
+msgstr "Patrullerna hittills har inte upptäckt något ovanligt och det verkar som om ökningen av militär närvaro minskar olaglig aktivitet i denna sektor, med rapporterade incidenter ner 80 %% . Ändå har vi inte råd att bli självmord, och måste fortsätta med våra svep."
+
+msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
+msgstr "Eightballers, du har hostiler inkommande. Identifierat som 3 Mitikas fighters; Jackaler, möjligen Pandoran. Engagera, men utöva extrem försiktighet."
+
+msgid "Control, enemies have been dispatched. Wasn't a comfortable fight."
+msgstr "Kontroll, fiender har skickats. Var inte en bekväm kamp."
+
+msgid "Eightballers, return home immediately, and deliver a full report. Do not leave out a single detail."
+msgstr "Eightballers, återvända hem omedelbart och leverera en fullständig rapport. Lämna inte ut en enda detalj."
+
+msgid "Got it. See you soon."
+msgstr "Jag fattar. Ses snart."
+
+msgid "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter."
+msgstr "Efter den förödande förlusten av Iliad-systemet, måste vi fortsätta att vara vaksam mot intrång i Alba-systemet. Kontrollera alla fem waypoints och rapportera omedelbart vilken ovanlig eller misstänkt aktivitet du stöter på."
+
+msgid "So, Iliad has fallen?"
+msgstr "Så, Iliad har fallit?"
+
+msgid "From what I've heard."
+msgstr "Från vad jag har hört."
+
+msgid "Did they retreat, or ..."
+msgstr "Tog de sig, eller ..."
+
+msgid "They fought to the very last."
+msgstr "De kämpade till sist."
+
+msgid "So that's it. The Pandorans have won?"
+msgstr "Så det är det. Pandorerna har vunnit?"
+
+msgid "At Iliad, yes. Unless the local forces there can somehow hold off the enemy's ground assault."
+msgstr "Vid Iliad, ja. Om inte de lokala krafterna kan på något sätt hålla bort fiendens mordattack."
+
+msgid "It's ... possible, right?"
+msgstr "Det är ... möjligt, eller hur?"
+
+msgid "The Pandorans will just nuke the place when they're done. They'll take what they need, kill everyone who stands in their way ..."
+msgstr "Pandoranerna kommer bara nyckla platsen när de är färdiga. De tar vad de behöver, döda alla som står i vägen ..."
+
+msgid "And even those who don't."
+msgstr "Och även de som inte gör det."
+
+msgid "...and move on."
+msgstr "... och fortsätt."
+
+msgid "You're quiet, Wade."
+msgstr "Du är tyst, Wade."
+
+msgid "Just thinking."
+msgstr "Bara tänker."
+
+msgid "What about?"
+msgstr "Vad sägs om?"
+
+msgid "How long it'll be before the Pandorans show up here."
+msgstr "Hur länge kommer det att vara innan Pandoranerna dyker upp här."
+
+msgid "They came by earlier, in case you don't remember."
+msgstr "De kom före, om du inte kommer ihåg det."
+
+msgid "And haven't been back since. Maybe we scared them off."
+msgstr "Och har inte varit tillbaka sedan. Kanske räddade vi dem."
+
+msgid "I doubt it, guys. They were probably just scouting."
+msgstr "Jag tvivlar på det, killar. De var nog bara scouting."
+
+msgid "Where the hell are the CSN? Why weren't they at Iliad?"
+msgstr "Var i helvete är CSN? Varför var de inte i Iliad?"
+
+msgid "They weren't wanted, apparently. Iliad and the UNF aren't getting along so well at the moment."
+msgstr "De var inte önskade, tydligen. Iliad och UNF går inte så bra just nu."
+
+msgid "Something to do with Adrian Parsons?"
+msgstr "Något att göra med Adrian Parsons?"
+
+msgid "That bloody idiot? It wouldn't surprise me. He's the reason we're now in this mess! If I ever meet that guy, nothing'll stop me from-"
+msgstr "Den blodiga idiot? Det skulle inte överraska mig. Han är anledningen till att vi är nu i denna röra! Om jag någonsin träffar den killen, kommer ingenting att stoppa mig från-"
+
+msgid "Hey, mind what you say. All these communications are logged."
+msgstr "Hej, kom ihåg vad du säger. Alla dessa meddelanden loggas."
+
+msgid "(indecipherable muttering)"
+msgstr "(obryckbar muttering)"
+
+msgid "What do you mean, it's all Parsons' fault?"
+msgstr "Vad menar du att det är allt Parsons fel?"
+
+msgid "He made an executive decision over in Coyote several months ago, that screwed everything up. Something about being charged with a super weapon."
+msgstr "Han gjorde ett verkställande beslut över i Coyote för flera månader sedan, som skruvade allt upp. Något om att bli belastad med ett supervapen."
+
+msgid "Grendel's Mother?"
+msgstr "Grendel's Mother?"
+
+msgid "No, something it was carrying. Linked to the ATAFs, apparently."
+msgstr "Nej, det var det som var med. Hänvisat till ATAF: erna, tydligen."
+
+msgid "The CSN built something that nuked a whole load of allied and Pandoran forces. It wasn't meant to be used in Coyote, though."
+msgstr "CSN byggde något som nuked en hel mängd allierade och pandoranska styrkor. Det var dock inte tänkt att användas i Coyote."
+
+msgid "You don't say."
+msgstr "Du säger inte."
+
+msgid "Okay, lads, let's wrap this topic up, eh?"
+msgstr "Okej, lads, låt oss paketera det här ämnet, va?"
+
+msgid "That's it, all done. Anyone got anything to report?"
+msgstr "Det är det, allt gjort. Någon har något att rapportera?"
+
+msgid "Nothing."
+msgstr "Ingenting."
+
+msgid "Nope."
+msgstr "Nej."
+
+msgid "Okay, let's get home and report in."
+msgstr "Okej, låt oss komma hem och rapportera in."
+
+msgid "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations."
+msgstr "Ett antal viktiga oberoende system har kommit under samtidig attack av Tzac styrkor. Vi måste köra dem bort, så att vi kan fortsätta att fokusera på det mer hotande hotet av den pandoranska armén. Vid den här tiden är det viktigt att vi förhindrar Christabel att göra några betydande vinster genom att samla sina styrkor på dessa platser."
+
+msgid "Three Tzac fighter groups has been sighted in the area. We need to hunt them down and eliminate them."
+msgstr "Tre Tzac-stridsgrupper har blivit synade i området. Vi måste jaga dem och eliminera dem."
+
+msgid "Enemies sighted."
+msgstr "Fiender synas."
+
+msgid "Break and attack, people!"
+msgstr "Bryt och attack, folk!"
+
+msgid "That's the first group handled. Let's get to the next waypoint."
+msgstr "Det är den första gruppen som hanteras. Låt oss komma till nästa waypoint."
+
+msgid "Second group located."
+msgstr "Andra gruppen ligger."
+
+msgid "Control, this is Rice. Nine enemy fighters downed. Moving to the final waypoint."
+msgstr "Kontroll, det här är ris. Nio fiende fighters nerede. Flytta till den slutliga waypointen."
+
+msgid "Final group spotted."
+msgstr "Slutlig grupp spotted."
+
+msgid "That's all of them."
+msgstr "Det är alla av dem."
+
+msgid "Not as tough as I was expecting."
+msgstr "Inte så tuff som jag väntade."
+
+msgid "I think they're testing the water, like our Pandoran friends before them."
+msgstr "Jag tror att de testar vattnet, som våra Pandoran-vänner framför dem."
+
+msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
+msgstr "Vi skulle bättre kunna förbereda oss för en stor attack de närmaste dagarna. Förhoppningsvis inte av dem båda samtidigt."
+
+msgid "Tzac forces are continuing to make aggressive moves against Alba. Its forces need to be driven back, and out of the system entirely. Naval power is starting to come under strain, and these continued assaults could leave us vulnerable to a Pandoran attack."
+msgstr "Tzac styrkor fortsätter att göra aggressiva drag mot Alba. Dess styrkor måste drivas tillbaka, och helt ur systemet. Självstyrkan börjar drabbas, och dessa fortsatta attacker kan lämna oss utsatta för en Pandoranattack."
+
+msgid "Break and attack, lads. Let's send these guys back home."
+msgstr "Bryt och attack, pojkar. Låt oss skicka dessa killar hemma."
+
+msgid "More Tzac fighters incoming."
+msgstr "Fler Tzac fighters kommer in."
+
+msgid "Steel yourself, lads. Even more Tzac forces are heading our way."
+msgstr "Stål dig själv, killar. Ännu fler Tzac-styrkor är på väg."
+
+msgid "Picking up two capital ships, moving in."
+msgstr "Plocka upp två huvudfartyg, flytta in."
+
+msgid "Wait, those aren't only Tzac forces ... "
+msgstr "Vänta, det är inte bara Tzac-krafterna ... "
+
+msgid "Ah, hell! Now we've got Pandorans, too?!"
+msgstr "Åh, helvete! Nu har vi Pandoraner också?"
+
+msgid "Commander, we're getting shot to ribbons here! We need to fallback!"
+msgstr "Commander, vi skottas till band här! Vi måste falla tillbaka!"
+
+msgid "We can't let EITHER of these two win! That would be a major loss for all of us."
+msgstr "Vi kan inte låta VARJE av dessa två vinna! Det skulle vara en stor förlust för oss alla."
+
+msgid "Eightballers, de Winter of the White Knights, here to assist."
+msgstr "Eightballers, de vita riddarnas vinter, här för att hjälpa."
+
+msgid "White Knights! Am I glad to see you. Your timing couldn't be better."
+msgstr "Vita riddare! Är jag glad att se dig. Din timing kunde inte bli bättre."
+
+msgid "I owe you my life, Knights."
+msgstr "Jag är skyldig dig mitt liv, riddare."
+
+msgid "We're all in this together, Rice. I'm sorry we arrived too late to save your wingmates."
+msgstr "Vi är alla i det här tillsammans, ris. Jag är ledsen att vi kom för sent för att rädda dina vinge."
+
+msgid "They were good guys. They'll be missed."
+msgstr "De var bra killar. De kommer att saknas."
+
+msgid "We're needed elsewhere. We'll see you soon."
+msgstr "Vi behövs någon annanstans. Vi ses snart."
+
+msgid "While Trilliack is happy to arrest the traitors it brings in, Alba wishes to dole out swift punishment for their actions. Eliminate all enemy targets, with the exception of any fighters that surrender. Only those are to be brought in."
+msgstr "Medan Trilliack gärna tar hand om förrädarna som det medför, vill Alba utöva snabb straff för sina handlingar. Eliminera alla fiendens mål, med undantag för några som överlämnar fighters. Endast de ska tas in."
+
+msgid "Our orders are to destroy all opposing fighters, except any who surrender. They're to be magged, instead."
+msgstr "Våra order är att förstöra alla motsatta krigare, förutom vem som överlämnar sig. De ska vara magged, istället."
+
+msgid "One of them has surrendered. Mag him, ASAP."
+msgstr "En av dem har överlämnat sig. Mag honom, ASAP."
+
+msgid "Another has thrown in the towel. Disable that fighter!"
+msgstr "En annan har kastat i handduken. Inaktivera den fighteren!"
+
+msgid "Four of them have now surrendered."
+msgstr "Fyra av dem har nu överlämnats."
+
+msgid "I'd have been expecting more of them to have surrendered than this."
+msgstr "Jag hade förväntat mer av dem att ha överlämnat än detta."
+
+msgid "Some are clearly braver than others."
+msgstr "Vissa är tydligt braare än andra."
+
+msgid "Or perhaps stupider."
+msgstr "Eller kanske dumare."
+
+msgid "Good work, everyone. Control are sending tugs to bring these guys in."
+msgstr "Bra jobb, alla. Kontroll skickar trollvagnar för att få dessa killar in."
+
+msgid "Think they'll get a long sentence?"
+msgstr "Tror de kommer att få en lång straff?"
+
+msgid "Depends on how many capable pilots we can afford to keep shoving behind bars ..."
+msgstr "Beror på hur många skickliga piloter vi har råd att hålla kvar bakom staplarna ..."
+
+msgid "Roman Burgess, one of the masterminds behind the illicit arms and information smuggling to Tzac, has been located. Senior command want this man alive, so that he can be interrogated and lead us to the others. He must not under any circumstances be allowed to be killed."
+msgstr "Romerska Burgess, en av masterminds bakom olagliga vapen och informationssmuggling till Tzac, har lokaliserats. Seniorkommando vill ha den här mannen vid liv, så att han kan bli förhörd och leda oss till de andra. Han får under inga omständigheter tillåtas dödas."
+
+msgid "We need Burgess alive. The others should be destroyed unless they surrender."
+msgstr "Vi behöver Burgess vid liv. De andra bör förstöras om de inte överlämnar sig."
+
+msgid "Strickland, the situation just escalated. A wing of Pandoran fighters just entered the area."
+msgstr "Strickland, situationen just eskalerade. En flod av pandoranska krigare gick precis in i området."
+
+msgid "Dammit! People, we need to keep those fighters away from Burgess. We can't lose that lead!"
+msgstr "Jäklar! Människor, vi måste hålla de här kämparna borta från Burgess. Vi kan inte förlora den ledningen!"
+
+msgid "Where'd they get those Shales from?"
+msgstr "Var fick de dessa Shales från?"
+
+msgid "From Christabel's ill-advised decision to attack the Enemy directly, no doubt."
+msgstr "Från Christabels olyckliga beslut att angripa fienden direkt, utan tvivel."
+
+msgid "To hell with you! Christabel was our only hope of surviving this thing."
+msgstr "Dra åt helvete! Christabel var vårt enda hopp om att överleva den här saken."
+
+msgid "Save it, buddy. You can spill it all at the court martial."
+msgstr "Spara det, kompis. Du kan spela allt på domstolen."
+
+msgid "Looks like that's it."
+msgstr "Det verkar som om det är det."
+
+msgid "Good flying today, Seth."
+msgstr "Bra flygande idag, Seth."
+
+msgid "Thank you. I'm just glad to have survived another day."
+msgstr "Tack. Jag är bara glad över att ha överlevt en annan dag."
+
+msgid "We'll get through this. Neither of us are getting flagged before the end of this thing."
+msgstr "Vi kommer igenom det här. Ingen av oss blir flaggad före slutet av den här saken."
+
+msgid "The Pandorans have begun moving forces into the system, and formed a number of staging grounds. Some of these grounds consist of Tzac fighters that have been acquired from Crystabel's forces. As of now, they are non-operational, but are being defended by some mobile plasma turrets. The objective is simple: destroy those fighters."
+msgstr "Pandorerna har börjat flytta styrkorna in i systemet och bildade ett antal scenarier. Några av dessa grunder består av Tzac-fighters som har förvärvats från Crystabels styrkor. Från och med nu är de icke-operativa, men försvaras av vissa mobila plasmatorn. Målet är enkelt: förstör dessa fighters."
+
+msgid "Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette."
+msgstr "Uppfödare verkar som om oppositionen är tyngre än vad som tidigare förväntats. Vi tar upp en Tzac-korvett."
+
+msgid "Got it. All fighters, we need Inca to survive this one. We can't afford to lose any more capital ships."
+msgstr "Jag fattar. Alla fighters, vi behöver Inca för att överleva den här. Vi har inte råd att förlora några fler kapitalfartyg."
+
+msgid "Looks like there are some tugs trying to extract the Tzac fighters."
+msgstr "Det verkar som om det finns några bogserbåtar som försöker extrahera Tzac-fightersna."
+
+msgid "I see them. Take them out before they can get away."
+msgstr "Jag ser dem. Ta ut dem innan de kan komma undan."
+
+msgid "Rice, we've got INF fighters incoming."
+msgstr "Ris, vi har INF fighters inkommande."
+
+msgid "Huh, I actually thought they'd have been here sooner. Prepare to engage."
+msgstr "Huh, jag trodde faktiskt att de skulle ha varit här förr. Förbered dig att engagera."
+
+msgid "That's the staging ground taken care of. Now--"
+msgstr "Det är scenen som tas om hand. Nu--"
+
+msgid "Rice, we've got a big problem: a very large number of Pandoran ships just arrived in the system. Torelli is being evacuated."
+msgstr "Ris, vi har ett stort problem: ett väldigt stort antal Pandoranska fartyg har precis kommit in i systemet. Torelli evakueras."
+
+msgid "Never enough, is it?"
+msgstr "Det är nog inte tillräckligt?"
+
+msgid "With the Pandorans upping their aggression, we have taken steps to start evacuating the Alba system. Many civilians will be using craft incapable of forming of their jump points, and so will be reliant on the gates. We therefore must ensure that these gates remain functional, and that all Pandoran opposition is held back."
+msgstr "Med Pandorans upping deras aggression, har vi vidtagit åtgärder för att börja evakuera Alba-systemet. Många civilister kommer att använda hantverk som inte kan bilda sina hopppunkter, och det kommer också att vara beroende av portarna. Vi måste därför se till att dessa grindar är funktionella, och att all Pandoran-motstånd hålls tillbaka."
+
+msgid "Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters."
+msgstr "Taylor, gå över till den porten så fort du kan, och förbered dig för att försvara den. Be rådas: Pandorerna är nu befälhavare, INF, UNF och Tzac fighters."
+
+msgid "There are civilians in the area. What about them?"
+msgstr "Det finns civila i området. Vad är det med dem?"
+
+msgid "Their needs are secondary. If we lose that gate, no one's getting out of here."
+msgstr "Deras behov är sekundära. Om vi ​​förlorar den porten kommer ingen ut härifrån."
+
+msgid "Taylor, the jumpgate is taking damage. You need to keep the Pandorans away from it!"
+msgstr "Taylor, hoppgatan tar skada. Du måste hålla pandorerna borta från det!"
+
+msgid "Half the jumpgate's control nodes have been destroyed. We can't afford to lose that gate!"
+msgstr "Halva springkärmens kontrollnoder har förstörts. Vi har inte råd att förlora den porten!"
+
+msgid "Taylor, a Pandoran corvette just jumped into the area. It's heading for the gate. You need to take it down."
+msgstr "Taylor, en Pandoranskorvett hoppade precis in i området. Det går till porten. Du måste ta ner den."
+
+msgid "Taylor, another Pandoran corvette just arrived. Identifier is INF BC-41."
+msgstr "Taylor, en annan Pandoranskorvett anlände just. Identifierare är INF BC-41."
+
+msgid "Both corvettes are down."
+msgstr "Båda korvetterna är nere."
+
+msgid "Excellent work, Taylor. Eliminate the remaining enemy fighters, and await further instructions."
+msgstr "Utmärkt arbete, Taylor. Eliminera de återstående fiendens fighters och vänta på ytterligare instruktioner."
+
+msgid "Area secure."
+msgstr "Området är säkert."
+
+msgid "How's the jumpgate looking?"
+msgstr "Hur ser jumpgate ut?"
+
+msgid "Some damage, but it's still operational."
+msgstr "Några skador, men det är fortfarande operationellt."
+
+msgid "Good work. Continue to guard the gate, and eliminate any incoming enemy threats."
+msgstr "Bra jobbat. Fortsätt att skydda porten och eliminera eventuella kommande fiendens hot."
+
+msgid "Got it."
+msgstr "Jag fattar."
+
+msgid "The Pandorans are pressing home their advantage, and moving many of their capital ships up the field. They are presently closing in on Torelli, and will almost certainly begin a ground assault once within range. CSN Dragon is being used to clear their path to the planet, and while you're not going to engage the planet itself, we need to ensure the survival of our own capital ships as much as possible."
+msgstr "Pandorerna pressar hem sin fördel och flyttar många av sina huvudfartyg upp på fältet. De stänger för närvarande på Torelli, och kommer nästan säkert att börja en markattack en gång inom intervallet. CSN Dragon används för att rensa sin väg till planeten, och samtidigt som du inte kommer att engagera sig i planeten själv, måste vi se till att våra egna kapitalfartyg överlever så mycket som möjligt."
+
+msgid "White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!"
+msgstr "White Knights, Albas försvarslinje är kollapsande. Vi måste ta ner Pandorans huvudfartyg nu!"
+
+msgid "Acknowledged. Chaz, we hit them with everything you've got."
+msgstr "Erkänd. Chaz, vi slog dem med allt du har."
+
+msgid "Dammit, down to two corvettes."
+msgstr "Dammit, ner till två korvetter."
+
+msgid "Dragon is pushing through to Torelli. We need to drive it back."
+msgstr "Draken driver genom till Torelli. Vi måste köra tillbaka den."
+
+msgid "Another corvette lost. We're being overrun."
+msgstr "En annan korvett förlorade. Vi överskrids."
+
+msgid "You Knights want to actually do something? We're being slaughtered out here!"
+msgstr "Du riddare vill faktiskt göra någonting? Vi slaktas här!"
+
+msgid "Ignore him, Estelle; don't get involved."
+msgstr "Ignorera honom, Estelle; bli inte involverad."
+
+msgid "That's all the corvettes down. We'll have to take on Dragon with fighters--"
+msgstr "Det är alla korvetterna nere. Vi måste ta på Dragon med fighters--"
+
+msgid "Dragon's powering it's anti-matter cannon. It's preparing to fire at UNF Lotan"
+msgstr "Drakens drivkraft det är anti-materiell kanon. Det förbereder sig på eld på UNF Lotan"
+
+msgid "Dragon's firing!"
+msgstr "Drakens bränning!"
+
+msgid "Dragon missed! Lotan managed to evade to attack!"
+msgstr "Dragon missade! Lotan lyckades undvika att attackera!"
+
+msgid "It'll be a while before it can fire its main cannon again. This is our chance to--"
+msgstr "Det kommer vara ett tag innan det kan avfyra sin huvudkanon igen. Det här är vår chans att--"
+
+msgid "The anti-matter ball is still going ... It's heading for Torelli."
+msgstr "Den anti-materiella bollen går fortfarande ... Det går till Torelli."
+
+msgid "Impact in 10 seconds ..."
+msgstr "Påverkan om 10 sekunder ..."
+
+msgid "5 Seconds ..."
+msgstr "5 sekunder ..."
+
+msgid "(Shouting)"
+msgstr "(Skrikande)"
+
+msgid "Estelle, Torelli ..."
+msgstr "Estelle, Torelli ..."
+
+msgid "Oh my God."
+msgstr "Herregud."
+
+msgid "What the hell just happened?!"
+msgstr "Vad i helvete hände just nu ?!"
+
+msgid "The anti-matter ball must've exploded in the atmosphere, and ignited it."
+msgstr "Anti-kulan måste sprängas i atmosfären och antändas."
+
+msgid "How ... how did the Pandorans know that would happen?!"
+msgstr "Hur ... hur kände pandorerna att det skulle hända ?!"
+
+msgid "I don't think they did; they just got lucky."
+msgstr "Jag tror inte att de gjorde det; de hade bara tur."
+
+msgid "And now they'll use that against every planet they come to."
+msgstr "Och nu ska de använda det mot varje planet de kommer till."
+
+msgid "All forces, retreat immediately! Repeat: retreat immediately. White Knights, dock, and prepare for withdrawal."
+msgstr "Alla krafter, dra sig omedelbart! Upprepa: omedelbart dra sig tillbaka. White Knights, docka, och förbereda sig för uttag."
+
+msgid "..."
+msgstr "..."
+
+msgid "White Knights, please acknowledge."
+msgstr "Vita riddare, var god bekräfta."
+
+msgid "Acknowledged. Estelle, we have to leave. It's over."
+msgstr "Erkänd. Estelle, vi måste lämna. Det är över."
+
+msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
+msgstr "Tzac fighers flytta in på jumpgate. Vi måste stoppa dem innan de gör allvarliga skador på den."
+
+msgid "Goddard, command of this operation will fall to you, if events lead to me being unable to participate fully."
+msgstr "Goddard, befäl av denna operation kommer att falla till dig om händelser leder till att jag inte kan delta fullt ut."
+
+msgid "Picking up a second group of fighters, incoming."
+msgstr "Plocka upp en andra grupp fighters, inkommande."
+
+msgid "More fighters, inbound!"
+msgstr "Fler fighters, inkommande!"
+
+msgid "The jumpgate is taking damage!"
+msgstr "Jumpgate tar skada!"
+
+msgid "Half the jumpgate's control nodes have been destroyed! We need to step up our efforts to defend it!"
+msgstr "Hälften av jumpgate kontrollnoder har förstörts! Vi måste öka våra ansträngningar för att försvara det!"
+
+msgid "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed."
+msgstr "Med det legosoldatiska hotet och Tzacs initiala attacker försvagades, är det dags att börja driva tillbaka mot Christabels styrkor. Vi planerar att fånga ett antal befälhavare för att hjälpa till att bygga en bättre bild av krafterna i Mace innan de går in i systemet. Som alltid, måla målen och låta dem inte dödas."
+
+msgid "Tzac fighters spotted, both commanders are here. Goddard, disable those fighters as soon as you can."
+msgstr "Tzac fighters upptäckte, båda befälhavare är här. Goddard, avaktivera dessa fighters så fort du kan."
+
+msgid "Squadron commanders disabled."
+msgstr "Squadron commanders inaktiverade."
+
+msgid "Great work, everyone. We just need to wait for the tugs to arrive and bring these guys in."
+msgstr "Bra jobb, alla. Vi behöver bara vänta på att tågarna ska komma fram och ta med dessa killar."
+
+msgid "Commander, I'm reading incoming fighter signature: Darts."
+msgstr "Commander, jag läser inkommande fighter signatur: Dart."
+
+msgid "I'll bet my house those are mercenaries, and given that the relationship with Tzac didn't end amicably they're probably targetting the commanders. We can't afford to lose them."
+msgstr "Jag satsar på mitt hus, det är legosoldater, och med tanke på att förhållandet med Tzac inte slutade amiskt, är de förmodligen avgörande för cheferna. Vi har inte råd att förlora dem."
+
+msgid "All Darts have been dispatched, Commander."
+msgstr "Alla pilar har skickats, befälhavare."
+
+msgid "Good. Not often we end up having to protect the enemy from another."
+msgstr "Bra. Inte ofta slutar vi att skydda fienden från en annan."
+
+msgid "Tugs are on the way. Should be here in the next few minutes"
+msgstr "Bogserbåtar är på väg. Bör vara här under de närmaste några minuterna"
+
+msgid "The Pandorans are continuing to knock on our door, and so we need to continue to engage them. Intercept and take down all enemy fighters. The Imperial frigate INF Sharpfinger is also in the sector, and needs to be destroyed."
+msgstr "Pandorerna fortsätter att knacka på dörren, och så måste vi fortsätta att engagera dem. Avlyssna och ta ner alla fiendens krigare. Den kejserliga frikatten INF Sharpfinger är också inom sektorn och måste förstöras."
+
+msgid "People, divide yourselves between the fighters and the Sharpfinger."
+msgstr "Människor, dela er mellan fighters och Sharpfinger."
+
+msgid "We couldn't spare any bombers, so we just need to get in there and take them all on."
+msgstr "Vi kunde inte rädda några bombare, så vi behöver bara komma in och ta dem alla på."
+
+msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
+msgstr "Vi har fått ord från CSN Florin att de har drabbats av ett strömavbrott som påverkar hela skeppet. Det strandsatta fartyget har lockat Pandorans uppmärksamhet, som redan har utplacerat shuttles och bogserbåtar för att absorbera det i sina led. Salty Wildcats kommer att fånga upp och ge skydd till Florin kan påverka reparationer."
+
+msgid "Florin, this is Black of the Salty Wildcats, here to assist."
+msgstr "Florin, det här är Black of the Salty Wildcats, här för att hjälpa."
+
+msgid "Glad to see you, Wildcats. The Pandorans arrived shortly before you did. We've got tugs and shuttles incoming."
+msgstr "Glad att se dig, vildkatter. Pandorerna anlände strax innan du gjorde. Vi har inbyggda släpvagnar och shuttles."
+
+msgid "Acknowledged, we'll secure the area while you get things up and running."
+msgstr "Bekräftat, vi ska säkra området medan du får saker och ting att komma igång."
+
+msgid "Florin, Pandoran vessels have been dealt with."
+msgstr "Florin, Pandoran fartyg har behandlats."
+
+msgid "Many thanks, Wildcats. We've identified the cause of the power outage. Should be no more than a few minutes before we can restart all systems."
+msgstr "Tack så mycket, Wildcats. Vi har identifierat orsaken till strömavbrottet. Bör inte vara mer än några minuter innan vi kan starta om alla system."
+
+msgid "Wildcats, we're picking up an incoming squadron."
+msgstr "Wildcats, vi hämtar en inkommande eskadron."
+
+msgid "More Pandoran tugs?"
+msgstr "Fler Pandoran bogserbåtar?"
+
+msgid "Negative. These appear to be non-aligned forces, fighters and bombers."
+msgstr "Negativ. Dessa verkar vara non-aligned styrkor, fighters och bombare."
+
+msgid "Incoming forces are on intercept vectors. We only need a few more minutes."
+msgstr "Inkommande styrkor är på avlyssningsvektorer. Vi behöver bara några minuter."
+
+msgid "On it."
+msgstr "På det."
+
+msgid "Looks like that's all of them."
+msgstr "Det verkar som om det är dem alla."
+
+msgid "Those were Kingdom of Tzac fighters. We've heard reports of them being active in some Confederation systems."
+msgstr "De var riket av Tzac-fighters. Vi har hört rapporter om att de är aktiva i vissa Confederation-system."
+
+msgid "Would appear that Christabel is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with."
+msgstr "Det verkar som om Christabel äntligen är redo att göra gott på alla hennes hot. Bra, så nu har vi både henne och pandorerna att hantera."
+
+msgid "It never rains ..."
+msgstr "Det regnar aldrig ..."
+
+msgid "We're starting systems up again. Once we've completed pre-jump checks we're heading for Temper. Thank you for your assistance."
+msgstr "Vi startar system upp igen. När vi har slutfört förehoppskontroller går vi till Temper. Tack för din hjälp."
+
+msgid "We'll meet you there."
+msgstr "Vi träffar dig där."
+
+msgid "Tzac bombers have been identified in the area, deploying mines. While this violates intergalactic treaties, we could never assume that Tzac, much like the Pandorans, would abide by the rules of war. We need to take down those bombers quickly. Exercise caution around the mines, as they are especially potent."
+msgstr "Tzac-bombare har identifierats i området och utplacerar gruvor. Även om detta kränker intergalaktiska fördrag, skulle vi aldrig kunna anta att Tzac, som Pandoranerna, skulle följa krigets regler. Vi måste ta ner bombarna snabbt. Var försiktig runt gruvorna, eftersom de är särskilt potenta."
+
+msgid "Watch out for those mines. They're on proximity triggers and have a large area of effect."
+msgstr "Se upp för dessa gruvor. De är på närhetstriggar och har ett stort effektområde."
+
+msgid "Take them out from a distance, otherwise you'll be in trouble."
+msgstr "Ta ut dem på avstånd, annars kommer du att vara i trubbel."
+
+msgid "That's the bombers taken care of, but the area is still littered with mines."
+msgstr "Det är bombarna som tagit hand om, men området är fortfarande fyllt med gruvor."
+
+msgid "We'll need to get a team in here to take care of them."
+msgstr "Vi måste få ett lag här för att ta hand om dem."
+
+msgid "Following the elimination of the Tzac bombers, we need to clear the leftover mines from the system, in case they cause us difficulties in later operations. As always, the mines should be taken down from a distance, to minimise the chances of damage being caused to your fighter during their destruction."
+msgstr "Efter elimineringen av Tzac-bombarna måste vi rensa kvarvarande gruvorna från systemet, om de ger oss svårigheter vid senare drift. Som alltid bör gruvorna tas ner från avstånd för att minimera risken för skador som orsakas av din fighter under deras förstörelse."
+
+msgid "Reyes, proceed with caution. Those mines are equipped with radar damping fields, that will prevent them from showing up at anything but close range."
+msgstr "Reyes, fortsätt med försiktighet. Dessa gruvor är utrustade med radardämpande fält, som hindrar dem från att dyka upp på något annat än nära håll."
+
+msgid "Remember to take them out from a distance; your TAF won't be able to withstand much impact damage from the explosions."
+msgstr "Kom ihåg att ta bort dem på avstånd. din TAF kommer inte att klara mycket skade på grund av explosionerna."
+
+msgid "Reyes, we're detecting incoming fighter signatures. Looks like Darts, possibly pirates. Eliminate as necessary."
+msgstr "Reyes, vi upptäcker inkommande fighter signaturer. Ser ut som Dart, eventuellt pirater. Eliminera vid behov."
+
+msgid "Control, I've dealt with both the mines and the Darts. Any idea who those guys were?"
+msgstr "Kontroll, jag har behandlat både gruvorna och pilarna. Någon ide om vem de var?"
+
+msgid "A report is being generated right now. Should be ready by the time you return."
+msgstr "En rapport genereras just nu. Bör vara redo när du återvänder."
+
+msgid "I noticed that none of those Darts tripped any mines. Maybe those were Tzac fighters?"
+msgstr "Jag märkte att ingen av dessa Dart snubblade några gruvor. Kanske var det Tzac fighters?"
+
+msgid "Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing."
+msgstr "Tzac har aldrig varit känd för att distribuera Dart, men det var en viktig observation. Ge oss så många detaljer som möjligt under debriefing."
+
+msgid "A large Tzac force has gathered in Aster. The White Knights are being sent in alone to deal with it. We need to continue to show that we are capable of winning these engagements with minimal losses to the enemy force. Mag and disable all Tzac craft in the area, and do not allow any to be destroyed, even by stray fire."
+msgstr "En stor Tzac-kraft har samlat i Aster. De vita riddarna skickas ensamma för att ta itu med det. Vi måste fortsätta att visa att vi kan vinna dessa engagemang med minimala förluster för fiendens kraft. Mag och inaktivera alla Tzac-hantverk i området och tillåta inte att någon förstörs, till och med av stridig eld."
+
+msgid "Remember, guys: mags only against the fighters. We're not here to take any more lives."
+msgstr "Kom ihåg, killar: Mags bara mot kämparna. Vi är inte här för att ta några fler liv."
+
+msgid "For the corvettes, concentrate fire on the engines and the guns. Once it's out of the game, move onto the next one."
+msgstr "För korvetterna, koncentrera eld på motorerna och pistolerna. När det är ute av spelet, gå vidare till nästa."
+
+msgid "We should lure the fighters away from the capital ships. Stray fire against a disabled ship could destroy it."
+msgstr "Vi borde locka krigarna bort från huvudstadens fartyg. Stray eld mot ett funktionshindrat fartyg kan förstöra det."
+
+msgid "Good point, Chaz, we should be mindful of friendly-fire."
+msgstr "Bra poäng, Chaz, vi bör vara uppmärksam på vänlig eld."
+
+msgid "Brings back memories, doesn't it?"
+msgstr "Tar tillbaka minnen, eller hur?"
+
+msgid "So long as we don't end up back in Phylent after this."
+msgstr "Så länge vi inte hamnar i Phylent efter det här."
+
+msgid "This going in your journal, Kelly?"
+msgstr "Detta går i din tidskrift, Kelly?"
+
+msgid "Everything. It could be important one day."
+msgstr "Allt. Det kan vara viktigt en dag."
+
+msgid "Have fun with the names of Tzac's cap ships."
+msgstr "Ha det roligt med namnen på Tzacs kepsfartyg."
+
+msgid "I'll just refer to the battle logs. Military records tend to be accurate."
+msgstr "Jag hänvisar bara till stridsloggarna. Militära journaler tenderar att vara korrekta."
+
+msgid "Most of the time."
+msgstr "För det mesta."
+
+msgid "All fighters disabled."
+msgstr "Alla fighters inaktiverade."
+
+msgid "Corvettes are all out of the game."
+msgstr "Korvetter är alla ute av spelet."
+
+msgid "Griffin, this is de Winter. Opposing forces are no longer a threat."
+msgstr "Griffin, det här är de vinter. Motståndskraften är inte längre ett hot."
+
+msgid "Any casualties?"
+msgstr "Eventuella olyckor?"
+
+msgid "No. All fighters and caps have been shutdown, and ready for pickup."
+msgstr "Nej. Alla kämpar och kepsar har stängts av och redo för hämtning."
+
+msgid "Great work, Knights. Clean up will commence shortly. Standby for new instructions."
+msgstr "Bra jobb, riddare. Rengöring kommer att påbörjas inom kort. Vänteläge för nya instruktioner."
+
+msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
+msgstr "Den dag som vi har fruktat och de händelser som vi försökte avvärja står nu över oss - den pandoranska armén har påbörjat sitt tryck utöver Mitikas rymd och börjar attackera närliggande oberoende stjärnsystem. Vi måste kämpa tillbaka för att skydda Clarke från att bli underkörd av denna hot. Var uppmärksam: det här blir inte en lätt kamp, ​​men vi har lite val och måste säkra segern här idag."
+
+msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down INF Dirk. Ensure the Lynx-class bombers can get in close enough to delivery a strike."
+msgstr "Vi har framgångsrikt slagit oss igenom flera skvadroner av pandoranska fighters, men deras huvudstad skepp går snabbt till Dublin. Ditt mål är att ta ner INF Dirk. Se till att Lynx-klassen bombare kan komma i nära nog för att leverera en strejk."
+
+msgid "Commander, I would recommend we take out the escorts first."
+msgstr "Commander, jag rekommenderar att vi tar ut eskorten först."
+
+msgid "Agreed. The Dirk on its own would already prove a challenge."
+msgstr "Gick med på. Dirk själv skulle redan utgöra en utmaning."
+
+msgid "INF Dirk has been downed."
+msgstr "INF Dirk har blivit nere."
+
+msgid "This is Carlyle. Enemy corvette has been destroyed. All other fighters scratched."
+msgstr "Det här är Carlyle. Enemy corvette har förstörts. Alla andra fighters repas."
+
+msgid "That's good work, Commander. We're preparing to engage more enemies, so we can't put our feet up just yet."
+msgstr "Det är bra jobb, befälhavare. Vi förbereder oss för att engagera fler fiender, så vi kan inte lägga upp fötterna ännu."
+
+msgid "Hell. Okay, we'll return momentarily. Carlyle out."
+msgstr "Helvete. Okej, vi kommer snart tillbaka. Carlyle ut."
+
+msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra and UNF Artemis are moving to intercept more enemy corvettes. Your orders are to assist them in achieving their goals."
+msgstr "Vi behöver fortsätta ta ner fiendens fångstfartyg, gräva in och hålla linjen här. Fler av våra egna kepsfartyg är på väg upp på fältet för att möta Pandorans huvud på. UNF Cleopatra och UNF Artemis flyttar för att fånga fler fiendskorvetter. Dina beställningar är att hjälpa dem att uppnå sina mål."
+
+msgid "INF Khopesh is down."
+msgstr "INF Khopesh är nere."
+
+msgid "INF Blackjack has been destroyed."
+msgstr "INF Blackjack har förstörts."
+
+msgid "This is Carlyle. Enemy targets have been eliminated. Cleopatra and Artemis still in one piece."
+msgstr "Det här är Carlyle. Fiendsmål har eliminerats. Cleopatra och Artemis fortfarande i en bit."
+
+msgid "Acknowledged. Fall back to the main fleet and await new instructions."
+msgstr "Erkänd. Återgå till huvudflottan och vänta på nya instruktioner."
+
+msgid "This is going to be a long day, eh?"
+msgstr "Det här kommer bli en lång dag, va?"
+
+msgid "Maybe not, if we continue to lose ground the way we are already ..."
+msgstr "Kanske inte, om vi fortsätter att förlora det sätt vi redan är ..."
+
+msgid "White Knights, Commodore Parks has identified three enemy corvettes are high level targets. He wants Dodds, Koonan and Todd to take them down, as quickly as possible. There won't be any additional fighter support, but three ATAFs should be more than enough to get the job done. de Winter and Taylor are currently on another assignment. Dodds will lead the attack."
+msgstr "White Knights, Commodore Parks har identifierat tre fiendens korvetter är högnivåmål. Han vill att Dodds, Koonan och Todd ska ta ner dem så fort som möjligt. Det kommer inte att finnas några extra stridsstöd, men tre ATAF bör vara mer än tillräckligt för att få jobbet gjort. de Winter och Taylor är för närvarande på ett annat uppdrag. Dodds kommer att leda attacken."
+
+msgid "Targets sighted: three capital ships, five escorts apiece."
+msgstr "Mål siktade: tre huvudstad skepp, fem eskorterare stycke."
+
+msgid "You know what to do, guys. Let's take them down."
+msgstr "Du vet vad du ska göra, killar. Låt oss ta ner dem."
+
+msgid "Want to take bets on how soon before they run?"
+msgstr "Vill du ta spel på hur snart innan de körs?"
+
+msgid "Wouldn't call that a fair bet, mate. We all know they won't."
+msgstr "Skulle inte kalla det en rättvist satsning, kompis. Vi vet alla att de inte kommer att göra det."
+
+msgid "More fighters inbound."
+msgstr "Fler fighters inkommande."
+
+msgid "Picking up another Pandoran squadron, incoming."
+msgstr "Plocka upp en annan Pandoran skvadron, inkommande."
+
+msgid "See? That's why I didn't make a bet with you!"
+msgstr "Se? Därför gjorde jag inte vad med dig!"
+
+msgid "All capital ships down. That's, what, fifty of these things we've scratched, alone?"
+msgstr "Allt kapital skickas ner. Det är vad, femtio av dessa saker har vi repat, ensamma?"
+
+msgid "Seriously, I've lost count."
+msgstr "Allvarligt har jag tappat räkna."
+
+msgid "How many more can the Pandorans have?"
+msgstr "Hur många fler kan Pandoranerna ha?"
+
+msgid "Only way we'll find out is if we go to Kethlan, and I'm not keen on heading there anytime soon."
+msgstr "Det enda sättet vi kan ta reda på är om vi går till Kethlan, och jag är inte angelägen om att åka dit när som helst snart."
+
+msgid "Chaz, anything?"
+msgstr "Chaz, något?"
+
+msgid "Negative."
+msgstr "Negativ."
+
+msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
+msgstr "Okej, låt oss komma tillbaka till Leviathan och vänta på att Kelly och Estelle återkommer till oss."
+
+msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive impact on ours. The frigate's support groups will need to be destroyed first."
+msgstr "Vi har upptäckt att Alysha's Calling, en av de högsta profilens fientliga fregatt, finns för närvarande i systemet. Vi förbereder ett strejklag av Hammerheads, ledt av Twilight Lancers, att engagera och förstöra det. Det är okänt vilka effekter, om några, förstörelsen av detta skepp kommer att ha på fiendens moral, men det kan bara ha en positiv inverkan på vårt. Fregatets stödgrupper måste förstöras först."
+
+msgid "First squadron sighted. Moving to intercept."
+msgstr "Första skvadronen såg. Flytta till avlyssning."
+
+msgid "First squadron taken down, preparing to engage second."
+msgstr "Första skvadronen togs ner och förberedde sig för att engagera sig i andra."
+
+msgid "Second squadron down. Moving up the field to engage Alysha's Calling."
+msgstr "Andra skvadronen ner. Flytta upp fältet för att engagera Alyshas kallande."
+
+msgid "Welch, we're tracking a large number of fast-moving objects heading your way. IDs don't match anything we currently have on record."
+msgstr "Welch, vi spårar ett stort antal snabba objekt på väg. ID: n matchar inte något som vi för närvarande har på posten."
+
+msgid "Missiles?"
+msgstr "Missiler?"
+
+msgid "Too large. We'll relay more information as we get it. Be prepared to engage."
+msgstr "För stor. Vi kommer att vidarebefordra mer information när vi får det. Var beredd att engagera."
+
+msgid "Whatever these things are, they're not hard to dispatch."
+msgstr "Oavsett dessa saker är de inte svåra att skicka."
+
+msgid "No, but there's a lot of them ..."
+msgstr "Nej, men det finns många av dem ..."
+
+msgid "Welch, we're detecting more of the swarmer things heading your way."
+msgstr "Welch, vi upptäcker mer av svärmarnas saker på väg."
+
+msgid "How many more?"
+msgstr "Hur många fler?"
+
+msgid "Tracking around three dozen, and the numbers are rising."
+msgstr "Spårar runt tre dussin, och siffrorna stiger."
+
+msgid "Thunderbird, this is Welch. Swarmers have been taken care of."
+msgstr "Thunderbird, det här är Welch. Swarmers har tagits hand om."
+
+msgid "Good to hear, Commander. We're pulling you out there, to assist the other squadrons."
+msgstr "Bra att höra, Commander. Vi drar dig där ute för att hjälpa de andra skvadronerna."
+
+msgid "What about Alysha?"
+msgstr "Vad sägs om Alysha?"
+
+msgid "The target is no longer a priority. Clarke's front line is collapsing. They need reinforcement, ASAP."
+msgstr "Målet är inte längre en prioritet. Clarkes frontlinje är kollapsande. De behöver förstärkning, ASAP."
+
+msgid "Understood. Heading there now."
+msgstr "Förstått. Rubrik där nu."
+
+msgid "The enemy are beginning to overrun our front line. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen."
+msgstr "Fienden börjar överskrida vår frontlinje. Ditt mål är enkelt: engagera och förstöra alla fientliga styrkor. Vi har inte råd att förlora mer marken här. Att göra det skulle innebära att man fick nederlag och Clarke faller till Pandoranflottan. Detta får inte hända."
+
+msgid "The Twilight Lancers are on their way."
+msgstr "Twilight Lancers är på väg."
+
+msgid "Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!"
+msgstr "Åtta hela extra fighters? Vi kan överträffa fienden, men de skyddar oss fortfarande!"
+
+msgid "At this point, any additional support is welcome. And we still have the support of Cleopatra and Artemis."
+msgstr "Vid denna tidpunkt är ytterligare stöd välkomna. Och vi har fortfarande stöd av Cleopatra och Artemis."
+
+msgid "Welch here, engaging targets."
+msgstr "Välkommen här, engagerande mål."
+
+msgid "Not a moment too soon, Commander."
+msgstr "Inte ett ögonblick för tidigt, befälhavare."
+
+msgid "We're wearing them down. Keep up the pressure."
+msgstr "Vi bär dem ner. Håll upp trycket."
+
+msgid "Think they're pull back if we hit them hard enough?"
+msgstr "Tror de att dra tillbaka om vi slår dem tillräckligt hårt?"
+
+msgid "Too early to speculate. Just concentrate on taking down their fighters."
+msgstr "För tidigt att spekulera. Bara koncentrera dig på att ta ner sina kämpar."
+
+msgid "I've just been tailed by something I've never seen before! Small, highly manoeuvrable, rapid fire particle cannon."
+msgstr "Jag har just blivit tailed av något jag aldrig sett tidigare! Liten, mycket manövrerbar, snabb eldpartikelkanon."
+
+msgid "Swarmers! The enemy have deployed them here, too!"
+msgstr "Swarmers! Fienden har också utplacerat dem här!"
+
+msgid "How many?"
+msgstr "Hur många?"
+
+msgid "Tracking a dozen, but the numbers are growing rapidly"
+msgstr "Spårar ett dussin, men siffrorna växer snabbt"
+
+msgid "I've lost count how many of these damn swarmers I've taken down."
+msgstr "Jag har tappat räkna hur många av dessa jävla svärmar jag har tagit ner."
+
+msgid "It's like fighting a hydra! You cut off one head, and two more spring up!"
+msgstr "Det är som att bekämpa en hydra! Du avskurna ett huvud och två fjäder upp!"
+
+msgid "There's too many of them!"
+msgstr "Det finns för många av dem!"
+
+msgid "Keep fighting, we can still win this!"
+msgstr "Fortsätt slåss, vi kan fortfarande vinna detta!"
+
+msgid "They're everywhere! I--"
+msgstr "De är överallt! JAG--"
+
+msgid "People, we are down one capital ship! We need to step things up!"
+msgstr "Människor, vi är nere ett huvudfartyg! Vi måste stega upp saker!"
+
+msgid "Both caps are down, all hands lost. Let's not let this go to waste."
+msgstr "Bägge kepsarna är nere, alla händer förlorade. Låt oss inte släppa bort det här."
+
+msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
+msgstr "Även om vi drabbats av stora förluster vid Coyote är det fortfarande viktigt att vi försöker förhindra, eller åtminstone långsam, Pandoran-krigsmaskinens förskott. Admiral Jenkins har beordrat att de vita riddarna leder en attack mot fiendens styrkor som samlats in i systemet. Vikten av de motsatta krafterna är fortfarande enorm, även om ATAF: erna bör hjälpa till att ge oss kanten i strid. Behövs att fienden nu är i besittning av UNF-stridsfartyg."
+
+msgid "All fighters, this is Commander de Winter. Enemy targets sighted, engage at will."
+msgstr "Alla fighters, det här är Commander de Winter. Fiender siktar, engagerar sig i vilja."
+
+msgid "More enemies inbound."
+msgstr "Fler fiender inkommande."
+
+msgid "Man, I've got to get me one of those!"
+msgstr "Man, jag måste ta mig en av dem!"
+
+msgid "What the hell are those things you're flying?"
+msgstr "Vad i helvete är de sakerna du flyger?"
+
+msgid "An ATAF. Stands for Advanced Tactical Assault Fighter."
+msgstr "En ATAF. Står för Advanced Tactical Assault Fighter."
+
+msgid "Are the CSN rolling those out to everyone?"
+msgstr "Rollar CSN ut till alla?"
+
+msgid "No, they ... were built for a different purpose."
+msgstr "Nej, de ... byggdes för ett annat syfte."
+
+msgid "What sort of purpose?"
+msgstr "Vilken form av syfte?"
+
+msgid "Sorry, for now, that's classified."
+msgstr "Tyvärr, för närvarande är det klassificerat."
+
+msgid "Griffin, this is de Winter. All targets destroyed."
+msgstr "Griffin, det här är de vinter. Alla mål förstörs."
+
+msgid "Acknowledged, Commander. Stand by for new orders."
+msgstr "Bekräftat, befälhavare. Stå upp för nya order."
+
+msgid "The initial fight back against the Pandorans has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system."
+msgstr "Den ursprungliga kampen mot Pandoranerna har gått bra, men systemet stämmer fortfarande med sina styrkor. Vi måste fortsätta att engagera dem och tvinga dem att överge systemet."
+
+msgid "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space."
+msgstr "Överfallet går inte så bra som vi vill, och vi börjar drabbas av stora förluster när de pandoranska styrkorna överväldigar oss. Men vi måste fortsätta kampen tillbaka och försöka hålla fienden här. De får inte tillåtas fortsätta vidare till oberoende utrymme."
+
+msgid "We're getting our arses kicked here! Any chance of any backup?!"
+msgstr "Vi får våra axlar sparkade här! Någon chans att någon backup ?!"
+
+msgid "The White Knights are here! Finally!"
+msgstr "De vita riddarna är här! Till sist!"
+
+msgid "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate."
+msgstr "Alla fighters, kapten Bailey har signalerat reträtten. Coyote är förlorad. Hoppa tillbaka till jumpgate."
+
+msgid "You all heard the Captain - fall back, we'll cover the retreat."
+msgstr "Du hörde alla kaptenen - fall tillbaka, vi täcker reträtten."
+
+msgid "Estelle, we've got this. We can take them."
+msgstr "Estelle, vi har det här. Vi kan ta dem."
+
+msgid "We're suffering too many losses, Dodds. Fall back now, that's an order."
+msgstr "Vi lider för många förluster, Dodds. Falla tillbaka nu, det är en order."
+
+msgid "Tzac Shales sighted. Moving to intercept."
+msgstr "Tzac Shales synas. Flytta till avlyssning."
+
+msgid "Fewer than we were expecting."
+msgstr "Färre än vad vi förväntade oss."
+
+msgid "Agreed. Scouts?"
+msgstr "Gick med på. Scouts?"
+
+msgid "Zenobia, I'm detecting a large squadron of fighters and bombers, heading our way. Looks like they're focusing directly on you."
+msgstr "Zenobia, jag upptäcker en stor skvadron av kämpar och bombare, på väg. Det verkar som om de fokuserar direkt på dig."
+
+msgid "Dammit! The Shales were acting as bait. Specials, keep those bombers away from us."
+msgstr "Jäklar! Skifferna fungerade som bete. Specialerbjudanden, håll de bombarna borta från oss."
+
+msgid "You're going to have to deal with this one solo, Carpenter. There are bombers deploying mines in the area. Any one of those detonating could kill the target."
+msgstr "Du kommer att behöva ta itu med den här solisten Carpenter. Det finns bombplaner som utnyttjar gruvor i området. Vilken som helst av dem som detonerar kan döda målet."
+
+msgid "Secure the commander, and then take down those bombers. Just watch your fire."
+msgstr "Säkra befälhavaren och ta sedan ned bombarna. Titta bara på din eld."
+
+msgid "Pandoran forces are beginning their assault on Donesta. They must be engaged and driven out of the system. However, it appears that they are making use of UNF fighters, in an attempt to confuse our own pilots. Visual identification should therefore not be relied on to determine targets, as radar will help to separate their units from ours."
+msgstr "Pandorankrafterna börjar sin attack på Donesta. De måste vara förlovade och drivna ut ur systemet. Det verkar emellertid som om de använder UNF-krigare, i ett försök att förvirra våra egna piloter. Visuell identifiering bör därför inte åberopas för att bestämma mål, eftersom radar hjälper till att skilja sina enheter från oss."
+
+msgid "Remember everyone: the Pandorans are using UNF fighters."
+msgstr "Kom ihåg alla: Pandoranerna använder UNF-krigare."
+
+msgid "Using your radar is the way to go in this fight."
+msgstr "Att använda din radar är vägen att gå i denna kamp."
+
+msgid "All enemies down."
+msgstr "Alla fiender ner."
+
+msgid "Let's hope we never see the day when they get hold of one of the ATAFs."
+msgstr "Låt oss hoppas att vi aldrig ser dagen när de får tag på en av ATAF: erna."
+
+msgid "Agreed. Let's regroup and prepare for whatever's coming next."
+msgstr "Gick med på. Låt oss omgruppera och förbereda oss för vad som kommer nästa."
+
+msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
+msgstr "En patrullgrupp har sett ett antal kasser som driver nära Alexandria. Innehållet i kassarna är för närvarande okänt, men de har bekräftats att vara tillhörande CSN. En transfer har skickats för att hämta dem, om de skulle vandra in i eventuella transportleder. När vi har dem i vår besittning kommer vi att arbeta för att bestämma hur de kom för att vara här."
+
+msgid "Not expecting any company, Carr, so this should just be a routine pickup. We'll keep an eye out, though."
+msgstr "Förväntar inte något företag, Carr, så det här borde bara vara en rutinmässig hämtning. Vi kommer dock hålla ett öga."
+
+msgid "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more."
+msgstr "Kammarna visade sig ha en mängd olika ammunition, men vi är fortfarande osäkra på var de kom ifrån. Vi skickar shuttles för att följa med de kommande patrullerna, om vi skulle stöta på mer."
+
+msgid "Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up."
+msgstr "Iron Patriots, vi identifierar igen en handfull kasser som driver nära din nuvarande position. Vänligen följ hämtningen."
+
+msgid "Got it. Heading to the first one now."
+msgstr "Jag fattar. Rubrik till den första nu."
+
+msgid "Iron Patriots, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location."
+msgstr "Järnpatrioter, en strängad pil har upptäckts i närheten. En bogserbåt har skickats för att få den in. Vänligen eskortera den till målets plats."
+
+msgid "Know anything about the occupant, or affiliation?"
+msgstr "Vet du någonting om passageraren eller anslutningen?"
+
+msgid "Negative, Lieutenant. We'll know more once it's brought in."
+msgstr "Negativ, löjtnant. Vi vet mer när det väl har kommit in."
+
+msgid "Tow cable attached. Ready to head home."
+msgstr "Dragkabel monterad. Klar till huvudet hemma."
+
+msgid "We're done here. Let's bring our mystery guest in."
+msgstr "Vi är färdiga här. Låt oss ta med vår mystiska gäst."
+
+msgid "Dan, we've got hostile vessels inbound. More Darts."
+msgstr "Dan, vi har fientliga fartyg inkommande. Mer Dart."
+
+msgid "Prepare to engage. Protect the asset!"
+msgstr "Förbered dig att engagera. Skydda tillgången!"
+
+msgid "Alexandria, package delivered."
+msgstr "Alexandria, levererat paket."
+
+msgid "Excellent work, Lieutenant. Let's see what all this tell us. Come on home."
+msgstr "Utmärkt arbete, löjtnant. Låt oss se vad allt detta berättar för oss. Kom hem."
+
+msgid "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Kingdom of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence."
+msgstr "Intervationen av den pilot som togs in tidigare avslöjade att ammunitionen handlas med Helios äldsta fiende, Konungariket Tzac. Vapenna dirigeras till Rothan, via Temper. Detta skulle förklara den höga piratnärvaron längs gränsen. Det förklarar inte varför paketen spilldes, och vår gäst håller mamma på ämnet. Patruller intensifieras, för att hjälpa till att ge mer intelligens."
+
+msgid "Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies."
+msgstr "Patrol, vi har en stor situation att utveckla. En skirmish äger rum mellan ett antal siktare: Dart, Nymfer och Fireflies."
+
+msgid "Pirates? Insurgents? Kingdom of Tzac?"
+msgstr "Pirates? Rebeller? Kingdom of Tzac?"
+
+msgid "Too early to speculate. We want you to disable and bring in one craft from each side. The rest, you can eliminate."
+msgstr "För tidigt att spekulera. Vi vill att du ska inaktivera och ta in ett farkoster från varje sida. Resten kan du eliminera."
+
+msgid "This is Carr, reporting operation successful. Bagged us two squadron commanders."
+msgstr "Detta är Carr, rapportering operation framgångsrik. Bagged oss ​​två skvadron commanders."
+
+msgid "Good work, Commander. Dispatching tugs to bring them in."
+msgstr "Bra jobb, befälhavare. Skickar släpvagnar för att få dem in."
+
+msgid "We finally have all the information we need to help safeguard the Confederation in these turbulent times. By smashing the pirate ring involved in the supplying of arms to Tzac, we can regain control of our internal security matters, and refocus on the war against the Pandorans. All targets must be destroyed, but be advised that the pirates have acquired rocket cannons, that could prove costly if underestimated."
+msgstr "Vi har äntligen all den information vi behöver för att skydda Förbundet i dessa turbulenta tider. Genom att krossa piratringen involverad i leverans av armar till Tzac kan vi återfå kontrollen över våra interna säkerhetsfrågor och fokusera på kriget mot pandorerna. Alla mål måste förstöras, men uppmärksammas att piraterna har förvärvat raketkanoner, som kan vara kostsamma om de underskattas."
+
+msgid "Right, people, let's finish this. Engage at will. Leave nothing standing."
+msgstr "Rätt folk, låt oss avsluta det här. Engagera på vilja. Lämna inget stående."
+
+msgid "Alexandria: opposition stronger than expected. Requesting reinforcements."
+msgstr "Alexandria: motstånd starkare än väntat. Begär förstärkningar."
+
+msgid "Acknowledged. They're on their way."
+msgstr "Erkänd. De är på väg."
+
+msgid "Alexandria: reporting all captain vessels destroyed."
+msgstr "Alexandria: rapporterar alla kaptenskyttar förstörda."
+
+msgid "Alexandria: sentry cannons eliminated."
+msgstr "Alexandria: Sentrykanoner elimineras."
+
+msgid "Alexandria: reporting all enemy fighters destroyed."
+msgstr "Alexandria: rapporterar alla fiendens kämpar förstörda."
+
+msgid "This is Carr. Reporting threat eliminated, operation successful."
+msgstr "Detta är Carr. Rapportering hot eliminerat, operation framgångsrik."
+
+msgid "Excellent work, Commander. We'll get a few frosty ones ready for your return."
+msgstr "Utmärkt arbete, befälhavare. Vi får några fria kläder redo för din återkomst."
+
+msgid "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle."
+msgstr "Pandorerna har påbörjat sin attack i vårt hem, och vi måste agera omedelbart för att försvara oss själva. En våg av bombare är på väg mot en av våra stjärnportar. De måste tas ner med skynda, innan de kommer inom räckhåll. De får bara eskorteras av Jackals, men bara i ett sinne att Pandoran-piloterna är högkvalificerade och oupphörliga i strid."
+
+msgid "Recommending taking down the escorts before engaging the bombers. Just watch out for their rockets."
+msgstr "Rekommenderar att ta ner eskorterna innan de engagerar bombarna. Titta bara på sina raketer."
+
+msgid "Be warned, people, these Pandorans are said to be relentless in battle."
+msgstr "Varnas, folk, dessa Pandoraner sägs vara obevekliga i strid."
+
+msgid "The Pandoran war machine has commenced its advancement beyond Mitikas space. We must prepare to defend Iliad from this powerful foe. Exercise caution: despite outnumbering the enemy units that have entered our space, the Pandorans are said to be relentless in battle, and this small number could well still test us."
+msgstr "Pandoran-krigsmaskinen har påbörjat sin framsteg utöver Mitikas rymd. Vi måste förbereda oss för att försvara Iliad från denna kraftfulla fiende. Var försiktig: trots att de fiendens enheter som har kommit in i vårt rum, är de pandoraner sägs vara obevekliga i strid, och detta lilla nummer kan noga testa oss."
+
+msgid "In order to slow the advance of the Pandoran forces, we are going to target one of their supply lines. This should buy us some time while we await UNF and CSN reinforcements, and bring more of our capital ships into position."
+msgstr "För att sakta ner Pandorankrafternas framsteg, kommer vi att rikta oss mot en av sina försörjningslinjer. Detta borde köpa oss en stund medan vi väntar på UNF och CSN förstärkningar, och ta med mer av våra huvudstad skepp."
+
+msgid "Dust Brothers, this is Control. An INF fighter squadron is inbound. Looks like they're summoned backup."
+msgstr "Dammbröder, det här är Control. En INF-stridskvadron är inkommande. Ser ut som de kallas backup."
+
+msgid "Message received. Will engage as necessary."
+msgstr "Meddelande mottaget. Kommer engagera sig vid behov."
+
+msgid "Almost done here, Control, not many targets remaining."
+msgstr "Nästan gjort här, Control, inte många mål kvar."
+
+msgid "Strider, be advised that we are tracking a further three INF fighters heading your way."
+msgstr "Strider, var uppmärksam på att vi spårar ytterligare tre INF-fighters på väg."
+
+msgid "Dammit, spoke too soon ..."
+msgstr "Dammit, talade för tidigt ..."
+
+msgid "We're ready to make a run against the Pandoran fleet's front line, and move our capital ships into strike range. Agamemnon's 1st will assist the Lady Jane Grey, and Joan of Arc, to engage three INF corvettes, under enemy control. We need to ensure that we take down the opposing capitals while ensuring our own survive. The enemy outnumber us, and we need to maintain our strength as much as possible."
+msgstr "Vi är redo att springa mot Pandoranflottans främre linje och flytta våra huvudfartyg till strejkområdet. Agamemnon s första kommer att hjälpa Lady Jane Gray och Joan of Arc att engagera tre INF-korvetter, under fiendens kontroll. Vi måste se till att vi tar ner de motsatta huvudstäderna samtidigt som vi ser överens. Fienden överträffar oss, och vi måste behålla vår styrka så mycket som möjligt."
+
+msgid "Agamemnon's 1st, we're detecting multiple Pandoran fighters moving in to intercept. Take them down, and protect The Lady Grey and Joan of Arc."
+msgstr "Agamemnon s 1: a, vi upptäcker flera pandoranska fighters som flyttar in för att fånga upp. Ta dem ner och skydda Lady Grey och Joan of Arc."
+
+msgid "Agamemnon's 1st, another wing is approaching. Continue to engage, and await your main targets."
+msgstr "Agamemnon s första, en annan vinge närmar sig. Fortsätt att engagera och vänta på dina huvudmål."
+
+msgid "Agamemnon's 1st, INF Astra has just arrived in the area. Engage and destroy."
+msgstr "Agamemnons första INF Astra har just anlänt i området. Engagera och förstöra."
+
+msgid "Escorts?"
+msgstr "Escorts?"
+
+msgid "Four Mitikas fighters."
+msgstr "Fyra Mitikas fighters."
+
+msgid "Agamemnon's 1st, INF Ragnarok on approach. Determining escort group ..."
+msgstr "Agamemnon s första, INF Ragnarok på approach. Fastställande av eskortgrupp ..."
+
+msgid "Another small escort group: eight fighters."
+msgstr "En annan liten eskortgrupp: åtta kämpar."
+
+msgid "They must be holding something back."
+msgstr "De måste hålla någonting tillbaka."
+
+msgid "Confirmed. Pandoran forces are sending in Scarab bombers."
+msgstr "Bekräftat. Pandoranska styrkor skickar i Scarab bombare."
+
+msgid "Hell! We need to keep them away from Joan and Grey, while we take down their own capital ships."
+msgstr "Helvete! Vi måste hålla dem borta från Joan och Grey, medan vi tar ner sina egna huvudfartyg."
+
+msgid "Williams, the Dust Brothers are heading your way, to lend assistance. They should be with you in a few minutes."
+msgstr "Williams, dammbröderna är på väg, för att låna ut hjälp. De borde vara med dig om några minuter."
+
+msgid "Much appreciated!"
+msgstr "Mycket uppskattat!"
+
+msgid "Control, this is Williams. Enemy capital ships have been destroyed, along with all other forces."
+msgstr "Kontroll, det här är Williams. Enemy Capital ships har förstörts, tillsammans med alla andra styrkor."
+
+msgid "Great work, Williams. Rejoin the main the fleet. The enemies forces are gaining strength and we need all the help we can get."
+msgstr "Bra jobb, Williams. Återförenas huvudflottan. Fienderna styrker att få styrka och vi behöver all hjälp vi kan få."
+
+msgid "The defence of Iliad is slipping, our forces are being decimated. We have to hit the enemy back, hard. All available fighters are to move into range and engage. If we lose here, Iliad is finished. We are the last line of defence, and we cannot afford to fail."
+msgstr "Försvaret av Iliad glider, våra styrkor avkrävas. Vi måste slå fienden tillbaka hårt. Alla tillgängliga fighters ska flytta in i intervall och engagera sig. Om vi ​​förlorar här är Iliad klar. Vi är sista försvaret, och vi har inte råd att misslyckas."
+
+msgid "Stay sharp, people. We need to hold the line here!"
+msgstr "Håll dig skarp, människor. Vi måste hålla linjen här!"
+
+msgid "Oh my God, there's a lot of them ..."
+msgstr "Åh min gud, det finns många av dem ..."
+
+msgid "Pair up, and take them down together. We stand a much better chance that way."
+msgstr "Koppla upp och ta ner dem ihop. Vi står en mycket bättre chans så."
+
+msgid "Heads up, people. Four INF corvettes just entered the area."
+msgstr "Heads up, folk. Fyra INF-korvetter gick precis in i området."
+
+msgid "What's happened to all our own capital ships?!"
+msgstr "Vad har hänt med alla våra egna huvudstad skepp ?!"
+
+msgid "They've been scratched."
+msgstr "De har repats."
+
+msgid "That Dust Brothers have been flagged."
+msgstr "Dammbröderna har blivit flaggade."
+
+msgid "We have to sound the retreat!"
+msgstr "Vi måste låta reträtten!"
+
+msgid "Mister, you remain where you are! We're not abando--"
+msgstr "Herr, du är där du är! Vi är inte abando--"
+
+msgid "The wing commander's dead."
+msgstr "Vingekommandören är död."
+
+msgid "Caution, everyone. The Tzac forces might be deliberately targeting the civilians in the area. We need to eliminate or drive those Shales away, as quickly as possible."
+msgstr "Varning, alla. Tzac-krafterna kan medvetet rikta sig mot civila i området. Vi måste eliminera eller driva dessa Shales bort, så fort som möjligt."
+
+msgid "Picking up another group of Shales, incoming."
+msgstr "Plocka upp en annan grupp Shales, inkommande."
+
+msgid "Another squadrons of Shales is inbound."
+msgstr "En annan skvadron av Shales är inkommande."
+
+msgid "That's all of them. Let's get these civilians to safety."
+msgstr "Det är alla av dem. Låt oss få dessa civila till säkerhet."
+
+msgid "First civilian casualty confirmed. Let's step it up, guys."
+msgstr "Första civila olycka bekräftades. Låt oss kliva upp det, killar."
+
+msgid "The Tzac forces are picking the civilians off. We need to act faster."
+msgstr "Tzac-krafterna plockar ut civila. Vi måste agera snabbare."
+
+msgid "Dammit, we're losing too many of them!"
+msgstr "Dammit, vi förlorar för många av dem!"
+
+msgid "Too many losses ..."
+msgstr "För många förluster ..."
+
+msgid "UNF Lovelace was recently attacked by a mercenary group, believed to be aligned with Tzac. While the corvette and the Sparrows were able to see off the attackers, it was nevertheless a focused and dedicated assault, that almost ended in disaster. More are likely to come, so we should remain vigilant."
+msgstr "UNF Lovelace attackerades nyligen av en legosoldatgrupp, som trodde vara anpassad till Tzac. Medan korvetten och Sparrows kunde se bort från attackerna, var det ändå ett fokuserat och engagerat angrepp som nästan slutade i katastrof. Mer kommer sannolikt att komma, så vi borde vara vaksamma."
+
+msgid "Got Darts, incoming."
+msgstr "Fick Dart, inkommande."
+
+msgid "Looks like Lovelace wasn't their only target. Prepare to engage, people."
+msgstr "Det verkar som om Lovelace inte var deras enda mål. Förbered dig att engagera, människor."
+
+msgid "We're picking up a lot of chatter on the mercenaries' channels. They're not happy with how things are going."
+msgstr "Vi hämtar mycket chatter på lejesoldaternas kanaler. De är inte nöjda med hur saker och ting går."
+
+msgid "Then let's concentrate on making them even more unhappy."
+msgstr "Låt oss sedan koncentrera oss på att göra dem ännu mer olyckliga."
+
+msgid "The mercenaries are throwing in the towel and pulling back. They've had enough."
+msgstr "Legosoldaterna kastar in handduken och drar tillbaka. De har fått nog."
+
+msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
+msgstr "Bra jobb, alla. Vi har skickat både Tzac och de legosoldater ett tydligt budskap idag. Jag tycker det är uppenbart vad vårt nästa drag ska vara ..."
+
+msgid "You've done well so far, Hicks. We appreciate that things have not been easy, but you're in a better position than many of us had hoped for. As soon as you're able, begin your search for the admiral. Once located, you will need to open a dialog with him. Whatever you do, do not kill him."
+msgstr "Du har gjort det bra hittills, Hicks. Vi uppskattar att saker inte har varit enkla, men du har en bättre position än vad många av oss hade hoppats på. Så fort du kan, börja din sökning efter admiralen. När du är placerad måste du öppna en dialog med honom. Oavsett vad du gör, död inte honom."
+
+msgid "So, this is Krasst. Never thought I'd ever find myself here."
+msgstr "Så det här är Krasst. Trodde aldrig att jag någonsin skulle hitta mig själv här."
+
+msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and not raise suspicion."
+msgstr "Verkar inte som om vingekommandot spårar mina rörelser längre. Massor av fartyg runt här. Jag kunde förmodligen röra sig fritt bland dem och inte väcka misstankar."
+
+msgid "Time to start my search for the admiral."
+msgstr "Tiden att börja min sökning efter admiralen."
+
+msgid "This isn't going to be easy. There are a lot of ships here."
+msgstr "Det här kommer inte bli lätt. Det finns många skepp här."
+
+msgid "Still nothing. I don't even know what I'm looking for. No carriers in sight, and none of the more recognizable capital ships, either."
+msgstr "Fortfarande inget. Jag vet inte ens vad jag letar efter. Inga bärare i sikte, och heller ingen av de mer identifierbara kapitalskepparna."
+
+msgid "I have a feeling I'm ultimately going to have to find a way to get aboard Dragon. But as soon as I'm out of this fighter they'll know I'm an imposter."
+msgstr "Jag har en känsla att jag i slutändan kommer att behöva hitta ett sätt att komma ombord på Dragon. Men så fort jag är ute av den här fightern vet de att jag är en bedragare."
+
+msgid "I've been lucky so far, but I've got a horrible feeling my luck is starting to run out."
+msgstr "Jag har haft tur så länge, men jag har en hemsk känsla, min lycka börjar rinna ut."
+
+msgid "Wait ... what's that? That Sphinx. It's different from the rest. I've never seen one like it before."
+msgstr "Vänta ... vad är det? Den sfinxen. Det skiljer sig från resten. Jag har aldrig sett en som den innan."
+
+msgid "I should follow it, and see where it goes."
+msgstr "Jag borde följa det och se var det går."
+
+msgid "I've been watching you. Who are you? What are you doing here?"
+msgstr "Jag har kollat ​​på dig. Vem är du? Vad gör du här?"
+
+msgid "Ah, crap!"
+msgstr "Ah, skit!"
+
+msgid "You are not Dodds."
+msgstr "Du är inte Dodds."
+
+msgid "You were brave for coming this far on your own, but that was ultimately a foolish decision."
+msgstr "Du var modig för att komma så långt på egen hand, men det var slutligen ett dumt beslut."
+
+msgid "Hell! That's Zackaria for sure, but he's on to me. I need to get out of here, quickly!"
+msgstr "Helvete! Det är säkert Zackaria, men han är på mig. Jag måste komma ut härifrån, snabbt!"
+
+msgid "They've shutdown the jumpgate ..."
+msgstr "De har stängt av springkanten ..."
+
+msgid "Hell! My cover's been blown, they're on to me!"
+msgstr "Helvete! Mitt lock har blivit blåst, de är på mig!"
+
+msgid "The bulk of the allied forces have fallen back to Lenon, to prepare for whatever is to come next. For now, we are standing down and awaiting new instructions from senior command."
+msgstr "Majoriteten av de allierade styrkorna har fallit tillbaka till Lenon för att förbereda sig för vad som kommer att komma nästa. För närvarande stannar vi och väntar på nya instruktioner från ledande befattningshavare."
+
+msgid "So, Torelli is dust?"
+msgstr "Så, Torelli är damm?"
+
+msgid "Dragon's anti-matter cannon ignited the atmosphere, and created a firestorm. It engulfed the entire planet in under twelve hours."
+msgstr "Drakens anti-materiella kanon tänd atmosfären och skapade en firestorm. Det fyllde hela planeten inom tolv timmar."
+
+msgid "Did no-one survive?"
+msgstr "Överlevde ingen?"
+
+msgid "Unlikely."
+msgstr "Osannolik."
+
+msgid "Think they'll do that against every planet they come to?"
+msgstr "Tror de att göra det mot varje planet de kommer till?"
+
+msgid "More effective than a nuke, and faster than a ground assault. So long as they don't need the resources, they'll fire and forget."
+msgstr "Effektivare än en nuk, och snabbare än en markövergrepp. Så länge de inte behöver resurserna, kommer de att skjuta och glömma."
+
+msgid "There must be something we can do."
+msgstr "Det måste finnas något vi kan göra."
+
+msgid "Our only option is to destroy Dragon. And direct assaults haven't gone so well in the past."
+msgstr "Vårt enda alternativ är att förstöra Dragon. Och direkta övergrepp har inte gått så bra i det förflutna."
+
+msgid "If we can even get close to it. Zackaria's going to become even more protective of that battleship now he knows what else it can do."
+msgstr "Om vi ​​ens kan komma nära det. Zackaria kommer att bli ännu mer skyddande av det slagskeppet nu vet han vad det kan göra."
+
+msgid "There has to be something ..."
+msgstr "Det måste finnas något ..."
+
+msgid "There might be."
+msgstr "Den kan vara."
+
+msgid "Have you heard something, Estelle?"
+msgstr "Har du hört något, Estelle?"
+
+msgid "Mumblings. Apparently, Parks has a plan involving the Temper system. He's got orders out to get as many nukes as he can lay his hands on. I don't know any more than that, though."
+msgstr "Mummel. Tydligen har Parks en plan med Temper-systemet. Han har order ut för att få så många nukes som han kan lägga händerna på. Jag vet inte mer än det."
+
+msgid "Sound promising?"
+msgstr "Ljud lovande?"
+
+msgid "Too early to say. But right now, I remain confident."
+msgstr "För tidigt att säga. Men just nu är jag fortsatt säker."
+
+msgid "And what if that fails? What do we do then?"
+msgstr "Och vad händer om det misslyckas? Vad gör vi då?"
+
+msgid "We try something else."
+msgstr "Vi försöker något annat."
+
+msgid "Like simply fighting them? Because there are nearly twenty billion of those bastards, and while we're not light on personnel, we're losing numbers rapidly."
+msgstr "Vill du bara kämpa mot dem? Eftersom det finns nästan tjugo miljarder av dessa bastards, och medan vi inte är tända på personal, förlorar vi snabbt tal."
+
+msgid "What's to stop them doing to Helios what they just did to the Independents?"
+msgstr "Vad är det som hindrar dem att göra med Helios vad de bara gjorde för de oberoende?"
+
+msgid "You mean smash each world they come to? All the way to Earth?"
+msgstr "Du menar smash varje värld de kommer till? Hela vägen till jorden?"
+
+msgid "Yes. Remember on Mythos? Parks said it was a very real possibility. At this rate, we just might find ourselves having to fight a battle for the Solar System."
+msgstr "Ja. Kom ihåg på Mythos? Parker sa att det var en mycket riktig möjlighet. Vid denna takt kanske vi bara måste slåss för en strid mot solsystemet."
+
+msgid "Don't worry, Simon. I doubt they'll ever get that far."
+msgstr "Oroa dig inte, Simon. Jag tvivlar på att de någonsin kommer så långt."
+
+msgid "The time has come to take the fight to Tzac. We will begin by striking their outer defences, and containing their forces to the system. The Iron Wolves will lead an attack against one of the outer jumpgates. It will likely be heavily defended, and heavy-class Tzac Blizzards could well arrive in the area as soon as you begin your assault."
+msgstr "Tiden har kommit för att ta kampen mot Tzac. Vi börjar med att slå sina yttre försvar och hålla sina krafter i systemet. Järnvolvarna kommer att leda en attack mot en av de yttre jumpgatesna. Det kommer sannolikt att vara starkt försvaret, och tzac-snöstormar med hög klass kan väl komma fram i området så fort du börjar ditt angrepp."
+
+msgid "Our goal is the jumpgate. Expect a lot of resistance."
+msgstr "Vårt mål är jumpgate. Förvänta mycket motstånd."
+
+msgid "Once we're there, we need to destroy the control nodes to shut it down. Barclay, that's your job."
+msgstr "När vi är där måste vi förstöra kontrollnodarna för att stänga av det. Barclay, det är ditt jobb."
+
+msgid "More enemies incoming."
+msgstr "Fler fiender inkommande."
+
+msgid "Commander, I'm detecting a wing of Blizzards, incoming."
+msgstr "Commander, jag upptäcker en flod av Blizzards, inkommande."
+
+msgid "Couldn't expect Tzac not to bring out the heavy guns. Let's take it to them, people."
+msgstr "Kunde inte förvänta sig att Tzac inte skulle ta ut de tunga vapen. Låt oss ta det till dem, människor."
+
+msgid "We're clear for the run against the gate."
+msgstr "Vi är klara för att springa mot porten."
+
+msgid "It's guarded by several rapid-fire plasma turrets. Try not to let those things get a lock on you."
+msgstr "Det bevakas av flera plasma-torn med snabb eld. Försök att inte låta dessa saker få ett lås på dig."
+
+msgid "Half the nodes are down."
+msgstr "Halva noderna är nere."
+
+msgid "Keep at it!"
+msgstr "Fortsätt med det!"
+
+msgid "Jumpgate is down."
+msgstr "Jumpgate är nere."
+
+msgid "Control, this is Wolfenden. Tzac's outer jumpgate is offline."
+msgstr "Kontroll, det här är Wolfenden. Tzacs yttre hoppgate är offline."
+
+msgid "Acknowledged. Hold position there. We'll need you to guard that gate and prevent the enemy from affecting repairs."
+msgstr "Erkänd. Håll plats där. Vi behöver dig att vakta den porten och förhindra att fienden påverkar reparationer."
+
+msgid "Dammit, the team's been cut down! Looks like it's up to you and me, Ian."
+msgstr "Dammit, laget är skuren! Det verkar som om du och jag, Ian."
+
+msgid "We'll make sure their deaths weren't in vain."
+msgstr "Vi ska se till att deras dödsfall inte var förgäves."
+
+msgid "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces."
+msgstr "Den ursprungliga attacken gick extremt bra, och vi är redo att gå vidare in i systemet. Tzac styrkor går upp för att möta oss, så förvänta sig starkt motstånd. Ditt mål är enkelt: förstör alla fiendens styrkor."
+
+msgid "HMS 781-110 sighted. All fighters free to engage at will."
+msgstr "HMS 781-110 siktad. Alla fighters är fria att engagera sig i vilja."
+
+msgid "Control, HMS 781-110 has been taken down."
+msgstr "Control, HMS 781-110 har tagits ner."
+
+msgid "Infinites, HMS 781-041 has arrived in the area. Engage and destroy."
+msgstr "Infinites har HMS 781-041 anlänt till området. Engagera och förstöra."
+
+msgid "Acknowledged."
+msgstr "Erkänd."
+
+msgid "Commander, a large group of Shales just arrived in the area"
+msgstr "Commander, en stor grupp Shales anlände precis i området"
+
+msgid "Hell, they've called for backup. We should take them down before dealing with HMS 781-041"
+msgstr "Helvete, de har krävt säkerhetskopiering. Vi bör ta ner dem innan vi hanterar HMS 781-041"
+
+msgid "This is HMS 781-041 of the Kingdom of Tzac! We surrender! Repeat, we surrender!"
+msgstr "Detta är HMS 781-041 i Kingdom of Tzac! Vi ger up! Upprepa, vi överlämnar!"
+
+msgid "Did anyone else get that?"
+msgstr "Fick någon annan det?"
+
+msgid "HMS 781-041, please repeat."
+msgstr "HMS 781-041, var god upprepa."
+
+msgid "Hell! Too late!"
+msgstr "Helvete! För sent!"
+
+msgid "Infinites, it appears remaining enemy forces are retreating. Please stand down."
+msgstr "Infinites, verkar det som om kvarvarande fiendens styrkor går tillbaka. Vänligen håll dig nere."
+
+msgid "Received."
+msgstr "Mottagen."
+
+msgid "That was unexpected."
+msgstr "Det var oväntat."
+
+msgid "Sure was. We'd better get to debriefing."
+msgstr "Visst var. Vi skulle bättre kunna prata om."
+
+msgid "There is growing public unrest over the on-going war, with a number of high-profile voices calling for an immediate end to the attacks on Tzac. While we cannot abandon the campaign while Tzac remains a threat, we can reduce the loss of life by disabling the enemy craft, instead of destroying them. That should placate the anti-war campaigners for a time."
+msgstr "Det finns växande allmän oro över det pågående kriget, med ett antal högprofilerade röster som kräver en omedelbar avslutning av attackerna på Tzac. Medan vi inte kan överge kampanjen medan Tzac är ett hot, kan vi minska förlusten av livet genom att inaktivera fiendens hantverk istället för att förstöra dem. Det borde placera anti-krigskampanjerna för en tid."
+
+msgid "We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?"
+msgstr "Vi ska ta hälften av sina styrkor och förstöra de andra. De som ska inaktiveras har taggats. Alla klara?"
+
+msgid "Watch your fire: remember, a stray shot could easily destroy a disabled craft."
+msgstr "Titta på din eld: kom ihåg, ett omedelbart skott skulle lätt kunna förstöra ett handikapp."
+
+msgid "All tagged Tzac fighters have been disabled."
+msgstr "Alla taggade Tzac-fighters har blivit inaktiverade."
+
+msgid "Tzac opposition has been destroyed."
+msgstr "Tzac-motståndet har förstörts."
+
+msgid "Great work, everyone. That should give the PR guys something to brag about."
+msgstr "Bra jobb, alla. Det borde ge PR-killarna något att skryta om."
+
+msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualties to a minimum."
+msgstr "Vi stänger in på Tzac själv. Det är här saker blir svåra, eftersom vi måste se till att vi fångar empressen vid liv. Jordlag kommer spola ut henne från hennes palats, och hon kommer sannolikt att springa för jumpgate. Hennes skyttelbuss måste vara inaktiverad och skyddad så snart den ses. Kom ihåg att hålla fientliga olyckshändelser till ett minimum."
+
+msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
+msgstr "Alla våra uppdragsparametrar har ändrats. Pandorerna gör ett drag mot Mace. Vi måste agera snabbt."
+
+msgid "Therefore, you have permission to destroy any and all opposing forces, no need to mag these guys."
+msgstr "Därför har du tillåtelse att förstöra alla motsatta styrkor, ingen anledning att kunna dessa killar."
+
+msgid "Commander, we've got Darts and Shales incoming."
+msgstr "Commander, vi har Dart och Shales inkommande."
+
+msgid "Looks like some mercenaries decided to stick around. Let's show them why that was a bad move."
+msgstr "Det verkar som om några legosoldater bestämde sig för att hålla sig fast. Låt oss visa dem varför det var ett dåligt drag."
+
+msgid "That's them seen to. Onwards to the jumpgate."
+msgstr "Det är dem som ses. Framåt till hoppgate."
+
+msgid "Got INF fighters incoming."
+msgstr "Fick INF fighters inkommande."
+
+msgid "Knew it wouldn't be long."
+msgstr "Vet att det inte vore länge."
+
+msgid "Patriots, a Tzac warship just arrived in the area, but it has Imperial fighter escorts. Most likely it's been acquired by the Pandroans. It needs to be taken down before Cristabel makes her escape bid, as it might be here to kill her."
+msgstr "Patrioter, ett Tzac krigsfartyget anlände precis i området, men det har kejsarflykt eskort. Troligtvis har det förvärvats av Pandroans. Det måste tas ner innan Cristabel gör sitt flyktbud, eftersom det kan vara här att döda henne."
+
+msgid "Got it. You all heard that. Let's get to it."
+msgstr "Jag fattar. Du hörde allt detta. Låt oss ta itu med det."
+
+msgid "I'm picking up a shuttle on radar. Looks like Christabel."
+msgstr "Jag plockar upp en shuttle på radar. Ser ut som Christabel."
+
+msgid "Goddard, you're up! Mag that shuttle before it gets away."
+msgstr "Goddard, du är uppe! Mag den pendeln innan den kommer undan."
+
+msgid "On it!"
+msgstr "På det!"
+
+msgid "Christabel's shuttle has been disabled."
+msgstr "Christabel's shuttle har blivit inaktiverad."
+
+msgid "Excellent work! Now let's finish off the rest of these fighters."
+msgstr "Utmärkt arbete! Låt oss avsluta resten av dessa kämpar."
+
+msgid "All enemies down. Let's get over to Christabel's shuttle and secure the empress."
+msgstr "Alla fiender ner. Låt oss komma över till Christabels shuttle och säkra kejsarinnan."
+
+msgid "Empress Christabel, this is Cdr. de Winter of the Confederation Stellar Navy."
+msgstr "Kejsarinnan Christabel, det här är Cdr. de Vinter i Confederation Stellar Navy."
+
+msgid "Acting under the authority of the allied forces, I am hereby placing you under arrest, for breaches of intergalactic law."
+msgstr "Genom att agera under de allierade styrkornas befogenhet ställer jag dig här, för brott mot den intergalaktiska lagen."
+
+msgid "You will be escorted to a neutral court, where you will be tried for your crimes."
+msgstr "Du kommer att eskorteras till en neutral domstol, där du kommer att försökas för dina brott."
+
+msgid "If found guilty, the intergalactic community will decide on your punishment."
+msgstr "Om du finner dig skyldig, bestämmer det intergalaktiska samhället om ditt straff."
+
+msgid "Sorry, your Highness. I wish it didn't have to go this way, but the galaxy has enough problems as it is."
+msgstr "Tyvärr, din Höghet. Jag önskar att det inte behövde gå på detta sätt, men galaxen har tillräckligt med problem som det är."
+
+msgid "If--"
+msgstr "Om--"
+
+msgid "Woah! What the hell just happened?!"
+msgstr "Woah! Vad i helvete hände just nu ?!"
+
+msgid "Did anyone fire?!"
+msgstr "Gick någon eld ?!"
+
+msgid "All guns cold, Commander. Looks like she might have self destructed her own ship."
+msgstr "Alla pistoler är kalla, befälhavare. Ser ut att hon kanske har självförstört sitt eget skepp."
+
+msgid "Dammit!"
+msgstr "Jäklar!"
+
+msgid "Now what?"
+msgstr "Nu då?"
+
+msgid "Nothing more we can do. We should evacuate the area before more Pandoran forces arrive."
+msgstr "Inget mer vi kan göra. Vi borde evakuera området innan fler pandoranska styrkor kommer fram."
+
+msgid "An opportunity has been granted for us to infiltrate Mitikas space, the Pandoran army, and ultimate get close to Jason Zackaria or Julian Rissard. If nothing else, we could still discover the whereabouts of these two elusive men, which could assist in future operations to capture them. Your goal is to acquire an Angel, an outdated INF fighter that currently lies in the hands of mercenaries. They have retreated to Phylent to affect repairs, so now is the chance to strike."
+msgstr "En möjlighet har gjorts för att infiltrera Mitikas rymd, den pandoranska armén och ultimata komma nära Jason Zackaria eller Julian Rissard. Om inget annat, kunde vi fortfarande upptäcka var de här två elusiva männen var där, vilket skulle kunna hjälpa till i framtida operationer för att fånga dem. Ditt mål är att skaffa en ängel, en föråldrad INF-strid som för närvarande ligger i hushållens händer. De har återgått till Phylent för att påverka reparationer, så nu är chansen att slå."
+
+msgid "I've sighted the Angel. Let's move in and secure it."
+msgstr "Jag har sett ängeln. Låt oss flytta in och säkra den."
+
+msgid "Are the specs for this fighter correct? I've never heard of an Angel before? Sure it's not some kind of INF super weapon?"
+msgstr "Är specifikationerna för denna fighter korrekt? Jag har aldrig hört talas om en ängel förut? Visst är det inte någon form av INF supervapen?"
+
+msgid "It's an old, outdated class. I don't think the INF ever had an ATAF-like fighter."
+msgstr "Det är en gammal, föråldrad klass. Jag tror inte att INF någonsin haft en ATAF-liknande fighter."
+
+msgid "They'd have given us something more powerful to work with, if that was an uber-craft."
+msgstr "De skulle ha gett oss något mer kraftfullt att arbeta med, om det var en uber-craft."
+
+msgid "Whatever it is, the secret service want it pretty badly."
+msgstr "Oavsett vad det är, vill den hemliga tjänsten ha det ganska illa."
+
+msgid "I'll just be glad to get out of here. This is Pandoran-controlled space we're in."
+msgstr "Jag kommer bara vara glad att komma ut härifrån. Detta är Pandoran-kontrollerat utrymme vi är i."
+
+msgid "Angel has been disabled."
+msgstr "Ängeln har blivit inaktiverad."
+
+msgid "Good, let's hook the Tug up ASAP and move on to the next step."
+msgstr "Bra, låt oss koppla upp Tuggen ASAP och gå vidare till nästa steg."
+
+msgid "We have our goal, let's head over to it. Nearly done."
+msgstr "Vi har vårt mål, låt oss gå över till det. Nästan klar."
+
+msgid "PJ, I'm reading Darts all around the waypoint. Others closing in from the sides."
+msgstr "PJ, jag läser Dart runt waypointen. Andra stänger in från sidorna."
+
+msgid "They're scanning me!"
+msgstr "De skannar mig!"
+
+msgid "Hell! They clearly don't want us to have it if they can't have it. Prepare to engage!"
+msgstr "Helvete! De vill helt klart inte att vi ska få det om de inte kan få det. Förbered dig att engagera!"
+
+msgid "Okay, we're done. We're to wait here for pickup. Shouldn't be more than a few minutes."
+msgstr "Okej, vi är klara. Vi väntar här för hämtning. Bör inte vara mer än några minuter."
+
+msgid "What do you think they've got planned for this thing?"
+msgstr "Vad tycker du att de har planerat för den här saken?"
+
+msgid "No idea. But what I do know is that we're not involved any further."
+msgstr "Ingen aning. Men det jag vet är att vi inte är involverade längre."
+
+msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
+msgstr "Ett nödanrop från en CSN-skvadron har utfärdats, som engagerade Pandoran-mål. Det verkar som om fienden har magged fightersna, istället för att förstöra dem. INF bogserbåtar förbereder sig för att leda dem ut ur systemet, via jumpgate. Vi måste förstöra dessa bogserbåtar och få dessa män och kvinnor till säkerhet. Vi kan inte låta Pandorans få tag i någon av vår teknik."
+
+msgid "White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate."
+msgstr "White Knights, fiendens släpvagnar är redan på plats och sätter fast släpkablar. De får inte få dessa fighters och piloter till jumpgate."
+
+msgid "Can you disable the gate remotely?"
+msgstr "Kan du stänga av grinden på avstånd?"
+
+msgid "Negative, the Pandorans have control. We're working take back command functions. Stand by."
+msgstr "Negativt har pandorerna kontroll. Vi arbetar med att ta tillbaka kommandofunktioner. Står fast vid."
+
+msgid "Griffin, all enemy tugs have been dispatched."
+msgstr "Griffin, alla fiendens släpvagnar har skickats."
+
+msgid "Good work, Commander. We've regained control of the gate. We're sending our own tugs through now."
+msgstr "Bra jobb, befälhavare. Vi har fått kontroll över porten. Vi skickar våra egna släpvagnar genom nu."
+
+msgid "Estelle, I'm picking up incoming INF fighters."
+msgstr "Estelle, jag hämtar inkommande INF-krigare."
+
+msgid "Hell! Protect the tugs. Make sure they get everyone home."
+msgstr "Helvete! Skydda bogserbåtarna. Se till att de får alla hemma."
+
+msgid "Griffin, this is de Winter. Operation successful."
+msgstr "Griffin, det här är de vinter. Operation framgångsrik."
+
+msgid "I knew I could count on you, de Winter. Head back to Griffin."
+msgstr "Jag visste att jag kunde räkna med dig, de Winter. Gå tillbaka till Griffin."
+
+msgid "The Pandorans are preparing for a major push into Rothan, so we need to shore up defences as quickly as possible. Command have selected a number of positions that will give us a strategic advantage in the early stages of battle when the enemy arrives. The Blue Jesters are to link up with the Irregular Nomads near to one Rothan's inner jumpgates, and await further instructions."
+msgstr "Pandoranerna förbereder sig för ett stort tryck i Rothan, så vi måste skjuta upp försvar så fort som möjligt. Kommandot har valt ett antal positioner som kommer att ge oss en strategisk fördel i de tidiga skeden av kamp när fienden kommer. De blåa jestrarna ska koppla ihop med de oregelbundna nomaderna nära en Rothans innerhopp och vänta på ytterligare instruktioner."
+
+msgid "Control, we're in position. Awaiting the Irregular Nomads."
+msgstr "Kontroll, vi är i position. Väntar på de oregelbundna nomaderna."
+
+msgid "Irregular Nomads have just exited the jumpgate. They'll be with you shortly."
+msgstr "Oregelbundna nomader har precis gått ut från hoppgatan. De kommer snart med dig."
+
+msgid "Commander Spencer, we're on our way. We'll join you at the waypoint."
+msgstr "Commander Spencer, vi är på väg. Vi kommer att gå med dig på waypointen."
+
+msgid "Acknowledged, Lieutenant, we'll see you in a bit."
+msgstr "Bekräftade, löjtnant, vi ses lite."
+
+msgid "Control, we're ready to--"
+msgstr "Kontroll, vi är redo att--"
+
+msgid "Commander, be advised that we are detecting UNF fighters advancing on your position, several Nymphs and Fireflies. They are not responding to requests to identify presence or purpose."
+msgstr "Commander, upplysas om att vi upptäcker UNF-krigare som utvecklar din position, flera nymphs och Fireflies. De svarar inte på förfrågningar för att identifiera närvaro eller syfte."
+
+msgid "Pandorans?"
+msgstr "Pandorans?"
+
+msgid "Their signatures don't suggest so."
+msgstr "Deras signaturer föreslår inte det."
+
+msgid "Commander, incoming fighters are hostile. Suggest you prepare to engage or fallback to the jumpgate."
+msgstr "Commander, inkommande fighters är fientliga. Föreslå att du förbereder dig för att engagera eller återgå till jumpgate."
+
+msgid "Acknowledged, moving to engage."
+msgstr "Bekräftat, rör sig för att engagera sig."
+
+msgid "Control, enemy targets have been eliminated."
+msgstr "Kontroll, fiendens mål har eliminerats."
+
+msgid "Any survivors?"
+msgstr "Vilka överlevande?"
+
+msgid "Negative, I didn't see anyone eject from those fighters."
+msgstr "Negativ, jag såg inte någon spruta ut från de här fightersna."
+
+msgid "Commander, your current missions has been aborted. Return to the jumpgate. We need a full report as to what just happened out there."
+msgstr "Commander, dina nuvarande uppdrag har blivit avbrutna. Återgå till jumpgate. Vi behöver en fullständig rapport om vad som just hände där ute."
+
+msgid "Got it, coming home."
+msgstr "Fick det, kom hem."
+
+msgid "We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here."
+msgstr "Vi har flera inkommande Tzac-fighters. Vi måste förhindra att de förstör fartygen här."
+
+msgid "Any backup on the way?"
+msgstr "Någon backup på vägen?"
+
+msgid "The threat warning came in too late for any other squadrons to assist us, but we have the turrets to assist us."
+msgstr "Hotet varning kom in för sent för att någon annan skvadron skulle hjälpa oss, men vi har tornen för att hjälpa oss."
+
+msgid "Expect the Tzac bombers to focus on destroying the tugs and shuttles."
+msgstr "Förvänta Tzac-bombarna att fokusera på att förstöra bogserbåtarna och shuttlesna."
+
+msgid "Enemy fighters spotted. No sign of the squadron wing commander, though. We might have to draw him out."
+msgstr "Enemy fighters upptäckte. Inget tecken på skvadronvingekommandören, men. Vi kanske måste dra honom ut."
+
+msgid "Rose, we'll be relying on you to disable his fighter as soon as he puts in an appearance."
+msgstr "Rose, vi kommer att förlita oss på dig att inaktivera hans fighter så snart han ser ut."
+
+msgid "Tzac commander sighted, Commander."
+msgstr "Tzac befälhavare, befälhavare."
+
+msgid "Get to it, Lieutenant. We'll cover you."
+msgstr "Kom till det, löjtnant. Vi täcker dig."
+
+msgid "Tzac commander's Shale has been disabled."
+msgstr "Tzac Commander's Shale har blivit inaktiverad."
+
+msgid "Control, this is Spencer. Reporting operation successful."
+msgstr "Kontroll, det här är Spencer. Rapporteringsoperationen lyckades."
+
+msgid "You have the commander?"
+msgstr "Har du befälhavaren?"
+
+msgid "Bagged and tagged."
+msgstr "Bagged och tagged."
+
+msgid "Excellent work, Jesters. Everything looks clear, so we'll dispatch a tug to your location to bring him in. See you soon."
+msgstr "Utmärkt arbete, Jesters. Allt ser klart ut, så vi skickar en bogserbåt till din plats för att få honom in. Vi ses snart."
+
+msgid "The Pandorans have launched a sudden attack against the system. It appears that they are capitalizing on the chaos that the Kingdom of Tzac has thrown us into. We need to repel this attack, as defeat here could mean a major setback in our struggle against both enemies."
+msgstr "Pandorerna har lanserat en plötslig attack mot systemet. Det verkar som om de kapitaliserar det kaos som Konungariket Tzac har kastat oss in i. Vi måste avvärja denna attack, eftersom nederlag här kan innebära ett stort bakslag i vår kamp mot båda fienderna."
+
+msgid "Hell, they're outnumbering us, a good two-to-one!"
+msgstr "Helvete, de överträffar oss, en bra två-till-en!"
+
+msgid "There are Swarmers in their ranks, making up the bulk. Don't lose faith people, we can do this."
+msgstr "Det finns svampar i sina led, som utgör massan. Förlora inte tro på människor, det kan vi göra."
+
+msgid "That's the last of 'em. Not often we win an engagement like this."
+msgstr "Det är den sista av dem. Inte ofta vinner vi ett engagemang så här."
+
+msgid "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabited planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance."
+msgstr "Pandoranerna pressar hem sin fördel och stänger in på Rothans bebodda planeter. De måste besegras, eftersom en förlust här skulle innebära att de startade en markövergrepp. Förvänta sig starkt motstånd."
+
+msgid "Brace yourselves, lads."
+msgstr "Brace dig, pojkar."
+
+msgid "Picking up two Mitikas corvettes: Mora and Karambit."
+msgstr "Plocka upp två Mitikas korvetter: Mora och Karambit."
+
+msgid "We need to give Hopper and Blackburn support in dealing with them. Get to it."
+msgstr "Vi måste ge Hopper och Blackburn stöd när det gäller att hantera dem. Kom till det."
+
+msgid "Hell, where'd they get those Khepris from?"
+msgstr "Helvete, vart skulle de få de Khepris från?"
+
+msgid "Christabel must've decided to try and attack the Pandorans directly. Went as well for her as it did for us."
+msgstr "Christabel måste ha bestämt sig för att försöka attackera Pandoranerna direkt. Gick också för henne som det gjorde för oss."
+
+msgid "Commander, we're taking heavy losses!"
+msgstr "Commander, vi tar stora förluster!"
+
+msgid "We won before, we can win again! Keep up the fight!"
+msgstr "Vi vann förr, vi kan vinna igen! Fortsätt kampen!"
+
+msgid "Commander, I strongly suggest we pull back."
+msgstr "Commander, jag föreslår starkt att vi drar tillbaka."
+
+msgid "We can't keep running. We'll run out of places to run to."
+msgstr "Vi kan inte fortsätta springa. Vi kommer slut på platser att springa till."
+
+msgid "All fighters, be advised: the wing commander has been killed."
+msgstr "Alla fighters, rådas: vingschefen har dödats."
+
+msgid "Who's leading this operation now?"
+msgstr "Vem leder nu denna operation?"
+
+msgid "We have to retreat!"
+msgstr "Vi måste dra sig tillbaka!"
+
+msgid "This the end of the line, guys. It's been great serving with you."
+msgstr "Det här slutet av raden, killar. Det har varit bra servering med dig."
+
+msgid "Hopper is down!"
+msgstr "Hopper är nere!"
+
+msgid "They've taken out Blackburn!"
+msgstr "De har tagit ut Blackburn!"
+
+msgid "That's both of our corvettes down. The rest is up to us."
+msgstr "Det är båda våra korvetter nere. Resten är upp till oss."
+
+msgid "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what."
+msgstr "Detta är ett mycket farligt uppdrag. Medan pandorerna verkar ha accepterat dig som en av sina piloter, kommer de fortfarande att vara mycket misstänkta. Du bör därför göra allt som är möjligt för att hålla sina misstankar låga. Stick nära vingebefälhavaren när den inte är i strid. Brand inte dina vapen eller använd din ECM om du inte behöver, och eliminera dina mål med extrema fördomar, oavsett vad."
+
+msgid "(I'm in deep this time. Just have to remain calm, focus, and do as they do.)"
+msgstr "(Jag är djup den här gången. Jag måste bara vara lugn, fokusera och göra som de gör.)"
+
+msgid "(Can't talk to them, can't understand their language, so I'll have to go with my instincts.)"
+msgstr "(Kan inte prata med dem, kan inte förstå sitt språk, så jag måste gå med mina instinkter.)"
+
+msgid "(Ah, hell! We're hunting civilians. I ... I can't refuse orders ...)"
+msgstr "(Ah, helvete! Vi jakter på civila. Jag kan inte vägra beställningar ...)"
+
+msgid "(Better get back to the wing commander, before they think I'm slacking)"
+msgstr "(Bättre komma tillbaka till vingekommandören, innan de tror att jag slacker)"
+
+msgid "(They're moving to the jumpgate. I should join them, and stick close.)"
+msgstr "(De flyttade till jumpgate. Jag borde gå med i dem och hålla nära.)"
+
+msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
+msgstr "Ett enkelt testflyg. Bli van vid piloting din fighter, utan hot om attack eller andra faror att möta. Det finns inga mål att slutföra i detta uppdrag, så du kan sluta när som helst och gå vidare till nästa."
+
+msgid "Welcome to free flight."
+msgstr "Välkommen till gratis flygning."
+
+msgid "Practice turning, accelerating, and braking."
+msgstr "Öva vridning, acceleration och bromsning."
+
+msgid "Don't forget about your Boost, either. That can be a life saver in certain situations."
+msgstr "Glöm inte heller din Boost. Det kan vara en livsuppehållare i vissa situationer."
+
+msgid "Practice using your fighter's weapons against a stationary target."
+msgstr "Öva med hjälp av din fighter vapen mot ett stationärt mål."
+
+msgid "The Dart won't attack you, so when you're ready, you can blow the thing to pieces."
+msgstr "Dartet kommer inte att attackera dig, så när du är redo kan du blåsa saken i stycken."
+
+msgid "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around."
+msgstr "De flesta mål du möter i fältet kommer att röra sig. Denna kurs ger dig chansen att träna ner en fiende som rör sig runt."
+
+msgid "This Dart has control over its engines, but not its weapons. Practice chasing it down and destroying it."
+msgstr "Denna Dart har kontroll över sina motorer, men inte dess vapen. Öva jaga ner det och förstöra det."
+
+msgid "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge."
+msgstr "Vänd mot en motståndare som är beväpnad. Fienden i denna kurs är en Dart, utrustad med tvillingpartikelkanoner. Det ska inte vara för svårt en utmaning."
+
+msgid "This Dart is armed! Watch yourself."
+msgstr "Den här pilen är beväpnad! Akta dig."
+
+msgid "Practice using your ECM in the next encounter. The Dart here is equipped with missiles, which will home in on you. You can thwart these attacks by careful use of your ECM. Once you are done practicing, you can destroy the Dart and move on."
+msgstr "Öva med att använda din ECM i nästa möte. Dartet här är utrustat med missiler, som kommer in i dig. Du kan bekämpa dessa attacker med noggrann användning av din ECM. När du är färdig att träna kan du förstöra Dart och fortsätta."
+
+msgid "Use your ECM to destroy the missiles fired at you. Remember, the ECM needs several seconds to recharge between uses."
+msgstr "Använd din ECM för att förstöra missilerna avfyrade på dig. Kom ihåg att ECM behöver flera sekunder för att ladda mellan användningar."
+
+msgid "Use your mag cannons to disable the enemy Dart. Disabling enemy craft and bringing the target in alive is sometimes an important step in securing lasting victory."
+msgstr "Använd dina magkanoner för att inaktivera fiendens Dart. Att inaktivera fiendens hantverk och nå målet i levande är ibland ett viktigt steg för att säkra varaktig seger."
+
+msgid "Switch to your Mag cannons and fire them at the Dart to disable it. Do not fire your plasma cannons or launch any missiles, as these could destroy the target."
+msgstr "Byt till dina Mag-kanoner och skjut dem i pilen för att inaktivera den. Brand inte dina plasmakanoner eller starta några missiler, eftersom dessa kan förstöra målet."
+
+msgid "Battle along side two team mates to take on 3 enemy fighters."
+msgstr "Slaget längs sida två lagkamrater att ta på sig 3 fiende fighters."
+
+msgid "Wingmate will often assist you in battle. When you're ready, approach the Darts and engage."
+msgstr "Wingmate hjälper dig ofta i strid. När du är redo, närma dig Darts och engagera."
+
+msgid "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand."
+msgstr "Ta upp tre fiendens mål ensamstående. Återigen är dessa Dart utrustade med enkla partikelkanoner. En enda TAF borde inte hitta sig outclassed här, så länge som fienden inte får få överhanden."
+
+msgid "Final course. Use all your training to defeat the three opponents."
+msgstr "Slutkurs. Använd all din träning för att besegra de tre motståndarna."
+
+msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
+msgstr "Pandorans push in till oberoende rymden har lett till en ökning av pirataktivitet längs förbundsgränsen. Hotet måste hanteras omedelbart, och börja med att klippa tillbaka på fiendens närvaro vid Temper."
+
+msgid "Multiple incoming enemy fighters."
+msgstr "Flera inkommande fiendekämpare."
+
+msgid "Follow my lead. Break and attack at will."
+msgstr "Följ efter mig. Bryta och attackera efter vilja."
+
+msgid "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevalent, and there are more shielded and plasma-equipped fighters to be found in their ranks."
+msgstr "Trots de senaste ansträngningarna visar pirat och upproraktiviteten inget tecken på att minska. Vi måste fortsätta krossa ringarna när vi hittar dem och förhindra dem från att få fotfäste i Temper, eftersom det bara kan vara dåligt för moralen och krigsinsatsen. Medan vi fortfarande står inför pilar, blir modifieringarna av dessa båtar allt vanligare, och det finns mer skärmade och plasmautrustade krigare som finns i deras led."
+
+msgid "As before, everyone. Let's take it to 'em."
+msgstr "Som tidigare, alla. Låt oss ta det till dem."
+
+msgid "Looks like these guys are all sporting modified Darts."
+msgstr "Ser ut som att dessa killar är alla sportmodifierade Dart."
+
+msgid "Acknowledged. Watch out for the lasers, people. They'll smash your shields to pieces if you let 'em."
+msgstr "Erkänd. Se upp för lasrarna, människor. De kommer att krossa dina sköldar i bitar om du låter dem."
+
+msgid "Allied intelligence have managed to locate one of the pirate ring lieutenants. We need to bring this man in alive, as he could provide us with further useful information that will allow us to track down and eliminate high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the lieutenant's Dart."
+msgstr "Allierad intelligens har lyckats hitta en av piratringslögnantarna. Vi måste bringa den här mannen till liv, eftersom han kunde ge oss ytterligare användbar information som gör det möjligt för oss att spåra och eliminera personer med hög rangordning. Du kommer att styra en Ray, och måste använda dina Mag-kanoner för att inaktivera målet. Förstör inte löjtnantens Dart."
+
+msgid "Seth, the lieutenant's Dart should be tagged on your HUD. Disable that ship as soon as possible."
+msgstr "Seth, löjtnantens Dart ska märkas på din HUD. Inaktivera det skeppet så snart som möjligt."
+
+msgid "The rest of us will take down his buddies. Watch your stray fire around the mission target."
+msgstr "Resten av oss kommer att ta ner sina kompisar. Titta på din omstridda brand runt uppdragsmålet."
+
+msgid "Control, this is Strickland. Target has been suppressed, all other threats eliminated. Will await pickup."
+msgstr "Styr, det här är Strickland. Målet har undertryckts, alla andra hot elimineras. Kommer att vänta på hämtning."
+
+msgid "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down."
+msgstr "Det tog lite tid, men vi har äntligen kunnat extrahera den information som krävs av den löjtnant vi tagit. Hans information har visat att piraterna har bildat en koalition för att dra fördel av bryggkriget. Vi måste krossa denna allians från varandra genom att rätta till fraktionsledarna. De flyger för närvarande en tidigare bakhåll, en avsedd att skicka dem din väg. Ledarna är alla piloting förvärvade nymfer. Ta dem ner."
+
+msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate."
+msgstr "Detta är en rakt framåt, killar: ta ner alla fiendens mål. Men se till att ingen av dessa nympher gör det till jumpgate."
+
+msgid "Excellent works, people. This one's a wrap."
+msgstr "Utmärkt arbete, människor. Den här är en wrap."
+
+msgid "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle."
+msgstr "Med ledarna alla borta har vi nu möjlighet att avsluta det organiserade piratkopieringsproblemet i Temper for Good. Vi har identifierat ett antal dartmassage för vad som verkar vara en strejk mot CSN-tillgångar, i straff. Vi kommer inte att ge piraterna chansen att göra det och slå dem först. Strickland kommer att leda Steel Bulls i strid."
+
+msgid "Enemy forces sighted."
+msgstr "Enemy krafter synas."
+
+msgid "This is it, boys and girls, let's stick it to 'em. Break and attack!"
+msgstr "Det här är det, pojkar och tjejer, låt oss hålla fast vid dem. Bryt och attack!"
+
+msgid "Looks like we touched a nerve. We've got more Darts incoming."
+msgstr "Det verkar som om vi rörde en nerv. Vi har fler Darts inkommande."
+
+msgid "Another group just arrived."
+msgstr "En annan grupp anlände precis."
+
+msgid "They'll keep lining 'em up, and we'll keep knocking them down."
+msgstr "De kommer att hålla foder på dem, och vi fortsätter att knacka ner dem."
+
+msgid " Another group. That tallies with the numbers we were expecting."
+msgstr " En annan grupp. Det talar med de siffror vi förväntade oss."
+
+msgid " Looks like that was the last of 'em."
+msgstr " Det verkar som om det var den sista av dem."
+
+msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated."
+msgstr " Ande, det här är Commander Strickland. Motståndskraften har besegrats."
+
+msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
+msgstr "Erkänd. Bra jobb där ute, Commander. Tack vare dig är Temper ett säkrare system, och vi kan fokusera på att stärka vårt försvar mot de pandoranska styrkorna. Kom hem."
+
+msgid "Your instructions are simple, Hicks. As before, follow the wing leader's instructions, and do as the others do. Stay close to the leader when not otherwise engaged, and do not do anything to raise your suspicion. Act quickly to assure the Pandorans you're with them."
+msgstr "Dina instruktioner är enkla, Hicks. Som tidigare följer du ledarens instruktioner och gör som de andra gör. Håll dig nära ledaren när du inte är engagerade och gör inte något för att upprepa din misstanke. Handla snabbt för att försäkra Pandorans du är med dem."
+
+msgid "(More hunting. I hope I'm not going to be forced to kill innocent people again.)"
+msgstr "(Mer jakt. Jag hoppas att jag inte kommer att bli tvungen att döda oskyldiga människor igen.)"
+
+msgid "(Mercenaries. Better than civilians, but still abhorrent. Run, you fools! Run!)"
+msgstr "(Mercenaries. Bättre än civilister, men fortfarande avskyvärda. Kör, dina idiot! Kör!)"
+
+msgid "(Looks like that's it. We're heading to the jumpgate.)"
+msgstr "(Det verkar som om det är det. Vi är på väg till springkanten.)"
+
+msgid "Our goal is simple, lads: destroy all enemy targets."
+msgstr "Vårt mål är enkelt, pojkar: förstör alla fiendens mål."
+
+msgid "Good work, everyone. Let's prepare to lend a hand to the other squadrons."
+msgstr "Bra jobb, alla. Låt oss förbereda oss för att låna en hand till de andra skvadronerna."
+
+msgid "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution."
+msgstr "Intelligensrapporter föreslår att Tzac har anställt ett antal legosoldater för att hjälpa till i sina attacker mot oberoende system. Information som erhållits från underjordiska källor säger att de planerar att avgränsa UNF-kapitalfartyg. Medan känd legosoldater inte ska utmana våra skepp, för närvarande kommer alla UNF-korvetter att resa med utökade fighter eskorter, som en försiktighet."
+
+msgid "Enemy fighter signatures detected. Looks like Darts."
+msgstr "Enemy fighter signaturer upptäcktes. Ser ut som Dart."
+
+msgid "Those will be the mercenaries we've been hearing about. All fighters, prepare to engage."
+msgstr "Det kommer att bli de legosoldater vi hört om. Alla fighters, förbereda sig för att engagera."
+
+msgid "How many of these bastards did Tzac hire?!"
+msgstr "Hur många av dessa bastards hyrde Tzac ?!"
+
+msgid "Whatever the number, we'll make sure we send a clear message it wasn't enough!"
+msgstr "Oavsett antal, vi ska se till att vi skickar ett tydligt meddelande det var inte tillräckligt!"
+
+msgid "Looks like that's all of them, Commander."
+msgstr "Det verkar som om de är alla, befälhavare."
+
+msgid "Confirmed. Tzac must have opened up the coffers to fund this. Those guys meant business."
+msgstr "Bekräftat. Tzac måste ha öppnat kuporna för att finansiera detta. De killarna betydde affärer."
+
+msgid "I still can't believe they came at us in Darts."
+msgstr "Jag kan fortfarande inte tro att de kom på oss i Dart."
+
+msgid "They must've been paid handsomely for that."
+msgstr "De måste ha blivit betalda väl för det."
+
+msgid "Stick round, Commander. We might need you later."
+msgstr "Stick runt, befälhavare. Vi kanske behöver dig senare."
+
+msgid "A number of those responsible for helping supply illegal arms and information to Tzac have been identified. They are to be tracked down, and brought in for questioning. At this point, we want to avoid killing them, as they could prove vital to bringing in the ringleaders."
+msgstr "Ett antal av de ansvariga för att hjälpa till med att tillhandahålla olagliga vapen och information till Tzac har identifierats. De ska spåras och tas in för frågeformulär. Vid den här tiden vill vi undvika att döda dem, eftersom de kan bli viktiga för att föra in ledare."
+
+msgid "D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now."
+msgstr "D'Ath, vi har upptäckt målen. De är på väg till jumpgate. Vi stänger ner det nu."
+
+msgid "Got it, we'll mag the fighters and take it from there."
+msgstr "Fick det, vi får slåssna och ta det därifrån."
+
+msgid "Control, this is D'Ath. Targets have been disabled. No casualties."
+msgstr "Kontroll, det här är D'Ath. Mål har inaktiverats. Inga olyckshändelser."
+
+msgid "Acknowledged. Didn't look like they put up much of a fight. Seemed they spent most of the time running away."
+msgstr "Erkänd. Ser inte ut som de lägger upp mycket av en kamp. Verkade de tillbringade större delen av tiden bort."
+
+msgid "Barely fired back. Maybe they were covering for someone?"
+msgstr "Knappt avfyrade. Kanske täckte de för någon?"
+
+msgid "Definite possibility. We'll bring these guys in and see what we can find out."
+msgstr "Definitiv möjlighet. Vi tar med dessa killar och ser vad vi kan ta reda på."
+
+msgid "It seems that some of the traitors that were brought in earlier were acting as a distraction for a number of others, who have now commandeered CSN Drachma. The corvette must be taken back, without destroy it. All other targets are valid, unless surrendering."
+msgstr "Det verkar som om några av de förrädare som togs in tidigare fungerade som en distraktion för ett antal andra, som nu har kommit överens om CSN Drachma. Korvetten måste tas tillbaka, utan att förstöra den. Alla andra mål är giltiga, om inte överlämnandet."
+
+msgid "Looks like we've got a welcoming committee heading our way."
+msgstr "Det verkar som om vi har ett välkomnande utskott på väg."
+
+msgid "Remember: we need to disable the Drachma. Target the guns and engines, only. We don't want to destroy it."
+msgstr "Kom ihåg: vi måste inaktivera drachmen. Tar bara pistolerna och motorerna. Vi vill inte förstöra det."
+
+msgid "Some of them are surrendering. Disable their fighters, and we'll deal with them later. Don't kill them!"
+msgstr "Några av dem är övergivna. Inaktivera deras kämpar, och vi tar itu med dem senare. Död inte dem!"
+
+msgid "Control, traitors have been dealt with, and the Drachma has been disabled. She's ready for boarding."
+msgstr "Kontroll, förrädare har behandlats och drachmen har blivit inaktiverad. Hon är redo för ombordstigning."
+
+msgid "Acknowledged. Shuttles are on their way."
+msgstr "Erkänd. Skyttlar är på väg."
+
+msgid "There are now only two figureheads in the traitor group remaining: Isabel Nelson, and one other whose identity is currently being confirmed. Isabel Nelson has been located in the vicinity. As before, disable her fighter so she can be brought in. Disable any other surrendering targets."
+msgstr "Det finns nu bara två figureheads i förhörskoncernen kvar: Isabel Nelson, och en annan vars identitet för närvarande bekräftas. Isabel Nelson har varit beläget i närheten. Som tidigare, inaktivera hennes fighter så att hon kan komma in. Avaktivera andra övergivande mål."
+
+msgid "Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be."
+msgstr "Det ser ut som att tik Nelson fick sig en Rook. Var försiktig och var inte rädd för att döda henne om det behövs."
+
+msgid "Young, your orders are to bring Nelson in alive. Do not destroy that fighter."
+msgstr "Unga, dina order är att få Nelson i livet. Förstör inte den fighteren."
+
+msgid "Fine, we'll mag her."
+msgstr "Bra, vi kommer att lova henne."
+
+msgid "Preston's being a bit aggressive, don't you think?"
+msgstr "Preston är lite aggressiv, tycker du inte?"
+
+msgid "The commander's probably just fed up with all the in-fighting that's going on. Can't say I blame him."
+msgstr "Befälhavaren är nog bara trött på alla insatser som pågår. Kan inte säga att jag skyller på honom."
+
+msgid "Sparrows, we have confirmed the identity of the second traitor - it's Commander Young. Disable that fighter."
+msgstr "Sparrows, vi har bekräftat den andra förrädarens identitet - det är Commander Young. Inaktivera den fighteren."
+
+msgid "What the hell?!"
+msgstr "Vad i helvete?!"
+
+msgid "Explains things. Surrender, Commander, it's over."
+msgstr "Förklarar saker. Överlåtelse, befälhavare, det är över."
+
+msgid "Come and get me, Malcolm."
+msgstr "Kom och ta mig, Malcolm."
+
+msgid "What the hell, Commander, I never thought I'd see the day."
+msgstr "Vad fan, befälhavare, jag trodde aldrig att jag skulle se dagen."
+
+msgid "The CSN and UNF have lost, Malcolm, can't you see that? Time to cut our losses and get far away from here."
+msgstr "CSN och UNF har förlorat, Malcolm, kan du inte se det? Tiden att minska våra förluster och komma långt ifrån här."
+
+msgid "We haven't lost; we defeated Christabel, and--"
+msgstr "Vi har inte förlorat; vi besegrade Christabel, och--"
+
+msgid "And what about the Pandorans? They're winning this war, no one else! We can't beat them."
+msgstr "Och vad med pandorerna? De vinnar det här kriget, ingen annan! Vi kan inte slå dem."
+
+msgid "The Mitikans also tried running. Didn't exactly work out well for them, either."
+msgstr "Mitikanerna försökte också springa. Inte precis fungerade bra för dem heller."
+
+msgid "Fighting didn't turn out too well, either. It's every man for himself."
+msgstr "Kampen visade sig inte för bra heller. Det är varje man för sig själv."
+
+msgid "Commander, we're done here. Control, targets and area secured. Ready for pickup."
+msgstr "Commander, vi är färdiga här. Kontroll, mål och område säkrat. Redo för upphämtning."
+
+msgid "Our forces have taken heavy losses of the last few engagements, but there is still much to do. Three Pandoran corvettes have been tagged for destruction. We need to ensure that they are taken down, while we minimise losses of our own. We cannot afford to lose all of our own capital ships. Work fast, and assist Zenobia, Lady Jane Grey, and Tangka as needed."
+msgstr "Våra styrkor har gjort stora förluster av de senaste åtagandena, men det finns fortfarande mycket att göra. Tre pandorankorvetter har taggats för destruktion. Vi måste se till att de tas ner, samtidigt som vi minimerar förluster på egen hand. Vi har inte råd att förlora alla våra egna kapitalfartyg. Arbeta snabbt och hjälp Zenobia, Lady Jane Gray och Tangka efter behov."
+
+msgid "Enemy forces in range. Preparing to engage."
+msgstr "Enemy krafter i intervallet. Förbereder sig för att engagera."
+
+msgid "You heard it, people. Break and attack."
+msgstr "Du hörde det, folk. Bryt och attack."
+
+msgid "More enemy fighters incoming."
+msgstr "Fler fiendekämpare kommer in."
+
+msgid "We have reinforcements on the way, to help even the odds."
+msgstr "Vi har förstärkningar på vägen, för att hjälpa till med oddsen."
+
+msgid "One down, two to go."
+msgstr "En ned, två att gå."
+
+msgid "Another down, just one remaining. We can do this!"
+msgstr "En annan ner, bara en kvarstående. Vi kan göra det här!"
+
+msgid "That's all the enemy's capital ships down. Let's finish off the fighters."
+msgstr "Det är all fiendens huvudstad sänder ner. Låt oss avsluta fightersna."
+
+msgid "Not an easy battle, but we did it."
+msgstr "Inte en lätt kamp, ​​men vi gjorde det."
+
+msgid "Hope for the future. If we could just win all our battle like this ..."
+msgstr "Framtidshopp. Om vi ​​bara kunde vinna all vår kamp så här ..."
+
+msgid "It's not over yet. We need to join the others and continue to hit back."
+msgstr "Det är inte över än. Vi måste ansluta oss till de andra och fortsätta att slå tillbaka."
+
+msgid "Step it up, everyone! We can't continue to lose our corvettes."
+msgstr "Steg upp det, alla! Vi kan inte fortsätta att förlora våra korvetter."
+
+msgid "We're down to one corvette. We need to finish this now!"
+msgstr "Vi är nere på en korvett. Vi måste slutföra detta nu!"
+
+msgid "There were too many of them ..."
+msgstr "Det var för många av dem ..."
+
+msgid "The Pandorans are already deploying ground assault teams to Flint. The attack is in its early stages, with more troop carrier incoming. The enemy are meeting our defence lines aggressively, to clear a path for their landers. We need to hit back hard, and prevent Flint from being taken. Objective is simple: destroy all enemy forces."
+msgstr "Pandoranerna använder redan markövergreppsteam till Flint. Anfallet är i sina tidiga skeden, med mer troopbärare inkommande. Fienden möter våra försvar linjer aggressivt, för att rensa en väg för sina landare. Vi måste slå tillbaka hårt och förhindra att Flint tas. Målet är enkelt: förstör alla fiendens styrkor."
+
+msgid "The Pandorans are overunning our front line! We need to drive them back, now!"
+msgstr "Pandoranerna överdriver vår frontlinje! Vi måste köra tillbaka dem nu!"
+
+msgid "We're losing fighters, rapidly. We need to focus our efforts on dividing the enemy up and taking them down together."
+msgstr "Vi förlorar kämpar, snabbt. Vi måste fokusera vårt arbete på att dela upp fienden och ta ner dem tillsammans."
+
+msgid "Picking up incoming Tzac corvettes."
+msgstr "Plocka upp inkommande Tzac korvetter."
+
+msgid "We need to take down those capital ships, right away. Lt. Cdr. Dodds, lead the strike."
+msgstr "Vi måste ta ner dessa huvudfartyg direkt. Lt. Cdr. Dodds, leda strejken."
+
+msgid "HMS 711-444 has been taken down."
+msgstr "HMS 711-444 har tagits ner."
+
+msgid "HMS 313-777 is out of the game."
+msgstr "HMS 313-777 är ute av spelet."
+
+msgid "We're losing captial ships! We can't continue like this!"
+msgstr "Vi förlorar fångstfartyg! Vi kan inte fortsätta så här!"
+
+msgid "The Pandoran forces are closing in on Flint. They will commence planetary bombardment if allowed to get any closer."
+msgstr "Pandorankrafterna stänger in på Flint. De kommer att påbörja planetariska bombardemang om de får komma närmare."
+
+msgid "Dammit! That's all three of our corvettes down!"
+msgstr "Jäklar! Det är alla tre av våra korvetter!"
+
+msgid "Dodds, Commodore Parks has ordered that you pull out immediately."
+msgstr "Dodds, Commodore Parks har beställt att du drar ut omedelbart."
+
+msgid "Griffin, what the hell? We can take them!"
+msgstr "Griffin, vad i helvete? Vi kan ta dem!"
+
+msgid "That's a negative, Dodds. You're to return to the carrier, and prepare for withdrawal."
+msgstr "Det är en negativ, Dodds. Du ska återvända till transportören och förbereda dig för uttag."
+
+msgid "I'm not going to run away. Not again."
+msgstr "Jag kommer inte att springa iväg. Inte igen."
+
+msgid "Dodds, this is Commodore Park. I'm giving you a direct order. This isn't a battle we can win, and I'm not having you throw away your life or lose that starfighter. Get out, now. Final warning, mister."
+msgstr "Dodds, det här är Commodore Park. Jag ger dig en direkt order. Det här är inte en kamp vi kan vinna, och jag har inte dig kasta bort ditt liv eller förlora den här starfstjänsten. Gå ut nu. Slutlig varning, mister."
+
+msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both mentally and physically."
+msgstr "Vi är ledsna, Hicks, men du måste fortsätta att följa order. Vi är medvetna om vad som händer, men det här är för det större bra. Försök att komma igenom det här i ett stycke. Både mentalt och fysiskt."
+
+msgid "(This ... how can I do this? These are my friends.)"
+msgstr "(Detta ... hur kan jag göra det här? Det här är mina vänner.)"
+
+msgid "(I need to maintain my cover, or this whole operation could be blown.)"
+msgstr "(Jag behöver behålla mitt skydd, eller hela denna operation kan blåsas.)"
+
+msgid "(Sorry, everyone.)"
+msgstr "(Ledsen, alla.)"
+
+msgid "(They're going after the civilians again. I hope this ends soon. I'm not sure how much more this I can take.)"
+msgstr "(De går igen efter civilbefolkningen igen. Jag hoppas det slutar snart. Jag är inte säker på hur mycket mer jag kan ta.)"
+
+msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilian craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
+msgstr "Som redan bekräftat av Neal Stockwell har evakueringen av Oracle IX som svar på supernova inte utvecklats så snabbt som många skulle vilja. Och nu, med den pandoranska armén på farten, måste vi snabba takten. Ett antal civila stragglers har identifierats nära Oracle IX, som behöver escort till evakueringsplatsen. Ditt mål är att hitta alla civila hantverk i området och ta dem in. Inga fientliga styrkor förväntas, men det är bäst att vara på vakt."
+
+msgid "ABCs, this is Control. Round up those civilians and escort them to the jumpgate as quick as you can."
+msgstr "ABC, det här är Control. Runda upp de civila och eskortera dem till jumpgate så fort du kan."
+
+msgid "We're not expecting any opposition, but be prepared to engage hostiles if needed."
+msgstr "Vi förväntar oss ingen motstånd, men var beredda att engagera fientliga om det behövs."
+
+msgid "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised."
+msgstr "Vi har identifierat runt ett dussin fler stragglers som behöver tas in. Led dem till evakueringspunkten som tidigare. Var försiktig: intelligens plockade upp krypterade signaler som verkar matcha de som används av Pandorans för deras överföringar. Fientliga krafter bör vara förlovade och förstörda eller dirigerade vid kontakt. Civila förluster bör minimeras."
+
+msgid "Gaskin, INF fighters spotted! Pandorans, without a doubt!"
+msgstr "Gaskin, INF fighters såg! Pandoraner, utan tvekan!"
+
+msgid "Break and attack! Protect the civilians!"
+msgstr "Bryt och attack! Skydda civila!"
+
+msgid "That was a close one. Looks like they were scouting. We'll have to take extra precautions in future."
+msgstr "Det var nära ögat. Ser ut som om de scouting. Vi måste i framtiden vidta extra försiktighetsåtgärder."
+
+msgid "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now."
+msgstr "De sista etapperna av evakueringen pågår, men situationen blir stram. Vi har fått en SOS från en grupp civila som har kollat ​​in med några scavengers. Normalt skulle vi säkra området först innan vi tillämpade räddning, men med att situationen blir alltmer desperat, kommer vi att skicka ut bogseringen nu. Ta hem varje civilt fartyg - fienden bör ignorera dem för nu."
+
+msgid "The Pandorans' arrival is imminent, but the evacuation is nearing completion. We need only mop up some of the stragglers. Two of the White Knights will be assisting, before moving on to hit the enemy's supply line. You should concentrate on getting the civilians to safety, and letting the ATAFs do the bulk of the work."
+msgstr "Pandorans ankomst är nära förestående, men evakueringen är nära att slutföra. Vi behöver bara mop upp några av stragglersna. Två av de vita riddarna kommer att hjälpa, innan de går vidare för att slå fiendens utbudslinje. Du bör koncentrera dig på att få de civila till säkerhet, och låta ATAF: erna göra huvuddelen av arbetet."
+
+msgid "Enemy craft detected. Pandorans, in both INF and UNF fighters."
+msgstr "Enemy craft upptäckt. Pandoraner, både i INF och UNF fighters."
+
+msgid "Chaz, you're with me. Wiley, you and your boys get those civilians to the jumpgate."
+msgstr "Chaz, du är med mig. Wiley, du och dina pojkar får de civila till jumpgate."
+
+msgid "We've spotted the next group of civilians. Sending you the coordinates."
+msgstr "Vi har upptäckt nästa grupp civila. Skickar koordinaterna."
+
+msgid "Picking up more Pandoran fighters, moving to intercept."
+msgstr "Plocka upp fler pandoranska fighters, flytta till avlyssning."
+
+msgid "The final civilian group is here."
+msgstr "Den slutliga civila gruppen är här."
+
+msgid "More Pandorans. Keep knocking them down, Chaz. We're almost done."
+msgstr "Fler pandoraner. Fortsätt slå dem ner, Chaz. Vi är nästan färdiga."
+
+msgid "Control, this is Wiley. Civilians have been extracted."
+msgstr "Kontroll, det här är Wiley. Civila har extraherats."
+
+msgid "Wiley, ensure all enemy forces have been eliminated."
+msgstr "Wiley, se till att alla fiendens styrkor har eliminerats."
+
+msgid "Control, this is de Winter. All enemy forces have been destroyed."
+msgstr "Kontroll, det här är vinter. Alla fiendens styrkor har förstörts."
+
+msgid "Excellent, we're very grateful for the assistance."
+msgstr "Utmärkt, vi är väldigt tacksamma för hjälpen."
+
+msgid "The Pandoran fleet is closing in on Oracle IX, and their capital ships are moving rapidly up the field. We need to hold them back for as long as possible, to give the final evacuees time to escape the system. This will need to be done with fighters along. However, Lieutenant Commanders Taylor and Todd of the White Knights will be lending assistance with the ATAFs, which should give us the edge in battle."
+msgstr "Pandoranflottan hamnar på Oracle IX, och deras huvudfartyg går snabbt upp på fältet. Vi måste hålla dem tillbaka så länge som möjligt, för att ge de sista evacueerna tid att fly från systemet. Detta kommer att behöva göras med fighters längs. Löjtnantkommandörerna Taylor och Todd of the White Knights kommer dock att låna bistånd till ATAF: erna, vilket skulle ge oss kanten i strid."
+
+msgid "Our orders are to take down as many of the enemy corvettes as possible. Break and attack at will."
+msgstr "Våra order är att ta ner så många fiendens korvetter som möjligt. Bryta och attackera efter vilja."
+
+msgid "How many of them are we expecting?"
+msgstr "Hur många av dem förväntar vi oss?"
+
+msgid "Five, at least. And they have escorts, too."
+msgstr "Fem, åtminstone. Och de har eskort också."
+
+msgid "Hell, we're dropping like flies here!"
+msgstr "Helvete, vi släpper som flugor här!"
+
+msgid "Hang in there, Lieutenant, we'll try and cover you."
+msgstr "Häng in där, löjtnant, vi ska försöka täcka dig."
+
+msgid "Thunderbolt is down."
+msgstr "Thunderbolt är nere."
+
+msgid "Picking up two more Pandoran capital ships incoming."
+msgstr "Plocka upp ytterligare två Pandoran huvudstad fartyg inkommande."
+
+msgid "INF Gram and INF Morning Star have arrived. Follow my lead!"
+msgstr "INF Gram och INF Morning Star har anlänt. Följ efter mig!"
+
+msgid "Scratch another two Imperial corvettes."
+msgstr "Skrapa ytterligare två kejserliga korvetter."
+
+msgid "Tracking two more corvettes heading your way: Dragonlance and Trident."
+msgstr "Spåra ytterligare två korvetter på väg: Dragonlance och Trident."
+
+msgid "Dragonlance, eh? As in, a lance used for killing dragons? Yeah, they wish."
+msgstr "Dragonlance, va? Som i, en lans som används för att döda drakar? Ja, de önskar."
+
+msgid "They're not the only ones."
+msgstr "De är inte de enda."
+
+msgid "Leviathan, this is Taylor. All targets have been eliminated."
+msgstr "Leviathan, det här är Taylor. Alla mål har eliminerats."
+
+msgid "Acknowledged. We're preparing to fall back and abandon Warro. Return to Leviathan as soon as possible."
+msgstr "Erkänd. Vi förbereder oss för att falla tillbaka och överge Warro. Återvänd till Leviathan så snart som möjligt."
+
+msgid "Understood, will see you soon."
+msgstr "Förstått, vi ses snart."
+
+msgid "Nice working with you, Wiley."
+msgstr "Trevligt att jobba med dig, Wiley."
+
+msgid "Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ...."
+msgstr "Likaledes. Kanske får vi det att göra det igen en dag, men en del av mig hoppas verkligen att vi inte behöver ...."
+
+msgid "Destroy all Darts #1"
+msgstr "Förstör alla Dart # 1"
+
+msgid "Destroy all Darts #2"
+msgstr "Förstör alla Dart # 2"
+
+msgid "Destroy all Darts #3"
+msgstr "Förstör alla Dart # 3"
+
+msgid "Destroy all Lynxes"
+msgstr "Förstör alla Lynxes"
+
+msgid "Disable all targets"
+msgstr "Inaktivera alla mål"
+
+msgid "60 second battle"
+msgstr "60 andra striden"
+
+msgid "Pass all Waypoints"
+msgstr "Passera alla waypoints"
+
+msgid "Defend Jumpgate"
+msgstr "Försvara Jumpgate"
+
+msgid "Collect Packages"
+msgstr "Samla paket"
+
+msgid "Rescue Civilians"
+msgstr "Räddningsbefolkningen"
+
+msgid "Destroy INF Klondike and INF Canfield"
+msgstr "Förstör INF Klondike och INF Canfield"
+
+msgid "Collect packages"
+msgstr "Samla paket"
+
+msgid "Turret Takedown"
+msgstr "Turret Takedown"
+
+msgid "Swarms of Swarmers"
+msgstr "Svärmar av svampar"
+
+msgid "Piracy"
+msgstr "Piratkopiering"
+
+msgid "Swelling the Ranks"
+msgstr "Svullna ledningarna"
+
+msgid "Most Wanted"
+msgstr "Most Wanted"
+
+msgid "Solo Patrol"
+msgstr "Solo Patrol"
+
+msgid "Set Phasers to Stun"
+msgstr "Ställ Phasers till Stun"
+
+msgid "No survivors"
+msgstr "Inga överlevande"
+
+msgid "Initiation"
+msgstr "Initiering"
+
+msgid "Destroy all Darts #4"
+msgstr "Förstör alla Dart # 4"
+
+msgid "Surrender!"
+msgstr "Överlämna!"
+
+msgid "Gate Smasher"
+msgstr "Gate Smasher"
+
+msgid "Minefield Race"
+msgstr "Minefield Race"
+
+msgid "Surrender! #2"
+msgstr "Överlämna! # 2"
+
+msgid "Piracy #2"
+msgstr "Piratkopiering # 2"
+
+msgid "Shoot 'Em Up"
+msgstr "Skjut upp dem"
+
+msgid "Initiation #2"
+msgstr "Initiering # 2"
+
+msgid "Feast"
+msgstr "Fest"
+
+msgid "Bomber vs Bomber"
+msgstr "Bomber vs bomber"
+
+msgid "One of the seven"
+msgstr "En av de sju"
+
+msgid "Earn all other trophies"
+msgstr "Tjäna alla andra troféer"
+
+msgid "Plan B"
+msgstr "Plan B"
+
+msgid "Complete all campaign missions"
+msgstr "Fyll i alla kampanjuppdrag"
+
+msgid "Gentle start"
+msgstr "Gentle start"
+
+msgid "Complete a campaign mission"
+msgstr "Slutföra ett kampanjuppdrag"
+
+msgid "Ready for duty"
+msgstr "Klar för tjänst"
+
+msgid "Complete all the training missions at Sol"
+msgstr "Fyll i alla träningsuppdrag på Sol"
+
+msgid "Coyote Ugly"
+msgstr "Coyote Ugly"
+
+msgid "Complete all missions at Coyote"
+msgstr "Fyll i alla uppdrag på Coyote"
+
+msgid "Better late than never"
+msgstr "Bättre sent än aldrig"
+
+msgid "Complete all missions at Warro"
+msgstr "Fyll i alla uppdrag vid Warro"
+
+msgid "The shape of things to come"
+msgstr "Formen av saker som ska komma"
+
+msgid "Complete all missions at Iliad"
+msgstr "Fyll i alla uppdrag i Iliad"
+
+msgid "Now get the hell out of our galaxy!"
+msgstr "Nu kommer helvetet ut ur vår galax!"
+
+msgid "Complete all missions at Temper"
+msgstr "Fyll i alla uppdrag vid Temper"
+
+msgid "Going out with a bang"
+msgstr "Går ut med ett knäck"
+
+msgid "Complete all missions at Mace"
+msgstr "Fyll i alla uppdrag på Mace"
+
+msgid "Back against the wall"
+msgstr "Tillbaka mot väggen"
+
+msgid "Complete all missions at Rothan"
+msgstr "Fyll i alla uppdrag på Rothan"
+
+msgid "Now what do we do?"
+msgstr "Vad gör vi nu?"
+
+msgid "Complete all missions at Clarke"
+msgstr "Fyll i alla uppdrag hos Clarke"
+
+msgid "Trespasser"
+msgstr "Inkräktare"
+
+msgid "Complete all optional missions"
+msgstr "Fyll i alla valfria uppdrag"
+
+msgid "Truly epic"
+msgstr "Verkligen episk"
+
+msgid "Survive an epic battle"
+msgstr "Överlev en episk kamp"
+
+msgid "The bigger they are ..."
+msgstr "Ju större de är ..."
+
+msgid "Destroy an enemy capital ship"
+msgstr "Förstör ett fiendens huvudstad"
+
+msgid "Giant Slayer"
+msgstr "Jättedödare"
+
+msgid "Destroy 25 enemy capital ships"
+msgstr "Förstör 25 sjömäns huvudstad"
+
+msgid "Plenty more where that came from, unfortunately"
+msgstr "Mycket mer där det kom ifrån, tyvärr"
+
+msgid "Destroy a Pandoran-controlled craft"
+msgstr "Förstör ett Pandoran-kontrollerat hantverk"
+
+msgid "Oh man, I gotta get me one of these!"
+msgstr "Åh, jag måste ta mig en av dessa!"
+
+msgid "Pilot an ATAF during the campaign"
+msgstr "Pilot en ATAF under kampanjen"
+
+msgid "The 4th emergency service"
+msgstr "Den 4: e räddningstjänsten"
+
+msgid "Complete a mission using a Tug"
+msgstr "Slutför ett uppdrag med hjälp av en bogserbåt"
+
+msgid "Room for one more on top"
+msgstr "Rum för en mer på toppen"
+
+msgid "Complete a challenge using a Shuttle"
+msgstr "Utför en utmaning med hjälp av en Shuttle"
+
+msgid "Taking one for the team"
+msgstr "Tar en för laget"
+
+msgid "Be hit by a missile that was meant for someone else"
+msgstr "Slåss av en missil som var avsedd för någon annan"
+
+msgid "The bodyguard"
+msgstr "Livvaktaren"
+
+msgid "Hit an enemy with a missile intended for their wing leader"
+msgstr "Hit en fiende med en missil avsedd för sin vinge ledare"
+
+msgid "Dedicated"
+msgstr "Tillägnad"
+
+msgid "Complete 25%% of all challenges"
+msgstr "%% 25 %% av alla utmaningar"
+
+msgid "Obsessed"
+msgstr "Besatt"
+
+msgid "Complete 50%% of all challenges"
+msgstr "%% 50 %% av alla utmaningar"
+
+msgid "Completitonist"
+msgstr "Completitonist"
+
+msgid "Complete 100%% of all challenges"
+msgstr "Fullborda 100 %% av alla utmaningar"
+
+msgid "Hero"
+msgstr "Hjälte"
+
+msgid "Take down 50 enemies (player only)"
+msgstr "Ta ner 50 fiender (endast spelare)"
+
+msgid "Veteran"
+msgstr "Veteran"
+
+msgid "Take down 500 enemies (player only)"
+msgstr "Ta ner 500 fiender (endast spelare)"
+
+msgid "Legend"
+msgstr "Legend"
+
+msgid "Take down 2,500 enemies (player only)"
+msgstr "Ta ner 2500 fiender (endast spelare)"
+
+msgid "Your name's on one of these!"
+msgstr "Ditt namn är på en av dessa!"
+
+msgid "Fire 100,000 shots"
+msgstr "Brand 100 000 skott"
+
+msgid "Dodge this!"
+msgstr "Dodge detta!"
+
+msgid "Launch 500 missiles"
+msgstr "Starta 500 missiler"
+
+msgid "Isn't technology wonderful?"
+msgstr "Är inte tekniken underbar?"
+
+msgid "Use the ECM 250 times"
+msgstr "Använd ECM 250 gånger"
+
+msgid "Runaway!"
+msgstr "Spring iväg!"
+
+msgid "Boost 250 times"
+msgstr "Boost 250 gånger"
+
+msgid "Hoarder"
+msgstr "hoarder"
+
+msgid "Collect 250 items"
+msgstr "Samla 250 objekt"
+
+msgid "Missed, you f**kers!"
+msgstr "Missade, du f ** kers!"
+
+msgid "Evade 5 missiles"
+msgstr "Undvik 5 missiler"
+
+msgid "Sightseer"
+msgstr "sightseer"
+
+msgid "Visit 100 waypoints"
+msgstr "Besök 100 waypoints"
+
+msgid "Minesweeper"
+msgstr "Minsvepare"
+
+msgid "Destroy 255 mines (player only)"
+msgstr "Förstör 255 minuter (endast spelare)"
+
+msgid "Get out and push"
+msgstr "Gå ut och tryck"
+
+msgid "Disable 500 opponents"
+msgstr "Inaktivera 500 motståndare"
+
+msgid "Yippie-ki-yay"
+msgstr "Yippie-ki-yay"
+
+msgid "Destroy 13 or more enemies in an epic battle, without being killed (No ATAF)"
+msgstr "Förstör 13 eller fler fiender i en episk kamp utan att bli dödad (No ATAF)"
+
+msgid "Survivor"
+msgstr "Efterlevande"
+
+msgid "Complete an epic battle without being killed (No ATAF)"
+msgstr "Fullborda en episk kamp utan att bli dödad (Ingen ATAF)"
+
+msgid "Almost indestructible. Almost"
+msgstr "Nästan oförstörbar. Nästan"
+
+msgid "Be destroyed while piloting an ATAF"
+msgstr "Förstöras medan du pilotar en ATAF"
+
+msgid "Pacifist"
+msgstr "Pacifist"
+
+msgid "Complete a fighter-based campaign mission without firing"
+msgstr "Fullborda ett kampanjuppdrag utan kamp"
+
+msgid "2 birds, 1 stone"
+msgstr "2 fåglar, 1 sten"
+
+msgid "Destroy two or more fighters by shooting one mine"
+msgstr "Förstör två eller flera fighters genom att skjuta en gruva"
+
+msgid "Frequent flyer"
+msgstr "Frekvent flygblad"
+
+msgid "Destroy one of each type of common starfighter"
+msgstr "Förstör en av varje typ av vanlig starfighter"
+
+msgid "Not the face!"
+msgstr "Inte ansiktet!"
+
+msgid "Cause 50 enemies to surrender"
+msgstr "Orsak 50 fiender att överge"
+
+msgid "Revenge"
+msgstr "Hämnd"
+
+msgid "During an epic battle, kill the enemy that just killed you"
+msgstr "Under en episk kamp dödar du fienden som bara dödade dig"
+

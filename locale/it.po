@@ -1,0 +1,3147 @@
+# PO file for TBFTSS : The Pandoran War
+# Copyright 2015-2016, Stephen J Sweeney
+# This file is distributed under the GNU GPL 3.0
+# Email: stephenjsweeney@battleforthesolarsystem.com
+# https://github.com/stephenjsweeney/tbftss
+
+msgid ""
+msgstr ""
+"Project-Id-Version: TBFTSS: The Pandoran War\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-12 11:56:12+0100\n"
+"PO-Revision-Date: 2018-01-18 22:00:00+0000\n"
+"Last-Translator: Google Translate\n"
+"Language-Team: Google Translate\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%s is retreating!"
+msgstr "%s sta ritirando!"
+
+msgid "%s has surrendered"
+msgstr "%s è arreso"
+
+msgid "Are you sure you want to restart? You will lose your current progress."
+msgstr "Sei sicuro di voler ricominciare? Perderai i tuoi progressi attuali."
+
+msgid "Are you sure you want to quit? You will lose your current progress."
+msgstr "Sei sicuro di voler uscire? Perderai i tuoi progressi attuali."
+
+msgid "WARNING: INCOMING MISSILE!"
+msgstr "ATTENZIONE: MESSILE IN ARRIVO!"
+
+msgid "%s (Engine)"
+msgstr "%s (Motore)"
+
+msgid "%s (Component)"
+msgstr "%s (Componente)"
+
+msgid "%s (Gun)"
+msgstr "%s (pistola)"
+
+msgid "We've lost engines! We're a sitting duck!"
+msgstr "Abbiamo perso i motori! Siamo un'anatra seduta!"
+
+msgid "Our guns have been shot out! We have no defences!"
+msgstr "Le nostre pistole sono state sparate! Non abbiamo difese!"
+
+msgid "Be advised, we're taking damage here. Please step up support."
+msgstr "Sappi che stiamo subendo danni qui. Si prega di aumentare il supporto."
+
+msgid "We're sustaining heavy damage! All fighters, please assist, ASAP!"
+msgstr "Stiamo subendo gravi danni! Tutti i combattenti, si prega di assistere, AL PIÙ PRESTO!"
+
+msgid "Mayday! Mayday! Defences are critical. We can't hold out much longer!"
+msgstr "Primo Maggio! Primo Maggio! Le difese sono critiche. Non possiamo resistere ancora a lungo!"
+
+msgid "Mission target has escaped."
+msgstr "L'obiettivo della missione è sfuggito."
+
+msgid "Civilian has been killed"
+msgstr "Il civile è stato ucciso"
+
+msgid "Ally has been killed"
+msgstr "Ally è stato ucciso"
+
+msgid "Particle Cannon"
+msgstr "Cannone a particelle"
+
+msgid "Plasma Cannon"
+msgstr "Cannone al plasma"
+
+msgid "Laser Cannon"
+msgstr "Cannone laser"
+
+msgid "Mag Cannon"
+msgstr "Mag Cannon"
+
+msgid "Rockets"
+msgstr "Rockets"
+
+msgid "Missiles"
+msgstr "missili"
+
+msgid "Missiles (%d)"
+msgstr "Missili ( %d )"
+
+msgid "Target: %.2fkm"
+msgstr "Target:% .2km"
+
+msgid "(None)"
+msgstr "(Nessuna)"
+
+msgid "(Combined Guns)"
+msgstr "(Pistole combinate)"
+
+msgid "System Power : %d%%"
+msgstr "Potenza del sistema: %d %%"
+
+msgid "%s (Leader)"
+msgstr "%s (Leader)"
+
+msgid "Objective: %.2fkm"
+msgstr "Obiettivo:% .2km"
+
+msgid "Jumpgate: %.2fkm"
+msgstr "Jumpgate:% .2fkm"
+
+msgid "SELECT NEW FIGHTER"
+msgstr "SELEZIONA IL NUOVO COMBATTENTE"
+
+msgid "Suspicion"
+msgstr "Sospetto"
+
+msgid "Remaining Pilots: %d"
+msgstr "Piloti rimanenti: %d"
+
+msgid "Picked up %s"
+msgstr "Raccolto %s"
+
+msgid "Jumpgate System Node"
+msgstr "Nodo di sistema Jumpgate"
+
+msgid "Incomplete"
+msgstr "incompleto"
+
+msgid "Complete"
+msgstr "Completare"
+
+msgid "Failed"
+msgstr "mancato"
+
+msgid "Condition"
+msgstr "Condizione"
+
+msgid "OBJECTIVES"
+msgstr "OBIETTIVI"
+
+msgid "(none)"
+msgstr "(nessuna)"
+
+msgid "Time Limit: %s"
+msgstr "Limite di tempo: %s"
+
+msgid "%s - Objective Complete!"
+msgstr "%s - Obiettivo completato!"
+
+msgid "%s - Objective Failed!"
+msgstr "%s - Obiettivo fallito!"
+
+msgid "New Objective : %s"
+msgstr "Nuovo obiettivo: %s"
+
+msgid "Do not lose more than %d pilots"
+msgstr "Non perdere più di %d piloti"
+
+msgid "Destroy at least %d enemy fighters"
+msgstr "Distruggi almeno %d combattenti nemici"
+
+msgid "Challenge Failed!"
+msgstr "Sfida fallita!"
+
+msgid "Target not in range"
+msgstr "Obiettivo non compreso nell'intervallo"
+
+msgid "Out of missiles"
+msgstr "Fuori dai missili"
+
+msgid "Caution: Leaving battle area - turn around."
+msgstr "Attenzione: Lasciando l'area di battaglia, girati."
+
+msgid "Tow rope attached"
+msgstr "Fune di traino collegata"
+
+msgid "Mission Complete!"
+msgstr "Missione completata!"
+
+msgid "Mission Failed!"
+msgstr "Missione fallita!"
+
+msgid "Cannot activate waypoint - outstanding objectives not yet complete"
+msgstr "Impossibile attivare il waypoint: obiettivi eccezionali non ancora completati"
+
+msgid "Cannot activate waypoint - eliminate enemies first"
+msgstr "Impossibile attivare il waypoint: elimina prima i nemici"
+
+msgid "Cannot activate waypoint - team mates too far away"
+msgstr "Impossibile attivare il waypoint: i compagni di squadra sono troppo lontani"
+
+msgid "Challenges"
+msgstr "Le sfide"
+
+msgid "Completed : %d / %d"
+msgstr "Completato: %d / %d"
+
+msgid "Page : %d / %d"
+msgstr "Pagina: %d / %d"
+
+msgid "[Locked]"
+msgstr "[Chiuso]"
+
+msgid "Craft: %s"
+msgstr "Craft: %s"
+
+msgid "Restrictions: %s"
+msgstr "Restrizioni: %s"
+
+msgid "No Missiles"
+msgstr "Nessun missile"
+
+msgid "No ECM"
+msgstr "No ECM"
+
+msgid "No Boost"
+msgstr "No Boost"
+
+msgid "No Guns"
+msgstr "Niente pistole"
+
+msgid "Retain at least %d%% armour"
+msgstr "Conserva almeno %d %% armatura"
+
+msgid "Complete challenge in %d seconds or less"
+msgstr "Completa la sfida in %d secondi o meno"
+
+msgid "Survive for %d seconds"
+msgstr "Sopravvivi per %d secondi"
+
+msgid "Attain a %d%% shot hit accuracy"
+msgstr "Raggiungi una precisione del colpo da %d %%"
+
+msgid "Attain a %d%% rocket hit accuracy"
+msgstr "Ottieni una precisione di colpo di razzo %d %%"
+
+msgid "Attain a %d%% missile hit accuracy"
+msgstr "Raggiungi una precisione di colpo del missile %d %%"
+
+msgid "Do not lose any team mates"
+msgstr "Non perdere nessun compagno di squadra"
+
+msgid "Do not lose more than 1 team mate"
+msgstr "Non perdere più di 1 compagno di squadra"
+
+msgid "Do not lose more than %d team mates"
+msgstr "Non perdere più di %d compagni di squadra"
+
+msgid "Take down %d enemy targets"
+msgstr "Elimina %d bersagli nemici"
+
+msgid "Disable %d or more enemy fighters"
+msgstr "Disattiva %d o più combattenti nemici"
+
+msgid "Collect %d packages"
+msgstr "Colleziona %d pacchetti"
+
+msgid "Rescue %d civilians"
+msgstr "Salvataggio di %d civili"
+
+msgid "Cause %d enemies to surrender"
+msgstr "Causa %d nemici da arrendersi"
+
+msgid "Reach %d waypoints"
+msgstr "Raggiungi %d waypoint"
+
+msgid "Complete challenge in %s or less"
+msgstr "Completa la sfida in %s o meno"
+
+msgid "Missions: %d / %d"
+msgstr "Missioni: %d / %d"
+
+msgid "Pilot: %s"
+msgstr "Pilota: %s"
+
+msgid "Squadron: %s"
+msgstr "Squadrone: %s"
+
+msgid "This mission has been completed."
+msgstr "Questa missione è stata completata."
+
+msgid "Note: this is an epic mission."
+msgstr "Nota: questa è una missione epica."
+
+msgid "Note: this is an optional mission."
+msgstr "Nota: questa è una missione opzionale."
+
+msgid "Congratulations, you have completed the campaign! You may now replay past missions, for fun, to boost stats, or to earn missing trophies!"
+msgstr "Congratulazioni, hai completato la campagna! Ora puoi ripetere le missioni passate, per divertimento, per aumentare le statistiche o guadagnare trofei mancanti!"
+
+msgid "%s has fallen to the Pandorans"
+msgstr "%s è caduto ai Pandoran"
+
+msgid "Fighter Database"
+msgstr "Database dei caccia"
+
+msgid "Page %d / %d"
+msgstr "Pagina %d / %d"
+
+msgid "(Common)"
+msgstr "(Comune)"
+
+msgid "Destroyed"
+msgstr "Distrutto"
+
+msgid "Affiliation"
+msgstr "Affiliazione"
+
+msgid "Armour"
+msgstr "Armatura"
+
+msgid "Shield"
+msgstr "Scudo"
+
+msgid "Speed"
+msgstr "Velocità"
+
+msgid "Percent Complete"
+msgstr "Percentuale completata"
+
+msgid "Missions Started"
+msgstr "Missioni iniziate"
+
+msgid "Missions Completed"
+msgstr "Missioni completate"
+
+msgid "Optional Missions Completed"
+msgstr "Missioni opzionali completate"
+
+msgid "Challenges Started"
+msgstr "Le sfide sono iniziate"
+
+msgid "Challenges Completed"
+msgstr "Sfide completate"
+
+msgid "Shots Fired"
+msgstr "Colpi sparati"
+
+msgid "Shots Hit"
+msgstr "Colpi di colpi"
+
+msgid "Accuracy"
+msgstr "Precisione"
+
+msgid "Rockets Fired"
+msgstr "Razzi licenziati"
+
+msgid "Rockets Hit"
+msgstr "Colpo di razzi"
+
+msgid "Missiles Fired"
+msgstr "Missili sparati"
+
+msgid "Missiles Hit"
+msgstr "Colpo di missili"
+
+msgid "Enemies Killed"
+msgstr "Nemici uccisi"
+
+msgid "Enemies Killed (Player)"
+msgstr "Nemici uccisi (giocatore)"
+
+msgid "Allies Killed"
+msgstr "Alleati uccisi"
+
+msgid "Times Killed"
+msgstr "Volte uccise"
+
+msgid "Enemies Disabled"
+msgstr "Nemici disabili"
+
+msgid "Enemies Escaped"
+msgstr "I nemici sono scappati"
+
+msgid "ECM Used"
+msgstr "ECM usato"
+
+msgid "Boost Used"
+msgstr "Boost Used"
+
+msgid "Missiles Evaded"
+msgstr "Missili sottratti"
+
+msgid "Missiles Struck Player"
+msgstr "Missili Giocatore colpito"
+
+msgid "Civilians Rescued"
+msgstr "Civili salvati"
+
+msgid "Civilians Killed"
+msgstr "Civili uccisi"
+
+msgid "Times used Tug"
+msgstr "I tempi usati Tug"
+
+msgid "Times used Shuttle"
+msgstr "I tempi utilizzati Shuttle"
+
+msgid "Craft Towed"
+msgstr "Rimorchio artigianale"
+
+msgid "Items Collected"
+msgstr "Oggetti raccolti"
+
+msgid "Items Collected (Player)"
+msgstr "Articoli raccolti (giocatore)"
+
+msgid "Longest Epic Kill Streak"
+msgstr "La più lunga sequenza di uccisioni epiche"
+
+msgid "Waypoints Visited"
+msgstr "Waypoint visitati"
+
+msgid "Capital Ships Destroyed"
+msgstr "Navi capitali Distrutte"
+
+msgid "Capital Ships Lost"
+msgstr "Capital Ships Lost"
+
+msgid "Mines Destroyed"
+msgstr "Miniere distrutte"
+
+msgid "Enemies Surrendered"
+msgstr "I nemici si arrendono"
+
+msgid "Time Played"
+msgstr "Tempo giocato"
+
+msgid "Stats"
+msgstr "Statistiche"
+
+msgid "Trophies"
+msgstr "trofei"
+
+msgid "Awarded : %d / %d"
+msgstr "Assegnato: %d / %d"
+
+msgid "[Hidden]"
+msgstr "[Nascosto]"
+
+msgid "Fire"
+msgstr "Fuoco"
+
+msgid "Accelerate"
+msgstr "Accelerare"
+
+msgid "Boost"
+msgstr "Incremento"
+
+msgid "ECM"
+msgstr "ECM"
+
+msgid "Brake"
+msgstr "Freno"
+
+msgid "Select Target"
+msgstr "Seleziona Target"
+
+msgid "Fire Missile"
+msgstr "Fire Missile"
+
+msgid "Cycle Guns"
+msgstr "Pistole a ciclo"
+
+msgid "Cycle Radar"
+msgstr "Cycle Radar"
+
+msgid "Next Fighter"
+msgstr "Next Fighter"
+
+msgid "Previous Fighter"
+msgstr "Combattente precedente"
+
+msgid "Screenshot"
+msgstr "Immagine dello schermo"
+
+msgid "Controls"
+msgstr "controlli"
+
+msgid "Click a control to change it, and then the key or mouse button you want to use."
+msgstr "Fare clic su un controllo per modificarlo e quindi sul tasto o sul pulsante del mouse che si desidera utilizzare."
+
+msgid "[BACKSPACE] - Clear"
+msgstr "[BACKSPACE] - Cancella"
+
+msgid "[ESCAPE] - Cancel"
+msgstr "[ESCAPE] - Annulla"
+
+msgid "Options"
+msgstr "Opzioni"
+
+msgid "Note: you must restart the game for window size and fullscreen options to take effect."
+msgstr "Nota: è necessario riavviare il gioco per rendere effettive le dimensioni della finestra e le opzioni a schermo intero."
+
+msgid "Note: this device does not support changing the screen resolution."
+msgstr "Nota: questo dispositivo non supporta la modifica della risoluzione dello schermo."
+
+msgid "Retry"
+msgstr "Riprova"
+
+msgid "Quit"
+msgstr "Smettere"
+
+msgid "Continue"
+msgstr "Continua"
+
+msgid "Resume"
+msgstr "Curriculum vitae"
+
+msgid "Return to Title"
+msgstr "Ritorna al titolo"
+
+msgid "Start Challenge Mission"
+msgstr "Inizia la missione di sfida"
+
+msgid "OK"
+msgstr "ok"
+
+msgid "Restore Defaults"
+msgstr "Ripristina i valori predefiniti"
+
+msgid "Restart"
+msgstr "Ricomincia"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Window Size"
+msgstr "Dimensione della finestra"
+
+msgid "Sound Volume"
+msgstr "Volume del suono"
+
+msgid "Music Volume"
+msgstr "Volume della musica"
+
+msgid "Fullscreen"
+msgstr "A schermo intero"
+
+msgid "Controls ..."
+msgstr "Controlli ..."
+
+msgid "Start Mission"
+msgstr "Inizia la missione"
+
+msgid "X"
+msgstr "X"
+
+msgid "Campaign"
+msgstr "Campagna"
+
+msgid "Credits"
+msgstr "Crediti"
+
+msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
+msgstr "Con i Pandoriani che hanno invaso i sistemi indipendenti a bordo dell'impero Mitikas, dobbiamo diventare più vigili. Si stanno intensificando le pattuglie intorno a Torelli. Assicurati di colpire tutti i waypoint e segnala qualsiasi attività insolita che incontri."
+
+msgid "Anyone got anything to report?"
+msgstr "Qualcuno ha qualcosa da segnalare?"
+
+msgid "You getting paranoid, Curtis?"
+msgstr "Stai diventando paranoico, Curtis?"
+
+msgid "You all saw what happened at Coyote."
+msgstr "Hai visto tutti quello che è successo al Coyote."
+
+msgid "So, those Pandorans are, what, robots?"
+msgstr "Quindi, quei Pandoran sono, cosa, robot?"
+
+msgid "Alien-Human hybrid, I heard."
+msgstr "Ibrido alieno-umano, ho sentito."
+
+msgid "Hard to kill, whatever they are. Heard they'll still be coming at you even if you take both arms off."
+msgstr "Difficile da uccidere, qualunque cosa siano. Ho sentito che continueranno a venire da te anche se toglierai entrambe le braccia."
+
+msgid "And what'll they do then? Bite you to death?"
+msgstr "E cosa faranno allora? Morditi a morte?"
+
+msgid "Eyes open, lads."
+msgstr "Occhi aperti, ragazzi."
+
+msgid "We're done. Anyone detect anything unusual?"
+msgstr "Sono state fatte. Qualcuno rileva qualcosa di insolito?"
+
+msgid "Same old, same old."
+msgstr "Stesso vecchio stesso vecchio."
+
+msgid "Believe me, that's a good thing. Right, let's head home and report in."
+msgstr "Credimi, questa è una buona cosa. Bene, torniamo a casa e facciamo rapporto."
+
+msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presence is reducing the amount of illegal activity in this sector, with reported incidents down 80%%. Still, we cannot afford to become complacent, and must continue with our sweeps."
+msgstr "Le pattuglie finora non hanno scoperto nulla di insolito, e sembra che l'aumento della presenza militare stia riducendo la quantità di attività illegali in questo settore, con incidenti riportati dell'80 %% . Tuttavia, non possiamo permetterci di diventare compiacenti, e dobbiamo continuare con le nostre spazzate."
+
+msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
+msgstr "Eightballers, hai nemici in arrivo. Identificato come 3 combattenti Mitikas; Sciacalli, forse Pandoran. Impegnarsi, ma esercitare la massima cautela."
+
+msgid "Control, enemies have been dispatched. Wasn't a comfortable fight."
+msgstr "Controllo, i nemici sono stati spediti. Non era una lotta confortevole."
+
+msgid "Eightballers, return home immediately, and deliver a full report. Do not leave out a single detail."
+msgstr "Eightballers, torna subito a casa e consegna un rapporto completo. Non lasciare un singolo dettaglio."
+
+msgid "Got it. See you soon."
+msgstr "Fatto. A presto."
+
+msgid "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter."
+msgstr "Dopo la devastante perdita del sistema dell'Iliade, dobbiamo continuare a essere vigili contro l'incursione nel sistema di Alba. Controlla tutti e cinque i waypoint e segnala immediatamente eventuali attività insolite o sospette che incontri."
+
+msgid "So, Iliad has fallen?"
+msgstr "Quindi, Iliade è caduto?"
+
+msgid "From what I've heard."
+msgstr "Da quello che ho sentito."
+
+msgid "Did they retreat, or ..."
+msgstr "Si ritirarono, o ..."
+
+msgid "They fought to the very last."
+msgstr "Hanno combattuto fino all'ultimo."
+
+msgid "So that's it. The Pandorans have won?"
+msgstr "Quindi è così. I Pandoriani hanno vinto?"
+
+msgid "At Iliad, yes. Unless the local forces there can somehow hold off the enemy's ground assault."
+msgstr "All'Iliade, sì. A meno che le forze locali non possano in qualche modo resistere all'assalto terrestre del nemico."
+
+msgid "It's ... possible, right?"
+msgstr "È ... possibile, giusto?"
+
+msgid "The Pandorans will just nuke the place when they're done. They'll take what they need, kill everyone who stands in their way ..."
+msgstr "I Pandoriani arriveranno a distruggere il posto quando avranno finito. Prenderanno ciò di cui hanno bisogno, uccideranno tutti quelli che stanno sulla loro strada ..."
+
+msgid "And even those who don't."
+msgstr "E anche quelli che non lo fanno."
+
+msgid "...and move on."
+msgstr "...E vai avanti."
+
+msgid "You're quiet, Wade."
+msgstr "Stai zitto, Wade."
+
+msgid "Just thinking."
+msgstr "Solo pensando."
+
+msgid "What about?"
+msgstr "Che dire?"
+
+msgid "How long it'll be before the Pandorans show up here."
+msgstr "Quanto ci vorrà prima che i Pandoriani si presentino qui."
+
+msgid "They came by earlier, in case you don't remember."
+msgstr "Sono venuti prima, nel caso non ti ricordi."
+
+msgid "And haven't been back since. Maybe we scared them off."
+msgstr "E non sono più tornato da allora. Forse li abbiamo spaventati."
+
+msgid "I doubt it, guys. They were probably just scouting."
+msgstr "Ne dubito, ragazzi. Probabilmente stavano solo scouting."
+
+msgid "Where the hell are the CSN? Why weren't they at Iliad?"
+msgstr "Dove diavolo è il CSN? Perché non erano a Iliade?"
+
+msgid "They weren't wanted, apparently. Iliad and the UNF aren't getting along so well at the moment."
+msgstr "Non erano ricercati, a quanto pare. L'Iliade e l'UNF non vanno d'accordo così bene al momento."
+
+msgid "Something to do with Adrian Parsons?"
+msgstr "Qualcosa a che fare con Adrian Parsons?"
+
+msgid "That bloody idiot? It wouldn't surprise me. He's the reason we're now in this mess! If I ever meet that guy, nothing'll stop me from-"
+msgstr "Quel maledetto idiota? Non mi sorprenderebbe. È la ragione per cui siamo ora in questo casino! Se mai incontrerò quel ragazzo, niente mi impedirà di ..."
+
+msgid "Hey, mind what you say. All these communications are logged."
+msgstr "Ehi, pensa a quello che dici. Tutte queste comunicazioni sono registrate."
+
+msgid "(indecipherable muttering)"
+msgstr "(borbotti indecifrabili)"
+
+msgid "What do you mean, it's all Parsons' fault?"
+msgstr "Cosa intendi per colpa di Parsons?"
+
+msgid "He made an executive decision over in Coyote several months ago, that screwed everything up. Something about being charged with a super weapon."
+msgstr "Ha preso una decisione esecutiva in Coyote diversi mesi fa, che ha rovinato tutto. Qualcosa sull'essere accusato di una super arma."
+
+msgid "Grendel's Mother?"
+msgstr "La madre di Grendel?"
+
+msgid "No, something it was carrying. Linked to the ATAFs, apparently."
+msgstr "No, qualcosa che stava trasportando. Legato agli ATAF, a quanto pare."
+
+msgid "The CSN built something that nuked a whole load of allied and Pandoran forces. It wasn't meant to be used in Coyote, though."
+msgstr "Il CSN ha costruito qualcosa che ha ammazzato un intero carico di forze alleate e di Pandoran. Non era pensato per essere usato in Coyote, però."
+
+msgid "You don't say."
+msgstr "Non dici."
+
+msgid "Okay, lads, let's wrap this topic up, eh?"
+msgstr "Ok, ragazzi, andiamo a concludere questo argomento, eh?"
+
+msgid "That's it, all done. Anyone got anything to report?"
+msgstr "Questo è tutto, tutto fatto. Qualcuno ha qualcosa da segnalare?"
+
+msgid "Nothing."
+msgstr "Niente."
+
+msgid "Nope."
+msgstr "No."
+
+msgid "Okay, let's get home and report in."
+msgstr "Ok, torniamo a casa e facciamo rapporto."
+
+msgid "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations."
+msgstr "Un certo numero di sistemi chiave indipendenti sono stati attaccati simultaneamente dalle forze Tzac. Dobbiamo cacciarli via, così da poter continuare a concentrarci sulla minaccia più pressante dell'esercito Pandoriano. In questo momento, è fondamentale che impediamo a Christabel di ottenere vantaggi significativi accumulando le sue forze in questi luoghi."
+
+msgid "Three Tzac fighter groups has been sighted in the area. We need to hunt them down and eliminate them."
+msgstr "Tre gruppi di caccia Tzac sono stati avvistati nell'area. Dobbiamo cacciarli ed eliminarli."
+
+msgid "Enemies sighted."
+msgstr "Nemici avvistati."
+
+msgid "Break and attack, people!"
+msgstr "Rompi e attacca, gente!"
+
+msgid "That's the first group handled. Let's get to the next waypoint."
+msgstr "Questo è il primo gruppo gestito. Andiamo al prossimo waypoint."
+
+msgid "Second group located."
+msgstr "Secondo gruppo situato."
+
+msgid "Control, this is Rice. Nine enemy fighters downed. Moving to the final waypoint."
+msgstr "Controllo, questa è Rice. Nove combattenti nemici abbattuti. Passaggio al waypoint finale."
+
+msgid "Final group spotted."
+msgstr "Gruppo finale individuato."
+
+msgid "That's all of them."
+msgstr "Questo è tutto di loro."
+
+msgid "Not as tough as I was expecting."
+msgstr "Non così difficile come mi aspettavo."
+
+msgid "I think they're testing the water, like our Pandoran friends before them."
+msgstr "Penso che stiano testando l'acqua, come i nostri amici Pandoran prima di loro."
+
+msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
+msgstr "Faremo meglio a prepararci per un attacco importante nei prossimi giorni. Speriamo non da entrambi contemporaneamente."
+
+msgid "Tzac forces are continuing to make aggressive moves against Alba. Its forces need to be driven back, and out of the system entirely. Naval power is starting to come under strain, and these continued assaults could leave us vulnerable to a Pandoran attack."
+msgstr "Le forze Tzac continuano a fare mosse aggressive contro Alba. Le sue forze devono essere respinte e completamente fuori dal sistema. Il potere navale sta iniziando a subire tensioni, e questi continui assalti potrebbero lasciarci vulnerabili a un attacco pandoriano."
+
+msgid "Break and attack, lads. Let's send these guys back home."
+msgstr "Rompi e attacca, ragazzi. Mandiamo questi ragazzi a casa."
+
+msgid "More Tzac fighters incoming."
+msgstr "Altri guerrieri Tzac in arrivo."
+
+msgid "Steel yourself, lads. Even more Tzac forces are heading our way."
+msgstr "Sali tu stesso, ragazzi. Ancora più forze Tzac si stanno dirigendo verso di noi."
+
+msgid "Picking up two capital ships, moving in."
+msgstr "Prendere due navi capitali, trasferirsi."
+
+msgid "Wait, those aren't only Tzac forces ... "
+msgstr "Aspetta, quelli non sono solo forze Tzac ... "
+
+msgid "Ah, hell! Now we've got Pandorans, too?!"
+msgstr "Ah, diavolo! Ora abbiamo anche Pandoran ?!"
+
+msgid "Commander, we're getting shot to ribbons here! We need to fallback!"
+msgstr "Comandante, qui ci spareranno dei nastri! Abbiamo bisogno di fallback!"
+
+msgid "We can't let EITHER of these two win! That would be a major loss for all of us."
+msgstr "Non possiamo permettere a EITHER di questi due di vincere! Sarebbe una grande perdita per tutti noi."
+
+msgid "Eightballers, de Winter of the White Knights, here to assist."
+msgstr "Eightballers, de Winter of the White Knights, qui per aiutare."
+
+msgid "White Knights! Am I glad to see you. Your timing couldn't be better."
+msgstr "Cavalieri bianchi! Sono felice di vederti. Il tuo tempismo non potrebbe essere migliore."
+
+msgid "I owe you my life, Knights."
+msgstr "Ti devo la mia vita, Cavalieri."
+
+msgid "We're all in this together, Rice. I'm sorry we arrived too late to save your wingmates."
+msgstr "Siamo tutti insieme, Rice. Mi dispiace che siamo arrivati ​​troppo tardi per salvare i tuoi compagni di stanza."
+
+msgid "They were good guys. They'll be missed."
+msgstr "Erano bravi ragazzi. Ci mancheranno."
+
+msgid "We're needed elsewhere. We'll see you soon."
+msgstr "Ci serve altrove. Ci vediamo presto."
+
+msgid "While Trilliack is happy to arrest the traitors it brings in, Alba wishes to dole out swift punishment for their actions. Eliminate all enemy targets, with the exception of any fighters that surrender. Only those are to be brought in."
+msgstr "Mentre Trilliack è felice di arrestare i traditori che porta, Alba vuole dare una punizione rapida per le loro azioni. Elimina tutti i bersagli nemici, ad eccezione di tutti i combattenti che si arrendono. Solo quelli devono essere portati dentro"
+
+msgid "Our orders are to destroy all opposing fighters, except any who surrender. They're to be magged, instead."
+msgstr "I nostri ordini sono di distruggere tutti i combattenti avversari, tranne quelli che si arrendono. Devono essere magati, invece."
+
+msgid "One of them has surrendered. Mag him, ASAP."
+msgstr "Uno di loro si è arreso. Magh, APPENA POSSIBILE."
+
+msgid "Another has thrown in the towel. Disable that fighter!"
+msgstr "Un altro ha gettato la spugna. Disabilita quel combattente!"
+
+msgid "Four of them have now surrendered."
+msgstr "Quattro di loro si sono arresi."
+
+msgid "I'd have been expecting more of them to have surrendered than this."
+msgstr "Mi sarei aspettato che più di loro si fossero arresi."
+
+msgid "Some are clearly braver than others."
+msgstr "Alcuni sono chiaramente più coraggiosi di altri."
+
+msgid "Or perhaps stupider."
+msgstr "O forse più stupido."
+
+msgid "Good work, everyone. Control are sending tugs to bring these guys in."
+msgstr "Buon lavoro, tutti. Il controllo sta inviando i rimorchiatori per portare questi ragazzi."
+
+msgid "Think they'll get a long sentence?"
+msgstr "Pensi che avranno una lunga frase?"
+
+msgid "Depends on how many capable pilots we can afford to keep shoving behind bars ..."
+msgstr "Dipende da quanti piloti capaci possiamo permetterci di continuare a spingere dietro le sbarre ..."
+
+msgid "Roman Burgess, one of the masterminds behind the illicit arms and information smuggling to Tzac, has been located. Senior command want this man alive, so that he can be interrogated and lead us to the others. He must not under any circumstances be allowed to be killed."
+msgstr "È stata individuata Roman Burgess, una delle menti dietro il contrabbando di armi e informazioni illecite a Tzac. Il comando anziano vuole quest'uomo vivo, in modo che possa essere interrogato e condurci agli altri. Non deve in nessun caso essere permesso di essere ucciso."
+
+msgid "We need Burgess alive. The others should be destroyed unless they surrender."
+msgstr "Abbiamo bisogno di Burgess vivo. Gli altri dovrebbero essere distrutti a meno che non si arrendano."
+
+msgid "Strickland, the situation just escalated. A wing of Pandoran fighters just entered the area."
+msgstr "Strickland, la situazione si è appena intensificata. Un'ala di combattenti Pandoran è appena entrata nell'area."
+
+msgid "Dammit! People, we need to keep those fighters away from Burgess. We can't lose that lead!"
+msgstr "Dannazione! Gente, dobbiamo tenere quei combattenti lontano da Burgess. Non possiamo perdere questo vantaggio!"
+
+msgid "Where'd they get those Shales from?"
+msgstr "Da dove hanno preso quegli Shales?"
+
+msgid "From Christabel's ill-advised decision to attack the Enemy directly, no doubt."
+msgstr "Dalla decisione sconsiderata di Christabel di attaccare il nemico direttamente, senza dubbio."
+
+msgid "To hell with you! Christabel was our only hope of surviving this thing."
+msgstr "Al diavolo! Christabel era la nostra unica speranza di sopravvivere a questa cosa."
+
+msgid "Save it, buddy. You can spill it all at the court martial."
+msgstr "Salvalo, amico. Puoi rovesciarlo tutto alla corte marziale."
+
+msgid "Looks like that's it."
+msgstr "Sembra che sia così."
+
+msgid "Good flying today, Seth."
+msgstr "Buon volo oggi, Seth."
+
+msgid "Thank you. I'm just glad to have survived another day."
+msgstr "Grazie. Sono solo felice di essere sopravvissuto un altro giorno."
+
+msgid "We'll get through this. Neither of us are getting flagged before the end of this thing."
+msgstr "Ci arriveremo. Nessuno di noi viene segnalato prima della fine di questa cosa."
+
+msgid "The Pandorans have begun moving forces into the system, and formed a number of staging grounds. Some of these grounds consist of Tzac fighters that have been acquired from Crystabel's forces. As of now, they are non-operational, but are being defended by some mobile plasma turrets. The objective is simple: destroy those fighters."
+msgstr "I Pandoriani hanno iniziato a spostare le forze nel sistema, e hanno formato una serie di motivi di sosta. Alcuni di questi terreni consistono in caccia Tzac che sono stati acquisiti dalle forze di Crystabel. A partire da ora, non sono operativi, ma vengono difesi da alcune torrette di plasma mobili. L'obiettivo è semplice: distruggere quei combattenti."
+
+msgid "Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette."
+msgstr "Mietitori, sembra che l'opposizione sia più pesante di quanto previsto in precedenza. Stiamo raccogliendo una corvetta di Tzac."
+
+msgid "Got it. All fighters, we need Inca to survive this one. We can't afford to lose any more capital ships."
+msgstr "Fatto. Tutti i combattenti, abbiamo bisogno di Inca per sopravvivere a questo. Non possiamo permetterci di perdere altre navi capitali."
+
+msgid "Looks like there are some tugs trying to extract the Tzac fighters."
+msgstr "Sembra che ci siano alcuni rimorchiatori che cercano di estrarre i combattenti dello Tzac."
+
+msgid "I see them. Take them out before they can get away."
+msgstr "Li vedo. Toglili prima che possano scappare."
+
+msgid "Rice, we've got INF fighters incoming."
+msgstr "Rice, abbiamo dei combattenti INF in arrivo."
+
+msgid "Huh, I actually thought they'd have been here sooner. Prepare to engage."
+msgstr "Huh, in realtà pensavo che sarebbero stati qui prima. Preparati a impegnarti."
+
+msgid "That's the staging ground taken care of. Now--"
+msgstr "Questo è il terreno di sosta curato. Adesso--"
+
+msgid "Rice, we've got a big problem: a very large number of Pandoran ships just arrived in the system. Torelli is being evacuated."
+msgstr "Riso, abbiamo un grosso problema: un gran numero di navi Pandoran sono appena arrivate nel sistema. Torelli viene evacuato."
+
+msgid "Never enough, is it?"
+msgstr "Mai abbastanza, vero?"
+
+msgid "With the Pandorans upping their aggression, we have taken steps to start evacuating the Alba system. Many civilians will be using craft incapable of forming of their jump points, and so will be reliant on the gates. We therefore must ensure that these gates remain functional, and that all Pandoran opposition is held back."
+msgstr "Con i Pandoriani che aumentano la loro aggressività, abbiamo preso provvedimenti per iniziare a evacuare il sistema di Alba. Molti civili useranno imbarcazioni incapaci di formare i loro punti di salto, e quindi si affideranno ai cancelli. Dobbiamo quindi garantire che queste porte rimangano funzionanti e che tutta l'opposizione pandoriana sia trattenuta."
+
+msgid "Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters."
+msgstr "Taylor, raggiungi il cancello il più velocemente possibile e preparati a difenderlo. Essere avvisati: i Pandorani ora comandano combattenti INF, UNF e Tzac."
+
+msgid "There are civilians in the area. What about them?"
+msgstr "Ci sono dei civili nella zona. Che ne pensi di loro?"
+
+msgid "Their needs are secondary. If we lose that gate, no one's getting out of here."
+msgstr "I loro bisogni sono secondari. Se perdiamo quel cancello, nessuno uscirà da qui."
+
+msgid "Taylor, the jumpgate is taking damage. You need to keep the Pandorans away from it!"
+msgstr "Taylor, il jumpgate sta subendo danni. Devi tenere lontano i Pandoriani!"
+
+msgid "Half the jumpgate's control nodes have been destroyed. We can't afford to lose that gate!"
+msgstr "La metà dei nodi di controllo del jumpgate è stata distrutta. Non possiamo permetterci di perdere quel cancello!"
+
+msgid "Taylor, a Pandoran corvette just jumped into the area. It's heading for the gate. You need to take it down."
+msgstr "Taylor, una corvetta di Pandoran è appena saltata nell'area. Si sta dirigendo verso il cancello. Devi abbatterlo."
+
+msgid "Taylor, another Pandoran corvette just arrived. Identifier is INF BC-41."
+msgstr "Taylor, un'altra corvetta Pandoran appena arrivata. L'identificatore è INF BC-41."
+
+msgid "Both corvettes are down."
+msgstr "Entrambe le corvette sono giù."
+
+msgid "Excellent work, Taylor. Eliminate the remaining enemy fighters, and await further instructions."
+msgstr "Ottimo lavoro, Taylor. Elimina i restanti combattenti nemici e attendi ulteriori istruzioni."
+
+msgid "Area secure."
+msgstr "Area sicura."
+
+msgid "How's the jumpgate looking?"
+msgstr "Come sta il jumpgate?"
+
+msgid "Some damage, but it's still operational."
+msgstr "Alcuni danni, ma è ancora operativo."
+
+msgid "Good work. Continue to guard the gate, and eliminate any incoming enemy threats."
+msgstr "Buon lavoro. Continua a sorvegliare il cancello ed elimina le minacce nemiche in arrivo."
+
+msgid "Got it."
+msgstr "Fatto."
+
+msgid "The Pandorans are pressing home their advantage, and moving many of their capital ships up the field. They are presently closing in on Torelli, and will almost certainly begin a ground assault once within range. CSN Dragon is being used to clear their path to the planet, and while you're not going to engage the planet itself, we need to ensure the survival of our own capital ships as much as possible."
+msgstr "I Pandorani stanno facendo pressione sul loro vantaggio e spostano molte delle loro navi capitali sul campo. Si stanno attualmente avvicinando a Torelli, e quasi certamente inizieranno un assalto di terra una volta a tiro. Il Dragone CSN viene usato per liberare il loro percorso verso il pianeta e, mentre non si impegnerà il pianeta stesso, dobbiamo garantire il più possibile la sopravvivenza delle nostre navi capitali."
+
+msgid "White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!"
+msgstr "White Knights, la linea di difesa di Alba sta crollando. Dobbiamo abbattere le navi capitali dei Pandoriani, ora!"
+
+msgid "Acknowledged. Chaz, we hit them with everything you've got."
+msgstr "Riconosciuto. Chaz, li colpiamo con tutto ciò che hai."
+
+msgid "Dammit, down to two corvettes."
+msgstr "Dannazione, fino a due corvette."
+
+msgid "Dragon is pushing through to Torelli. We need to drive it back."
+msgstr "Dragon sta arrivando a Torelli. Dobbiamo riportarlo indietro."
+
+msgid "Another corvette lost. We're being overrun."
+msgstr "Un'altra corvetta persa. Siamo stati sopraffatti."
+
+msgid "You Knights want to actually do something? We're being slaughtered out here!"
+msgstr "Cavalieri vuoi davvero fare qualcosa? Siamo stati massacrati qui!"
+
+msgid "Ignore him, Estelle; don't get involved."
+msgstr "Ignoralo, Estelle; non essere coinvolto"
+
+msgid "That's all the corvettes down. We'll have to take on Dragon with fighters--"
+msgstr "Ecco tutte le corvette. Dovremo affrontare Dragon con i combattenti--"
+
+msgid "Dragon's powering it's anti-matter cannon. It's preparing to fire at UNF Lotan"
+msgstr "Il drago sta alimentando il suo cannone anti-materia. Si sta preparando a sparare a UNF Lotan"
+
+msgid "Dragon's firing!"
+msgstr "Drago sta sparando!"
+
+msgid "Dragon missed! Lotan managed to evade to attack!"
+msgstr "Manca il drago! Lotan è riuscito a sfuggire all'attacco!"
+
+msgid "It'll be a while before it can fire its main cannon again. This is our chance to--"
+msgstr "Ci vorrà un po 'prima che possa sparare di nuovo il suo cannone principale. Questa è la nostra occasione per--"
+
+msgid "The anti-matter ball is still going ... It's heading for Torelli."
+msgstr "La palla anti-materia sta ancora andando ... Si sta dirigendo verso Torelli."
+
+msgid "Impact in 10 seconds ..."
+msgstr "Impatto in 10 secondi ..."
+
+msgid "5 Seconds ..."
+msgstr "5 secondi ..."
+
+msgid "(Shouting)"
+msgstr "(Urlando)"
+
+msgid "Estelle, Torelli ..."
+msgstr "Estelle, Torelli ..."
+
+msgid "Oh my God."
+msgstr "Dio mio."
+
+msgid "What the hell just happened?!"
+msgstr "Che diavolo è successo?!"
+
+msgid "The anti-matter ball must've exploded in the atmosphere, and ignited it."
+msgstr "La sfera antimateria deve essere esplosa nell'atmosfera e accesa."
+
+msgid "How ... how did the Pandorans know that would happen?!"
+msgstr "Come ... come sapevano i Pandoriani che sarebbe successo ?!"
+
+msgid "I don't think they did; they just got lucky."
+msgstr "Non penso che lo abbiano fatto; sono stati fortunati."
+
+msgid "And now they'll use that against every planet they come to."
+msgstr "E ora lo useranno contro ogni pianeta in cui arrivano."
+
+msgid "All forces, retreat immediately! Repeat: retreat immediately. White Knights, dock, and prepare for withdrawal."
+msgstr "Tutte le forze, ritirati immediatamente! Ripeti: ritirati immediatamente. Cavalieri bianchi, attracca e preparati per il ritiro."
+
+msgid "..."
+msgstr "..."
+
+msgid "White Knights, please acknowledge."
+msgstr "Cavalieri bianchi, per favore conferma."
+
+msgid "Acknowledged. Estelle, we have to leave. It's over."
+msgstr "Riconosciuto. Estelle, dobbiamo andare. È finita."
+
+msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
+msgstr "I combattenti di Tzac stanno entrando nel jumpgate. Dobbiamo fermarli prima che causino danni seri."
+
+msgid "Goddard, command of this operation will fall to you, if events lead to me being unable to participate fully."
+msgstr "Goddard, il comando di questa operazione ti ricadrà, se gli eventi mi porterebbero a non essere in grado di partecipare pienamente."
+
+msgid "Picking up a second group of fighters, incoming."
+msgstr "Raccogliendo un secondo gruppo di combattenti, in arrivo."
+
+msgid "More fighters, inbound!"
+msgstr "Più combattenti, in arrivo!"
+
+msgid "The jumpgate is taking damage!"
+msgstr "Il jumpgate sta subendo danni!"
+
+msgid "Half the jumpgate's control nodes have been destroyed! We need to step up our efforts to defend it!"
+msgstr "La metà dei nodi di controllo del jumpgate è stata distrutta! Dobbiamo intensificare i nostri sforzi per difenderlo!"
+
+msgid "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed."
+msgstr "Con la minaccia dei mercenari sventata e gli attacchi iniziali di Tzac sventati, è ora di iniziare a respingere le forze di Christabel. Abbiamo in programma di catturare un certo numero di loro comandanti, per aiutare a costruire un quadro migliore delle forze a Mace, prima di entrare nel sistema. Come sempre, mag i bersagli e non permettere che vengano uccisi."
+
+msgid "Tzac fighters spotted, both commanders are here. Goddard, disable those fighters as soon as you can."
+msgstr "Tzac combattenti individuati, entrambi i comandanti sono qui. Goddard, disabilita quei combattenti il ​​prima possibile."
+
+msgid "Squadron commanders disabled."
+msgstr "Comandatari dello squadrone disabilitati."
+
+msgid "Great work, everyone. We just need to wait for the tugs to arrive and bring these guys in."
+msgstr "Ottimo lavoro, tutti. Dobbiamo solo aspettare che arrivino i rimorchiatori e portarli dentro."
+
+msgid "Commander, I'm reading incoming fighter signature: Darts."
+msgstr "Comandante, sto leggendo la firma del combattente in arrivo: Darts."
+
+msgid "I'll bet my house those are mercenaries, and given that the relationship with Tzac didn't end amicably they're probably targetting the commanders. We can't afford to lose them."
+msgstr "Scommetto casa mia che sono mercenari, e visto che il rapporto con Tzac non si è concluso amichevolmente, probabilmente si rivolgono ai comandanti. Non possiamo permetterci di perderli."
+
+msgid "All Darts have been dispatched, Commander."
+msgstr "Tutti i dardi sono stati spediti, comandante."
+
+msgid "Good. Not often we end up having to protect the enemy from another."
+msgstr "Buona. Non spesso finiamo per dover proteggere il nemico da un altro."
+
+msgid "Tugs are on the way. Should be here in the next few minutes"
+msgstr "Rimorchiatori sono in arrivo. Dovrebbe essere qui nei prossimi minuti"
+
+msgid "The Pandorans are continuing to knock on our door, and so we need to continue to engage them. Intercept and take down all enemy fighters. The Imperial frigate INF Sharpfinger is also in the sector, and needs to be destroyed."
+msgstr "I Pandoriani stanno continuando a bussare alla nostra porta, e quindi dobbiamo continuare a coinvolgerli. Intercetta e abbatti tutti i combattenti nemici. Anche la fregata imperiale INF Sharpfinger è nel settore e deve essere distrutta."
+
+msgid "People, divide yourselves between the fighters and the Sharpfinger."
+msgstr "Gente, dividetevi tra i combattenti e lo Sharp."
+
+msgid "We couldn't spare any bombers, so we just need to get in there and take them all on."
+msgstr "Non abbiamo potuto risparmiare nessun bombardiere, quindi abbiamo solo bisogno di entrare e portarli tutti via."
+
+msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
+msgstr "Abbiamo ricevuto notizie da CSN Florin che hanno subito un'interruzione di corrente, che ha colpito l'intera nave. La nave arenata ha attirato l'attenzione dei Pandoriani, che hanno già dispiegato navette e rimorchiatori per assorbirlo nelle loro file. I Salty Wildcats intercetteranno e forniranno una copertura finché Florin non avrà ripercussioni sulle riparazioni."
+
+msgid "Florin, this is Black of the Salty Wildcats, here to assist."
+msgstr "Florin, questo è Black of the Salty Wildcats, qui per aiutarti."
+
+msgid "Glad to see you, Wildcats. The Pandorans arrived shortly before you did. We've got tugs and shuttles incoming."
+msgstr "Felice di vederti, Wildcats. I Pandoriani arrivarono poco prima di te. Abbiamo rimorchiatori e navette in arrivo."
+
+msgid "Acknowledged, we'll secure the area while you get things up and running."
+msgstr "Riconosciuto, proteggiamo l'area mentre tu ti alzi in piedi."
+
+msgid "Florin, Pandoran vessels have been dealt with."
+msgstr "Sono state trattate le navi Florin e Pandoran."
+
+msgid "Many thanks, Wildcats. We've identified the cause of the power outage. Should be no more than a few minutes before we can restart all systems."
+msgstr "Molte grazie, Wildcats. Abbiamo identificato la causa dell'interruzione dell'alimentazione. Dovrebbero essere non più di pochi minuti prima di poter riavviare tutti i sistemi."
+
+msgid "Wildcats, we're picking up an incoming squadron."
+msgstr "Wildcats, stiamo raccogliendo uno squadrone in arrivo."
+
+msgid "More Pandoran tugs?"
+msgstr "Altri rimorchiatori Pandoran?"
+
+msgid "Negative. These appear to be non-aligned forces, fighters and bombers."
+msgstr "Negativo. Queste sembrano forze non allineate, combattenti e bombardieri."
+
+msgid "Incoming forces are on intercept vectors. We only need a few more minutes."
+msgstr "Le forze in arrivo sono su vettori di intercettazione. Abbiamo solo bisogno di qualche minuto in più."
+
+msgid "On it."
+msgstr "Su di essa."
+
+msgid "Looks like that's all of them."
+msgstr "Sembra che siano tutti loro."
+
+msgid "Those were Kingdom of Tzac fighters. We've heard reports of them being active in some Confederation systems."
+msgstr "Quelli erano combattenti del Regno di Tzac. Abbiamo sentito che sono attivi in ​​alcuni sistemi della Confederazione."
+
+msgid "Would appear that Christabel is finally ready to make good on all her threats. Great, so now we have both her AND the Pandorans to deal with."
+msgstr "Sembrerebbe che Christabel sia finalmente pronta a rimediare a tutte le sue minacce. Grande, quindi ora abbiamo sia lei che i Pandoran con cui confrontarsi."
+
+msgid "It never rains ..."
+msgstr "Non piove mai ..."
+
+msgid "We're starting systems up again. Once we've completed pre-jump checks we're heading for Temper. Thank you for your assistance."
+msgstr "Stiamo riavviando i sistemi. Una volta che abbiamo completato i controlli pre-salto, ci stiamo dirigendo verso Temper. Grazie per il vostro aiuto."
+
+msgid "We'll meet you there."
+msgstr "Ci incontreremo lì."
+
+msgid "Tzac bombers have been identified in the area, deploying mines. While this violates intergalactic treaties, we could never assume that Tzac, much like the Pandorans, would abide by the rules of war. We need to take down those bombers quickly. Exercise caution around the mines, as they are especially potent."
+msgstr "I bombardieri di Tzac sono stati identificati nell'area, dispiegando mine. Mentre questo viola i trattati intergalattici, non potremmo mai presumere che Tzac, proprio come i Pandoriani, si atterrà alle regole della guerra. Dobbiamo abbattere rapidamente quei bombardieri. Esercitare cautela intorno alle miniere, poiché sono particolarmente potenti."
+
+msgid "Watch out for those mines. They're on proximity triggers and have a large area of effect."
+msgstr "Fai attenzione a quelle miniere. Sono su trigger di prossimità e hanno una vasta area di effetto."
+
+msgid "Take them out from a distance, otherwise you'll be in trouble."
+msgstr "Portali fuori da una certa distanza, altrimenti sarai nei guai."
+
+msgid "That's the bombers taken care of, but the area is still littered with mines."
+msgstr "Sono gli attentatori che si prendono cura di loro, ma l'area è ancora piena di mine."
+
+msgid "We'll need to get a team in here to take care of them."
+msgstr "Avremo bisogno di avere una squadra qui per prendersi cura di loro."
+
+msgid "Following the elimination of the Tzac bombers, we need to clear the leftover mines from the system, in case they cause us difficulties in later operations. As always, the mines should be taken down from a distance, to minimise the chances of damage being caused to your fighter during their destruction."
+msgstr "Dopo l'eliminazione degli attentatori di Tzac, dobbiamo eliminare le mine rimaste dal sistema, nel caso in cui ci causino difficoltà nelle operazioni successive. Come sempre, le mine dovrebbero essere tolte da una distanza, per minimizzare le possibilità di danni causati al tuo combattente durante la loro distruzione."
+
+msgid "Reyes, proceed with caution. Those mines are equipped with radar damping fields, that will prevent them from showing up at anything but close range."
+msgstr "Reyes, procedere con cautela. Queste miniere sono dotate di campi di smorzamento del radar, che impediscono loro di presentarsi a qualsiasi cosa tranne che a distanza ravvicinata."
+
+msgid "Remember to take them out from a distance; your TAF won't be able to withstand much impact damage from the explosions."
+msgstr "Ricordati di portarli fuori da una certa distanza; il tuo TAF non sarà in grado di sopportare molti danni da impatto dalle esplosioni."
+
+msgid "Reyes, we're detecting incoming fighter signatures. Looks like Darts, possibly pirates. Eliminate as necessary."
+msgstr "Reyes, stiamo rilevando le firme dei caccia in arrivo. Sembra Darts, possibilmente pirati. Eliminare se necessario."
+
+msgid "Control, I've dealt with both the mines and the Darts. Any idea who those guys were?"
+msgstr "Controllo, mi sono occupato sia delle miniere che delle freccette. Qualche idea su chi fossero quei ragazzi?"
+
+msgid "A report is being generated right now. Should be ready by the time you return."
+msgstr "Un rapporto viene generato in questo momento. Dovrebbe essere pronto per il momento in cui ritorni."
+
+msgid "I noticed that none of those Darts tripped any mines. Maybe those were Tzac fighters?"
+msgstr "Ho notato che nessuno di quei dardi ha fatto inciampare in nessuna miniera. Forse quelli erano combattenti dello Tzac?"
+
+msgid "Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing."
+msgstr "Non è mai stato noto che Tzac dispiegasse freccette, ma quella era un'osservazione importante. Forniscici il maggior numero possibile di dettagli durante il debriefing."
+
+msgid "A large Tzac force has gathered in Aster. The White Knights are being sent in alone to deal with it. We need to continue to show that we are capable of winning these engagements with minimal losses to the enemy force. Mag and disable all Tzac craft in the area, and do not allow any to be destroyed, even by stray fire."
+msgstr "Una grande forza Tzac si è radunata ad Aster. I White Knights vengono inviati da soli per affrontarlo. Dobbiamo continuare a dimostrare che siamo in grado di vincere questi impegni con perdite minime alla forza nemica. Mag e disabilita tutti i velivoli Tzac nell'area e non permettere che alcuno venga distrutto, nemmeno da un incendio vagante."
+
+msgid "Remember, guys: mags only against the fighters. We're not here to take any more lives."
+msgstr "Ricorda, ragazzi: riviste solo contro i combattenti. Non siamo qui per prendere altre vite."
+
+msgid "For the corvettes, concentrate fire on the engines and the guns. Once it's out of the game, move onto the next one."
+msgstr "Per le corvette, concentrati sul fuoco e sui cannoni. Una volta fuori dal gioco, passa a quello successivo."
+
+msgid "We should lure the fighters away from the capital ships. Stray fire against a disabled ship could destroy it."
+msgstr "Dovremmo attirare i combattenti lontano dalle navi capitali. Sparare contro una nave disabile potrebbe distruggerlo."
+
+msgid "Good point, Chaz, we should be mindful of friendly-fire."
+msgstr "Buon punto, Chaz, dovremmo essere consapevoli del fuoco amico."
+
+msgid "Brings back memories, doesn't it?"
+msgstr "Porta indietro i ricordi, vero?"
+
+msgid "So long as we don't end up back in Phylent after this."
+msgstr "Finché non torniamo a Phylent dopo questo."
+
+msgid "This going in your journal, Kelly?"
+msgstr "Sta entrando nel tuo diario, Kelly?"
+
+msgid "Everything. It could be important one day."
+msgstr "Qualunque cosa. Potrebbe essere importante un giorno."
+
+msgid "Have fun with the names of Tzac's cap ships."
+msgstr "Divertiti con i nomi delle navi di Tzac's cap."
+
+msgid "I'll just refer to the battle logs. Military records tend to be accurate."
+msgstr "Mi riferirò solo ai registri delle battaglie. I record militari tendono ad essere precisi."
+
+msgid "Most of the time."
+msgstr "La maggior parte delle volte."
+
+msgid "All fighters disabled."
+msgstr "Tutti i combattenti disabili."
+
+msgid "Corvettes are all out of the game."
+msgstr "Le corvette sono tutte fuori dal gioco."
+
+msgid "Griffin, this is de Winter. Opposing forces are no longer a threat."
+msgstr "Griffin, questo è de Winter. Le forze avversarie non sono più una minaccia."
+
+msgid "Any casualties?"
+msgstr "Qualche ferita?"
+
+msgid "No. All fighters and caps have been shutdown, and ready for pickup."
+msgstr "No. Tutti i combattenti e i berretti sono stati spenti e pronti per il ritiro."
+
+msgid "Great work, Knights. Clean up will commence shortly. Standby for new instructions."
+msgstr "Ottimo lavoro, Cavalieri. La pulizia inizierà a breve. Standby per nuove istruzioni."
+
+msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
+msgstr "Il giorno che abbiamo temuto e gli eventi che abbiamo cercato di evitare sono ora su di noi - l'esercito pandoriano ha iniziato la sua spinta oltre lo spazio di Mitikas, e sta cominciando ad attaccare i vicini sistemi stellari indipendenti. Dobbiamo contrattaccare, per proteggere Clarke dall'essere sottovalutato da questa minaccia. Fate attenzione: questa non sarà una battaglia facile, ma abbiamo poca scelta e dobbiamo assicurarci la vittoria qui oggi."
+
+msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down INF Dirk. Ensure the Lynx-class bombers can get in close enough to delivery a strike."
+msgstr "Abbiamo attraversato con successo diversi squadroni di combattenti Pandoran, ma le loro navi capitali si stanno avvicinando rapidamente a Dublino. Il tuo obiettivo è abbattere INF Dirk. Assicurati che i bombardieri della classe Lynx possano avvicinarsi abbastanza da dare un colpo."
+
+msgid "Commander, I would recommend we take out the escorts first."
+msgstr "Comandante, raccomanderei di portare fuori prima le escort."
+
+msgid "Agreed. The Dirk on its own would already prove a challenge."
+msgstr "Concordato. Il Dirk da solo sarebbe già una sfida."
+
+msgid "INF Dirk has been downed."
+msgstr "INF Dirk è stato abbattuto."
+
+msgid "This is Carlyle. Enemy corvette has been destroyed. All other fighters scratched."
+msgstr "Questo è Carlyle. La corvetta nemica è stata distrutta. Tutti gli altri combattenti hanno graffiato."
+
+msgid "That's good work, Commander. We're preparing to engage more enemies, so we can't put our feet up just yet."
+msgstr "È un buon lavoro, comandante. Ci stiamo preparando per ingaggiare più nemici, quindi non possiamo ancora alzarci."
+
+msgid "Hell. Okay, we'll return momentarily. Carlyle out."
+msgstr "Inferno. Ok, torneremo momentaneamente. Carlyle."
+
+msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra and UNF Artemis are moving to intercept more enemy corvettes. Your orders are to assist them in achieving their goals."
+msgstr "Dobbiamo continuare a abbattere le navi captiali del nemico, scavare e mantenere la linea qui. Molte delle nostre navi cap stanno dirigendo il campo per incontrare i Pandoriani. UNF Cleopatra e UNF Artemis si stanno muovendo per intercettare altre corvette nemiche. I tuoi ordini sono di aiutarli a raggiungere i loro obiettivi."
+
+msgid "INF Khopesh is down."
+msgstr "INF Khopesh è giù."
+
+msgid "INF Blackjack has been destroyed."
+msgstr "Il Blackjack INF è stato distrutto."
+
+msgid "This is Carlyle. Enemy targets have been eliminated. Cleopatra and Artemis still in one piece."
+msgstr "Questo è Carlyle. Gli obiettivi nemici sono stati eliminati. Cleopatra e Artemis sono ancora tutti d'un pezzo."
+
+msgid "Acknowledged. Fall back to the main fleet and await new instructions."
+msgstr "Riconosciuto. Torna alla flotta principale e attendi nuove istruzioni."
+
+msgid "This is going to be a long day, eh?"
+msgstr "Questa sarà una lunga giornata, eh?"
+
+msgid "Maybe not, if we continue to lose ground the way we are already ..."
+msgstr "Forse no, se continuiamo a perdere terreno nel modo in cui siamo già ..."
+
+msgid "White Knights, Commodore Parks has identified three enemy corvettes are high level targets. He wants Dodds, Koonan and Todd to take them down, as quickly as possible. There won't be any additional fighter support, but three ATAFs should be more than enough to get the job done. de Winter and Taylor are currently on another assignment. Dodds will lead the attack."
+msgstr "White Knights, Commodore Parks ha identificato tre corvette nemiche come bersagli ad alto livello. Vuole che Dodds, Koonan e Todd li portino giù, il più rapidamente possibile. Non ci sarà alcun supporto combattente aggiuntivo, ma tre ATAF dovrebbero essere più che sufficienti per portare a termine il lavoro. de Winter e Taylor sono attualmente impegnati in un altro incarico. Dodds guiderà l'attacco."
+
+msgid "Targets sighted: three capital ships, five escorts apiece."
+msgstr "Obiettivi avvistati: tre navi capitali, cinque scorte a testa."
+
+msgid "You know what to do, guys. Let's take them down."
+msgstr "Sai cosa fare, ragazzi. Prendiamoli giù."
+
+msgid "Want to take bets on how soon before they run?"
+msgstr "Vuoi scommettere su quanto tempo prima di correre?"
+
+msgid "Wouldn't call that a fair bet, mate. We all know they won't."
+msgstr "Non lo chiamerei una scommessa giusta, amico. Sappiamo tutti che non lo faranno."
+
+msgid "More fighters inbound."
+msgstr "Più combattenti in arrivo."
+
+msgid "Picking up another Pandoran squadron, incoming."
+msgstr "Prendendo un altro squadrone Pandoran, in arrivo."
+
+msgid "See? That's why I didn't make a bet with you!"
+msgstr "Vedere? Ecco perché non ho fatto una scommessa con te!"
+
+msgid "All capital ships down. That's, what, fifty of these things we've scratched, alone?"
+msgstr "Tutte le navi capitali giù. Ecco, cosa, cinquanta di queste cose abbiamo graffiato, da solo?"
+
+msgid "Seriously, I've lost count."
+msgstr "Seriamente, ho perso il conto."
+
+msgid "How many more can the Pandorans have?"
+msgstr "Quanti altri possono avere i Pandoriani?"
+
+msgid "Only way we'll find out is if we go to Kethlan, and I'm not keen on heading there anytime soon."
+msgstr "L'unico modo che scopriremo è se andiamo a Kethlan, e non sono entusiasta di andare lì in qualsiasi momento presto."
+
+msgid "Chaz, anything?"
+msgstr "Chaz, niente?"
+
+msgid "Negative."
+msgstr "Negativo."
+
+msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
+msgstr "Okay, torniamo a Leviathan e aspettiamo che Kelly ed Estelle ci raggiungano."
+
+msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive impact on ours. The frigate's support groups will need to be destroyed first."
+msgstr "Abbiamo scoperto che Alysha's Calling, una delle fregate del nemico di più alto profilo, è attualmente nel sistema. Stiamo preparando una squadra d'assalto di Hammerheads, guidata dai Twilight Lancers, per coinvolgerla e distruggerla. Non si sa quali effetti, se ce ne saranno, la distruzione di questa nave avrà sul morale del nemico, ma può avere solo un impatto positivo sul nostro. I gruppi di supporto della fregata dovranno prima essere distrutti."
+
+msgid "First squadron sighted. Moving to intercept."
+msgstr "Primo squadrone avvistato. Spostamento per intercettare."
+
+msgid "First squadron taken down, preparing to engage second."
+msgstr "Primo squadrone abbattuto, pronto a impegnarsi secondo."
+
+msgid "Second squadron down. Moving up the field to engage Alysha's Calling."
+msgstr "Secondo squadrone in giù. Salendo il campo per coinvolgere la chiamata di Alysha."
+
+msgid "Welch, we're tracking a large number of fast-moving objects heading your way. IDs don't match anything we currently have on record."
+msgstr "Welch, stiamo monitorando un gran numero di oggetti in rapido movimento diretti verso di te. Gli ID non corrispondono a ciò che attualmente abbiamo registrato."
+
+msgid "Missiles?"
+msgstr "Missili?"
+
+msgid "Too large. We'll relay more information as we get it. Be prepared to engage."
+msgstr "Troppo grande. Trasmetteremo più informazioni man mano che le otteniamo. Essere pronti a impegnarsi"
+
+msgid "Whatever these things are, they're not hard to dispatch."
+msgstr "Qualunque cosa siano, non sono difficili da spedire."
+
+msgid "No, but there's a lot of them ..."
+msgstr "No, ma ce ne sono molti ..."
+
+msgid "Welch, we're detecting more of the swarmer things heading your way."
+msgstr "Welch, stiamo rilevando altre cose più brulicanti che si stanno dirigendo verso di te."
+
+msgid "How many more?"
+msgstr "Quanti ancora?"
+
+msgid "Tracking around three dozen, and the numbers are rising."
+msgstr "Tracciando circa tre dozzine, e i numeri stanno aumentando."
+
+msgid "Thunderbird, this is Welch. Swarmers have been taken care of."
+msgstr "Thunderbird, questo è Welch. Gli sciami sono stati curati."
+
+msgid "Good to hear, Commander. We're pulling you out there, to assist the other squadrons."
+msgstr "Buono a sapersi, comandante. Ti stiamo tirando là fuori, per aiutare gli altri squadroni."
+
+msgid "What about Alysha?"
+msgstr "Che mi dici di Alysha?"
+
+msgid "The target is no longer a priority. Clarke's front line is collapsing. They need reinforcement, ASAP."
+msgstr "L'obiettivo non è più una priorità. La linea del fronte di Clarke sta crollando. Hanno bisogno di rinforzo, APPENA POSSIBILE."
+
+msgid "Understood. Heading there now."
+msgstr "Inteso. Dirigersi lì ora."
+
+msgid "The enemy are beginning to overrun our front line. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen."
+msgstr "Il nemico sta iniziando a travolgere la nostra linea del fronte. Il tuo obiettivo è semplice: coinvolgi e distruggi tutte le forze nemiche. Non possiamo permetterci di perdere più terreno qui. Fare ciò significherebbe subire la sconfitta e Clarke cadere nella flotta Pandoran. Questo non deve accadere."
+
+msgid "The Twilight Lancers are on their way."
+msgstr "I Twilight Lancers stanno arrivando."
+
+msgid "Eight whole extra fighters? We might outnumber the enemy, but they still outgun us!"
+msgstr "Otto combattenti interi in più? Potremmo sorpassare il nemico, ma ci stanno ancora superando!"
+
+msgid "At this point, any additional support is welcome. And we still have the support of Cleopatra and Artemis."
+msgstr "A questo punto, qualsiasi supporto aggiuntivo è benvenuto. E abbiamo ancora il supporto di Cleopatra e Artemis."
+
+msgid "Welch here, engaging targets."
+msgstr "Welch qui, obiettivi coinvolgenti."
+
+msgid "Not a moment too soon, Commander."
+msgstr "Non un momento troppo presto, comandante."
+
+msgid "We're wearing them down. Keep up the pressure."
+msgstr "Li stiamo indossando. Mantenere la pressione"
+
+msgid "Think they're pull back if we hit them hard enough?"
+msgstr "Pensi di essere tirati indietro se li colpiamo abbastanza forte?"
+
+msgid "Too early to speculate. Just concentrate on taking down their fighters."
+msgstr "Troppo presto per speculare. Concentrati solo sul prendere giù i loro combattenti."
+
+msgid "I've just been tailed by something I've never seen before! Small, highly manoeuvrable, rapid fire particle cannon."
+msgstr "Sono appena stato pedinato da qualcosa che non ho mai visto prima! Cannone a particelle di fuoco piccolo, altamente manovrabile, rapido."
+
+msgid "Swarmers! The enemy have deployed them here, too!"
+msgstr "Swarmers! Anche il nemico li ha schierati qui!"
+
+msgid "How many?"
+msgstr "Quanti?"
+
+msgid "Tracking a dozen, but the numbers are growing rapidly"
+msgstr "Traccia una dozzina, ma i numeri stanno crescendo rapidamente"
+
+msgid "I've lost count how many of these damn swarmers I've taken down."
+msgstr "Ho perso il conto di quanti di questi maledetti sciami ho abbattuto."
+
+msgid "It's like fighting a hydra! You cut off one head, and two more spring up!"
+msgstr "È come combattere un'idra! Hai tagliato una testa, e altre due saltano fuori!"
+
+msgid "There's too many of them!"
+msgstr "Ce ne sono troppi!"
+
+msgid "Keep fighting, we can still win this!"
+msgstr "Continua a combattere, possiamo ancora vincere!"
+
+msgid "They're everywhere! I--"
+msgstr "Sono dappertutto! IO--"
+
+msgid "People, we are down one capital ship! We need to step things up!"
+msgstr "Gente, siamo giù una nave capitale! Dobbiamo fare un passo avanti!"
+
+msgid "Both caps are down, all hands lost. Let's not let this go to waste."
+msgstr "Entrambi i tappi sono giù, tutte le mani perse. Non lasciamolo sprecare."
+
+msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
+msgstr "Sebbene abbiamo sofferto pesanti perdite al Coyote, è ancora importante tentare di prevenire, o almeno rallentare, l'avanzata della macchina da guerra Pandoran. L'ammiraglio Jenkins ha ordinato che i Cavalieri bianchi guidassero un attacco contro le forze nemiche raccolte nel sistema. Il peso delle forze avversarie rimane enorme, anche se gli ATAF dovrebbero aiutarci a darci il vantaggio in battaglia. Tieni presente che il nemico è ora in possesso di un caccia da combattimento UNF."
+
+msgid "All fighters, this is Commander de Winter. Enemy targets sighted, engage at will."
+msgstr "Tutti i combattenti, questo è Commander de Winter. Obiettivi nemici avvistati, impegnati a volontà."
+
+msgid "More enemies inbound."
+msgstr "Altri nemici in arrivo."
+
+msgid "Man, I've got to get me one of those!"
+msgstr "Amico, devo prendermi uno di quelli!"
+
+msgid "What the hell are those things you're flying?"
+msgstr "Che diavolo sono quelle cose che stai volando?"
+
+msgid "An ATAF. Stands for Advanced Tactical Assault Fighter."
+msgstr "Un ATAF. Sta per Advanced Tactical Assault Fighter."
+
+msgid "Are the CSN rolling those out to everyone?"
+msgstr "Il CSN li sta estendendo a tutti?"
+
+msgid "No, they ... were built for a different purpose."
+msgstr "No, loro ... sono stati costruiti per uno scopo diverso."
+
+msgid "What sort of purpose?"
+msgstr "Che tipo di scopo?"
+
+msgid "Sorry, for now, that's classified."
+msgstr "Scusa, per ora, è classificato."
+
+msgid "Griffin, this is de Winter. All targets destroyed."
+msgstr "Griffin, questo è de Winter. Tutti i bersagli distrutti"
+
+msgid "Acknowledged, Commander. Stand by for new orders."
+msgstr "Riconosciuto, comandante. Stai pronto per nuovi ordini."
+
+msgid "The initial fight back against the Pandorans has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system."
+msgstr "La lotta iniziale contro i Pandoriani è andata bene, ma il sistema è ancora soffocato dalle loro forze. Dobbiamo continuare a coinvolgerli e costringerli ad abbandonare il sistema."
+
+msgid "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space."
+msgstr "L'assalto non sta andando bene come vogliamo, e stiamo iniziando a subire pesanti perdite mentre le forze di Pandoran ci travolgono. Tuttavia, dobbiamo continuare a combattere e tentare di trattenere il nemico qui. Non possono essere autorizzati ad avanzare ulteriormente nello spazio indipendente."
+
+msgid "We're getting our arses kicked here! Any chance of any backup?!"
+msgstr "Ci stiamo prendendo a calci in culo qui! Qualche possibilità di backup ?!"
+
+msgid "The White Knights are here! Finally!"
+msgstr "I Cavalieri bianchi sono qui! Finalmente!"
+
+msgid "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall back to the jumpgate."
+msgstr "Tutti i combattenti, il capitano Bailey ha segnalato la ritirata. Il coyote è perso. Tornare al jumpgate."
+
+msgid "You all heard the Captain - fall back, we'll cover the retreat."
+msgstr "Avete tutti sentito il Capitano - ripiegate, copriremo il ritiro."
+
+msgid "Estelle, we've got this. We can take them."
+msgstr "Estelle, abbiamo questo. Possiamo portarli."
+
+msgid "We're suffering too many losses, Dodds. Fall back now, that's an order."
+msgstr "Stiamo subendo troppe perdite, Dodds. Torna indietro ora, questo è un ordine."
+
+msgid "Tzac Shales sighted. Moving to intercept."
+msgstr "Tzac Shales avvistato. Spostamento per intercettare."
+
+msgid "Fewer than we were expecting."
+msgstr "Meno di quanto ci aspettassimo."
+
+msgid "Agreed. Scouts?"
+msgstr "Concordato. Scout?"
+
+msgid "Zenobia, I'm detecting a large squadron of fighters and bombers, heading our way. Looks like they're focusing directly on you."
+msgstr "Zenobia, sto rilevando un grande squadrone di combattenti e bombardieri, diretti verso di noi. Sembra che si concentrino direttamente su di te."
+
+msgid "Dammit! The Shales were acting as bait. Specials, keep those bombers away from us."
+msgstr "Dannazione! Gli scisti stavano agendo come esca. Speciali, tieni questi bombardioti lontani da noi."
+
+msgid "You're going to have to deal with this one solo, Carpenter. There are bombers deploying mines in the area. Any one of those detonating could kill the target."
+msgstr "Avrai a che fare con questo solo, Carpenter. Ci sono bombardieri che dispiegano mine nella zona. Qualsiasi di quelle detonanti potrebbe uccidere il bersaglio."
+
+msgid "Secure the commander, and then take down those bombers. Just watch your fire."
+msgstr "Assicurati il ​​comandante e poi abbatti quei bombardieri. Guarda il tuo fuoco."
+
+msgid "Pandoran forces are beginning their assault on Donesta. They must be engaged and driven out of the system. However, it appears that they are making use of UNF fighters, in an attempt to confuse our own pilots. Visual identification should therefore not be relied on to determine targets, as radar will help to separate their units from ours."
+msgstr "Le forze pandoresi stanno iniziando il loro assalto a Donesta. Devono essere ingaggiati e cacciati dal sistema. Tuttavia, sembra che stiano facendo uso di combattenti UNF, nel tentativo di confondere i nostri piloti. L'identificazione visiva non dovrebbe quindi essere invocata per determinare gli obiettivi, in quanto il radar aiuterà a separare le loro unità dalle nostre."
+
+msgid "Remember everyone: the Pandorans are using UNF fighters."
+msgstr "Ricorda tutti: i Pandoriani stanno usando combattenti UNF."
+
+msgid "Using your radar is the way to go in this fight."
+msgstr "Usare il radar è la strada da percorrere in questa lotta."
+
+msgid "All enemies down."
+msgstr "Tutti i nemici verso il basso."
+
+msgid "Let's hope we never see the day when they get hold of one of the ATAFs."
+msgstr "Speriamo di non vedere mai il giorno in cui entreranno in possesso di uno degli ATAF."
+
+msgid "Agreed. Let's regroup and prepare for whatever's coming next."
+msgstr "Concordato. Raggruppiamoci e preparandoci a quello che verrà dopo."
+
+msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
+msgstr "Un gruppo di pattuglia ha avvistato una serie di casse alla deriva vicino ad Alessandria. Il contenuto delle casse è attualmente sconosciuto, ma è stato confermato che appartengono al CSN. È stata inviata una navetta per recuperarli, nel caso in cui dovessero vagare in qualsiasi corsia di navigazione. Una volta che li avremo in nostro possesso, lavoreremo per determinare come sono arrivati ​​qui."
+
+msgid "Not expecting any company, Carr, so this should just be a routine pickup. We'll keep an eye out, though."
+msgstr "Non mi aspetto nessuna compagnia, Carr, quindi questo dovrebbe essere solo un ritiro ordinario. Ma terremo gli occhi aperti."
+
+msgid "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more."
+msgstr "Le casse sono state trovate trasportando una varietà di munizioni, anche se non siamo ancora sicuri di dove venissero. Stiamo spedendo delle navette per accompagnare le prossime pattuglie, nel caso dovessimo incontrarci di più."
+
+msgid "Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up."
+msgstr "Iron Patriots, stiamo ancora identificando una manciata di casse che si avvicinano alla tua posizione attuale. Si prega di effettuare il ritiro."
+
+msgid "Got it. Heading to the first one now."
+msgstr "Fatto. Andando al primo ora."
+
+msgid "Iron Patriots, a stranded Dart has been spotted nearby. A tug has been dispatch to bring it in. Please escort it to the target's location."
+msgstr "Iron Patriots, un Dart incagliato è stato avvistato nelle vicinanze. È stato inviato un rimorchiatore per portarlo dentro. Si prega di scortarlo fino alla posizione del bersaglio."
+
+msgid "Know anything about the occupant, or affiliation?"
+msgstr "Sai qualcosa sull'occupante o sull'affiliazione?"
+
+msgid "Negative, Lieutenant. We'll know more once it's brought in."
+msgstr "Negativo, tenente. Ne sapremo di più una volta che sarà stato introdotto."
+
+msgid "Tow cable attached. Ready to head home."
+msgstr "Cavo di traino collegato. Pronto a tornare a casa."
+
+msgid "We're done here. Let's bring our mystery guest in."
+msgstr "Abbiamo finito qui Portiamo il nostro ospite misterioso."
+
+msgid "Dan, we've got hostile vessels inbound. More Darts."
+msgstr "Dan, abbiamo navi nemiche in arrivo. Più freccette"
+
+msgid "Prepare to engage. Protect the asset!"
+msgstr "Preparati a impegnarti. Proteggi il bene!"
+
+msgid "Alexandria, package delivered."
+msgstr "Alessandria, pacchetto consegnato."
+
+msgid "Excellent work, Lieutenant. Let's see what all this tell us. Come on home."
+msgstr "Ottimo lavoro, tenente. Vediamo cosa ci dice tutto questo. Vieni a casa."
+
+msgid "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Kingdom of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence."
+msgstr "L'interposizione del pilota portato in precedenza rivelò che le munizioni venivano scambiate con il vecchio nemico di Helios, il regno di Tzac. Le braccia vengono indirizzate a Rothan, tramite Temper. Questo spiegherebbe l'alta presenza di pirati lungo il confine. Non spiega perché i pacchi sono stati versati, tuttavia, e il nostro ospite sta tenendo la mamma sull'argomento. Le pattuglie vengono potenziate, nel tentativo di fornire maggiore intelligenza."
+
+msgid "Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies."
+msgstr "Patrol, abbiamo una situazione importante in via di sviluppo. Tra una serie di caccia stellari ci sono una schermaglia: freccette, ninfe e lucciole."
+
+msgid "Pirates? Insurgents? Kingdom of Tzac?"
+msgstr "Pirati? Gli insorti? Regno di Tzac?"
+
+msgid "Too early to speculate. We want you to disable and bring in one craft from each side. The rest, you can eliminate."
+msgstr "Troppo presto per speculare. Vogliamo che tu disattivi e porti in una barca da ogni lato. Il resto, puoi eliminare."
+
+msgid "This is Carr, reporting operation successful. Bagged us two squadron commanders."
+msgstr "Questo è Carr, che riporta l'operazione con successo. Ci ha impacchettato due comandanti di squadroni."
+
+msgid "Good work, Commander. Dispatching tugs to bring them in."
+msgstr "Bel lavoro, comandante. Dispiegare i rimorchiatori per portarli dentro"
+
+msgid "We finally have all the information we need to help safeguard the Confederation in these turbulent times. By smashing the pirate ring involved in the supplying of arms to Tzac, we can regain control of our internal security matters, and refocus on the war against the Pandorans. All targets must be destroyed, but be advised that the pirates have acquired rocket cannons, that could prove costly if underestimated."
+msgstr "Finalmente abbiamo tutte le informazioni di cui abbiamo bisogno per aiutare a salvaguardare la Confederazione in questi tempi turbolenti. Distruggendo l'anello pirata coinvolto nella fornitura di armi a Tzac, possiamo riprendere il controllo delle nostre questioni di sicurezza interna e concentrarci sulla guerra contro i Pandoriani. Tutti i bersagli devono essere distrutti, ma sappi che i pirati hanno acquistato cannoni a razzo, che potrebbero rivelarsi costosi se sottovalutati."
+
+msgid "Right, people, let's finish this. Engage at will. Leave nothing standing."
+msgstr "Bene, gente, finiamo questo. Impegnarsi a volontà. Non lasciare nulla in piedi."
+
+msgid "Alexandria: opposition stronger than expected. Requesting reinforcements."
+msgstr "Alessandria: l'opposizione è più forte del previsto. Richiesta di rinforzi."
+
+msgid "Acknowledged. They're on their way."
+msgstr "Riconosciuto. Stanno arrivando."
+
+msgid "Alexandria: reporting all captain vessels destroyed."
+msgstr "Alessandria: segnalazione di tutte le navi capitanate distrutte."
+
+msgid "Alexandria: sentry cannons eliminated."
+msgstr "Alessandria: cannoni sentinella eliminati."
+
+msgid "Alexandria: reporting all enemy fighters destroyed."
+msgstr "Alessandria: segnalando tutti i combattenti nemici distrutti."
+
+msgid "This is Carr. Reporting threat eliminated, operation successful."
+msgstr "Questo è Carr. Eliminazione della minaccia di segnalazione, operazione riuscita."
+
+msgid "Excellent work, Commander. We'll get a few frosty ones ready for your return."
+msgstr "Ottimo lavoro, comandante. Otterremo alcuni gelidi pronti per il tuo ritorno."
+
+msgid "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle."
+msgstr "I Pandoriani hanno iniziato il loro attacco a casa nostra e dobbiamo agire immediatamente per difenderci. Un'ondata di bombardieri si sta dirigendo verso uno dei nostri porti. Devono essere abbattuti con rapidità, prima che entrino nel raggio d'azione. Potrebbero essere scortati dagli Sciacalli, ma sono convinti che i piloti Pandoran siano altamente qualificati e inesorabili in battaglia."
+
+msgid "Recommending taking down the escorts before engaging the bombers. Just watch out for their rockets."
+msgstr "Raccomandando di abbattere le scorte prima di ingaggiare i bombardieri. Stai attento ai loro missili."
+
+msgid "Be warned, people, these Pandorans are said to be relentless in battle."
+msgstr "State attenti, gente, si dice che questi Pandoran siano implacabili in battaglia."
+
+msgid "The Pandoran war machine has commenced its advancement beyond Mitikas space. We must prepare to defend Iliad from this powerful foe. Exercise caution: despite outnumbering the enemy units that have entered our space, the Pandorans are said to be relentless in battle, and this small number could well still test us."
+msgstr "La macchina da guerra Pandoran ha iniziato il suo avanzamento oltre lo spazio di Mitikas. Dobbiamo prepararci a difendere l'Iliade da questo potente nemico. Esercitare cautela: nonostante superi le unità nemiche che sono entrate nel nostro spazio, si dice che i Pandoran siano implacabili in battaglia, e questo piccolo numero potrebbe ancora metterci alla prova."
+
+msgid "In order to slow the advance of the Pandoran forces, we are going to target one of their supply lines. This should buy us some time while we await UNF and CSN reinforcements, and bring more of our capital ships into position."
+msgstr "Per rallentare l'avanzata delle forze di Pandoran, prenderemo di mira una delle loro linee di rifornimento. Questo dovrebbe comprarci un po 'di tempo mentre attendiamo rinforzi UNF e CSN, e portare più navi in ​​servizio."
+
+msgid "Dust Brothers, this is Control. An INF fighter squadron is inbound. Looks like they're summoned backup."
+msgstr "Dust Brothers, questo è Control. Uno squadrone combattente INF è in arrivo. Sembra che siano stati evocati backup."
+
+msgid "Message received. Will engage as necessary."
+msgstr "Messaggio ricevuto. Si impegnerà se necessario."
+
+msgid "Almost done here, Control, not many targets remaining."
+msgstr "Quasi fatto qui, controllo, non molti bersagli rimanenti."
+
+msgid "Strider, be advised that we are tracking a further three INF fighters heading your way."
+msgstr "Strider, tieni presente che stiamo rintracciando altri tre combattenti dell'INF che si stanno dirigendo verso di te."
+
+msgid "Dammit, spoke too soon ..."
+msgstr "Dannazione, ha parlato troppo presto ..."
+
+msgid "We're ready to make a run against the Pandoran fleet's front line, and move our capital ships into strike range. Agamemnon's 1st will assist the Lady Jane Grey, and Joan of Arc, to engage three INF corvettes, under enemy control. We need to ensure that we take down the opposing capitals while ensuring our own survive. The enemy outnumber us, and we need to maintain our strength as much as possible."
+msgstr "Siamo pronti a sfidare la prima linea della flotta Pandoran e spostare le nostre navi capitali in un raggio d'azione. Il primo di Agamennone aiuterà la signora Jane Grey e la Giovanna d'Arco a ingaggiare tre corvette INF, sotto il controllo del nemico. Dobbiamo assicurarci di abbattere le capitali opposte assicurandoci che sopravviva. Il nemico è più numeroso di noi e dobbiamo mantenere il più possibile le nostre forze."
+
+msgid "Agamemnon's 1st, we're detecting multiple Pandoran fighters moving in to intercept. Take them down, and protect The Lady Grey and Joan of Arc."
+msgstr "Il 1 ° di Agamennone, stiamo rilevando diversi combattenti Pandoran che si spostano per intercettarli. Abbatteteli e proteggete Lady Grey e Giovanna d'Arco."
+
+msgid "Agamemnon's 1st, another wing is approaching. Continue to engage, and await your main targets."
+msgstr "Il primo di Agamennone, un'altra ala si sta avvicinando. Continua a impegnarsi e attendi i tuoi obiettivi principali."
+
+msgid "Agamemnon's 1st, INF Astra has just arrived in the area. Engage and destroy."
+msgstr "Il 1 ° di Agamennone, l'INF Astra è appena arrivato nella zona. Impegnarsi e distruggere."
+
+msgid "Escorts?"
+msgstr "Escort?"
+
+msgid "Four Mitikas fighters."
+msgstr "Quattro combattenti di Mitikas."
+
+msgid "Agamemnon's 1st, INF Ragnarok on approach. Determining escort group ..."
+msgstr "Il primo di Agamennone, INF Ragnarok in avvicinamento. Determinazione del gruppo di escort ..."
+
+msgid "Another small escort group: eight fighters."
+msgstr "Un altro piccolo gruppo di scorta: otto combattenti."
+
+msgid "They must be holding something back."
+msgstr "Devono trattenere qualcosa."
+
+msgid "Confirmed. Pandoran forces are sending in Scarab bombers."
+msgstr "Confermato. Le forze Pandoriane stanno inviando bombardieri Scarab."
+
+msgid "Hell! We need to keep them away from Joan and Grey, while we take down their own capital ships."
+msgstr "Inferno! Dobbiamo tenerli lontani da Joan e Gray, mentre prendiamo le loro navi capitali."
+
+msgid "Williams, the Dust Brothers are heading your way, to lend assistance. They should be with you in a few minutes."
+msgstr "Williams, i Dust Brothers si stanno dirigendo a modo tuo, per prestare assistenza. Dovrebbero essere con te tra qualche minuto."
+
+msgid "Much appreciated!"
+msgstr "Molto apprezzato!"
+
+msgid "Control, this is Williams. Enemy capital ships have been destroyed, along with all other forces."
+msgstr "Controllo, questa è Williams. Le navi nemiche del capitale sono state distrutte, insieme a tutte le altre forze."
+
+msgid "Great work, Williams. Rejoin the main the fleet. The enemies forces are gaining strength and we need all the help we can get."
+msgstr "Ottimo lavoro, Williams. Ricongiungersi alla flotta principale Le forze nemiche stanno guadagnando forza e abbiamo bisogno di tutto l'aiuto che possiamo ottenere."
+
+msgid "The defence of Iliad is slipping, our forces are being decimated. We have to hit the enemy back, hard. All available fighters are to move into range and engage. If we lose here, Iliad is finished. We are the last line of defence, and we cannot afford to fail."
+msgstr "La difesa dell'Iliade sta scivolando, le nostre forze vengono decimate. Dobbiamo colpire il nemico, duro. Tutti i combattenti disponibili devono spostarsi nel raggio d'azione e impegnarsi. Se perdiamo qui, Iliad è finito. Siamo l'ultima linea di difesa e non possiamo permetterci di fallire."
+
+msgid "Stay sharp, people. We need to hold the line here!"
+msgstr "Stai forte, gente. Dobbiamo tenere la linea qui!"
+
+msgid "Oh my God, there's a lot of them ..."
+msgstr "Oh mio Dio, ce ne sono molti ..."
+
+msgid "Pair up, and take them down together. We stand a much better chance that way."
+msgstr "Abbinalo e prendili insieme. Abbiamo molte più possibilità in questo modo."
+
+msgid "Heads up, people. Four INF corvettes just entered the area."
+msgstr "Heads up, persone. Quattro corvette INF sono appena entrate nell'area."
+
+msgid "What's happened to all our own capital ships?!"
+msgstr "Cosa è successo a tutte le nostre navi capitali ?!"
+
+msgid "They've been scratched."
+msgstr "Sono stati graffiati."
+
+msgid "That Dust Brothers have been flagged."
+msgstr "Quel Dust Brothers è stato contrassegnato."
+
+msgid "We have to sound the retreat!"
+msgstr "Dobbiamo suonare il ritiro!"
+
+msgid "Mister, you remain where you are! We're not abando--"
+msgstr "Signore, tu rimani dove sei! Non stiamo abando--"
+
+msgid "The wing commander's dead."
+msgstr "Il comandante dell'ala è morto."
+
+msgid "Caution, everyone. The Tzac forces might be deliberately targeting the civilians in the area. We need to eliminate or drive those Shales away, as quickly as possible."
+msgstr "Attenzione, a tutti. Le forze del Tzac potrebbero deliberatamente prendere di mira i civili della zona. Dobbiamo eliminare o allontanare quegli Shales, il più rapidamente possibile."
+
+msgid "Picking up another group of Shales, incoming."
+msgstr "Prendendo un altro gruppo di scisti, in arrivo."
+
+msgid "Another squadrons of Shales is inbound."
+msgstr "Un altro squadrone di Shales è in arrivo."
+
+msgid "That's all of them. Let's get these civilians to safety."
+msgstr "Questo è tutto di loro. Portiamo questi civili in salvo."
+
+msgid "First civilian casualty confirmed. Let's step it up, guys."
+msgstr "Prima vittima civile confermata. Facciamo un passo avanti, ragazzi."
+
+msgid "The Tzac forces are picking the civilians off. We need to act faster."
+msgstr "Le forze del Tzac stanno raccogliendo i civili. Dobbiamo agire più velocemente."
+
+msgid "Dammit, we're losing too many of them!"
+msgstr "Dannazione, ne stiamo perdendo troppi!"
+
+msgid "Too many losses ..."
+msgstr "Troppe perdite ..."
+
+msgid "UNF Lovelace was recently attacked by a mercenary group, believed to be aligned with Tzac. While the corvette and the Sparrows were able to see off the attackers, it was nevertheless a focused and dedicated assault, that almost ended in disaster. More are likely to come, so we should remain vigilant."
+msgstr "UNF Lovelace è stata recentemente attaccata da un gruppo di mercenari, che si ritiene essere in linea con Tzac. Mentre la corvetta e gli Sparrows riuscivano a scacciare gli assalitori, si trattava comunque di un attacco mirato e dedicato, che si era quasi concluso in un disastro. È probabile che ne arrivino altri, quindi dovremmo rimanere vigili."
+
+msgid "Got Darts, incoming."
+msgstr "Hai freccette, in arrivo."
+
+msgid "Looks like Lovelace wasn't their only target. Prepare to engage, people."
+msgstr "Sembra che Lovelace non fosse il loro unico obiettivo. Preparati a coinvolgere le persone."
+
+msgid "We're picking up a lot of chatter on the mercenaries' channels. They're not happy with how things are going."
+msgstr "Stiamo raccogliendo un sacco di chiacchiere sui canali dei mercenari. Non sono contenti di come stanno andando le cose."
+
+msgid "Then let's concentrate on making them even more unhappy."
+msgstr "Quindi concentriamoci su renderli ancora più infelici."
+
+msgid "The mercenaries are throwing in the towel and pulling back. They've had enough."
+msgstr "I mercenari stanno gettando la spugna e tirando indietro. Ne hanno abbastanza."
+
+msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
+msgstr "Buon lavoro, tutti. Oggi abbiamo mandato a Tzac e ai mercenari un messaggio chiaro. Penso che sia ovvio quale dovrebbe essere la nostra prossima mossa ..."
+
+msgid "You've done well so far, Hicks. We appreciate that things have not been easy, but you're in a better position than many of us had hoped for. As soon as you're able, begin your search for the admiral. Once located, you will need to open a dialog with him. Whatever you do, do not kill him."
+msgstr "Hai fatto bene finora, Hicks. Apprezziamo che le cose non siano state facili, ma tu sei in una posizione migliore di quanto molti di noi avevano sperato. Appena puoi, inizia la ricerca dell'ammiraglio. Una volta individuato, sarà necessario aprire una finestra di dialogo con lui. Qualunque cosa tu faccia, non ucciderlo."
+
+msgid "So, this is Krasst. Never thought I'd ever find myself here."
+msgstr "Quindi, questo è Krasst. Non avrei mai pensato di trovarmi qui."
+
+msgid "Doesn't appear as if the wing commander is tracking my movements any more. Lot of ships around here. I could probably move freely among them, and not raise suspicion."
+msgstr "Non sembra che il comandante di ali stia più seguendo i miei movimenti. Molte navi qui intorno. Potrei probabilmente muovermi liberamente tra loro e non sollevare sospetti."
+
+msgid "Time to start my search for the admiral."
+msgstr "È ora di iniziare la ricerca dell'ammiraglio."
+
+msgid "This isn't going to be easy. There are a lot of ships here."
+msgstr "Questo non sarà facile. Ci sono molte navi qui."
+
+msgid "Still nothing. I don't even know what I'm looking for. No carriers in sight, and none of the more recognizable capital ships, either."
+msgstr "Ancora niente. Non so nemmeno cosa sto cercando. Non ci sono portatori in vista, né nessuna delle navi da capitale più riconoscibili."
+
+msgid "I have a feeling I'm ultimately going to have to find a way to get aboard Dragon. But as soon as I'm out of this fighter they'll know I'm an imposter."
+msgstr "Ho la sensazione che alla fine dovrò trovare un modo per salire a bordo di Dragon. Ma non appena sarò fuori da questo combattente capiranno che sono un impostore."
+
+msgid "I've been lucky so far, but I've got a horrible feeling my luck is starting to run out."
+msgstr "Sono stato fortunato finora, ma ho un orribile sensazione che la mia fortuna stia per finire."
+
+msgid "Wait ... what's that? That Sphinx. It's different from the rest. I've never seen one like it before."
+msgstr "Aspetta ... cos'è? Quella Sfinge. È diverso dal resto. Non ne ho mai visto uno simile prima."
+
+msgid "I should follow it, and see where it goes."
+msgstr "Dovrei seguirlo e vedere dove va."
+
+msgid "I've been watching you. Who are you? What are you doing here?"
+msgstr "Ti stavo osservando. Tu chi sei? Cosa stai facendo qui?"
+
+msgid "Ah, crap!"
+msgstr "Ah, merda!"
+
+msgid "You are not Dodds."
+msgstr "Non sei Dodd."
+
+msgid "You were brave for coming this far on your own, but that was ultimately a foolish decision."
+msgstr "Sei stato coraggioso per essere arrivato fin lì da solo, ma quella era in definitiva una decisione sciocca."
+
+msgid "Hell! That's Zackaria for sure, but he's on to me. I need to get out of here, quickly!"
+msgstr "Inferno! Questo è sicuramente Zackaria, ma è vicino a me. Devo uscire di qui, velocemente!"
+
+msgid "They've shutdown the jumpgate ..."
+msgstr "Hanno spento il jumpgate ..."
+
+msgid "Hell! My cover's been blown, they're on to me!"
+msgstr "Inferno! La mia copertura è saltata, sono su di me!"
+
+msgid "The bulk of the allied forces have fallen back to Lenon, to prepare for whatever is to come next. For now, we are standing down and awaiting new instructions from senior command."
+msgstr "La maggior parte delle forze alleate è tornata a Lenon, per prepararsi a tutto ciò che verrà dopo. Per ora, stiamo in piedi e aspettiamo nuove istruzioni dal comando anziano."
+
+msgid "So, Torelli is dust?"
+msgstr "Quindi, Torelli è polvere?"
+
+msgid "Dragon's anti-matter cannon ignited the atmosphere, and created a firestorm. It engulfed the entire planet in under twelve hours."
+msgstr "Il cannone antimateria di Dragon ha acceso l'atmosfera e ha creato una tempesta di fuoco. Ha inghiottito l'intero pianeta in meno di dodici ore."
+
+msgid "Did no-one survive?"
+msgstr "Nessuno sopravvive?"
+
+msgid "Unlikely."
+msgstr "Improbabile."
+
+msgid "Think they'll do that against every planet they come to?"
+msgstr "Pensi che lo faranno contro ogni pianeta in cui arrivano?"
+
+msgid "More effective than a nuke, and faster than a ground assault. So long as they don't need the resources, they'll fire and forget."
+msgstr "Più efficace di una bomba atomica e più veloce di un assalto di terra. Finché non avranno bisogno delle risorse, spareranno e dimenticheranno."
+
+msgid "There must be something we can do."
+msgstr "Ci deve essere qualcosa che possiamo fare."
+
+msgid "Our only option is to destroy Dragon. And direct assaults haven't gone so well in the past."
+msgstr "La nostra unica opzione è distruggere Dragon. E gli assalti diretti non sono andati così bene in passato."
+
+msgid "If we can even get close to it. Zackaria's going to become even more protective of that battleship now he knows what else it can do."
+msgstr "Se possiamo persino avvicinarci ad esso. Zackaria diventerà ancora più protettivo di quella corazzata ora sa che altro può fare."
+
+msgid "There has to be something ..."
+msgstr "Deve esserci qualcosa ..."
+
+msgid "There might be."
+msgstr "Ci potrebbe essere."
+
+msgid "Have you heard something, Estelle?"
+msgstr "Hai sentito qualcosa, Estelle?"
+
+msgid "Mumblings. Apparently, Parks has a plan involving the Temper system. He's got orders out to get as many nukes as he can lay his hands on. I don't know any more than that, though."
+msgstr "Borbottii. Apparentemente, Parks ha un piano che coinvolge il sistema Temper. Ha ricevuto ordini per ottenere tutte le armi nucleari che può mettere le mani su. Non ne so nient'altro, però."
+
+msgid "Sound promising?"
+msgstr "Sembra promettente?"
+
+msgid "Too early to say. But right now, I remain confident."
+msgstr "Troppo presto per dirlo Ma in questo momento, rimango fiducioso."
+
+msgid "And what if that fails? What do we do then?"
+msgstr "E se ciò fallisse? Cosa facciamo allora?"
+
+msgid "We try something else."
+msgstr "Proviamo qualcos'altro."
+
+msgid "Like simply fighting them? Because there are nearly twenty billion of those bastards, and while we're not light on personnel, we're losing numbers rapidly."
+msgstr "Ti piace semplicemente combatterli? Perché ci sono quasi venti miliardi di quei bastardi, e mentre non siamo leggeri sul personale, stiamo perdendo numeri rapidamente."
+
+msgid "What's to stop them doing to Helios what they just did to the Independents?"
+msgstr "Cosa deve impedire loro di fare a Helios quello che hanno appena fatto agli Indipendenti?"
+
+msgid "You mean smash each world they come to? All the way to Earth?"
+msgstr "Vuoi dire distruggere ogni mondo in cui vengono? Tutto sulla Terra?"
+
+msgid "Yes. Remember on Mythos? Parks said it was a very real possibility. At this rate, we just might find ourselves having to fight a battle for the Solar System."
+msgstr "Sì. Ricorda su Mythos? Parks ha detto che era una possibilità molto reale. A questo ritmo, potremmo trovarci a dover combattere una battaglia per il Sistema Solare."
+
+msgid "Don't worry, Simon. I doubt they'll ever get that far."
+msgstr "Non preoccuparti, Simon. Dubito che arriveranno mai così lontano."
+
+msgid "The time has come to take the fight to Tzac. We will begin by striking their outer defences, and containing their forces to the system. The Iron Wolves will lead an attack against one of the outer jumpgates. It will likely be heavily defended, and heavy-class Tzac Blizzards could well arrive in the area as soon as you begin your assault."
+msgstr "È giunto il momento di portare la battaglia a Tzac. Inizieremo colpendoli con le loro difese esterne e con le loro forze nel sistema. Gli Iron Wolves guideranno un attacco contro uno dei porti esterni. Probabilmente sarà molto difeso, e le Torri di Tzac di classe pesante potrebbero arrivare nella zona non appena inizierai il tuo assalto."
+
+msgid "Our goal is the jumpgate. Expect a lot of resistance."
+msgstr "Il nostro obiettivo è il jumpgate. Aspettatevi molta resistenza."
+
+msgid "Once we're there, we need to destroy the control nodes to shut it down. Barclay, that's your job."
+msgstr "Una volta che siamo lì, abbiamo bisogno di distruggere i nodi di controllo per spegnerlo. Barclay, questo è il tuo lavoro."
+
+msgid "More enemies incoming."
+msgstr "Altri nemici in arrivo."
+
+msgid "Commander, I'm detecting a wing of Blizzards, incoming."
+msgstr "Comandante, sto rilevando un'ala di tormente, in arrivo."
+
+msgid "Couldn't expect Tzac not to bring out the heavy guns. Let's take it to them, people."
+msgstr "Non poteva aspettarsi che Tzac non tirasse fuori le pistole pesanti. Portiamolo a loro, gente."
+
+msgid "We're clear for the run against the gate."
+msgstr "Siamo chiari per la corsa contro il cancello."
+
+msgid "It's guarded by several rapid-fire plasma turrets. Try not to let those things get a lock on you."
+msgstr "È sorvegliato da numerose torrette di plasma a fuoco rapido. Cerca di non lasciare che quelle cose ti bloccino."
+
+msgid "Half the nodes are down."
+msgstr "Metà dei nodi sono giù."
+
+msgid "Keep at it!"
+msgstr "Continua!"
+
+msgid "Jumpgate is down."
+msgstr "Jumpgate è giù."
+
+msgid "Control, this is Wolfenden. Tzac's outer jumpgate is offline."
+msgstr "Controllo, questo è Wolfenden. Il jumpgate esterno di Tzac è offline."
+
+msgid "Acknowledged. Hold position there. We'll need you to guard that gate and prevent the enemy from affecting repairs."
+msgstr "Riconosciuto. Tieni la posizione lì. Avremo bisogno che tu protegga quel cancello e impedisca al nemico di influenzare le riparazioni."
+
+msgid "Dammit, the team's been cut down! Looks like it's up to you and me, Ian."
+msgstr "Dannazione, la squadra è stata tagliata! Sembra che dipenda da te e da me, Ian."
+
+msgid "We'll make sure their deaths weren't in vain."
+msgstr "Ci assicureremo che la loro morte non sia stata vana."
+
+msgid "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces."
+msgstr "L'attacco iniziale è andato molto bene, e siamo pronti per andare oltre nel sistema. Le forze del Tzac si stanno avvicinando per incontrarci, quindi aspettatevi una forte resistenza. Il tuo obiettivo è semplice: distruggi tutte le forze nemiche."
+
+msgid "HMS 781-110 sighted. All fighters free to engage at will."
+msgstr "HMS 781-110 avvistato. Tutti i combattenti sono liberi di impegnarsi a volontà."
+
+msgid "Control, HMS 781-110 has been taken down."
+msgstr "Control, HMS 781-110 è stato rimosso."
+
+msgid "Infinites, HMS 781-041 has arrived in the area. Engage and destroy."
+msgstr "Infiniti, HMS 781-041 è arrivato nella zona. Impegnarsi e distruggere."
+
+msgid "Acknowledged."
+msgstr "Riconosciuto."
+
+msgid "Commander, a large group of Shales just arrived in the area"
+msgstr "Comandante, un grande gruppo di scisti è appena arrivato nella zona"
+
+msgid "Hell, they've called for backup. We should take them down before dealing with HMS 781-041"
+msgstr "Diavolo, hanno chiamato per il backup. Dovremmo eliminarli prima di trattare con HMS 781-041"
+
+msgid "This is HMS 781-041 of the Kingdom of Tzac! We surrender! Repeat, we surrender!"
+msgstr "Questo è HMS 781-041 del Regno di Tzac! Ci arrendiamo! Ripeti, ci arrendiamo!"
+
+msgid "Did anyone else get that?"
+msgstr "Qualcun altro l'ha capito?"
+
+msgid "HMS 781-041, please repeat."
+msgstr "HMS 781-041, si prega di ripetere."
+
+msgid "Hell! Too late!"
+msgstr "Inferno! Troppo tardi!"
+
+msgid "Infinites, it appears remaining enemy forces are retreating. Please stand down."
+msgstr "Infiniti, sembra che le restanti forze nemiche si ritirino. Per favore, sii giù."
+
+msgid "Received."
+msgstr "Ricevuto."
+
+msgid "That was unexpected."
+msgstr "È stato inaspettato."
+
+msgid "Sure was. We'd better get to debriefing."
+msgstr "Certo che lo era. Faremo meglio a interrogarci."
+
+msgid "There is growing public unrest over the on-going war, with a number of high-profile voices calling for an immediate end to the attacks on Tzac. While we cannot abandon the campaign while Tzac remains a threat, we can reduce the loss of life by disabling the enemy craft, instead of destroying them. That should placate the anti-war campaigners for a time."
+msgstr "Crescono i disordini pubblici sulla guerra in corso, con una serie di voci di alto profilo che chiedono la fine immediata degli attacchi a Tzac. Mentre non possiamo abbandonare la campagna mentre Tzac rimane una minaccia, possiamo ridurre la perdita di vite umane disabilitando le unità nemiche, invece di distruggerle. Ciò dovrebbe placare gli attivisti pacifisti per un certo periodo."
+
+msgid "We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?"
+msgstr "Aumenteremo metà delle loro forze e distruggeremo gli altri. Quelli da disabilitare sono stati taggati Tutti chiari?"
+
+msgid "Watch your fire: remember, a stray shot could easily destroy a disabled craft."
+msgstr "Guarda il tuo fuoco: ricorda, un colpo vagante potrebbe facilmente distruggere un veicolo disabile."
+
+msgid "All tagged Tzac fighters have been disabled."
+msgstr "Tutti i tag Tzac combattenti sono stati disattivati."
+
+msgid "Tzac opposition has been destroyed."
+msgstr "L'opposizione allo Tzac è stata distrutta."
+
+msgid "Great work, everyone. That should give the PR guys something to brag about."
+msgstr "Ottimo lavoro, tutti. Ciò dovrebbe dare ai ragazzi PR qualcosa di cui vantarsi."
+
+msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualties to a minimum."
+msgstr "Ci stiamo avvicinando allo stesso Tzac. È qui che le cose si complicano, poiché dobbiamo assicurarci di catturare l'imperatrice viva. Squadre di terra la stancheranno dal suo palazzo, e lei probabilmente correrà verso la porta del salto. La sua navetta dovrà essere disattivata e protetta non appena verrà avvistata. Ricordati di ridurre al minimo le vittime nemiche."
+
+msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
+msgstr "Tutti, i nostri parametri di missione sono cambiati. I Pandoriani stanno facendo una mossa contro Mace. Dobbiamo agire rapidamente."
+
+msgid "Therefore, you have permission to destroy any and all opposing forces, no need to mag these guys."
+msgstr "Pertanto, hai il permesso di distruggere tutte le forze avversarie, non c'è bisogno di magare questi tipi."
+
+msgid "Commander, we've got Darts and Shales incoming."
+msgstr "Comandante, abbiamo ricevuto Darts e Shales."
+
+msgid "Looks like some mercenaries decided to stick around. Let's show them why that was a bad move."
+msgstr "Sembra che alcuni mercenari abbiano deciso di restare. Mostriamo loro perché è stata una brutta mossa."
+
+msgid "That's them seen to. Onwards to the jumpgate."
+msgstr "Questo è loro visto. Verso il jumpgate."
+
+msgid "Got INF fighters incoming."
+msgstr "Ho ricevuto combattenti INF in arrivo."
+
+msgid "Knew it wouldn't be long."
+msgstr "Sapevo che non sarebbe stato lungo."
+
+msgid "Patriots, a Tzac warship just arrived in the area, but it has Imperial fighter escorts. Most likely it's been acquired by the Pandroans. It needs to be taken down before Cristabel makes her escape bid, as it might be here to kill her."
+msgstr "Patriots, una nave da guerra Tzac appena arrivata nella zona, ma ha le scorte di combattenti imperiali. Molto probabilmente è stato acquistato dai Pandroan. Deve essere tolto prima che Cristabel faccia la sua offerta di fuga, perché potrebbe essere qui per ucciderla."
+
+msgid "Got it. You all heard that. Let's get to it."
+msgstr "Fatto. L'avete sentito tutti. Andiamo ad esso."
+
+msgid "I'm picking up a shuttle on radar. Looks like Christabel."
+msgstr "Sto prendendo una navetta sul radar. Sembra Christabel."
+
+msgid "Goddard, you're up! Mag that shuttle before it gets away."
+msgstr "Goddard, sei sveglio! Mag quella navetta prima che vada via."
+
+msgid "On it!"
+msgstr "Su di essa!"
+
+msgid "Christabel's shuttle has been disabled."
+msgstr "La navetta di Christabel è stata disattivata."
+
+msgid "Excellent work! Now let's finish off the rest of these fighters."
+msgstr "Lavoro eccellente! Ora finiamo il resto di questi combattenti."
+
+msgid "All enemies down. Let's get over to Christabel's shuttle and secure the empress."
+msgstr "Tutti i nemici verso il basso. Andiamo alla navetta di Christabel e assicuriamo l'imperatrice."
+
+msgid "Empress Christabel, this is Cdr. de Winter of the Confederation Stellar Navy."
+msgstr "Imperatrice Christabel, questo è Cdr. de Winter of the Confederation Stellar Navy."
+
+msgid "Acting under the authority of the allied forces, I am hereby placing you under arrest, for breaches of intergalactic law."
+msgstr "Agendo sotto l'autorità delle forze alleate, ti metto sotto arresto, per le violazioni della legge intergalattica."
+
+msgid "You will be escorted to a neutral court, where you will be tried for your crimes."
+msgstr "Sarai scortato in un tribunale neutrale, dove sarai processato per i tuoi crimini."
+
+msgid "If found guilty, the intergalactic community will decide on your punishment."
+msgstr "Se giudicato colpevole, la comunità intergalattica deciderà sulla tua punizione."
+
+msgid "Sorry, your Highness. I wish it didn't have to go this way, but the galaxy has enough problems as it is."
+msgstr "Ci dispiace, Vostra Altezza. Vorrei che non dovesse andare da questa parte, ma la galassia ha già abbastanza problemi."
+
+msgid "If--"
+msgstr "Se--"
+
+msgid "Woah! What the hell just happened?!"
+msgstr "Woah! Che diavolo è successo?!"
+
+msgid "Did anyone fire?!"
+msgstr "Qualcuno ha sparato ?!"
+
+msgid "All guns cold, Commander. Looks like she might have self destructed her own ship."
+msgstr "Tutte le pistole fredde, comandante. Sembra che possa aver auto distrutto la sua stessa nave."
+
+msgid "Dammit!"
+msgstr "Dannazione!"
+
+msgid "Now what?"
+msgstr "Ora cosa?"
+
+msgid "Nothing more we can do. We should evacuate the area before more Pandoran forces arrive."
+msgstr "Niente di più che possiamo fare. Dovremmo evacuare l'area prima che arrivino altre forze Pandoriane."
+
+msgid "An opportunity has been granted for us to infiltrate Mitikas space, the Pandoran army, and ultimate get close to Jason Zackaria or Julian Rissard. If nothing else, we could still discover the whereabouts of these two elusive men, which could assist in future operations to capture them. Your goal is to acquire an Angel, an outdated INF fighter that currently lies in the hands of mercenaries. They have retreated to Phylent to affect repairs, so now is the chance to strike."
+msgstr "Ci è stata concessa un'opportunità per infiltrarsi nello spazio di Mitikas, l'esercito dei Pandoran, e per finire vicino a Jason Zackaria o Julian Rissard. Se non altro, potremmo ancora scoprire dove si trovano questi due uomini inafferrabili, che potrebbero aiutare nelle operazioni future per catturarli. Il tuo obiettivo è quello di acquisire un Angelo, un combattente INF obsoleto che attualmente si trova nelle mani dei mercenari. Si sono ritirati a Phylent per influenzare le riparazioni, quindi ora è la possibilità di colpire."
+
+msgid "I've sighted the Angel. Let's move in and secure it."
+msgstr "Ho avvistato l'angelo. Entriamo e assicuriamoci."
+
+msgid "Are the specs for this fighter correct? I've never heard of an Angel before? Sure it's not some kind of INF super weapon?"
+msgstr "Le specifiche per questo combattente sono corrette? Non ho mai sentito parlare di un angelo prima d'ora? Sicuro che non sia una specie di super arma INF?"
+
+msgid "It's an old, outdated class. I don't think the INF ever had an ATAF-like fighter."
+msgstr "È una vecchia classe obsoleta. Non credo che l'INF abbia mai avuto un combattente tipo ATAF."
+
+msgid "They'd have given us something more powerful to work with, if that was an uber-craft."
+msgstr "Ci avrebbero dato qualcosa di più potente con cui lavorare, se quello era un super-mestiere."
+
+msgid "Whatever it is, the secret service want it pretty badly."
+msgstr "Qualunque cosa sia, il servizio segreto lo vuole piuttosto male."
+
+msgid "I'll just be glad to get out of here. This is Pandoran-controlled space we're in."
+msgstr "Sarò felice di andarmene da qui. Questo è lo spazio controllato da Pandoran in cui ci troviamo."
+
+msgid "Angel has been disabled."
+msgstr "Angel è stato disabilitato."
+
+msgid "Good, let's hook the Tug up ASAP and move on to the next step."
+msgstr "Bene, agganciamo il Tug up ASAP e passiamo al prossimo passo."
+
+msgid "We have our goal, let's head over to it. Nearly done."
+msgstr "Abbiamo il nostro obiettivo, passiamo ad esso. Quasi fatto."
+
+msgid "PJ, I'm reading Darts all around the waypoint. Others closing in from the sides."
+msgstr "PJ, sto leggendo le freccette tutto intorno al waypoint. Altri si chiudono dai lati."
+
+msgid "They're scanning me!"
+msgstr "Mi stanno scannerizzando!"
+
+msgid "Hell! They clearly don't want us to have it if they can't have it. Prepare to engage!"
+msgstr "Inferno! Chiaramente non vogliono che ce l'abbiamo se non possono averlo. Preparati ad impegnarti!"
+
+msgid "Okay, we're done. We're to wait here for pickup. Shouldn't be more than a few minutes."
+msgstr "Ok, abbiamo finito. Dobbiamo aspettare qui per il ritiro. Non dovrebbe essere più di pochi minuti."
+
+msgid "What do you think they've got planned for this thing?"
+msgstr "Cosa pensi che abbiano pianificato per questa cosa?"
+
+msgid "No idea. But what I do know is that we're not involved any further."
+msgstr "Nessuna idea. Ma quello che so è che non siamo più coinvolti."
+
+msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
+msgstr "È stata emessa una chiamata di soccorso da uno squadrone del CSN, che si stava impegnando con obiettivi Pandoran. Sembra che il nemico abbia impolverato i combattenti, piuttosto che distruggerli. I rimorchiatori INF si preparano a condurli fuori dal sistema, attraverso il jumpgate. Dobbiamo distruggere quei rimorchiatori e mettere al sicuro uomini e donne. Non possiamo consentire ai Pandoriani di ottenere alcuna delle nostre tecnologie."
+
+msgid "White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate."
+msgstr "Cavalieri bianchi, i rimorchiatori nemici sono già in posizione e stanno attaccando le funi di traino. Non devono essere autorizzati a portare quei combattenti e piloti al portellone."
+
+msgid "Can you disable the gate remotely?"
+msgstr "Puoi disattivare il cancello da remoto?"
+
+msgid "Negative, the Pandorans have control. We're working take back command functions. Stand by."
+msgstr "Negativo, i Pandoriani hanno il controllo. Stiamo lavorando per riprendere le funzioni di comando. Pausa."
+
+msgid "Griffin, all enemy tugs have been dispatched."
+msgstr "Griffin, tutti i rimorchiatori nemici sono stati spediti."
+
+msgid "Good work, Commander. We've regained control of the gate. We're sending our own tugs through now."
+msgstr "Bel lavoro, comandante. Abbiamo riacquistato il controllo del cancello. Ora stiamo mandando i nostri rimorchiatori."
+
+msgid "Estelle, I'm picking up incoming INF fighters."
+msgstr "Estelle, sto raccogliendo i combattenti INF in arrivo."
+
+msgid "Hell! Protect the tugs. Make sure they get everyone home."
+msgstr "Inferno! Proteggi i rimorchiatori. Assicurati che portino tutti a casa."
+
+msgid "Griffin, this is de Winter. Operation successful."
+msgstr "Griffin, questo è de Winter. Operazione riuscita."
+
+msgid "I knew I could count on you, de Winter. Head back to Griffin."
+msgstr "Sapevo di poter contare su di te, de Winter. Torna a Griffin."
+
+msgid "The Pandorans are preparing for a major push into Rothan, so we need to shore up defences as quickly as possible. Command have selected a number of positions that will give us a strategic advantage in the early stages of battle when the enemy arrives. The Blue Jesters are to link up with the Irregular Nomads near to one Rothan's inner jumpgates, and await further instructions."
+msgstr "I Pandoriani si stanno preparando per una spinta importante in Rothan, quindi dobbiamo difendere le difese il più rapidamente possibile. Il comando ha selezionato un numero di posizioni che ci darà un vantaggio strategico nelle prime fasi della battaglia quando il nemico arriva. I Giullari Blu si collegheranno con i Nomadi Irregolari vicino ai portali interni di uno Rothan e attenderanno ulteriori istruzioni."
+
+msgid "Control, we're in position. Awaiting the Irregular Nomads."
+msgstr "Controllo, siamo in posizione. In attesa dei nomadi irregolari."
+
+msgid "Irregular Nomads have just exited the jumpgate. They'll be with you shortly."
+msgstr "I nomadi irregolari sono appena usciti dal jumpgate. Saranno con te presto."
+
+msgid "Commander Spencer, we're on our way. We'll join you at the waypoint."
+msgstr "Comandante Spencer, stiamo arrivando. Ci uniremo a te al waypoint."
+
+msgid "Acknowledged, Lieutenant, we'll see you in a bit."
+msgstr "Riconosciuto, tenente, ci vediamo tra un po '."
+
+msgid "Control, we're ready to--"
+msgstr "Controllo, siamo pronti a--"
+
+msgid "Commander, be advised that we are detecting UNF fighters advancing on your position, several Nymphs and Fireflies. They are not responding to requests to identify presence or purpose."
+msgstr "Comandante, sappi che stiamo rilevando combattenti UNF che avanza sulla tua posizione, diverse Ninfe e Lucciole. Non rispondono alle richieste di identificare la presenza o lo scopo."
+
+msgid "Pandorans?"
+msgstr "Pandorans?"
+
+msgid "Their signatures don't suggest so."
+msgstr "Le loro firme non lo suggeriscono."
+
+msgid "Commander, incoming fighters are hostile. Suggest you prepare to engage or fallback to the jumpgate."
+msgstr "Comandante, i combattenti in arrivo sono ostili. Suggerire di prepararsi ad impegnarsi o ripiegare sul jumpgate."
+
+msgid "Acknowledged, moving to engage."
+msgstr "Riconosciuto, trasferirsi per impegnarsi."
+
+msgid "Control, enemy targets have been eliminated."
+msgstr "Controllo, gli obiettivi nemici sono stati eliminati."
+
+msgid "Any survivors?"
+msgstr "Qualche sopravvissuto?"
+
+msgid "Negative, I didn't see anyone eject from those fighters."
+msgstr "Negativo, non ho visto nessuno espellere da quei combattenti."
+
+msgid "Commander, your current missions has been aborted. Return to the jumpgate. We need a full report as to what just happened out there."
+msgstr "Comandante, le tue attuali missioni sono state interrotte. Ritorna al jumpgate. Abbiamo bisogno di un rapporto completo su ciò che è appena successo là fuori."
+
+msgid "Got it, coming home."
+msgstr "Capito, tornando a casa."
+
+msgid "We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here."
+msgstr "Abbiamo diversi caccia Tzac in arrivo. Dobbiamo impedire loro di distruggere le navi qui."
+
+msgid "Any backup on the way?"
+msgstr "Qualche backup in arrivo?"
+
+msgid "The threat warning came in too late for any other squadrons to assist us, but we have the turrets to assist us."
+msgstr "L'avvertimento della minaccia è arrivato troppo tardi perché altri squadroni ci assistano, ma abbiamo le torrette per aiutarci."
+
+msgid "Expect the Tzac bombers to focus on destroying the tugs and shuttles."
+msgstr "Aspettatevi che gli attentatori di Tzac si concentrino sulla distruzione dei rimorchiatori e delle navette."
+
+msgid "Enemy fighters spotted. No sign of the squadron wing commander, though. We might have to draw him out."
+msgstr "I combattenti nemici individuati. Nessun segno del comandante delle ali dello squadrone, comunque. Potremmo doverlo attirare."
+
+msgid "Rose, we'll be relying on you to disable his fighter as soon as he puts in an appearance."
+msgstr "Rose, ci affideremo a te per disabilitare il suo combattente non appena comparirà."
+
+msgid "Tzac commander sighted, Commander."
+msgstr "Comandante Tzac avvistato, comandante."
+
+msgid "Get to it, Lieutenant. We'll cover you."
+msgstr "Accettalo, tenente. Ti copriremo."
+
+msgid "Tzac commander's Shale has been disabled."
+msgstr "Lo Shale del comandante di Tzac è stato disattivato."
+
+msgid "Control, this is Spencer. Reporting operation successful."
+msgstr "Controllo, questo è Spencer. Operazione di segnalazione riuscita."
+
+msgid "You have the commander?"
+msgstr "Hai il comandante?"
+
+msgid "Bagged and tagged."
+msgstr "Insaccato e etichettato."
+
+msgid "Excellent work, Jesters. Everything looks clear, so we'll dispatch a tug to your location to bring him in. See you soon."
+msgstr "Ottimo lavoro, giullari. Tutto sembra chiaro, quindi invieremo uno strattone alla tua posizione per portarlo dentro. Ci vediamo presto."
+
+msgid "The Pandorans have launched a sudden attack against the system. It appears that they are capitalizing on the chaos that the Kingdom of Tzac has thrown us into. We need to repel this attack, as defeat here could mean a major setback in our struggle against both enemies."
+msgstr "I Pandoriani hanno lanciato un attacco improvviso contro il sistema. Sembra che stiano capitalizzando sul caos che il regno di Tzac ci ha gettato dentro. Dobbiamo respingere questo attacco, dato che la sconfitta qui potrebbe significare una battuta d'arresto nella nostra lotta contro entrambi i nemici."
+
+msgid "Hell, they're outnumbering us, a good two-to-one!"
+msgstr "Al diavolo, ci stanno superando numericamente, un buon due a uno!"
+
+msgid "There are Swarmers in their ranks, making up the bulk. Don't lose faith people, we can do this."
+msgstr "Ci sono sciami nelle loro fila, che costituiscono il grosso. Non perdere la fede, le persone, possiamo farlo."
+
+msgid "That's the last of 'em. Not often we win an engagement like this."
+msgstr "Questo è l'ultimo di loro. Non capita spesso di vincere un fidanzamento come questo."
+
+msgid "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabited planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance."
+msgstr "I Pandorani stanno facendo pressione sul loro vantaggio e si avvicinano ai pianeti abitati di Rothan. Devono sconfiggere, in quanto una perdita qui significherebbe loro iniziare un assalto di terra. Aspettatevi una forte resistenza."
+
+msgid "Brace yourselves, lads."
+msgstr "Preparatevi, ragazzi."
+
+msgid "Picking up two Mitikas corvettes: Mora and Karambit."
+msgstr "Raccogliendo due corvette di Mitikas: Mora e Karambit."
+
+msgid "We need to give Hopper and Blackburn support in dealing with them. Get to it."
+msgstr "Dobbiamo dare il sostegno di Hopper e Blackburn nel trattare con loro. Arrivare ad essa."
+
+msgid "Hell, where'd they get those Khepris from?"
+msgstr "Diavolo, da dove hanno preso quei Khepris?"
+
+msgid "Christabel must've decided to try and attack the Pandorans directly. Went as well for her as it did for us."
+msgstr "Christabel deve aver deciso di provare e attaccare direttamente i Pandoriani. Sono andato bene per lei come ha fatto per noi."
+
+msgid "Commander, we're taking heavy losses!"
+msgstr "Comandante, stiamo subendo pesanti perdite!"
+
+msgid "We won before, we can win again! Keep up the fight!"
+msgstr "Abbiamo vinto prima, possiamo vincere ancora! Continua la lotta!"
+
+msgid "Commander, I strongly suggest we pull back."
+msgstr "Comandante, suggerisco caldamente di ritirarci."
+
+msgid "We can't keep running. We'll run out of places to run to."
+msgstr "Non possiamo continuare a correre. Mancheremo i posti in cui correre."
+
+msgid "All fighters, be advised: the wing commander has been killed."
+msgstr "Tutti i combattenti devono essere avvisati: il comandante delle ali è stato ucciso."
+
+msgid "Who's leading this operation now?"
+msgstr "Chi sta conducendo questa operazione ora?"
+
+msgid "We have to retreat!"
+msgstr "Dobbiamo ritirarci!"
+
+msgid "This the end of the line, guys. It's been great serving with you."
+msgstr "Questa è la fine della linea, ragazzi. È stato grandioso servire con te."
+
+msgid "Hopper is down!"
+msgstr "Hopper è giù!"
+
+msgid "They've taken out Blackburn!"
+msgstr "Hanno eliminato Blackburn!"
+
+msgid "That's both of our corvettes down. The rest is up to us."
+msgstr "Queste sono entrambe le nostre corvette. Il resto spetta a noi."
+
+msgid "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what."
+msgstr "Questa è una missione molto pericolosa. Mentre i Pandoriani sembrano averti accettato come uno dei loro piloti, saranno comunque molto sospettosi. Dovresti quindi fare tutto il possibile per mantenere bassi i loro sospetti. Attacca vicino al comandante di ala quando non è in combattimento. Non licenziare le tue pistole o usare il tuo ECM se non ne hai bisogno, ed elimina i tuoi obiettivi con estremo pregiudizio, non importa quale."
+
+msgid "(I'm in deep this time. Just have to remain calm, focus, and do as they do.)"
+msgstr "(Questa volta mi trovo in profondità. Devo solo rimanere calmo, concentrarsi e fare quello che fanno.)"
+
+msgid "(Can't talk to them, can't understand their language, so I'll have to go with my instincts.)"
+msgstr "(Non posso parlare con loro, non posso capire la loro lingua, quindi dovrò andare con il mio istinto.)"
+
+msgid "(Ah, hell! We're hunting civilians. I ... I can't refuse orders ...)"
+msgstr "(Ah, diavolo, stiamo cercando dei civili ... io non posso rifiutare gli ordini ...)"
+
+msgid "(Better get back to the wing commander, before they think I'm slacking)"
+msgstr "(Meglio tornare al comandante di ala, prima che pensino che sto rallentando)"
+
+msgid "(They're moving to the jumpgate. I should join them, and stick close.)"
+msgstr "(Si stanno spostando verso il jumpgate.) Dovrei unirmi a loro e restare vicino.)"
+
+msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
+msgstr "Un semplice volo di prova. Abituati a pilotare il tuo combattente, senza minacce di attacco o altri pericoli da affrontare. Non ci sono obiettivi da completare in questa missione, quindi puoi abbandonarlo in qualsiasi momento e passare a quello successivo."
+
+msgid "Welcome to free flight."
+msgstr "Benvenuti nel volo libero."
+
+msgid "Practice turning, accelerating, and braking."
+msgstr "Pratica la svolta, l'accelerazione e la frenata."
+
+msgid "Don't forget about your Boost, either. That can be a life saver in certain situations."
+msgstr "Non dimenticare nemmeno il tuo potenziamento. Questo può essere un salvavita in determinate situazioni."
+
+msgid "Practice using your fighter's weapons against a stationary target."
+msgstr "Esercitati a usare le armi del tuo combattente contro un bersaglio fermo."
+
+msgid "The Dart won't attack you, so when you're ready, you can blow the thing to pieces."
+msgstr "La Dart non ti attaccherà, quindi quando sei pronto, puoi far saltare in aria la cosa."
+
+msgid "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around."
+msgstr "La maggior parte degli obiettivi che affronterai sul campo si muoveranno. Questo corso ti dà la possibilità di praticare l'abbattimento di un nemico che si muove intorno."
+
+msgid "This Dart has control over its engines, but not its weapons. Practice chasing it down and destroying it."
+msgstr "Questo Dart ha il controllo sui suoi motori, ma non sulle sue armi. Esercitati a inseguirlo e distruggerlo."
+
+msgid "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge."
+msgstr "Affronta un avversario armato. Il nemico in questo corso è un dardo, equipaggiato con due cannoni a doppia particella. Non dovrebbe rivelarsi una sfida troppo difficile."
+
+msgid "This Dart is armed! Watch yourself."
+msgstr "Questo Dart è armato! Prenditi cura di te stesso."
+
+msgid "Practice using your ECM in the next encounter. The Dart here is equipped with missiles, which will home in on you. You can thwart these attacks by careful use of your ECM. Once you are done practicing, you can destroy the Dart and move on."
+msgstr "Esercitati a usare la tua ECM nel prossimo incontro. Il Dart qui è equipaggiato con missili, che ti ospiteranno. Puoi contrastare questi attacchi con un uso attento del tuo ECM. Una volta che hai finito di praticare, puoi distruggere il Dart e andare avanti."
+
+msgid "Use your ECM to destroy the missiles fired at you. Remember, the ECM needs several seconds to recharge between uses."
+msgstr "Usa il tuo ECM per distruggere i missili sparati contro di te. Ricorda, l'ECM richiede diversi secondi per ricaricarsi tra gli usi."
+
+msgid "Use your mag cannons to disable the enemy Dart. Disabling enemy craft and bringing the target in alive is sometimes an important step in securing lasting victory."
+msgstr "Usa i tuoi cannoni mag per disabilitare il dardo nemico. Disabilitare le unità nemiche e portare il bersaglio in vita a volte è un passo importante per ottenere una vittoria duratura."
+
+msgid "Switch to your Mag cannons and fire them at the Dart to disable it. Do not fire your plasma cannons or launch any missiles, as these could destroy the target."
+msgstr "Passa ai tuoi cannoni Mag e sparali al Dart per disabilitarlo. Non licenziare i cannoni al plasma o lanciare missili, in quanto potrebbero distruggere il bersaglio."
+
+msgid "Battle along side two team mates to take on 3 enemy fighters."
+msgstr "Combatti al fianco di due compagni di squadra per affrontare 3 combattenti nemici."
+
+msgid "Wingmate will often assist you in battle. When you're ready, approach the Darts and engage."
+msgstr "Wingmate ti assisterà spesso in battaglia. Quando sei pronto, avvicinati a Freccette e ingaggia."
+
+msgid "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand."
+msgstr "Affronta tre obiettivi nemici da solo. Ancora una volta, questi sono freccette dotate di semplici cannoni a particelle. Un singolo TAF non dovrebbe trovarsi surclassato qui, a patto che al nemico non sia permesso di prendere il sopravvento."
+
+msgid "Final course. Use all your training to defeat the three opponents."
+msgstr "Corso finale Usa tutto il tuo allenamento per sconfiggere i tre avversari."
+
+msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
+msgstr "La spinta di Pandoran nello spazio indipendente ha portato a un'ondata di attività dei pirati lungo il confine della Confederazione. La minaccia deve essere affrontata immediatamente, iniziando con la riduzione della presenza nemica a Temper."
+
+msgid "Multiple incoming enemy fighters."
+msgstr "Combattenti nemici in arrivo multipli."
+
+msgid "Follow my lead. Break and attack at will."
+msgstr "Segui quello che faccio io. Pausa e attacco a volontà."
+
+msgid "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevalent, and there are more shielded and plasma-equipped fighters to be found in their ranks."
+msgstr "Nonostante i recenti sforzi, l'attività dei pirati e dei ribelli non mostra segni di cedimento. Dobbiamo continuare a distruggere gli anelli mentre li troviamo e impedire loro di ottenere un punto d'appoggio in Temper, in quanto ciò potrebbe solo essere negativo per il morale e lo sforzo bellico. Mentre affrontiamo ancora le freccette, le modifiche a questi mezzi stanno diventando più frequenti, e ci sono più combattenti equipaggiati di scudi e plasma che si trovano nelle loro file."
+
+msgid "As before, everyone. Let's take it to 'em."
+msgstr "Come prima, tutti. Prendiamolo in testa."
+
+msgid "Looks like these guys are all sporting modified Darts."
+msgstr "Sembra che questi ragazzi siano tutti dardi modificati sportivi."
+
+msgid "Acknowledged. Watch out for the lasers, people. They'll smash your shields to pieces if you let 'em."
+msgstr "Riconosciuto. Fai attenzione ai laser, alle persone. Ti distruggeranno i tuoi scudi se li lascerai."
+
+msgid "Allied intelligence have managed to locate one of the pirate ring lieutenants. We need to bring this man in alive, as he could provide us with further useful information that will allow us to track down and eliminate high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the lieutenant's Dart."
+msgstr "L'intelligence alleata è riuscita a localizzare uno dei luogotenenti dell'anello dei pirati. Dobbiamo portare questo uomo vivo, poiché potrebbe fornirci ulteriori informazioni utili che ci consentiranno di rintracciare ed eliminare individui di alto rango. Piloterai un raggio e dovrai usare i tuoi cannoni Mag per disabilitare il bersaglio. Non distruggere il dardo del tenente."
+
+msgid "Seth, the lieutenant's Dart should be tagged on your HUD. Disable that ship as soon as possible."
+msgstr "Seth, il Dart del tenente dovrebbe essere taggato sul tuo HUD. Disabilita quella nave il prima possibile."
+
+msgid "The rest of us will take down his buddies. Watch your stray fire around the mission target."
+msgstr "Il resto di noi eliminerà i suoi amici. Guarda il tuo fuoco vagante attorno all'obiettivo della missione."
+
+msgid "Control, this is Strickland. Target has been suppressed, all other threats eliminated. Will await pickup."
+msgstr "Controllo, questo è Strickland. L'obiettivo è stato soppresso, tutte le altre minacce eliminate. Attenderà il ritiro."
+
+msgid "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down."
+msgstr "Ci è voluto del tempo, ma siamo finalmente riusciti a estrarre le informazioni richieste dal tenente che abbiamo catturato. Le sue informazioni hanno rivelato che i pirati hanno formato una coalizione per sfruttare la guerra di fermentazione. Dobbiamo distruggere questa alleanza facendo leva sui leader della fazione. Al momento stanno fuggendo da un'imboscata precedente, una progettata per inviarli a modo tuo. I leader sono tutte le ninfe acquisite da pilotare. Portali giù."
+
+msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate."
+msgstr "Questo è semplice, ragazzi: abbatti tutti gli obiettivi nemici. Ma assicurati che nessuna di quelle Ninfe arrivi al portellone."
+
+msgid "Excellent works, people. This one's a wrap."
+msgstr "Opere eccellenti, persone. Questo è un involucro."
+
+msgid "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle."
+msgstr "Con i leader scomparsi, siamo ora in grado di porre fine al problema della pirateria organizzata a Temper per sempre. Abbiamo identificato un numero di freccette di freccette per quello che sembra essere uno sciopero contro le risorse CSN, in punizione. Non daremo ai pirati la possibilità di farlo e li colpiamo per primi. Strickland guiderà gli Steel Bulls in battaglia."
+
+msgid "Enemy forces sighted."
+msgstr "Forze nemiche avvistate."
+
+msgid "This is it, boys and girls, let's stick it to 'em. Break and attack!"
+msgstr "Questo è, ragazzi e ragazze, mettiamoli in testa. Rompi e attacca!"
+
+msgid "Looks like we touched a nerve. We've got more Darts incoming."
+msgstr "Sembra che abbiamo toccato un nervo. Abbiamo ricevuto più freccette in arrivo."
+
+msgid "Another group just arrived."
+msgstr "Un altro gruppo è appena arrivato."
+
+msgid "They'll keep lining 'em up, and we'll keep knocking them down."
+msgstr "Continueranno a metterli in fila e continueremo a buttarli giù."
+
+msgid " Another group. That tallies with the numbers we were expecting."
+msgstr " Un altro gruppo Ciò corrisponde ai numeri che ci aspettavamo."
+
+msgid " Looks like that was the last of 'em."
+msgstr " Sembra che sia stato l'ultimo di loro."
+
+msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated."
+msgstr " Spirito, questo è il comandante Strickland. Le forze avversarie sono state sconfitte."
+
+msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
+msgstr "Riconosciuto. Buon lavoro là fuori, comandante. Grazie a te, Temper sarà un sistema più sicuro, e possiamo concentrarci sul puntare le nostre difese contro le forze Pandoriane. Vieni a casa."
+
+msgid "Your instructions are simple, Hicks. As before, follow the wing leader's instructions, and do as the others do. Stay close to the leader when not otherwise engaged, and do not do anything to raise your suspicion. Act quickly to assure the Pandorans you're with them."
+msgstr "Le tue istruzioni sono semplici, Hicks. Come prima, segui le istruzioni dell'ala leader e fai come fanno gli altri. Resta vicino al leader quando non è impegnato diversamente e non fare nulla per sollevare il tuo sospetto. Agisci rapidamente per assicurare ai Pandoriani che sei con loro."
+
+msgid "(More hunting. I hope I'm not going to be forced to kill innocent people again.)"
+msgstr "(Più caccia, spero di non essere costretto a uccidere di nuovo persone innocenti.)"
+
+msgid "(Mercenaries. Better than civilians, but still abhorrent. Run, you fools! Run!)"
+msgstr "(Mercenari .Meglio dei civili, ma ancora aberranti. Corri, sciocco! Corri!)"
+
+msgid "(Looks like that's it. We're heading to the jumpgate.)"
+msgstr "(Sembra che sia così. Stiamo andando al jumpgate.)"
+
+msgid "Our goal is simple, lads: destroy all enemy targets."
+msgstr "Il nostro obiettivo è semplice, ragazzi: distruggi tutti i bersagli nemici."
+
+msgid "Good work, everyone. Let's prepare to lend a hand to the other squadrons."
+msgstr "Buon lavoro, tutti. Prepariamoci a dare una mano agli altri squadroni."
+
+msgid "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution."
+msgstr "I rapporti dell'intelligence suggeriscono che Tzac ha assunto un certo numero di mercenari per assistere nei loro attacchi ai sistemi indipendenti. Le informazioni ottenute da fonti sotterranee dicono che stanno progettando di prendere di mira le navi capitali dell'UNF. Anche se l'hardware mercenario conosciuto non deve sfidare le nostre navi, per ora tutte le corvette UNF viaggeranno con le scorte combattenti estese, come precauzione."
+
+msgid "Enemy fighter signatures detected. Looks like Darts."
+msgstr "Rilevate le firme dei caccia nemici. Sembra Darts."
+
+msgid "Those will be the mercenaries we've been hearing about. All fighters, prepare to engage."
+msgstr "Questi saranno i mercenari di cui abbiamo sentito parlare. Tutti i combattenti, si preparano a impegnarsi."
+
+msgid "How many of these bastards did Tzac hire?!"
+msgstr "Quanti di questi bastardi hanno noleggiato Tzac ?!"
+
+msgid "Whatever the number, we'll make sure we send a clear message it wasn't enough!"
+msgstr "Qualunque sia il numero, ci assicureremo di inviare un messaggio chiaro che non è abbastanza!"
+
+msgid "Looks like that's all of them, Commander."
+msgstr "Sembra che siano tutti loro, comandante."
+
+msgid "Confirmed. Tzac must have opened up the coffers to fund this. Those guys meant business."
+msgstr "Confermato. Tzac deve aver aperto le casse per finanziare questo. Quei ragazzi significavano affari."
+
+msgid "I still can't believe they came at us in Darts."
+msgstr "Non riesco ancora a credere che siano venuti da noi a Darts."
+
+msgid "They must've been paid handsomely for that."
+msgstr "Devono essere stati pagati profumatamente per quello."
+
+msgid "Stick round, Commander. We might need you later."
+msgstr "Attacca, comandante. Potremmo aver bisogno di te più tardi."
+
+msgid "A number of those responsible for helping supply illegal arms and information to Tzac have been identified. They are to be tracked down, and brought in for questioning. At this point, we want to avoid killing them, as they could prove vital to bringing in the ringleaders."
+msgstr "Sono stati identificati alcuni responsabili dell'aiuto alla fornitura di armi e informazioni illegali a Tzac. Devono essere rintracciati e portati per essere interrogati. A questo punto, vogliamo evitare di ucciderli, in quanto potrebbero rivelarsi di vitale importanza per coinvolgere i leader."
+
+msgid "D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now."
+msgstr "D'Ath, abbiamo individuato gli obiettivi. Stanno andando al portellone. Lo stiamo chiudendo ora."
+
+msgid "Got it, we'll mag the fighters and take it from there."
+msgstr "Capito, radicheremo i combattenti e li prenderemo da lì."
+
+msgid "Control, this is D'Ath. Targets have been disabled. No casualties."
+msgstr "Controllo, questo è D'Ath. I bersagli sono stati disabilitati. Nessuna vittima"
+
+msgid "Acknowledged. Didn't look like they put up much of a fight. Seemed they spent most of the time running away."
+msgstr "Riconosciuto. Non sembrava che facessero molto litigi. Sembrava che passassero la maggior parte del tempo scappando."
+
+msgid "Barely fired back. Maybe they were covering for someone?"
+msgstr "A malapena respinto. Forse stavano coprendo qualcuno?"
+
+msgid "Definite possibility. We'll bring these guys in and see what we can find out."
+msgstr "Possibilità definita. Porteremo questi ragazzi e vedremo cosa possiamo scoprire."
+
+msgid "It seems that some of the traitors that were brought in earlier were acting as a distraction for a number of others, who have now commandeered CSN Drachma. The corvette must be taken back, without destroy it. All other targets are valid, unless surrendering."
+msgstr "Sembra che alcuni dei traditori portati in precedenza stessero agendo come una distrazione per un numero di altri, che ora hanno requisito il Draco CSN. La corvetta deve essere riportata indietro, senza distruggerla. Tutti gli altri obiettivi sono validi, a meno che non si arrendano."
+
+msgid "Looks like we've got a welcoming committee heading our way."
+msgstr "Sembra che abbiamo un comitato di benvenuto che dirige la nostra strada."
+
+msgid "Remember: we need to disable the Drachma. Target the guns and engines, only. We don't want to destroy it."
+msgstr "Ricorda: dobbiamo disabilitare Dracma. Indirizzare solo armi e motori. Non vogliamo distruggerlo."
+
+msgid "Some of them are surrendering. Disable their fighters, and we'll deal with them later. Don't kill them!"
+msgstr "Alcuni di loro si stanno arrendendo. Disabilita i loro combattenti e ci occuperemo di loro più tardi. Non ucciderli!"
+
+msgid "Control, traitors have been dealt with, and the Drachma has been disabled. She's ready for boarding."
+msgstr "Controllo, i traditori sono stati affrontati e la dracma è stata disabilitata. È pronta per l'imbarco."
+
+msgid "Acknowledged. Shuttles are on their way."
+msgstr "Riconosciuto. Le navette stanno arrivando."
+
+msgid "There are now only two figureheads in the traitor group remaining: Isabel Nelson, and one other whose identity is currently being confirmed. Isabel Nelson has been located in the vicinity. As before, disable her fighter so she can be brought in. Disable any other surrendering targets."
+msgstr "Ora restano solo due figure nel gruppo dei traditori: Isabel Nelson e un'altra la cui identità è attualmente confermata. Isabel Nelson è stata localizzata nelle vicinanze. Come prima, disabilita il suo combattente in modo che possa essere portata dentro. Disabilita tutti gli altri bersagli che si arrendono."
+
+msgid "Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be."
+msgstr "Sembra che quella stronza di Nelson si sia procurato una Torre. Presta attenzione e non aver paura di ucciderla, se necessario."
+
+msgid "Young, your orders are to bring Nelson in alive. Do not destroy that fighter."
+msgstr "Young, i tuoi ordini sono di portare Nelson vivo. Non distruggere quel combattente."
+
+msgid "Fine, we'll mag her."
+msgstr "Bene, la magneremo."
+
+msgid "Preston's being a bit aggressive, don't you think?"
+msgstr "Preston è un po 'aggressivo, non credi?"
+
+msgid "The commander's probably just fed up with all the in-fighting that's going on. Can't say I blame him."
+msgstr "Il comandante probabilmente è stufo di tutto ciò che sta succedendo. Non posso dire che lo biasimo."
+
+msgid "Sparrows, we have confirmed the identity of the second traitor - it's Commander Young. Disable that fighter."
+msgstr "Sparrows, abbiamo confermato l'identità del secondo traditore: è il comandante Young. Disabilita quel combattente."
+
+msgid "What the hell?!"
+msgstr "Che diavolo?!"
+
+msgid "Explains things. Surrender, Commander, it's over."
+msgstr "Spiega le cose. Arrenditi, comandante, è finita."
+
+msgid "Come and get me, Malcolm."
+msgstr "Vieni e prendimi, Malcolm."
+
+msgid "What the hell, Commander, I never thought I'd see the day."
+msgstr "Che diavolo, comandante, non avrei mai pensato di vedere il giorno."
+
+msgid "The CSN and UNF have lost, Malcolm, can't you see that? Time to cut our losses and get far away from here."
+msgstr "Il CSN e l'UNF hanno perso, Malcolm, non lo vedi? È ora di ridurre le nostre perdite e allontanarci da qui."
+
+msgid "We haven't lost; we defeated Christabel, and--"
+msgstr "Non abbiamo perso; abbiamo sconfitto Christabel e--"
+
+msgid "And what about the Pandorans? They're winning this war, no one else! We can't beat them."
+msgstr "E i Pandorani? Stanno vincendo questa guerra, nessun altro! Non possiamo batterli."
+
+msgid "The Mitikans also tried running. Didn't exactly work out well for them, either."
+msgstr "Anche i Mitikans hanno provato a correre. Non ha funzionato bene per loro, neanche."
+
+msgid "Fighting didn't turn out too well, either. It's every man for himself."
+msgstr "Anche i combattimenti non sono andati molto bene. È ogni uomo per se stesso."
+
+msgid "Commander, we're done here. Control, targets and area secured. Ready for pickup."
+msgstr "Comandante, abbiamo finito qui. Controllo, obiettivi e area protetta. Pronto per essere ritirato."
+
+msgid "Our forces have taken heavy losses of the last few engagements, but there is still much to do. Three Pandoran corvettes have been tagged for destruction. We need to ensure that they are taken down, while we minimise losses of our own. We cannot afford to lose all of our own capital ships. Work fast, and assist Zenobia, Lady Jane Grey, and Tangka as needed."
+msgstr "Le nostre forze hanno subito pesanti perdite negli ultimi impegni, ma c'è ancora molto da fare. Tre corvette Pandoran sono state taggate per la distruzione. Dobbiamo assicurarci che vengano abbattuti, mentre minimizziamo le nostre perdite. Non possiamo permetterci di perdere tutte le nostre navi capitali. Lavora velocemente e aiuta Zenobia, Lady Jane Grey e Tangka se necessario."
+
+msgid "Enemy forces in range. Preparing to engage."
+msgstr "Forze nemiche nel raggio. Prepararsi ad impegnarsi."
+
+msgid "You heard it, people. Break and attack."
+msgstr "L'hai sentito, gente. Rompi e attacca."
+
+msgid "More enemy fighters incoming."
+msgstr "Altri combattenti nemici in arrivo."
+
+msgid "We have reinforcements on the way, to help even the odds."
+msgstr "Abbiamo rinforzi sulla strada, per aiutare anche le probabilità."
+
+msgid "One down, two to go."
+msgstr "Uno giù, due per andare."
+
+msgid "Another down, just one remaining. We can do this!"
+msgstr "Un altro down, solo uno rimanente. Possiamo farcela!"
+
+msgid "That's all the enemy's capital ships down. Let's finish off the fighters."
+msgstr "Quelle sono tutte le navi capitali del nemico giù. Finiamo i combattenti."
+
+msgid "Not an easy battle, but we did it."
+msgstr "Non è una battaglia facile, ma ce l'abbiamo fatta."
+
+msgid "Hope for the future. If we could just win all our battle like this ..."
+msgstr "Speranza per il futuro. Se potessimo vincere tutta la nostra battaglia in questo modo ..."
+
+msgid "It's not over yet. We need to join the others and continue to hit back."
+msgstr "Non è ancora finita. Dobbiamo unirci agli altri e continuare a rispondere."
+
+msgid "Step it up, everyone! We can't continue to lose our corvettes."
+msgstr "Aumentalo, tutti! Non possiamo continuare a perdere le nostre corvette."
+
+msgid "We're down to one corvette. We need to finish this now!"
+msgstr "Siamo giù per una corvetta. Dobbiamo finire questo ora!"
+
+msgid "There were too many of them ..."
+msgstr "Ce n'erano troppi ..."
+
+msgid "The Pandorans are already deploying ground assault teams to Flint. The attack is in its early stages, with more troop carrier incoming. The enemy are meeting our defence lines aggressively, to clear a path for their landers. We need to hit back hard, and prevent Flint from being taken. Objective is simple: destroy all enemy forces."
+msgstr "I Pandorani stanno già schierando squadre di assalto di terra su Flint. L'attacco è nelle sue fasi iniziali, con più corrieri di truppe in arrivo. Il nemico sta incontrando le nostre linee di difesa in modo aggressivo, per chiarire un percorso per i loro lander. Dobbiamo rispondere con forza e impedire che Flint venga preso. L'obiettivo è semplice: distruggi tutte le forze nemiche."
+
+msgid "The Pandorans are overunning our front line! We need to drive them back, now!"
+msgstr "I Pandoriani stanno superando la nostra linea del fronte! Dobbiamo riportarli indietro, ora!"
+
+msgid "We're losing fighters, rapidly. We need to focus our efforts on dividing the enemy up and taking them down together."
+msgstr "Stiamo perdendo combattenti, rapidamente. Dobbiamo concentrare i nostri sforzi sul dividere il nemico e portarli giù insieme."
+
+msgid "Picking up incoming Tzac corvettes."
+msgstr "Raccogliendo le corvette Tzac in arrivo."
+
+msgid "We need to take down those capital ships, right away. Lt. Cdr. Dodds, lead the strike."
+msgstr "Dobbiamo abbattere quelle navi capitali, subito. Lt. Cdr. Dodds, guida lo sciopero."
+
+msgid "HMS 711-444 has been taken down."
+msgstr "HMS 711-444 è stato rimosso."
+
+msgid "HMS 313-777 is out of the game."
+msgstr "HMS 313-777 è fuori dal gioco."
+
+msgid "We're losing captial ships! We can't continue like this!"
+msgstr "Stiamo perdendo navi captiali! Non possiamo continuare così!"
+
+msgid "The Pandoran forces are closing in on Flint. They will commence planetary bombardment if allowed to get any closer."
+msgstr "Le forze di Pandoran si stanno avvicinando a Flint. Cominceranno il bombardamento planetario se gli sarà permesso di avvicinarsi."
+
+msgid "Dammit! That's all three of our corvettes down!"
+msgstr "Dannazione! Sono tutte e tre le nostre corvette!"
+
+msgid "Dodds, Commodore Parks has ordered that you pull out immediately."
+msgstr "Dodd, Commodore Parks ti ha ordinato di ritirarti immediatamente."
+
+msgid "Griffin, what the hell? We can take them!"
+msgstr "Griffin, che diavolo? Possiamo portarli!"
+
+msgid "That's a negative, Dodds. You're to return to the carrier, and prepare for withdrawal."
+msgstr "È negativo, Dodds. Devi tornare al corriere e prepararti per il ritiro."
+
+msgid "I'm not going to run away. Not again."
+msgstr "Non ho intenzione di scappare. Non di nuovo."
+
+msgid "Dodds, this is Commodore Park. I'm giving you a direct order. This isn't a battle we can win, and I'm not having you throw away your life or lose that starfighter. Get out, now. Final warning, mister."
+msgstr "Dodds, questo è Commodore Park. Ti sto dando un ordine diretto. Non è una battaglia che possiamo vincere, e non ho intenzione di buttare via la tua vita o perdere quella starfighter. Esci adesso. Avviso finale, signore."
+
+msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both mentally and physically."
+msgstr "Siamo spiacenti, Hicks, ma devi continuare a seguire gli ordini. Siamo consapevoli di ciò che sta per accadere, ma questo è per il bene più grande. Prova a superare tutto questo in un unico pezzo. Sia mentalmente che fisicamente."
+
+msgid "(This ... how can I do this? These are my friends.)"
+msgstr "(Questo ... come posso farlo? Questi sono i miei amici.)"
+
+msgid "(I need to maintain my cover, or this whole operation could be blown.)"
+msgstr "(Ho bisogno di mantenere la mia copertura, o questa intera operazione potrebbe essere saltata.)"
+
+msgid "(Sorry, everyone.)"
+msgstr "(Siamo spiacenti, tutti.)"
+
+msgid "(They're going after the civilians again. I hope this ends soon. I'm not sure how much more this I can take.)"
+msgstr "(Stanno andando di nuovo dietro ai civili. Spero che questo finisca presto. Non sono sicuro di quanto altro potrei fare.)"
+
+msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilian craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
+msgstr "Come già confermato da Neal Stockwell, l'evacuazione di Oracle IX in risposta alla supernova non sta progredendo tanto rapidamente come molti vorrebbero. E ora, con l'esercito dei Pandor in movimento, dobbiamo accelerare il ritmo. Un certo numero di ritardatari civili è stato identificato vicino a Oracle IX, che ha bisogno di scorta per il punto di evacuazione. Il tuo obiettivo è localizzare tutte le imbarcazioni civili nell'area e portarle dentro. Non sono previste forze nemiche, ma è meglio stare in guardia."
+
+msgid "ABCs, this is Control. Round up those civilians and escort them to the jumpgate as quick as you can."
+msgstr "ABC, questo è il controllo. Arrotonda quei civili e li accompagna al jumpgate il più velocemente possibile."
+
+msgid "We're not expecting any opposition, but be prepared to engage hostiles if needed."
+msgstr "Non ci aspettiamo alcuna opposizione, ma siamo pronti a ingaggiare gli ostili se necessario."
+
+msgid "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised."
+msgstr "Abbiamo identificato circa una dozzina di altri ritardatari che devono essere introdotti. Portali al punto di evacuazione come prima. Presta attenzione: l'intelligence ha raccolto segnali criptati che sembrano corrispondere a quelli usati dai Pandoriani per le loro trasmissioni. Le forze nemiche dovrebbero essere ingaggiate e distrutte o dirottate al contatto. Le perdite civili dovrebbero essere ridotte al minimo."
+
+msgid "Gaskin, INF fighters spotted! Pandorans, without a doubt!"
+msgstr "Gaskin, combattenti INF individuati! Pandoriani, senza dubbio!"
+
+msgid "Break and attack! Protect the civilians!"
+msgstr "Rompi e attacca! Proteggi i civili!"
+
+msgid "That was a close one. Looks like they were scouting. We'll have to take extra precautions in future."
+msgstr "Era uno stretto. Sembra che stessero esplorando. Dovremo prendere ulteriori precauzioni in futuro."
+
+msgid "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now."
+msgstr "Le fasi finali dell'evacuazione sono in corso, ma la situazione si sta facendo dura. Abbiamo ricevuto un SOS da un gruppo di civili che hanno avuto un incontro con alcuni spazzini. Normalmente, prima di distribuire il salvataggio, avremmo assicurato l'area, ma con la situazione sempre più disperata, ora manderemo il rimorchiatore. Porta a casa ogni imbarcazione civile - il nemico dovrebbe ignorarli per ora."
+
+msgid "The Pandorans' arrival is imminent, but the evacuation is nearing completion. We need only mop up some of the stragglers. Two of the White Knights will be assisting, before moving on to hit the enemy's supply line. You should concentrate on getting the civilians to safety, and letting the ATAFs do the bulk of the work."
+msgstr "L'arrivo dei Pandoriani è imminente, ma l'evacuazione è quasi completata. Abbiamo bisogno solo di assorbire alcuni dei ritardatari. Due dei White Knights assisteranno, prima di passare a colpire la linea di rifornimento del nemico. Dovresti concentrarti sulla sicurezza dei civili e lasciare che gli ATAF facciano la maggior parte del lavoro."
+
+msgid "Enemy craft detected. Pandorans, in both INF and UNF fighters."
+msgstr "Rilevata un'imbarcazione nemica. Pandorani, sia in combattenti INF che UNF."
+
+msgid "Chaz, you're with me. Wiley, you and your boys get those civilians to the jumpgate."
+msgstr "Chaz, tu sei con me. Wiley, tu e i tuoi ragazzi portate quei civili al portellone."
+
+msgid "We've spotted the next group of civilians. Sending you the coordinates."
+msgstr "Abbiamo individuato il prossimo gruppo di civili. Inviando le coordinate."
+
+msgid "Picking up more Pandoran fighters, moving to intercept."
+msgstr "Raccogli altri combattenti Pandoran, trasferendosi per intercettarli."
+
+msgid "The final civilian group is here."
+msgstr "Il gruppo civile finale è qui."
+
+msgid "More Pandorans. Keep knocking them down, Chaz. We're almost done."
+msgstr "Altri Pandorani. Continua a buttarli giù, Chaz. Abbiamo quasi finito."
+
+msgid "Control, this is Wiley. Civilians have been extracted."
+msgstr "Controllo, questa è Wiley. I civili sono stati estratti."
+
+msgid "Wiley, ensure all enemy forces have been eliminated."
+msgstr "Wiley, assicurati che tutte le forze nemiche siano state eliminate."
+
+msgid "Control, this is de Winter. All enemy forces have been destroyed."
+msgstr "Controllo, questo è de Winter. Tutte le forze nemiche sono state distrutte."
+
+msgid "Excellent, we're very grateful for the assistance."
+msgstr "Eccellente, siamo molto grati per l'assistenza."
+
+msgid "The Pandoran fleet is closing in on Oracle IX, and their capital ships are moving rapidly up the field. We need to hold them back for as long as possible, to give the final evacuees time to escape the system. This will need to be done with fighters along. However, Lieutenant Commanders Taylor and Todd of the White Knights will be lending assistance with the ATAFs, which should give us the edge in battle."
+msgstr "La flotta Pandoran si sta avvicinando a Oracle IX e le loro navi capitali si stanno muovendo rapidamente sul campo. Dobbiamo trattenerli il più a lungo possibile, per dare agli evacuati finali il tempo di sfuggire al sistema. Questo dovrà essere fatto con i combattenti lungo. Tuttavia, i Tenenti Comandanti Taylor e Todd dei Cavalieri Bianchi presteranno assistenza con gli ATAF, che dovrebbero darci il vantaggio in battaglia."
+
+msgid "Our orders are to take down as many of the enemy corvettes as possible. Break and attack at will."
+msgstr "I nostri ordini sono di distruggere il maggior numero possibile di corvette nemiche. Pausa e attacco a volontà."
+
+msgid "How many of them are we expecting?"
+msgstr "Quanti di loro ci aspettiamo?"
+
+msgid "Five, at least. And they have escorts, too."
+msgstr "Cinque, almeno. E hanno anche scorte."
+
+msgid "Hell, we're dropping like flies here!"
+msgstr "Al diavolo, stiamo cadendo come mosche qui!"
+
+msgid "Hang in there, Lieutenant, we'll try and cover you."
+msgstr "Resta lì, tenente, proveremo a coprirti."
+
+msgid "Thunderbolt is down."
+msgstr "Thunderbolt è giù."
+
+msgid "Picking up two more Pandoran capital ships incoming."
+msgstr "Prendendo in consegna altre due navi pandemoniche in arrivo."
+
+msgid "INF Gram and INF Morning Star have arrived. Follow my lead!"
+msgstr "Sono arrivati ​​i INF Gram e gli INF Morning Star. Segui quello che faccio io!"
+
+msgid "Scratch another two Imperial corvettes."
+msgstr "Gratta altre due corvette imperiali."
+
+msgid "Tracking two more corvettes heading your way: Dragonlance and Trident."
+msgstr "Tieni traccia di altre due corvette che ti stanno dirigendo: Dragonlance e Trident."
+
+msgid "Dragonlance, eh? As in, a lance used for killing dragons? Yeah, they wish."
+msgstr "Dragonlance, eh? Come in, una lancia usata per uccidere draghi? Sì, desiderano."
+
+msgid "They're not the only ones."
+msgstr "Non sono gli unici."
+
+msgid "Leviathan, this is Taylor. All targets have been eliminated."
+msgstr "Leviatano, questo è Taylor. Tutti i bersagli sono stati eliminati."
+
+msgid "Acknowledged. We're preparing to fall back and abandon Warro. Return to Leviathan as soon as possible."
+msgstr "Riconosciuto. Ci stiamo preparando a ricadere e ad abbandonare Warro. Torna al Leviatano il prima possibile."
+
+msgid "Understood, will see you soon."
+msgstr "Capito, ci vediamo presto."
+
+msgid "Nice working with you, Wiley."
+msgstr "Bel lavoro con te, Wiley."
+
+msgid "Likewise. Maybe we'll get it do it again some day, though a part of me really hopes we won't need to ...."
+msgstr "Allo stesso modo. Forse lo faremo rifarlo un giorno, anche se una parte di me spera davvero che non avremo bisogno di ...."
+
+msgid "Destroy all Darts #1"
+msgstr "Distruggi tutti i freccette # 1"
+
+msgid "Destroy all Darts #2"
+msgstr "Distruggi tutti i freccette # 2"
+
+msgid "Destroy all Darts #3"
+msgstr "Distruggi tutti i freccette # 3"
+
+msgid "Destroy all Lynxes"
+msgstr "Distruggi tutti i Lynx"
+
+msgid "Disable all targets"
+msgstr "Disabilita tutti i bersagli"
+
+msgid "60 second battle"
+msgstr "60 secondi di battaglia"
+
+msgid "Pass all Waypoints"
+msgstr "Supera tutti i Waypoint"
+
+msgid "Defend Jumpgate"
+msgstr "Difendi Jumpgate"
+
+msgid "Collect Packages"
+msgstr "Raccogli i pacchetti"
+
+msgid "Rescue Civilians"
+msgstr "Salva i civili"
+
+msgid "Destroy INF Klondike and INF Canfield"
+msgstr "Distruggi INF Klondike e INF Canfield"
+
+msgid "Collect packages"
+msgstr "Raccogliere pacchetti"
+
+msgid "Turret Takedown"
+msgstr "Takedown della torretta"
+
+msgid "Swarms of Swarmers"
+msgstr "Sciami di sciami"
+
+msgid "Piracy"
+msgstr "Pirateria"
+
+msgid "Swelling the Ranks"
+msgstr "Gonfiando i ranghi"
+
+msgid "Most Wanted"
+msgstr "Most Wanted"
+
+msgid "Solo Patrol"
+msgstr "Solo pattuglia"
+
+msgid "Set Phasers to Stun"
+msgstr "Imposta Phasers su Stun"
+
+msgid "No survivors"
+msgstr "Nessun sopravvissuto"
+
+msgid "Initiation"
+msgstr "Iniziazione"
+
+msgid "Destroy all Darts #4"
+msgstr "Distruggi tutti i freccette # 4"
+
+msgid "Surrender!"
+msgstr "Resa!"
+
+msgid "Gate Smasher"
+msgstr "Cancello Smasher"
+
+msgid "Minefield Race"
+msgstr "Minefield Race"
+
+msgid "Surrender! #2"
+msgstr "Resa! # 2"
+
+msgid "Piracy #2"
+msgstr "Pirateria n. 2"
+
+msgid "Shoot 'Em Up"
+msgstr "Sparatutto"
+
+msgid "Initiation #2"
+msgstr "Iniziazione n. 2"
+
+msgid "Feast"
+msgstr "Festa"
+
+msgid "Bomber vs Bomber"
+msgstr "Bomber vs bombardiere"
+
+msgid "One of the seven"
+msgstr "Uno dei sette"
+
+msgid "Earn all other trophies"
+msgstr "Guadagna tutti gli altri trofei"
+
+msgid "Plan B"
+msgstr "Piano B"
+
+msgid "Complete all campaign missions"
+msgstr "Completa tutte le missioni della campagna"
+
+msgid "Gentle start"
+msgstr "Inizio dolce"
+
+msgid "Complete a campaign mission"
+msgstr "Completa una missione della campagna"
+
+msgid "Ready for duty"
+msgstr "Pronto per il dovere"
+
+msgid "Complete all the training missions at Sol"
+msgstr "Completa tutte le missioni di addestramento al Sol"
+
+msgid "Coyote Ugly"
+msgstr "Coyote brutto"
+
+msgid "Complete all missions at Coyote"
+msgstr "Completa tutte le missioni al Coyote"
+
+msgid "Better late than never"
+msgstr "Meglio tardi che mai"
+
+msgid "Complete all missions at Warro"
+msgstr "Completa tutte le missioni su Warro"
+
+msgid "The shape of things to come"
+msgstr "La forma delle cose a venire"
+
+msgid "Complete all missions at Iliad"
+msgstr "Completa tutte le missioni a Iliade"
+
+msgid "Now get the hell out of our galaxy!"
+msgstr "Adesso vai fuori dalla nostra galassia!"
+
+msgid "Complete all missions at Temper"
+msgstr "Completa tutte le missioni a Temper"
+
+msgid "Going out with a bang"
+msgstr "Andarsene col botto"
+
+msgid "Complete all missions at Mace"
+msgstr "Completa tutte le missioni a Mace"
+
+msgid "Back against the wall"
+msgstr "Di nuovo contro il muro"
+
+msgid "Complete all missions at Rothan"
+msgstr "Completa tutte le missioni a Rothan"
+
+msgid "Now what do we do?"
+msgstr "Ora cosa facciamo?"
+
+msgid "Complete all missions at Clarke"
+msgstr "Completa tutte le missioni a Clarke"
+
+msgid "Trespasser"
+msgstr "trasgressore"
+
+msgid "Complete all optional missions"
+msgstr "Completa tutte le missioni opzionali"
+
+msgid "Truly epic"
+msgstr "Davvero epico"
+
+msgid "Survive an epic battle"
+msgstr "Sopravvivi ad una battaglia epica"
+
+msgid "The bigger they are ..."
+msgstr "Più grandi sono ..."
+
+msgid "Destroy an enemy capital ship"
+msgstr "Distruggi una nave nemica"
+
+msgid "Giant Slayer"
+msgstr "Assassino gigante"
+
+msgid "Destroy 25 enemy capital ships"
+msgstr "Distruggi 25 navi capitali nemiche"
+
+msgid "Plenty more where that came from, unfortunately"
+msgstr "Molto di più da dove è venuto, sfortunatamente"
+
+msgid "Destroy a Pandoran-controlled craft"
+msgstr "Distruggi un'imbarcazione controllata dai Pandoran"
+
+msgid "Oh man, I gotta get me one of these!"
+msgstr "Oh amico, devo prendermi uno di questi!"
+
+msgid "Pilot an ATAF during the campaign"
+msgstr "Pilota un ATAF durante la campagna"
+
+msgid "The 4th emergency service"
+msgstr "Il 4 ° servizio di emergenza"
+
+msgid "Complete a mission using a Tug"
+msgstr "Completa una missione usando un rimorchiatore"
+
+msgid "Room for one more on top"
+msgstr "Stanza per un altro in cima"
+
+msgid "Complete a challenge using a Shuttle"
+msgstr "Completa una sfida usando una navetta"
+
+msgid "Taking one for the team"
+msgstr "Prendendo uno per la squadra"
+
+msgid "Be hit by a missile that was meant for someone else"
+msgstr "Essere colpito da un missile destinato a qualcun altro"
+
+msgid "The bodyguard"
+msgstr "La guardia del corpo"
+
+msgid "Hit an enemy with a missile intended for their wing leader"
+msgstr "Colpisci un nemico con un missile destinato al loro capo ala"
+
+msgid "Dedicated"
+msgstr "dedito"
+
+msgid "Complete 25%% of all challenges"
+msgstr "Completa il 25 %% di tutte le sfide"
+
+msgid "Obsessed"
+msgstr "Ossessionato"
+
+msgid "Complete 50%% of all challenges"
+msgstr "Completa il 50 %% di tutte le sfide"
+
+msgid "Completitonist"
+msgstr "Completitonist"
+
+msgid "Complete 100%% of all challenges"
+msgstr "Completa il 100 %% di tutte le sfide"
+
+msgid "Hero"
+msgstr "Eroe"
+
+msgid "Take down 50 enemies (player only)"
+msgstr "Abbatti 50 nemici (solo giocatore)"
+
+msgid "Veteran"
+msgstr "Veterano"
+
+msgid "Take down 500 enemies (player only)"
+msgstr "Abbatti 500 nemici (solo giocatore)"
+
+msgid "Legend"
+msgstr "Leggenda"
+
+msgid "Take down 2,500 enemies (player only)"
+msgstr "Abbatti 2.500 nemici (solo giocatore)"
+
+msgid "Your name's on one of these!"
+msgstr "Il tuo nome è su uno di questi!"
+
+msgid "Fire 100,000 shots"
+msgstr "Spara 100.000 colpi"
+
+msgid "Dodge this!"
+msgstr "Schiva questo!"
+
+msgid "Launch 500 missiles"
+msgstr "Lancia 500 missili"
+
+msgid "Isn't technology wonderful?"
+msgstr "La tecnologia non è meravigliosa?"
+
+msgid "Use the ECM 250 times"
+msgstr "Utilizzare l'ECM 250 volte"
+
+msgid "Runaway!"
+msgstr "Scappa!"
+
+msgid "Boost 250 times"
+msgstr "Aumenta 250 volte"
+
+msgid "Hoarder"
+msgstr "hoarder"
+
+msgid "Collect 250 items"
+msgstr "Raccogli 250 oggetti"
+
+msgid "Missed, you f**kers!"
+msgstr "Perso, tu f ** kers!"
+
+msgid "Evade 5 missiles"
+msgstr "Evade 5 missili"
+
+msgid "Sightseer"
+msgstr "turista"
+
+msgid "Visit 100 waypoints"
+msgstr "Visita 100 waypoint"
+
+msgid "Minesweeper"
+msgstr "Dragamine"
+
+msgid "Destroy 255 mines (player only)"
+msgstr "Distruggi 255 mine (solo giocatore)"
+
+msgid "Get out and push"
+msgstr "Esci e spingi"
+
+msgid "Disable 500 opponents"
+msgstr "Disabilita 500 avversari"
+
+msgid "Yippie-ki-yay"
+msgstr "Yippie-ki-yay"
+
+msgid "Destroy 13 or more enemies in an epic battle, without being killed (No ATAF)"
+msgstr "Distruggi 13 o più nemici in un'epica battaglia, senza essere ucciso (No ATAF)"
+
+msgid "Survivor"
+msgstr "Sopravvissuto"
+
+msgid "Complete an epic battle without being killed (No ATAF)"
+msgstr "Completa una battaglia epica senza essere ucciso (No ATAF)"
+
+msgid "Almost indestructible. Almost"
+msgstr "Quasi indistruttibile. Quasi"
+
+msgid "Be destroyed while piloting an ATAF"
+msgstr "Essere distrutto durante il pilotaggio di un ATAF"
+
+msgid "Pacifist"
+msgstr "Pacifista"
+
+msgid "Complete a fighter-based campaign mission without firing"
+msgstr "Completa una missione della campagna combattente senza sparare"
+
+msgid "2 birds, 1 stone"
+msgstr "2 uccelli, 1 pietra"
+
+msgid "Destroy two or more fighters by shooting one mine"
+msgstr "Distruggi due o più combattenti sparando a una mina"
+
+msgid "Frequent flyer"
+msgstr "Volantino frequente"
+
+msgid "Destroy one of each type of common starfighter"
+msgstr "Distruggi uno di ogni tipo di caccia stellare comune"
+
+msgid "Not the face!"
+msgstr "Non la faccia!"
+
+msgid "Cause 50 enemies to surrender"
+msgstr "Fai arrendere 50 nemici"
+
+msgid "Revenge"
+msgstr "Vendetta"
+
+msgid "During an epic battle, kill the enemy that just killed you"
+msgstr "Durante un'epica battaglia, uccidi il nemico che ti ha appena ucciso"
+

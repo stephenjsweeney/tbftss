@@ -25,11 +25,6 @@ static Texture textures[NUM_TEXTURE_BUCKETS];
 static void addTextureToCache(char *name, SDL_Texture *texture);
 SDL_Texture *getTexture(char *name);
 
-void initTextures(void)
-{
-	memset(&textures, 0, sizeof(Texture) * NUM_TEXTURE_BUCKETS);
-}
-
 static void addTextureToCache(char *name, SDL_Texture *texture)
 {
 	Texture *t, *new;

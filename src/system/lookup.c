@@ -257,34 +257,6 @@ char *getLookupName(char *prefix, long num)
 	return "";
 }
 
-char *getFlagValues(char *prefix, long flags)
-{
-	static char flagStr[MAX_DESCRIPTION_LENGTH];
-	int requirePlus;
-	Lookup *l;
-
-	memset(flagStr, '\0', MAX_DESCRIPTION_LENGTH);
-
-	requirePlus = 0;
-
-	for (l = head.next ; l != NULL ; l = l->next)
-	{
-		if (flags & l->value && strncmp(prefix, l->name, strlen(prefix)) == 0)
-		{
-			if (requirePlus)
-			{
-				strcat(flagStr, "+");
-			}
-
-			strcat(flagStr, l->name);
-
-			requirePlus = 1;
-		}
-	}
-
-	return flagStr;
-}
-
 long flagsToLong(char *in, int *add)
 {
 	char *flag, *flags;

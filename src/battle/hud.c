@@ -32,6 +32,7 @@ static void drawAbilityBars(void);
 static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, int b);
 static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b, int flashLow);
 static void drawSuspicionLevel(void);
+static void drawMissileWarning(void);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
@@ -61,6 +62,7 @@ static char *JUMPGATE_DIST_TEXT;
 static char *NEW_FIGHTER_TEXT;
 static char *SUSPICION_TEXT;
 static char *REMAINING_PILOTS_TEXT;
+static char *WARNING_TEXT;
 
 void initHud(void)
 {
@@ -87,6 +89,7 @@ void initHud(void)
 	NEW_FIGHTER_TEXT = _("SELECT NEW FIGHTER");
 	SUSPICION_TEXT = _("Suspicion");
 	REMAINING_PILOTS_TEXT = _("Remaining Pilots: %d");
+	WARNING_TEXT = _("WARNING: INCOMING MISSILE!");
 	
 	targetPointer = getTexture("gfx/hud/targetPointer.png");
 	targetCircle = getTexture("gfx/hud/targetCircle.png");
@@ -184,10 +187,9 @@ void drawHud(void)
 		
 		drawRadarRangeWarning();
 		
-		if (battle.hasSuspicionLevel)
-		{
-			drawSuspicionLevel();
-		}
+		drawMissileWarning();
+		
+		drawSuspicionLevel();
 	}
 	
 	drawHudMessages();
@@ -625,46 +627,57 @@ static void drawSuspicionLevel(void)
 {
 	SDL_Rect r;
 	
-	battle.suspicionLevel = MIN(battle.suspicionLevel, MAX_SUSPICION_LEVEL);
-	
-	drawText((SCREEN_WIDTH / 2) - 150, SCREEN_HEIGHT - 60, 18, TA_RIGHT, colors.white, SUSPICION_TEXT);
-	
-	r.x = (SCREEN_WIDTH / 2) - 140;
-	r.y = SCREEN_HEIGHT - 58;
-	r.w = 400;
-	r.h = 20;
-	
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
-	SDL_RenderFillRect(app.renderer, &r);
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-	
-	SDL_SetRenderDrawColor(app.renderer, 192, 192, 192, 255);
-	SDL_RenderDrawRect(app.renderer, &r);
-	
-	r.x += 2;
-	r.y += 2;
-	r.w -= 4;
-	r.h -= 4;
-	
-	r.w = MAX((r.w / MAX_SUSPICION_LEVEL) * battle.suspicionLevel, 0);
-	
-	if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.5))
+	if (battle.hasSuspicionLevel && !battle.incomingMissile)
 	{
-		SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+		battle.suspicionLevel = MIN(battle.suspicionLevel, MAX_SUSPICION_LEVEL);
+		
+		drawText((SCREEN_WIDTH / 2) - 150, SCREEN_HEIGHT - 60, 18, TA_RIGHT, colors.white, SUSPICION_TEXT);
+		
+		r.x = (SCREEN_WIDTH / 2) - 140;
+		r.y = SCREEN_HEIGHT - 58;
+		r.w = 400;
+		r.h = 20;
+		
+		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+		SDL_RenderFillRect(app.renderer, &r);
+		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+		
+		SDL_SetRenderDrawColor(app.renderer, 192, 192, 192, 255);
+		SDL_RenderDrawRect(app.renderer, &r);
+		
+		r.x += 2;
+		r.y += 2;
+		r.w -= 4;
+		r.h -= 4;
+		
+		r.w = MAX((r.w / MAX_SUSPICION_LEVEL) * battle.suspicionLevel, 0);
+		
+		if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.5))
+		{
+			SDL_SetRenderDrawColor(app.renderer, 255, 255, 255, 255);
+		}
+		else if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.75))
+		{
+			SDL_SetRenderDrawColor(app.renderer, 255, 128, 0, 255);
+		}
+		else
+		{
+			SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
+		}
+		
+		SDL_RenderFillRect(app.renderer, &r);
+		
+		drawText(r.x + r.w + 7, SCREEN_HEIGHT - 57, 12, TA_LEFT, colors.white, "%d%%", (battle.suspicionLevel > 0) ? getPercent(battle.suspicionLevel, MAX_SUSPICION_LEVEL) : 0);
 	}
-	else if (battle.suspicionLevel < (MAX_SUSPICION_LEVEL * 0.75))
+}
+
+static void drawMissileWarning(void)
+{
+	if (battle.incomingMissile && battle.stats[STAT_TIME] % FPS < 40)
 	{
-		SDL_SetRenderDrawColor(app.renderer, 255, 128, 0, 255);
+		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, WARNING_TEXT);
 	}
-	else
-	{
-		SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
-	}
-	
-	SDL_RenderFillRect(app.renderer, &r);
-	
-	drawText(r.x + r.w + 7, SCREEN_HEIGHT - 57, 12, TA_LEFT, colors.white, "%d%%", (battle.suspicionLevel > 0) ? getPercent(battle.suspicionLevel, MAX_SUSPICION_LEVEL) : 0);
 }
 
 void resetHud(void)

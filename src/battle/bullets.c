@@ -28,20 +28,14 @@ static void doBulletHitEffect(Bullet *b);
 
 static Bullet bulletDef[BT_MAX];
 static Bullet **bulletsToDraw;
-static int incomingMissile;
 static int drawCapacity;
-static char *WARNING_TEXT;
 
 void initBullets(void)
 {
-	incomingMissile = 0;
-
 	drawCapacity = INITIAL_BULLET_DRAW_CAPACITY;
 
 	bulletsToDraw = malloc(sizeof(Bullet*) * drawCapacity);
 	memset(bulletsToDraw, 0, sizeof(Bullet*) * drawCapacity);
-	
-	WARNING_TEXT = _("WARNING: INCOMING MISSILE!");
 }
 
 void initBulletDefs(void)
@@ -81,7 +75,7 @@ void doBullets(void)
 	Bullet *b;
 	Bullet *prev = &battle.bulletHead;
 
-	incomingMissile = 0;
+	battle.incomingMissile = 0;
 
 	memset(bulletsToDraw, 0, sizeof(Bullet*) * drawCapacity);
 
@@ -105,7 +99,7 @@ void doBullets(void)
 
 			if (b->target == player && player->alive == ALIVE_ALIVE && player->health > 0)
 			{
-				incomingMissile = 1;
+				battle.incomingMissile = 1;
 			}
 		}
 
@@ -300,11 +294,6 @@ void drawBullets(void)
 	for (i = 0, b = bulletsToDraw[i] ; b != NULL ; b = bulletsToDraw[++i])
 	{
 		blitRotated(b->texture, b->x - battle.camera.x, b->y - battle.camera.y, b->angle);
-	}
-
-	if (incomingMissile && battle.stats[STAT_TIME] % FPS < 40)
-	{
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, WARNING_TEXT);
 	}
 }
 

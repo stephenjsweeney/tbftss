@@ -364,6 +364,7 @@ typedef struct {
 	int suspicionLevel;
 	int suspicionCoolOff;
 	int zackariaSuspicionLevel;
+	int incomingMissile;
 	int destroyTorelli;
 	float torelliFireStormAlpha;
 	int campaignFinished;

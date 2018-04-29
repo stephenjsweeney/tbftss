@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 VERSION=`egrep 'VERSION = ([0-9.+])' ../common.mk | awk '{print $3}'`
-REVISION=`git rev-list HEAD --count`
+REVISION=`egrep 'REVISION = ([0-9.+])' ../common.mk | awk '{print $3}'`
 
 mkdir -p ../dist
 rm -rf ../dist/*

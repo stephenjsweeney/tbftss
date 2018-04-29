@@ -67,6 +67,7 @@ static int scrollingMap;
 static int campaignComplete = 0;
 static PointF cameraMin, cameraMax;
 static Widget *startMissionButton;
+static Mission *hoverMission;
 static char *MISSIONS_TEXT;
 static char *PILOT_TEXT;
 static char *CRAFT_TEXT;
@@ -114,6 +115,8 @@ void initGalacticMap(void)
 	awardStatsTrophies();
 	
 	updateCampaignProgress();
+	
+	hoverMission = NULL;
 
 	app.saveGame = 1;
 
@@ -321,15 +324,20 @@ static void doStarSystemView(void)
 
 	for (mission = selectedStarSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 	{
-		if (mission->available && app.mouse.button[SDL_BUTTON_LEFT] && collision(app.mouse.x - app.mouse.w / 2, app.mouse.y - app.mouse.h / 2, app.mouse.w, app.mouse.h, mission->rect.x, mission->rect.y, mission->rect.w, mission->rect.h))
+		if (mission->available && collision(app.mouse.x - app.mouse.w / 2, app.mouse.y - app.mouse.h / 2, app.mouse.w, app.mouse.h, mission->rect.x, mission->rect.y, mission->rect.w, mission->rect.h))
 		{
-			if (game.currentMission != mission)
+			hoverMission = mission;
+			
+			if (app.mouse.button[SDL_BUTTON_LEFT])
 			{
-				playSound(SND_GUI_CLICK);
-			}
+				if (game.currentMission != mission)
+				{
+					playSound(SND_GUI_CLICK);
+				}
 
-			game.currentMission = mission;
-			return;
+				game.currentMission = mission;
+				return;
+			}
 		}
 	}
 	
@@ -619,7 +627,7 @@ static Mission *nextAvailableMission(StarSystem *starSystem)
 
 static void drawStarSystemDetail(void)
 {
-	int y, start, i;
+	int y;
 	Mission *mission;
 	SDL_Rect r;
 
@@ -646,42 +654,38 @@ static void drawStarSystemDetail(void)
 	SDL_RenderDrawLine(app.renderer, 515, 120, 515, 660);
 
 	y += 80;
-	
-	/*
-	 * this only really counts for Alba, as it has 10 missions and there's only space for 9 to display.
-	 * We need to subtract 1 from the completed missions to get the correct number (mission at the bottom will be the one to select).
-	 */
-	start = MAX(selectedStarSystem->availableMissions - MAX_LISTED_MISSIONS, 0);
-	
-	i = 0;
 
 	for (mission = selectedStarSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 	{
-		if (i >= start)
-		{
-			mission->rect.x = 200;
-			mission->rect.y = y - 2;
-			mission->rect.w = 300;
-			mission->rect.h = 40;
-
-			if (mission == game.currentMission)
-			{
-				SDL_SetRenderDrawColor(app.renderer, 32, 64, 128, 255);
-				SDL_RenderFillRect(app.renderer, &mission->rect);
-
-				SDL_SetRenderDrawColor(app.renderer, 64, 96, 196, 255);
-				SDL_RenderDrawRect(app.renderer, &mission->rect);
-			}
-
-			if (mission->available)
-			{
-				drawText(210, y, 24, TA_LEFT, mission->completed ? colors.lightGrey : colors.yellow, mission->name);
-				
-				y += 50;
-			}
-		}
+		mission->rect.x = 200;
+		mission->rect.y = y - 2;
+		mission->rect.w = 300;
+		mission->rect.h = 38;
 		
-		i++;
+		if (mission == hoverMission)
+		{
+			SDL_SetRenderDrawColor(app.renderer, 16, 32, 64, 255);
+			SDL_RenderFillRect(app.renderer, &mission->rect);
+
+			SDL_SetRenderDrawColor(app.renderer, 32, 64, 128, 255);
+			SDL_RenderDrawRect(app.renderer, &mission->rect);
+		}
+
+		if (mission == game.currentMission)
+		{
+			SDL_SetRenderDrawColor(app.renderer, 32, 64, 128, 255);
+			SDL_RenderFillRect(app.renderer, &mission->rect);
+
+			SDL_SetRenderDrawColor(app.renderer, 64, 96, 196, 255);
+			SDL_RenderDrawRect(app.renderer, &mission->rect);
+		}
+
+		if (mission->available)
+		{
+			drawText(210, y, 22, TA_LEFT, mission->completed ? colors.lightGrey : colors.yellow, mission->name);
+			
+			y += 42;
+		}
 	}
 
 	if (game.currentMission->available)

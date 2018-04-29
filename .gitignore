@@ -34,6 +34,7 @@ tbftss
 *.dSYM/
 
 # folders
+bin
 dist
 dev/*
 !dev/screenshots

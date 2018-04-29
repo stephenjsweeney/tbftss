@@ -5,7 +5,7 @@ LIBPATH = /usr/x86_64-w64-mingw32/lib
 LOCALE_DIR = locale
 
 SEARCHPATH += src/plat/win32
-OBJS += win32Init.o
+_OBJS += win32Init.o
 
 CXXFLAGS += `$(SDLC) --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
 CXXFLAGS += -ansi

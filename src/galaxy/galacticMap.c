@@ -651,7 +651,7 @@ static void drawStarSystemDetail(void)
 
 	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w - 1, 120);
 
-	SDL_RenderDrawLine(app.renderer, 515, 120, 515, 660);
+	SDL_RenderDrawLine(app.renderer, 515, 120, 515, 659);
 
 	y += 80;
 

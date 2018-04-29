@@ -82,8 +82,8 @@ int writeFile(char *filename, char *data)
 
 char *getSaveFilePath(char *filename)
 {
-	static char path[MAX_FILENAME_LENGTH];
-	memset(path, '\0', MAX_FILENAME_LENGTH);
+	static char path[MAX_PATH_LENGTH];
+	memset(path, '\0', MAX_PATH_LENGTH);
 
 	sprintf(path, "%s/%s", app.saveDir, filename);
 

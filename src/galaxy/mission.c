@@ -510,5 +510,5 @@ static unsigned long hashcode(const char *str)
         c = *str++;
 	}
 
-	return abs(hash);
+	return hash;
 }

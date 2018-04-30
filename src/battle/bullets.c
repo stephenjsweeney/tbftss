@@ -303,7 +303,7 @@ static void faceTarget(Bullet *b)
 	
 	wantedAngle = (int)getAngle(b->x, b->y, b->target->x, b->target->y) % 360;
 
-	if (fabs(wantedAngle - b->angle) > TURN_THRESHOLD)
+	if (abs(wantedAngle - b->angle) > TURN_THRESHOLD)
 	{
 		dir = (wantedAngle - b->angle + 360) % 360 > 180 ? -1 : 1;
 

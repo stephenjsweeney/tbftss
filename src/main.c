@@ -22,10 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void handleMissionArgs(int argc, char *argv[]);
 static void handleLoggingArgs(int argc, char *argv[]);
+static long capFrameRate(const long then);
 
 int main(int argc, char *argv[])
 {
-	float td;
 	long then, lastFrameTime, frames;
 	long expireTextTimer;
 	SDL_Event event;
@@ -56,94 +56,80 @@ int main(int argc, char *argv[])
 	
 	handleMissionArgs(argc, argv);
 	
-	dev.fps = frames = td = 0;
+	dev.fps = frames = 0;
 	then = SDL_GetTicks();
 	lastFrameTime = SDL_GetTicks() + 1000;
 	expireTextTimer = SDL_GetTicks() + (1000 * 10);
 	
 	while (1)
 	{
-		td += (SDL_GetTicks() - then);
+		then = capFrameRate(then);
 		
-		then = SDL_GetTicks();
-		
-		while (td >= LOGIC_RATE)
+		while (SDL_PollEvent(&event))
 		{
-			while (SDL_PollEvent(&event))
+			switch (event.type)
 			{
-				switch (event.type)
-				{
-					case SDL_MOUSEMOTION:
-						doMouseMotion(&event.motion);
-						break;
-					
-					case SDL_MOUSEWHEEL:
-						doMouseWheel(&event.wheel);
-						break;
-					
-					case SDL_MOUSEBUTTONDOWN:
-						doMouseDown(&event.button);
-						break;
+				case SDL_MOUSEMOTION:
+					doMouseMotion(&event.motion);
+					break;
+				
+				case SDL_MOUSEWHEEL:
+					doMouseWheel(&event.wheel);
+					break;
+				
+				case SDL_MOUSEBUTTONDOWN:
+					doMouseDown(&event.button);
+					break;
 
-					case SDL_MOUSEBUTTONUP:
-						doMouseUp(&event.button);
-						break;
+				case SDL_MOUSEBUTTONUP:
+					doMouseUp(&event.button);
+					break;
+				
+				case SDL_KEYDOWN:
+					doKeyDown(&event.key);
+					break;
 					
-					case SDL_KEYDOWN:
-						doKeyDown(&event.key);
-						break;
-						
-					case SDL_KEYUP:
-						doKeyUp(&event.key);
-						break;
+				case SDL_KEYUP:
+					doKeyUp(&event.key);
+					break;
 
-					case SDL_QUIT:
-						exit(0);
-						break;
+				case SDL_QUIT:
+					exit(0);
+					break;
 
-					case SDL_WINDOWEVENT:
-						switch (event.window.event)
-						{
-							case SDL_WINDOWEVENT_FOCUS_GAINED:
-								musicSetPlaying(1);
-								break;
-							case SDL_WINDOWEVENT_FOCUS_LOST:
-								musicSetPlaying(0);
-								break;
-						}
-						break;
-				}
+				case SDL_WINDOWEVENT:
+					switch (event.window.event)
+					{
+						case SDL_WINDOWEVENT_FOCUS_GAINED:
+							musicSetPlaying(1);
+							break;
+						case SDL_WINDOWEVENT_FOCUS_LOST:
+							musicSetPlaying(0);
+							break;
+					}
+					break;
 			}
-			
-			if (app.modalDialog.type != MD_NONE)
-			{
-				doModalDialog();
-			}
-			
-			/* let the delegate decide during logic() */
-			app.doTrophyAlerts = 0;
-			
-			app.delegate.logic();
-			
-			td -= LOGIC_RATE;
-			
-			if (app.doTrophyAlerts)
-			{
-				doTrophyAlerts();
-			}
-			
-			if (app.resetTimeDelta)
-			{
-				td = 0;
-				then = SDL_GetTicks();
-				app.resetTimeDelta = 0;
-			}
-			
-			game.stats[STAT_TIME]++;
-			
-			/* always zero the mouse motion */
-			app.mouse.dx = app.mouse.dy = 0;
 		}
+		
+		if (app.modalDialog.type != MD_NONE)
+		{
+			doModalDialog();
+		}
+		
+		/* let the delegate decide during logic() */
+		app.doTrophyAlerts = 0;
+		
+		app.delegate.logic();
+		
+		if (app.doTrophyAlerts)
+		{
+			doTrophyAlerts();
+		}
+		
+		game.stats[STAT_TIME]++;
+		
+		/* always zero the mouse motion */
+		app.mouse.dx = app.mouse.dy = 0;
 		
 		prepareScene();
 
@@ -202,6 +188,20 @@ int main(int argc, char *argv[])
 	}
 
 	return 0;
+}
+
+static long capFrameRate(const long then)
+{
+	long wait;
+	
+	wait = 16 - (SDL_GetTicks() - then);
+		
+	if (wait > 0)
+	{
+		SDL_Delay(wait);
+	}
+	
+	return SDL_GetTicks();
 }
 
 static void handleLoggingArgs(int argc, char *argv[])

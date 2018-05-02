@@ -37,6 +37,7 @@ tbftss
 bin
 dist
 dev/*
+build/*
 !dev/screenshots
 !dev/stats.sh
 

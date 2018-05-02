@@ -39,3 +39,7 @@ dist
 dev/*
 !dev/screenshots
 !dev/stats.sh
+
+# Misc
+.DS_Store
+

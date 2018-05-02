@@ -72,26 +72,5 @@ uninstall:
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
 		$(RM) -v $(LOCALE_DIR)/$$lang/LC_MESSAGES/$(PROG).mo; \
 	done
-
-# prepare an archive for the program
-dist:
-	$(RM) -rf $(PROG)-$(VERSION)
-	mkdir $(PROG)-$(VERSION)
-	cp -r $(DIST_FILES) $(PROG)-$(VERSION)
-	tar czf $(PROG)-$(VERSION)-$(REVISION).linux-x86.tar.gz $(PROG)-$(VERSION)
-	mkdir -p dist
-	mv $(PROG)-$(VERSION)-$(REVISION).linux-x86.tar.gz dist
-	$(RM) -rf $(PROG)-$(VERSION)
 	
-# prepare an archive for the program
-src-dist:
-	$(RM) -rf $(PROG)-$(VERSION)
-	mkdir $(PROG)-$(VERSION)
-	cp -r $(SRC_DIST_FILES) $(PROG)-$(VERSION)
-	git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short >$(PROG)-$(VERSION)/CHANGELOG.raw
-	tar czf $(PROG)-$(VERSION)-$(REVISION).src.tar.gz $(PROG)-$(VERSION)
-	mkdir -p dist
-	mv $(PROG)-$(VERSION)-$(REVISION).src.tar.gz dist
-	$(RM) -rf $(PROG)-$(VERSION)
-
 .PHONY: dist

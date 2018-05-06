@@ -240,9 +240,9 @@ static void handleMissionArgs(int argc, char *argv[])
 	for (i = 1 ; i < argc ; i++)
 	{
 		/* assume this is filename for testing */
-		if (argv[i][0] != '-')
+		if (strcmp(argv[i], "-mission") == 0)
 		{
-			loadTestMission(argv[i]);
+			loadTestMission(argv[++i]);
 			
 			testingMission = 1;
 		}

@@ -75,8 +75,13 @@ void setLanguage(char *applicationName, char *languageCode)
 	strtok(language, ".");
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Locale is %s", language);
+	
+	sprintf(c, "locale/%s.mo", language);
 
-	sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
+	if (!fileExists(c))
+	{
+		sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
+	}
 
 	#if DEV == 1
 		printf("Opening %s\n", c);

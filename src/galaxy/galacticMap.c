@@ -147,6 +147,8 @@ void initGalacticMap(void)
 	getWidget("ok", "fighterDB")->action = ok;
 
 	getWidget("ok", "fallen")->action = fallenOK;
+	
+	autoSizeWidgetButtons("galacticMap", 1);
 
 	endSectionTransition();
 	

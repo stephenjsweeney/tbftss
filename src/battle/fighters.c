@@ -840,6 +840,11 @@ static void loadFighterDef(char *filename)
 		e->reloadTime = getJSONValue(root, "reloadTime", 0);
 		e->shieldRechargeRate = getJSONValue(root, "shieldRechargeRate", 0);
 		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
+		
+		if (strlen(e->description) > 0)
+		{
+			STRNCPY(e->description, _(cJSON_GetObjectItem(root, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
+		}
 
 		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-06 11:57:35+0100\n"
+"POT-Creation-Date: 2018-05-06 18:26:00+0100\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -559,6 +559,9 @@ msgstr ""
 msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
 msgstr ""
 
+msgid "Check all waypoints"
+msgstr ""
+
 msgid "Anyone got anything to report?"
 msgstr ""
 
@@ -596,6 +599,12 @@ msgid "Patrol #2"
 msgstr ""
 
 msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presence is reducing the amount of illegal activity in this sector, with reported incidents down 80%%. Still, we cannot afford to become complacent, and must continue with our sweeps."
+msgstr ""
+
+msgid "Check all Waypoints"
+msgstr ""
+
+msgid "Destroy Pandoran fighters"
 msgstr ""
 
 msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
@@ -724,6 +733,15 @@ msgstr ""
 msgid "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations."
 msgstr ""
 
+msgid "Defeat Tzac group #1"
+msgstr ""
+
+msgid "Defeat Tzac group #2"
+msgstr ""
+
+msgid "Defeat Tzac group #3"
+msgstr ""
+
 msgid "Three Tzac fighter groups has been sighted in the area. We need to hunt them down and eliminate them."
 msgstr ""
 
@@ -761,6 +779,15 @@ msgid "Alba Defence #2"
 msgstr ""
 
 msgid "Tzac forces are continuing to make aggressive moves against Alba. Its forces need to be driven back, and out of the system entirely. Naval power is starting to come under strain, and these continued assaults could leave us vulnerable to a Pandoran attack."
+msgstr ""
+
+msgid "Eliminate all enemy targets"
+msgstr ""
+
+msgid "Destroy HMS 821-283"
+msgstr ""
+
+msgid "Destroy INF Burnside"
 msgstr ""
 
 msgid "Break and attack, lads. Let's send these guys back home."
@@ -811,6 +838,12 @@ msgstr ""
 msgid "While Trilliack is happy to arrest the traitors it brings in, Alba wishes to dole out swift punishment for their actions. Eliminate all enemy targets, with the exception of any fighters that surrender. Only those are to be brought in."
 msgstr ""
 
+msgid "Eliminate all traitors"
+msgstr ""
+
+msgid "Do not kill surrendering targets"
+msgstr ""
+
 msgid "Our orders are to destroy all opposing fighters, except any who surrender. They're to be magged, instead."
 msgstr ""
 
@@ -845,6 +878,15 @@ msgid "Traitor Hunt #4"
 msgstr ""
 
 msgid "Roman Burgess, one of the masterminds behind the illicit arms and information smuggling to Tzac, has been located. Senior command want this man alive, so that he can be interrogated and lead us to the others. He must not under any circumstances be allowed to be killed."
+msgstr ""
+
+msgid "Capture Roman Burgess"
+msgstr ""
+
+msgid "Defeat Pandorans"
+msgstr ""
+
+msgid "Do not kill Roman Burgess"
 msgstr ""
 
 msgid "We need Burgess alive. The others should be destroyed unless they surrender."
@@ -886,6 +928,18 @@ msgstr ""
 msgid "The Pandorans have begun moving forces into the system, and formed a number of staging grounds. Some of these grounds consist of Tzac fighters that have been acquired from Crystabel's forces. As of now, they are non-operational, but are being defended by some mobile plasma turrets. The objective is simple: destroy those fighters."
 msgstr ""
 
+msgid "Destroy acquired Tzac craft"
+msgstr ""
+
+msgid "Destroy HMS 381-222"
+msgstr ""
+
+msgid "Eliminate all opposition"
+msgstr ""
+
+msgid "Defend CSN Inca"
+msgstr ""
+
 msgid "Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette."
 msgstr ""
 
@@ -917,6 +971,18 @@ msgid "Alba Defence #4"
 msgstr ""
 
 msgid "With the Pandorans upping their aggression, we have taken steps to start evacuating the Alba system. Many civilians will be using craft incapable of forming of their jump points, and so will be reliant on the gates. We therefore must ensure that these gates remain functional, and that all Pandoran opposition is held back."
+msgstr ""
+
+msgid "Defend the Jumpgate"
+msgstr ""
+
+msgid "Eliminate all Pandoran opposition"
+msgstr ""
+
+msgid "Destroy INF Stiletto"
+msgstr ""
+
+msgid "Destroy INF BC-41"
 msgstr ""
 
 msgid "Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters."
@@ -965,6 +1031,9 @@ msgid "Alba Defence #5"
 msgstr ""
 
 msgid "The Pandorans are pressing home their advantage, and moving many of their capital ships up the field. They are presently closing in on Torelli, and will almost certainly begin a ground assault once within range. CSN Dragon is being used to clear their path to the planet, and while you're not going to engage the planet itself, we need to ensure the survival of our own capital ships as much as possible."
+msgstr ""
+
+msgid "Destroy all enemy targets"
 msgstr ""
 
 msgid "White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!"
@@ -1051,6 +1120,9 @@ msgstr ""
 msgid "Antomis Defence #1"
 msgstr ""
 
+msgid "Defend the jumpgate"
+msgstr ""
+
 msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
 msgstr ""
 
@@ -1073,6 +1145,18 @@ msgid "Antomis Offence #1"
 msgstr ""
 
 msgid "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed."
+msgstr ""
+
+msgid "Capture squadron commander"
+msgstr ""
+
+msgid "Do not kill squadron commander"
+msgstr ""
+
+msgid "Eliminate Tzac fighters"
+msgstr ""
+
+msgid "Protect Tzac Commanders"
 msgstr ""
 
 msgid "Tzac fighters spotted, both commanders are here. Goddard, disable those fighters as soon as you can."
@@ -1105,6 +1189,9 @@ msgstr ""
 msgid "The Pandorans are continuing to knock on our door, and so we need to continue to engage them. Intercept and take down all enemy fighters. The Imperial frigate INF Sharpfinger is also in the sector, and needs to be destroyed."
 msgstr ""
 
+msgid "Destroy INF Sharpfinger"
+msgstr ""
+
 msgid "People, divide yourselves between the fighters and the Sharpfinger."
 msgstr ""
 
@@ -1115,6 +1202,15 @@ msgid "Return to Aster"
 msgstr ""
 
 msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
+msgstr ""
+
+msgid "Protect CSN Florin"
+msgstr ""
+
+msgid "Destroy Pandoran shuttles and tugs"
+msgstr ""
+
+msgid "Defeat unidentified forces"
 msgstr ""
 
 msgid "Florin, this is Black of the Salty Wildcats, here to assist."
@@ -1171,6 +1267,9 @@ msgstr ""
 msgid "Tzac bombers have been identified in the area, deploying mines. While this violates intergalactic treaties, we could never assume that Tzac, much like the Pandorans, would abide by the rules of war. We need to take down those bombers quickly. Exercise caution around the mines, as they are especially potent."
 msgstr ""
 
+msgid "Destroy all enemy forces"
+msgstr ""
+
 msgid "Watch out for those mines. They're on proximity triggers and have a large area of effect."
 msgstr ""
 
@@ -1187,6 +1286,12 @@ msgid "Minesweeper #2"
 msgstr ""
 
 msgid "Following the elimination of the Tzac bombers, we need to clear the leftover mines from the system, in case they cause us difficulties in later operations. As always, the mines should be taken down from a distance, to minimise the chances of damage being caused to your fighter during their destruction."
+msgstr ""
+
+msgid "Clear all mines"
+msgstr ""
+
+msgid "Eliminate all enemies"
 msgstr ""
 
 msgid "Reyes, proceed with caution. Those mines are equipped with radar damping fields, that will prevent them from showing up at anything but close range."
@@ -1214,6 +1319,18 @@ msgid "Aster Assault"
 msgstr ""
 
 msgid "A large Tzac force has gathered in Aster. The White Knights are being sent in alone to deal with it. We need to continue to show that we are capable of winning these engagements with minimal losses to the enemy force. Mag and disable all Tzac craft in the area, and do not allow any to be destroyed, even by stray fire."
+msgstr ""
+
+msgid "Disable all fighters"
+msgstr ""
+
+msgid "Disable all capital ships"
+msgstr ""
+
+msgid "Do not destroy any fighters"
+msgstr ""
+
+msgid "Do not destroy any capital ships"
 msgstr ""
 
 msgid "Remember, guys: mags only against the fighters. We're not here to take any more lives."
@@ -1279,6 +1396,12 @@ msgstr ""
 msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down INF Dirk. Ensure the Lynx-class bombers can get in close enough to delivery a strike."
 msgstr ""
 
+msgid "Destroy INF Dirk"
+msgstr ""
+
+msgid "Eliminate escorts"
+msgstr ""
+
 msgid "Commander, I would recommend we take out the escorts first."
 msgstr ""
 
@@ -1303,6 +1426,21 @@ msgstr ""
 msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra and UNF Artemis are moving to intercept more enemy corvettes. Your orders are to assist them in achieving their goals."
 msgstr ""
 
+msgid "Destroy INF Khopesh"
+msgstr ""
+
+msgid "Destroy INF Blackjack"
+msgstr ""
+
+msgid "Eliminate support fighters"
+msgstr ""
+
+msgid "Protect UNF Cleopatra"
+msgstr ""
+
+msgid "Protect UNF Artemis"
+msgstr ""
+
 msgid "INF Khopesh is down."
 msgstr ""
 
@@ -1325,6 +1463,9 @@ msgid "Clarke Defence #4"
 msgstr ""
 
 msgid "White Knights, Commodore Parks has identified three enemy corvettes are high level targets. He wants Dodds, Koonan and Todd to take them down, as quickly as possible. There won't be any additional fighter support, but three ATAFs should be more than enough to get the job done. de Winter and Taylor are currently on another assignment. Dodds will lead the attack."
+msgstr ""
+
+msgid "Eliminate all enemy forces"
 msgstr ""
 
 msgid "Targets sighted: three capital ships, five escorts apiece."
@@ -1373,6 +1514,21 @@ msgid "Clarke Defence #5"
 msgstr ""
 
 msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive impact on ours. The frigate's support groups will need to be destroyed first."
+msgstr ""
+
+msgid "Eliminate support group #1"
+msgstr ""
+
+msgid "Eliminate support group #2"
+msgstr ""
+
+msgid "Destroy INF Alysha's Calling"
+msgstr ""
+
+msgid "Destroy incoming threat"
+msgstr ""
+
+msgid "Eliminate Swarmers"
 msgstr ""
 
 msgid "First squadron sighted. Moving to intercept."
@@ -1537,6 +1693,9 @@ msgstr ""
 msgid "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space."
 msgstr ""
 
+msgid "Retreat to jumpgate"
+msgstr ""
+
 msgid "We're getting our arses kicked here! Any chance of any backup?!"
 msgstr ""
 
@@ -1558,6 +1717,9 @@ msgstr ""
 msgid "Donesta Defence #1"
 msgstr ""
 
+msgid "Protect UNF Zenobia"
+msgstr ""
+
 msgid "Tzac Shales sighted. Moving to intercept."
 msgstr ""
 
@@ -1574,6 +1736,9 @@ msgid "Dammit! The Shales were acting as bait. Specials, keep those bombers away
 msgstr ""
 
 msgid "Donesta Offence #1"
+msgstr ""
+
+msgid "Eliminate bombers"
 msgstr ""
 
 msgid "You're going to have to deal with this one solo, Carpenter. There are bombers deploying mines in the area. Any one of those detonating could kill the target."
@@ -1609,6 +1774,9 @@ msgstr ""
 msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
 msgstr ""
 
+msgid "Retrieve all packages"
+msgstr ""
+
 msgid "Not expecting any company, Carr, so this should just be a routine pickup. We'll keep an eye out, though."
 msgstr ""
 
@@ -1616,6 +1784,24 @@ msgid "Suspect Packages #2"
 msgstr ""
 
 msgid "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more."
+msgstr ""
+
+msgid "Check all wayponts"
+msgstr ""
+
+msgid "Retrieve packages"
+msgstr ""
+
+msgid "Bring in stranded Dart"
+msgstr ""
+
+msgid "Do not destroy stranded Dart"
+msgstr ""
+
+msgid "Destroy intercepting Darts"
+msgstr ""
+
+msgid "Protect Shuttle and Tug"
 msgstr ""
 
 msgid "Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up."
@@ -1657,6 +1843,21 @@ msgstr ""
 msgid "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Kingdom of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence."
 msgstr ""
 
+msgid "Disable pirate commander"
+msgstr ""
+
+msgid "Disable Tzac commander"
+msgstr ""
+
+msgid "Destroy all other opponents"
+msgstr ""
+
+msgid "Do not allow pirate commander to be killed"
+msgstr ""
+
+msgid "Do not allow Tzac commander to be killed"
+msgstr ""
+
 msgid "Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies."
 msgstr ""
 
@@ -1676,6 +1877,15 @@ msgid "Pirate Smash"
 msgstr ""
 
 msgid "We finally have all the information we need to help safeguard the Confederation in these turbulent times. By smashing the pirate ring involved in the supplying of arms to Tzac, we can regain control of our internal security matters, and refocus on the war against the Pandorans. All targets must be destroyed, but be advised that the pirates have acquired rocket cannons, that could prove costly if underestimated."
+msgstr ""
+
+msgid "Eliminate pirate captains"
+msgstr ""
+
+msgid "Eliminate sentry cannons"
+msgstr ""
+
+msgid "Eliminate all other opponents"
 msgstr ""
 
 msgid "Right, people, let's finish this. Engage at will. Leave nothing standing."
@@ -1708,6 +1918,12 @@ msgstr ""
 msgid "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle."
 msgstr ""
 
+msgid "Destroy incoming bombers"
+msgstr ""
+
+msgid "Eliminate all other threats"
+msgstr ""
+
 msgid "Recommending taking down the escorts before engaging the bombers. Just watch out for their rockets."
 msgstr ""
 
@@ -1724,6 +1940,12 @@ msgid "Iliad Defence #3"
 msgstr ""
 
 msgid "In order to slow the advance of the Pandoran forces, we are going to target one of their supply lines. This should buy us some time while we await UNF and CSN reinforcements, and bring more of our capital ships into position."
+msgstr ""
+
+msgid "Destroy munitions transports"
+msgstr ""
+
+msgid "Destroy Supply ships"
 msgstr ""
 
 msgid "Dust Brothers, this is Control. An INF fighter squadron is inbound. Looks like they're summoned backup."
@@ -1745,6 +1967,18 @@ msgid "Iliad Defence #4"
 msgstr ""
 
 msgid "We're ready to make a run against the Pandoran fleet's front line, and move our capital ships into strike range. Agamemnon's 1st will assist the Lady Jane Grey, and Joan of Arc, to engage three INF corvettes, under enemy control. We need to ensure that we take down the opposing capitals while ensuring our own survive. The enemy outnumber us, and we need to maintain our strength as much as possible."
+msgstr ""
+
+msgid "Protect UNF Lady Jane Grey"
+msgstr ""
+
+msgid "Protect UNF Joan of Arc"
+msgstr ""
+
+msgid "Destroy INF Astra"
+msgstr ""
+
+msgid "Destroy INF Ragnarok"
 msgstr ""
 
 msgid "Agamemnon's 1st, we're detecting multiple Pandoran fighters moving in to intercept. Take them down, and protect The Lady Grey and Joan of Arc."
@@ -1828,6 +2062,9 @@ msgstr ""
 msgid "India Defence #1"
 msgstr ""
 
+msgid "Minimise civilian losses"
+msgstr ""
+
 msgid "Caution, everyone. The Tzac forces might be deliberately targeting the civilians in the area. We need to eliminate or drive those Shales away, as quickly as possible."
 msgstr ""
 
@@ -1858,6 +2095,12 @@ msgstr ""
 msgid "UNF Lovelace was recently attacked by a mercenary group, believed to be aligned with Tzac. While the corvette and the Sparrows were able to see off the attackers, it was nevertheless a focused and dedicated assault, that almost ended in disaster. More are likely to come, so we should remain vigilant."
 msgstr ""
 
+msgid "Eliminate mercenaries"
+msgstr ""
+
+msgid "Defend UNF Hopper"
+msgstr ""
+
 msgid "Got Darts, incoming."
 msgstr ""
 
@@ -1880,6 +2123,12 @@ msgid "Infiltration #5"
 msgstr ""
 
 msgid "You've done well so far, Hicks. We appreciate that things have not been easy, but you're in a better position than many of us had hoped for. As soon as you're able, begin your search for the admiral. Once located, you will need to open a dialog with him. Whatever you do, do not kill him."
+msgstr ""
+
+msgid "Search for Admiral Zackaria"
+msgstr ""
+
+msgid "Investigate unique Sphinx"
 msgstr ""
 
 msgid "So, this is Krasst. Never thought I'd ever find myself here."
@@ -2008,6 +2257,9 @@ msgstr ""
 msgid "The time has come to take the fight to Tzac. We will begin by striking their outer defences, and containing their forces to the system. The Iron Wolves will lead an attack against one of the outer jumpgates. It will likely be heavily defended, and heavy-class Tzac Blizzards could well arrive in the area as soon as you begin your assault."
 msgstr ""
 
+msgid "Knock jumpgate offline"
+msgstr ""
+
 msgid "Our goal is the jumpgate. Expect a lot of resistance."
 msgstr ""
 
@@ -2054,6 +2306,12 @@ msgid "Mace Assault #2"
 msgstr ""
 
 msgid "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces."
+msgstr ""
+
+msgid "Destroy HMS 781-110"
+msgstr ""
+
+msgid "Destroy HMS 781-041"
 msgstr ""
 
 msgid "HMS 781-110 sighted. All fighters free to engage at will."
@@ -2104,6 +2362,15 @@ msgstr ""
 msgid "There is growing public unrest over the on-going war, with a number of high-profile voices calling for an immediate end to the attacks on Tzac. While we cannot abandon the campaign while Tzac remains a threat, we can reduce the loss of life by disabling the enemy craft, instead of destroying them. That should placate the anti-war campaigners for a time."
 msgstr ""
 
+msgid "Eliminate Tzac opposition"
+msgstr ""
+
+msgid "Disable 50%% of Tzac craft"
+msgstr ""
+
+msgid "Do not destroy tagged Tzac craft"
+msgstr ""
+
 msgid "We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?"
 msgstr ""
 
@@ -2123,6 +2390,21 @@ msgid "Mace Assault #4"
 msgstr ""
 
 msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualties to a minimum."
+msgstr ""
+
+msgid "Eliminate all opposing forces"
+msgstr ""
+
+msgid "Destroy HMS 881-491"
+msgstr ""
+
+msgid "Disable Christabel's transport"
+msgstr ""
+
+msgid "Do not destroy Christabel's transport"
+msgstr ""
+
+msgid "Do not allow Christabel to escape"
 msgstr ""
 
 msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
@@ -2212,6 +2494,18 @@ msgstr ""
 msgid "An opportunity has been granted for us to infiltrate Mitikas space, the Pandoran army, and ultimate get close to Jason Zackaria or Julian Rissard. If nothing else, we could still discover the whereabouts of these two elusive men, which could assist in future operations to capture them. Your goal is to acquire an Angel, an outdated INF fighter that currently lies in the hands of mercenaries. They have retreated to Phylent to affect repairs, so now is the chance to strike."
 msgstr ""
 
+msgid "Disable Angel"
+msgstr ""
+
+msgid "Bring Angel to designated location"
+msgstr ""
+
+msgid "Do not destroy Angel"
+msgstr ""
+
+msgid "Do not allow Ray or tug to be destroyed"
+msgstr ""
+
 msgid "I've sighted the Angel. Let's move in and secure it."
 msgstr ""
 
@@ -2263,6 +2557,24 @@ msgstr ""
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
 msgstr ""
 
+msgid "Destroy all Pandoran Tugs"
+msgstr ""
+
+msgid "Rescue all CSN pilots"
+msgstr ""
+
+msgid "Protect Tugs"
+msgstr ""
+
+msgid "Eliminate all Pandoran fighters"
+msgstr ""
+
+msgid "Do not allow any pilots to be killed"
+msgstr ""
+
+msgid "Do not allow any pilots to be kidnapped"
+msgstr ""
+
 msgid "White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate."
 msgstr ""
 
@@ -2294,6 +2606,12 @@ msgid "Rothan Defence #2"
 msgstr ""
 
 msgid "The Pandorans are preparing for a major push into Rothan, so we need to shore up defences as quickly as possible. Command have selected a number of positions that will give us a strategic advantage in the early stages of battle when the enemy arrives. The Blue Jesters are to link up with the Irregular Nomads near to one Rothan's inner jumpgates, and await further instructions."
+msgstr ""
+
+msgid "Rendezvous with the Irregular Nomads"
+msgstr ""
+
+msgid "Eliminate UNF fighters"
 msgstr ""
 
 msgid "Control, we're in position. Awaiting the Irregular Nomads."
@@ -2344,6 +2662,9 @@ msgstr ""
 msgid "Rothan Defence #3"
 msgstr ""
 
+msgid "Defend shipyard"
+msgstr ""
+
 msgid "We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here."
 msgstr ""
 
@@ -2357,6 +2678,12 @@ msgid "Expect the Tzac bombers to focus on destroying the tugs and shuttles."
 msgstr ""
 
 msgid "Rothan Offensive #1"
+msgstr ""
+
+msgid "Eliminate enemies"
+msgstr ""
+
+msgid "Eliminate commander support"
 msgstr ""
 
 msgid "Enemy fighters spotted. No sign of the squadron wing commander, though. We might have to draw him out."
@@ -2461,6 +2788,18 @@ msgstr ""
 msgid "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what."
 msgstr ""
 
+msgid "Follow wing commander's orders"
+msgstr ""
+
+msgid "Eliminate civilian group #1"
+msgstr ""
+
+msgid "Eliminate civilian group #2"
+msgstr ""
+
+msgid "Eliminate civilian group #3"
+msgstr ""
+
 msgid "(I'm in deep this time. Just have to remain calm, focus, and do as they do.)"
 msgstr ""
 
@@ -2497,6 +2836,9 @@ msgstr ""
 msgid "Practice using your fighter's weapons against a stationary target."
 msgstr ""
 
+msgid "Destroy Dart"
+msgstr ""
+
 msgid "The Dart won't attack you, so when you're ready, you can blow the thing to pieces."
 msgstr ""
 
@@ -2504,6 +2846,9 @@ msgid "Moving Target"
 msgstr ""
 
 msgid "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around."
+msgstr ""
+
+msgid "Eliminate Dart"
 msgstr ""
 
 msgid "This Dart has control over its engines, but not its weapons. Practice chasing it down and destroying it."
@@ -2533,6 +2878,12 @@ msgstr ""
 msgid "Use your mag cannons to disable the enemy Dart. Disabling enemy craft and bringing the target in alive is sometimes an important step in securing lasting victory."
 msgstr ""
 
+msgid "Disable Dart"
+msgstr ""
+
+msgid "Do not destroy Dart"
+msgstr ""
+
 msgid "Switch to your Mag cannons and fire them at the Dart to disable it. Do not fire your plasma cannons or launch any missiles, as these could destroy the target."
 msgstr ""
 
@@ -2540,6 +2891,9 @@ msgid "Wingmates"
 msgstr ""
 
 msgid "Battle along side two team mates to take on 3 enemy fighters."
+msgstr ""
+
+msgid "Eliminate Darts"
 msgstr ""
 
 msgid "Wingmate will often assist you in battle. When you're ready, approach the Darts and engage."
@@ -2587,6 +2941,18 @@ msgstr ""
 msgid "Allied intelligence have managed to locate one of the pirate ring lieutenants. We need to bring this man in alive, as he could provide us with further useful information that will allow us to track down and eliminate high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the lieutenant's Dart."
 msgstr ""
 
+msgid "Capture pirate lieutenant"
+msgstr ""
+
+msgid "Destroy all remaining opposition"
+msgstr ""
+
+msgid "Do not kill pirate lieutenant"
+msgstr ""
+
+msgid "Do not let pirate lieutenant escape"
+msgstr ""
+
 msgid "Seth, the lieutenant's Dart should be tagged on your HUD. Disable that ship as soon as possible."
 msgstr ""
 
@@ -2602,6 +2968,12 @@ msgstr ""
 msgid "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down."
 msgstr ""
 
+msgid "Eliminate pirate leaders"
+msgstr ""
+
+msgid "Do not let any pirate leaders escape"
+msgstr ""
+
 msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate."
 msgstr ""
 
@@ -2612,6 +2984,9 @@ msgid "Pirate Uprising #5"
 msgstr ""
 
 msgid "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle."
+msgstr ""
+
+msgid "Destroy all pirate forces"
 msgstr ""
 
 msgid "Enemy forces sighted."
@@ -2647,6 +3022,9 @@ msgstr ""
 msgid "Your instructions are simple, Hicks. As before, follow the wing leader's instructions, and do as the others do. Stay close to the leader when not otherwise engaged, and do not do anything to raise your suspicion. Act quickly to assure the Pandorans you're with them."
 msgstr ""
 
+msgid "Eliminate Tzac forces"
+msgstr ""
+
 msgid "(More hunting. I hope I'm not going to be forced to kill innocent people again.)"
 msgstr ""
 
@@ -2669,6 +3047,9 @@ msgid "Trilliack Defence #2"
 msgstr ""
 
 msgid "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution."
+msgstr ""
+
+msgid "Defend UNF Lovelace"
 msgstr ""
 
 msgid "Enemy fighter signatures detected. Looks like Darts."
@@ -2704,6 +3085,12 @@ msgstr ""
 msgid "A number of those responsible for helping supply illegal arms and information to Tzac have been identified. They are to be tracked down, and brought in for questioning. At this point, we want to avoid killing them, as they could prove vital to bringing in the ringleaders."
 msgstr ""
 
+msgid "Capture traitors"
+msgstr ""
+
+msgid "Do not allow traitors to be killed"
+msgstr ""
+
 msgid "D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now."
 msgstr ""
 
@@ -2728,6 +3115,15 @@ msgstr ""
 msgid "It seems that some of the traitors that were brought in earlier were acting as a distraction for a number of others, who have now commandeered CSN Drachma. The corvette must be taken back, without destroy it. All other targets are valid, unless surrendering."
 msgstr ""
 
+msgid "Disable CSN Drachma"
+msgstr ""
+
+msgid "Defeat traitors"
+msgstr ""
+
+msgid "Do not destroy CSN Drachma"
+msgstr ""
+
 msgid "Looks like we've got a welcoming committee heading our way."
 msgstr ""
 
@@ -2747,6 +3143,18 @@ msgid "Traitor Hunt #5"
 msgstr ""
 
 msgid "There are now only two figureheads in the traitor group remaining: Isabel Nelson, and one other whose identity is currently being confirmed. Isabel Nelson has been located in the vicinity. As before, disable her fighter so she can be brought in. Disable any other surrendering targets."
+msgstr ""
+
+msgid "Capture Isabel Nelson"
+msgstr ""
+
+msgid "Capture Preston Young"
+msgstr ""
+
+msgid "Do not kill Isabel Nelson"
+msgstr ""
+
+msgid "Do not kill Preston Young"
 msgstr ""
 
 msgid "Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be."
@@ -2803,6 +3211,12 @@ msgstr ""
 msgid "Our forces have taken heavy losses of the last few engagements, but there is still much to do. Three Pandoran corvettes have been tagged for destruction. We need to ensure that they are taken down, while we minimise losses of our own. We cannot afford to lose all of our own capital ships. Work fast, and assist Zenobia, Lady Jane Grey, and Tangka as needed."
 msgstr ""
 
+msgid "Eliminate all enemy vessels"
+msgstr ""
+
+msgid "Survive at least 1 capital ship"
+msgstr ""
+
 msgid "Enemy forces in range. Preparing to engage."
 msgstr ""
 
@@ -2846,6 +3260,12 @@ msgid "Trilliack Defence #4"
 msgstr ""
 
 msgid "The Pandorans are already deploying ground assault teams to Flint. The attack is in its early stages, with more troop carrier incoming. The enemy are meeting our defence lines aggressively, to clear a path for their landers. We need to hit back hard, and prevent Flint from being taken. Objective is simple: destroy all enemy forces."
+msgstr ""
+
+msgid "Destroy HMS 711-444"
+msgstr ""
+
+msgid "Destroy HMS 313-777"
 msgstr ""
 
 msgid "The Pandorans are overunning our front line! We need to drive them back, now!"
@@ -2896,6 +3316,9 @@ msgstr ""
 msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both mentally and physically."
 msgstr ""
 
+msgid "Kill civilians"
+msgstr ""
+
 msgid "(This ... how can I do this? These are my friends.)"
 msgstr ""
 
@@ -2914,6 +3337,9 @@ msgstr ""
 msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilian craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
 msgstr ""
 
+msgid "Rescue all civilians"
+msgstr ""
+
 msgid "ABCs, this is Control. Round up those civilians and escort them to the jumpgate as quick as you can."
 msgstr ""
 
@@ -2924,6 +3350,9 @@ msgid "Evacuation #2"
 msgstr ""
 
 msgid "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised."
+msgstr ""
+
+msgid "Eliminate Pandoran fighters"
 msgstr ""
 
 msgid "Gaskin, INF fighters spotted! Pandorans, without a doubt!"
@@ -2941,10 +3370,25 @@ msgstr ""
 msgid "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now."
 msgstr ""
 
+msgid "Do not allow any civilians to be killed"
+msgstr ""
+
 msgid "Evacuation #4"
 msgstr ""
 
 msgid "The Pandorans' arrival is imminent, but the evacuation is nearing completion. We need only mop up some of the stragglers. Two of the White Knights will be assisting, before moving on to hit the enemy's supply line. You should concentrate on getting the civilians to safety, and letting the ATAFs do the bulk of the work."
+msgstr ""
+
+msgid "Rescue first civilian group"
+msgstr ""
+
+msgid "Rescue second civilian group"
+msgstr ""
+
+msgid "Rescue third civilian group"
+msgstr ""
+
+msgid "Eliminate all remaining enemies"
 msgstr ""
 
 msgid "Enemy craft detected. Pandorans, in both INF and UNF fighters."
@@ -2981,6 +3425,21 @@ msgid "Evacuation #5"
 msgstr ""
 
 msgid "The Pandoran fleet is closing in on Oracle IX, and their capital ships are moving rapidly up the field. We need to hold them back for as long as possible, to give the final evacuees time to escape the system. This will need to be done with fighters along. However, Lieutenant Commanders Taylor and Todd of the White Knights will be lending assistance with the ATAFs, which should give us the edge in battle."
+msgstr ""
+
+msgid "Destroy INF Thunderbolt"
+msgstr ""
+
+msgid "Destroy INF Gram"
+msgstr ""
+
+msgid "Destroy INF Morning Star"
+msgstr ""
+
+msgid "Destroy INF Dragonlance"
+msgstr ""
+
+msgid "Destroy INF Trident"
 msgstr ""
 
 msgid "Our orders are to take down as many of the enemy corvettes as possible. Break and attack at will."
@@ -3383,5 +3842,77 @@ msgid "Revenge"
 msgstr ""
 
 msgid "During an epic battle, kill the enemy that just killed you"
+msgstr ""
+
+msgid "One of the oldest starfighters created by the Mitikas Empire, the Angel is rarely seen, due to it being retired in 2599. A handful of Independent Worlds continue to operate the fighter, having purchased them from the empire prior to Mitikas pulling them from service. Even so, they are quite often held back from deployment, acting as reserves to bulk up numbers. Angels are notable for being the first INF fighter to be equipped with mag cannons, and for being somewhat smaller than most of the nation's other fighters. Also of note is the appearance, the fighter sporting a purple colour scheme, as opposed to the reds of more recent INF craft."
+msgstr ""
+
+msgid "The Advanced Tactical Assault Fighter (ATAF) is the single most powerful single-seat starfighter in existence. Only five have so far been manufactured owing to their tremendous development costs (each one said to be on par with a carrier). Their existence and even those selected to participate in the training program have been a closely guarded secret within the CSN. It is the spiritual successor to the TAF upon which a great deal of its design was based."
+msgstr ""
+
+msgid "Like many other heavy-class starfighters, the Blizzard relies on firepower to make up for its somewhat sluggish performance in battle. In this respect, it is equipped with five cannons and five missiles, making it a formidable opponent in battle. The fighter is rarely seen outside of Mace, however, its primary function being the protection of Tzac's home system."
+msgstr ""
+
+msgid "The Dart is a very common, general purpose vessel that is used commonly by both the public and by the underworld. Because of its relatively low costs and ease of maintenance, it is highly favoured by criminal organisations. It is usually sold as a single-seat, unarmed vessel, but can be purchased in a great variety of modified states, including that with an extra seat and with a number of armaments; missiles usually being attached to the tips of each of the four fins."
+msgstr ""
+
+msgid "A relatively new starfighter, only introduced in the last seventeen years or so, the Firefly benefits from an overall reduction in manufacturing costs, while still maintaining the same defensive capabilities as other light-class fighters. It also benefits from slightly increased offensive measures, featuring two plasma cannons and one additional particle cannon. The fighter was greeted very positively when it was introduced and many hundreds were constructed exclusively for use by the UNF."
+msgstr ""
+
+msgid "Of all the bombers that the CSN can offer, the Hammerhead is one of the most well known. Slow, but sure, the Hammerhead is packed to the gills with rockets, missiles and torpedoes, making it a formidable and dangerous opponent within a conflict zone. Escorted by a wing of TAFs or Rays, a Hammerhead need only get in to range of a target to unleash a volley of rockets that would prove truly devastating. Hammerheads feature two seats, one for the pilot and one to aid with targeting and handling armaments. It also has room for an optional rear gunner."
+msgstr ""
+
+msgid "The Hyena is a new starfighter, introduced in the last 15 years and was constructed specifically for use by the United Naval Forces. Like most other medium-class starfighters, it treads the line between light and heavy-classes, offering high speeds and manoeuvrability, dense armour and shielding, and presenting high offensive capabilities. The Hyena is typically identified as Hyena-A or Hyena-B, depending on whether it is equipped with mag cannons or laser cannons."
+msgstr ""
+
+msgid "The greatest mass produced starfighter in the Imperial Naval Forces, the Jackal, like the TAF, is lightly armoured and shielded, but fast. Like other INF starfighters it has been through a rapid variation process in the last few years, as a result of the Imperial Civil War."
+msgstr ""
+
+msgid "The Khepri is a bomber, designed and built by the Kingdom of Tzac. It is an enchanced derivative of the Imperial Scarab."
+msgstr ""
+
+msgid "The Kingfisher is a medium-class, CSN starfighter, built to complement the Ray (although it arrived two years later than scheduled). Whereas the Ray features two mag cannons in addition to its plasma cannons, the Kingfisher is equipped with laser cannons. Also, unlike the Ray, the Kingfisher is a single seat fighter."
+msgstr ""
+
+msgid "Originally developed in 2580, the Leopard was redesigned from the ground up, to act as the United Naval Forces primary heavy starfighter. It is more powerful than the Sphinx and Rook, but shares their inherent weaknesses, such as poor handling and sluggish engines. Aside from bombers, it is the only UNF fighter craft to feature two pilot seats. It is also the only fighter in existence to feature plasma cannons on the port and starboard sides, operated by the second pilot. Budget restrictions meant that a third frontal plasma cannon was replaced by a particle cannon."
+msgstr ""
+
+msgid "The Lynx was a latecomer to the UNF's spacecraft compliment, the organisation purchasing Hammerheads from the CSN and, on occasion, Khepris from the Kingdom of Tzac. Neither were desirable longterm solutions, and so the Lynx was developed to fill the gap in the navy's offerings. The bomber was heavily inspired by the Hammerhead, with the UNF having found success in the use of the CSN craft in the past, and wished to continue that way."
+msgstr ""
+
+msgid "So called because of the likeness of its two upper struts to that of a praying mantis, this is one of the most well recognised starfighters in the INF. A medium starfighter, like the Confederation's own Ray, the Mantis is not only better armed, featuring an extra set of offensive weaponry, but is also faster. Like other Imperial starfighters, it has seen a great number of stable variants emerge in the past few years."
+msgstr ""
+
+msgid "A light class starfighter, constructed for use by the United Naval Forces. With the exception of the ATAFs, one of the latest designed and constructed starfighters in recent years."
+msgstr ""
+
+msgid "A well armed, armoured and shielded fighter, the Ray compliments a squadron of TAFs well, although it is not as fast nor as manoeuvrable. The Ray is so called due to its outward appearance being quite similar to that of Manta Ray. It also features two seats, though it is possible to fly with one crew members."
+msgstr ""
+
+msgid "The Razor is a medium-class starfighter, built and deployed by the Kingdom of Tzac. The fighter has a long service history, though it has likely undergone a number of updates and modifications to the base specification since its first appearance in 2571. Like most other Tzac starfighters, the current variation id of the fighter is not known, thought it could lie around F or G."
+msgstr ""
+
+msgid "The most heavily armed and boosting the greatest defences of all the starfighters in the CSN, the Rook generally only sees action during significant missions and operations, where its increased power can bring many benefits. It is, however, the slowest of all the CSN's starfighters and some pilots have complained that it feels very sluggish in combat."
+msgstr ""
+
+msgid "A scarab beetle-shaped bomber, generally used to launch a hail of rockets and missiles at targets. Slow, but quite well armoured and shielded. As with the Hammerhead, it relies on starfighter support to protect it during operations."
+msgstr ""
+
+msgid "The Shale is a light-class starfighter, based on the Nymph. It is believed to have been constructed by Tzac based on leaked information about the initial design elements of the Nymph. As such, it follows a similar form factor, but differs in both its colour scheme (green, instead of white and blue) and armaments, being equipped with three rapid-fire particle cannons, instead of the Nymph's two plasma cannons. Tzac denied any involvement in the theft of the Nymph's construction details, attesting that it believed the design documents were for a new type of Dart, and as such were not governed by any sort of intergalactic trade secrets."
+msgstr ""
+
+msgid "The SK-31 is a medium-class starfighter, built and deployed by the Kingdom of Tzac. Unlike the Razor and SK-34, the SK-31 is equipped with two laser cannons, to enable it to disrupt the shields of its target and make it easier to either destroy or disable. It is unknown what the SK in the fighter's name stands for, and whether or not the 31 refers to an iteration or other internal identifier."
+msgstr ""
+
+msgid "The SK-34 is a medium-class starfighter, built and deployed by the Kingdom of Tzac. Though its exterior appearance is very different to the SK-31, it features similar internal specifications. Unlike the SK-31, however, it is equipped with Mag cannons, instead of lasers. As with the SK-34, it is unknown what the SK in the fighter's name stands for, and whether or not the 34 refers to an iteration or other internal identifier."
+msgstr ""
+
+msgid "The Imperial Naval Forces answer to the Rook, the Sphinx is more heavily armed, but equally as fast and protected. Generally a single seated craft, the Sphinx can also accept a rear gunner, making it more difficult for opponents to tail it."
+msgstr ""
+
+msgid "An all round, multi purpose, single-seat starfighter, the TAF is the most well known and highest produced starfighter within the CSN. Both lightly armoured and shielded, the TAF is easy to handle in the hands of a rookie and praised even by the most experienced of pilots. It makes up for its lack of armour, shielding and armaments by benefiting from good speeds and ease of manoeuvrability."
+msgstr ""
+
+msgid "The Thunderhead evolved from an original concept design for a new bomber, of which it still shares some features (such as a generous supply of missiles and torpedo hardpoints). It is faster than the Scarab bombers, but a lot slower than the Sphinx. It is, however, better armoured and shielded than both. It is rarely seen on the field, as it is now considered old, costly to maintain and has in recent years been superseded by the Sphinx. Despite this, it remains a formidable opponent and its offensive measures means that it is able to take down light-class vessels with ease."
 msgstr ""
 

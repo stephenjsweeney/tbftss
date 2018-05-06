@@ -92,6 +92,8 @@ void initTitle(void)
 	getWidget("ok", "trophies")->action = ok;
 	getWidget("ok", "fighterDB")->action = ok;
 	
+	autoSizeWidgetButtons("title", 1);
+	
 	show = SHOW_TITLE;
 	
 	endSectionTransition();

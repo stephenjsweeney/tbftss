@@ -35,6 +35,7 @@ extern void updateControlKey(char *name);
 extern void updateControlButton(char *name);
 extern void clearControlConfig(char *name);
 extern void clearInput(void);
+extern void textSize(char *text, int size, int *w, int *h);
 
 extern App app;
 extern Colors colors;

@@ -88,7 +88,7 @@ function extractJSON($filename)
 		{
 			foreach ($json->{"objectives"} as $objective)
 			{
-				addString($json->{"description"}, $filename);
+				addString($objective->{"description"}, $filename);
 			}
 		}
 		
@@ -111,6 +111,10 @@ function extractJSON($filename)
 		}
 	}
 	else if (strpos($filename, "challenges") !== false)
+	{
+		addString($json->{"description"});
+	}
+	else if (strpos($filename, "fighters") !== false)
 	{
 		addString($json->{"description"});
 	}
@@ -146,6 +150,8 @@ recurseDir("../data/missions");
 recurseDir("../data/challenges");
 
 recurseDir("../data/trophies");
+
+recurseDir("../data/fighters");
 
 $potHeader = file_get_contents("../tools/potHeader.txt");
 

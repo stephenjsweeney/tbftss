@@ -39,6 +39,7 @@ static char *ARMOUR_TEXT;
 static char *SHIELD_TEXT;
 static char *SPEED_TEXT;
 static char *MISSILES_TEXT;
+static char *MISSILE_NUM_TEXT;
 static const char *gunName[BT_MAX];
 static Entity **dbFighters;
 static float rotation;
@@ -55,6 +56,7 @@ void initFighterDatabase(void)
 	SHIELD_TEXT = _("Shield");
 	SPEED_TEXT = _("Speed");
 	MISSILES_TEXT = _("Missiles");
+	MISSILE_NUM_TEXT = _("Missiles x %d");
 	
 	dbFighters = getDBFighters(&maxPages);
 	
@@ -150,7 +152,7 @@ void drawFighterDatabase(void)
 	
 	if (fighter->missiles > 0)
 	{
-		drawText(r.x + r.w - 25, y, 22, TA_RIGHT, colors.white, "Missiles x %d", fighter->missiles);
+		drawText(r.x + r.w - 25, y, 22, TA_RIGHT, colors.white, MISSILE_NUM_TEXT, fighter->missiles);
 	}
 	
 	y = MAX(y, 320) + 75;

@@ -147,6 +147,8 @@ void initChallengeHome(void)
 	}
 	
 	SDL_SetWindowGrab(app.window, 0);
+	
+	autoSizeWidgetButtons("challenges", 1);
 
 	endSectionTransition();
 

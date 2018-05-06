@@ -64,6 +64,7 @@ extern void initCredits(void);
 extern void drawFighterDatabase(void);
 extern void initFighterDatabaseDisplay(void);
 extern void doFighterDatabase(void);
+extern void autoSizeWidgetButtons(char *group, int recenter);
 
 extern App app;
 extern Battle battle;

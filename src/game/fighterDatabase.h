@@ -28,6 +28,7 @@ extern Entity **getDBFighters(int *num);
 extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
 extern float mod(float n, float x);
 extern void limitTextWidth(int width);
+extern char *getTranslatedString(char *string);
 
 extern App app;
 extern Colors colors;

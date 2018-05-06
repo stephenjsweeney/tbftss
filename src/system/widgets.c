@@ -499,6 +499,37 @@ static void createSelectButtons(Widget *w)
 	}
 }
 
+void autoSizeWidgetButtons(char *group, int recenter)
+{
+	int width, height, maxWidth;
+	Widget *w;
+	
+	maxWidth = 0;
+	
+	for (w = head.next; w != NULL ; w = w->next)
+	{
+		if (strcmp(w->group, group) == 0 && w->type == WT_BUTTON)
+		{
+			textSize(w->text, 20, &width, &height);
+			
+			maxWidth = MAX(MAX(w->rect.w, width), maxWidth);
+		}
+	}
+	
+	for (w = head.next; w != NULL ; w = w->next)
+	{
+		if (strcmp(w->group, group) == 0 && w->type == WT_BUTTON)
+		{
+			w->rect.w = maxWidth + 20;
+			
+			if (recenter)
+			{
+				w->rect.x = (SCREEN_WIDTH / 2) - (w->rect.w / 2);
+			}
+		}
+	}
+}
+
 void destroyWidgets(void)
 {
 	int i;

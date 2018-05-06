@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-12 11:56:12+0100\n"
-"PO-Revision-Date: 2018-01-18 22:00:00+0000\n"
-"Last-Translator: Google Translate\n"
-"Language-Team: Google Translate\n"
+"POT-Creation-Date: 2018-05-06 18:26:00+0100\n"
+"PO-Revision-Date: ???\n"
+"Last-Translator: ???\n"
+"Language-Team: Google Translate Toolkit\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,9 +28,6 @@ msgstr "Er du sikker på, at du vil genstarte? Du vil miste din nuværende udvik
 
 msgid "Are you sure you want to quit? You will lose your current progress."
 msgstr "Er du sikker på at du vil stoppe? Du vil miste din nuværende udvikling."
-
-msgid "WARNING: INCOMING MISSILE!"
-msgstr "ADVARSEL: INGÅENDE MISSILE!"
 
 msgid "%s (Engine)"
 msgstr "%s (motor)"
@@ -115,6 +112,9 @@ msgstr "Mistanke"
 
 msgid "Remaining Pilots: %d"
 msgstr "Resterende piloter: %d"
+
+msgid "WARNING: INCOMING MISSILE!"
+msgstr "ADVARSEL: INGÅENDE MISSILE!"
 
 msgid "Picked up %s"
 msgstr "Plukket op %s"
@@ -289,6 +289,9 @@ msgstr "Tillykke med, du har gennemført kampagnen! Du kan nu afspille tidligere
 
 msgid "%s has fallen to the Pandorans"
 msgstr "%s er faldet til pandorerne"
+
+msgid "[ %s ]  [ Missions %d / %d ]"
+msgstr "[ %s ] [Missioner %d / %d ]"
 
 msgid "Fighter Database"
 msgstr "Fighter Database"
@@ -551,8 +554,14 @@ msgstr "Kampagne"
 msgid "Credits"
 msgstr "credits"
 
+msgid "Patrol #1"
+msgstr "Patrol nr. 1"
+
 msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
 msgstr "Da pandorerne har invaderet uafhængige systemer, der boer Mitikas imperiet, skal vi blive mere opmærksomme. Patruljer omkring Torelli bliver styrket. Sørg for at ramme alle waypoints og rapportere eventuelle usædvanlige aktiviteter, som du støder på."
+
+msgid "Check all waypoints"
+msgstr "Kontroller alle waypoints"
 
 msgid "Anyone got anything to report?"
 msgstr "Nogen har noget at rapportere?"
@@ -587,20 +596,32 @@ msgstr "Det samme som altid."
 msgid "Believe me, that's a good thing. Right, let's head home and report in."
 msgstr "Tro mig, det er en god ting. Lige, lad os gå hjem og rapportere ind."
 
+msgid "Patrol #2"
+msgstr "Patrol nr. 2"
+
 msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presence is reducing the amount of illegal activity in this sector, with reported incidents down 80%%. Still, we cannot afford to become complacent, and must continue with our sweeps."
 msgstr "Patruljer hidtil har ikke afdækket noget usædvanligt, og det ser ud til, at stigningen i militær tilstedeværelse reducerer mængden af ​​ulovlig aktivitet i denne sektor med rapporterede hændelser på 80 %% . Stadig har vi ikke råd til at blive selvtilfredse og skal fortsætte med vores feje."
+
+msgid "Check all Waypoints"
+msgstr "Tjek alle waypoints"
+
+msgid "Destroy Pandoran fighters"
+msgstr "Ødelæg Pandoran-krigere"
 
 msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
 msgstr "Eightballers, du er kommet i vandrerhjem. Identificeret som 3 Mitikas krigere; Jakke, muligvis Pandoran. Engagere, men udøve ekstrem forsigtighed."
 
 msgid "Control, enemies have been dispatched. Wasn't a comfortable fight."
-msgstr "Kontrol, fjender er afsendt. Var ikke en behagelig kamp."
+msgstr "Kontrol, fjender er blevet afsendt. Var ikke en behagelig kamp."
 
 msgid "Eightballers, return home immediately, and deliver a full report. Do not leave out a single detail."
 msgstr "Eightballers, vende hjem med det samme og levere en komplet rapport. Forlad ikke en enkelt detalje."
 
 msgid "Got it. See you soon."
 msgstr "Forstået. Vi ses snart."
+
+msgid "Patrol #3"
+msgstr "Patrulje nr. 3"
 
 msgid "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter."
 msgstr "Efter det ødelæggende tab af Iliad-systemet skal vi fortsat være opmærksomme på indbrud i Alba-systemet. Kontroller alle fem waypoints og rapporter øjeblikkelig enhver usædvanlig eller mistænkelig aktivitet, du oplever."
@@ -707,8 +728,20 @@ msgstr "Nix."
 msgid "Okay, let's get home and report in."
 msgstr "Okay, lad os komme hjem og rapportere ind."
 
+msgid "Alba Defence #1"
+msgstr "Alba forsvar # 1"
+
 msgid "A number of key Independent systems have come under simultaneous attack by Tzac forces. We need to drive them away, so that we can continue to focus on the more pressing threat of the Pandoran army. At this time, it is vital that we prevent Christabel from making any significant gains by amassing her forces in these locations."
 msgstr "En række centrale uafhængige systemer er kommet under samtidig angreb fra Tzac styrker. Vi skal køre dem væk, så vi kan fortsætte med at fokusere på den mere presserende trussel om den pandoranske hær. På nuværende tidspunkt er det afgørende, at vi forhindrer Christabel i at gøre væsentlige gevinster ved at samle hendes styrker på disse steder."
+
+msgid "Defeat Tzac group #1"
+msgstr "Besejd Tzac gruppe nr. 1"
+
+msgid "Defeat Tzac group #2"
+msgstr "Besejr Tzac gruppe nr. 2"
+
+msgid "Defeat Tzac group #3"
+msgstr "Besejg Tzac gruppe # 3"
 
 msgid "Three Tzac fighter groups has been sighted in the area. We need to hunt them down and eliminate them."
 msgstr "Tre Tzac fighter grupper er blevet set i området. Vi skal jage dem og fjerne dem."
@@ -743,8 +776,20 @@ msgstr "Jeg tror, ​​at de tester vandet, ligesom vores Pandoran-venner før 
 msgid "We'd better prepare ourselves for a major attack in the next few days. Hopefully not from both of them at once."
 msgstr "Vi vil bedre forberede os på et stort angreb i de kommende dage. Forhåbentlig ikke fra begge dem på en gang."
 
+msgid "Alba Defence #2"
+msgstr "Alba Defense # 2"
+
 msgid "Tzac forces are continuing to make aggressive moves against Alba. Its forces need to be driven back, and out of the system entirely. Naval power is starting to come under strain, and these continued assaults could leave us vulnerable to a Pandoran attack."
 msgstr "Tzac styrker fortsætter med at gøre aggressive skridt mod Alba. Dens styrker skal køres helt tilbage og helt ud af systemet. Søfartsstyrken begynder at komme under belastning, og disse fortsatte overfald kan forlade os sårbare overfor et Pandoran-angreb."
+
+msgid "Eliminate all enemy targets"
+msgstr "Eliminer alle fjendens mål"
+
+msgid "Destroy HMS 821-283"
+msgstr "Ødelæg HMS 821-283"
+
+msgid "Destroy INF Burnside"
+msgstr "Ødelæg INF Burnside"
 
 msgid "Break and attack, lads. Let's send these guys back home."
 msgstr "Bryde og angreb, gutter. Lad os sende disse fyre hjem."
@@ -788,8 +833,17 @@ msgstr "De var gode fyre. De vil blive savnet."
 msgid "We're needed elsewhere. We'll see you soon."
 msgstr "Vi er brug for andre steder. Vi ses snart."
 
+msgid "Traitor Hunt #2"
+msgstr "Traitor Hunt # 2"
+
 msgid "While Trilliack is happy to arrest the traitors it brings in, Alba wishes to dole out swift punishment for their actions. Eliminate all enemy targets, with the exception of any fighters that surrender. Only those are to be brought in."
 msgstr "Mens Trilliack er glad for at arrestere forræderne det bringer ind, ønsker Alba at udvise hurtig straf for deres handlinger. Eliminere alle fjendens mål, med undtagelse af de krigere, der overgiver. Kun dem skal indbringes."
+
+msgid "Eliminate all traitors"
+msgstr "Eliminer alle forrædere"
+
+msgid "Do not kill surrendering targets"
+msgstr "Må ikke dræbe overgivende mål"
 
 msgid "Our orders are to destroy all opposing fighters, except any who surrender. They're to be magged, instead."
 msgstr "Vores ordrer er at ødelægge alle modstående krigere, undtagen hvem der overgiver. De skal være magged, i stedet."
@@ -821,8 +875,20 @@ msgstr "Tror de, at de får en lang sætning?"
 msgid "Depends on how many capable pilots we can afford to keep shoving behind bars ..."
 msgstr "Afhænger af hvor mange dyre piloter vi har råd til at holde skubbe bag stænger ..."
 
+msgid "Traitor Hunt #4"
+msgstr "Traitor Hunt # 4"
+
 msgid "Roman Burgess, one of the masterminds behind the illicit arms and information smuggling to Tzac, has been located. Senior command want this man alive, so that he can be interrogated and lead us to the others. He must not under any circumstances be allowed to be killed."
 msgstr "Roman Burgess, en af ​​masterminds bag ulovlig våben og informationssmugling til Tzac, har været placeret. Seniorkommando vil have denne mand i live, så han kan blive forhørt og lede os til de andre. Han må under ingen omstændigheder få lov til at blive dræbt."
+
+msgid "Capture Roman Burgess"
+msgstr "Capture Roman Burgess"
+
+msgid "Defeat Pandorans"
+msgstr "Nederlag Pandorans"
+
+msgid "Do not kill Roman Burgess"
+msgstr "Dræb ikke romerske burgess"
 
 msgid "We need Burgess alive. The others should be destroyed unless they surrender."
 msgstr "Vi har brug for Burgess i live. De andre skal destrueres, medmindre de overgiver sig."
@@ -857,8 +923,23 @@ msgstr "Tak skal du have. Jeg er bare glad for at have overlevet en anden dag."
 msgid "We'll get through this. Neither of us are getting flagged before the end of this thing."
 msgstr "Vi kommer igennem dette. Ingen af ​​os bliver flaget inden udgangen af ​​denne ting."
 
+msgid "Alba Defence #3"
+msgstr "Alba forsvar # 3"
+
 msgid "The Pandorans have begun moving forces into the system, and formed a number of staging grounds. Some of these grounds consist of Tzac fighters that have been acquired from Crystabel's forces. As of now, they are non-operational, but are being defended by some mobile plasma turrets. The objective is simple: destroy those fighters."
 msgstr "Pandorerne er begyndt at flytte styrker ind i systemet og dannede en række staging grunde. Nogle af disse grunde består af Tzac-krigere, der er erhvervet fra Crystabels styrker. Fra nu af er de ikke-operationelle, men bliver forsvundet af nogle mobile plasma tårn. Målet er simpelt: ødelægge disse krigere."
+
+msgid "Destroy acquired Tzac craft"
+msgstr "Ødelægge erhvervet Tzac håndværk"
+
+msgid "Destroy HMS 381-222"
+msgstr "Ødelæg HMS 381-222"
+
+msgid "Eliminate all opposition"
+msgstr "Eliminer al modstand"
+
+msgid "Defend CSN Inca"
+msgstr "Forsvar CSN Inca"
 
 msgid "Reapers, it appears that the opposition is heavier than previously expected. We're picking up a Tzac corvette."
 msgstr "Reapers, ser det ud til, at oppositionen er tungere end tidligere forventet. Vi henter en Tzac korvette."
@@ -887,8 +968,23 @@ msgstr "Ris, vi har et stort problem: et meget stort antal Pandoran skibe er lig
 msgid "Never enough, is it?"
 msgstr "Aldrig nok er det det?"
 
+msgid "Alba Defence #4"
+msgstr "Alba forsvar # 4"
+
 msgid "With the Pandorans upping their aggression, we have taken steps to start evacuating the Alba system. Many civilians will be using craft incapable of forming of their jump points, and so will be reliant on the gates. We therefore must ensure that these gates remain functional, and that all Pandoran opposition is held back."
 msgstr "Med pandorerne oplyst deres aggression, har vi taget skridt til at begynde at evakuere Alba-systemet. Mange civile vil bruge håndværk, der ikke er i stand til at danne deres hoppepunkter, og det vil også være afhængigt af portene. Vi skal derfor sikre, at disse porte forbliver funktionelle, og at alle Pandoran-oppositioner holdes tilbage."
+
+msgid "Defend the Jumpgate"
+msgstr "Forsvar Jumpgate"
+
+msgid "Eliminate all Pandoran opposition"
+msgstr "Eliminer alt Pandoran-modstand"
+
+msgid "Destroy INF Stiletto"
+msgstr "Ødelæg INF Stiletto"
+
+msgid "Destroy INF BC-41"
+msgstr "Ødelæg INF BC-41"
 
 msgid "Taylor, get over to that gate as fast as you can, and prepare to defend it. Be advised: the Pandorans are now commanding, INF, UNF, and Tzac fighters."
 msgstr "Taylor, kom så hurtigt som muligt over til porten og forberede dig på at forsvare det. Vær opmærksom på: Pandorerne er nu kommanderende, INF, UNF og Tzac krigere."
@@ -932,8 +1028,14 @@ msgstr "Godt arbejde. Fortsæt med at bevogge porten og eliminere eventuelle ind
 msgid "Got it."
 msgstr "Forstået."
 
+msgid "Alba Defence #5"
+msgstr "Alba forsvar # 5"
+
 msgid "The Pandorans are pressing home their advantage, and moving many of their capital ships up the field. They are presently closing in on Torelli, and will almost certainly begin a ground assault once within range. CSN Dragon is being used to clear their path to the planet, and while you're not going to engage the planet itself, we need to ensure the survival of our own capital ships as much as possible."
 msgstr "Pandorerne presser deres fordele til hjemmet og flytter mange af deres hovedskibe op i marken. De lukker for øjeblikket ind på Torelli, og vil næsten helt sikkert begynde et jordoverfald engang inden for rækkevidde. CSN Dragon bruges til at rydde deres vej til planeten, og mens du ikke skal engagere sig i selve planeten, skal vi sikre, at vores egne kapitalskibe overlever så meget som muligt."
+
+msgid "Destroy all enemy targets"
+msgstr "Ødelæg alle fjendens mål"
 
 msgid "White Knights, Alba's defence line is collapsing. We need to take down Pandorans' capital ships, now!"
 msgstr "White Knights, Albas forsvarslinje er sammenfaldende. Vi skal tage ned Pandorans hovedskibe, nu!"
@@ -1016,6 +1118,12 @@ msgstr "Hvide riddere, vær venlig at anerkende."
 msgid "Acknowledged. Estelle, we have to leave. It's over."
 msgstr "Anerkendt. Estelle, vi er nødt til at forlade. Det er overstået."
 
+msgid "Antomis Defence #1"
+msgstr "Antomis Defense # 1"
+
+msgid "Defend the jumpgate"
+msgstr "Forsvar jumpgate"
+
 msgid "Tzac fighers are moving in on the jumpgate. We need to stop them before they do any serious damage to it."
 msgstr "Tzac fighers bevæger sig ind på jumpgate. Vi skal stoppe dem, før de gør alvorlige skader på det."
 
@@ -1034,8 +1142,23 @@ msgstr "Jumpgate tager skade!"
 msgid "Half the jumpgate's control nodes have been destroyed! We need to step up our efforts to defend it!"
 msgstr "Halvdelen af ​​jumpgateens kontrolknude er blevet ødelagt! Vi skal øge vores indsats for at forsvare det!"
 
+msgid "Antomis Offence #1"
+msgstr "Antomis lovovertrædelse # 1"
+
 msgid "With the mercenary threat seen off and Tzac's initial attacks thwarted, it's time to begin pushing back against Christabel's forces. We plan to capture a number of their commanders, to help build a better picture of the forces at Mace, before moving into the system. As always, mag the targets and do not allow them to be killed."
 msgstr "Med den legale trussel set ud, og Tzac's indledende angreb forstyrret, er det på tide at begynde at skubbe tilbage mod Christabels styrker. Vi planlægger at fange en række af deres kommandanter for at hjælpe med at opbygge et bedre billede af styrkerne i Mace, før de går ind i systemet. Som altid, må målene og lad dem ikke blive dræbt."
+
+msgid "Capture squadron commander"
+msgstr "Capture Squadron Commander"
+
+msgid "Do not kill squadron commander"
+msgstr "Dræb ikke skvadronkommandør"
+
+msgid "Eliminate Tzac fighters"
+msgstr "Eliminer Tzac-krigere"
+
+msgid "Protect Tzac Commanders"
+msgstr "Beskyt Tzac Commanders"
 
 msgid "Tzac fighters spotted, both commanders are here. Goddard, disable those fighters as soon as you can."
 msgstr "Tzac fighters spottet, begge herrer er her. Goddard, deaktivere disse krigere så hurtigt som muligt."
@@ -1061,8 +1184,14 @@ msgstr "Godt. Ikke ofte bliver vi nødt til at beskytte fjenden fra en anden."
 msgid "Tugs are on the way. Should be here in the next few minutes"
 msgstr "Tugs er på vej. Skal være her i de næste par minutter"
 
+msgid "Antomis Defence #2"
+msgstr "Antomis Defense # 2"
+
 msgid "The Pandorans are continuing to knock on our door, and so we need to continue to engage them. Intercept and take down all enemy fighters. The Imperial frigate INF Sharpfinger is also in the sector, and needs to be destroyed."
 msgstr "Pandorerne fortsætter med at banke på vores dør, og derfor må vi fortsætte med at engagere dem. Indskrænk og tag ned alle fjendens krigere. Den kejserlige fregat INF Sharpfinger er også i sektoren og skal destrueres."
+
+msgid "Destroy INF Sharpfinger"
+msgstr "Ødelæg INF Sharpfinger"
 
 msgid "People, divide yourselves between the fighters and the Sharpfinger."
 msgstr "Folk deler jer mellem fighters og Sharpfinger."
@@ -1070,8 +1199,20 @@ msgstr "Folk deler jer mellem fighters og Sharpfinger."
 msgid "We couldn't spare any bombers, so we just need to get in there and take them all on."
 msgstr "Vi kunne ikke spare nogen bombefly, så vi skal bare komme ind og tage dem alle på."
 
+msgid "Return to Aster"
+msgstr "Tilbage til Aster"
+
 msgid "We've received word from CSN Florin that they have suffered a power failure, affecting the entire ship. The stranded vessel has attracted the attention of the Pandorans, who have already deployed shuttles and tugs to absorb it into their ranks. The Salty Wildcats will intercept and provide cover until Florin can affect repairs."
 msgstr "Vi har modtaget ord fra CSN Florin, at de har lidt strømbrud, der påvirker hele skibet. Det strandede fartøj har tiltrukket Pandorernes opmærksomhed, som allerede har udnyttet pendulkasser og slæbebåde til at absorbere det i deres rækker. Salty Wildcats vil opfange og give dækning indtil Florin kan påvirke reparationer."
+
+msgid "Protect CSN Florin"
+msgstr "Beskyt CSN Florin"
+
+msgid "Destroy Pandoran shuttles and tugs"
+msgstr "Ødelæg Pandoran pendulkørsel og slæbebåde"
+
+msgid "Defeat unidentified forces"
+msgstr "Besejre uidentificerede kræfter"
 
 msgid "Florin, this is Black of the Salty Wildcats, here to assist."
 msgstr "Florin, dette er Sort af Salty Wildcats, her for at hjælpe."
@@ -1121,8 +1262,14 @@ msgstr "Vi starter systemer igen. Når vi har afsluttet pre-jump checks, er vi p
 msgid "We'll meet you there."
 msgstr "Vi møder dig der."
 
+msgid "Minesweeper"
+msgstr "Minestryger"
+
 msgid "Tzac bombers have been identified in the area, deploying mines. While this violates intergalactic treaties, we could never assume that Tzac, much like the Pandorans, would abide by the rules of war. We need to take down those bombers quickly. Exercise caution around the mines, as they are especially potent."
 msgstr "Tzac-bombere er blevet identificeret i området, der anvender miner. Selvom dette krænker intergalaktiske traktater, kunne vi aldrig antage, at Tzac, ligesom Pandorerne, ville overholde krigets regler. Vi er nødt til at tage dem ned hurtigt. Udvis forsigtighed omkring minerne, da de er særligt kraftige."
+
+msgid "Destroy all enemy forces"
+msgstr "Ødelæg alle fjendtlige styrker"
 
 msgid "Watch out for those mines. They're on proximity triggers and have a large area of effect."
 msgstr "Pas på disse miner. De er på nærhedsudløsere og har et stort område af effekt."
@@ -1136,8 +1283,17 @@ msgstr "Det er bomberne taget hånd om, men området er stadig fyldt med miner."
 msgid "We'll need to get a team in here to take care of them."
 msgstr "Vi bliver nødt til at få et hold her for at tage sig af dem."
 
+msgid "Minesweeper #2"
+msgstr "Minesweeper # 2"
+
 msgid "Following the elimination of the Tzac bombers, we need to clear the leftover mines from the system, in case they cause us difficulties in later operations. As always, the mines should be taken down from a distance, to minimise the chances of damage being caused to your fighter during their destruction."
 msgstr "Efter fjernelsen af ​​Tzac-bombeflyene skal vi fjerne de resterende miner fra systemet, hvis de giver os problemer i senere operationer. Minerne bør som altid nedtages fra en afstand for at minimere chancerne for skade, der bliver forårsaget af din fighter under deres ødelæggelse."
+
+msgid "Clear all mines"
+msgstr "Ryd alle miner"
+
+msgid "Eliminate all enemies"
+msgstr "Eliminere alle fjender"
 
 msgid "Reyes, proceed with caution. Those mines are equipped with radar damping fields, that will prevent them from showing up at anything but close range."
 msgstr "Reyes, fortsæt med forsigtighed. Disse miner er udstyret med radardæmpningsfelter, der forhindrer dem i at vise sig på alt andet end tæt rækkevidde."
@@ -1160,8 +1316,23 @@ msgstr "Jeg bemærkede, at ingen af ​​disse Dart udtrådte nogen miner. Mås
 msgid "Tzac have never been known to deploy Darts, but that was an important observation. Provide us with as many details as possible during debriefing."
 msgstr "Tzac har aldrig været kendt for at installere Dart, men det var en vigtig observation. Giv os så mange detaljer som muligt under debriefing."
 
+msgid "Aster Assault"
+msgstr "Aster Assault"
+
 msgid "A large Tzac force has gathered in Aster. The White Knights are being sent in alone to deal with it. We need to continue to show that we are capable of winning these engagements with minimal losses to the enemy force. Mag and disable all Tzac craft in the area, and do not allow any to be destroyed, even by stray fire."
 msgstr "En stor Tzac-kraft er samlet i Aster. De hvide riddere bliver sendt alene for at klare det. Vi skal fortsætte med at vise, at vi er i stand til at vinde disse engagementer med minimal tab for fjendens kraft. Mag og deaktiver alle Tzac-håndværk i området, og lad ikke nogen ødelægges, selv ved omstrejfende ild."
+
+msgid "Disable all fighters"
+msgstr "Deaktiver alle krigere"
+
+msgid "Disable all capital ships"
+msgstr "Deaktiver alle kapitalskibe"
+
+msgid "Do not destroy any fighters"
+msgstr "Fortryd ikke nogen krigere"
+
+msgid "Do not destroy any capital ships"
+msgstr "Undgå at ødelægge kapitalskibe"
 
 msgid "Remember, guys: mags only against the fighters. We're not here to take any more lives."
 msgstr "Husk, fyre: Kun mod krigere. Vi er ikke her for at tage flere liv."
@@ -1214,11 +1385,23 @@ msgstr "Nej. Alle krigere og hætter er lukket ned og klar til afhentning."
 msgid "Great work, Knights. Clean up will commence shortly. Standby for new instructions."
 msgstr "Fantastisk arbejde, riddere. Oprydning vil begynde inden for kort tid. Standby til nye instruktioner."
 
+msgid "Clarke Defence #1"
+msgstr "Clarke Defense # 1"
+
 msgid "The day that we have feared and the events that we attempted to avert are now upon us - the Pandoran army has commenced its push beyond Mitikas space, and is beginning to assault neighbouring Independent star systems. We need to fight back, in order to protect Clarke from becoming underrun by this menace. Take heed: this will not be an easy battle, but we have little choice and must secure victory here today."
 msgstr "Den dag, hvor vi er frygtede, og de begivenheder, som vi forsøgte at afværge, er nu over os - den pandoranske hær er begyndt at skubbe ud over Mitikas rum og begynder at angribe nærliggende uafhængige stjernesystemer. Vi skal kæmpe tilbage for at beskytte Clarke mod at blive underkørt af denne trussel. Pas på: Dette vil ikke være et let slag, men vi har ringe valg og skal sikre sejr her i dag."
 
+msgid "Clarke Defence #2"
+msgstr "Clarke Defense # 2"
+
 msgid "We have successfully punched our way through several squadrons of Pandoran fighters, but their capital ships are fast approaching Dublin. Your objective is to take down INF Dirk. Ensure the Lynx-class bombers can get in close enough to delivery a strike."
 msgstr "Vi har succesfuldt slået vej gennem flere skvadroner af pandoranske krigere, men deres hovedstadskibe nærmer sig Dublin. Dit mål er at tage ned INF Dirk. Sørg for, at Lynx-klassen bombefly kan komme tæt på at levere en strejke."
+
+msgid "Destroy INF Dirk"
+msgstr "Ødelæg INF Dirk"
+
+msgid "Eliminate escorts"
+msgstr "Eliminer eskorte"
 
 msgid "Commander, I would recommend we take out the escorts first."
 msgstr "Kommandant, jeg vil anbefale, at vi først tager eskorterne ud."
@@ -1238,8 +1421,26 @@ msgstr "Det er godt arbejde, kommandør. Vi forbereder os på at engagere flere 
 msgid "Hell. Okay, we'll return momentarily. Carlyle out."
 msgstr "Helvede. Okay, vi vender tilbage øjeblikkeligt. Carlyle ud."
 
+msgid "Clarke Defence #3"
+msgstr "Clarke forsvar nr. 3"
+
 msgid "We need continue taking down the enemy's captial ships, digging in, and holding the line here. More of our own cap ships are heading up the field to meet the Pandorans head on. UNF Cleopatra and UNF Artemis are moving to intercept more enemy corvettes. Your orders are to assist them in achieving their goals."
 msgstr "Vi har brug for at fortsætte med at nedlægge fjendens skibsskibe, grave ind og holde linjen her. Flere af vores egne kasketskibe er på vej op på banen for at møde Pandorans hoved på. UNF Cleopatra og UNF Artemis flytter til at opfange flere fjendtlige korvetter. Dine ordrer er at hjælpe dem med at nå deres mål."
+
+msgid "Destroy INF Khopesh"
+msgstr "Ødelæg INF Khopesh"
+
+msgid "Destroy INF Blackjack"
+msgstr "Ødelæg INF Blackjack"
+
+msgid "Eliminate support fighters"
+msgstr "Eliminer støttekæmperne"
+
+msgid "Protect UNF Cleopatra"
+msgstr "Beskyt UNF Cleopatra"
+
+msgid "Protect UNF Artemis"
+msgstr "Beskyt UNF Artemis"
 
 msgid "INF Khopesh is down."
 msgstr "INF Khopesh er nede."
@@ -1259,8 +1460,14 @@ msgstr "Dette bliver en lang dag, eh?"
 msgid "Maybe not, if we continue to lose ground the way we are already ..."
 msgstr "Måske ikke, hvis vi fortsætter med at miste jorden som vi allerede er ..."
 
+msgid "Clarke Defence #4"
+msgstr "Clarke Defense # 4"
+
 msgid "White Knights, Commodore Parks has identified three enemy corvettes are high level targets. He wants Dodds, Koonan and Todd to take them down, as quickly as possible. There won't be any additional fighter support, but three ATAFs should be more than enough to get the job done. de Winter and Taylor are currently on another assignment. Dodds will lead the attack."
 msgstr "White Knights, Commodore Parks har identificeret tre fjendtlige korvetter er mål på højt niveau. Han ønsker, at Dodds, Koonan og Todd skal tage dem ned så hurtigt som muligt. Der vil ikke være nogen ekstra kampstøtte, men tre ATAF'er skal være mere end nok til at få jobbet gjort. de vinter og taylor er i øjeblikket på en anden opgave. Dodds vil føre angrebet."
+
+msgid "Eliminate all enemy forces"
+msgstr "Eliminere alle fjendtlige styrker"
 
 msgid "Targets sighted: three capital ships, five escorts apiece."
 msgstr "Mål sikret: tre hovedstadskibe, fem escorts stykker."
@@ -1304,8 +1511,26 @@ msgstr "Negativ."
 msgid "Okay, let's get back to Leviathan, and wait for Kelly and Estelle to rejoin us."
 msgstr "Okay, lad os komme tilbage til Leviathan, og vent på, at Kelly og Estelle tilslutter os."
 
+msgid "Clarke Defence #5"
+msgstr "Clarke Defense # 5"
+
 msgid "We have discovered that Alysha's Calling, one of the highest profile enemy frigates, is currently in the system. We are preparing a strike team of Hammerheads, led by the Twilight Lancers, to engage and destroy it. It is unknown what effects, if any, the destruction of this ship will have on enemy morale, however it can only have a positive impact on ours. The frigate's support groups will need to be destroyed first."
 msgstr "Vi har opdaget, at Alysha's Calling, en af ​​de højest profilerede fjendtlige fregatter, er i øjeblikket i systemet. Vi forbereder et slagteam af Hammerheads, ledet af Twilight Lancers, til at engagere og ødelægge det. Det er ukendt, hvilke virkninger, hvis nogen, ødelæggelsen af ​​dette skib vil have på fjendtlig moral, men det kan kun have en positiv indvirkning på vores. Fregatets støttegrupper skal først ødelægges."
+
+msgid "Eliminate support group #1"
+msgstr "Eliminer supportgruppe # 1"
+
+msgid "Eliminate support group #2"
+msgstr "Eliminer supportgruppe nr. 2"
+
+msgid "Destroy INF Alysha's Calling"
+msgstr "Ødelæg INF Alysha's Calling"
+
+msgid "Destroy incoming threat"
+msgstr "Ødelægge indkommende trussel"
+
+msgid "Eliminate Swarmers"
+msgstr "Eliminer svampere"
 
 msgid "First squadron sighted. Moving to intercept."
 msgstr "Første skvadron blev betragtet. Flytter til aflytning."
@@ -1354,6 +1579,9 @@ msgstr "Målet er ikke længere en prioritet. Clarke's forreste linje er sammenf
 
 msgid "Understood. Heading there now."
 msgstr "Forstået. Overskrift der nu."
+
+msgid "Clarke Defence #6"
+msgstr "Clarke Defense # 6"
 
 msgid "The enemy are beginning to overrun our front line. Your objective is simple: engage and destroy all hostile forces. We cannot afford to lose any more ground here. To do so would mean conceding defeat and Clarke falling to the Pandoran fleet. This must not happen."
 msgstr "Fjenden begynder at overskride vores frontlinie. Dit mål er simpelt: engagere og ødelægge alle fjendtlige kræfter. Vi har ikke råd til at miste mere grund her. At gøre det ville betyde at indrømme nederlag og Clarke faldt til Pandoran flåden. Dette må ikke ske."
@@ -1415,6 +1643,9 @@ msgstr "Folk, vi er nede på et hovedskib! Vi er nødt til at træde tingene op!
 msgid "Both caps are down, all hands lost. Let's not let this go to waste."
 msgstr "Begge hætter er nede, alle hænder tabt. Lad os ikke lade dette gå i spilde."
 
+msgid "Coyote Assault #1"
+msgstr "Coyote Assault # 1"
+
 msgid "Though we suffered heavy losses at Coyote, it is still important that we attempt to prevent, or at least slow, the Pandoran war machine's advance. Admiral Jenkins has ordered that the White Knights lead an attack on the enemy forces gathered in the system. The weight of the opposing forces remains tremendous, though the ATAFs should help to give us the edge in battle. Be advised that the enemy are now in possession of UNF fighter craft."
 msgstr "Selv om vi led store tab ved Coyote, er det stadig vigtigt, at vi forsøger at forhindre, eller i det mindste langsomt, Pandoran-krigsmaskinens fremskridt. Admiral Jenkins har beordret, at de hvide riddere fører et angreb på de fjendtlige styrker, der er samlet i systemet. Vægten af ​​de modsatte kræfter forbliver enorm, selvom ATAF'erne skulle hjælpe med at give os kanten i kamp. Vær opmærksom på, at fjenden nu er i besiddelse af UNF-kampfly."
 
@@ -1451,11 +1682,20 @@ msgstr "Griffin, det er vinteren. Alle mål ødelagt."
 msgid "Acknowledged, Commander. Stand by for new orders."
 msgstr "Bekendtgjort, kommandør. Stand by for nye ordrer."
 
+msgid "Coyote Assault #2"
+msgstr "Coyote Assault # 2"
+
 msgid "The initial fight back against the Pandorans has gone well, but the system is still choked with their forces. We need to continue to engage them and force them to abandon the system."
 msgstr "Den oprindelige kamp mod Pandorerne er gået godt, men systemet er stadig kvæget med deres kræfter. Vi skal fortsætte med at engagere dem og tvinge dem til at opgive systemet."
 
+msgid "Coyote Assault #3"
+msgstr "Coyote Assault # 3"
+
 msgid "The assault isn't going as well as we want, and we're beginning to suffer heavy losses as the Pandoran forces overwhelm us. However, we need to continue the fight back, and attempt to hold the enemy here. They cannot be allowed to advance further in to Independent space."
 msgstr "Overfaldet går ikke så godt som vi vil, og vi begynder at lide store tab, da de pandoranske styrker overvælder os. Men vi skal fortsætte kampen tilbage og forsøge at holde fjenden her. De kan ikke få lov til at gå videre ind i det uafhængige rum."
+
+msgid "Retreat to jumpgate"
+msgstr "Tilbage til jumpgate"
 
 msgid "We're getting our arses kicked here! Any chance of any backup?!"
 msgstr "Vi får vores æsler sparket her! Enhver chance for backup ?!"
@@ -1475,6 +1715,12 @@ msgstr "Estelle, vi har det her. Vi kan tage dem."
 msgid "We're suffering too many losses, Dodds. Fall back now, that's an order."
 msgstr "Vi lider for mange tab, Dodds. Fall tilbage nu, det er en ordre."
 
+msgid "Donesta Defence #1"
+msgstr "Donesta forsvar # 1"
+
+msgid "Protect UNF Zenobia"
+msgstr "Beskyt UNF Zenobia"
+
 msgid "Tzac Shales sighted. Moving to intercept."
 msgstr "Tzac Shales sees. Flytter til aflytning."
 
@@ -1490,11 +1736,20 @@ msgstr "Zenobia, jeg opdager en stor skvadron af krigere og bombefly, på vej mo
 msgid "Dammit! The Shales were acting as bait. Specials, keep those bombers away from us."
 msgstr "Dammit! Shales optrådte som agn. Specials, hold dem bombere væk fra os."
 
+msgid "Donesta Offence #1"
+msgstr "Donesta Offense # 1"
+
+msgid "Eliminate bombers"
+msgstr "Eliminere bombefly"
+
 msgid "You're going to have to deal with this one solo, Carpenter. There are bombers deploying mines in the area. Any one of those detonating could kill the target."
 msgstr "Du bliver nødt til at håndtere denne ene solo, Carpenter. Der er bombefly, der anvender miner i området. Enhver af de detonerende kan dræbe målet."
 
 msgid "Secure the commander, and then take down those bombers. Just watch your fire."
 msgstr "Sikre befuldmægtigeren, og tag ned disse bombere. Bare se din ild."
+
+msgid "Donesta Defence #2"
+msgstr "Donesta Defense # 2"
 
 msgid "Pandoran forces are beginning their assault on Donesta. They must be engaged and driven out of the system. However, it appears that they are making use of UNF fighters, in an attempt to confuse our own pilots. Visual identification should therefore not be relied on to determine targets, as radar will help to separate their units from ours."
 msgstr "Pandorankræfterne begynder deres angreb på Donesta. De skal være engageret og drevet ud af systemet. Det ser imidlertid ud til, at de gør brug af UNF-krigere i et forsøg på at forvirre vores egne piloter. Visual identifikation bør derfor ikke påberåbes for at bestemme mål, da radar vil hjælpe med at adskille deres enheder fra vores."
@@ -1514,14 +1769,41 @@ msgstr "Lad os håbe vi ser aldrig dagen, når de får fat i en af ​​ATAF'er
 msgid "Agreed. Let's regroup and prepare for whatever's coming next."
 msgstr "Aftalt. Lad os omgruppere og forberede os på, hvad der kommer næste gang."
 
+msgid "Suspect Packages #1"
+msgstr "Mistænkte pakker # 1"
+
 msgid "A patrol group has sighted a number of crates drifting near to Alexandria. The contents of the crates is currently unknown, but they have been confirmed to be belong to the CSN. A shuttle has been dispatched to retrieve them, in case they should wander in to any shipping lanes. Once we have them in our possession, we will work to determine how they came to be here."
 msgstr "En patruljegruppe har set et antal kasser, der drev nær til Alexandria. Indholdet af kasser er for tiden ukendt, men de er blevet bekræftet at tilhøre CSN. En shuttle er afsendt for at hente dem, hvis de skulle vandre ind i eventuelle ruter. Når vi har dem i vores besiddelse, vil vi arbejde for at bestemme, hvordan de kom til at være her."
+
+msgid "Retrieve all packages"
+msgstr "Hent alle pakker"
 
 msgid "Not expecting any company, Carr, so this should just be a routine pickup. We'll keep an eye out, though."
 msgstr "Ikke forventer noget firma, Carr, så dette bør bare være en rutinemæssig afhentning. Vi vil dog holde øje med."
 
+msgid "Suspect Packages #2"
+msgstr "Mistænkte pakker # 2"
+
 msgid "The crates were found to be carrying a variety of munitions, though we're still unsure of where they came from. We're dispatching shuttles to accompany the next few patrols, in case we should encounter any more."
 msgstr "Kasserne viste sig at bære en række ammunition, men vi er stadig usikre på, hvor de kom fra. Vi sender shuttles til at ledsage de næste par patruljer, hvis vi skulle støde på mere."
+
+msgid "Check all wayponts"
+msgstr "Tjek alle veje"
+
+msgid "Retrieve packages"
+msgstr "Hent pakker"
+
+msgid "Bring in stranded Dart"
+msgstr "Bring i strandet Dart"
+
+msgid "Do not destroy stranded Dart"
+msgstr "Fortryd ikke strandet Dart"
+
+msgid "Destroy intercepting Darts"
+msgstr "Destroy opfangning af Dart"
+
+msgid "Protect Shuttle and Tug"
+msgstr "Beskyt Shuttle og Slæbebåd"
 
 msgid "Iron Patriots, we're again identifying a handful of crates drifting close to your current position. Please effect pick up."
 msgstr "Iron Patriots, vi identificerer igen en håndfuld kasser, der glider tæt på din nuværende position. Vær venlig at foretage afhentning."
@@ -1556,8 +1838,26 @@ msgstr "Alexandria, pakke leveret."
 msgid "Excellent work, Lieutenant. Let's see what all this tell us. Come on home."
 msgstr "Fremragende arbejde, løjtnant. Lad os se, hvad alt dette fortæller os. Kom hjem."
 
+msgid "Suspect Packages #3"
+msgstr "Mistænkte pakker # 3"
+
 msgid "The interogation of the pilot brought in earlier revealed that munitions are being traded with Helios' age-old enemy, the Kingdom of Tzac. The arms are being routed to Rothan, via Temper. This would explain the high pirate presence along the border. It doesn't explain why the packages were spilled, however, and our guest is keeping mum on the subject. Patrols are being stepped up, in an effort to help provide more intelligence."
 msgstr "Interogationen af ​​piloten, der blev indført tidligere, afslørede, at ammunitionen handles med Helios 'ældgamle fjende, Kongeriget Tzac. Armene bliver sendt til Rothan via Temper. Dette ville forklare den høje pirat tilstedeværelse langs grænsen. Det forklarer ikke hvorfor pakkerne blev spildt, og vores gæst holder mum på emnet. Patruljerne bliver styrket, for at hjælpe med at give mere intelligens."
+
+msgid "Disable pirate commander"
+msgstr "Deaktiver piratkommandør"
+
+msgid "Disable Tzac commander"
+msgstr "Deaktiver Tzac Commander"
+
+msgid "Destroy all other opponents"
+msgstr "Ødelæg alle andre modstandere"
+
+msgid "Do not allow pirate commander to be killed"
+msgstr "Lad ikke piratkommandøren blive dræbt"
+
+msgid "Do not allow Tzac commander to be killed"
+msgstr "Tillad ikke, at Tzac-kommandøren dræbes"
 
 msgid "Patrol, we have a major situation developing. A skirmish is taking place between a number of starfighters: Darts, Nymphs, and Fireflies."
 msgstr "Patrol, vi har en stor situation at udvikle. En skirmish finder sted mellem en række sejlere: Dart, Nymfer og Fireflies."
@@ -1574,8 +1874,20 @@ msgstr "Dette er Carr, rapporteringsoperationen er vellykket. Bagged os to skvad
 msgid "Good work, Commander. Dispatching tugs to bring them in."
 msgstr "Godt arbejde, kommandør. Dispatching tugs til at bringe dem ind."
 
+msgid "Pirate Smash"
+msgstr "Pirat Smash"
+
 msgid "We finally have all the information we need to help safeguard the Confederation in these turbulent times. By smashing the pirate ring involved in the supplying of arms to Tzac, we can regain control of our internal security matters, and refocus on the war against the Pandorans. All targets must be destroyed, but be advised that the pirates have acquired rocket cannons, that could prove costly if underestimated."
 msgstr "Vi har endelig alle de oplysninger, vi har brug for for at hjælpe med at beskytte Confederation i disse turbulente tider. Ved at smadre piratringen, der er involveret i forsyning af våben til Tzac, kan vi genvinde kontrollen med vores interne sikkerhedsforhold og omdanne os til krigen mod Pandorerne. Alle mål skal ødelægges, men det anbefales at piraterne har erhvervet raketkanoner, der kunne vise sig dyre, hvis de blev undervurderet."
+
+msgid "Eliminate pirate captains"
+msgstr "Eliminer pirat kaptajner"
+
+msgid "Eliminate sentry cannons"
+msgstr "Eliminere sentriske kanoner"
+
+msgid "Eliminate all other opponents"
+msgstr "Eliminere alle andre modstandere"
 
 msgid "Right, people, let's finish this. Engage at will. Leave nothing standing."
 msgstr "Lige, folk, lad os afslutte dette. Engage på vilje. Forlad ikke noget stående."
@@ -1601,8 +1913,17 @@ msgstr "Dette er Carr. Rapportering af trussel elimineret, operation succesfuld.
 msgid "Excellent work, Commander. We'll get a few frosty ones ready for your return."
 msgstr "Fremragende arbejde, Commander. Vi får et par krystaller klar til din retur."
 
+msgid "Iliad Defence #1"
+msgstr "Iliad Defense # 1"
+
 msgid "The Pandorans have commenced their attack on our home, and we must act immediately to defend ourselves. A wave of bombers is heading towards one of our starports. They need to be taken down with haste, before they get in range. They may only be being escorted by Jackals, but bare in a mind that the Pandoran pilots are highly skilled, and unrelenting in battle."
 msgstr "Pandorerne har påbegyndt deres angreb på vores hjem, og vi skal handle straks for at forsvare os selv. En bølge af bombefly er på vej mod et af vores stjerneporte. De er nødt til at blive taget ned med hast, før de kommer i rækkevidde. De må kun blive eskorteret af Jackals, men bare i tankerne om, at Pandoran-piloterne er højtuddannede og uholdbare i kamp."
+
+msgid "Destroy incoming bombers"
+msgstr "Ødelæg indkommende bombefly"
+
+msgid "Eliminate all other threats"
+msgstr "Eliminere alle andre trusler"
 
 msgid "Recommending taking down the escorts before engaging the bombers. Just watch out for their rockets."
 msgstr "Anbefaler at tage ned eskorterne, før de går ind i bombeflyene. Bare pas på deres raketter."
@@ -1610,11 +1931,23 @@ msgstr "Anbefaler at tage ned eskorterne, før de går ind i bombeflyene. Bare p
 msgid "Be warned, people, these Pandorans are said to be relentless in battle."
 msgstr "Vær advaret, folk, disse pandorere siges at være ubarmhjertige i kamp."
 
+msgid "Iliad Defence #2"
+msgstr "Iliad Defense # 2"
+
 msgid "The Pandoran war machine has commenced its advancement beyond Mitikas space. We must prepare to defend Iliad from this powerful foe. Exercise caution: despite outnumbering the enemy units that have entered our space, the Pandorans are said to be relentless in battle, and this small number could well still test us."
 msgstr "Pandoran-krigsmaskinen har påbegyndt sin fremgang ud over Mitikas-rummet. Vi må forberede os på at forsvare Iliad fra denne stærke fjende. Udvis forsigtighed: På trods af at de fjendtlige enheder, der er kommet ind i vores rum, er overgået, siger Pandorerne at være ubarmhjertige i kamp, ​​og dette lille tal kan stadig teste os."
 
+msgid "Iliad Defence #3"
+msgstr "Iliad Defense # 3"
+
 msgid "In order to slow the advance of the Pandoran forces, we are going to target one of their supply lines. This should buy us some time while we await UNF and CSN reinforcements, and bring more of our capital ships into position."
 msgstr "For at bremse forløbet af Pandorankræfterne skal vi målrette mod en af ​​deres forsyningslinjer. Dette bør købe os noget tid, mens vi afventer UNF og CSN forstærkninger, og bringe flere af vores kapitalskibe i position."
+
+msgid "Destroy munitions transports"
+msgstr "Ødelægge ammunitionstransporter"
+
+msgid "Destroy Supply ships"
+msgstr "Ødelæg forsyningsskibe"
 
 msgid "Dust Brothers, this is Control. An INF fighter squadron is inbound. Looks like they're summoned backup."
 msgstr "Dust Brothers, dette er Control. En INF fighter eskadron er indgående. Det ser ud til, at de er indkaldt backup."
@@ -1631,8 +1964,23 @@ msgstr "Strider, anbefales at vi sporer yderligere tre INF-krigere på vej."
 msgid "Dammit, spoke too soon ..."
 msgstr "Dammit, talte for tidligt ..."
 
+msgid "Iliad Defence #4"
+msgstr "Iliad Defense # 4"
+
 msgid "We're ready to make a run against the Pandoran fleet's front line, and move our capital ships into strike range. Agamemnon's 1st will assist the Lady Jane Grey, and Joan of Arc, to engage three INF corvettes, under enemy control. We need to ensure that we take down the opposing capitals while ensuring our own survive. The enemy outnumber us, and we need to maintain our strength as much as possible."
 msgstr "Vi er klar til at køre mod Pandoran-flådens frontlinie og flytte vores hovedskibe i strejkeområdet. Agamemnon's 1st vil hjælpe Lady Jane Gray, og Joan of Arc, at engagere tre INF-korvetter under fjendens kontrol. Vi skal sikre, at vi tager ned de modsatte hovedstæder, samtidig med at vores egne overlever. Fjenden er mere end os, og vi skal holde vores styrke så meget som muligt."
+
+msgid "Protect UNF Lady Jane Grey"
+msgstr "Beskyt UNF Lady Jane Gray"
+
+msgid "Protect UNF Joan of Arc"
+msgstr "Beskyt UNF Joan of Arc"
+
+msgid "Destroy INF Astra"
+msgstr "Ødelæg INF Astra"
+
+msgid "Destroy INF Ragnarok"
+msgstr "Ødelæg INF Ragnarok"
 
 msgid "Agamemnon's 1st, we're detecting multiple Pandoran fighters moving in to intercept. Take them down, and protect The Lady Grey and Joan of Arc."
 msgstr "Agamemnon's 1st, vi opdager flere pandoranske krigere, der bevæger sig ind for at opfange. Tag dem ned og beskyt Lady Grey og Joan of Arc."
@@ -1676,6 +2024,9 @@ msgstr "Kontroller, det er Williams. Fjende hovedstadskibe er blevet ødelagt sa
 msgid "Great work, Williams. Rejoin the main the fleet. The enemies forces are gaining strength and we need all the help we can get."
 msgstr "Godt arbejde, Williams. Tilslut hovedflåden. Fjendernes styrker får styrke, og vi har brug for al den hjælp, vi kan få."
 
+msgid "Iliad Defence #5"
+msgstr "Iliad Defense # 5"
+
 msgid "The defence of Iliad is slipping, our forces are being decimated. We have to hit the enemy back, hard. All available fighters are to move into range and engage. If we lose here, Iliad is finished. We are the last line of defence, and we cannot afford to fail."
 msgstr "Forsvaret af Iliad glider, vores styrker bliver decimeret. Vi er nødt til at slå fjenden tilbage, hårdt. Alle tilgængelige krigere skal flytte ind i området og engagere sig. Hvis vi taber her, er Iliad færdig. Vi er den sidste forsvarslinje, og vi har ikke råd til at mislykkes."
 
@@ -1709,6 +2060,12 @@ msgstr "Herre, du forbliver, hvor du er! Vi er ikke abando--"
 msgid "The wing commander's dead."
 msgstr "Vingekommandøren er død."
 
+msgid "India Defence #1"
+msgstr "Indien forsvar # 1"
+
+msgid "Minimise civilian losses"
+msgstr "Minimere civile tab"
+
 msgid "Caution, everyone. The Tzac forces might be deliberately targeting the civilians in the area. We need to eliminate or drive those Shales away, as quickly as possible."
 msgstr "Forsigtig, alle. Tzac-styrkerne kan bevidst målrette civilbefolkningen i området. Vi skal eliminere eller køre disse Shales væk, så hurtigt som muligt."
 
@@ -1733,8 +2090,17 @@ msgstr "Dammit, vi mister for mange af dem!"
 msgid "Too many losses ..."
 msgstr "For mange tab ..."
 
+msgid "India Defence #2"
+msgstr "Indien forsvar # 2"
+
 msgid "UNF Lovelace was recently attacked by a mercenary group, believed to be aligned with Tzac. While the corvette and the Sparrows were able to see off the attackers, it was nevertheless a focused and dedicated assault, that almost ended in disaster. More are likely to come, so we should remain vigilant."
 msgstr "UNF Lovelace blev for nylig angrebet af en lejesoldatgruppe, der troede at være i overensstemmelse med Tzac. Mens korvetten og Sparrows kunne se off angriberne, var det alligevel et fokuseret og dedikeret angreb, der næsten sluttede i katastrofe. Der er mere sandsynligt at komme, så vi bør forblive vågne."
+
+msgid "Eliminate mercenaries"
+msgstr "Eliminer lejesoldater"
+
+msgid "Defend UNF Hopper"
+msgstr "Forsvar UNF Hopper"
 
 msgid "Got Darts, incoming."
 msgstr "Fik Dart, indkommende."
@@ -1754,8 +2120,17 @@ msgstr "De legosoldater kaster i håndklædet og trækker tilbage. De har haft n
 msgid "Good work, everyone. We've sent both Tzac and those mercenaries a clear message today. I think its obvious what our next move should be ..."
 msgstr "Godt arbejde, alle sammen. Vi har sendt både Tzac og de lejesoldater en klar besked i dag. Jeg synes det er indlysende, hvad vores næste skridt skal være ..."
 
+msgid "Infiltration #5"
+msgstr "Infiltrering # 5"
+
 msgid "You've done well so far, Hicks. We appreciate that things have not been easy, but you're in a better position than many of us had hoped for. As soon as you're able, begin your search for the admiral. Once located, you will need to open a dialog with him. Whatever you do, do not kill him."
 msgstr "Du har gjort det godt hidtil, Hicks. Vi sætter pris på at ting ikke har været let, men du er i en bedre position end mange af os havde håbet på. Så snart du er i stand, start din søgning efter admiralen. Når du er placeret, skal du åbne en dialog med ham. Uanset hvad du gør, må du ikke dræbe ham."
+
+msgid "Search for Admiral Zackaria"
+msgstr "Søg efter Admiral Zackaria"
+
+msgid "Investigate unique Sphinx"
+msgstr "Undersøg unik sphinx"
 
 msgid "So, this is Krasst. Never thought I'd ever find myself here."
 msgstr "Så dette er Krasst. Troede aldrig, jeg ville nogensinde finde mig her."
@@ -1804,6 +2179,9 @@ msgstr "De har slukket jumpgate ..."
 
 msgid "Hell! My cover's been blown, they're on to me!"
 msgstr "Helvede! Mit cover er blevet blæst, de er på mig!"
+
+msgid "Plan B"
+msgstr "Plan B"
 
 msgid "The bulk of the allied forces have fallen back to Lenon, to prepare for whatever is to come next. For now, we are standing down and awaiting new instructions from senior command."
 msgstr "Størstedelen af ​​de allierede styrker er faldet tilbage til Lenon for at forberede sig på, hvad der skal komme efter. For nu står vi ned og venter på nye instruktioner fra senior kommando."
@@ -1874,8 +2252,14 @@ msgstr "Ja. Husk på Mythos? Parker sagde det var en meget reel mulighed. I denn
 msgid "Don't worry, Simon. I doubt they'll ever get that far."
 msgstr "Bare rolig, Simon. Jeg tvivler på, at de nogensinde kommer så langt."
 
+msgid "Mace Assault #1"
+msgstr "Mace Assault # 1"
+
 msgid "The time has come to take the fight to Tzac. We will begin by striking their outer defences, and containing their forces to the system. The Iron Wolves will lead an attack against one of the outer jumpgates. It will likely be heavily defended, and heavy-class Tzac Blizzards could well arrive in the area as soon as you begin your assault."
 msgstr "Tiden er kommet for at tage kampen til Tzac. Vi vil begynde med at slå deres ydre forsvar og holde deres kræfter til systemet. Iron Wolves vil føre et angreb mod en af ​​de yderste jumpgates. Det vil sandsynligvis være stærkt forsvaret, og tzac-snestormere kan godt komme ind i området, så snart du begynder dit angreb."
+
+msgid "Knock jumpgate offline"
+msgstr "Knock jumpgate offline"
 
 msgid "Our goal is the jumpgate. Expect a lot of resistance."
 msgstr "Vores mål er jumpgate. Forvent meget modstand."
@@ -1919,8 +2303,17 @@ msgstr "Dammit, holdet er blevet skåret ned! Det ligner, at det er op til dig o
 msgid "We'll make sure their deaths weren't in vain."
 msgstr "Vi sørger for, at deres død ikke var forgæves."
 
+msgid "Mace Assault #2"
+msgstr "Mace Assault # 2"
+
 msgid "The initial attack went extremely well, and we're ready to move further into the system. Tzac forces are moving up to meet us, so expect heavy resistance. Your goal is simple: destroy all enemy forces."
 msgstr "Det oprindelige angreb gik meget godt, og vi er klar til at gå videre ind i systemet. Tzac styrker bevæger sig op for at møde os, så forvent stor modstand. Dit mål er simpelt: ødelæg alle fjendens styrker."
+
+msgid "Destroy HMS 781-110"
+msgstr "Ødelæg HMS 781-110"
+
+msgid "Destroy HMS 781-041"
+msgstr "Ødelæg HMS 781-041"
 
 msgid "HMS 781-110 sighted. All fighters free to engage at will."
 msgstr "HMS 781-110 synet. Alle krigere er fri til at engagere sig i vilje."
@@ -1964,8 +2357,20 @@ msgstr "Det var uventet."
 msgid "Sure was. We'd better get to debriefing."
 msgstr "Sikker var. Vi ville bedre komme til debriefing."
 
+msgid "Mace Assault #3"
+msgstr "Mace Assault # 3"
+
 msgid "There is growing public unrest over the on-going war, with a number of high-profile voices calling for an immediate end to the attacks on Tzac. While we cannot abandon the campaign while Tzac remains a threat, we can reduce the loss of life by disabling the enemy craft, instead of destroying them. That should placate the anti-war campaigners for a time."
 msgstr "Der er voksende offentlig uro over den igangværende krig, med en række højt profilerede stemmer, der kræver en øjeblikkelig afslutning på angrebene på Tzac. Selv om vi ikke kan opgive kampagnen, mens Tzac forbliver en trussel, kan vi reducere tabet af liv ved at deaktivere fjendens håndværk, i stedet for at ødelægge dem. Det burde placere anti-krigskampagnerne for en tid."
+
+msgid "Eliminate Tzac opposition"
+msgstr "Eliminer Tzac-modstand"
+
+msgid "Disable 50%% of Tzac craft"
+msgstr "Deaktiver 50 %% af Tzac-håndværk"
+
+msgid "Do not destroy tagged Tzac craft"
+msgstr "Må ikke ødelægge mærket Tzac håndværk"
 
 msgid "We're going to mag half of their forces and destroy the others. The ones to disable have been tagged. Everyone clear?"
 msgstr "Vi tager til halvdelen af ​​deres styrker og ødelægger de andre. De, der skal deaktiveres, er blevet tagget. Alle klar?"
@@ -1982,8 +2387,26 @@ msgstr "Tzac-modstand er blevet ødelagt."
 msgid "Great work, everyone. That should give the PR guys something to brag about."
 msgstr "Godt arbejde, alle sammen. Det burde give PR-fyre noget at prale af."
 
+msgid "Mace Assault #4"
+msgstr "Mace Assault # 4"
+
 msgid "We're closing in on Tzac itself. This is where things get tricky, as we need to ensure we capture the empress alive. Ground teams will flush her out of her palace, and she'll likely make a run for the jumpgate. Her shuttle will need to be disabled and protected as soon as it's sighted. Remember to keep enemy casualties to a minimum."
 msgstr "Vi lukker ind på Tzac selv. Det er her, hvor tingene bliver vanskelige, da vi skal sikre, at vi fanger kejserinden i live. Ground teams vil spyle hende ud af hendes palads, og hun vil sandsynligvis køre for jumpgate. Hendes skyttel skal være deaktiveret og beskyttet så snart det ses. Husk at holde fjendens tab til et minimum."
+
+msgid "Eliminate all opposing forces"
+msgstr "Eliminere alle modstridende kræfter"
+
+msgid "Destroy HMS 881-491"
+msgstr "Ødelæg HMS 881-491"
+
+msgid "Disable Christabel's transport"
+msgstr "Deaktiver Christabels transport"
+
+msgid "Do not destroy Christabel's transport"
+msgstr "Ikke ødelæg Christabels transport"
+
+msgid "Do not allow Christabel to escape"
+msgstr "Lad ikke Christabel flygte"
 
 msgid "All, our mission parameters have changed. The Pandorans are making a move against Mace. We need to act quickly."
 msgstr "Alle vores missionsparametre er ændret. Pandorerne tager et skridt mod Mace. Vi skal handle hurtigt."
@@ -2066,8 +2489,23 @@ msgstr "Hvad nu?"
 msgid "Nothing more we can do. We should evacuate the area before more Pandoran forces arrive."
 msgstr "Intet mere, vi kan gøre. Vi skal evakuere området, før flere Pandoranske kræfter ankommer."
 
+msgid "Infiltration #1"
+msgstr "Infiltrering # 1"
+
 msgid "An opportunity has been granted for us to infiltrate Mitikas space, the Pandoran army, and ultimate get close to Jason Zackaria or Julian Rissard. If nothing else, we could still discover the whereabouts of these two elusive men, which could assist in future operations to capture them. Your goal is to acquire an Angel, an outdated INF fighter that currently lies in the hands of mercenaries. They have retreated to Phylent to affect repairs, so now is the chance to strike."
 msgstr "En mulighed er blevet givet for os at infiltrere Mitikas rum, den pandoranske hær, og ultimative komme tæt på Jason Zackaria eller Julian Rissard. Hvis intet andet, kunne vi stadig finde ud af hvor disse to besværlige mænd var, som kunne hjælpe med i fremtidige operationer til at fange dem. Dit mål er at erhverve en engel, en forældet INF-fighter, der i øjeblikket ligger i lejesoldaternes hænder. De har trukket sig tilbage til Phylent for at påvirke reparationer, så nu er chancen for at strejke."
+
+msgid "Disable Angel"
+msgstr "Deaktiver Angel"
+
+msgid "Bring Angel to designated location"
+msgstr "Bring Angel til udpeget placering"
+
+msgid "Do not destroy Angel"
+msgstr "Må ikke ødelægge Angel"
+
+msgid "Do not allow Ray or tug to be destroyed"
+msgstr "Lad ikke Ray eller slæbebanen være ødelagt"
 
 msgid "I've sighted the Angel. Let's move in and secure it."
 msgstr "Jeg har set ilden. Lad os flytte ind og sikre det."
@@ -2114,8 +2552,29 @@ msgstr "Hvad tror du, de har planlagt til denne ting?"
 msgid "No idea. But what I do know is that we're not involved any further."
 msgstr "Ingen ide. Men hvad jeg ved er, at vi ikke er involveret længere."
 
+msgid "Rothan Defence #1"
+msgstr "Rothan Defense # 1"
+
 msgid "A distress call from a CSN squadron has been issued, who were engaging Pandoran targets. It appears as though the enemy have magged the fighters, rather than destroy them. INF tugs are preparing to lead them out of the system, via the jumpgate. We need to destroy those tugs, and get those men and women to safety. We cannot allow the Pandorans to get hold of any of our technology."
 msgstr "Et nødopkald fra en CSN-skvadron er blevet udstedt, som engagerede Pandoran-mål. Det ser ud som om fjenden har magged de krigere, snarere end at ødelægge dem. INF slæbebåde er ved at forberede sig på at lede dem ud af systemet via jumpgate. Vi er nødt til at ødelægge dem, og få disse mænd og kvinder til sikkerhed. Vi kan ikke lade Pandorerne få fat i nogen af ​​vores teknologier."
+
+msgid "Destroy all Pandoran Tugs"
+msgstr "Ødelæg alle Pandoran Tugs"
+
+msgid "Rescue all CSN pilots"
+msgstr "Redde alle CSN-piloter"
+
+msgid "Protect Tugs"
+msgstr "Beskyt Tugs"
+
+msgid "Eliminate all Pandoran fighters"
+msgstr "Eliminere alle Pandoran-krigere"
+
+msgid "Do not allow any pilots to be killed"
+msgstr "Lad ikke piloter dræbes"
+
+msgid "Do not allow any pilots to be kidnapped"
+msgstr "Lad ikke nogen piloter blive kidnappet"
 
 msgid "White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate."
 msgstr "Hvide riddere, fjendens slæbebåde er allerede på plads og er vedhæftede tov reb. De må ikke få disse krigere og piloter til jumpgate."
@@ -2144,8 +2603,17 @@ msgstr "Griffin, det er vinteren. Operation succesfuld."
 msgid "I knew I could count on you, de Winter. Head back to Griffin."
 msgstr "Jeg vidste, at jeg kunne regne med dig, de Winter. Gå tilbage til Griffin."
 
+msgid "Rothan Defence #2"
+msgstr "Rothan Defense # 2"
+
 msgid "The Pandorans are preparing for a major push into Rothan, so we need to shore up defences as quickly as possible. Command have selected a number of positions that will give us a strategic advantage in the early stages of battle when the enemy arrives. The Blue Jesters are to link up with the Irregular Nomads near to one Rothan's inner jumpgates, and await further instructions."
 msgstr "Pandorerne forbereder sig på et stort skub i Rothan, så vi skal forsøge at forsvare forsvar så hurtigt som muligt. Command har valgt en række stillinger, som vil give os en strategisk fordel i de tidlige stadier af kamp, ​​når fjenden ankommer. The Blue Jesters er at linke op med de uregelmæssige nomader tæt på en Rothans indre jumpgates og afventer yderligere instruktioner."
+
+msgid "Rendezvous with the Irregular Nomads"
+msgstr "Rendezvous med de uregelmæssige nomader"
+
+msgid "Eliminate UNF fighters"
+msgstr "Eliminer UNF-krigere"
 
 msgid "Control, we're in position. Awaiting the Irregular Nomads."
 msgstr "Kontrol, vi er i position. Afventer de uregelmæssige nomader."
@@ -2192,6 +2660,12 @@ msgstr "Commander, dine nuværende missioner er blevet afbrudt. Tilbage til jump
 msgid "Got it, coming home."
 msgstr "Fik det, kom hjem."
 
+msgid "Rothan Defence #3"
+msgstr "Rothan Defense # 3"
+
+msgid "Defend shipyard"
+msgstr "Forsvar værft"
+
 msgid "We've got multiple incoming Tzac fighters. We need to prevent them from destroying the ships here."
 msgstr "Vi har flere indkommende Tzac-krigere. Vi skal forhindre dem i at ødelægge skibene her."
 
@@ -2203,6 +2677,15 @@ msgstr "Trusleradvarslen kom for sent til andre skvadroner til at hjælpe os, me
 
 msgid "Expect the Tzac bombers to focus on destroying the tugs and shuttles."
 msgstr "Forvent Tzac-bombeflyene at fokusere på at ødelægge slæbebådene og pendulerne."
+
+msgid "Rothan Offensive #1"
+msgstr "Rothan Offensiv # 1"
+
+msgid "Eliminate enemies"
+msgstr "Eliminere fjender"
+
+msgid "Eliminate commander support"
+msgstr "Eliminer kommandostøtte"
 
 msgid "Enemy fighters spotted. No sign of the squadron wing commander, though. We might have to draw him out."
 msgstr "Enemy fighters spottet. Intet tegn på skvadronvinge kommandanten dog. Vi må måske trække ham ud."
@@ -2231,6 +2714,9 @@ msgstr "Bagged og tagget."
 msgid "Excellent work, Jesters. Everything looks clear, so we'll dispatch a tug to your location to bring him in. See you soon."
 msgstr "Fremragende arbejde, Jesters. Alt ser klart ud, så vi sender en slæbebåd til din placering for at bringe ham ind. Vi ses snart."
 
+msgid "Rothan Defence #4"
+msgstr "Rothan Defense # 4"
+
 msgid "The Pandorans have launched a sudden attack against the system. It appears that they are capitalizing on the chaos that the Kingdom of Tzac has thrown us into. We need to repel this attack, as defeat here could mean a major setback in our struggle against both enemies."
 msgstr "Pandorerne har lanceret et pludseligt angreb mod systemet. Det ser ud til, at de udnytter det kaos, som Kongeriget Tzac har kastet os ind i. Vi er nødt til at afvise dette angreb, da nederlag her kunne betyde et stort tilbageslag i vores kamp mod begge fjender."
 
@@ -2242,6 +2728,9 @@ msgstr "Der er svømmere i deres rækker, der udgør massen. Forlad ikke tro fol
 
 msgid "That's the last of 'em. Not often we win an engagement like this."
 msgstr "Det er den sidste af dem. Ikke ofte vinder vi et engagement som dette."
+
+msgid "Rothan Defence #5"
+msgstr "Rothan Defense # 5"
 
 msgid "The Pandorans are pressing home their advantage, and closing in on Rothan's inhabited planets. They must defeated, as a loss here would mean them starting a ground assault. Expect heavy resistance."
 msgstr "Pandorerne presser hjem deres fordel og lukker ind på Rothans beboede planeter. De skal besejre, som et tab her ville betyde, at de starter et jordoverfald. Forvent kraftig modstand."
@@ -2294,8 +2783,23 @@ msgstr "De har taget Blackburn!"
 msgid "That's both of our corvettes down. The rest is up to us."
 msgstr "Det er begge vores korvetter nede. Resten er op til os."
 
+msgid "Infiltration #2"
+msgstr "Infiltrering # 2"
+
 msgid "This is a very dangerous mission. While the Pandorans appear to have accepted you as one of their pilots, they will still be highly suspicious. You should therefore do whatever possible to keep their suspicions low. Stick close to the wing commander when not in combat. Do not fire your guns or use your ECM if you don't need to, and eliminate your targets with extreme prejudice, no matter what."
 msgstr "Dette er en meget farlig mission. Mens Pandorerne ser ud til at have accepteret dig som en af ​​deres piloter, vil de stadig være meget mistænkelige. Du bør derfor gøre det, der er muligt for at holde deres mistanker lave. Stak tæt på vinge kommandanten, når den ikke er i kamp. Brand ikke dine våben eller brug din ECM, hvis du ikke behøver det, og fjern dine mål med ekstreme fordomme, uanset hvad."
+
+msgid "Follow wing commander's orders"
+msgstr "Følg vinge kommandørens ordrer"
+
+msgid "Eliminate civilian group #1"
+msgstr "Eliminer civilgruppe nr. 1"
+
+msgid "Eliminate civilian group #2"
+msgstr "Eliminere civile gruppe nr. 2"
+
+msgid "Eliminate civilian group #3"
+msgstr "Eliminer civilgruppe nr. 3"
 
 msgid "(I'm in deep this time. Just have to remain calm, focus, and do as they do.)"
 msgstr "(Jeg er dybt denne gang. Bare nødt til at forblive rolig, fokusere og gøre som de gør.)"
@@ -2312,6 +2816,9 @@ msgstr "(Bedre komme tilbage til vingekommandøren, før de tror, ​​at jeg s
 msgid "(They're moving to the jumpgate. I should join them, and stick close.)"
 msgstr "(De flytter til jumpgate. Jeg skal være med og holde tæt på.)"
 
+msgid "Free Flight"
+msgstr "Fri flyvning"
+
 msgid "A simple test flight. Get used to piloting your fighter, without threat of attack or any other dangers to face. There are no objectives to complete in this mission, so you may quit it at any time and move on to the next one."
 msgstr "Et simpelt testflyvning. Vænne dig til at styre din fighter, uden fare for angreb eller andre farer at møde. Der er ingen målsætninger at fuldføre i denne mission, så du kan til enhver tid afslutte det og fortsætte til den næste."
 
@@ -2324,17 +2831,32 @@ msgstr "Øvelse dreje, accelerere og bremse."
 msgid "Don't forget about your Boost, either. That can be a life saver in certain situations."
 msgstr "Glem heller ikke om din Boost. Det kan være en livredder i visse situationer."
 
+msgid "Weapons Training"
+msgstr "Våbenuddannelse"
+
 msgid "Practice using your fighter's weapons against a stationary target."
 msgstr "Øv dig med din kæmpers våben mod et stationært mål."
+
+msgid "Destroy Dart"
+msgstr "Ødelæg Dart"
 
 msgid "The Dart won't attack you, so when you're ready, you can blow the thing to pieces."
 msgstr "Dart vil ikke angribe dig, så når du er klar, kan du blæse sagen i stykker."
 
+msgid "Moving Target"
+msgstr "Flytende mål"
+
 msgid "Most targets you face in the field will be moving. This course gives you the chance to practice taking down an enemy that moves around."
 msgstr "De fleste mål du ansigt i feltet vil bevæge sig. Dette kursus giver dig mulighed for at træne ned en fjende, der bevæger sig rundt."
 
+msgid "Eliminate Dart"
+msgstr "Eliminer Dart"
+
 msgid "This Dart has control over its engines, but not its weapons. Practice chasing it down and destroying it."
 msgstr "Denne Dart har kontrol over sine motorer, men ikke dens våben. Øve jagter det og ødelægger det."
+
+msgid "Active Target"
+msgstr "Aktivt mål"
 
 msgid "Face off against an opponent that is armed. The enemy in this course is a Dart, kitted out with twin particle cannons. It shouldn't prove too difficult a challenge."
 msgstr "Ansigt mod en modstander, der er bevæbnet. Fjenden i dette kursus er en Dart, kitted ud med twin particle cannons. Det skal ikke vise sig for svært en udfordring."
@@ -2342,29 +2864,53 @@ msgstr "Ansigt mod en modstander, der er bevæbnet. Fjenden i dette kursus er en
 msgid "This Dart is armed! Watch yourself."
 msgstr "Denne Dart er bevæbnet! Pas på."
 
+msgid "ECM Training"
+msgstr "ECM træning"
+
 msgid "Practice using your ECM in the next encounter. The Dart here is equipped with missiles, which will home in on you. You can thwart these attacks by careful use of your ECM. Once you are done practicing, you can destroy the Dart and move on."
 msgstr "Øv dig med din ECM i næste møde. Dartet her er udstyret med missiler, som kommer hjem i dig. Du kan imødegå disse angreb ved omhyggelig brug af din ECM. Når du er færdig med at praktisere, kan du ødelægge Dart og fortsætte."
 
 msgid "Use your ECM to destroy the missiles fired at you. Remember, the ECM needs several seconds to recharge between uses."
 msgstr "Brug din ECM til at ødelægge missiler fyret på dig. Husk, at ECM har brug for flere sekunder til at genoplade mellem brug."
 
+msgid "Mag Cannon Training"
+msgstr "Mag Cannon Training"
+
 msgid "Use your mag cannons to disable the enemy Dart. Disabling enemy craft and bringing the target in alive is sometimes an important step in securing lasting victory."
 msgstr "Brug dine magkanoner til at deaktivere fjendens Dart. At deaktivere fjendens håndværk og bringe målet i live er nogle gange et vigtigt skridt i at sikre varig sejr."
+
+msgid "Disable Dart"
+msgstr "Deaktiver Dart"
+
+msgid "Do not destroy Dart"
+msgstr "Forsæt ikke Dart"
 
 msgid "Switch to your Mag cannons and fire them at the Dart to disable it. Do not fire your plasma cannons or launch any missiles, as these could destroy the target."
 msgstr "Skift til dine Mag-kanoner og brand dem på pilen for at deaktivere den. Brand ikke dine plasmakanoner eller lancere eventuelle missiler, da disse kunne ødelægge målet."
 
+msgid "Wingmates"
+msgstr "Wingmates"
+
 msgid "Battle along side two team mates to take on 3 enemy fighters."
 msgstr "Slaget langs side to holdkammerater at tage på 3 fjendtlige krigere."
 
+msgid "Eliminate Darts"
+msgstr "Eliminer Dart"
+
 msgid "Wingmate will often assist you in battle. When you're ready, approach the Darts and engage."
 msgstr "Wingmate vil ofte hjælpe dig i kamp. Når du er klar, nærmer du Dart og engagerer."
+
+msgid "3 Against 1"
+msgstr "3 mod 1"
 
 msgid "Take on three enemy targets single handedly. Once again, these are Darts equipped with simple particle cannons. A single TAF should not find itself outclassed here, so long as the enemy are not allowed to gain the upper hand."
 msgstr "Tag på tre fjendtlige mål med én hånd. Endnu engang er disse Dart udstyret med enkle partikelkanoner. En enkelt TAF bør ikke finde sig selvklassificeret her, så længe fjenden ikke må få overhånden."
 
 msgid "Final course. Use all your training to defeat the three opponents."
 msgstr "Afsluttende kursus. Brug al din træning til at besejre de tre modstandere."
+
+msgid "Pirate Uprising #1"
+msgstr "Piratopstand # 1"
 
 msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
 msgstr "Pandoranens skubbe ind i det uafhængige rum har ført til en stigning i piratvirksomhed langs grænsen for Confederation. Truslen skal håndteres straks, begyndende med at skære tilbage på fjendens tilstedeværelse på Temper."
@@ -2375,8 +2921,11 @@ msgstr "Flere indkommende fjendtlige krigere."
 msgid "Follow my lead. Break and attack at will."
 msgstr "Følg min ledelse. Bryde og angribe efter vilje."
 
+msgid "Pirate Uprising #2"
+msgstr "Piratopstand # 2"
+
 msgid "Despite recent efforts, the pirate and insurgent activity shows no sign of abating. We need to continue to smash the rings as we find them and prevent them from gaining a foothold in Temper, as this could only be bad for morale and the war effort. While we still face Darts, the modifications to these craft are becoming more prevalent, and there are more shielded and plasma-equipped fighters to be found in their ranks."
-msgstr "På trods af den seneste indsats viser pirat og opstandende aktivitet ikke noget tegn på at aftage. Vi skal fortsætte med at smadre ringene, som vi finder dem og forhindre dem i at tage et fodfæste i Temper, da det kun kunne være dårligt for moralen og krigsindsatsen. Mens vi stadig står over for Dart, bliver modifikationerne af disse håndværk mere udbredt, og der er flere afskærmede og plasmaudstyrede krigere, der findes i deres rækker."
+msgstr "På trods af den seneste indsats viser pirat og opstandende aktivitet ikke noget tegn på at aftage. Vi skal fortsætte med at smadre ringene, som vi finder dem og forhindre dem i at tage et fodfæste i Temper, da det kun kunne være dårligt for moralen og krigsindsatsen. Mens vi stadig står over for Dart, bliver modifikationerne til disse håndværk mere fremherskende, og der findes flere afskærmede og plasmaudstyrede krigere i deres rækker."
 
 msgid "As before, everyone. Let's take it to 'em."
 msgstr "Som før, alle. Lad os tage det til dem."
@@ -2387,8 +2936,23 @@ msgstr "Det ser ud til at disse fyre er alle sportsligt modificerede Dart."
 msgid "Acknowledged. Watch out for the lasers, people. They'll smash your shields to pieces if you let 'em."
 msgstr "Anerkendt. Pas på laserne, folkene. De smadrer dine skjolde i stykker, hvis du lader dem."
 
+msgid "Pirate Uprising #3"
+msgstr "Piratopstand # 3"
+
 msgid "Allied intelligence have managed to locate one of the pirate ring lieutenants. We need to bring this man in alive, as he could provide us with further useful information that will allow us to track down and eliminate high ranking individuals. You will be piloting a Ray, and will need to use your Mag cannons to disable the target. Do not destroy the lieutenant's Dart."
 msgstr "Allieret intelligens har formået at finde en af ​​piratringløjtnantene. Vi skal bringe denne mand i live, da han kunne give os yderligere nyttige oplysninger, der gør det muligt for os at spore og eliminere højtstående personer. Du vil styre en Ray, og skal bruge dine Mag-kanoner til at deaktivere målet. Ikke ødelæg løjtnantens Dart."
+
+msgid "Capture pirate lieutenant"
+msgstr "Fang piratløjtnant"
+
+msgid "Destroy all remaining opposition"
+msgstr "Ødelæg alle resterende oppositioner"
+
+msgid "Do not kill pirate lieutenant"
+msgstr "Dræb ikke piratløjtnant"
+
+msgid "Do not let pirate lieutenant escape"
+msgstr "Lad ikke piratløjtnant flygte"
 
 msgid "Seth, the lieutenant's Dart should be tagged on your HUD. Disable that ship as soon as possible."
 msgstr "Seth, Løjtnantens Dart skal mærkes på din HUD. Deaktiver det skib så hurtigt som muligt."
@@ -2399,8 +2963,17 @@ msgstr "Resten af ​​os vil tage ned hans venner. Se din onde brand omkring m
 msgid "Control, this is Strickland. Target has been suppressed, all other threats eliminated. Will await pickup."
 msgstr "Styr, dette er Strickland. Mål er blevet undertrykt, alle andre trusler elimineres. Vil afventer afhentning."
 
+msgid "Pirate Uprising #4"
+msgstr "Piratopstand # 4"
+
 msgid "It took some time, but we have finally been able to extract the required information from the lieutenant we captured. His information has revealed that the pirates have formed a coalition to take advantage of the brewing war. We need to smash this alliance apart by targetting the faction leaders. They are currently fleeing an earlier ambush, one designed to send them your way. The leaders are all piloting acquired Nymphs. Take them down."
 msgstr "Det tog nogen tid, men vi har endelig fået udtræk de nødvendige oplysninger fra løjtnant vi fangede. Hans oplysninger har afsløret, at piraterne har dannet en koalition for at drage fordel af brygningskriget. Vi er nødt til at smadre denne alliance fra hinanden ved at afsætte fraktionsledere. De flyver i øjeblikket en tidligere baghold, en designet til at sende dem din vej. Lederne er alle piloter erhvervet nymfer. Tag dem ned"
+
+msgid "Eliminate pirate leaders"
+msgstr "Eliminere piratledere"
+
+msgid "Do not let any pirate leaders escape"
+msgstr "Lad ikke nogen piratleder undslippe"
 
 msgid "This is a straight forward one, guys: take down all enemy targets. But make sure none of those Nymphs make it to the jumpgate."
 msgstr "Dette er en lige fremad, fyre: Tag alle fjendens mål ned. Men sørg for, at ingen af ​​disse nymfer gør det til jumpgate."
@@ -2408,8 +2981,14 @@ msgstr "Dette er en lige fremad, fyre: Tag alle fjendens mål ned. Men sørg for
 msgid "Excellent works, people. This one's a wrap."
 msgstr "Fremragende værker, folk. Dette er en wrap."
 
+msgid "Pirate Uprising #5"
+msgstr "Piratopstand # 5"
+
 msgid "With the leaders all gone, we're now in a position to end the organised piracy problem in Temper for good. We have identified a number of Darts massing for what appears to be a strike against CSN assets, in retribution. We're not going to give the pirates the chance to do so, and strike them first. Strickland will lead the Steel Bulls into battle."
 msgstr "Med lederne alle væk, er vi nu i stand til at afslutte det organiserede piratkopieringsproblem i Temper for good. Vi har identificeret en række dartmassering for, hvad der synes at være en strejke mod CSN-aktiver i gengældelse. Vi vil ikke give piraterne chancen for at gøre det, og slå dem først. Strickland vil føre Steel Bulls til kamp."
+
+msgid "Destroy all pirate forces"
+msgstr "Ødelæg alle piratstyrker"
 
 msgid "Enemy forces sighted."
 msgstr "Fjender styrker synet."
@@ -2438,8 +3017,14 @@ msgstr " Ånd, dette er kommandant Strickland. Modsatte kræfter er blevet besej
 msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
 msgstr "Anerkendt. Godt arbejde derude, Commander. Takket være dig, vil Temper være et sikrere system, og vi kan fokusere på at styrke vores forsvar mod de pandoranske kræfter. Kom hjem."
 
+msgid "Infiltration #3"
+msgstr "Infiltrering # 3"
+
 msgid "Your instructions are simple, Hicks. As before, follow the wing leader's instructions, and do as the others do. Stay close to the leader when not otherwise engaged, and do not do anything to raise your suspicion. Act quickly to assure the Pandorans you're with them."
 msgstr "Dine instruktioner er enkle, Hicks. Som før følger du vingelederens anvisninger og gør som de andre gør. Hold dig tæt på lederen, når du ikke ellers er forlovet, og gør ikke noget for at rejse din mistanke. Handle hurtigt for at forsikre Pandorans du er sammen med dem."
+
+msgid "Eliminate Tzac forces"
+msgstr "Eliminer Tzac styrker"
 
 msgid "(More hunting. I hope I'm not going to be forced to kill innocent people again.)"
 msgstr "(Mere jagt. Jeg håber, jeg ikke bliver tvunget til at dræbe uskyldige mennesker igen.)"
@@ -2450,14 +3035,23 @@ msgstr "(Mercenaries. Bedre end civile, men stadig afskyelige. Køre, du narre! 
 msgid "(Looks like that's it. We're heading to the jumpgate.)"
 msgstr "(Det ser ud som det er. Vi er på vej til jumpgate.)"
 
+msgid "Trilliack Defence #1"
+msgstr "Trilliack Defense # 1"
+
 msgid "Our goal is simple, lads: destroy all enemy targets."
 msgstr "Vores mål er simpelt, gutter: ødelæg alle fjendens mål."
 
 msgid "Good work, everyone. Let's prepare to lend a hand to the other squadrons."
 msgstr "Godt arbejde, alle sammen. Lad os forberede os på at låne en hånd til de andre skvadroner."
 
+msgid "Trilliack Defence #2"
+msgstr "Trilliack Defense # 2"
+
 msgid "Intelligence reports suggest that Tzac have hired a number of mercenaries to assist in their attacks on Independent systems. Information obtained from underground sources says that they are planning on targetting UNF capital ships. While known mercenary hardware should not challenge our ships, for now all UNF corvettes will travel with extended fighter escorts, as a precaution."
 msgstr "Intelligence rapporter tyder på, at Tzac har ansat en række legosoldater for at hjælpe i deres angreb på uafhængige systemer. Oplysninger opnået fra underjordiske kilder siger, at de planlægger at targetting UNF-kapitalskibe. Selvom kendt legosoldater ikke bør udfordre vores skibe, vil alle UNF-korvetter i dag rejse med udvidede fighter eskorte som en sikkerhedsforanstaltning."
+
+msgid "Defend UNF Lovelace"
+msgstr "Forsvar UNF Lovelace"
 
 msgid "Enemy fighter signatures detected. Looks like Darts."
 msgstr "Enemy fighter signaturer opdaget. Ligner Dart."
@@ -2486,8 +3080,17 @@ msgstr "De skal have været betalt godt for det."
 msgid "Stick round, Commander. We might need you later."
 msgstr "Stick rundt, Commander. Vi har måske brug for dig senere."
 
+msgid "Traitor Hunt #1"
+msgstr "Traitor Hunt # 1"
+
 msgid "A number of those responsible for helping supply illegal arms and information to Tzac have been identified. They are to be tracked down, and brought in for questioning. At this point, we want to avoid killing them, as they could prove vital to bringing in the ringleaders."
 msgstr "En række af de ansvarlige for at hjælpe med at levere ulovlige våben og information til Tzac er blevet identificeret. De skal spores og indleveres til spørgsmålstegn. På dette tidspunkt ønsker vi at undgå at dræbe dem, da de kunne vise sig afgørende for at bringe ind i ledere."
+
+msgid "Capture traitors"
+msgstr "Capture forrædere"
+
+msgid "Do not allow traitors to be killed"
+msgstr "Lad ikke forrædere dræbes"
 
 msgid "D'Ath, we've spotted the targets. They're heading for the jumpgate. We're shutting it down now."
 msgstr "D'Ath, vi har set målene. De er på vej til jumpgate. Vi lukker det nu ned."
@@ -2507,8 +3110,20 @@ msgstr "Knapt fyret tilbage. Måske dækkede de for nogen?"
 msgid "Definite possibility. We'll bring these guys in and see what we can find out."
 msgstr "Definitiv mulighed. Vi bringer disse fyre ind og se, hvad vi kan finde ud af."
 
+msgid "Traitor Hunt #3"
+msgstr "Traitor Hunt # 3"
+
 msgid "It seems that some of the traitors that were brought in earlier were acting as a distraction for a number of others, who have now commandeered CSN Drachma. The corvette must be taken back, without destroy it. All other targets are valid, unless surrendering."
 msgstr "Det ser ud til, at nogle af de forrædere, der blev indført tidligere, virkede som en distraktion for en række andre, som nu har kommandoreret CSN Drachma. Korvetten skal tages tilbage uden at ødelægge den. Alle andre mål er gyldige, medmindre det overgives."
+
+msgid "Disable CSN Drachma"
+msgstr "Deaktiver CSN Drachma"
+
+msgid "Defeat traitors"
+msgstr "Nederlag forrædere"
+
+msgid "Do not destroy CSN Drachma"
+msgstr "Fortryd ikke CSN Drachma"
 
 msgid "Looks like we've got a welcoming committee heading our way."
 msgstr "Det ser ud som om vi har et indbydende udvalg på vej vores måde."
@@ -2525,8 +3140,23 @@ msgstr "Kontrol, forrædere er blevet behandlet, og Drachma er blevet deaktivere
 msgid "Acknowledged. Shuttles are on their way."
 msgstr "Anerkendt. Pendulkørsel er på vej."
 
+msgid "Traitor Hunt #5"
+msgstr "Traitor Hunt # 5"
+
 msgid "There are now only two figureheads in the traitor group remaining: Isabel Nelson, and one other whose identity is currently being confirmed. Isabel Nelson has been located in the vicinity. As before, disable her fighter so she can be brought in. Disable any other surrendering targets."
 msgstr "Der er nu kun to figurer i forrædergruppen tilbage: Isabel Nelson, og den anden, hvis identitet i øjeblikket er bekræftet. Isabel Nelson har været placeret i nærheden. Som før, deaktiver hendes fighter, så hun kan bringes ind. Deaktiver eventuelle andre overgivende mål."
+
+msgid "Capture Isabel Nelson"
+msgstr "Capture Isabel Nelson"
+
+msgid "Capture Preston Young"
+msgstr "Fange Preston Young"
+
+msgid "Do not kill Isabel Nelson"
+msgstr "Må ikke dræbe Isabel Nelson"
+
+msgid "Do not kill Preston Young"
+msgstr "Må ikke dræbe Preston Young"
 
 msgid "Looks like that bitch Nelson got herself a Rook. Take caution, and don't be afraid to kill her, if need be."
 msgstr "Det ligner den tæve Nelson fik sig til en Rook. Vær forsigtig, og vær ikke bange for at dræbe hende, hvis det er nødvendigt."
@@ -2576,8 +3206,17 @@ msgstr "Kampen viste sig heller ikke for godt. Det er hver mand for sig selv."
 msgid "Commander, we're done here. Control, targets and area secured. Ready for pickup."
 msgstr "Commander, vi er færdige her. Kontrol, mål og område sikret. Klar til afhentning."
 
+msgid "Trilliack Defence #3"
+msgstr "Trilliack Defense # 3"
+
 msgid "Our forces have taken heavy losses of the last few engagements, but there is still much to do. Three Pandoran corvettes have been tagged for destruction. We need to ensure that they are taken down, while we minimise losses of our own. We cannot afford to lose all of our own capital ships. Work fast, and assist Zenobia, Lady Jane Grey, and Tangka as needed."
 msgstr "Vores kræfter har taget store tab af de sidste par engagementer, men der er stadig meget at gøre. Tre Pandoran-korvetter er blevet mærket til destruktion. Vi skal sikre, at de tages ned, mens vi minimerer vores eget tab. Vi har ikke råd til at miste alle vores egne kapitalskibe. Arbejd hurtigt, og hjælp Zenobia, Lady Jane Gray og Tangka efter behov."
+
+msgid "Eliminate all enemy vessels"
+msgstr "Eliminere alle fjendtlige fartøjer"
+
+msgid "Survive at least 1 capital ship"
+msgstr "Overlev mindst 1 hovedskib"
 
 msgid "Enemy forces in range. Preparing to engage."
 msgstr "Enemy forces in range. Forbereder sig til at engagere sig."
@@ -2618,8 +3257,17 @@ msgstr "Vi er nede på en korvette. Vi skal færdiggøre dette nu!"
 msgid "There were too many of them ..."
 msgstr "Der var for mange af dem ..."
 
+msgid "Trilliack Defence #4"
+msgstr "Trilliack Defense # 4"
+
 msgid "The Pandorans are already deploying ground assault teams to Flint. The attack is in its early stages, with more troop carrier incoming. The enemy are meeting our defence lines aggressively, to clear a path for their landers. We need to hit back hard, and prevent Flint from being taken. Objective is simple: destroy all enemy forces."
 msgstr "Pandorerne implementerer allerede ground assault teams til Flint. Angrebet er i sine tidlige stadier, med mere troop carrier indkommende. Fjenden møder vores forsvarslinier aggressivt, for at rydde en vej for deres landingsfolk. Vi skal slå hårdt tilbage og forhindre Flint i at blive taget. Målet er simpelt: ødelæg alle fjendens styrker."
+
+msgid "Destroy HMS 711-444"
+msgstr "Ødelæg HMS 711-444"
+
+msgid "Destroy HMS 313-777"
+msgstr "Ødelæg HMS 313-777"
 
 msgid "The Pandorans are overunning our front line! We need to drive them back, now!"
 msgstr "Pandoranerne overvinder vores frontlinie! Vi skal køre dem tilbage nu!"
@@ -2663,8 +3311,14 @@ msgstr "Jeg kommer ikke til at løbe væk. Ikke igen."
 msgid "Dodds, this is Commodore Park. I'm giving you a direct order. This isn't a battle we can win, and I'm not having you throw away your life or lose that starfighter. Get out, now. Final warning, mister."
 msgstr "Dodds, dette er Commodore Park. Jeg giver dig en direkte ordre. Dette er ikke et slag vi kan vinde, og jeg har ikke dig til at smide dit liv eller miste den starfighter. Gå ud nu. Endelig advarsel, mister."
 
+msgid "Infiltration #4"
+msgstr "Infiltrering # 4"
+
 msgid "We're sorry, Hicks, but you need to continue following orders. We're aware of what is about to happen, but this is for the greater good. Try to get through this in one piece. Both mentally and physically."
 msgstr "Vi beklager, Hicks, men du skal fortsætte med at følge ordrer. Vi er opmærksomme på, hvad der skal ske, men det er for det større gode. Prøv at komme igennem dette i ét stykke. Både mentalt og fysisk."
+
+msgid "Kill civilians"
+msgstr "Dræb civile"
 
 msgid "(This ... how can I do this? These are my friends.)"
 msgstr "(Dette ... hvordan kan jeg gøre dette? Dette er mine venner.)"
@@ -2678,8 +3332,14 @@ msgstr "Beklager, alle sammen."
 msgid "(They're going after the civilians again. I hope this ends soon. I'm not sure how much more this I can take.)"
 msgstr "(De går igen efter civilbefolkningen igen. Jeg håber det snart slutter. Jeg er ikke sikker på, hvor meget mere det jeg kan tage.)"
 
+msgid "Evacuation #1"
+msgstr "Evakuering # 1"
+
 msgid "As already confirmed by Neal Stockwell, the evacuation of Oracle IX in response to the supernova has not be progressing as rapidly as many would like. And now, with the Pandoran army on the move, we need to quicken the pace. A number of civilian stragglers has been identified near to Oracle IX, who are in need of escort to the evacuation point. Your objective is to locate all the civilian craft in the area, and bring them in. No enemy forces are expected, but it is best to be on your guard."
 msgstr "Som allerede bekræftet af Neal Stockwell, er evakueringen af ​​Oracle IX som reaktion på supernova ikke så hurtigt som mange gerne vil. Og nu, med den pandoranske hær på farten, er vi nødt til at forøge tempoet. En række civile stragglers er blevet identificeret i nærheden af ​​Oracle IX, som har brug for escort til evakueringsstedet. Dit mål er at finde alle civile håndværk i området og bringe dem ind. Ingen fjendtlige kræfter forventes, men det er bedst at være på vagt."
+
+msgid "Rescue all civilians"
+msgstr "Redde alle civile"
 
 msgid "ABCs, this is Control. Round up those civilians and escort them to the jumpgate as quick as you can."
 msgstr "ABC'er, dette er Control. Runde de civile op, og følg dem så hurtigt som muligt på jumpgate."
@@ -2687,8 +3347,14 @@ msgstr "ABC'er, dette er Control. Runde de civile op, og følg dem så hurtigt s
 msgid "We're not expecting any opposition, but be prepared to engage hostiles if needed."
 msgstr "Vi forventer ikke nogen modstand, men vær forberedt på at engagere fjender, hvis det er nødvendigt."
 
+msgid "Evacuation #2"
+msgstr "Evakuering # 2"
+
 msgid "We have identified around a dozen more stragglers that need to be brought in. Lead them to the evacuation point as before. Take caution: intelligence picked up encrypted signals that appear to match those used by the Pandorans for their transmissions. Enemy forces should be engaged and destroyed or routed on contact. Civilian losses should be minimised."
 msgstr "Vi har identificeret omkring et dusin flere stragglers, der skal bringes ind. Leder dem til evakueringspunktet som før. Vær forsigtig: intelligens hentede krypterede signaler, der synes at passe til dem, der bruges af Pandorans til deres transmissioner. Fjende kræfter bør være forlovet og ødelagt eller dirigeret ved kontakt. Borgerlige tab bør minimeres."
+
+msgid "Eliminate Pandoran fighters"
+msgstr "Eliminer Pandoran-krigere"
 
 msgid "Gaskin, INF fighters spotted! Pandorans, without a doubt!"
 msgstr "Gaskin, INF fighters spottet! Pandoraner, uden tvivl!"
@@ -2699,11 +3365,32 @@ msgstr "Bryde og angribe! Beskyt civilbefolkningen!"
 msgid "That was a close one. Looks like they were scouting. We'll have to take extra precautions in future."
 msgstr "Det var en tæt. Ser ud som om de var spejder. Vi skal i fremtiden træffe ekstra forholdsregler."
 
+msgid "Evacuation #3"
+msgstr "Evakuering # 3"
+
 msgid "The final stages of the evacuation are in progress, but the situation is getting tight. We've received an SOS from a group of civilians who have had a run in with some scavengers. Ordinarily, we would secure the area first before deploying rescue, but with the situation becoming ever desperate, we are going to send out the tug now. Bring home each civilian craft - the enemy should ignore them for now."
 msgstr "De sidste faser af evakueringen er i gang, men situationen er ved at blive stram. Vi har modtaget en SOS fra en gruppe af civile, der har kørt ind med nogle scavengers. Normalt vil vi sikre området først, inden vi udnytter redning, men da situationen bliver stadig desperat, vil vi sende ud slæbebanen nu. Tag hjem hvert civilt håndværk - fjenden skal ignorere dem for nu."
 
+msgid "Do not allow any civilians to be killed"
+msgstr "Lad ikke nogen civile blive dræbt"
+
+msgid "Evacuation #4"
+msgstr "Evakuering # 4"
+
 msgid "The Pandorans' arrival is imminent, but the evacuation is nearing completion. We need only mop up some of the stragglers. Two of the White Knights will be assisting, before moving on to hit the enemy's supply line. You should concentrate on getting the civilians to safety, and letting the ATAFs do the bulk of the work."
 msgstr "Pandorernes ankomst er nært forestående, men evakueringen er ved at blive afsluttet. Vi behøver kun at mop nogle af stragglers. To af de hvide riddere vil hjælpe, inden de fortsætter med at ramme fjendens forsyningsledning. Du bør koncentrere dig om at få civile til sikkerhed og lade ATAF'erne gøre hovedparten af ​​arbejdet."
+
+msgid "Rescue first civilian group"
+msgstr "Redde første civile gruppe"
+
+msgid "Rescue second civilian group"
+msgstr "Redning anden civile gruppe"
+
+msgid "Rescue third civilian group"
+msgstr "Redning tredje civile gruppe"
+
+msgid "Eliminate all remaining enemies"
+msgstr "Eliminer alle resterende fjender"
 
 msgid "Enemy craft detected. Pandorans, in both INF and UNF fighters."
 msgstr "Enemy craft opdaget. Pandoraner, i både INF og UNF-krigere."
@@ -2735,8 +3422,26 @@ msgstr "Kontroller, det er vinteren. Alle fjendtlige styrker er blevet ødelagt.
 msgid "Excellent, we're very grateful for the assistance."
 msgstr "Fremragende, vi er meget taknemmelige for hjælpen."
 
+msgid "Evacuation #5"
+msgstr "Evakuering # 5"
+
 msgid "The Pandoran fleet is closing in on Oracle IX, and their capital ships are moving rapidly up the field. We need to hold them back for as long as possible, to give the final evacuees time to escape the system. This will need to be done with fighters along. However, Lieutenant Commanders Taylor and Todd of the White Knights will be lending assistance with the ATAFs, which should give us the edge in battle."
 msgstr "Pandoranflåden lukker ind på Oracle IX, og deres hovedskibe flytter hurtigt op på marken. Vi skal holde dem tilbage så længe som muligt for at give de sidste evakuere tid til at undslippe systemet. Dette skal gøres med fighters sammen. Løjtnantkommandoer Taylor og Todd of the White Knights vil dog udlånes bistand til ATAF'erne, som skal give os kanten i kamp."
+
+msgid "Destroy INF Thunderbolt"
+msgstr "Ødelæg INF Thunderbolt"
+
+msgid "Destroy INF Gram"
+msgstr "Ødelæg INF Gram"
+
+msgid "Destroy INF Morning Star"
+msgstr "Ødelæg INF Morning Star"
+
+msgid "Destroy INF Dragonlance"
+msgstr "Ødelæg INF Dragonlance"
+
+msgid "Destroy INF Trident"
+msgstr "Ødelæg INF Trident"
 
 msgid "Our orders are to take down as many of the enemy corvettes as possible. Break and attack at will."
 msgstr "Vores ordrer er at tage ned så mange fjendens korvetter som muligt. Bryde og angribe efter vilje."
@@ -2888,9 +3593,6 @@ msgstr "En af de syv"
 msgid "Earn all other trophies"
 msgstr "Tjen alle andre trofæer"
 
-msgid "Plan B"
-msgstr "Plan B"
-
 msgid "Complete all campaign missions"
 msgstr "Udfyld alle kampagnemissioner"
 
@@ -2928,7 +3630,7 @@ msgid "Now get the hell out of our galaxy!"
 msgstr "Nu få helvede ud af vores galakse!"
 
 msgid "Complete all missions at Temper"
-msgstr "Afslut alle missioner på Temper"
+msgstr "Afslut alle missioner ved Temper"
 
 msgid "Going out with a bang"
 msgstr "Går ud med et bang"
@@ -3086,9 +3788,6 @@ msgstr "Sightseer"
 msgid "Visit 100 waypoints"
 msgstr "Besøg 100 waypoints"
 
-msgid "Minesweeper"
-msgstr "Minestryger"
-
 msgid "Destroy 255 mines (player only)"
 msgstr "Ødelæg 255 miner (kun afspiller)"
 
@@ -3145,4 +3844,76 @@ msgstr "Hævn"
 
 msgid "During an epic battle, kill the enemy that just killed you"
 msgstr "I løbet af en episk kamp dræbe fjenden, der netop dræbte dig"
+
+msgid "One of the oldest starfighters created by the Mitikas Empire, the Angel is rarely seen, due to it being retired in 2599. A handful of Independent Worlds continue to operate the fighter, having purchased them from the empire prior to Mitikas pulling them from service. Even so, they are quite often held back from deployment, acting as reserves to bulk up numbers. Angels are notable for being the first INF fighter to be equipped with mag cannons, and for being somewhat smaller than most of the nation's other fighters. Also of note is the appearance, the fighter sporting a purple colour scheme, as opposed to the reds of more recent INF craft."
+msgstr "En af de ældste søsættere, der er skabt af Mitikas-imperiet, ses sjældent, fordi det bliver pensioneret i 2599. En håndfuld uafhængige verdener fortsætter med at drive fighteren, idet de har købt dem fra imperiet, før Mitikas trækker dem fra tjeneste. Alligevel holdes de ret ofte tilbage fra deployering, der fungerer som reserver for at løfte op tal. Engle er bemærkelsesværdige for at være den første INF-fighter, der skal være udstyret med magkanoner, og for at være noget mindre end de fleste af landets andre krigere. Også af note er udseendet, kæmperen sportslige et lilla farveskema, i modsætning til røde af nyere INF håndværk."
+
+msgid "The Advanced Tactical Assault Fighter (ATAF) is the single most powerful single-seat starfighter in existence. Only five have so far been manufactured owing to their tremendous development costs (each one said to be on par with a carrier). Their existence and even those selected to participate in the training program have been a closely guarded secret within the CSN. It is the spiritual successor to the TAF upon which a great deal of its design was based."
+msgstr "Advanced Tactical Assault Fighter (ATAF) er den mest kraftfulde single-seat starfighter i eksistens. Kun fem er hidtil blevet fremstillet på grund af deres enorme udviklingsomkostninger (hver af dem sagde at være på lige fod med en transportør). Deres eksistens og selv dem, der er valgt til at deltage i træningsprogrammet, har været en nøje bevogtet hemmelighed inden for CSN. Det er den åndelige efterfølger til TAF, hvor en stor del af dets design var baseret."
+
+msgid "Like many other heavy-class starfighters, the Blizzard relies on firepower to make up for its somewhat sluggish performance in battle. In this respect, it is equipped with five cannons and five missiles, making it a formidable opponent in battle. The fighter is rarely seen outside of Mace, however, its primary function being the protection of Tzac's home system."
+msgstr "Som mange andre sigtige sejlere er Blizzard afhængig af ildkraft for at gøre op for sin noget træg ydeevne i kamp. I den henseende er den udstyret med fem kanoner og fem missiler, hvilket gør den til en formidabel modstander i kamp. Kæmperen ses sjældent uden for Mace, men dens primære funktion er beskyttelsen af ​​Tzacs hjemmesystem."
+
+msgid "The Dart is a very common, general purpose vessel that is used commonly by both the public and by the underworld. Because of its relatively low costs and ease of maintenance, it is highly favoured by criminal organisations. It is usually sold as a single-seat, unarmed vessel, but can be purchased in a great variety of modified states, including that with an extra seat and with a number of armaments; missiles usually being attached to the tips of each of the four fins."
+msgstr "Dart er et meget almindeligt, almindeligt formål fartøj, der bruges almindeligt af både offentligheden og underverdenen. På grund af sine forholdsvis lave omkostninger og lethed ved vedligeholdelse er det yderst begunstiget af kriminelle organisationer. Det sælges normalt som et enkeltarmet, ubevæbnet skib, men kan købes i et stort udvalg af modificerede stater, herunder med et ekstra sæde og med en række våben; missiler er normalt knyttet til spidserne af hver af de fire finner."
+
+msgid "A relatively new starfighter, only introduced in the last seventeen years or so, the Firefly benefits from an overall reduction in manufacturing costs, while still maintaining the same defensive capabilities as other light-class fighters. It also benefits from slightly increased offensive measures, featuring two plasma cannons and one additional particle cannon. The fighter was greeted very positively when it was introduced and many hundreds were constructed exclusively for use by the UNF."
+msgstr "En relativt ny starfvest, der kun blev introduceret i de sidste sytten år, har Firefly fordelene ved en generel reduktion i fremstillingsomkostningerne, samtidig med at den samme defensiv kapacitet bevares som andre lette kampfolk. Det drager også fordel af lidt øgede offensive foranstaltninger, der indeholder to plasmakanoner og en ekstra partikelkanon. Fighteren blev mødt meget positivt, da den blev introduceret, og mange hundreder blev konstrueret udelukkende til brug af UNF."
+
+msgid "Of all the bombers that the CSN can offer, the Hammerhead is one of the most well known. Slow, but sure, the Hammerhead is packed to the gills with rockets, missiles and torpedoes, making it a formidable and dangerous opponent within a conflict zone. Escorted by a wing of TAFs or Rays, a Hammerhead need only get in to range of a target to unleash a volley of rockets that would prove truly devastating. Hammerheads feature two seats, one for the pilot and one to aid with targeting and handling armaments. It also has room for an optional rear gunner."
+msgstr "Af alle bombeflyene, som CSN kan tilbyde, er Hammerhead en af ​​de mest kendte. Langsomt, men sikker på, at Hammerhead er pakket til bjergene med raketter, missiler og torpedoer, hvilket gør det til en formidabel og farlig modstander inden for en konfliktzone. Escorted af en fløj af TAF'er eller Stråler, behøver en Hammerhead kun at komme ind i et målområde for at frigøre en volley af raketter, der ville vise sig virkelig ødelæggende. Hammerheads har to sæder, en til piloten og en til hjælp til målretning og håndtering af våben. Det har også plads til en valgfri bagskytter."
+
+msgid "The Hyena is a new starfighter, introduced in the last 15 years and was constructed specifically for use by the United Naval Forces. Like most other medium-class starfighters, it treads the line between light and heavy-classes, offering high speeds and manoeuvrability, dense armour and shielding, and presenting high offensive capabilities. The Hyena is typically identified as Hyena-A or Hyena-B, depending on whether it is equipped with mag cannons or laser cannons."
+msgstr "Hyena er en ny starfighter, der blev introduceret i de sidste 15 år og blev konstrueret specifikt til brug for United Naval Forces. Ligesom de fleste andre mellemstormige sejlere, går det op ad linjen mellem lyse og svære klasser, der tilbyder høje hastigheder og manøvredygtighed, tæt rustning og afskærmning og præsenterer høje offensiv evner. Hyenaen er typisk identificeret som Hyena-A eller Hyena-B, afhængigt af om den er udstyret med mag-kanoner eller laserkanoner."
+
+msgid "The greatest mass produced starfighter in the Imperial Naval Forces, the Jackal, like the TAF, is lightly armoured and shielded, but fast. Like other INF starfighters it has been through a rapid variation process in the last few years, as a result of the Imperial Civil War."
+msgstr "Den største masseproducerede starfstjerne i Imperial Naval Forces, Jackal, som TAF, er let pansret og afskærmet, men hurtigt. Som andre INF-sejere har det været gennem en hurtig variation proces i de sidste par år, som følge af den kejserlige borgerkrig."
+
+msgid "The Khepri is a bomber, designed and built by the Kingdom of Tzac. It is an enchanced derivative of the Imperial Scarab."
+msgstr "Khepri er en bombefly, designet og bygget af kongeriget Tzac. Det er en forankret afledt af den kejserlige scarab."
+
+msgid "The Kingfisher is a medium-class, CSN starfighter, built to complement the Ray (although it arrived two years later than scheduled). Whereas the Ray features two mag cannons in addition to its plasma cannons, the Kingfisher is equipped with laser cannons. Also, unlike the Ray, the Kingfisher is a single seat fighter."
+msgstr "The Kingfisher er en mellemklasse, CSN starfighter, bygget til at supplere Ray (selvom den ankom to år senere end planlagt). Mens Rayen har to mag-kanoner ud over sine plasmakanoner, er Kingfisher udstyret med laserkanoner. Også i modsætning til Ray er Kingfisher en enkelt sædefighter."
+
+msgid "Originally developed in 2580, the Leopard was redesigned from the ground up, to act as the United Naval Forces primary heavy starfighter. It is more powerful than the Sphinx and Rook, but shares their inherent weaknesses, such as poor handling and sluggish engines. Aside from bombers, it is the only UNF fighter craft to feature two pilot seats. It is also the only fighter in existence to feature plasma cannons on the port and starboard sides, operated by the second pilot. Budget restrictions meant that a third frontal plasma cannon was replaced by a particle cannon."
+msgstr "Oprindelig udviklet i 2580 blev Leoparden redesignet fra bunden til at fungere som den primære heavy starfighter i United Naval Forces. Det er mere kraftfuldt end Sfinx og Røg, men deler deres iboende svagheder, såsom dårlig håndtering og trægmotorer. Bortset fra bombefly er det det eneste UNF-fighterfartøj, der har to pilotpladser. Det er også den eneste kæmper, der har plasmakanoner på porten og styrbordssiderne, der drives af den anden pilot. Budgetbegrænsninger betød, at en tredje frontal plasmakanon blev erstattet af en partikelkanon."
+
+msgid "The Lynx was a latecomer to the UNF's spacecraft compliment, the organisation purchasing Hammerheads from the CSN and, on occasion, Khepris from the Kingdom of Tzac. Neither were desirable longterm solutions, and so the Lynx was developed to fill the gap in the navy's offerings. The bomber was heavily inspired by the Hammerhead, with the UNF having found success in the use of the CSN craft in the past, and wished to continue that way."
+msgstr "Lynx var en latecomer til UNFs rumfartøjskompliment, organisationen køber Hammerheads fra CSN og til tider Khepris fra kongeriget Tzac. Hverken var ønskelige langsigtede løsninger, og derfor blev Lynx udviklet til at udfylde hullet i navyens tilbud. Bomberet var stærkt inspireret af Hammerhead, hvor UNF havde fundet succes i brugen af ​​CSN-fartøjet tidligere og ønskede at fortsætte på den måde."
+
+msgid "So called because of the likeness of its two upper struts to that of a praying mantis, this is one of the most well recognised starfighters in the INF. A medium starfighter, like the Confederation's own Ray, the Mantis is not only better armed, featuring an extra set of offensive weaponry, but is also faster. Like other Imperial starfighters, it has seen a great number of stable variants emerge in the past few years."
+msgstr "Såkaldt på grund af ligheden af ​​sine to øverste stiver til en bønnemantis, er dette en af ​​de mest velkendte sejre i INF. En medium starfighter, som Confederation's own Ray, er Mantis ikke kun bedre bevæbnet, med et ekstra sæt offensivt våben, men er også hurtigere. Som andre kejserlige sejlere har det set et stort antal stabile varianter frem i de seneste år."
+
+msgid "A light class starfighter, constructed for use by the United Naval Forces. With the exception of the ATAFs, one of the latest designed and constructed starfighters in recent years."
+msgstr "En lette klasse starfighter, konstrueret til brug af United Naval Forces. Med undtagelse af ATAF'er, en af ​​de seneste designede og konstruerede sejlere i de seneste år."
+
+msgid "A well armed, armoured and shielded fighter, the Ray compliments a squadron of TAFs well, although it is not as fast nor as manoeuvrable. The Ray is so called due to its outward appearance being quite similar to that of Manta Ray. It also features two seats, though it is possible to fly with one crew members."
+msgstr "En velbevæbnet, pansret og afskærmet fighter, Ray komplimenterer en skvadron af TAF'er godt, selvom det ikke er så hurtigt eller som manøvrerbart. Rayen er såkaldt på grund af dens udseende, der er helt lig den af ​​Manta Ray. Det har også to pladser, selv om det er muligt at flyve med en besætning."
+
+msgid "The Razor is a medium-class starfighter, built and deployed by the Kingdom of Tzac. The fighter has a long service history, though it has likely undergone a number of updates and modifications to the base specification since its first appearance in 2571. Like most other Tzac starfighters, the current variation id of the fighter is not known, thought it could lie around F or G."
+msgstr "Razor er en middelklasset starfighter, bygget og implementeret af kongeriget Tzac. Fighteren har en lang servicehistorie, selvom den sandsynligvis har gennemgået en række opdateringer og modifikationer af basisspecifikationen siden dets første udseende i 2571. Som de fleste andre Tzac-sejrere er den nuværende variant-id for fighteren ikke kendt, troede det kunne ligge omkring F eller G."
+
+msgid "The most heavily armed and boosting the greatest defences of all the starfighters in the CSN, the Rook generally only sees action during significant missions and operations, where its increased power can bring many benefits. It is, however, the slowest of all the CSN's starfighters and some pilots have complained that it feels very sluggish in combat."
+msgstr "Den stærkest bevæbnede og øger de største forsvar af alle søsættere i CSN, ser røget kun på handling under betydelige missioner og operationer, hvor den øgede kraft kan give mange fordele. Det er imidlertid den langsommere af alle CSNs søsættere, og nogle piloter har klaget over, at det føles meget trægt i kamp."
+
+msgid "A scarab beetle-shaped bomber, generally used to launch a hail of rockets and missiles at targets. Slow, but quite well armoured and shielded. As with the Hammerhead, it relies on starfighter support to protect it during operations."
+msgstr "En scarabivelformet bombefly, der sædvanligvis bruges til at lancere et hagl af raketter og missiler på mål. Langsom, men ganske godt panseret og afskærmet. Som med hammerhovedet er det afhængig af støtte til støtte for at beskytte den under operationer."
+
+msgid "The Shale is a light-class starfighter, based on the Nymph. It is believed to have been constructed by Tzac based on leaked information about the initial design elements of the Nymph. As such, it follows a similar form factor, but differs in both its colour scheme (green, instead of white and blue) and armaments, being equipped with three rapid-fire particle cannons, instead of the Nymph's two plasma cannons. Tzac denied any involvement in the theft of the Nymph's construction details, attesting that it believed the design documents were for a new type of Dart, and as such were not governed by any sort of intergalactic trade secrets."
+msgstr "The Shale er en lystløber, baseret på Nymph. Det antages at være blevet konstrueret af Tzac baseret på lækket information om de indledende designelementer af Nymph. Som sådan følger den en lignende formfaktor, men adskiller sig i både dens farveskema (grøn, i stedet for hvid og blå) og forsvarsmateriel, der er udstyret med tre hurtigt ildpartikelkanoner, i stedet for Nymphs to plasmakanoner. Tzac nægtede enhver involvering i tyveri af Nymphs konstruktion detaljer og attesterede at det troede designdokumenterne var for en ny type Dart, og som sådan var ikke styret af nogen form for intergalaktiske handelshemmeligheder."
+
+msgid "The SK-31 is a medium-class starfighter, built and deployed by the Kingdom of Tzac. Unlike the Razor and SK-34, the SK-31 is equipped with two laser cannons, to enable it to disrupt the shields of its target and make it easier to either destroy or disable. It is unknown what the SK in the fighter's name stands for, and whether or not the 31 refers to an iteration or other internal identifier."
+msgstr "SK-31 er en middelklasset starfighter, bygget og implementeret af kongeriget Tzac. I modsætning til Razor og SK-34 er SK-31 udstyret med to laserkanoner for at gøre det muligt at forstyrre skærmens mål og gøre det nemmere at enten ødelægge eller deaktivere. Det er ukendt, hvad SK i fighterens navn står for, og hvorvidt de 31 refererer til en iteration eller en anden intern identifikator."
+
+msgid "The SK-34 is a medium-class starfighter, built and deployed by the Kingdom of Tzac. Though its exterior appearance is very different to the SK-31, it features similar internal specifications. Unlike the SK-31, however, it is equipped with Mag cannons, instead of lasers. As with the SK-34, it is unknown what the SK in the fighter's name stands for, and whether or not the 34 refers to an iteration or other internal identifier."
+msgstr "SK-34 er en middelklasset starfighter, bygget og implementeret af kongeriget Tzac. Selv om dets udvendige udseende er meget forskelligt fra SK-31, har den tilsvarende interne specifikationer. I modsætning til SK-31 er den dog udstyret med Mag-kanoner i stedet for lasere. Som med SK-34 er det ukendt, hvad SK i fighterens navn står for, og hvorvidt 34 henviser til en iteration eller anden intern identifikator eller ej."
+
+msgid "The Imperial Naval Forces answer to the Rook, the Sphinx is more heavily armed, but equally as fast and protected. Generally a single seated craft, the Sphinx can also accept a rear gunner, making it more difficult for opponents to tail it."
+msgstr "De kejserlige flådestyrker svarer til røgen, sfinksen er stærkere bevæbnet, men lige så hurtig og beskyttet. Normalt et enkelt siddende håndværk, kan sfinksen også acceptere en bageste skytter, hvilket gør det vanskeligere for modstandere at hale det."
+
+msgid "An all round, multi purpose, single-seat starfighter, the TAF is the most well known and highest produced starfighter within the CSN. Both lightly armoured and shielded, the TAF is easy to handle in the hands of a rookie and praised even by the most experienced of pilots. It makes up for its lack of armour, shielding and armaments by benefiting from good speeds and ease of manoeuvrability."
+msgstr "En allround, multi-purpose, single-seat starfighter, TAF er den mest kendte og højest producerede starfighter inden for CSN. Både let pansret og afskærmet, TAF er let at håndtere i en nybegynderes hænder og roses selv af de mest erfarne piloter. Det udgør sin mangel på rustning, afskærmning og bevæbning ved at drage fordel af gode hastigheder og nem manøvredygtighed."
+
+msgid "The Thunderhead evolved from an original concept design for a new bomber, of which it still shares some features (such as a generous supply of missiles and torpedo hardpoints). It is faster than the Scarab bombers, but a lot slower than the Sphinx. It is, however, better armoured and shielded than both. It is rarely seen on the field, as it is now considered old, costly to maintain and has in recent years been superseded by the Sphinx. Despite this, it remains a formidable opponent and its offensive measures means that it is able to take down light-class vessels with ease."
+msgstr "Thunderhead udviklede sig fra et originalt konceptdesign til en ny bombefly, hvoraf den stadig deler nogle funktioner (såsom en generøs forsyning af missiler og torped-hardpoints). Det er hurtigere end Scarab bomberne, men meget langsommere end Sfinxen. Det er dog bedre pansret og afskærmet end begge dele. Det ses sjældent på marken, da det nu anses for gammelt, dyrt at opretholde og i de senere år er blevet erstattet af sfinxen. På trods af dette forbliver det en formidabel modstander, og dens offensive foranstaltninger betyder, at den er i stand til nemt at tage skibet i let klasse ned."
 

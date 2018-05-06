@@ -81,6 +81,7 @@ function extractJSON($filename)
 	}
 	else if (strpos($filename, "missions") !== false)
 	{
+		addString($json->{"name"});
 		addString($json->{"description"});
 		
 		if (array_key_exists("objectives", $json))

@@ -187,7 +187,7 @@ void updateStarSystemMissions(void)
 			prev = mission;
 		}
 
-		sprintf(starSystem->description, "[ %s ]  [ Missions %d / %d ]", starSystem->name, starSystem->completedMissions, starSystem->availableMissions);
+		sprintf(starSystem->description, _("[ %s ]  [ Missions %d / %d ]"), starSystem->name, starSystem->completedMissions, starSystem->availableMissions);
 	}
 }
 

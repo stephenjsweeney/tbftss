@@ -456,6 +456,8 @@ static void createOptions(Widget *w, char *options)
 	option = strtok(options, ";");
 	while (option)
 	{
+		option = _(option);
+		
 		w->options[i] = malloc(strlen(option) + 1);
 		strcpy(w->options[i], option);
 

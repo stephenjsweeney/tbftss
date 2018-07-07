@@ -22,12 +22,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void handleMissionArgs(int argc, char *argv[]);
 static void handleLoggingArgs(int argc, char *argv[]);
-static long capFrameRate(const long then);
+static void capFrameRate(long *then, float *remainder);
 
 int main(int argc, char *argv[])
 {
 	long then, lastFrameTime, frames;
 	long expireTextTimer;
+	float remainder;
 	SDL_Event event;
 	
 	memset(&app, 0, sizeof(App));
@@ -63,7 +64,7 @@ int main(int argc, char *argv[])
 	
 	while (1)
 	{
-		then = capFrameRate(then);
+		capFrameRate(&then, &remainder);
 		
 		while (SDL_PollEvent(&event))
 		{
@@ -190,18 +191,26 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-static long capFrameRate(const long then)
+static void capFrameRate(long *then, float *remainder)
 {
 	long wait;
 	
-	wait = 16 - (SDL_GetTicks() - then);
-		
-	if (wait > 0)
+	wait = 16 + *remainder;
+	
+	*remainder -= (int)*remainder;
+	
+	wait -= (SDL_GetTicks() - *then);
+	
+	if (wait < 1)
 	{
-		SDL_Delay(wait);
+		wait = 1;
 	}
 	
-	return SDL_GetTicks();
+	SDL_Delay(wait);
+	
+	*remainder += 0.667;
+	
+	*then = SDL_GetTicks();
 }
 
 static void handleLoggingArgs(int argc, char *argv[])

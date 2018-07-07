@@ -20,8 +20,11 @@ _OBJS += unixInit.o
 include common.mk
 
 CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
-CXXFLAGS += -Wall -Wempty-body -ansi -pedantic -Werror -Wstrict-prototypes -Werror=maybe-uninitialized -Warray-bounds
+CXXFLAGS += -ansi -pedantic
 CXXFLAGS += -g -lefence
+ifneq ("$(wildcard .errors)","")
+CXXFLAGS += -Wall -Wempty-body -Werror -Wstrict-prototypes -Werror=maybe-uninitialized -Warray-bounds
+endif
 
 LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 

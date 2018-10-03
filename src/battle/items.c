@@ -64,6 +64,8 @@ void loadItemDefs(void)
 Entity *spawnItem(char *name)
 {
 	Entity *e, *def, *item;
+	
+	def = NULL;
 
 	item = spawnEntity();
 

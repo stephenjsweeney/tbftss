@@ -85,13 +85,13 @@ void initSDL(void)
 
 	SDL_ShowCursor(0);
 
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
+	if (Mix_OpenAudio(AUDIO_FREQUENCY, MIX_DEFAULT_FORMAT, AUDIO_CHANNELS, AUDIO_CHUNKSIZE) == -1)
     {
         printf("Couldn't initialize SDL Mixer\n");
 		exit(1);
     }
 
-    Mix_AllocateChannels(64);
+    Mix_AllocateChannels(AUDIO_MIX_CHANNELS);
 
 	Mix_Volume(-1, app.soundVolume * MIX_MAX_VOLUME / 10);
 	Mix_VolumeMusic(app.musicVolume * MIX_MAX_VOLUME / 10);

@@ -30,6 +30,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define FIXED_RESOLUTION 0
 #endif
 
+#ifndef AUDIO_FREQUENCY
+#define AUDIO_FREQUENCY 44100
+#endif
+
+#ifndef AUDIO_CHANNELS
+#define AUDIO_CHANNELS 2
+#endif
+
+#ifndef AUDIO_CHUNKSIZE
+#define AUDIO_CHUNKSIZE 1024
+#endif
+
+#ifndef AUDIO_MIX_CHANNELS
+#define AUDIO_MIX_CHANNELS 64
+#endif
+
 #define _(string) getTranslatedString(string)
 
 #define PI 3.14159265358979323846

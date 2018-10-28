@@ -22,7 +22,7 @@ msgid "%s is retreating!"
 msgstr "%s zieht sich zurück!"
 
 msgid "WARNING: INCOMING MISSILE!"
-msgstr "WARNUNG: Eintreffende Rakete!"
+msgstr "WARNUNG: RAKETE IM ANFLUG!"
 
 msgid "%s (Engine)"
 msgstr "%s (Motor)"
@@ -40,7 +40,7 @@ msgid "Civilian has been killed"
 msgstr "Zivilist wurde getötet"
 
 msgid "Ally has been killed"
-msgstr "Ally wurde getötet"
+msgstr "Verbündeter wurde getötet"
 
 msgid "Particle Cannon"
 msgstr "Partikelkanone"
@@ -52,20 +52,20 @@ msgid "Laser Cannon"
 msgstr "Laserkanone"
 
 msgid "Mag Cannon"
-msgstr ""
+msgstr "Schienengewehr"
 
 msgid "Rockets"
-msgstr "Raketen"
+msgstr "Raketen (ungelenkt)"
 
 # Rockets and missiles are both "Raketen", so how should they be differentiated?
 msgid "Missiles"
-msgstr "Raketen"
+msgstr "Raketen (gelenkt)"
 
 msgid "(None)"
 msgstr "(Keine)"
 
 msgid "(Combined Guns)"
-msgstr ""
+msgstr "Kombinierte Waffe"
 
 msgid "Missiles (%d)"
 msgstr "Raketen (%d)"
@@ -77,7 +77,7 @@ msgid "Objective: %.2fkm"
 msgstr "Ziel: %.2fkm"
 
 msgid "Jumpgate: %.2fkm"
-msgstr ""
+msgstr "Sprungtor: %.2fkm"
 
 msgid "SELECT NEW FIGHTER"
 msgstr "NEUES KAMPFFLUGZEUG WÄHLEN"
@@ -95,7 +95,7 @@ msgid "Failed"
 msgstr "Gescheitert"
 
 msgid "Condition"
-msgstr "Kondition"
+msgstr "Zustand"
 
 msgid "OBJECTIVES"
 msgstr "ZIELE"
@@ -104,13 +104,13 @@ msgid "(none)"
 msgstr "(keine)"
 
 msgid "Time Limit: %s"
-msgstr "Zeitgrenze: %s"
+msgstr "Zeitlimit: %s"
 
 msgid "%s - Objective Complete!"
-msgstr "%s - Ziel Geschafft!"
+msgstr "%s - Ziel erreicht!"
 
 msgid "%s - Objective Failed!"
-msgstr "%s - Ziel Gescheitert!"
+msgstr "%s - Ziel gescheitert!"
 
 msgid "New Objective : %s"
 msgstr "Neues Ziel: %s"
@@ -131,53 +131,51 @@ msgid "Mission Failed!"
 msgstr "Mission Fehlgeschlagen!"
 
 msgid "Cannot activate waypoint - outstanding objectives not yet complete"
-msgstr ""
-"Zwischenpunkt konnte nicht aktiviert werden - Hauptziele noch nicht "
+msgstr "Zwischenpunkt konnte nicht aktiviert werden - Hauptziele noch nicht "
 "vollständig"
 
 msgid "Cannot activate waypoint - team mates too far away"
-msgstr ""
-"Zwischenpunkt konnte nicht aktiviert werden - Mannschaftskameraden zu weit "
-"weg"
+msgstr "Zwischenpunkt konnte nicht aktiviert werden"
+Mannschaftskameraden zu weit weg"
 
 msgid "No Missiles"
 msgstr "Keine Raketen"
 
 msgid "No ECM"
-msgstr ""
+msgstr "Kein ECM"
 
 msgid "No Boost"
-msgstr ""
+msgstr "Kein Booster"
 
 msgid "No Guns"
-msgstr "Keine Gewehre"
+msgstr "Keine Waffen"
 
 msgid "Challenges"
 msgstr "Herausforderungen"
 
 msgid "[Locked]"
-msgstr "[Geschlossen]"
+msgstr "[Gesperrt]"
 
 msgid "Craft: %s"
-msgstr ""
+msgstr "%s herstellen"
 
 msgid "Restrictions: %s"
 msgstr "Einschränkungen: %s"
 
 msgid "Retain at least %d%% armour"
-msgstr "Behalte mindestens %d%% Rüstung"
+msgstr "Behalte mindestens %d%% Panzerung"
 
 msgid "Complete challenge in %d seconds or less"
 msgstr "Schließe Herausforderung in %d Sekunden oder weniger ab"
 
 msgid "Attain a %d%% shot hit accuracy"
-msgstr ""
+msgstr "Erreiche eine Treffgenauigkeit von %d%% mit Schusswaffen"
 
 msgid "Attain a %d%% rocket hit accuracy"
-msgstr ""
+msgstr "Erreiche eine Treffgenauigkeit von %d%% mit ungelenkten Raketen"
 
 msgid "Attain a %d%% missile hit accuracy"
-msgstr ""
+msgstr "Erreiche eine Treffgenauigkeit von %d%% mit gelenkten Raketen"
 
 msgid "Do not lose any team mates"
 msgstr "Verliere keine Mannschaftskameraden"
@@ -192,7 +190,7 @@ msgid "Take down %d enemy targets"
 msgstr "Zerstöre %d Feinde"
 
 msgid "Disable %d or more enemy fighters"
-msgstr "Mache %d oder mehr Feindliche Kämpfer unfähig"
+msgstr "Mache %d oder mehr feindliche Kämpfer unfähig"
 
 msgid "Collect %d packages"
 msgstr "Sammle %d Pakete"
@@ -207,13 +205,13 @@ msgid "Pilot: %s"
 msgstr "Pilot: %s"
 
 msgid "Squadron: %s"
-msgstr ""
+msgstr "Geschwader: %s"
 
 msgid "This mission has been completed."
-msgstr "Diese Mission wurde fertiggestellt."
+msgstr "Diese Mission wurde abgeschlossen."
 
 msgid "Note: this is an Epic Mission."
-msgstr ""
+msgstr "Hinweis: Dies ist eine historische Mission."
 
 msgid "Percent Complete"
 msgstr "Prozent Vollständig"
@@ -222,97 +220,97 @@ msgid "Missions Started"
 msgstr "Missionen Angefangen"
 
 msgid "Missons Completed"
-msgstr "Missionen Fertiggestellt"
+msgstr "Missionen abgeschlossen"
 
 msgid "Challenges Started"
 msgstr "Herausforderungen Angefangen"
 
 msgid "Challenges Completed"
-msgstr "Herausforderungen Fertiggestellt"
+msgstr "Herausforderungen abgeschlossen"
 
 msgid "Shots Fired"
-msgstr "Schüsse Geschossen"
+msgstr "Schüsse abgefeuert"
 
 msgid "Shots Hit"
-msgstr "Schüsse Getroffen"
+msgstr "Schüsse getroffen"
 
 msgid "Accuracy"
-msgstr "Präzision"
+msgstr "Genauigkeit"
 
 msgid "Rockets Fired"
-msgstr "Raketen Geschossen"
+msgstr "Raketen (ungelenkt) abgefeuert"
 
 msgid "Rockets Hit"
-msgstr "Raketen Getroffen"
+msgstr "Raketen (ungelenkt) getroffen"
 
 msgid "Missiles Fired"
-msgstr ""
+msgstr "Raketen (gelenkt) abgefeuert"
 
 msgid "Missiles Hit"
-msgstr ""
+msgstr "Raketen (gelenkt) getroffen"
 
 msgid "Enemies Killed"
-msgstr "Feinde Getötet"
+msgstr "Feinde getötet"
 
 msgid "Enemies Killed (Player)"
-msgstr "Feinde Getötet (Spieler)"
+msgstr "Feinde getötet (Spieler)"
 
 msgid "Allies Killed"
-msgstr "Verbündete Getötet"
+msgstr "Verbündete getötet"
 
 msgid "Times Killed"
-msgstr "Male Gestorben"
+msgstr "Male gestorben"
 
 msgid "Enemies Disabled"
-msgstr "Feinde Unfähig Gemacht"
+msgstr "Feinde unfähig gemacht"
 
 msgid "Enemies Escaped"
-msgstr "Feinde Entkommen"
+msgstr "Feinde entkommen"
 
 msgid "ECM Used"
-msgstr "ECM Verwendet"
+msgstr "ECM verwendet"
 
 msgid "Boost Used"
-msgstr "Beschleunigung Verwendet"
+msgstr "Booster verwendet"
 
 msgid "Missiles Evaded"
-msgstr ""
+msgstr "Raketen ausgewichen"
 
 msgid "Missiles Struck Player"
-msgstr ""
+msgstr "Raketen abbekommen"
 
 msgid "Civilians Rescued"
-msgstr "Zivilisten Gerettet"
+msgstr "Zivilisten gerettet"
 
 msgid "Civilians Killed"
-msgstr "Zivilisten Getötet"
+msgstr "Zivilisten getötet"
 
 msgid "Times used Tug"
-msgstr ""
+msgstr "Abschleppseil genutzt"
 
 msgid "Times used Shuttle"
-msgstr ""
+msgstr "Shuttle genutzt"
 
 msgid "Craft Towed"
-msgstr ""
+msgstr "Fahrzeuge abgeschleppt"
 
 msgid "Items Collected"
-msgstr "Gegenstände Gesammelt"
+msgstr "Gegenstände eingesammelt"
 
 msgid "Items Collected (Player)"
-msgstr "Gegenstände Gesammelt (Spieler)"
+msgstr "Gegenstände eingesammelt (Spieler)"
 
 msgid "Longest Epic Kill Streak"
-msgstr ""
+msgstr "Längster Multikill"
 
 msgid "Waypoints Visited"
-msgstr "Zwischenpunkte Besucht"
+msgstr "Zwischenpunkte besucht"
 
 msgid "Capital Ships Destroyed"
-msgstr ""
+msgstr "Hauptschiff vernichtet"
 
 msgid "Capital Ships Lost"
-msgstr ""
+msgstr "Hauptschiff verloren"
 
 msgid "Time Played"
 msgstr "Spielzeit"
@@ -330,7 +328,7 @@ msgid "Accelerate"
 msgstr "Beschleunigen"
 
 msgid "Boost"
-msgstr "Beschleunigung"
+msgstr "Booster einsetzen"
 
 msgid "ECM"
 msgstr "ECM"
@@ -342,35 +340,35 @@ msgid "Select Target"
 msgstr "Ziel Wählen"
 
 msgid "Fire Missile"
-msgstr ""
+msgstr "Rakete abfeuern"
 
 msgid "Cycle Guns"
-msgstr "Gewehr Wechseln"
+msgstr "Schusswaffe wechseln"
 
 msgid "Cycle Radar"
-msgstr ""
+msgstr "Radar wechseln"
 
 msgid "Next Fighter"
-msgstr ""
+msgstr "Nächster Kämpfer"
 
 msgid "Previous Fighter"
-msgstr ""
+msgstr "Vorheriger Kämpfer"
 
 msgid "Controls"
-msgstr "Kontrollen"
+msgstr "Steuerung"
 
 msgid ""
 "Click a control to change it, and then the key or mouse button you want to "
 "use."
 msgstr ""
-"Drücke eine Kontrolle um sie zu ändern, und dann die Taste oder den Knopf "
+"Drücke eine Steuerung um sie zu ändern, und dann die Taste oder den Knopf "
 "den du benutzen willst."
 
 msgid "[BACKSPACE] - Clear"
-msgstr ""
+msgstr "[BACKSPACE] - Löschen"
 
 msgid "[ESCAPE] - Cancel"
-msgstr ""
+msgstr "[ESCAPE] - Abbrechen"
 
 msgid "Options"
 msgstr "Optionen"
@@ -379,12 +377,12 @@ msgid ""
 "Note: you must restart the game for window size and fullscreen options to "
 "take effect."
 msgstr ""
-"Hinweis: du musst das Spiel neu starten um die Fenstergröße und "
-"Vollbildmodus Optionen in Effekt zu nehmen."
+"Hinweis: Du musst das Spiel neu starten um die Fenstergröße oder "
+"Vollbildmodus zu übernehmen."
 
 msgid "Note: this device does not support changing the screen resolution."
 msgstr ""
-"Hinweis: dieses Gerät unterstützt nicht das ändern der Bildschirmauflösung."
+"Hinweis: Auf diesem Gerät kann die Bildschirmauflösung nicht geändert werden."
 
 msgid "Retry"
 msgstr "Nochmal Versuchen"
@@ -399,10 +397,10 @@ msgid "Start Challenge Mission"
 msgstr "Herausforderungsmission Anfangen"
 
 msgid "Resume"
-msgstr ""
+msgstr "Fortsetzen"
 
 msgid "Return to Title"
-msgstr ""
+msgstr "Zurück zum Menü"
 
 msgid "OK"
 msgstr "OK"
@@ -418,22 +416,22 @@ msgstr "Fenstergröße"
 
 # No clue about this one...
 msgid "Sound Volume"
-msgstr "Schall Lautstärke"
+msgstr "Lautstärke (Effekte)"
 
 msgid "Music Volume"
-msgstr "Musik Lautstärke"
+msgstr "Lautstärke (Musik)"
 
 msgid "Fullscreen"
 msgstr "Vollbildmodus"
 
 msgid "Controls ..."
-msgstr "Kontrollen..."
+msgstr "Steuerung..."
 
 msgid "Start Mission"
-msgstr "Mission Anfangen"
+msgstr "Mission anfangen"
 
 msgid "Campaign"
-msgstr ""
+msgstr "Kampagne"
 
 msgid ""
 "With the Pandorans having invaded Independent systems boardering the Mitikas "
@@ -441,10 +439,10 @@ msgid ""
 "stepped up. Ensure you hit all the waypoints, and report any unusual "
 "activity that you encounter."
 msgstr ""
-"Da die Pandorianer in Unabhängige Systeme neben dem Mitikas Reich "
-"eingefallen sind, müssen wir wachsamer sein. Streifen um Torelli werden "
-"gesteigert. Macht sicher dass ihr alle Zwischenpunkte besucht und über alle "
-"ungewöhnliche Aktivität berichtet."
+"Da die Pandorianer in unabhängige Systeme neben dem Reich Mitikas"
+"eingefallen sind, müssen wir wachsamer sein. Patroullien um Torelli werden "
+"erhöht. Macht sicher dass ihr alle Zwischenpunkte besucht und alle "
+"ungewöhnlichen Aktivitäten berichtet."
 
 msgid "Anyone got anything to report?"
 msgstr "Hat irgendjemand etwas zu berichten?"
@@ -453,7 +451,7 @@ msgid "You getting paranoid, Curtis?"
 msgstr "Wirst du paranoid, Curtis?"
 
 msgid "You all saw what happened at Coyote."
-msgstr "Ihr habt alle gesehen was bei Coyote passiert ist."
+msgstr "Ihr habt alle gesehen, was bei Coyote passiert ist."
 
 msgid "So, those Pandorans are, what, robots?"
 msgstr "Also, die Pandorianer sind was, Roboter?"
@@ -465,14 +463,14 @@ msgid ""
 "Hard to kill, whatever they are. Heard they'll still be coming at you even "
 "if you take both arms off."
 msgstr ""
-"Schwierig zu töten, was auch immer sie sind. Ich habe gehört dass sie noch "
-"immer nach dir gehen wenn du beide Arme abgenommen hast."
+"Was auch immer sie sind, sie sind schwer zu töten. Ich habe gehört, dass sie dich "
+"noch verfolgen, wenn du ihnen beide Arme abgetrennt hast."
 
 msgid "And what'll they do then? Bite you to death?"
 msgstr "Und was werden sie dann tun? Dich zum Tod beißen?"
 
 msgid "Eyes open, lads"
-msgstr "Augen offen, Kerls"
+msgstr "Augen auf!"
 
 msgid "We're done. Anyone detect anything unusual?"
 msgstr "Wir sind fertig. Hat irgendjemand etwas außergewöhnliches entdeckt?"
@@ -491,19 +489,20 @@ msgid ""
 "in this sector, with reported incidents down 80%. Still, we cannot afford to "
 "become complacent, and must continue with our sweeps."
 msgstr ""
-"Streifen haben bis jetzt nicht außergewöhnliches entdeckt und es sieht so "
-"aus als ob die Zunahme im Militär die Menge an illegaler Betätigung in "
-"diesem Sektor verringert, mit den berichteten Ereignissen 80% weniger. "
+"Patroullien haben bis jetzt nicht außergewöhnliches entdeckt und es sieht so "
+"aus, als ob die Steigerung an Militär die Menge an illegalen Aktionen in "
+"diesem Sektor um 80% verringert hat."
 "Trotzdem, wir können es uns nicht leisten sorglos zu werden und müssen mit "
-"unseren Streifen weitermachen."
+"unseren Patroullien weitermachen."
 
 msgid ""
 "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; "
 "Jackals, possibly Pandoran. Engage, but exercise extreme caution."
-msgstr ""
+msgstr "Eightballers, feindliche Kräfte kommen auf euch zu. Wir konnten 3"
+"Mitikas Kämpfer identifizieren. Greift mit extremer Vorsicht an."
 
 msgid "Control, enemies have been dispatched. Wasn't a comfortable fight."
-msgstr "Kontrolle, Feinde wurden vernichtet. War kein angenehmer Kampf."
+msgstr "Einsatzzentrale, Feinde wurden vernichtet. War kein schöner Kampf."
 
 msgid ""
 "Eightballers, return home immediately, and deliver a full report. Do not "
@@ -520,26 +519,24 @@ msgid ""
 "be vigilant against incursion into the Alba system. Check all five "
 "waypoints, and report immediate any unusual or suspicious activity you "
 "encounter."
-msgstr ""
-"Following the devastating loss of the Iliad system, we need to continue to "
-"be vigilant against incursion into the Alba system. Check all five "
-"waypoints, and report immediate any unusual or suspicious activity you "
-"encounter."
+msgstr "Nach den vernichtenden Verlusten im Iliad System müssen wir wachsam"
+"sein und Angriffe auf das Alba System schützen. Überprüft alle fünf"
+"Wegpunkte und berichtet sofort bei ungewöhnlichen Aktivitäten."
 
 msgid "So, Iliad has fallen?"
 msgstr "Also, Iliad ist gefallen?"
 
 msgid "From what I've heard."
-msgstr "Von dem, das ich gehört habe."
+msgstr "Nach dem was ich gehört habe."
 
 msgid "Did they retreat, or ..."
-msgstr "Sind sie zurückgezogen, oder ..."
+msgstr "Haben sie sich zurückgezogen, oder ..."
 
 msgid "They fought to the very last."
 msgstr "Sie haben bis zum letzten Mann gekämpft."
 
 msgid "So that's it. The Pandorans have won?"
-msgstr "Also, das ist es dann. Die Pandorianer haben gewonnen?"
+msgstr "Das war es dann also? Die Pandorianer haben gewonnen?"
 
 msgid ""
 "At Iliad, yes. Unless the local forces there can somehow hold off the "
@@ -562,7 +559,7 @@ msgid "And even those who don't."
 msgstr "Und sogar die, die nicht im Weg stehen."
 
 msgid "...and move on."
-msgstr "...und weitergehen."
+msgstr "...und weiterziehen."
 
 msgid "You're quiet, Wade."
 msgstr "Du bist ruhig, Wade."
@@ -574,7 +571,7 @@ msgid "What about?"
 msgstr "Über was?"
 
 msgid "How long it'll be before the Pandorans show up here."
-msgstr "Wie lang wird es sein, bis die Pandorianer hier aufkreuzen."
+msgstr "Wie lang wird es dauern, bis die Pandorianer hier aufkreuzen."
 
 msgid "They came by earlier, in case you don't remember."
 msgstr "Sie sind vorher vorbeigekommen, falls du dich nicht daran erinnerst."
@@ -589,29 +586,29 @@ msgstr ""
 "Glaub ich nicht, Jungs. Sie haben wahrscheinlich nur das Gelände erkundet."
 
 msgid "Where the hell are the CSN? Why weren't they at Iliad?"
-msgstr "Wo sind die CSN? Warum waren sie nicht bei Iliad?"
+msgstr "Wo zur Hölle ist die CSN? Warum waren sie nicht bei Iliad?"
 
 msgid ""
 "They weren't wanted, apparently. Iliad and the UNF aren't getting along so "
 "well at the moment."
 msgstr ""
-"Sie waren dort nicht willkommen, anscheinend. Iliad und die UNF kommen "
-"gerade nicht sehr gut zurecht."
+"Sie waren dort nicht willkommen. Iliad und die UNF kommen "
+"gerade nicht sehr gut miteinander aus."
 
 msgid "Something to do with Adrian Parsons?"
-msgstr "Etwas zu tun mit Adrian Parsons?"
+msgstr "Hat das etwas mit Adrian Parsons zu tun?"
 
 msgid ""
 "That bloody idiot? It wouldn't surprise me. He's the reason we're now in "
 "this mess! If I ever meet that guy, nothing'll stop me from-"
 msgstr ""
-"Der Idiot? Würde mich nicht überraschen. Er ist der Grund warum wir in "
+"Dieser Idiot? Würde mich nicht überraschen. Er ist der Grund warum wir in "
 "diesem Durcheinander sind! Wenn ich den Kerl je treffe, nichts wird mich "
 "davon abhalten-"
 
 msgid "Hey, mind what you say. All these communications are logged."
 msgstr ""
-"Hey, passe auf, was du sagst. Diese Kommunikationen werden gespeichert."
+"Hey, pass auf, was du sagst. Diese Gespräche werden gespeichert."
 
 msgid "(indecipherable muttering)"
 msgstr "(unverständliches Gemurmel)"
@@ -632,17 +629,17 @@ msgstr "Die Mutter von Grendel?"
 
 msgid "No, something it was carrying. Linked to the ATAFs, apparently."
 msgstr ""
-"Nein, etwas das es getragen hat. Mit den ATAFs verbunden, anscheinend."
+"Nein, etwas das sie geladen hatte. Mit den ATAFs verbunden, anscheinend."
 
 msgid ""
 "The CSN built something that nuked a whole load of allied and Pandoran "
 "forces. It wasn't meant to be used in Coyote, though."
 msgstr ""
-"Die CSN hat etwas gebaut, das eine ganze Ladung von verbündeten und "
-"Pandorianischen Kräften zerstört hat. Es war aber nicht für Coyote gemeint."
+"Die CSN hat etwas gebaut, das eine ganze Ladung von Verbündeten und "
+"pandorianischen Kräften zerstört hat. Es war aber nicht für Coyote gedacht."
 
 msgid "You don't say."
-msgstr "Nicht war."
+msgstr "Was du nicht sagst."
 
 msgid "Okay, lads, let's wrap this topic up, eh?"
 msgstr "Okay, Jungs, lasst uns dieses Gesprächsthema beenden, eh?"
@@ -668,11 +665,11 @@ msgid ""
 "choice and must secure victory here today."
 msgstr ""
 "Der Tag vor dem wir Angst hatten und die Ereignisse die wir versucht haben "
-"zu vermeiden sind nun gekommen - die Pandorianische Armee ist nach Mitikas "
+"zu vermeiden sind nun gekommen - die pandorianische Armee ist nach Mitikas "
 "Platz noch weiter vorgestoßen und fängt an, benachbarte unabhängige Sterne "
-"anzugreifen. Wir müssen zurück kämpfen um Clarke zu beschützen. Seit "
-"achtsam: dies wird nicht ein einfacher Kampf sein, aber wir haben wenig "
-"Auswahl und müssen noch heute hier den Sieg erreichen."
+"anzugreifen. Wir müssen zurückschlagen um Clarke zu beschützen. Seit "
+"achtsam: dies wird kein einfacher Kampf sein, aber wir haben keine "
+"Wahl und müssen noch heute hier den Sieg erreichen."
 
 msgid ""
 "We have successfully punched our way through several squadrons of Pandoran "
@@ -694,38 +691,42 @@ msgstr ""
 "aus."
 
 msgid "Dammit! Let's make sure we down the Dirk before any more turn up."
-msgstr ""
+msgstr "Verdammt! Stellt sicher, dass wir die Dirk vernichten bevor mehr kommen"
 
 msgid "INF Dirk has been downed."
-msgstr ""
+msgstr "INF Dirk wurde vernichtet."
 
 msgid ""
 "This is Carlyle. Enemy corvette has been destroyed. All other fighters "
 "scratched."
-msgstr ""
+msgstr "Hier ist Carlyle. Feindliche Korvette zerstört, Alle anderen"
+"Kämpfer wurden beschädigt."
 
 msgid ""
 "That's good work, Commander. We're preparing to engage more enemies, so we "
 "can't put our feet up just yet."
 msgstr ""
-"Gute Arbeit, Kommandeur. Wir machen uns fertig um mehr Feinde zu engagieren, "
-"also können wir noch nicht entspannen."
+"Gute Arbeit, Kommander. Wir bereiten uns vor um mehr Feinde anzugreifen. "
+"Keine Zeit zum entspannen."
 
 msgid "Hell. Okay, we'll return momentarily. Carlyle out."
-msgstr ""
+msgstr "Verdammt. Okay, wir ziehen uns zurück. Carlyle Ende."
 
 msgid ""
 "We need continue taking down the enemy's captial ships, digging in, and "
 "holding the line here. More of our own cap ships are heading up the field to "
 "meet the Pandorans head on. UNF Cleopatra is moving to intecept more enemy "
 "corvettes. Your orders are to assist it in achieving its goals."
-msgstr ""
+msgstr "Wir müssen ihre Hauptschiffe vernichten und unsere Stellung sichern."
+"Mehr unserer Schiffe sind auf dem Weg um die Pandorianer anzugreifen."
+"UNF Cleopatra wird weitere feintliche Korvetten angreifen. Eure Aufgabe"
+"ist es, sie dabei zu unterstützen."
 
 msgid "INF Khopesh is down."
-msgstr ""
+msgstr "INF Khopesh wurde vernichtet."
 
 msgid "INF Blackjack has been destroyed."
-msgstr "INF Blackjack wurde zerstört."
+msgstr "INF Blackjack wurde vernichtet."
 
 msgid "INF Asi has been destroyed."
 msgstr "INF Asi wurde zerstört."
@@ -734,14 +735,14 @@ msgid ""
 "This is Carlyle. Enemy targets have been eliminated. Cleopatra still in one "
 "piece."
 msgstr ""
-"Dies ist Carlyle. Feindliche Ziele wurden eliminiert. Cleopatra ist noch in "
+"Dies ist Carlyle. Feindliche Ziele wurden eliminiert. Cleopatra ist noch an "
 "einem Stück."
 
 msgid "Acknowledged. Fall back to the main fleet and await new instructions."
-msgstr "Anerkannt. Fallt zurück zur Hauptflotte und erwarted neue Befehle."
+msgstr "Bestätigt. Kehrt zur Hauptflotte zurück und erwartet neue Befehle."
 
 msgid "This is going to be a long day, eh?"
-msgstr "Heute wird ein langer Tag sein, eh?"
+msgstr "Heute wird ein langer Tag, eh?"
 
 msgid "Maybe not, if we continue to lose ground the way we are already ..."
 msgstr ""
@@ -749,10 +750,10 @@ msgstr ""
 "..."
 
 msgid "Targets sighted: three capital ships, five escorts apiece."
-msgstr "Ziele erspäht: drei Hauptschiffe, fünf Eskorten pro Stück."
+msgstr "Ziele gesichtet: Drei Hauptschiffe, jeweils fünf Eskorten."
 
 msgid "You know what to do, guys. Let's take them down."
-msgstr ""
+msgstr "Ihr wisst was zu tun ist. Ausschwärmen und angreifen."
 
 msgid "Want to take bets on how soon before they run?"
 msgstr "Willst du wetten, wie lange es braucht bis sie fliehen?"
@@ -763,10 +764,10 @@ msgstr ""
 "es nicht tun werden."
 
 msgid "More fighters inbound."
-msgstr ""
+msgstr "Mehr Kämpfer im Anflug."
 
 msgid "Picking up another Pandoran squadron, incoming."
-msgstr ""
+msgstr "Weiteres Pandoran Geschwader gesichtet."
 
 msgid "See? That's why I didn't make a bet with you!"
 msgstr "Siehst du? Das ist warum ich nicht mit dir gewettet habe!"
@@ -774,10 +775,11 @@ msgstr "Siehst du? Das ist warum ich nicht mit dir gewettet habe!"
 msgid ""
 "All capital ships down. That's, what, fifty of these things we've scratched, "
 "alone?"
-msgstr ""
+msgstr "Alle Hauptschiffe vernichtet. Damit haben wir fünzig von den"
+"Dingern erwischt?"
 
 msgid "Seriously, I've lost count."
-msgstr "Im ernst, ich habe nicht mehr gezählt."
+msgstr "Im Ernst, ich habe den Überblick verloren."
 
 msgid "How many more can the Pandorans have?"
 msgstr "Wie viele können die Pandorianer noch haben?"
@@ -813,54 +815,57 @@ msgid ""
 "remains tremendous, though the ATAFs should help to give us the edge in "
 "battle. Be advised that the enemy are now in possession of UNF fighter craft."
 msgstr ""
-"Obwohl wir bei Coyote viele verloren haben ist es trotzdem wichtig, dass wir "
-"versuchen den Fortschritt der Pandorianischen Kriegsmaschinerie zu "
-"verhindern oder zumindest zu verlangsamen. Admiral Jenkins hat befohlen, das "
-"die Weißen Ritter einen Angriff auf die Feindlichen Truppen im System "
-"führen. Die Last der feindlichen Truppen bleibt gewaltig, obwohl die ATAFs "
-"uns helfen sollten, im Kampf die Spitze zu gewinnen. Seit beraten, das der "
-"Feind nun im Besitz eines UNF Kampfflugzeuges ist."
+"Obwohl wir bei Coyote viele Kämpfer verloren haben ist es wichtig, dass wir "
+"versuchen den Fortschritt der pandorianischen Kriegsmaschinerie zu "
+"verhindern oder zumindest zu verlangsamen. Admiral Jenkins hat befohlen, dass "
+"die Weißen Ritter einen Angriff auf die feindlichen Truppen im System "
+"führen. Die Menge der feindlichen Truppen bleibt gewaltig, obwohl die ATAFs "
+"uns helfen sollten im Kampf die Spitze zu gewinnen. Denkt daran, dass der "
+"Feind nun im Besitz eines UNF Kampfschiffs ist."
 
 msgid ""
 "All fighters, this is Commander de Winter. Enemy targets sighted, engage at "
 "will."
-msgstr ""
+msgstr "An alle Streitkräfte, hier spricht Kommandant de Winter. Feindliche"
+"Kämpfer gesichtet. Angriff nach belieben. 
 
 msgid "More enemies inbound."
-msgstr ""
+msgstr "Mehr Feinde im Anflug."
 
 msgid "Man, I've got to get me one of those!"
-msgstr ""
+msgstr "Verdammt, ich brauche auch so eines!"
 
 msgid "What the hell are those things you're flying?"
 msgstr "Was sind das für Dinger die ihr da fliegt?"
 
 msgid "An ATAF. Stands for Advanced Tactical Assault Fighter."
-msgstr ""
+msgstr "Ein ATAF. Advanced Tactical Assault Fighter."
 
 msgid "The CSN rolling those out to everyone?"
-msgstr ""
+msgstr "Bekommen wir die alle von der CSN?"
 
 msgid "No, they ... were built for a different purpose."
-msgstr ""
+msgstr "Nein, sie ... wurden für einen anderen Zweck gebaut."
 
 msgid "What sort of purpose?"
-msgstr ""
+msgstr "Welcher Zweck?"
 
 msgid "Sorry, for now, that's classified."
-msgstr ""
+msgstr "Sorry, das ist geheim."
 
 msgid "Griffin, this is de Winter. All targets destroyed."
-msgstr ""
+msgstr "Griffin, hier spricht de Winter. Alle Ziele vernichtet."
 
 msgid "Acknowledged, Commander. Stand by for new orders."
-msgstr ""
+msgstr "Bestätigt Kommander. Warte auf neue Befehle."
 
 msgid ""
 "The initial fight back against the Pandoran has gone well, but the system is "
 "still choked with their forces. We need to continue to engage them and force "
 "them to abandon the system."
-msgstr ""
+msgstr "Der intiale Angriff hat gute Erfolge gebracht. Das System ist aber "
+"imme noch voller Streitkräfte. Wir müssen sie weiter angreifen und zwingen "
+"das System zu verlassen."
 
 msgid ""
 "The assault isn't going as well as we want, and we're beginning to suffer "
@@ -868,26 +873,32 @@ msgid ""
 "continue the fight back, and attempt to hold the enemy here. They cannot be "
 "allowed to advance further in to Independent space."
 msgstr ""
+"Der Angriff läuft nicht so gut wie geplant. Wir haben heftige Verluste und "
+"die pandoranischen Kräfte beginnen uns zu überrennen. Trotzdem müssen "
+"wir weiterkämpfen und ihre Streitkräfte zurückhalten. Wir können nicht "
+"erlauben, dass sie sich weiter in unabhängiges Gebiet vorkämpfen."
 
 msgid "We're getting our arses kicked here! Any chance of any backup?!"
-msgstr ""
+msgstr "Wir bekommen ganz schön den Hintern versohlt! Wir brauchen Verstärkung"
 
 msgid "The White Knights are here! Finally!"
-msgstr ""
+msgstr "Die weißen Knights sind hier! Endlich!"
 
 msgid ""
 "All fighters, Captain Bailey has signalled the retreat. Coyote is lost. Fall "
 "back to the jumpgate."
-msgstr ""
+msgstr "An alle Kämpfer, Kapitän Bailey hat das Signal zum Rückzug gegeben."
+"Coyote ist verloren. Zieht euch zum Sprungtor zurück."
 
 msgid "You all heard the Captain - fall back, we'll cover the retreat."
-msgstr ""
+msgstr "Ihr habt den Kapitän gehört - zieht euch zurück, wir geben"
+"euch Rückendeckung."
 
 msgid "Estelle, we've got this. We can take them."
-msgstr ""
+msgstr "Estelle, wir haben die Lage unter Kontrolle."
 
 msgid "We're taking too many losses, Dodds. Fall back now, that's an order."
-msgstr ""
+msgstr "Wir haben heftige Verluste, Dodds. Rückzug, das ist ein Befehl."
 
 msgid ""
 "A patrol group has sighted a number of crates drifting near to Alexandria. "
@@ -896,11 +907,17 @@ msgid ""
 "them, in case they should wander in to any shipping lanes. Once we have them "
 "in our possession, we will work to determine how they came to be here."
 msgstr ""
+"Eine Patrouille hat eine Reihe von Kisten gesichtet, die in der Nähe "
+"von Alexandria treiben. Der Inhalt ist unbekannt, aber sie gehören zur "
+"CSN. Ein Shuttle wurde entsandt, um sie einzusammeln, damit sie nicht in "
+"irgendwelche Schifffahrtswege eindringen. Sobald wir sie haben "
+"werden wie untersuchen wie sie hierher gelangen konnten."
 
 msgid ""
 "Not expecting any company, Carr, so this should just be a routine pickup. "
 "We'll keep an eye out, though."
-msgstr ""
+msgstr "Wir erwarten keine Gesellschaft Carr. Sollte ein Routinejob sein"
+"Wir halten die Augen offen."
 
 msgid ""
 "The crates were found to be carrying a variety of munitions, though we're "

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: tbftss\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-06 18:26:00+0100\n"
-"PO-Revision-Date: 2018-10-28 17:16+0100\n"
+"PO-Revision-Date: 2018-10-28 18:54+0100\n"
 "Last-Translator: Lumidify Productions <lumidify@openmailbox.org>\n"
 "Language-Team: German <de@li.org>\n"
 "Language: de\n"
@@ -45,16 +45,19 @@ msgid "We've lost engines! We're a sitting duck!"
 msgstr "Triebwerke ausgefallen. Wir sind leichte Beute!"
 
 msgid "Our guns have been shot out! We have no defences!"
-msgstr ""
+msgstr "Unsere Waffen wurde zerstört! Wir haben keine Verteidigung!"
 
 msgid "Be advised, we're taking damage here. Please step up support."
-msgstr ""
+msgstr "Wir werden angegriffen. Bitte verstärken Sie die Unterstützung."
 
 msgid "We're sustaining heavy damage! All fighters, please assist, ASAP!"
 msgstr ""
+"Schwere Schäden erlitten. An alle Kämpfer, erbitten sofortige Unterstützung!"
 
 msgid "Mayday! Mayday! Defences are critical. We can't hold out much longer!"
 msgstr ""
+"Mayday! Mayday! Unser Zustand ist kritisch. Wir können nicht mehr lange "
+"durchhalten!"
 
 msgid "Mission target has escaped."
 msgstr "Missionsziel ist entkommen."
@@ -97,10 +100,10 @@ msgid "(Combined Guns)"
 msgstr "(Kombinierte Waffe)"
 
 msgid "System Power : %d%%"
-msgstr ""
+msgstr "Systemleistung : %d%%"
 
 msgid "%s (Leader)"
-msgstr ""
+msgstr "%s (Anführer)"
 
 msgid "Objective: %.2fkm"
 msgstr "Ziel: %.2fkm"
@@ -112,10 +115,10 @@ msgid "SELECT NEW FIGHTER"
 msgstr "NEUES KAMPFFLUGZEUG WÄHLEN"
 
 msgid "Suspicion"
-msgstr ""
+msgstr "Verdacht"
 
 msgid "Remaining Pilots: %d"
-msgstr ""
+msgstr "Verbleibende Piloten: %d"
 
 msgid "WARNING: INCOMING MISSILE!"
 msgstr "WARNUNG: RAKETE IM ANFLUG!"
@@ -124,7 +127,7 @@ msgid "Picked up %s"
 msgstr "%s aufgehoben"
 
 msgid "Jumpgate System Node"
-msgstr ""
+msgstr "Sprungturm Knoten"
 
 msgid "Incomplete"
 msgstr "Unvollständig"
@@ -262,13 +265,13 @@ msgid "Collect %d packages"
 msgstr "Sammle %d Pakete"
 
 msgid "Rescue %d civilians"
-msgstr ""
+msgstr "Rette %d Zivilisten"
 
 msgid "Cause %d enemies to surrender"
-msgstr ""
+msgstr "Zwinge %d Feinde sich zu ergeben"
 
 msgid "Reach %d waypoints"
-msgstr ""
+msgstr "Erreiche %d Wegpunkte"
 
 msgid "Complete challenge in %s or less"
 msgstr "Schließe Herausforderung in %d oder Sekunden weniger ab"
@@ -295,6 +298,9 @@ msgid ""
 "Congratulations, you have completed the campaign! You may now replay past "
 "missions, for fun, to boost stats, or to earn missing trophies!"
 msgstr ""
+"Herzlichen Glückwunsch, Sie haben die Kampagne abgeschlossen! Sie können die "
+"abgeschlossenen Missionen wiederholen und so ihre Statistiken verbessern "
+"oder fehlende Trophäen sammeln!"
 
 msgid "%s has fallen to the Pandorans"
 msgstr "%s wurde von Pandorianern besiegt"
@@ -303,7 +309,7 @@ msgid "[ %s ]  [ Missions %d / %d ]"
 msgstr "[ %s ] [ Missionen %d / %d ]"
 
 msgid "Fighter Database"
-msgstr ""
+msgstr "Kämpfer Datenbank"
 
 msgid "Page %d / %d"
 msgstr "Seite %d / %d"
@@ -312,19 +318,19 @@ msgid "(Common)"
 msgstr "(Gewöhnlich)"
 
 msgid "Destroyed"
-msgstr ""
+msgstr "Vernichtet"
 
 msgid "Affiliation"
-msgstr ""
+msgstr "Zugehörigkeit"
 
 msgid "Armour"
-msgstr ""
+msgstr "Panzerung"
 
 msgid "Shield"
-msgstr ""
+msgstr "Schilde"
 
 msgid "Speed"
-msgstr ""
+msgstr "Geschwindigkeit"
 
 msgid "Percent Complete"
 msgstr "Prozent Vollständig"
@@ -441,13 +447,13 @@ msgid "Stats"
 msgstr "Statistiken"
 
 msgid "Trophies"
-msgstr ""
+msgstr "Trophäen"
 
 msgid "Awarded : %d / %d"
 msgstr "Vergeben %d / %d"
 
 msgid "[Hidden]"
-msgstr ""
+msgstr "[Versteckt]"
 
 msgid "Fire"
 msgstr "Schießen"
@@ -483,7 +489,7 @@ msgid "Previous Fighter"
 msgstr "Vorheriger Kämpfer"
 
 msgid "Screenshot"
-msgstr ""
+msgstr "Screenshots"
 
 msgid "Controls"
 msgstr "Steuerung"
@@ -537,7 +543,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Restore Defaults"
-msgstr ""
+msgstr "Standard wiederherstellen"
 
 msgid "Restart"
 msgstr "Neu Starten"
@@ -565,16 +571,16 @@ msgid "Start Mission"
 msgstr "Mission anfangen"
 
 msgid "X"
-msgstr ""
+msgstr "X"
 
 msgid "Campaign"
 msgstr "Kampagne"
 
 msgid "Credits"
-msgstr ""
+msgstr "Credits"
 
 msgid "Patrol #1"
-msgstr ""
+msgstr "Patrouille #1"
 
 msgid ""
 "With the Pandorans having invaded Independent systems boardering the Mitikas "
@@ -588,7 +594,7 @@ msgstr ""
 "Aktivitäten berichtet."
 
 msgid "Check all waypoints"
-msgstr ""
+msgstr "Erreiche alle Wegpunkte"
 
 msgid "Anyone got anything to report?"
 msgstr "Hat irgendjemand etwas zu berichten?"
@@ -630,7 +636,7 @@ msgstr ""
 "Bericht erstatten."
 
 msgid "Patrol #2"
-msgstr ""
+msgstr "Patrouille #2"
 
 msgid ""
 "Patrols so far have not uncovered anything unusual, and it seems as though "
@@ -644,10 +650,10 @@ msgstr ""
 "leisten sorglos zu werden und müssen mit unseren Patrouillen weitermachen."
 
 msgid "Check all Waypoints"
-msgstr ""
+msgstr "Erreiche alle Wegpunkte"
 
 msgid "Destroy Pandoran fighters"
-msgstr ""
+msgstr "Zerstöre Pandoran Kämpfer"
 
 msgid ""
 "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; "
@@ -670,7 +676,7 @@ msgid "Got it. See you soon."
 msgstr "Verstanden. Sehe dich bald."
 
 msgid "Patrol #3"
-msgstr ""
+msgstr "Patrouille #3"
 
 msgid ""
 "Following the devastating loss of the Iliad system, we need to continue to "
@@ -815,7 +821,7 @@ msgid "Okay, let's get home and report in."
 msgstr "Okay wir können nach Hause gehen und Bericht erstatten."
 
 msgid "Alba Defence #1"
-msgstr ""
+msgstr "Alba Verteidigung #1"
 
 msgid ""
 "A number of key Independent systems have come under simultaneous attack by "
@@ -824,15 +830,21 @@ msgid ""
 "that we prevent Christabel from making any significant gains by amassing her "
 "forces in these locations."
 msgstr ""
+"Eine Reihe von unabhängigen Schlüsselsystemen sind von Tzac-Kräften "
+"gleichzeitig angegriffen worden. Wir müssen Sie vertreiben, damit wir uns "
+"weiterhin auf die dringlichere Bedrohung durch die pandoranische Armee "
+"konzentrieren können. Zu diesem Zeitpunkt ist es wichtig, dass wir "
+"Christabel daran hindern, durch Anhäufung Ihrer Kräfte an diesen Orten "
+"signifikante Gewinne zu erzielen."
 
 msgid "Defeat Tzac group #1"
-msgstr ""
+msgstr "Besiege Tzac Gruppe #1"
 
 msgid "Defeat Tzac group #2"
-msgstr ""
+msgstr "Besiege Tzac Gruppe #2"
 
 msgid "Defeat Tzac group #3"
-msgstr ""
+msgstr "Besiege Tzac Gruppe #3"
 
 msgid ""
 "Three Tzac fighter groups has been sighted in the area. We need to hunt them "

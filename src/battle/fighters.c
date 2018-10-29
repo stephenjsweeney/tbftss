@@ -541,7 +541,7 @@ void damageFighter(Entity *e, int amount, long flags)
 	/*
 	 * Sometimes run away if you take too much damage in a short space of time
 	 */
-	if (e->type == ET_FIGHTER && (!(e->aiFlags & AIF_EVADE)) && e != player && e->aiDamagePerSec >= (e->maxHealth + e->maxShield) * 0.1)
+	if (e->type == ET_FIGHTER && e->alive == ALIVE_ALIVE && (!(e->aiFlags & AIF_EVADE)) && e != player && e->aiDamagePerSec >= (e->maxHealth + e->maxShield) * 0.1)
 	{
 		if ((rand() % 10) > 7)
 		{

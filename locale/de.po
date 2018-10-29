@@ -136,7 +136,7 @@ msgstr "Zwischenpunkt konnte nicht aktiviert werden - Hauptziele noch nicht "
 
 msgid "Cannot activate waypoint - team mates too far away"
 msgstr "Zwischenpunkt konnte nicht aktiviert werden"
-Mannschaftskameraden zu weit weg"
+"Mannschaftskameraden zu weit weg"
 
 msgid "No Missiles"
 msgstr "Keine Raketen"
@@ -827,7 +827,7 @@ msgid ""
 "All fighters, this is Commander de Winter. Enemy targets sighted, engage at "
 "will."
 msgstr "An alle Streitkräfte, hier spricht Kommandant de Winter. Feindliche"
-"Kämpfer gesichtet. Angriff nach belieben. 
+"Kämpfer gesichtet. Angriff nach belieben. "
 
 msgid "More enemies inbound."
 msgstr "Mehr Feinde im Anflug."

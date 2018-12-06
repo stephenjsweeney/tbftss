@@ -73,6 +73,7 @@ extern void doFighterDatabase(void);
 extern void initFighterDatabaseDisplay(void);
 extern void drawFighterDatabase(void);
 extern void autoSizeWidgetButtons(char *group, int recenter);
+extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;
 extern Colors colors;

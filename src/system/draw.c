@@ -188,10 +188,16 @@ void scrollBackground(float x, float y)
 void drawBackground(SDL_Texture *texture)
 {
 	int i;
+	SDL_Rect dstRect;
 	
 	for (i = 0 ; i < 4 ; i++)
 	{
-		/*blitScaled(texture, backgroundPoint[i].x, backgroundPoint[i].y, SCREEN_WIDTH, SCREEN_HEIGHT, 0);*/
+		dstRect.x = backgroundPoint[i].x;
+		dstRect.y = backgroundPoint[i].y;
+		dstRect.w = SCREEN_WIDTH;
+		dstRect.h = SCREEN_HEIGHT;
+
+		SDL_RenderCopy(app.renderer, texture, NULL, &dstRect);
 	}
 }
 

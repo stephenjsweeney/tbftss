@@ -27,6 +27,7 @@ extern AtlasImage *getAtlasImage(char *name);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void *resize(void *array, int oldSize, int newSize);
 extern int isOnBattleScreen(int x, int y, int w, int h);
+extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;
 extern Battle battle;

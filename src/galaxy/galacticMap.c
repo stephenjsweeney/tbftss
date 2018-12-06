@@ -552,19 +552,21 @@ static void drawGalaxy(void)
 				switch (starSystem->type)
 				{
 					case SS_NORMAL:
-						SDL_SetTextureColorMod(arrowTexture->texture, 255, 0, 0);
+						setAtlasColor(255, 0, 0, 255);
 						break;
 						
 					case SS_SOL:
-						SDL_SetTextureColorMod(arrowTexture->texture, 0, 255, 0);
+						setAtlasColor(0, 255, 0, 255);
 						break;
 						
 					case SS_PANDORAN:
-						SDL_SetTextureColorMod(arrowTexture->texture, 64, 128, 255);
+						setAtlasColor(64, 128, 255, 255);
 						break;
 				}
 				
 				blitRotated(arrowTexture, ax, ay, aa);
+				
+				setAtlasColor(255, 255, 255, 255);
 			}
 		}
 	}
@@ -696,7 +698,7 @@ static void drawStarSystemDetail(void)
 		drawText(525, 160, 18, TA_LEFT, colors.lightGrey, CRAFT_TEXT, game.currentMission->craft);
 		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, SQUADRON_TEXT, game.currentMission->squadron);
 
-		app.textWidth = 500;
+		app.textWidth = 550;
 		
 		drawText(525, 230, 22, TA_LEFT, colors.white, game.currentMission->description);
 		

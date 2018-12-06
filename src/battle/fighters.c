@@ -928,11 +928,10 @@ static void addFighterStat(char *key)
 	
 	t = malloc(sizeof(Tuple));
 	memset(t, 0, sizeof(Tuple));
+	tail->next = t;
 	
 	STRNCPY(t->key, key, MAX_NAME_LENGTH);
 	t->value = 0;
-	
-	tail->next = t;
 	
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Added '%s' to fighter stats", key);
 }
@@ -1079,6 +1078,12 @@ void destroyFighterDefs(void)
 	{
 		e = defHead.next;
 		defHead.next = e->next;
+		
+		if (e->description)
+		{
+			free(e->description);
+		}
+		
 		free(e);
 	}
 }

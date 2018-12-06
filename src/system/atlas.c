@@ -34,6 +34,12 @@ void initAtlas(void)
 	loadAtlasData();
 }
 
+void setAtlasColor(int r, int g, int b, int a)
+{
+	SDL_SetTextureColorMod(atlasTexture, r, g, b);
+	SDL_SetTextureAlphaMod(atlasTexture, a);
+}
+
 AtlasImage *getAtlasImage(char *filename)
 {
 	AtlasImage *a;

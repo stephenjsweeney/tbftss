@@ -171,7 +171,7 @@ void drawTrophies(void)
 				blitRotated(sparkle, x + 32, y + 32, sparkleAngle);
 				blitRotated(sparkle, x + 32, y + 32, -sparkleAngle);
 				
-				SDL_SetTextureColorMod(trophyIcons[t->value]->texture, 255, 255, 255);
+				setAtlasColor(255, 255, 255, 255);
 				blitScaled(trophyIcons[t->value], x, y, 64, 64, 0);
 				drawText(x + 85, y - 10, 20, TA_LEFT, colors.yellow, t->title);
 				drawText(x + 85, y + 20, 18, TA_LEFT, colors.white, t->description);
@@ -512,19 +512,19 @@ static void setSparkleColor(Trophy *t)
 	switch (t->value)
 	{
 		case TROPHY_BRONZE:
-			SDL_SetTextureColorMod(sparkle->texture, 255, 128, 0);
+			setAtlasColor(255, 128, 0, 255);
 			break;
 		
 		case TROPHY_SILVER:
-			SDL_SetTextureColorMod(sparkle->texture, 192, 192, 192);
+			setAtlasColor(192, 192, 192, 255);
 			break;
 		
 		case TROPHY_GOLD:
-			SDL_SetTextureColorMod(sparkle->texture, 255, 255, 0);
+			setAtlasColor(255, 255, 0, 255);
 			break;
 		
 		case TROPHY_PLATINUM:
-			SDL_SetTextureColorMod(sparkle->texture, 0, 128, 255);
+			setAtlasColor(0, 128, 255, 255);
 			break;
 	}
 }

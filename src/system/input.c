@@ -118,6 +118,57 @@ void drawMouse(void)
 	blit(mousePointer, app.mouse.x, app.mouse.y, 1);
 }
 
+void doInput(void)
+{
+	SDL_Event event;
+	
+	while (SDL_PollEvent(&event))
+	{
+		switch (event.type)
+		{
+			case SDL_MOUSEMOTION:
+				doMouseMotion(&event.motion);
+				break;
+			
+			case SDL_MOUSEWHEEL:
+				doMouseWheel(&event.wheel);
+				break;
+			
+			case SDL_MOUSEBUTTONDOWN:
+				doMouseDown(&event.button);
+				break;
+
+			case SDL_MOUSEBUTTONUP:
+				doMouseUp(&event.button);
+				break;
+			
+			case SDL_KEYDOWN:
+				doKeyDown(&event.key);
+				break;
+				
+			case SDL_KEYUP:
+				doKeyUp(&event.key);
+				break;
+
+			case SDL_QUIT:
+				exit(0);
+				break;
+
+			case SDL_WINDOWEVENT:
+				switch (event.window.event)
+				{
+					case SDL_WINDOWEVENT_FOCUS_GAINED:
+						musicSetPlaying(1);
+						break;
+					case SDL_WINDOWEVENT_FOCUS_LOST:
+						musicSetPlaying(0);
+						break;
+				}
+				break;
+		}
+	}
+}
+
 void clearInput(void)
 {
 	SDL_Event event;

@@ -182,7 +182,7 @@ static void draw(void)
 	
 	drawStars();
 	
-	SDL_SetTextureColorMod(earthTexture->texture, 255, 255, 255);
+	setAtlasColor(255, 255, 255, 255);
 	
 	blit(earthTexture, earth.x, earth.y, 1);
 	
@@ -190,7 +190,7 @@ static void draw(void)
 	
 	drawEffects();
 	
-	SDL_SetTextureColorMod(logo[0]->texture, 255, 255, 255);
+	setAtlasColor(255, 255, 255, 255);
 	
 	blit(logo[0], (SCREEN_WIDTH / 2) - logo[0]->rect.w, 30, 0);
 	blit(logo[1], (SCREEN_WIDTH / 2), 30, 0);
@@ -228,10 +228,10 @@ static void drawFighters(void)
 {
 	int i;
 	
+	setAtlasColor(255, 255, 255, 255);
+	
 	for (i = 0 ; i < NUM_FIGHTERS ; i++)
 	{
-		SDL_SetTextureColorMod(fighters[i].texture->texture, 255, 255, 255);
-		
 		blit(fighters[i].texture, fighters[i].x, fighters[i].y, 1);
 	}
 }

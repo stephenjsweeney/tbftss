@@ -90,6 +90,7 @@ extern void awardTrophy(char *id);
 extern void initCredits(void);
 extern void showOKCancelDialog(void (*okCallback)(void), void (*cancelCallback)(void), const char *format, ...);
 extern char *getTranslatedString(char *string);
+extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;
 extern Battle battle;

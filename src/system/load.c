@@ -154,6 +154,8 @@ static void loadFighterStats(cJSON *fighterStatsJSON)
 	Tuple *t, *tail;
 	cJSON *fighterStatJSON;
 	
+	destroyFighterStats();
+	
 	tail = &game.fighterStatHead;
 	
 	if (fighterStatsJSON)

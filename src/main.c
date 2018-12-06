@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
 {
 	long then, lastFrameTime, frames;
 	float remainder;
-	SDL_Event event;
 	
 	memset(&app, 0, sizeof(App));
 	memset(&dev, 0, sizeof(Dev));
@@ -65,51 +64,7 @@ int main(int argc, char *argv[])
 	{
 		capFrameRate(&then, &remainder);
 		
-		while (SDL_PollEvent(&event))
-		{
-			switch (event.type)
-			{
-				case SDL_MOUSEMOTION:
-					doMouseMotion(&event.motion);
-					break;
-				
-				case SDL_MOUSEWHEEL:
-					doMouseWheel(&event.wheel);
-					break;
-				
-				case SDL_MOUSEBUTTONDOWN:
-					doMouseDown(&event.button);
-					break;
-
-				case SDL_MOUSEBUTTONUP:
-					doMouseUp(&event.button);
-					break;
-				
-				case SDL_KEYDOWN:
-					doKeyDown(&event.key);
-					break;
-					
-				case SDL_KEYUP:
-					doKeyUp(&event.key);
-					break;
-
-				case SDL_QUIT:
-					exit(0);
-					break;
-
-				case SDL_WINDOWEVENT:
-					switch (event.window.event)
-					{
-						case SDL_WINDOWEVENT_FOCUS_GAINED:
-							musicSetPlaying(1);
-							break;
-						case SDL_WINDOWEVENT_FOCUS_LOST:
-							musicSetPlaying(0);
-							break;
-					}
-					break;
-			}
-		}
+		doInput();
 		
 		if (app.modalDialog.type != MD_NONE)
 		{
@@ -209,7 +164,7 @@ static void handleLoggingArgs(int argc, char *argv[])
 {
 	int i;
 	
-	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
+	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
 	
 	for (i = 1 ; i < argc ; i++)
 	{
@@ -218,11 +173,6 @@ static void handleLoggingArgs(int argc, char *argv[])
 			dev.debug = 1;
 			
 			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG);
-		}
-		
-		if (strcmp(argv[i], "-warn") == 0)
-		{
-			SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
 		}
 		
 		if (strcmp(argv[i], "-info") == 0)

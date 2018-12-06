@@ -139,8 +139,10 @@ void drawEffects(void)
 	{
 		SDL_SetRenderDrawColor(app.renderer, e->r, e->g, e->b, e->a);
 
-		SDL_SetTextureBlendMode(e->texture->texture, SDL_BLENDMODE_ADD);
-		SDL_SetTextureAlphaMod(e->texture->texture, e->a);
+		if (e->texture != NULL)
+		{
+			SDL_SetTextureBlendMode(e->texture->texture, SDL_BLENDMODE_ADD);
+		}
 
 		switch (e->type)
 		{
@@ -153,23 +155,25 @@ void drawEffects(void)
 				break;
 
 			case EFFECT_TEXTURE:
-				SDL_SetTextureColorMod(e->texture->texture, e->r, e->g, e->b);
+				setAtlasColor(e->r, e->g, e->b, e->a);
 				blitScaled(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->size, e->size, 0);
 				break;
 
 			case EFFECT_HALO:
-				SDL_SetTextureColorMod(e->texture->texture, e->r, e->g, e->b);
+				setAtlasColor(e->r, e->g, e->b, e->a);
 				blitScaled(e->texture, e->x - battle.camera.x - (e->size / 2), e->y - battle.camera.y - (e->size / 2), e->size, e->size, 0);
 				break;
 
 			case EFFECT_ECM:
-				SDL_SetTextureColorMod(e->texture->texture, e->r, e->g, e->b);
+				setAtlasColor(e->r, e->g, e->b, e->a);
 				blitScaled(e->texture, SCREEN_WIDTH / 2 - (e->size / 2), SCREEN_HEIGHT / 2 - (e->size / 2), e->size, e->size, 0);
 				break;
 		}
 		
-		SDL_SetTextureAlphaMod(e->texture->texture, 255);
-		SDL_SetTextureBlendMode(e->texture->texture, SDL_BLENDMODE_BLEND);
+		if (e->texture != NULL)
+		{
+			SDL_SetTextureBlendMode(e->texture->texture, SDL_BLENDMODE_BLEND);
+		}
 	}
 	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);

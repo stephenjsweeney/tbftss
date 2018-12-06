@@ -223,6 +223,8 @@ static void drawHealthBars(void)
 		g = 200;
 	}
 	
+	setAtlasColor(255, 255, 255, 255);
+	
 	blit(armour, 6, 9, 0);
 	drawHealthShieldBar(player->health, player->maxHealth, 30, 10, r, g, b, 1);
 	
@@ -273,6 +275,8 @@ static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g
 
 static void drawAbilityBars(void)
 {
+	setAtlasColor(255, 255, 255, 255);
+	
 	blit(boost, 6, 49, 0);
 	drawBoostECMBar(battle.boostTimer, BOOST_RECHARGE_TIME, 30, 50, 128, 128, 255);
 	
@@ -319,6 +323,8 @@ static void drawBoostECMBar(int current, int max, int x, int y, int r, int g, in
 static void drawWeaponInfo(void)
 {
 	int i, y;
+	
+	setAtlasColor(255, 255, 255, 255);
 	
 	if (!player->combinedGuns)
 	{
@@ -367,19 +373,19 @@ static void drawPlayerTargeter(void)
 	{
 		if (player->target)
 		{
-			SDL_SetTextureColorMod(targetCircle->texture, 255, 0, 0);
+			setAtlasColor(255, 0, 0, 255);
 		}
 		else if (battle.missionTarget)
 		{
-			SDL_SetTextureColorMod(targetCircle->texture, 0, 255, 0);
+			setAtlasColor(0, 255, 0, 255);
 		}
 		else if (battle.messageSpeaker)
 		{
-			SDL_SetTextureColorMod(targetCircle->texture, 255, 255, 255);
+			setAtlasColor(255, 255, 255, 255);
 		}
 		else
 		{
-			SDL_SetTextureColorMod(targetCircle->texture, 255, 255, 0);
+			setAtlasColor(255, 255, 0, 255);
 		}
 		
 		blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
@@ -394,7 +400,7 @@ static void drawPlayerTargeter(void)
 		x += sin(TO_RAIDANS(angle)) * 45;
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		SDL_SetTextureColorMod(targetPointer->texture, 255, 0, 0);
+		setAtlasColor(255, 0, 0, 255);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
@@ -408,7 +414,7 @@ static void drawPlayerTargeter(void)
 		x += sin(TO_RAIDANS(angle)) * 45;
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		SDL_SetTextureColorMod(targetPointer->texture, 0, 255, 0);
+		setAtlasColor(0, 255, 0, 255);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
@@ -422,7 +428,7 @@ static void drawPlayerTargeter(void)
 		x += sin(TO_RAIDANS(angle)) * 45;
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		SDL_SetTextureColorMod(targetPointer->texture, 255, 255, 0);
+		setAtlasColor(255, 255, 0, 255);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
@@ -436,7 +442,7 @@ static void drawPlayerTargeter(void)
 		x += sin(TO_RAIDANS(angle)) * 45;
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		SDL_SetTextureColorMod(targetPointer->texture, 255, 255, 255);
+		setAtlasColor(255, 255, 255, 255);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
@@ -445,12 +451,12 @@ static void drawPlayerTargeter(void)
 static void drawNumFighters(void)
 {
 	/* Allies */
-	SDL_SetTextureColorMod(smallFighter->texture, 150, 200, 255);
+	setAtlasColor(150, 200, 255, 255);
 	blit(smallFighter, 400, 15, 0);
 	drawText(425, 11, 14, TA_LEFT, colors.white, battle.numAllies < 1000 ? "(%d)" : "(999+)", battle.numAllies);
 	
 	/* Enemies */
-	SDL_SetTextureColorMod(smallFighter->texture, 255, 100, 100);
+	setAtlasColor(255, 100, 100, 255);
 	blit(smallFighter, SCREEN_WIDTH - 410, 15, 0);
 	drawText(SCREEN_WIDTH - 420, 11, 14, TA_RIGHT, colors.white, !battle.unlimitedEnemies ? "(%d)" : "(999+)", battle.numEnemies);
 }
@@ -458,6 +464,8 @@ static void drawNumFighters(void)
 static void drawObjectives(void)
 {
 	int timeRemaining;
+	
+	setAtlasColor(255, 255, 255, 255);
 	
 	if (!game.currentMission->challengeData.isChallenge)
 	{
@@ -608,7 +616,7 @@ static void drawPlayerSelect(void)
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	SDL_SetTextureColorMod(targetCircle->texture, 0, 200, 255);
+	setAtlasColor(0, 200, 255, 255);
 	
 	blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
 	
@@ -618,6 +626,8 @@ static void drawPlayerSelect(void)
 	{
 		drawText(SCREEN_WIDTH / 2, 540, 20, TA_CENTER, colors.white, "%s (%d%% / %d%%)", player->defName, getPercent(player->health, player->maxHealth), getPercent(player->shield, player->maxShield));
 	}
+	
+	setAtlasColor(255, 255, 255, 255);
 	
 	blit(arrowLeft, (SCREEN_WIDTH / 2) - 200, 520, 1);
 	blit(arrowRight, (SCREEN_WIDTH / 2) + 200, 520, 1);

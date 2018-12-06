@@ -22,5 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern AtlasImage *getAtlasImage(char *filename);
 extern void blit(AtlasImage *atlasImage, int x, int y, int centered);
+extern void musicSetPlaying(int playing);
 
 extern App app;

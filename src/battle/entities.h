@@ -39,6 +39,7 @@ extern int isOnBattleScreen(int x, int y, int w, int h);
 extern long lookup(char *name);
 extern void awardTrophy(char *id);
 extern void resetFighter(Entity *e);
+extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;
 extern Battle battle;

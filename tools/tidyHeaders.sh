@@ -3,7 +3,7 @@
 <?php
 
 /*
-Copyright (C) 2015-2016 Parallel Realities
+Copyright (C) 2015-2018 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -24,6 +24,51 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 $UPDATE_FILES = false;
 
+function funcSort($a, $b)
+{
+	$a = str_replace("*", "", $a);
+	$b = str_replace("*", "", $b);
+	
+	$aParts = explode(" ", $a);
+	$bParts = explode(" ", $b);
+	
+	return strcmp($aParts[2], $bParts[2]);
+}
+
+function updateExterns($header, $defines, $functions, $structs)
+{
+	asort($defines);
+	usort($functions, "funcSort");
+	asort($structs);
+	
+	$newHeader = [];
+	
+	foreach ($header as $line)
+	{
+		$newHeader[] = $line;
+	}
+
+	if (count($defines) > 0)
+	{
+		$newHeader[] = "\n";
+		$newHeader = array_merge($newHeader, $defines);
+	}
+	
+	if (count($functions) > 0)
+	{
+		$newHeader[] = "\n";
+		$newHeader = array_merge($newHeader, $functions);
+	}
+
+	if (count($structs) > 0)
+	{
+		$newHeader[] = "\n";
+		$newHeader = array_merge($newHeader, $structs);
+	}
+
+	return $newHeader;
+}
+
 function cleanHeader($headerFile)
 {
 	global $UPDATE_FILES;
@@ -39,22 +84,28 @@ function cleanHeader($headerFile)
 	{
 		$header = file($headerFile);
 		$body = file_get_contents($bodyFile);
+		$isMain = strpos($body, "int main(int argc, char *argv[])");
 		$lines = [];
+		$defines = [];
+		$functions = [];
+		$structs = [];
 	
 		$i = 0;
 		$hasChanges = false;
 		
 		foreach ($header as $line)
 		{
-			if (preg_match("/extern|define/", $line) && strstr($line, "getTranslatedString") === FALSE)
+			if ((preg_match("/extern|define/", $line) || preg_match("/;$/", $line)) && strstr($line, "getTranslatedString") === FALSE)
 			{
 				preg_match($func_pattern, $line, $matches);
 				
 				if (count($matches) == 3)
 				{
+					unset($header[$i]);
+					
 					$extern = $matches[2];
 					
-					if (!preg_match_all("/\b[(]?${extern}[\\(;,)\\n]/", $body))
+					if (!preg_match_all("/\b${extern}\b/", $body))
 					{
 						if (!$hasChanges)
 						{
@@ -62,22 +113,10 @@ function cleanHeader($headerFile)
 							$hasChanges = true;
 						}
 						echo "\t- $line";
-						unset($header[$i]);
 					}
-					
-					if (!in_array($line, $lines))
+					else if (!in_array($line, $lines))
 					{
-						$lines[] = $line;
-					}
-					else
-					{
-						if (!$hasChanges)
-						{
-							echo "$headerFile\n";
-							$hasChanges = true;
-						}
-						echo "\t- $line";
-						unset($header[$i]);
+						$functions[] = $line;
 					}
 				}
 				
@@ -85,34 +124,31 @@ function cleanHeader($headerFile)
 
 				if (count($matches) == 2)
 				{
+					unset($header[$i]);
+					
 					$extern = $matches[1];
 					
 					$externs[] = $extern;
 					
-					if (!preg_match_all("/\b${extern}[\\.\\-\\)]/", $body))
+					if (!$isMain)
 					{
-						if (!$hasChanges)
+						if (!preg_match_all("/\b${extern}\b/", $body))
 						{
-							echo "$headerFile\n";
-							$hasChanges = true;
+							if (!$hasChanges)
+							{
+								echo "$headerFile\n";
+								$hasChanges = true;
+							}
+							echo "\t- $line";
 						}
-						echo "\t- $line";
-						unset($header[$i]);
-					}
-					
-					if (!in_array($line, $lines))
-					{
-						$lines[] = $line;
-					}
-					else
-					{
-						if (!$hasChanges)
+						else if (!in_array($line, $lines))
 						{
-							echo "$headerFile\n";
-							$hasChanges = true;
+							$structs[] = $line;
 						}
-						echo "\t- $line";
-						unset($header[$i]);
+					}
+					else if (!in_array($line, $lines))
+					{
+						$structs[] = $line;
 					}
 				}
 				
@@ -120,6 +156,8 @@ function cleanHeader($headerFile)
 
 				if (count($matches) == 2)
 				{
+					unset($header[$i]);
+					
 					$extern = $matches[1];
 					
 					$externs[] = $extern;
@@ -132,30 +170,36 @@ function cleanHeader($headerFile)
 							$hasChanges = true;
 						}
 						echo "\t- $line";
-						unset($header[$i]);
 					}
-					
-					if (!in_array($line, $lines))
+					else if (!in_array($line, $lines))
 					{
-						$lines[] = $line;
-					}
-					else
-					{
-						if (!$hasChanges)
-						{
-							echo "$headerFile\n";
-							$hasChanges = true;
-						}
-						echo "\t- $line";
-						unset($header[$i]);
+						$defines[] = $line;
 					}
 				}
 			}
 			
 			$i++;
 		}
+
+		do
+		{
+			$wasBlank = false;
+			$line = trim(end($header));
+			if (strlen($line) == 0)
+			{
+				array_pop($header);
+				$wasBlank = true;
+			}
+		}
+		while ($wasBlank);
 		
-		if ($UPDATE_FILES && $hasChanges)
+		$defines = array_unique($defines);
+		$functions = array_unique($functions);
+		$structs = array_unique($structs);
+		
+		$header = updateExterns($header, $defines, $functions, $structs);
+		
+		if ($UPDATE_FILES)
 		{
 			file_put_contents($headerFile, $header);
 		}
@@ -174,7 +218,7 @@ function recurseDir($dir)
 			{
 				recurseDir("$dir/$file");
 			}
-			else if (strstr($file, ".h") !== FALSE)
+			else if (strstr($file, ".h") !== FALSE && $file != 'i18n.h')
 			{
 				cleanHeader("$dir/$file");
 			}

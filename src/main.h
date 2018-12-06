@@ -54,7 +54,7 @@ extern void saveGame(void);
 extern void initCredits(void);
 extern void doTrophyAlerts(void);
 extern void drawTrophyAlert(void);
-extern void musicSetPlaying(int playing);
+extern void doInput(void);
 
 App app;
 Colors colors;

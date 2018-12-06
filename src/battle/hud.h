@@ -35,6 +35,7 @@ extern int playerHasGun(int type);
 extern char *getTranslatedString(char *string);
 extern char *timeToString(long millis, int showHours);
 extern int jumpgateEnabled(void);
+extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;
 extern Battle battle;

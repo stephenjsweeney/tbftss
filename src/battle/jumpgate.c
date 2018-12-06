@@ -27,7 +27,7 @@ static void addEscapeEffect(Entity *ent);
 static void addNodes(Entity *jumpgate, long flags);
 static void nodeDie(void);
 
-static SDL_Texture *portal;
+static AtlasImage *portal;
 static float portalAngle;
 
 Entity *spawnJumpgate(int side, long flags)
@@ -43,7 +43,7 @@ Entity *spawnJumpgate(int side, long flags)
 	jumpgate = spawnEntity();
 	jumpgate->type = ET_JUMPGATE;
 	jumpgate->health = jumpgate->maxHealth = 1;
-	jumpgate->texture = getTexture("gfx/entities/jumpgate.png");
+	jumpgate->texture = getAtlasImage("gfx/entities/jumpgate.png");
 	jumpgate->action = think;
 	jumpgate->draw = draw;
 	jumpgate->side = side;
@@ -56,10 +56,11 @@ Entity *spawnJumpgate(int side, long flags)
 	
 	addNodes(jumpgate, flags);
 
-	portal = getTexture("gfx/entities/portal.png");
+	portal = getAtlasImage("gfx/entities/portal.png");
 	portalAngle = 0;
 	
-	SDL_QueryTexture(jumpgate->texture, NULL, NULL, &jumpgate->w, &jumpgate->h);
+	jumpgate->w = jumpgate->texture->rect.w;
+	jumpgate->h = jumpgate->texture->rect.h;
 	
 	battle.jumpgate = jumpgate;
 
@@ -69,10 +70,10 @@ Entity *spawnJumpgate(int side, long flags)
 static void addNodes(Entity *jumpgate, long flags)
 {
 	Entity *node;
-	SDL_Texture *nodeTexture;
+	AtlasImage *nodeTexture;
 	int i;
 	
-	nodeTexture = getTexture("gfx/entities/jumpgateNode.png");
+	nodeTexture = getAtlasImage("gfx/entities/jumpgateNode.png");
 	
 	for (i = 0 ; i < 360 ; i += 36)
 	{
@@ -87,7 +88,8 @@ static void addNodes(Entity *jumpgate, long flags)
 		node->texture = nodeTexture;
 		node->flags = EF_TAKES_DAMAGE+EF_AI_IGNORE;
 		node->die = nodeDie;
-		SDL_QueryTexture(node->texture, NULL, NULL, &node->w, &node->h);
+		node->w = node->texture->rect.w;
+		node->h = node->texture->rect.h;
 		
 		if (jumpgate->side == SIDE_NONE)
 		{

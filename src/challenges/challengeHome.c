@@ -42,9 +42,9 @@ static void nextPage(void);
 static void fighterDatabase(void);
 
 static SDL_Texture *background;
-static SDL_Texture *planetTexture;
-static SDL_Texture *challengeIcon;
-static SDL_Texture *challengeIconHighlight;
+static AtlasImage *planetTexture;
+static AtlasImage *challengeIcon;
+static AtlasImage *challengeIconHighlight;
 static Widget *start;
 static PointF planet;
 static int show;
@@ -94,9 +94,9 @@ void initChallengeHome(void)
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 
 	background = getTexture(getBackgroundTextureName(rand()));
-	planetTexture = getTexture(getPlanetTextureName(rand()));
-	challengeIcon = getTexture("gfx/challenges/challengeIcon.png");
-	challengeIconHighlight = getTexture("gfx/challenges/challengeIconHighlight.png");
+	planetTexture = getAtlasImage(getPlanetTextureName(rand()));
+	challengeIcon = getAtlasImage("gfx/challenges/challengeIcon.png");
+	challengeIconHighlight = getAtlasImage("gfx/challenges/challengeIconHighlight.png");
 
 	battle.camera.x =  battle.camera.y = 0;
 

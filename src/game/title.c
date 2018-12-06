@@ -38,9 +38,9 @@ static void quit(void);
 static void returnFromOptions(void);
 
 static SDL_Texture *background;
-static SDL_Texture *logo;
-static SDL_Texture *pandoranWar;
-static SDL_Texture *earthTexture;
+static AtlasImage *logo[2];
+static AtlasImage *pandoranWar;
+static AtlasImage *earthTexture;
 static PointF earth;
 static Entity fighters[NUM_FIGHTERS];
 static const char *fighterTextures[] = {"gfx/fighters/firefly.png", "gfx/fighters/hammerhead.png", "gfx/fighters/hyena.png", "gfx/fighters/lynx.png", "gfx/fighters/kingfisher.png", "gfx/fighters/leopard.png", "gfx/fighters/nymph.png", "gfx/fighters/ray.png", "gfx/fighters/rook.png", "gfx/fighters/taf.png"};
@@ -60,13 +60,14 @@ void initTitle(void)
 	
 	destroyBattle();
 	
-	logo = getTexture("gfx/title/logo.png");
+	logo[0] = getAtlasImage("gfx/title/logo01.png");
+	logo[1] = getAtlasImage("gfx/title/logo02.png");
 	
-	pandoranWar = getTexture("gfx/title/pandoran.png");
+	pandoranWar = getAtlasImage("gfx/title/pandoran.png");
 	
 	background = getTexture("gfx/backgrounds/background02.jpg");
 	
-	earthTexture = getTexture("gfx/planets/earth.png");
+	earthTexture = getAtlasImage("gfx/planets/earth.png");
 	
 	earth.x = rand() % SCREEN_WIDTH;
 	earth.y = -(128 + (rand() % 128));
@@ -113,7 +114,7 @@ static void initFighters(void)
 	{
 		fighters[i].x = rand() % (SCREEN_WIDTH - 32);
 		fighters[i].y = SCREEN_HEIGHT + (rand() % SCREEN_HEIGHT);
-		fighters[i].texture = getTexture(fighterTextures[rand() % numTextures]);
+		fighters[i].texture = getAtlasImage(fighterTextures[rand() % numTextures]);
 		fighters[i].dy = -(1 + rand() % 3);
 	}
 }
@@ -169,7 +170,7 @@ static void doFighters(void)
 		{
 			self->x = rand() % (SCREEN_WIDTH - 32);
 			self->y = SCREEN_HEIGHT + (rand() % SCREEN_HEIGHT);
-			self->texture = getTexture(fighterTextures[rand() % numTextures]);
+			self->texture = getAtlasImage(fighterTextures[rand() % numTextures]);
 			self->dy = -(1 + rand() % 3);
 		}
 	}
@@ -181,13 +182,18 @@ static void draw(void)
 	
 	drawStars();
 	
+	SDL_SetTextureColorMod(earthTexture->texture, 255, 255, 255);
+	
 	blit(earthTexture, earth.x, earth.y, 1);
 	
 	drawFighters();
 	
 	drawEffects();
 	
-	blit(logo, SCREEN_WIDTH / 2, 50, 1);
+	SDL_SetTextureColorMod(logo[0]->texture, 255, 255, 255);
+	
+	blit(logo[0], (SCREEN_WIDTH / 2) - logo[0]->rect.w, 30, 0);
+	blit(logo[1], (SCREEN_WIDTH / 2), 30, 0);
 	
 	blit(pandoranWar, SCREEN_WIDTH / 2, 110, 1);
 	
@@ -224,6 +230,8 @@ static void drawFighters(void)
 	
 	for (i = 0 ; i < NUM_FIGHTERS ; i++)
 	{
+		SDL_SetTextureColorMod(fighters[i].texture->texture, 255, 255, 255);
+		
 		blit(fighters[i].texture, fighters[i].x, fighters[i].y, 1);
 	}
 }

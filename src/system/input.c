@@ -20,19 +20,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "input.h"
 
-static SDL_Texture *mousePointer;
-static SDL_Texture *mousePointerNormal;
-static SDL_Texture *mousePointerMove;
+static AtlasImage *mousePointer;
+static AtlasImage *mousePointerNormal;
+static AtlasImage *mousePointerMove;
 
 void initInput(void)
 {
 	memset(&app.mouse, 0, sizeof(Mouse));
 
-	mousePointerNormal = getTexture("gfx/input/mousePointer.png");
-	mousePointerMove = getTexture("gfx/input/mousePointerMove.png");
+	mousePointerNormal = getAtlasImage("gfx/input/mousePointer.png");
+	mousePointerMove = getAtlasImage("gfx/input/mousePointerMove.png");
 
 	mousePointer = mousePointerNormal;
-	SDL_QueryTexture(mousePointer, NULL, NULL, &app.mouse.w, &app.mouse.h);
+	app.mouse.w = mousePointer->rect.w;
+	app.mouse.h = mousePointer->rect.h;
 }
 
 void doKeyDown(SDL_KeyboardEvent *event)

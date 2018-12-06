@@ -26,8 +26,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_DEBRIS_TEXTURES					6
 
 extern float mod(float n, float x);
-extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
-extern SDL_Texture *getTexture(char *filename);
+extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
+extern AtlasImage *getAtlasImage(char *filename);
 extern void addDebrisFire(int x, int y);
 extern void *resize(void *array, int oldSize, int newSize);
 extern int isOnBattleScreen(int x, int y, int w, int h);

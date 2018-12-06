@@ -420,21 +420,21 @@ void drawEntities(void)
 
 static void drawEntity(Entity *e)
 {
-	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
+	SDL_SetTextureColorMod(e->texture->texture, 255, 255, 255);
 
 	if (e->armourHit > 0)
 	{
-		SDL_SetTextureColorMod(e->texture, 255, 255 - e->armourHit, 255 - e->armourHit);
+		SDL_SetTextureColorMod(e->texture->texture, 255, 255 - e->armourHit, 255 - e->armourHit);
 	}
 
 	if (e->systemHit > 0)
 	{
-		SDL_SetTextureColorMod(e->texture, 255 - e->systemHit, 255, 255);
+		SDL_SetTextureColorMod(e->texture->texture, 255 - e->systemHit, 255, 255);
 	}
 
 	if (e->flags & EF_DISABLED)
 	{
-		SDL_SetTextureColorMod(e->texture, disabledGlow, disabledGlow, 255);
+		SDL_SetTextureColorMod(e->texture->texture, disabledGlow, disabledGlow, 255);
 	}
 
 	blitRotated(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->angle);
@@ -444,7 +444,7 @@ static void drawEntity(Entity *e)
 		drawShieldHitEffect(e);
 	}
 
-	SDL_SetTextureColorMod(e->texture, 255, 255, 255);
+	SDL_SetTextureColorMod(e->texture->texture, 255, 255, 255);
 }
 
 static void drawHealthBar(Entity *e)

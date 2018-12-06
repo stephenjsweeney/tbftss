@@ -229,7 +229,7 @@ static void draw(void)
 	if (battle.destroyTorelli)
 	{
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
-		SDL_SetTextureAlphaMod(battle.fireStormTexture, battle.torelliFireStormAlpha);
+		SDL_SetTextureAlphaMod(battle.fireStormTexture->texture, battle.torelliFireStormAlpha);
 		blitScaled(battle.fireStormTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight, 0);
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	}

@@ -22,12 +22,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define ESCAPE_DISTANCE 256
 
-extern SDL_Texture *getTexture(char *filename);
+extern AtlasImage *getAtlasImage(char *filename);
 extern Entity *spawnEntity(void);
 extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void playBattleSound(int id, int x, int y);
-extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
+extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
 extern char *getTranslatedString(char *string);
 extern void addSmallExplosion(void);
 extern void addDebris(int x, int y, int amount);

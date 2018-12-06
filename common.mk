@@ -1,16 +1,23 @@
 VERSION = 1.4
-REVISION = 2
+REVISION = 3
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
 OUT = bin
 
-SEARCHPATH += src/ src/battle src/challenges src/draw src/game src/galaxy src/json src/system src/test
+SEARCHPATH += src/ src/battle 
+SEARCHPATH += src/challenges 
+SEARCHPATH += src/game 
+SEARCHPATH += src/galaxy 
+SEARCHPATH += src/json 
+SEARCHPATH += src/system 
+SEARCHPATH += src/test
+
 vpath %.c $(SEARCHPATH)
 vpath %.h $(SEARCHPATH)
 
 DEPS += defs.h structs.h
 
-_OBJS += ai.o
+_OBJS += ai.o atlas.o
 _OBJS += battle.o bullets.o
 _OBJS += capitalShips.o challengeHome.o challenges.o cJSON.o controls.o credits.o
 _OBJS += debris.o dev.o draw.o

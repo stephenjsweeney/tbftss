@@ -26,7 +26,7 @@ static void draw(void);
 static void handleKeyboard(void);
 
 static SDL_Texture *background;
-static SDL_Texture *earthTexture;
+static AtlasImage *earthTexture;
 static Credit head;
 static Credit *tail;
 static float creditSpeed;
@@ -47,7 +47,7 @@ void initCredits(void)
 	
 	background = getTexture("gfx/backgrounds/background02.jpg");
 	
-	earthTexture = getTexture("gfx/planets/earth.png");
+	earthTexture = getAtlasImage("gfx/planets/earth.png");
 	
 	loadCredits();
 	
@@ -90,7 +90,7 @@ static void draw(void)
 	
 	blit(earthTexture, SCREEN_WIDTH - 200, (SCREEN_HEIGHT / 2) + 100, 1);
 	
-	limitTextWidth(CREDIT_LINE_LIMIT);
+	app.textWidth = CREDIT_LINE_LIMIT;
 	
 	for (c = head.next ; c != NULL ; c = c->next)
 	{
@@ -100,7 +100,7 @@ static void draw(void)
 		}
 	}
 	
-	limitTextWidth(0);
+	app.textWidth = 0;
 }
 
 static void loadCredits(void)
@@ -115,7 +115,7 @@ static void loadCredits(void)
 	text = readFile("data/credits/credits.json");
 	root = cJSON_Parse(text);
 	
-	limitTextWidth(CREDIT_LINE_LIMIT);
+	app.textWidth = CREDIT_LINE_LIMIT;
 
 	for (node = root->child ; node != NULL ; node = node->next)
 	{
@@ -137,7 +137,7 @@ static void loadCredits(void)
 		y += c->h + dist;
 	}
 	
-	limitTextWidth(0);
+	app.textWidth = 0;
 	
 	/* the music that plays over the credits is 2m 44s, so scroll credits roughly inline with that (plus 2 seconds) */
 	timeout = ((2 * 60) + 46) * FPS;

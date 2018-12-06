@@ -157,9 +157,11 @@ void drawFighterDatabase(void)
 	
 	y = MAX(y, 320) + 75;
 	
-	limitTextWidth(r.w - 100);
+	app.textWidth = r.w - 50;
+	
 	drawText(r.x + 25, y, 18, TA_LEFT, colors.white, fighter->description);
-	limitTextWidth(0);
+	
+	app.textWidth = 0;
 	
 	drawWidgets("fighterDB");
 }

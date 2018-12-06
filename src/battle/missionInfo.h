@@ -20,9 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-extern void blit(SDL_Texture *texture, int x, int y, int center);
+extern void blit(AtlasImage *atlasImage, int x, int y, int center);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern SDL_Texture *getTexture(char *filename);
+extern AtlasImage *getAtlasImage(char *filename);
 extern char *getChallengeDescription(Challenge *c);
 extern void drawWidgets(char *groupName);
 extern char *getTranslatedString(char *string);

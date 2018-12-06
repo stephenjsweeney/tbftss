@@ -53,15 +53,20 @@ static SDL_Texture *loadTexture(char *filename)
 {
 	SDL_Texture *texture;
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s ...", filename);
 
 	texture = IMG_LoadTexture(app.renderer, getFileLocation(filename));
-
+	
+	if (!texture)
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Failed to load texture '%s'", filename);
+		exit(1);
+	}
+	
 	addTextureToCache(filename, texture);
 
 	return texture;
 }
-
 
 SDL_Texture *getTexture(char *filename)
 {
@@ -82,6 +87,20 @@ SDL_Texture *getTexture(char *filename)
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "%s not in texture cache", filename);
 	
 	return loadTexture(filename);
+}
+
+SDL_Texture *toTexture(SDL_Surface *surface, int destroySurface)
+{
+	SDL_Texture *texture;
+	
+	texture = SDL_CreateTextureFromSurface(app.renderer, surface);
+	
+	if (destroySurface)
+	{
+		SDL_FreeSurface(surface);
+	}
+	
+	return texture;
 }
 
 void destroyTextures(void)

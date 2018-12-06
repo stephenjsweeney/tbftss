@@ -48,6 +48,7 @@ extern void initWidgets(void);
 extern void initBackground(void);
 extern void initResources(void);
 extern void initControls(void);
+extern void initAtlas(void);
 extern void initFighterDatabase(void);
 extern void destroyLookups(void);
 extern void destroyFonts(void);

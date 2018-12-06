@@ -20,15 +20,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "missionInfo.h"
 
-static void drawMissionSummary(SDL_Texture *title);
+static void drawMissionSummary(AtlasImage *title);
 static void drawObjectives(void);
 static void drawChallenges(void);
 
-static SDL_Texture *missionStartTexture;
-static SDL_Texture *missionInProgressTexture;
-static SDL_Texture *missionCompleteTexture;
-static SDL_Texture *missionFailedTexture;
-static SDL_Texture *timeUpTexture;
+static AtlasImage *missionStartTexture;
+static AtlasImage *missionInProgressTexture;
+static AtlasImage *missionCompleteTexture;
+static AtlasImage *missionFailedTexture;
+static AtlasImage *timeUpTexture;
 static const char *objectiveStatus[OS_MAX];
 static char *OBJECTIVES_TEXT;
 static char *NONE_TEXT;
@@ -47,11 +47,11 @@ void initMissionInfo(void)
 	NONE_TEXT = _("(none)");
 	TIME_LIMIT_TEXT = _("Time Limit: %s");
 	
-	missionStartTexture = !isChallenge ? getTexture("gfx/battle/missionStart.png") : getTexture("gfx/battle/challengeStart.png");
-	missionInProgressTexture = !isChallenge ? getTexture("gfx/battle/missionInProgress.png") : getTexture("gfx/battle/challengeInProgress.png");
-	missionCompleteTexture = !isChallenge ? getTexture("gfx/battle/missionComplete.png") : getTexture("gfx/battle/challengeComplete.png");
-	missionFailedTexture = !isChallenge ? getTexture("gfx/battle/missionFailed.png") : getTexture("gfx/battle/challengeFailed.png");
-	timeUpTexture = getTexture("gfx/battle/timeUp.png");
+	missionStartTexture = !isChallenge ? getAtlasImage("gfx/battle/missionStart.png") : getAtlasImage("gfx/battle/challengeStart.png");
+	missionInProgressTexture = !isChallenge ? getAtlasImage("gfx/battle/missionInProgress.png") : getAtlasImage("gfx/battle/challengeInProgress.png");
+	missionCompleteTexture = !isChallenge ? getAtlasImage("gfx/battle/missionComplete.png") : getAtlasImage("gfx/battle/challengeComplete.png");
+	missionFailedTexture = !isChallenge ? getAtlasImage("gfx/battle/missionFailed.png") : getAtlasImage("gfx/battle/challengeFailed.png");
+	timeUpTexture = getAtlasImage("gfx/battle/timeUp.png");
 }
 
 void drawMissionInfo(void)
@@ -98,7 +98,7 @@ void drawMissionInfo(void)
 	}
 }
 
-static void drawMissionSummary(SDL_Texture *header)
+static void drawMissionSummary(AtlasImage *header)
 {
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);

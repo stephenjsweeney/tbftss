@@ -194,9 +194,11 @@ void drawControls(void)
 	drawText((SCREEN_WIDTH / 2) - 50, 525, 16, TA_RIGHT, colors.white, BACKSPACE_TEXT);
 	drawText((SCREEN_WIDTH / 2) + 50, 525, 16, TA_LEFT, colors.white, ESCAPE_TEXT);
 	
-	limitTextWidth(r.w - 100);
+	app.textWidth = r.w - 100;
+	
 	drawText(SCREEN_WIDTH / 2, 560, 16, TA_CENTER, colors.white, HELP_TEXT);
-	limitTextWidth(0);
+	
+	app.textWidth = 0;
 	
 	drawWidgets("controls");
 }

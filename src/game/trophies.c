@@ -28,9 +28,9 @@ static void setSparkleColor(Trophy *t);
 static void nextAlert(void);
 
 static Trophy *alertTrophy;
-static SDL_Texture *trophyIcons[TROPHY_MAX];
-static SDL_Texture *sparkle;
-static SDL_Texture *alertSphere;
+static AtlasImage *trophyIcons[TROPHY_MAX];
+static AtlasImage *sparkle;
+static AtlasImage *alertSphere;
 static SDL_Rect alertRect;
 static int alertTimer;
 static int page;
@@ -50,13 +50,13 @@ void initTrophies(void)
 {
 	loadTrophyData("data/trophies/trophies.json");
 
-	trophyIcons[TROPHY_BRONZE] = getTexture("gfx/trophies/bronze.png");
-	trophyIcons[TROPHY_SILVER] = getTexture("gfx/trophies/silver.png");
-	trophyIcons[TROPHY_GOLD] = getTexture("gfx/trophies/gold.png");
-	trophyIcons[TROPHY_PLATINUM] = getTexture("gfx/trophies/platinum.png");
-	trophyIcons[TROPHY_UNEARNED] = getTexture("gfx/trophies/unearned.png");
-	sparkle = getTexture("gfx/trophies/sparkle.png");
-	alertSphere = getTexture("gfx/trophies/alertSphere.png");
+	trophyIcons[TROPHY_BRONZE] = getAtlasImage("gfx/trophies/bronze.png");
+	trophyIcons[TROPHY_SILVER] = getAtlasImage("gfx/trophies/silver.png");
+	trophyIcons[TROPHY_GOLD] = getAtlasImage("gfx/trophies/gold.png");
+	trophyIcons[TROPHY_PLATINUM] = getAtlasImage("gfx/trophies/platinum.png");
+	trophyIcons[TROPHY_UNEARNED] = getAtlasImage("gfx/trophies/unearned.png");
+	sparkle = getAtlasImage("gfx/trophies/sparkle.png");
+	alertSphere = getAtlasImage("gfx/trophies/alertSphere.png");
 	
 	alertRect.h = 90;
 	alertRect.y = 10;
@@ -89,7 +89,7 @@ void initTrophiesDisplay(void)
 			STRNCPY(t->awardDateStr, timeToDate(t->awardDate), MAX_NAME_LENGTH);
 		}
 		
-		textSize(t->description, 18, &w, &h);
+		calcTextDimensions(t->description, 18, &w, &h);
 		
 		boxWidth = MAX(boxWidth, w);
 	}
@@ -171,6 +171,7 @@ void drawTrophies(void)
 				blitRotated(sparkle, x + 32, y + 32, sparkleAngle);
 				blitRotated(sparkle, x + 32, y + 32, -sparkleAngle);
 				
+				SDL_SetTextureColorMod(trophyIcons[t->value]->texture, 255, 255, 255);
 				blitScaled(trophyIcons[t->value], x, y, 64, 64, 0);
 				drawText(x + 85, y - 10, 20, TA_LEFT, colors.yellow, t->title);
 				drawText(x + 85, y + 20, 18, TA_LEFT, colors.white, t->description);
@@ -282,8 +283,9 @@ static void nextAlert(void)
 	{
 		playSound(SND_TROPHY);
 		
-		textSize(alertTrophy->title, 30, &alertRect.w, &h);
-		textSize(alertTrophy->description, 20, &w, &h);
+		calcTextDimensions(alertTrophy->title, 30, &alertRect.w, &h);
+		
+		calcTextDimensions(alertTrophy->description, 20, &w, &h);
 		
 		alertRect.w = MAX(alertRect.w, w);
 		alertRect.w = MAX(400, alertRect.w);
@@ -510,19 +512,19 @@ static void setSparkleColor(Trophy *t)
 	switch (t->value)
 	{
 		case TROPHY_BRONZE:
-			SDL_SetTextureColorMod(sparkle, 255, 128, 0);
+			SDL_SetTextureColorMod(sparkle->texture, 255, 128, 0);
 			break;
 		
 		case TROPHY_SILVER:
-			SDL_SetTextureColorMod(sparkle, 192, 192, 192);
+			SDL_SetTextureColorMod(sparkle->texture, 192, 192, 192);
 			break;
 		
 		case TROPHY_GOLD:
-			SDL_SetTextureColorMod(sparkle, 255, 255, 0);
+			SDL_SetTextureColorMod(sparkle->texture, 255, 255, 0);
 			break;
 		
 		case TROPHY_PLATINUM:
-			SDL_SetTextureColorMod(sparkle, 0, 128, 255);
+			SDL_SetTextureColorMod(sparkle->texture, 0, 128, 255);
 			break;
 	}
 }

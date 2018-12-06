@@ -101,7 +101,7 @@ void drawModalDialog(void)
 {
 	SDL_Rect r;
 
-	limitTextWidth(700);
+	app.textWidth = 700;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 96);
@@ -135,5 +135,5 @@ void drawModalDialog(void)
 			break;
 	}
 
-	limitTextWidth(0);
+	app.textWidth = 0;
 }

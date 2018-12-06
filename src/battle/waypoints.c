@@ -43,11 +43,12 @@ Entity *spawnWaypoint(void)
 	waypoint->type = ET_WAYPOINT;
 	waypoint->active = 0;
 	waypoint->health = waypoint->maxHealth = FPS;
-	waypoint->texture = getTexture("gfx/entities/waypoint.png");
+	waypoint->texture = getAtlasImage("gfx/entities/waypoint.png");
 	waypoint->flags = EF_NO_MT_BOX+EF_MISSION_TARGET+EF_NO_HEALTH_BAR;
 	waypoint->action = think;
 	
-	SDL_QueryTexture(waypoint->texture, NULL, NULL, &waypoint->w, &waypoint->h);
+	waypoint->w = waypoint->texture->rect.w;
+	waypoint->h = waypoint->texture->rect.h;
 	
 	waypointId++;
 	

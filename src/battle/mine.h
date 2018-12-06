@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define SYSTEM_POWER	50
 
 extern Entity *spawnEntity(void);
-extern SDL_Texture *getTexture(char *filename);
+extern AtlasImage *getAtlasImage(char *filename);
 extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void addMineExplosion(void);

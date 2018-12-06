@@ -25,8 +25,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern char *readFile(char *filename);
 extern long lookup(char *name);
-extern void blit(SDL_Texture *texture, int x, int y, int centered);
-extern SDL_Texture *getTexture(char *filename);
+extern void blit(AtlasImage *atlasImage, int x, int y, int centered);
+extern AtlasImage *getAtlasImage(char *filename);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
 extern void playSound(int id);
 extern char **getFileList(char *dir, int *count);
@@ -35,7 +35,7 @@ extern void updateControlKey(char *name);
 extern void updateControlButton(char *name);
 extern void clearControlConfig(char *name);
 extern void clearInput(void);
-extern void textSize(char *text, int size, int *w, int *h);
+extern void calcTextDimensions(char *text, int size, int *w, int *h);
 
 extern App app;
 extern Colors colors;

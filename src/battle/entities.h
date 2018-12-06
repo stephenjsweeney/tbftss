@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define DISABLED_GLOW_MIN 				128
 #define DISABLED_GLOW_MAX 				255
 
-extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
+extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
 extern void doFighter(void);
 extern void doCapitalShip(void);
 extern void doRope(Entity *e);

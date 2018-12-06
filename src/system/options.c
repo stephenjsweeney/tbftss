@@ -113,9 +113,11 @@ static void drawMain(void)
 
 	drawWidgets("options");
 
-	limitTextWidth(r.w - 100);
+	app.textWidth = r.w - 100;
+	
 	drawText(SCREEN_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, RESOLUTION_TEXT);
-	limitTextWidth(0);
+	
+	app.textWidth = 0;
 }
 
 static void controls(void)

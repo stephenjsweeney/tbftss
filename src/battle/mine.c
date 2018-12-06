@@ -26,9 +26,9 @@ static void lookForFighters(void);
 static void lookForPlayer(void);
 static void doSplashDamage(void);
 
-static SDL_Texture *mineWarning = NULL;
-static SDL_Texture *mineNormal = NULL;
-static SDL_Texture *shadowMine = NULL;
+static AtlasImage *mineWarning = NULL;
+static AtlasImage *mineNormal = NULL;
+static AtlasImage *shadowMine = NULL;
 
 Entity *spawnMine(int type)
 {
@@ -36,9 +36,9 @@ Entity *spawnMine(int type)
 	
 	if (!mineWarning)
 	{
-		shadowMine = getTexture("gfx/entities/shadowMine.png");
-		mineNormal = getTexture("gfx/entities/mine.png");
-		mineWarning = getTexture("gfx/entities/mineWarning.png");
+		shadowMine = getAtlasImage("gfx/entities/shadowMine.png");
+		mineNormal = getAtlasImage("gfx/entities/mine.png");
+		mineWarning = getAtlasImage("gfx/entities/mineWarning.png");
 	}
 
 	STRNCPY(mine->name, "Mine", MAX_NAME_LENGTH);
@@ -58,7 +58,8 @@ Entity *spawnMine(int type)
 		mine->speed *= 0.01;
 	}
 	
-	SDL_QueryTexture(mine->texture, NULL, NULL, &mine->w, &mine->h);
+	mine->w = mine->texture->rect.w;
+	mine->h = mine->texture->rect.h;
 
 	return mine;
 }

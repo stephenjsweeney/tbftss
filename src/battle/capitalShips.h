@@ -29,7 +29,7 @@ extern Entity *spawnEntity(void);
 extern void addSmallExplosion(void);
 extern void playBattleSound(int id, int x, int y);
 extern float getAngle(int x1, int y1, int x2, int y2);
-extern SDL_Texture *getTexture(char *filename);
+extern AtlasImage *getAtlasImage(char *filename);
 extern char *readFile(char *filename);
 extern long flagsToLong(char *flags, int *add);
 extern long lookup(char *name);

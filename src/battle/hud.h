@@ -22,9 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_HUD_MESSAGES	6
 
-extern SDL_Texture *getTexture(char *filename);
-extern void blitRotated(SDL_Texture *texture, int x, int y, float angle);
-extern void blit(SDL_Texture *texture, int x, int y, int center);
+extern AtlasImage *getAtlasImage(char *filename);
+extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
+extern void blit(AtlasImage *atlasImage, int x, int y, int center);
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern int getDistance(int x1, int y1, int x2, int y2);

@@ -27,7 +27,6 @@ static void capFrameRate(long *then, float *remainder);
 int main(int argc, char *argv[])
 {
 	long then, lastFrameTime, frames;
-	long expireTextTimer;
 	float remainder;
 	SDL_Event event;
 	
@@ -57,10 +56,10 @@ int main(int argc, char *argv[])
 	
 	handleMissionArgs(argc, argv);
 	
+	remainder = 0;
 	dev.fps = frames = 0;
 	then = SDL_GetTicks();
 	lastFrameTime = SDL_GetTicks() + 1000;
-	expireTextTimer = SDL_GetTicks() + (1000 * 10);
 	
 	while (1)
 	{
@@ -169,13 +168,6 @@ int main(int argc, char *argv[])
 			saveScreenshot();
 			
 			clearControl(CONTROL_SCREENSHOT);
-		}
-		
-		if (SDL_GetTicks() > expireTextTimer)
-		{
-			expireTexts(0);
-			
-			expireTextTimer = SDL_GetTicks() + (1000 * 10);
 		}
 		
 		/* don't save more than once per request, and not in the middle of battle */

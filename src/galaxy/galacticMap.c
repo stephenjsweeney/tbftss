@@ -54,8 +54,8 @@ static void fighterDatabase(void);
 
 static StarSystem *selectedStarSystem;
 static SDL_Texture *background;
-static SDL_Texture *starSystemTexture;
-static SDL_Texture *arrowTexture;
+static AtlasImage *starSystemTexture;
+static AtlasImage *arrowTexture;
 static SDL_Point camera;
 static Pulse pulseHead = {0};
 static Pulse *pulseTail;
@@ -98,9 +98,9 @@ void initGalacticMap(void)
 
 	background = getTexture("gfx/backgrounds/background02.jpg");
 
-	starSystemTexture = getTexture("gfx/galaxy/starSystem.png");
+	starSystemTexture = getAtlasImage("gfx/galaxy/starSystem.png");
 
-	arrowTexture = getTexture("gfx/galaxy/arrow.png");
+	arrowTexture = getAtlasImage("gfx/galaxy/arrow.png");
 
 	selectedStarSystem = getStarSystem(game.selectedStarSystem);
 
@@ -552,15 +552,15 @@ static void drawGalaxy(void)
 				switch (starSystem->type)
 				{
 					case SS_NORMAL:
-						SDL_SetTextureColorMod(arrowTexture, 255, 0, 0);
+						SDL_SetTextureColorMod(arrowTexture->texture, 255, 0, 0);
 						break;
 						
 					case SS_SOL:
-						SDL_SetTextureColorMod(arrowTexture, 0, 255, 0);
+						SDL_SetTextureColorMod(arrowTexture->texture, 0, 255, 0);
 						break;
 						
 					case SS_PANDORAN:
-						SDL_SetTextureColorMod(arrowTexture, 64, 128, 255);
+						SDL_SetTextureColorMod(arrowTexture->texture, 64, 128, 255);
 						break;
 				}
 				
@@ -696,9 +696,11 @@ static void drawStarSystemDetail(void)
 		drawText(525, 160, 18, TA_LEFT, colors.lightGrey, CRAFT_TEXT, game.currentMission->craft);
 		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, SQUADRON_TEXT, game.currentMission->squadron);
 
-		limitTextWidth(500);
+		app.textWidth = 500;
+		
 		drawText(525, 230, 22, TA_LEFT, colors.white, game.currentMission->description);
-		limitTextWidth(0);
+		
+		app.textWidth = 0;
 	}
 
 	if (game.currentMission->completed)

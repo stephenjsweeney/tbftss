@@ -24,17 +24,17 @@ static void changeCourse(Debris *d);
 static void resizeDrawList(void);
 
 static Debris **debrisToDraw;
-static SDL_Texture *debrisTexture[MAX_DEBRIS_TEXTURES];
+static AtlasImage *debrisTexture[MAX_DEBRIS_TEXTURES];
 static int drawCapacity;
 
 void initDebris(void)
 {
-	debrisTexture[0] = getTexture("gfx/debris/debris1.png");
-	debrisTexture[1] = getTexture("gfx/debris/debris2.png");
-	debrisTexture[2] = getTexture("gfx/debris/debris3.png");
-	debrisTexture[3] = getTexture("gfx/debris/debris4.png");
-	debrisTexture[4] = getTexture("gfx/debris/debris5.png");
-	debrisTexture[5] = getTexture("gfx/debris/debris6.png");
+	debrisTexture[0] = getAtlasImage("gfx/debris/debris1.png");
+	debrisTexture[1] = getAtlasImage("gfx/debris/debris2.png");
+	debrisTexture[2] = getAtlasImage("gfx/debris/debris3.png");
+	debrisTexture[3] = getAtlasImage("gfx/debris/debris4.png");
+	debrisTexture[4] = getAtlasImage("gfx/debris/debris5.png");
+	debrisTexture[5] = getAtlasImage("gfx/debris/debris6.png");
 
 	drawCapacity = INITIAL_DEBRIS_DRAW_CAPACITY;
 

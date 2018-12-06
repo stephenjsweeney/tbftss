@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2018 Parallel Realities
+Copyright (C) 2018 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -19,17 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
+#include "../json/cJSON.h"
 
-extern void drawWidgets(char *groupName);
-extern Widget *getWidget(const char *name, const char *group);
-extern char *getTranslatedString(char *string);
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern Entity **getDBFighters(int *num);
-extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
-extern float mod(float n, float x);
-extern void limitTextWidth(int width);
-extern char *getTranslatedString(char *string);
-
-extern App app;
-extern Colors colors;
-extern Game game;
+extern SDL_Texture *getTexture(const char *filename);
+extern unsigned long hashcode(const char *str);
+extern char *readFile(const char *filename);

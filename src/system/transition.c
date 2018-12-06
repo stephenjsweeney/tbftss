@@ -31,8 +31,6 @@ void startSectionTransition(void)
 	clearInput();
 	
 	presentScene();
-	
-	expireTexts(1);
 }
 
 void endSectionTransition(void)

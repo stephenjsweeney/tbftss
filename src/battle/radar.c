@@ -20,15 +20,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "radar.h"
 
-static SDL_Texture *radarTexture;
-static SDL_Texture *radarWarningTexture;
+static AtlasImage *radarTexture;
+static AtlasImage *radarWarningTexture;
 static int radarRanges[] = {20, 40, 60};
 static char *CAUTION_TEXT;
 
 void initRadar(void)
 {
-	radarTexture = getTexture("gfx/hud/radar.png");
-	radarWarningTexture = getTexture("gfx/hud/radarWarning.png");
+	radarTexture = getAtlasImage("gfx/hud/radar.png");
+	radarWarningTexture = getAtlasImage("gfx/hud/radarWarning.png");
 	
 	/* medium range by default */
 	battle.radarRange = 1;

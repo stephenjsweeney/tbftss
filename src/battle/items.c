@@ -47,11 +47,12 @@ void loadItemDefs(void)
 		e->active = 1;
 		STRNCPY(e->name, cJSON_GetObjectItem(node, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, cJSON_GetObjectItem(node, "defName")->valuestring, MAX_NAME_LENGTH);
-		e->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
+		e->texture = getAtlasImage(cJSON_GetObjectItem(node, "texture")->valuestring);
 		e->health = e->maxHealth = FPS;
 		e->flags = EF_NO_HEALTH_BAR;
 		
-		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+		e->w = e->texture->rect.w;
+		e->h = e->texture->rect.h;
 
 		defTail->next = e;
 		defTail = e;
@@ -227,7 +228,8 @@ void loadItems(cJSON *node)
 					e->y += (rand() % scatter) - (rand() % scatter);
 				}
 
-				SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+				e->w = e->texture->rect.w;
+				e->h = e->texture->rect.h;
 			}
 
 			node = node->next;

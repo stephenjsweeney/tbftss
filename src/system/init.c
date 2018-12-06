@@ -125,7 +125,6 @@ void initGameSystem(void)
 	int i, numInitFuns;
 	void (*initFuncs[]) (void) = {
 		initFonts,
-		initInput,
 		initResources,
 		initSounds,
 		initWidgets,
@@ -158,6 +157,10 @@ void initGameSystem(void)
 	initColor(&colors.black, 0, 0, 0);
 	initColor(&colors.lightGrey, 192, 192, 192);
 	initColor(&colors.darkGrey, 128, 128, 128);
+	
+	initAtlas();
+	
+	initInput();
 
 	for (i = 0 ; i < numInitFuns ; i++)
 	{
@@ -341,10 +344,6 @@ void cleanup(void)
 	destroyLookups();
 
 	destroyTextures();
-
-	expireTexts(1);
-
-	destroyFonts();
 
 	destroySounds();
 

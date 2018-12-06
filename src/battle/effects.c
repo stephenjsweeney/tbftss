@@ -25,17 +25,17 @@ static void setRandomShieldHue(Effect *e);
 static void resizeDrawList(void);
 static int pointOnScreen(float x, float y);
 
-static SDL_Texture *explosionTexture;
-static SDL_Texture *shieldHitTexture;
-static SDL_Texture *haloTexture;
+static AtlasImage *explosionTexture;
+static AtlasImage *shieldHitTexture;
+static AtlasImage *haloTexture;
 static Effect **effectsToDraw;
 static int drawCapacity;
 
 void initEffects(void)
 {
-	explosionTexture = getTexture("gfx/effects/explosion.png");
-	shieldHitTexture = getTexture("gfx/effects/shieldHit.png");
-	haloTexture = getTexture("gfx/effects/halo.png");
+	explosionTexture = getAtlasImage("gfx/effects/explosion.png");
+	shieldHitTexture = getAtlasImage("gfx/effects/shieldHit.png");
+	haloTexture = getAtlasImage("gfx/effects/halo.png");
 
 	drawCapacity = INITIAL_EFFECT_DRAW_CAPACITY;
 
@@ -139,8 +139,8 @@ void drawEffects(void)
 	{
 		SDL_SetRenderDrawColor(app.renderer, e->r, e->g, e->b, e->a);
 
-		SDL_SetTextureBlendMode(e->texture, SDL_BLENDMODE_ADD);
-		SDL_SetTextureAlphaMod(e->texture, e->a);
+		SDL_SetTextureBlendMode(e->texture->texture, SDL_BLENDMODE_ADD);
+		SDL_SetTextureAlphaMod(e->texture->texture, e->a);
 
 		switch (e->type)
 		{
@@ -153,22 +153,25 @@ void drawEffects(void)
 				break;
 
 			case EFFECT_TEXTURE:
-				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
+				SDL_SetTextureColorMod(e->texture->texture, e->r, e->g, e->b);
 				blitScaled(e->texture, e->x - battle.camera.x, e->y - battle.camera.y, e->size, e->size, 0);
 				break;
 
 			case EFFECT_HALO:
-				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
+				SDL_SetTextureColorMod(e->texture->texture, e->r, e->g, e->b);
 				blitScaled(e->texture, e->x - battle.camera.x - (e->size / 2), e->y - battle.camera.y - (e->size / 2), e->size, e->size, 0);
 				break;
 
 			case EFFECT_ECM:
-				SDL_SetTextureColorMod(e->texture, e->r, e->g, e->b);
+				SDL_SetTextureColorMod(e->texture->texture, e->r, e->g, e->b);
 				blitScaled(e->texture, SCREEN_WIDTH / 2 - (e->size / 2), SCREEN_HEIGHT / 2 - (e->size / 2), e->size, e->size, 0);
 				break;
 		}
+		
+		SDL_SetTextureAlphaMod(e->texture->texture, 255);
+		SDL_SetTextureBlendMode(e->texture->texture, SDL_BLENDMODE_BLEND);
 	}
-
+	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 }
 
@@ -176,8 +179,8 @@ void drawShieldHitEffect(Entity *e)
 {
 	int size = MAX(e->w, e->h) + 32;
 	
-	SDL_SetTextureBlendMode(shieldHitTexture, SDL_BLENDMODE_BLEND);
-	SDL_SetTextureAlphaMod(shieldHitTexture, e->shieldHit);
+	SDL_SetTextureBlendMode(shieldHitTexture->texture, SDL_BLENDMODE_BLEND);
+	SDL_SetTextureAlphaMod(shieldHitTexture->texture, e->shieldHit);
 	blitScaled(shieldHitTexture, e->x - battle.camera.x, e->y - battle.camera.y, size, size, 1);
 }
 

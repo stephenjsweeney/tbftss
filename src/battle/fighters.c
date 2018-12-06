@@ -87,7 +87,7 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 
 	if (strcmp(name, "Civilian") == 0 && rand() % 2 == 0)
 	{
-		e->texture = getTexture("gfx/craft/civilian02.png");
+		e->texture = getAtlasImage("gfx/craft/civilian02.png");
 	}
 
 	if (e->aiFlags & AIF_AGGRESSIVE)
@@ -137,7 +137,7 @@ static void randomizeDart(Entity *dart)
 
 	sprintf(texture, "gfx/fighters/dart0%d.png", 1 + rand() % 7);
 
-	dart->texture = getTexture(texture);
+	dart->texture = getAtlasImage(texture);
 }
 
 static void randomizeDartGuns(Entity *dart)
@@ -756,7 +756,7 @@ Entity **getDBFighters(int *num)
 
 	for (e = defHead.next ; e != NULL ; e = e->next)
 	{
-		if (strlen(e->description) > 0)
+		if (e->description != NULL)
 		{
 			*num = *num + 1;
 		}
@@ -766,7 +766,7 @@ Entity **getDBFighters(int *num)
 	
 	for (e = defHead.next ; e != NULL ; e = e->next)
 	{
-		if (strlen(e->description) > 0)
+		if (e->description != NULL)
 		{
 			dbFighters[i] = e;
 			
@@ -812,7 +812,7 @@ static void loadFighterDef(char *filename)
 	cJSON *root, *node;
 	char *text;
 	Entity *e;
-	int i;
+	int i, len;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
@@ -832,21 +832,23 @@ static void loadFighterDef(char *filename)
 
 		STRNCPY(e->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
 		STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
-		STRNCPY(e->description, cJSON_GetObjectItem(root, "description")->valuestring, MAX_DESCRIPTION_LENGTH);
 		STRNCPY(e->affiliation, cJSON_GetObjectItem(root, "affiliation")->valuestring, MAX_NAME_LENGTH);
 		e->health = e->maxHealth = cJSON_GetObjectItem(root, "health")->valueint;
 		e->shield = e->maxShield = getJSONValue(root, "shield", 0);
 		e->speed = cJSON_GetObjectItem(root, "speed")->valuedouble;
 		e->reloadTime = getJSONValue(root, "reloadTime", 0);
 		e->shieldRechargeRate = getJSONValue(root, "shieldRechargeRate", 0);
-		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
+		e->texture = getAtlasImage(cJSON_GetObjectItem(root, "texture")->valuestring);
 		
-		if (strlen(e->description) > 0)
+		if (strlen(cJSON_GetObjectItem(root, "description")->valuestring) > 0)
 		{
-			STRNCPY(e->description, _(cJSON_GetObjectItem(root, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
+			len = strlen(_(cJSON_GetObjectItem(root, "description")->valuestring)) + 1;
+			e->description = malloc(len);
+			strcpy(e->description, _(cJSON_GetObjectItem(root, "description")->valuestring));
 		}
 
-		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+		e->w = e->texture->rect.w;
+		e->h = e->texture->rect.h;
 
 		if (cJSON_GetObjectItem(root, "guns"))
 		{

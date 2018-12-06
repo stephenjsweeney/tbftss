@@ -449,7 +449,7 @@ static void loadCapitalShipDef(char *filename)
 		STRNCPY(e->defName, e->name, MAX_NAME_LENGTH);
 		e->shield = e->maxShield = cJSON_GetObjectItem(root, "shield")->valueint;
 		e->shieldRechargeRate = cJSON_GetObjectItem(root, "shieldRechargeRate")->valueint;
-		e->texture = getTexture(cJSON_GetObjectItem(root, "texture")->valuestring);
+		e->texture = getAtlasImage(cJSON_GetObjectItem(root, "texture")->valuestring);
 		e->speed = 1;
 		e->systemPower = 3;
 		e->flags = EF_NO_HEALTH_BAR;
@@ -457,7 +457,8 @@ static void loadCapitalShipDef(char *filename)
 		e->action = think;
 		e->die = die;
 
-		SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+		e->w = e->texture->rect.w;
+		e->h = e->texture->rect.h;
 
 		e->separationRadius = MAX(e->w, e->h);
 
@@ -501,9 +502,10 @@ static void loadComponents(Entity *parent, cJSON *components)
 			e->health = e->maxHealth = cJSON_GetObjectItem(component, "health")->valueint;
 			e->offsetX = cJSON_GetObjectItem(component, "x")->valueint;
 			e->offsetY = cJSON_GetObjectItem(component, "y")->valueint;
-			e->texture = getTexture(cJSON_GetObjectItem(component, "texture")->valuestring);
+			e->texture = getAtlasImage(cJSON_GetObjectItem(component, "texture")->valuestring);
 
-			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+			e->w = e->texture->rect.w;
+			e->h = e->texture->rect.h;
 
 			if (cJSON_GetObjectItem(component, "flags"))
 			{
@@ -553,7 +555,7 @@ static void loadGuns(Entity *parent, cJSON *guns)
 			e->reloadTime = cJSON_GetObjectItem(gun, "reloadTime")->valueint;
 			e->offsetX = cJSON_GetObjectItem(gun, "x")->valueint;
 			e->offsetY = cJSON_GetObjectItem(gun, "y")->valueint;
-			e->texture = getTexture(cJSON_GetObjectItem(gun, "texture")->valuestring);
+			e->texture = getAtlasImage(cJSON_GetObjectItem(gun, "texture")->valuestring);
 			e->guns[0].type = lookup(cJSON_GetObjectItem(gun, "type")->valuestring);
 			e->missiles = getJSONValue(gun, "missiles", 0);
 
@@ -567,7 +569,8 @@ static void loadGuns(Entity *parent, cJSON *guns)
 				e->aiFlags = flagsToLong(cJSON_GetObjectItem(gun, "aiFlags")->valuestring, NULL);
 			}
 
-			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+			e->w = e->texture->rect.w;
+			e->h = e->texture->rect.h;
 
 			e->systemPower = MAX_SYSTEM_POWER;
 
@@ -603,14 +606,15 @@ static void loadEngines(Entity *parent, cJSON *engines)
 			e->health = e->maxHealth = cJSON_GetObjectItem(engine, "health")->valueint;
 			e->offsetX = cJSON_GetObjectItem(engine, "x")->valueint;
 			e->offsetY = cJSON_GetObjectItem(engine, "y")->valueint;
-			e->texture = getTexture(cJSON_GetObjectItem(engine, "texture")->valuestring);
+			e->texture = getAtlasImage(cJSON_GetObjectItem(engine, "texture")->valuestring);
 
 			if (cJSON_GetObjectItem(engine, "flags"))
 			{
 				e->flags = flagsToLong(cJSON_GetObjectItem(engine, "flags")->valuestring, NULL);
 			}
 
-			SDL_QueryTexture(e->texture, NULL, NULL, &e->w, &e->h);
+			e->w = e->texture->rect.w;
+			e->h = e->texture->rect.h;
 
 			e->systemPower = MAX_SYSTEM_POWER;
 

@@ -155,14 +155,15 @@ void loadMission(char *filename)
 		planet = getAutoPlanet(filename);
 	}
 	
-	battle.planetTexture = getTexture(planet);
-	battle.fireStormTexture = getTexture("gfx/misc/torelliFireStorm.png");
+	battle.planetTexture = getAtlasImage(planet);
+	battle.fireStormTexture = getAtlasImage("gfx/misc/torelliFireStorm.png");
 	battle.planet.x = (SCREEN_WIDTH / 2) - (rand() % SCREEN_WIDTH) + (rand() % SCREEN_WIDTH);
 	battle.planet.y = (SCREEN_HEIGHT / 2) - (rand() % SCREEN_HEIGHT) + (rand() % SCREEN_HEIGHT);
 	
 	if (strcmp(planet, "gfx/planets/star.png") != 0)
 	{
-		SDL_QueryTexture(battle.planetTexture, NULL, NULL, &battle.planetWidth, &battle.planetHeight);
+		battle.planetWidth = battle.planetTexture->rect.w;
+		battle.planetHeight = battle.planetTexture->rect.h;
 		
 		planetScale = 75 + (rand() % 125);
 		planetScale *= 0.01;

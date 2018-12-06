@@ -32,8 +32,8 @@ static void handleControlWidgets(void);
 static Widget head;
 static Widget *tail;
 static Widget *selectedWidget;
-static SDL_Texture *optionsLeft;
-static SDL_Texture *optionsRight;
+static AtlasImage *optionsLeft;
+static AtlasImage *optionsRight;
 static int drawingWidgets;
 
 void initWidgets(void)
@@ -44,8 +44,8 @@ void initWidgets(void)
 
 	selectedWidget = NULL;
 
-	optionsLeft = getTexture("gfx/widgets/optionsLeft.png");
-	optionsRight = getTexture("gfx/widgets/optionsRight.png");
+	optionsLeft = getAtlasImage("gfx/widgets/optionsLeft.png");
+	optionsRight = getAtlasImage("gfx/widgets/optionsRight.png");
 
 	loadWidgets();
 
@@ -396,8 +396,9 @@ static void loadWidgetSet(char *filename)
 					break;
 
 				case WT_IMG_BUTTON:
-					w->texture = getTexture(cJSON_GetObjectItem(node, "texture")->valuestring);
-					SDL_QueryTexture(w->texture, NULL, NULL, &w->rect.w, &w->rect.h);
+					w->texture = getAtlasImage(cJSON_GetObjectItem(node, "texture")->valuestring);
+					w->rect.w = w->texture->rect.w;
+					w->rect.h = w->texture->rect.h;
 					break;
 
 				case WT_SELECT:
@@ -512,7 +513,7 @@ void autoSizeWidgetButtons(char *group, int recenter)
 	{
 		if (strcmp(w->group, group) == 0 && w->type == WT_BUTTON)
 		{
-			textSize(w->text, 20, &width, &height);
+			calcTextDimensions(w->text, 20, &width, &height);
 			
 			maxWidth = MAX(MAX(w->rect.w, width), maxWidth);
 		}

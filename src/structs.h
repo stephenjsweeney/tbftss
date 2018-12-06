@@ -41,6 +41,8 @@ typedef struct Bucket Bucket;
 typedef struct Trophy Trophy;
 typedef struct Tuple Tuple;
 typedef struct Credit Credit;
+typedef struct AtlasImage AtlasImage;
+typedef struct Font Font;
 
 typedef struct {
 	int debug;
@@ -66,6 +68,13 @@ struct Texture {
 	long ttl;
 	SDL_Texture *texture;
 	Texture *next;
+};
+
+struct AtlasImage {
+	char filename[MAX_FILENAME_LENGTH];
+	SDL_Rect rect;
+	SDL_Texture *texture;
+	AtlasImage *next;
 };
 
 typedef struct {
@@ -100,7 +109,7 @@ struct Entity {
 	char name[MAX_NAME_LENGTH];
 	char defName[MAX_NAME_LENGTH];
 	char groupName[MAX_NAME_LENGTH];
-	char description[MAX_DESCRIPTION_LENGTH];
+	char *description;
 	char affiliation[MAX_NAME_LENGTH];
 	int active;
 	int spawned;
@@ -153,7 +162,7 @@ struct Entity {
 	void (*action)(void);
 	void (*draw)(void);
 	void (*die)(void);
-	SDL_Texture *texture;
+	AtlasImage *texture;
 	Entity *next;
 };
 
@@ -170,7 +179,7 @@ struct Bullet {
 	int damage;
 	int angle;
 	long flags;
-	SDL_Texture *texture;
+	AtlasImage *texture;
 	Entity *owner;
 	Entity *target;
 	Bullet *next;
@@ -184,7 +193,7 @@ struct Debris {
 	int health;
 	int thinkTime;
 	float angle;
-	SDL_Texture *texture;
+	AtlasImage *texture;
 	Debris *next;
 };
 
@@ -216,7 +225,7 @@ struct Effect {
 	int g;
 	int b;
 	int a;
-	SDL_Texture *texture;
+	AtlasImage *texture;
 	Effect *next;
 };
 
@@ -372,7 +381,8 @@ typedef struct {
 	Entity *jumpgate;
 	Entity *messageSpeaker;
 	Entity *lastKilledPlayer;
-	SDL_Texture *background, *planetTexture, *fireStormTexture;
+	SDL_Texture *background;
+	AtlasImage *planetTexture, *fireStormTexture;
 	PointF planet;
 	int planetWidth, planetHeight;
 	Entity entityHead, *entityTail;
@@ -450,7 +460,7 @@ struct Widget {
 	int enabled;
 	int isModal;
 	SDL_Rect rect;
-	SDL_Texture *texture;
+	AtlasImage *texture;
 	void (*action)(void);
 	void (*onChange)(char *value);
 	Widget *parent;
@@ -509,6 +519,7 @@ typedef struct {
 	int lastButtonPressed;
 	int keyControls[CONTROL_MAX];
 	int mouseControls[CONTROL_MAX];
+	int textWidth;
 } App;
 
 typedef struct {
@@ -531,6 +542,13 @@ struct Credit {
 	int size;
 	int h;
 	Credit *next;
+};
+
+struct Font {
+	char name[MAX_NAME_LENGTH];
+	SDL_Texture *texture;
+	AtlasImage glyphs[128];
+	Font *next;
 };
 
 struct Bucket {

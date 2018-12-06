@@ -29,10 +29,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define NUM_FIGHTERS 12
 
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern AtlasImage *getAtlasImage(const char *filename);
 extern SDL_Texture *getTexture(const char *filename);
 extern void startSectionTransition(void);
 extern void endSectionTransition(void);
-extern void blit(SDL_Texture *t, int x, int y, int centered);
+extern void blit(AtlasImage *atlasImage, int x, int y, int centered);
 extern void stopMusic(void);
 extern void doStars(float dx, float dy);
 extern void drawStars(void);

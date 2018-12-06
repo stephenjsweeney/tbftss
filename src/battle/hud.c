@@ -36,18 +36,18 @@ static void drawMissileWarning(void);
 
 static HudMessage hudMessageHead;
 static HudMessage *hudMessageTail;
-static SDL_Texture *targetPointer;
-static SDL_Texture *targetCircle;
-static SDL_Texture *smallFighter;
-static SDL_Texture *arrowLeft;
-static SDL_Texture *arrowRight;
-static SDL_Texture *armour;
-static SDL_Texture *shield;
-static SDL_Texture *ecm;
-static SDL_Texture *boost;
-static SDL_Texture *nextGun;
-static SDL_Texture *clockIcon;
-static SDL_Texture *objectives;
+static AtlasImage *targetPointer;
+static AtlasImage *targetCircle;
+static AtlasImage *smallFighter;
+static AtlasImage *arrowLeft;
+static AtlasImage *arrowRight;
+static AtlasImage *armour;
+static AtlasImage *shield;
+static AtlasImage *ecm;
+static AtlasImage *boost;
+static AtlasImage *nextGun;
+static AtlasImage *clockIcon;
+static AtlasImage *objectives;
 static int numMessages;
 static const char *gunName[BT_MAX];
 static char *MISSILES_TEXT;
@@ -91,18 +91,18 @@ void initHud(void)
 	REMAINING_PILOTS_TEXT = _("Remaining Pilots: %d");
 	WARNING_TEXT = _("WARNING: INCOMING MISSILE!");
 	
-	targetPointer = getTexture("gfx/hud/targetPointer.png");
-	targetCircle = getTexture("gfx/hud/targetCircle.png");
-	smallFighter = getTexture("gfx/hud/smallFighter.png");
-	arrowLeft = getTexture("gfx/widgets/optionsLeft.png");
-	arrowRight = getTexture("gfx/widgets/optionsRight.png");
-	armour = getTexture("gfx/hud/armour.png");
-	shield = getTexture("gfx/hud/shield.png");
-	ecm = getTexture("gfx/hud/ecm.png");
-	boost = getTexture("gfx/hud/boost.png");
-	nextGun = getTexture("gfx/hud/nextGun.png");
-	clockIcon = getTexture("gfx/hud/clock.png");
-	objectives = getTexture("gfx/hud/objectives.png");
+	targetPointer = getAtlasImage("gfx/hud/targetPointer.png");
+	targetCircle = getAtlasImage("gfx/hud/targetCircle.png");
+	smallFighter = getAtlasImage("gfx/hud/smallFighter.png");
+	arrowLeft = getAtlasImage("gfx/widgets/optionsLeft.png");
+	arrowRight = getAtlasImage("gfx/widgets/optionsRight.png");
+	armour = getAtlasImage("gfx/hud/armour.png");
+	shield = getAtlasImage("gfx/hud/shield.png");
+	ecm = getAtlasImage("gfx/hud/ecm.png");
+	boost = getAtlasImage("gfx/hud/boost.png");
+	nextGun = getAtlasImage("gfx/hud/nextGun.png");
+	clockIcon = getAtlasImage("gfx/hud/clock.png");
+	objectives = getAtlasImage("gfx/hud/objectives.png");
 }
 
 void doHud(void)
@@ -367,19 +367,19 @@ static void drawPlayerTargeter(void)
 	{
 		if (player->target)
 		{
-			SDL_SetTextureColorMod(targetCircle, 255, 0, 0);
+			SDL_SetTextureColorMod(targetCircle->texture, 255, 0, 0);
 		}
 		else if (battle.missionTarget)
 		{
-			SDL_SetTextureColorMod(targetCircle, 0, 255, 0);
+			SDL_SetTextureColorMod(targetCircle->texture, 0, 255, 0);
 		}
 		else if (battle.messageSpeaker)
 		{
-			SDL_SetTextureColorMod(targetCircle, 255, 255, 255);
+			SDL_SetTextureColorMod(targetCircle->texture, 255, 255, 255);
 		}
 		else
 		{
-			SDL_SetTextureColorMod(targetCircle, 255, 255, 0);
+			SDL_SetTextureColorMod(targetCircle->texture, 255, 255, 0);
 		}
 		
 		blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
@@ -394,7 +394,7 @@ static void drawPlayerTargeter(void)
 		x += sin(TO_RAIDANS(angle)) * 45;
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		SDL_SetTextureColorMod(targetPointer, 255, 0, 0);
+		SDL_SetTextureColorMod(targetPointer->texture, 255, 0, 0);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
@@ -408,7 +408,7 @@ static void drawPlayerTargeter(void)
 		x += sin(TO_RAIDANS(angle)) * 45;
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		SDL_SetTextureColorMod(targetPointer, 0, 255, 0);
+		SDL_SetTextureColorMod(targetPointer->texture, 0, 255, 0);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
@@ -422,7 +422,7 @@ static void drawPlayerTargeter(void)
 		x += sin(TO_RAIDANS(angle)) * 45;
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		SDL_SetTextureColorMod(targetPointer, 255, 255, 0);
+		SDL_SetTextureColorMod(targetPointer->texture, 255, 255, 0);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
@@ -436,7 +436,7 @@ static void drawPlayerTargeter(void)
 		x += sin(TO_RAIDANS(angle)) * 45;
 		y += -cos(TO_RAIDANS(angle)) * 45;
 		
-		SDL_SetTextureColorMod(targetPointer, 255, 255, 255);
+		SDL_SetTextureColorMod(targetPointer->texture, 255, 255, 255);
 		
 		blitRotated(targetPointer, x - battle.camera.x, y - battle.camera.y, angle);
 	}
@@ -445,12 +445,12 @@ static void drawPlayerTargeter(void)
 static void drawNumFighters(void)
 {
 	/* Allies */
-	SDL_SetTextureColorMod(smallFighter, 150, 200, 255);
+	SDL_SetTextureColorMod(smallFighter->texture, 150, 200, 255);
 	blit(smallFighter, 400, 15, 0);
 	drawText(425, 11, 14, TA_LEFT, colors.white, battle.numAllies < 1000 ? "(%d)" : "(999+)", battle.numAllies);
 	
 	/* Enemies */
-	SDL_SetTextureColorMod(smallFighter, 255, 100, 100);
+	SDL_SetTextureColorMod(smallFighter->texture, 255, 100, 100);
 	blit(smallFighter, SCREEN_WIDTH - 410, 15, 0);
 	drawText(SCREEN_WIDTH - 420, 11, 14, TA_RIGHT, colors.white, !battle.unlimitedEnemies ? "(%d)" : "(999+)", battle.numEnemies);
 }
@@ -608,7 +608,7 @@ static void drawPlayerSelect(void)
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	SDL_SetTextureColorMod(targetCircle, 0, 200, 255);
+	SDL_SetTextureColorMod(targetCircle->texture, 0, 200, 255);
 	
 	blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
 	

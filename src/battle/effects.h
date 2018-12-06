@@ -23,10 +23,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define INITIAL_EFFECT_DRAW_CAPACITY	128
 
 extern void blitScaled(AtlasImage *atlasImage, int x, int y, int w, int h, int center);
-extern AtlasImage *getAtlasImage(char *name);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
-extern void *resize(void *array, int oldSize, int newSize);
+extern AtlasImage *getAtlasImage(char *name);
 extern int isOnBattleScreen(int x, int y, int w, int h);
+extern void *resize(void *array, int oldSize, int newSize);
 extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;

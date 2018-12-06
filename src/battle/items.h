@@ -22,20 +22,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-extern char *readFile(char *filename);
-extern AtlasImage *getAtlasImage(char *filename);
-extern Entity *spawnEntity(void);
-extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
-extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
-extern void playBattleSound(int id, int x, int y);
 extern void addHudMessage(SDL_Color c, char *format, ...);
-extern void updateObjective(char *name, int type);
-extern char *getTranslatedString(char *string);
+extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+extern long flagsToLong(char *flags, int *add);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
+extern AtlasImage *getAtlasImage(char *filename);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
-extern long flagsToLong(char *flags, int *add);
+extern void playBattleSound(int id, int x, int y);
+extern char *readFile(char *filename);
+extern Entity *spawnEntity(void);
+extern void updateObjective(char *name, int type);
 
 extern Battle battle;
-extern Entity *self;
-extern Entity *player;
 extern Colors colors;
+extern Entity *player;
+extern Entity *self;

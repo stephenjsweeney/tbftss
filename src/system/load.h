@@ -22,14 +22,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-extern char *readFile(char *filename);
-extern Mission *getMission(char *filename);
+extern void destroyFighterStats(void);
 extern Challenge *getChallenge(Mission *mission, int type, int value);
-extern int lookup(char *lookup);
-extern char *getSaveFilePath(char *filename);
 extern char *getLookupName(char *prefix, long num);
+extern Mission *getMission(char *filename);
+extern char *getSaveFilePath(char *filename);
 extern StarSystem *getStarSystem(char *name);
 extern Trophy *getTrophy(char *id);
-extern void destroyFighterStats(void);
+extern int lookup(char *lookup);
+extern char *readFile(char *filename);
 
 extern Game game;

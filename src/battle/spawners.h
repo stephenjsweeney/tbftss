@@ -22,12 +22,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
+extern long flagsToLong(char *flags, int *add);
+extern int getJSONValue(cJSON *node, char *name, int defValue);
+extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
 extern long lookup(char *name);
 extern Entity *spawnFighter(char *name, int x, int y, int side);
-extern int getJSONValue(cJSON *node, char *name, int defValue);
 extern char **toTypeArray(char *types, int *numTypes);
-extern char *getJSONValueStr(cJSON *node, char *name, char *defValue);
-extern long flagsToLong(char *flags, int *add);
 
 extern Battle battle;
 extern Entity *player;

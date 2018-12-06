@@ -20,9 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern void drawMouse(void);
 extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+extern void drawMouse(void);
+extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 
 extern App app;
 extern Battle battle;

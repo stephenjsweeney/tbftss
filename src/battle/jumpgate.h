@@ -22,18 +22,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define ESCAPE_DISTANCE 256
 
-extern AtlasImage *getAtlasImage(char *filename);
-extern Entity *spawnEntity(void);
+extern void addDebris(int x, int y, int amount);
+extern void addSmallExplosion(void);
+extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
 extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
+extern AtlasImage *getAtlasImage(char *filename);
 extern int getDistance(int x1, int y1, int x2, int y2);
 extern void playBattleSound(int id, int x, int y);
-extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
-extern char *getTranslatedString(char *string);
-extern void addSmallExplosion(void);
-extern void addDebris(int x, int y, int amount);
 extern void runScriptFunction(char *format, ...);
-extern void updateObjective(char *name, int type);
+extern Entity *spawnEntity(void);
 extern void updateCondition(char *name, int type);
+extern void updateObjective(char *name, int type);
 
 extern Battle battle;
 extern Entity *self;

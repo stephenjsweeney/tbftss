@@ -22,20 +22,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_HUD_MESSAGES	6
 
-extern AtlasImage *getAtlasImage(char *filename);
-extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
 extern void blit(AtlasImage *atlasImage, int x, int y, int center);
-extern float getAngle(int x1, int y1, int x2, int y2);
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern int getDistance(int x1, int y1, int x2, int y2);
+extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
 extern void drawRadar(void);
 extern void drawRadarRangeWarning(void);
+extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern float getAngle(int x1, int y1, int x2, int y2);
+extern AtlasImage *getAtlasImage(char *filename);
+extern int getDistance(int x1, int y1, int x2, int y2);
 extern int getPercent(float current, float total);
-extern int playerHasGun(int type);
-extern char *getTranslatedString(char *string);
-extern char *timeToString(long millis, int showHours);
 extern int jumpgateEnabled(void);
+extern int playerHasGun(int type);
 extern void setAtlasColor(int r, int g, int b, int a);
+extern char *timeToString(long millis, int showHours);
 
 extern App app;
 extern Battle battle;

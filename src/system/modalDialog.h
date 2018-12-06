@@ -21,12 +21,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 
 extern void clearInput(void);
+extern void doWidgets(void);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern void drawWidgets(char *groupName);
 extern Widget *getWidget(const char *name, const char *group);
-extern void doWidgets(void);
 extern int getWrappedTextHeight(char *text, int size);
-extern void limitTextWidth(int width);
 
 extern App app;
 extern Colors colors;

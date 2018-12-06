@@ -95,7 +95,7 @@ function cleanHeader($headerFile)
 		
 		foreach ($header as $line)
 		{
-			if ((preg_match("/extern|define/", $line) || preg_match("/;$/", $line)) && strstr($line, "getTranslatedString") === FALSE)
+			if ((preg_match("/extern|define/", $line) || preg_match("/;$/", $line)))
 			{
 				preg_match($func_pattern, $line, $matches);
 				

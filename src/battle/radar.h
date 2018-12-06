@@ -20,12 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-extern int getDistance(int x1, int y1, int x2, int y2);
 extern void blit(AtlasImage *atlasImage, int x, int y, int center);
-extern AtlasImage *getAtlasImage(char *filename);
 extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern char *getTranslatedString(char *string);
+extern AtlasImage *getAtlasImage(char *filename);
+extern int getDistance(int x1, int y1, int x2, int y2);
 
 extern App app;
 extern Battle battle;

@@ -22,10 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern void blit(AtlasImage *atlasImage, int x, int y, int center);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
+extern void drawWidgets(char *groupName);
 extern AtlasImage *getAtlasImage(char *filename);
 extern char *getChallengeDescription(Challenge *c);
-extern void drawWidgets(char *groupName);
-extern char *getTranslatedString(char *string);
 extern char *timeToString(long millis, int showHours);
 
 extern App app;

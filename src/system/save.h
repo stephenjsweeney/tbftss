@@ -22,8 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-extern int writeFile(char *filename, char *data);
 extern char *getLookupName(char *prefix, long num);
 extern char *getSaveFilePath(char *filename);
+extern int writeFile(char *filename, char *data);
 
 extern Game game;

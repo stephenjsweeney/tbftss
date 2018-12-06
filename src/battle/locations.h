@@ -22,10 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
+extern void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a);
+extern int getDistance(int x1, int y1, int x2, int y2);
+extern int getJSONValue(cJSON *node, char *name, int defValue);
+extern void runScriptFunction(char *format, ...);
+
 extern Battle battle;
 extern Entity *player;
-
-extern int getDistance(int x1, int y1, int x2, int y2);
-extern void runScriptFunction(char *format, ...);
-extern void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a);
-extern int getJSONValue(cJSON *node, char *name, int defValue);

@@ -20,20 +20,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define TRIGGER_RANGE	150
 #define DAMAGE_RANGE	250
 #define SYSTEM_POWER	50
+#define TRIGGER_RANGE	150
 
-extern Entity *spawnEntity(void);
-extern AtlasImage *getAtlasImage(char *filename);
-extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
-extern int getDistance(int x1, int y1, int x2, int y2);
 extern void addMineExplosion(void);
-extern void damageFighter(Entity *e, int amount, long flags);
-extern void playBattleSound(int id, int x, int y);
-extern void updateObjective(char *name, int type);
-extern void runScriptFunction(const char *format, ...);
 extern void awardTrophy(char *id);
+extern void damageFighter(Entity *e, int amount, long flags);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
+extern AtlasImage *getAtlasImage(char *filename);
+extern int getDistance(int x1, int y1, int x2, int y2);
+extern void playBattleSound(int id, int x, int y);
+extern void runScriptFunction(const char *format, ...);
+extern Entity *spawnEntity(void);
+extern void updateObjective(char *name, int type);
 
 extern Battle battle;
 extern Entity *player;

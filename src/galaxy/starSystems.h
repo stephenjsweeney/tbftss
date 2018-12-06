@@ -22,12 +22,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-extern char *readFile(char *filename);
-extern long lookup(char *name);
-extern int isMissionAvailable(Mission *mission, Mission *prev);
 extern char **getFileList(char *dir, int *count);
-extern Mission *loadMissionMeta(char *filename);
 extern int getJSONValue(cJSON *node, char *name, int defValue);
-extern char *getTranslatedString(char *string);
+extern int isMissionAvailable(Mission *mission, Mission *prev);
+extern Mission *loadMissionMeta(char *filename);
+extern long lookup(char *name);
+extern char *readFile(char *filename);
 
 extern Game game;

@@ -23,26 +23,24 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AI_EVADE		0
 #define AI_FALLBACK		1
 #define AI_HUNT			2
-
 #define TURN_SPEED 		4
 #define TURN_THRESHOLD 	2
 
-extern float mod(float n, float x);
-extern int getDistance(int x1, int y1, int x2, int y2);
+extern void addHudMessage(SDL_Color c, char *format, ...);
+extern void applyFighterBrakes(void);
+extern void applyFighterThrust(void);
 extern void fireGuns(Entity *owner);
 extern void fireMissile(Entity *owner);
 extern void fireRocket(Entity *owner);
-extern float getAngle(int x1, int y1, int x2, int y2);
-extern void applyFighterThrust(void);
-extern void applyFighterBrakes(void);
-extern void addHudMessage(SDL_Color c, char *format, ...);
 extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
-extern char *getTranslatedString(char *string);
-extern Entity *spawnMine(int type);
+extern float getAngle(int x1, int y1, int x2, int y2);
+extern int getDistance(int x1, int y1, int x2, int y2);
+extern float mod(float n, float x);
 extern void runScriptFunction(char *format, ...);
+extern Entity *spawnMine(int type);
 
 extern Battle battle;
 extern Colors colors;
 extern Dev dev;
-extern Entity *self;
 extern Entity *player;
+extern Entity *self;

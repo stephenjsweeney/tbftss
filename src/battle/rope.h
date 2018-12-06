@@ -22,16 +22,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define ROPE_DISTANCE	128
 
+extern void addHudMessage(SDL_Color c, char *format, ...);
+extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern int getDistance(int x1, int y1, int x2, int y2);
-extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
-extern void addHudMessage(SDL_Color c, char *format, ...);
-extern void runScriptFunction(char *format, ...);
-extern char *getTranslatedString(char *string);
 extern void playBattleSound(int id, int x, int y);
+extern void runScriptFunction(char *format, ...);
 
 extern App app;
 extern Battle battle;
 extern Colors colors;
-extern Entity *self;
 extern Entity *player;
+extern Entity *self;

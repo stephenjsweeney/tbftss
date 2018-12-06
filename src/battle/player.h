@@ -24,28 +24,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_SELECTABLE_PLAYERS	8
 #define MAX_SELECTABLE_TARGETS	8
 
+extern void addECMEffect(Entity *ent);
+extern void addHudMessage(SDL_Color c, char *format, ...);
+extern void applyFighterBrakes(void);
+extern void applyFighterThrust(void);
+extern void awardTrophy(char *id);
+extern void clearControl(int type);
+extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+extern void failMission(void);
 extern void fireGuns(Entity *owner);
 extern void fireMissile(Entity *owner);
 extern void fireRocket(Entity *owner);
-extern void applyFighterThrust(void);
-extern void applyFighterBrakes(void);
+extern long flagsToLong(char *flags, int *add);
+extern float getAngle(int x1, int y1, int x2, int y2);
 extern int getDistance(int x1, int y1, int x2, int y2);
-extern void addHudMessage(SDL_Color c, char *format, ...);
+extern int isAcceptControl(void);
+extern int isControl(int type);
+extern long lookup(char *name);
 extern float mod(float n, float x);
 extern void playSound(int id);
-extern void failMission(void);
-extern float getAngle(int x1, int y1, int x2, int y2);
-extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
-extern char *getTranslatedString(char *string);
-extern void addECMEffect(Entity *ent);
-extern int isControl(int type);
-extern void clearControl(int type);
-extern long lookup(char *name);
-extern Entity *spawnFighter(char *name, int x, int y, int side);
-extern int isAcceptControl(void);
 extern void resetAcceptControls(void);
-extern void awardTrophy(char *id);
-extern long flagsToLong(char *flags, int *add);
+extern Entity *spawnFighter(char *name, int x, int y, int side);
 extern void updateCondition(char *name, int type);
 
 extern App app;

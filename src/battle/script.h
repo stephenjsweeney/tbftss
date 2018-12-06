@@ -22,26 +22,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-extern void completeMission(void);
-extern void failMission(void);
-extern void retreatEnemies(void);
-extern void retreatAllies(void);
-extern void addHudMessage(SDL_Color c, char *format, ...);
-extern void addMessageBox(char *title, char *body, int type);
 extern void activateEntities(char *name);
 extern void activateEntityGroups(char *groupName);
-extern void activateLocations(char *locations);
-extern void activateObjectives(char *objectives);
-extern int showingMessageBoxes(void);
-extern char *getTranslatedString(char *string);
-extern void activateNextWaypoint(void);
 extern void activateJumpgate(int activate);
+extern void activateLocations(char *locations);
+extern void activateNextWaypoint(void);
+extern void activateObjectives(char *objectives);
 extern void activateSpawner(char *name, int active);
-extern void completeAllObjectives(void);
-extern void createChristabelLocation(void);
-extern void killEntity(char *name);
-extern void updateEntitySide(char *side, char *entity);
 extern void activateTrespasserSpawner(void);
+extern void addHudMessage(SDL_Color c, char *format, ...);
+extern void addMessageBox(char *title, char *body, int type);
+extern void completeAllObjectives(void);
+extern void completeMission(void);
+extern void createChristabelLocation(void);
+extern void failMission(void);
+extern void killEntity(char *name);
+extern void retreatAllies(void);
+extern void retreatEnemies(void);
+extern int showingMessageBoxes(void);
+extern void updateEntitySide(char *side, char *entity);
 
 extern Battle battle;
 extern Colors colors;

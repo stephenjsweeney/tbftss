@@ -68,8 +68,6 @@ void initBattle(void)
 
 	initStars();
 
-	initBackground();
-
 	initEffects();
 
 	initHud();

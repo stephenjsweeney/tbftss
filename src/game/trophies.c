@@ -179,16 +179,17 @@ void drawTrophies(void)
 			}
 			else
 			{
-				blitScaled(trophyIcons[TROPHY_UNEARNED], x, y, 64, 64, 0);
-				
 				if (!t->hidden)
 				{
+					setAtlasColor(255, 255, 255, 128);
+					blitScaled(trophyIcons[t->value], x, y, 64, 64, 0);
 					drawText(x + 85, y - 10, 20, TA_LEFT, colors.lightGrey, t->title);
 					drawText(x + 85, y + 20, 18, TA_LEFT, colors.darkGrey, t->description);
 					drawText(x + 85, y + 48, 18, TA_LEFT, colors.darkGrey, "-");
 				}
 				else
 				{
+					blitScaled(trophyIcons[TROPHY_UNEARNED], x, y, 64, 64, 0);
 					drawText(x + 85, y + 20, 20, TA_LEFT, colors.darkGrey, HIDDEN_TEXT);
 				}
 			}

@@ -72,8 +72,6 @@ void initTitle(void)
 	earth.x = rand() % SCREEN_WIDTH;
 	earth.y = -(128 + (rand() % 128));
 	
-	initBackground();
-	
 	initEffects();
 	
 	initFighters();

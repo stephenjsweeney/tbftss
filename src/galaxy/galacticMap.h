@@ -53,7 +53,6 @@ extern AtlasImage *getAtlasImage(char *filename);
 extern StarSystem *getStarSystem(char *name);
 extern SDL_Texture *getTexture(char *filename);
 extern Widget *getWidget(const char *name, const char *group);
-extern void initBackground(void);
 extern void initBattle(void);
 extern void initFighterDatabaseDisplay(void);
 extern void initOptions(void (*returnFromOptions)(void));

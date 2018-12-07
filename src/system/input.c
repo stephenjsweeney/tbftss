@@ -114,6 +114,8 @@ void drawMouse(void)
 
 	app.mouse.x = x * app.scaleX;
 	app.mouse.y = y * app.scaleY;
+	
+	setAtlasColor(255, 255, 255, 255);
 
 	blit(mousePointer, app.mouse.x, app.mouse.y, 1);
 }

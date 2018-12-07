@@ -52,7 +52,6 @@ extern char *getChallengeDescription(Challenge *c);
 extern char *getPlanetTextureName(int n);
 extern SDL_Texture *getTexture(char *filename);
 extern Widget *getWidget(const char *name, const char *group);
-extern void initBackground(void);
 extern void initBattle(void);
 extern void initFighterDatabaseDisplay(void);
 extern void initOptions(void (*returnFromOptions)(void));

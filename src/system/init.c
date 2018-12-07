@@ -23,7 +23,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void loadConfig(void);
 static void loadConfigFile(char *filename);
 void saveConfig(void);
-static void initColor(SDL_Color *c, int r, int g, int b);
 static void showLoadingStep(float step, float maxSteps);
 
 void init18N(int argc, char *argv[])
@@ -124,6 +123,7 @@ void initGameSystem(void)
 {
 	int i, numInitFuns;
 	void (*initFuncs[]) (void) = {
+		initGraphics,
 		initFonts,
 		initResources,
 		initSounds,
@@ -137,30 +137,17 @@ void initGameSystem(void)
 		initChallenges,
 		initStats,
 		initModalDialog,
-		initBackground,
 		initStars,
 		initControls,
 		initTrophies,
 		initFighterDatabase
 	};
 
-	numInitFuns = sizeof(initFuncs) / sizeof(void*);
-
-	initColor(&colors.red, 255, 0, 0);
-	initColor(&colors.orange, 255, 128, 0);
-	initColor(&colors.yellow, 255, 255, 0);
-	initColor(&colors.green, 0, 255, 0);
-	initColor(&colors.blue, 0, 0, 255);
-	initColor(&colors.cyan, 0, 255, 255);
-	initColor(&colors.purple, 255, 0, 255);
-	initColor(&colors.white, 255, 255, 255);
-	initColor(&colors.black, 0, 0, 0);
-	initColor(&colors.lightGrey, 192, 192, 192);
-	initColor(&colors.darkGrey, 128, 128, 128);
-	
 	initAtlas();
 	
 	initInput();
+	
+	numInitFuns = sizeof(initFuncs) / sizeof(void*);
 
 	for (i = 0 ; i < numInitFuns ; i++)
 	{
@@ -199,16 +186,6 @@ static void showLoadingStep(float step, float maxSteps)
 	presentScene();
 
 	SDL_Delay(1);
-}
-
-
-static void initColor(SDL_Color *c, int r, int g, int b)
-{
-	memset(c, 0, sizeof(SDL_Color));
-	c->r = r;
-	c->g = g;
-	c->b = b;
-	c->a = 255;
 }
 
 static void loadConfig(void)

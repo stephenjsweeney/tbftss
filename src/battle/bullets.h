@@ -47,6 +47,7 @@ extern void playBattleSound(int id, int x, int y);
 extern void playSound(int id);
 extern char *readFile(char *filename);
 extern void *resize(void *array, int oldSize, int newSize);
+extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;
 extern Battle battle;

@@ -20,9 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "draw.h"
 
+static void initColor(SDL_Color *c, int r, int g, int b);
+
 static PointF backgroundPoint[4];
 
-void initBackground(void)
+void initGraphics(void)
 {
 	backgroundPoint[0].x = -SCREEN_WIDTH / 2;
 	backgroundPoint[0].y = -SCREEN_HEIGHT / 2;
@@ -35,6 +37,27 @@ void initBackground(void)
 	
 	backgroundPoint[3].x = SCREEN_WIDTH / 2;
 	backgroundPoint[3].y = SCREEN_HEIGHT / 2;
+	
+	initColor(&colors.red, 255, 0, 0);
+	initColor(&colors.orange, 255, 128, 0);
+	initColor(&colors.yellow, 255, 255, 0);
+	initColor(&colors.green, 0, 255, 0);
+	initColor(&colors.blue, 0, 0, 255);
+	initColor(&colors.cyan, 0, 255, 255);
+	initColor(&colors.purple, 255, 0, 255);
+	initColor(&colors.white, 255, 255, 255);
+	initColor(&colors.black, 0, 0, 0);
+	initColor(&colors.lightGrey, 192, 192, 192);
+	initColor(&colors.darkGrey, 128, 128, 128);
+}
+
+static void initColor(SDL_Color *c, int r, int g, int b)
+{
+	memset(c, 0, sizeof(SDL_Color));
+	c->r = r;
+	c->g = g;
+	c->b = b;
+	c->a = 255;
 }
 
 void prepareScene(void)

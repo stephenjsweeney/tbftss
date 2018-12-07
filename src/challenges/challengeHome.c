@@ -115,8 +115,6 @@ void initChallengeHome(void)
 
 	show = SHOW_CHALLENGES;
 
-	initBackground();
-
 	start = getWidget("start", "challenges");
 	start->action = startChallengeMission;
 

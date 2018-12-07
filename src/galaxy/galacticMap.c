@@ -129,8 +129,6 @@ void initGalacticMap(void)
 	/* clear the pulses */
 	destroyGalacticMap();
 
-	initBackground();
-
 	getWidget("close", "starSystem")->action = resume;
 	startMissionButton = getWidget("startMission", "starSystem");
 	startMissionButton->action = startMission;
@@ -302,21 +300,24 @@ static void scrollGalaxy(void)
 		camera.x -= app.mouse.dx * 1.5;
 		camera.y -= app.mouse.dy * 1.5;
 
-		ssx = -(app.mouse.dx / 3);
-		ssy = -(app.mouse.dy / 3);
+		ssx = -app.mouse.dx;
+		ssx /= 3;
+		
+		ssy = -app.mouse.dy;
+		ssy /= 3;
 
 		camera.x = MAX(cameraMin.x, MIN(camera.x, cameraMax.x));
 		camera.y = MAX(cameraMin.y, MIN(camera.y, cameraMax.y));
-	}
+		
+		if (lastX == camera.x)
+		{
+			ssx = 0;
+		}
 
-	if (lastX == camera.x)
-	{
-		ssx = 0;
-	}
-
-	if (lastY == camera.y)
-	{
-		ssy = 0;
+		if (lastY == camera.y)
+		{
+			ssy = 0;
+		}
 	}
 }
 
@@ -698,7 +699,7 @@ static void drawStarSystemDetail(void)
 		drawText(525, 160, 18, TA_LEFT, colors.lightGrey, CRAFT_TEXT, game.currentMission->craft);
 		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, SQUADRON_TEXT, game.currentMission->squadron);
 
-		app.textWidth = 550;
+		app.textWidth = 525;
 		
 		drawText(525, 230, 22, TA_LEFT, colors.white, game.currentMission->description);
 		

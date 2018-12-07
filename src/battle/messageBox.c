@@ -95,9 +95,20 @@ static void calculateMessageBoxHeight(MessageBox *msg)
 {
 	app.textWidth = MSG_BOX_TEXT_WIDTH;
 	
-	msg->height = getWrappedTextHeight(msg->body, (msg->type == MB_PANDORAN) ? 0 : 18);
+	if (msg->type == MB_PANDORAN)
+	{
+		useFont("khosrau");
+	}
+	else
+	{
+		useFont("roboto");
+	}
+	
+	msg->height = getWrappedTextHeight(msg->body, 18);
 	
 	app.textWidth = 0;
+	
+	useFont("roboto");
 }
 
 int showingMessageBoxes(void)
@@ -142,10 +153,21 @@ void drawMessageBox(void)
 		
 		app.textWidth = MSG_BOX_TEXT_WIDTH;
 		
-		drawText(r.x + 10, r.y + 30, (msg->type == MB_PANDORAN) ? 0 : 18, TA_LEFT, (msg->type != MB_IMPORTANT) ? colors.white : colors.red, msg->body);
+		if (msg->type == MB_PANDORAN)
+		{
+			useFont("khosrau");
+		}
+		else
+		{
+			useFont("roboto");
+		}
+		
+		drawText(r.x + 10, r.y + 30, 18, TA_LEFT, (msg->type != MB_IMPORTANT) ? colors.white : colors.red, msg->body);
 		
 		app.textWidth = 0;
 	}
+	
+	useFont("roboto");
 }
 
 static void nextMessage(void)

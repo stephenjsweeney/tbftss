@@ -65,7 +65,6 @@ extern void drawOptions(void);
 extern void drawStars(void);
 extern void drawWidgets(char *groupName);
 extern Widget *getWidget(const char *name, const char *group);
-extern void initBackground(void);
 extern void initBullets(void);
 extern void initChallengeHome(void);
 extern void initCredits(void);

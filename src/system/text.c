@@ -22,8 +22,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void initFont(char *name, char *filename);
 static void drawWord(char *word, int *x, int *y, int startX);
-static void applyWordWrap(char *word, int *x, int *y, int startX);
-void calcTextDimensions(char *text, int size, int *w, int *h);
+static void drawTextLines(int x, int y, int size, int align, SDL_Color color);
+static void drawTextLine(int x, int y, int size, int align, SDL_Color color, const char *line);
+void calcTextDimensions(const char *text, int size, int *w, int *h);
 void useFont(char *name);
 
 static SDL_Color white = {255, 255, 255, 255};
@@ -110,8 +111,6 @@ static void initFont(char *name, char *filename)
 
 void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...)
 {
-	int i, startX, n, w, h;
-	char word[128];
 	va_list args;
 	
 	if (activeFont)
@@ -125,52 +124,106 @@ void drawText(int x, int y, int size, int align, SDL_Color color, const char *fo
 		vsprintf(drawTextBuffer, format, args);
 		va_end(args);
 		
-		scale = size / (FONT_SIZE * 1.0f);
-		
-		startX = x;
-		
-		memset(word, 0, 128);
-		
-		n = 0;
-		
-		calcTextDimensions(drawTextBuffer, size, &w, &h);
-		
-		if (align == TA_RIGHT)
+		if (app.textWidth == 0)
 		{
-			x -= w;
+			drawTextLine(x, y, size, align, color, drawTextBuffer);
 		}
-		else if (align == TA_CENTER)
+		else
 		{
-			x -= (w / 2);
+			drawTextLines(x, y, size, align, color);
 		}
-		
-		for (i = 0 ; i < strlen(drawTextBuffer) ; i++)
-		{
-			word[n++] = drawTextBuffer[i];
-			
-			if (drawTextBuffer[i] == ' ')
-			{
-				drawWord(word, &x, &y, startX);
-				
-				memset(word, 0, 128);
-				
-				n = 0;
-			}
-		}
-		
-		drawWord(word, &x, &y, startX);
 	}
+}
+
+static void drawTextLines(int x, int y, int size, int align, SDL_Color color)
+{
+	char line[MAX_LINE_LENGTH], token[MAX_WORD_LENGTH];
+	int i, n, w, h, currentWidth, len;
+	
+	memset(&line, '\0', sizeof(line));
+	memset(&token, '\0', sizeof(token));
+	
+	len = strlen(drawTextBuffer);
+	
+	n = currentWidth = 0;
+	
+	for (i = 0 ; i < len ; i++)
+	{
+		token[n++] = drawTextBuffer[i];
+		
+		if (drawTextBuffer[i] == ' ' || i == len - 1)
+		{
+			calcTextDimensions(token, size, &w, &h);
+		
+			if (currentWidth + w > app.textWidth)
+			{
+				drawTextLine(x, y, size, align, color, line);
+				
+				currentWidth = 0;
+				
+				y += h;
+				
+				memset(&line, '\0', sizeof(line));
+			}
+			
+			strcat(line, token);
+			
+			n = 0;
+			
+			memset(&token, '\0', sizeof(token));
+			
+			currentWidth += w;
+		}
+	}
+	
+	drawTextLine(x, y, size, align, color, line);
+}
+
+static void drawTextLine(int x, int y, int size, int align, SDL_Color color, const char *line)
+{
+	int i, startX, n, w, h;
+	char word[MAX_WORD_LENGTH];
+	
+	scale = size / (FONT_SIZE * 1.0f);
+		
+	startX = x;
+	
+	memset(word, 0, MAX_WORD_LENGTH);
+	
+	n = 0;
+	
+	calcTextDimensions(line, size, &w, &h);
+	
+	if (align == TA_RIGHT)
+	{
+		x -= w;
+	}
+	else if (align == TA_CENTER)
+	{
+		x -= (w / 2);
+	}
+	
+	for (i = 0 ; i < strlen(line) ; i++)
+	{
+		word[n++] = line[i];
+		
+		if (line[i] == ' ')
+		{
+			drawWord(word, &x, &y, startX);
+			
+			memset(word, 0, MAX_WORD_LENGTH);
+			
+			n = 0;
+		}
+	}
+	
+	drawWord(word, &x, &y, startX);
 }
 
 static void drawWord(char *word, int *x, int *y, int startX)
 {
 	int i, c;
 	SDL_Rect dest;
-	
-	if (app.textWidth > 0)
-	{
-		applyWordWrap(word, x, y, startX);
-	}
 	
 	for (i = 0 ; i < strlen(word) ; i++)
 	{
@@ -184,29 +237,6 @@ static void drawWord(char *word, int *x, int *y, int startX)
 		SDL_RenderCopy(app.renderer, activeFont->texture, &activeFont->glyphs[c].rect, &dest);
 		
 		*x += activeFont->glyphs[c].rect.w * scale;
-	}
-}
-
-static void applyWordWrap(char *word, int *x, int *y, int startX)
-{
-	int i, w, c;
-	
-	w = 0;
-	
-	for (i = 0 ; i < strlen(word) ; i++)
-	{
-		c = word[i];
-		
-		w += activeFont->glyphs[c].rect.w * scale;
-		
-		if (w + *x - startX > app.textWidth)
-		{
-			*x = startX;
-			
-			*y += activeFont->glyphs[c].rect.h * scale;
-			
-			return;
-		}
 	}
 }
 
@@ -224,7 +254,7 @@ void useFont(char *name)
 	}
 }
 
-void calcTextDimensions(char *text, int size, int *w, int *h)
+void calcTextDimensions(const char *text, int size, int *w, int *h)
 {
 	int i, c;
 	float scale;
@@ -245,28 +275,39 @@ void calcTextDimensions(char *text, int size, int *w, int *h)
 
 int getWrappedTextHeight(char *text, int size)
 {
-	int x, y, w, h, i, c;
-	float scale;
+	char word[MAX_WORD_LENGTH];
+	int i, y, n, w, h, currentWidth, len;
 	
-	scale = size / (FONT_SIZE * 1.0f);
+	STRNCPY(drawTextBuffer, text, MAX_LINE_LENGTH);
 	
-	x = y = 0;
+	n = 0;
+	y = 0;
+	h = 0;
+	currentWidth = 0;
+	len = strlen(drawTextBuffer);
+	memset(word, 0, MAX_WORD_LENGTH);
 	
-	for (i = 0 ; i < strlen(text) ; i++)
+	for (i = 0 ; i < len ; i++)
 	{
-		c = text[i];
+		word[n++] = drawTextBuffer[i];
 		
-		w = activeFont->glyphs[c].rect.w * scale;
-		h = activeFont->glyphs[c].rect.h * scale;
-		
-		if (x + w > app.textWidth)
+		if (drawTextBuffer[i] == ' ' || i == len - 1)
 		{
-			x = 0;
-			y += h;
-		}
+			calcTextDimensions(word, size, &w, &h);
 		
-		x += w;
+			if (currentWidth + w > app.textWidth)
+			{
+				currentWidth = 0;
+				y += h;
+			}
+			
+			currentWidth += w;
+			
+			memset(word, 0, MAX_WORD_LENGTH);
+			
+			n = 0;
+		}
 	}
 	
-	return y;
+	return y + h;
 }

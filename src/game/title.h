@@ -49,7 +49,6 @@ extern void endSectionTransition(void);
 extern AtlasImage *getAtlasImage(const char *filename);
 extern SDL_Texture *getTexture(const char *filename);
 extern Widget *getWidget(const char *name, const char *group);
-extern void initBackground(void);
 extern void initChallengeHome(void);
 extern void initCredits(void);
 extern void initEffects(void);

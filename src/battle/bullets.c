@@ -291,6 +291,8 @@ void drawBullets(void)
 {
 	int i;
 	Bullet *b;
+	
+	setAtlasColor(255, 255, 255, 255);
 
 	for (i = 0, b = bulletsToDraw[i] ; b != NULL ; b = bulletsToDraw[++i])
 	{

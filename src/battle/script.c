@@ -195,7 +195,7 @@ static void executeNextLine(ScriptRunner *runner)
 	else if (strcmp(command, "PANDORAN_MSG_BOX") == 0)
 	{
 		sscanf(line, "%*s %255[^;]%*c%255[^\n]", strParam[0], strParam[1]);
-		addMessageBox(strParam[0], _(strParam[1]), MB_PANDORAN);
+		addMessageBox(strParam[0], strParam[1], MB_PANDORAN);
 	}
 	else if (strcmp(command, "WAIT") == 0)
 	{

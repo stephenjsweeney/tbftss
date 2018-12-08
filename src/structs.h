@@ -43,6 +43,7 @@ typedef struct Tuple Tuple;
 typedef struct Credit Credit;
 typedef struct AtlasImage AtlasImage;
 typedef struct Font Font;
+typedef struct Glyph Glyph;
 
 typedef struct {
 	int debug;
@@ -544,10 +545,16 @@ struct Credit {
 	Credit *next;
 };
 
+struct Glyph {
+	char character[MAX_NAME_LENGTH];
+	SDL_Rect rect;
+	Glyph *next;
+};
+
 struct Font {
 	char name[MAX_NAME_LENGTH];
 	SDL_Texture *texture;
-	AtlasImage glyphs[128];
+	Glyph glyphHead[NUM_GLYPH_BUCKETS];
 	Font *next;
 };
 

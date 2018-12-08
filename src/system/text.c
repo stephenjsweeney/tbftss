@@ -26,6 +26,10 @@ static void drawTextLines(int x, int y, int size, int align, SDL_Color color);
 static void drawTextLine(int x, int y, int size, int align, SDL_Color color, const char *line);
 void calcTextDimensions(const char *text, int size, int *w, int *h);
 void useFont(char *name);
+static void initChars(Font *f);
+static char *nextCharacter(const char *str, int *i);
+static Glyph *findGlyph(char *c);
+static int strlenMB(char *text);
 
 static SDL_Color white = {255, 255, 255, 255};
 static char drawTextBuffer[1024];
@@ -40,6 +44,7 @@ void initFonts(void)
 	fontTail = &fontHead;
 	
 	initFont("roboto", getFileLocation("data/fonts/Roboto-Medium.ttf"));
+	
 	initFont("khosrau", getFileLocation("data/fonts/Khosrau.ttf"));
 	
 	useFont("roboto");
@@ -52,8 +57,13 @@ static void initFont(char *name, char *filename)
 	Font *f;
 	SDL_Surface *surface, *text;
 	SDL_Rect dest;
+	Glyph *g;
 	int i;
-	char c[2];
+	
+	f = malloc(sizeof(Font));
+	memset(f, 0, sizeof(Font));
+	
+	initChars(f);
 		
 	surface = SDL_CreateRGBSurface(0, FONT_TEXTURE_SIZE, FONT_TEXTURE_SIZE, 32, 0, 0, 0, 0xff);
 	
@@ -61,35 +71,31 @@ static void initFont(char *name, char *filename)
 	
 	font = TTF_OpenFont(filename, FONT_SIZE);
 	
-	f = malloc(sizeof(Font));
-	memset(f, 0, sizeof(Font));
-	
 	dest.x = dest.y = 0;
 	
-	for (i = ' ' ; i <= 'z' ; i++)
+	for (i = 0 ; i < NUM_GLYPH_BUCKETS ; i++)
 	{
-		memset(c, 0, 2);
-		
-		sprintf(c, "%c", i);
-		
-		text = TTF_RenderUTF8_Blended(font, c, white);
-		
-		TTF_SizeText(font, c, &dest.w, &dest.h);
-		
-		if (dest.x + dest.w >= FONT_TEXTURE_SIZE)
+		for (g = f->glyphHead[i].next ; g != NULL ; g = g->next)
 		{
-			dest.x = 0;
+			text = TTF_RenderUTF8_Blended(font, g->character, white);
 			
-			dest.y += dest.h + 1;
+			TTF_SizeText(font, g->character, &dest.w, &dest.h);
+			
+			if (dest.x + dest.w >= FONT_TEXTURE_SIZE)
+			{
+				dest.x = 0;
+				
+				dest.y += dest.h + 1;
+			}
+			
+			SDL_BlitSurface(text, NULL, surface, &dest);
+			
+			g->rect = dest;
+			
+			SDL_FreeSurface(text);
+			
+			dest.x += dest.w;
 		}
-		
-		SDL_BlitSurface(text, NULL, surface, &dest);
-		
-		f->glyphs[i].rect = dest;
-		
-		SDL_FreeSurface(text);
-		
-		dest.x += dest.w;
 	}
 	
 	TTF_CloseFont(font);
@@ -98,15 +104,45 @@ static void initFont(char *name, char *filename)
 	
 	f->texture = texture;
 	
-	for (i = 0 ; i < 128 ; i++)
-	{
-		f->glyphs[i].texture = texture;
-	}
-	
 	strcpy(f->name, name);
 	
 	fontTail->next = f;
 	fontTail = f;
+}
+
+static void initChars(Font *f)
+{
+	char *characters, *character;
+	Glyph *g, *glyphTail;
+	int i, bucket;
+	
+	characters = readFile("data/locale/characters.dat");
+	
+	i = 0;
+	
+	character = nextCharacter(characters, &i);
+	
+	while (character)
+	{
+		bucket = hashcode(character) % NUM_GLYPH_BUCKETS;
+		
+		glyphTail = &f->glyphHead[bucket];
+
+		/* horrible bit to look for the tail */
+		while (glyphTail->next)
+		{
+			glyphTail = glyphTail->next;
+		}
+		
+		g = malloc(sizeof(Glyph));
+		memset(g, 0, sizeof(Glyph));
+		glyphTail->next = g;
+		glyphTail = g;
+		
+		STRNCPY(g->character, character, MAX_NAME_LENGTH);
+		
+		character = nextCharacter(characters, &i);
+	}
 }
 
 void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...)
@@ -143,7 +179,7 @@ static void drawTextLines(int x, int y, int size, int align, SDL_Color color)
 	memset(&line, '\0', sizeof(line));
 	memset(&token, '\0', sizeof(token));
 	
-	len = strlen(drawTextBuffer);
+	len = strlenMB(drawTextBuffer);
 	
 	n = currentWidth = 0;
 	
@@ -222,22 +258,51 @@ static void drawTextLine(int x, int y, int size, int align, SDL_Color color, con
 
 static void drawWord(char *word, int *x, int *y, int startX)
 {
-	int i, c;
+	int i;
+	char *character;
 	SDL_Rect dest;
+	Glyph *g;
 	
-	for (i = 0 ; i < strlen(word) ; i++)
+	i = 0;
+	
+	character = nextCharacter(word, &i);
+	
+	while (character)
 	{
-		c = word[i];
+		g = findGlyph(character);
 		
 		dest.x = *x;
 		dest.y = *y;
-		dest.w = activeFont->glyphs[c].rect.w * scale;
-		dest.h = activeFont->glyphs[c].rect.h * scale;
+		dest.w = g->rect.w * scale;
+		dest.h = g->rect.h * scale;
 		
-		SDL_RenderCopy(app.renderer, activeFont->texture, &activeFont->glyphs[c].rect, &dest);
+		SDL_RenderCopy(app.renderer, activeFont->texture, &g->rect, &dest);
 		
-		*x += activeFont->glyphs[c].rect.w * scale;
+		*x += g->rect.w * scale;
+		
+		character = nextCharacter(word, &i);
 	}
+}
+
+static Glyph *findGlyph(char *c)
+{
+	Glyph *g;
+	int bucket;
+	
+	bucket = hashcode(c) % NUM_GLYPH_BUCKETS;
+	
+	for (g = activeFont->glyphHead[bucket].next ; g != NULL ; g = g->next)
+	{
+		if (strcmp(g->character, c) == 0)
+		{
+			return g;
+		}
+	}
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Couldn't find glyph for '%s'\n", c);
+	exit(1);
+	
+	return NULL;
 }
 
 void useFont(char *name)
@@ -256,20 +321,28 @@ void useFont(char *name)
 
 void calcTextDimensions(const char *text, int size, int *w, int *h)
 {
-	int i, c;
 	float scale;
+	int i;
+	char *character;
+	Glyph *g;
 	
 	scale = size / (FONT_SIZE * 1.0f);
 	
 	*w = 0;
 	*h = 0;
 	
-	for (i = 0 ; i < strlen(text) ; i++)
+	i = 0;
+	
+	character = nextCharacter(text, &i);
+	
+	while (character)
 	{
-		c = text[i];
+		g = findGlyph(character);
 		
-		*w += activeFont->glyphs[c].rect.w * scale;
-		*h = MAX(activeFont->glyphs[c].rect.h * scale, *h);
+		*w += g->rect.w * scale;
+		*h = MAX(g->rect.h * scale, *h);
+		
+		character = nextCharacter(text, &i);
 	}
 }
 
@@ -284,7 +357,7 @@ int getWrappedTextHeight(char *text, int size)
 	y = 0;
 	h = 0;
 	currentWidth = 0;
-	len = strlen(drawTextBuffer);
+	len = strlenMB(drawTextBuffer);
 	memset(word, 0, MAX_WORD_LENGTH);
 	
 	for (i = 0 ; i < len ; i++)
@@ -310,4 +383,53 @@ int getWrappedTextHeight(char *text, int size)
 	}
 	
 	return y + h;
+}
+
+static char *nextCharacter(const char *str, int *i)
+{
+	static char character[MAX_NAME_LENGTH];
+	
+	unsigned char bit;
+	int n;
+	
+	memset(character, '\0', MAX_NAME_LENGTH);
+	
+	n = 0;
+	
+	while (1)
+	{
+		bit = (unsigned char)str[*i];
+		
+		if ((bit >= ' ' && bit <= 'z') || bit >= 0xC0 || bit == '\0')
+		{
+			if (n > 0)
+			{
+				return character[0] != '\0' ? character : NULL;
+			}
+		}
+		
+		character[n++] = str[*i];
+		
+		*i = *i + 1;
+	}
+}
+
+static int strlenMB(char *text)
+{
+	int i, n;
+	unsigned char bit;
+	
+	n = 0;
+	
+	for (i = 0 ; i < strlen(text) ; i++)
+	{
+		bit = (unsigned char)text[i];
+		
+		if ((bit >= ' ' && bit <= 'z') || bit >= 0xC0)
+		{
+			n++;
+		}
+	}
+	
+	return n;
 }

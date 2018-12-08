@@ -31,6 +31,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_WORD_LENGTH		128
 
 extern char *getFileLocation(char *filename);
+extern unsigned long hashcode(const char *str);
+extern char *readFile(char *filename);
 extern SDL_Texture *toTexture(SDL_Surface *surface, int destroySurface);
 
 extern App app;

@@ -46,9 +46,11 @@ char *getFileLocation(char *filename)
 
 char *readFile(char *filename)
 {
-	char *buffer = 0;
+	char *buffer;
 	long length;
-	FILE *file = fopen(getFileLocation(filename), "rb");
+	FILE *file;
+	
+	file = fopen(getFileLocation(filename), "rb");
 
 	if (file)
 	{

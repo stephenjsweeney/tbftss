@@ -143,6 +143,8 @@ static void initChars(Font *f)
 		
 		character = nextCharacter(characters, &i);
 	}
+	
+	free(characters);
 }
 
 void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...)

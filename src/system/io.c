@@ -20,8 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "io.h"
 
-static int stringComparator(const void *a, const void *b);
-
 int fileExists(char *filename)
 {
 	struct stat buffer;
@@ -147,11 +145,4 @@ char **getFileList(char *dir, int *count)
 	}
 
 	return filenames;
-}
-
-static int stringComparator(const void *a, const void *b)
-{
-    char **s1 = (char **)a;
-    char **s2 = (char **)b;
-    return strcmp(*s1, *s2);
 }

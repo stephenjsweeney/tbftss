@@ -24,3 +24,4 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern SDL_Texture *getTexture(const char *filename);
 extern unsigned long hashcode(const char *str);
 extern char *readFile(const char *filename);
+extern int stringComparator(const void *a, const void *b);

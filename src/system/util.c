@@ -186,3 +186,10 @@ unsigned long hashcode(const char *str)
 	
 	return hash;
 }
+
+int stringComparator(const void *a, const void *b)
+{
+    char **s1 = (char **)a;
+    char **s2 = (char **)b;
+    return strcmp(*s1, *s2);
+}

@@ -49,13 +49,13 @@ void initResources(void)
 
 	free(filenames);
 
-	filenames = getFileList("gfx/planets", &numPlanets);
+	filenames = getAtlasFileList("gfx/planets", &numPlanets);
 	planets = malloc(sizeof(char*) * numPlanets);
 
 	for (i = 0 ; i < numPlanets ; i++)
 	{
 		planets[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
-		sprintf(planets[i], "gfx/planets/%s", filenames[i]);
+		strcpy(planets[i], filenames[i]);
 		
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Adding AUTO %s", filenames[i]);
 		

@@ -61,6 +61,59 @@ AtlasImage *getAtlasImage(char *filename)
 	return NULL;
 }
 
+char **getAtlasFileList(char *dir, int *count)
+{
+	AtlasImage *a;
+	int i, bucket;
+	char **filenames;
+
+	i = 0;
+	filenames = NULL;
+
+	for (bucket = 0 ; bucket < NUM_ATLAS_BUCKETS ; bucket++)
+	{
+		for (a = atlases[bucket].next ; a != NULL ; a = a->next)
+		{
+			if (strncmp(dir, a->filename, strlen(dir)) == 0)
+			{
+				i++;
+			}
+		}
+	}
+	
+	if (i > 0)
+	{
+		filenames = malloc(sizeof(char*) * i);
+		memset(filenames, 0, sizeof(char*) * i);
+
+		i = 0;
+
+		for (bucket = 0 ; bucket < NUM_ATLAS_BUCKETS ; bucket++)
+		{
+			for (a = atlases[bucket].next ; a != NULL ; a = a->next)
+			{
+				if (strncmp(dir, a->filename, strlen(dir)) == 0)
+				{
+					filenames[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
+
+					STRNCPY(filenames[i], a->filename, MAX_FILENAME_LENGTH);
+
+					i++;
+				}
+			}
+		}
+	}
+
+	*count = i;
+
+	if (filenames)
+	{
+		qsort(filenames, i, sizeof(char*), stringComparator);
+	}
+
+	return filenames;
+}
+
 static void loadAtlasData(void)
 {
 	AtlasImage *atlasImage, *a;

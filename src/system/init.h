@@ -66,7 +66,6 @@ extern void initStars(void);
 extern void initStats(void);
 extern void initTrophies(void);
 extern void initWidgets(void);
-extern void updateCustomResolutionOption(void);
 extern void loadCapitalShipDefs(void);
 extern void loadFighterDefs(void);
 extern void loadItemDefs(void);
@@ -75,6 +74,7 @@ extern void prepareScene(void);
 extern void presentScene(void);
 extern char *readFile(char *filename);
 extern void setLanguage(char *applicationName, char *languageCode);
+extern void updateCustomResolutionOption(void);
 extern int writeFile(char *filename, char *data);
 
 extern App app;

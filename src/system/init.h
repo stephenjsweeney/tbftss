@@ -66,6 +66,7 @@ extern void initStars(void);
 extern void initStats(void);
 extern void initTrophies(void);
 extern void initWidgets(void);
+extern void updateCustomResolutionOption(void);
 extern void loadCapitalShipDefs(void);
 extern void loadFighterDefs(void);
 extern void loadItemDefs(void);

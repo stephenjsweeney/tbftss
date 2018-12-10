@@ -1,5 +1,5 @@
-VERSION = 1.4
-REVISION = 3
+VERSION = 1.5
+REVISION = 0
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
 OUT = bin

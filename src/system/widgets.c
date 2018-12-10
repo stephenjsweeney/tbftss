@@ -28,6 +28,7 @@ static void createOptions(Widget *w, char *options);
 static void changeSelectedValue(Widget *w, int dir);
 static void createSelectButtons(Widget *w);
 static void handleControlWidgets(void);
+static void updateSelectWidgets(void);
 
 static Widget head;
 static Widget *tail;
@@ -56,6 +57,8 @@ void doWidgets(void)
 {
 	if (drawingWidgets)
 	{
+		updateSelectWidgets();
+		
 		handleMouse();
 
 		handleKeyboard();
@@ -67,6 +70,29 @@ void doWidgets(void)
 	}
 
 	drawingWidgets = 0;
+}
+
+static void updateSelectWidgets(void)
+{
+	Widget *w;
+
+	for (w = head.next; w != NULL ; w = w->next)
+	{
+		if (w->type == WT_SELECT_BUTTON && w->parent)
+		{
+			w->visible = 1;
+			
+			if (w->value == -1 && w->parent->value == 0)
+			{
+				w->visible = 0;
+			}
+			
+			if (w->value == 1 && w->parent->value == w->parent->numOptions - 1)
+			{
+				w->visible = 0;
+			}
+		}
+	}
 }
 
 Widget *getWidget(const char *name, const char *group)
@@ -150,7 +176,7 @@ void drawWidgets(const char *group)
 
 				case WT_SELECT:
 					drawText(w->rect.x + 10, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
-					drawText(w->rect.x + w->rect.w - 10, w->rect.y + 2, 20, TA_RIGHT, colors.white, w->options[w->currentOption]);
+					drawText(w->rect.x + w->rect.w - 10, w->rect.y + 2, 20, TA_RIGHT, colors.white, w->options[w->value]);
 					break;
 					
 				case WT_CONTROL_CONFIG:
@@ -195,15 +221,15 @@ void drawWidgets(const char *group)
 
 static void changeSelectedValue(Widget *w, int dir)
 {
-	int oldOption = w->currentOption;
+	int oldOption = w->value;
 
-	w->currentOption += dir;
+	w->value += dir;
 
-	w->currentOption = MIN(MAX(0, w->currentOption), w->numOptions - 1);
+	w->value = MIN(MAX(0, w->value), w->numOptions - 1);
 
-	w->onChange(w->options[w->currentOption]);
+	w->onChange(w->options[w->value]);
 
-	if (oldOption != w->currentOption)
+	if (oldOption != w->value)
 	{
 		playSound(SND_GUI_CLICK);
 	}
@@ -220,7 +246,7 @@ void setWidgetOption(const char *name, const char *group, const char *value)
 		{
 			if (strcmp(w->options[i], value) == 0)
 			{
-				w->currentOption = i;
+				w->value = i;
 				return;
 			}
 		}

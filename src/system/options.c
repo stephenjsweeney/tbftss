@@ -120,6 +120,29 @@ static void drawMain(void)
 	app.textWidth = 0;
 }
 
+void updateCustomResolutionOption(void)
+{
+	Widget *w;
+	char value[MAX_NAME_LENGTH];
+	int i;
+	
+	sprintf(value, "%d x %d", app.winWidth, app.winHeight);
+	
+	w = getWidget("windowSize", "options");
+	
+	for (i = 0 ; i < w->numOptions - 1 ; i++)
+	{
+		if (strcmp(w->options[i], value) == 0)
+		{
+			w->numOptions--;
+			return;
+		}
+	}
+	
+	w->options[w->numOptions - 1] = malloc(strlen(value) + 1);
+	strcpy(w->options[w->numOptions - 1], value);
+}
+
 static void controls(void)
 {
 	initControlsDisplay();

@@ -20,10 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "init.h"
 
-static void loadConfig(void);
+static void loadConfig(int argc, char *argv[]);
 static void loadConfigFile(char *filename);
 void saveConfig(void);
 static void showLoadingStep(float step, float maxSteps);
+static void handleCommandLineConfig(int argc, char *argv[]);
 
 void init18N(int argc, char *argv[])
 {
@@ -51,7 +52,7 @@ void init18N(int argc, char *argv[])
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "atof(2.75) is %f", atof("2.75"));
 }
 
-void initSDL(void)
+void initSDL(int argc, char *argv[])
 {
 	int rendererFlags, windowFlags;
 
@@ -61,9 +62,10 @@ void initSDL(void)
 	/* done in src/plat/ */
 	createSaveFolder();
 	
-	loadConfig();
+	loadConfig(argc, argv);
 
 	rendererFlags = SDL_RENDERER_ACCELERATED;
+	
 	if (app.vSync)
 	{
 		rendererFlags |= SDL_RENDERER_PRESENTVSYNC;
@@ -140,7 +142,8 @@ void initGameSystem(void)
 		initStars,
 		initControls,
 		initTrophies,
-		initFighterDatabase
+		initFighterDatabase,
+		updateCustomResolutionOption
 	};
 
 	initAtlas();
@@ -188,7 +191,7 @@ static void showLoadingStep(float step, float maxSteps)
 	SDL_Delay(1);
 }
 
-static void loadConfig(void)
+static void loadConfig(int argc, char *argv[])
 {
 	char *configFilename;
 	
@@ -202,6 +205,12 @@ static void loadConfig(void)
 	{
 		loadConfigFile(configFilename);
 	}
+	
+	handleCommandLineConfig(argc, argv);
+	
+	/* don't go higher than 8K or lower than 320 x 240 */
+	app.winWidth = MIN(MAX(app.winWidth, 320), 7680);
+	app.winHeight = MIN(MAX(app.winHeight, 240), 4320);
 	
 	/* so that the player doesn't get confused if this is a new game */
 	saveConfig();
@@ -223,7 +232,7 @@ static void loadConfigFile(char *filename)
 	app.musicVolume = cJSON_GetObjectItem(root, "musicVolume")->valueint;
 	app.soundVolume = cJSON_GetObjectItem(root, "soundVolume")->valueint;
 	app.vSync = getJSONValue(root, "vSync", 1);
-
+	
 	controlsJSON = cJSON_GetObjectItem(root, "controls");
 	if (controlsJSON)
 	{
@@ -312,6 +321,19 @@ void saveConfig(void)
 
 	cJSON_Delete(root);
 	free(out);
+}
+
+static void handleCommandLineConfig(int argc, char *argv[])
+{
+	int i;
+	
+	for (i = 1 ; i < argc ; i++)
+	{
+		if (strcmp(argv[i], "-size") == 0)
+		{
+			sscanf(argv[i + 1], "%dx%d", &app.winWidth, &app.winHeight);
+		}
+	}
 }
 
 void cleanup(void)

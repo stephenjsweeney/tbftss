@@ -1,5 +1,12 @@
 Changelog
 
+1.5
+
+	* Added command line switch -size to allow for custom window sizes.
+		- For example: -size 900x600 for a width and height of 900 x 600.
+	* Graphics and fonts now use texture atlases to help with performance.
+	* Misc. bug fixes.
+
 1.4
 
 	* Add Mac make file

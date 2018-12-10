@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	
 	initLookups();
 
-	initSDL();
+	initSDL(argc, argv);
 	
 	initGameSystem();
 	

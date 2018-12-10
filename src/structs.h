@@ -456,7 +456,6 @@ struct Widget {
 	char text[MAX_NAME_LENGTH];
 	char **options;
 	int numOptions;
-	int currentOption;
 	int visible;
 	int enabled;
 	int isModal;

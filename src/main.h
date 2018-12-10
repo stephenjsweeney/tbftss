@@ -39,7 +39,7 @@ extern void init18N(int argc, char *argv[]);
 extern void initCredits(void);
 extern void initGameSystem(void);
 extern void initLookups(void);
-extern void initSDL(void);
+extern void initSDL(int argc, char *argv[]);
 extern void initTitle(void);
 extern int isControl(int type);
 extern void loadGame(void);

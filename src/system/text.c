@@ -402,7 +402,7 @@ static char *nextCharacter(const char *str, int *i)
 	{
 		bit = (unsigned char)str[*i];
 		
-		if ((bit >= ' ' && bit <= 'z') || bit >= 0xC0 || bit == '\0')
+		if ((bit >= ' ' && bit <= '~') || bit >= 0xC0 || bit == '\0')
 		{
 			if (n > 0)
 			{
@@ -427,7 +427,7 @@ static int strlenMB(char *text)
 	{
 		bit = (unsigned char)text[i];
 		
-		if ((bit >= ' ' && bit <= 'z') || bit >= 0xC0)
+		if ((bit >= ' ' && bit <= '~') || bit >= 0xC0)
 		{
 			n++;
 		}

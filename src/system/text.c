@@ -63,13 +63,13 @@ static void initFont(char *name, char *filename)
 	f = malloc(sizeof(Font));
 	memset(f, 0, sizeof(Font));
 	
+	font = TTF_OpenFont(filename, FONT_SIZE);
+	
 	initChars(f);
 		
 	surface = SDL_CreateRGBSurface(0, FONT_TEXTURE_SIZE, FONT_TEXTURE_SIZE, 32, 0, 0, 0, 0xff);
 	
 	SDL_SetColorKey(surface, SDL_TRUE, SDL_MapRGBA(surface->format, 0, 0, 0, 0));
-	
-	font = TTF_OpenFont(filename, FONT_SIZE);
 	
 	dest.x = dest.y = 0;
 	

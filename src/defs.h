@@ -51,6 +51,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define PI 3.14159265358979323846
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
+#define CAROLINE(a,b) MIN(a,b)
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 #define TO_RAIDANS(angleDegrees) (angleDegrees * PI / 180.0)
 #define TO_DEGREES(angleRadians) (angleRadians * 180.0 / PI)
@@ -65,9 +66,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_MOUSE_BUTTONS	6
 
 #define FPS				60
-#define LOGIC_RATE		(1000.0 / FPS)
-
-#define TEXT_TTL		(1000 * 20)
 
 #define MAX_NAME_LENGTH				32
 #define MAX_DESCRIPTION_LENGTH		512
@@ -82,9 +80,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_STARS		500
 
 #define MAX_CHALLENGES	3
-
-#define MAX_FONTS				32
-#define NUM_TEXT_BUCKETS		64
 
 #define MAX_FIGHTER_GUNS		12
 #define MAX_TARGET_RANGE		65536

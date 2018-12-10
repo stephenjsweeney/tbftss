@@ -19,16 +19,22 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "i18n.h"
 
-static HashTable table;
-
+char *getTranslatedString(char *);
+void setLanguage(char *, char *);
+void cleanupLanguage(void);
 static int hashCode(char *);
 static void put(char *, char *);
 static void initTable(void);
 
+static HashTable table;
+
 void setLanguage(char *applicationName, char *languageCode)
 {
-	char language[MAX_LINE_LENGTH], c[MAX_LINE_LENGTH];
-	char *lang, **key, **value;
+	char language[MAX_DESCRIPTION_LENGTH], c[MAX_LINE_LENGTH];
+	char **key, **value;
+	#ifndef _WIN32
+	char *lang;
+	#endif
 	int i, swap;
 	FILE *fp;
 	MOHeader header;
@@ -48,7 +54,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 			if (c[0] != '\0')
 			{
-				STRNCPY(language, c, MAX_LINE_LENGTH);
+				STRNCPY(language, c, MAX_DESCRIPTION_LENGTH);
 
 				GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO3166CTRYNAME, c, MAX_LINE_LENGTH);
 
@@ -62,26 +68,21 @@ void setLanguage(char *applicationName, char *languageCode)
 		#else
 			if ((lang = getenv("LC_ALL")) || (lang = getenv("LC_CTYPE")) || (lang = getenv("LANG")))
 			{
-				STRNCPY(language, lang, MAX_LINE_LENGTH);
+				STRNCPY(language, lang, MAX_DESCRIPTION_LENGTH);
 			}
 		#endif
 	}
 
 	else
 	{
-		STRNCPY(language, languageCode, MAX_LINE_LENGTH);
+		STRNCPY(language, languageCode, MAX_DESCRIPTION_LENGTH);
 	}
-
+	
 	strtok(language, ".");
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Locale is %s", language);
-	
-	sprintf(c, "locale/%s.mo", language);
 
-	if (!fileExists(c))
-	{
-		sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
-	}
+	sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 
 	#if DEV == 1
 		printf("Opening %s\n", c);
@@ -99,8 +100,10 @@ void setLanguage(char *applicationName, char *languageCode)
 		{
 			return;
 		}
-
+		
 		strtok(language, "_");
+		
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Language is %s", language);
 
 		sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 

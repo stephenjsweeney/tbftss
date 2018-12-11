@@ -86,6 +86,12 @@ static void initFont(char *name, char *filename)
 				dest.x = 0;
 				
 				dest.y += dest.h + 1;
+				
+				if (dest.y + dest.h >= FONT_TEXTURE_SIZE)
+				{
+					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Out of glyph space in %dx%d font atlas texture map.", FONT_TEXTURE_SIZE, FONT_TEXTURE_SIZE);
+					exit(1);
+				}
 			}
 			
 			SDL_BlitSurface(text, NULL, surface, &dest);
@@ -301,7 +307,7 @@ static Glyph *findGlyph(char *c)
 		}
 	}
 	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Couldn't find glyph for '%s'\n", c);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Couldn't find glyph for '%s'", c);
 	exit(1);
 	
 	return NULL;

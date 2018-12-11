@@ -405,7 +405,7 @@ static void drawChallenges(void)
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-	SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
+	SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 
 	r.y = 240;
@@ -453,7 +453,7 @@ static void drawMenu(void)
 	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
 	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
 
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);

@@ -63,7 +63,7 @@ static void initColor(SDL_Color *c, int r, int g, int b)
 void prepareScene(void)
 {
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderClear(app.renderer);
 }
 

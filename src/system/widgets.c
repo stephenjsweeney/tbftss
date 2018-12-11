@@ -150,19 +150,19 @@ void drawWidgets(const char *group)
 			}
 			else
 			{
-				SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+				SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 				SDL_RenderFillRect(app.renderer, &w->rect);
 
 				if (w == selectedWidget)
 				{
-					SDL_SetRenderDrawColor(app.renderer, 64, 128, 200, SDL_ALPHA_OPAQUE);
+					SDL_SetRenderDrawColor(app.renderer, 64, 128, 200, 255);
 					SDL_RenderFillRect(app.renderer, &w->rect);
-					SDL_SetRenderDrawColor(app.renderer, 128, 192, 255, SDL_ALPHA_OPAQUE);
+					SDL_SetRenderDrawColor(app.renderer, 128, 192, 255, 255);
 					SDL_RenderDrawRect(app.renderer, &w->rect);
 				}
 				else
 				{
-					SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
+					SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, 255);
 					SDL_RenderDrawRect(app.renderer, &w->rect);
 				}
 			}

@@ -273,23 +273,26 @@ static void draw(void)
 static void drawMenu(void)
 {
 	SDL_Rect r;
+	
+	if (app.modalDialog.type == MD_NONE)
+	{
+		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+		SDL_RenderFillRect(app.renderer, NULL);
+		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
-	SDL_RenderFillRect(app.renderer, NULL);
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+		r.w = 400;
+		r.h = 400;
+		r.x = (SCREEN_WIDTH / 2) - r.w / 2;
+		r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
 
-	r.w = 400;
-	r.h = 400;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
+		SDL_RenderFillRect(app.renderer, &r);
+		SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
+		SDL_RenderDrawRect(app.renderer, &r);
 
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
-	SDL_RenderFillRect(app.renderer, &r);
-	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, SDL_ALPHA_OPAQUE);
-	SDL_RenderDrawRect(app.renderer, &r);
-
-	drawWidgets("inBattle");
+		drawWidgets("inBattle");
+	}
 }
 
 static void handleKeyboard(void)

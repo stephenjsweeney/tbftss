@@ -143,7 +143,7 @@ void drawTrophies(void)
 	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
 	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
 	
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
@@ -307,10 +307,10 @@ void drawTrophyAlert(void)
 	
 	if (alertTrophy)
 	{
-		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 		SDL_RenderFillRect(app.renderer, &alertRect);
 
-		SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, SDL_ALPHA_OPAQUE);
+		SDL_SetRenderDrawColor(app.renderer, 64, 64, 64, 255);
 		SDL_RenderDrawRect(app.renderer, &alertRect);
 
 		drawText(alertRect.x + 15, alertRect.y + 5, 30, TA_LEFT, colors.white, alertTrophy->title);

@@ -90,7 +90,7 @@ void drawRope(Entity *e)
 {
 	if (e->towing)
 	{
-		SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, SDL_ALPHA_OPAQUE);
+		SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	
 		SDL_RenderDrawLine(app.renderer, e->x - battle.camera.x, e->y - battle.camera.y, e->towing->x - battle.camera.x, e->towing->y - battle.camera.y);
 	}

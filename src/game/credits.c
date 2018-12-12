@@ -70,7 +70,7 @@ static void logic(void)
 		
 		if (!c->next)
 		{
-			c->y = MAX(c->y, (SCREEN_HEIGHT - c->h) / 2);
+			c->y = MAX(c->y, (app.winHeight - c->h) / 2);
 		}
 	}
 	
@@ -88,15 +88,15 @@ static void draw(void)
 	
 	drawBackground(background);
 	
-	blit(earthTexture, SCREEN_WIDTH - 200, (SCREEN_HEIGHT / 2) + 100, 1);
+	blit(earthTexture, app.winWidth - 200, (app.winHeight / 2) + 100, 1);
 	
 	app.textWidth = CREDIT_LINE_LIMIT;
 	
 	for (c = head.next ; c != NULL ; c = c->next)
 	{
-		if (c->y > -c->h && c->y < SCREEN_HEIGHT)
+		if (c->y > -c->h && c->y < app.winHeight)
 		{
-			drawText(SCREEN_WIDTH / 2, (int)c->y, c->size, TA_CENTER, colors.white, c->text);
+			drawText(app.winWidth / 2, (int)c->y, c->size, TA_CENTER, colors.white, c->text);
 		}
 	}
 	
@@ -110,7 +110,7 @@ static void loadCredits(void)
 	char *text;
 	Credit *c;
 	
-	y = SCREEN_HEIGHT + 100;
+	y = app.winHeight + 100;
 
 	text = readFile("data/credits/credits.json");
 	root = cJSON_Parse(text);

@@ -62,6 +62,10 @@ static void initColor(SDL_Color *c, int r, int g, int b)
 
 void prepareScene(void)
 {
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
+	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
+	SDL_RenderClear(app.renderer);
+	
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderClear(app.renderer);
@@ -72,19 +76,20 @@ void presentScene(void)
 	if (dev.debug)
 	{
 		drawText(5, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "DEBUG MODE");
+		
 		if (dev.showFPS)
 		{
 			drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 25, 14, TA_CENTER, colors.white, "FPS: %d", dev.fps);
 		}
 	}
 	
+	SDL_SetRenderTarget(app.renderer, NULL);
+	SDL_RenderCopy(app.renderer, app.backBuffer, NULL, NULL);
+	SDL_RenderCopy(app.renderer, app.uiBuffer, NULL, NULL);
 	if (!app.hideMouse)
 	{
 		drawMouse();
 	}
-	
-	SDL_SetRenderTarget(app.renderer, NULL);
-	SDL_RenderCopy(app.renderer, app.backBuffer, NULL, NULL);
 	SDL_RenderPresent(app.renderer);
 }
 

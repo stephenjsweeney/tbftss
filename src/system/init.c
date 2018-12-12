@@ -111,14 +111,21 @@ void initSDL(int argc, char *argv[])
 		exit(1);
 	}
 
-	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
+	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, app.winWidth, app.winHeight);
 
-	app.scaleX = SCREEN_WIDTH;
-	app.scaleX /= app.winWidth;
-	app.scaleY = SCREEN_HEIGHT;
-	app.scaleY /= app.winHeight;
+	app.scale.x = app.scale.y = 1;
+	
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Game scale factor: %.2f,%.2f\n", app.scale.x, app.scale.y);
+	
+	app.uiBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, UI_WIDTH, UI_HEIGHT);
+	SDL_SetTextureBlendMode(app.uiBuffer, SDL_BLENDMODE_BLEND);
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Game scale factor: %.2f,%.2f\n", app.scaleX, app.scaleY);
+	app.uiScale.x = UI_WIDTH;
+	app.uiScale.x /= app.winWidth;
+	app.uiScale.y = UI_HEIGHT;
+	app.uiScale.y /= app.winHeight;
+
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "UI scale factor: %.2f,%.2f\n", app.uiScale.x, app.uiScale.y);
 }
 
 void initGameSystem(void)
@@ -169,10 +176,10 @@ static void showLoadingStep(float step, float maxSteps)
 
 	prepareScene();
 
-	r.w = SCREEN_WIDTH - 400;
-	r.h = 14;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	r.w = 600;
+	r.h = 12;
+	r.x = (app.winWidth / 2) - r.w / 2;
+	r.y = (app.winHeight / 2) - r.h / 2;
 
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawRect(app.renderer, &r);

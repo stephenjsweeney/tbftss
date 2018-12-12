@@ -327,7 +327,7 @@ static void doStarSystemView(void)
 
 	for (mission = selectedStarSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 	{
-		if (mission->available && collision(app.mouse.x - app.mouse.w / 2, app.mouse.y - app.mouse.h / 2, app.mouse.w, app.mouse.h, mission->rect.x, mission->rect.y, mission->rect.w, mission->rect.h))
+		if (mission->available && collision(app.uiMouse.x - app.mouse.w / 2, app.uiMouse.y - app.mouse.h / 2, app.mouse.w, app.mouse.h, mission->rect.x, mission->rect.y, mission->rect.w, mission->rect.h))
 		{
 			hoverMission = mission;
 			
@@ -524,17 +524,17 @@ static void drawGalaxy(void)
 			ay = r.y;
 			aa = -1;
 
-			ax = MAX(MIN(SCREEN_WIDTH - 64, ax), 64);
-			ay = MAX(MIN(SCREEN_HEIGHT - 64, ay), 64);
+			ax = MAX(MIN(app.winWidth - 64, ax), 64);
+			ay = MAX(MIN(app.winHeight - 64, ay), 64);
 
 			if (r.x < 0)
 			{
 				ax = 64 + (sin(arrowPulse) * 10);
 				aa = 270;
 			}
-			else if (r.x > SCREEN_WIDTH)
+			else if (r.x > app.winWidth)
 			{
-				ax = SCREEN_WIDTH - 64 + (sin(arrowPulse) * 10);
+				ax = app.winWidth - 64 + (sin(arrowPulse) * 10);
 				aa = 90;
 			}
 			else if (r.y < 0)
@@ -542,9 +542,9 @@ static void drawGalaxy(void)
 				ay = 64 + (sin(arrowPulse) * 10);
 				aa = 0;
 			}
-			else if (r.y > SCREEN_HEIGHT)
+			else if (r.y > app.winHeight)
 			{
-				ay = SCREEN_HEIGHT - 64 + (sin(arrowPulse) * 10);
+				ay = app.winHeight - 64 + (sin(arrowPulse) * 10);
 				aa = 180;
 			}
 
@@ -580,8 +580,8 @@ static void drawInfoBars(void)
 	if (show != SHOW_STAR_SYSTEM && selectedStarSystem != NULL)
 	{
 		r.x = 0;
-		r.y = SCREEN_HEIGHT - 35;
-		r.w = SCREEN_WIDTH;
+		r.y = app.winHeight - 35;
+		r.w = app.winWidth;
 		r.h = 35;
 
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -589,19 +589,19 @@ static void drawInfoBars(void)
 		SDL_RenderFillRect(app.renderer, &r);
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 30, 18, TA_CENTER, colors.white, selectedStarSystem->description);
+		drawText(app.winWidth / 2, app.winHeight - 30, 18, TA_CENTER, colors.white, selectedStarSystem->description);
 	}
 
 	r.x = 0;
 	r.y = 0;
-	r.w = SCREEN_WIDTH;
+	r.w = app.winWidth;
 	r.h = 35;
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 200);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 
-	drawText((SCREEN_WIDTH / 2), 5, 18, TA_CENTER, colors.white, MISSIONS_TEXT, game.completedMissions, game.availableMissions);
+	drawText((app.winWidth / 2), 5, 18, TA_CENTER, colors.white, MISSIONS_TEXT, game.completedMissions, game.availableMissions);
 }
 
 static void selectStarSystem(void)
@@ -635,6 +635,8 @@ static void drawStarSystemDetail(void)
 	int y;
 	Mission *mission;
 	SDL_Rect r;
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	r.w = 900;
 	r.h = 600;
@@ -722,6 +724,8 @@ static void drawStarSystemDetail(void)
 	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->type == SS_SOL || campaignComplete);
 
 	drawWidgets("starSystem");
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static void fallenOK(void)

@@ -131,6 +131,8 @@ void drawStats(void)
 	int i, y, startIndex;
 	SDL_Rect r;
 	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
+	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
@@ -185,6 +187,8 @@ void drawStats(void)
 	drawText(r.x + r.w - 20, 565, 18, TA_RIGHT, colors.white, timeToString(game.stats[STAT_TIME], 1));
 		
 	drawWidgets("stats");
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static void nextPage(void)

@@ -131,7 +131,7 @@ void drawWidgets(const char *group)
 		{
 			if (!mouseOver && !app.awaitingWidgetInput)
 			{
-				mouseOver = (w->type != WT_SELECT && w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.mouse.x, app.mouse.y, 1, 1));
+				mouseOver = (w->type != WT_SELECT && w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.uiMouse.x, app.uiMouse.y, 1, 1));
 
 				if (mouseOver && selectedWidget != w)
 				{
@@ -257,7 +257,7 @@ static void handleMouse(void)
 {
 	Widget *old;
 
-	if (selectedWidget && collision(selectedWidget->rect.x, selectedWidget->rect.y, selectedWidget->rect.w, selectedWidget->rect.h, app.mouse.x, app.mouse.y, 1, 1))
+	if (selectedWidget && collision(selectedWidget->rect.x, selectedWidget->rect.y, selectedWidget->rect.w, selectedWidget->rect.h, app.uiMouse.x, app.uiMouse.y, 1, 1))
 	{
 		if (app.mouse.button[SDL_BUTTON_LEFT])
 		{

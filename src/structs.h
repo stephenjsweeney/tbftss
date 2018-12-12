@@ -498,8 +498,8 @@ typedef struct {
 	int saveGame;
 	int winWidth;
 	int winHeight;
-	float scaleX;
-	float scaleY;
+	PointF scale;
+	PointF uiScale;
 	int fullscreen;
 	int musicVolume;
 	int soundVolume;
@@ -508,8 +508,10 @@ typedef struct {
 	int hideMouse;
 	Gameplay gameplay;
 	Mouse mouse;
+	PointF uiMouse;
 	int keyboard[MAX_KEYBOARD_KEYS];
 	SDL_Texture *backBuffer;
+	SDL_Texture *uiBuffer;
 	SDL_Renderer *renderer;
 	SDL_Window *window;
 	Delegate delegate;

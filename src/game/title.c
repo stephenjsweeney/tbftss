@@ -69,7 +69,7 @@ void initTitle(void)
 	
 	earthTexture = getAtlasImage("gfx/planets/earth.png");
 	
-	earth.x = rand() % SCREEN_WIDTH;
+	earth.x = rand() % app.winWidth;
 	earth.y = -(128 + (rand() % 128));
 	
 	initEffects();
@@ -110,8 +110,8 @@ static void initFighters(void)
 	
 	for (i = 0 ; i < NUM_FIGHTERS ; i++)
 	{
-		fighters[i].x = rand() % (SCREEN_WIDTH - 32);
-		fighters[i].y = SCREEN_HEIGHT + (rand() % SCREEN_HEIGHT);
+		fighters[i].x = rand() % (app.winWidth - 32);
+		fighters[i].y = app.winHeight + (rand() % app.winHeight);
 		fighters[i].texture = getAtlasImage(fighterTextures[rand() % numTextures]);
 		fighters[i].dy = -(1 + rand() % 3);
 	}
@@ -127,9 +127,9 @@ static void logic(void)
 	
 	earth.y += 0.1;
 	
-	if (earth.y > SCREEN_HEIGHT + 128)
+	if (earth.y > app.winHeight + 128)
 	{
-		earth.x = rand() % SCREEN_WIDTH;
+		earth.x = rand() % app.winWidth;
 		earth.y = -(128 + (rand() % 128));
 	}
 	
@@ -166,8 +166,8 @@ static void doFighters(void)
 		
 		if (self->y <= -64)
 		{
-			self->x = rand() % (SCREEN_WIDTH - 32);
-			self->y = SCREEN_HEIGHT + (rand() % SCREEN_HEIGHT);
+			self->x = rand() % (app.winWidth - 32);
+			self->y = app.winHeight + (rand() % app.winHeight);
 			self->texture = getAtlasImage(fighterTextures[rand() % numTextures]);
 			self->dy = -(1 + rand() % 3);
 		}
@@ -190,18 +190,20 @@ static void draw(void)
 	
 	setAtlasColor(255, 255, 255, 255);
 	
-	blit(logo[0], (SCREEN_WIDTH / 2) - logo[0]->rect.w, 30, 0);
-	blit(logo[1], (SCREEN_WIDTH / 2), 30, 0);
+	blit(logo[0], (app.winWidth / 2) - logo[0]->rect.w, 30, 0);
+	blit(logo[1], (app.winWidth / 2), 30, 0);
 	
-	blit(pandoranWar, SCREEN_WIDTH / 2, 110, 1);
+	blit(pandoranWar, app.winWidth / 2, 110, 1);
 	
-	drawText(10, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2018");
-	drawText(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 25, 14, TA_RIGHT, colors.white, "Version %.2f.%d", VERSION, REVISION);
+	drawText(10, app.winHeight - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2018");
+	drawText(app.winWidth - 10, app.winHeight - 25, 14, TA_RIGHT, colors.white, "Version %.2f.%d", VERSION, REVISION);
 	
 	switch (show)
 	{
 		case SHOW_TITLE:
+			SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 			drawWidgets("title");
+			SDL_SetRenderTarget(app.renderer, app.backBuffer);
 			break;
 			
 		case SHOW_STATS:

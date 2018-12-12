@@ -90,6 +90,8 @@ void drawOptions(void)
 static void drawMain(void)
 {
 	SDL_Rect r;
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -98,15 +100,15 @@ static void drawMain(void)
 
 	r.w = 500;
 	r.h = 600;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	r.x = (UI_WIDTH / 2) - r.w / 2;
+	r.y = (UI_HEIGHT / 2) - r.h / 2;
 
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 
-	drawText(SCREEN_WIDTH / 2, 70, 28, TA_CENTER, colors.white, OPTIONS_TEXT);
+	drawText(UI_WIDTH / 2, 70, 28, TA_CENTER, colors.white, OPTIONS_TEXT);
 
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w, 120);
@@ -115,9 +117,11 @@ static void drawMain(void)
 
 	app.textWidth = r.w - 100;
 	
-	drawText(SCREEN_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, RESOLUTION_TEXT);
+	drawText(UI_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, RESOLUTION_TEXT);
 	
 	app.textWidth = 0;
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 void updateCustomResolutionOption(void)

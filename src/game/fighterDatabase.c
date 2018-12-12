@@ -100,6 +100,8 @@ void drawFighterDatabase(void)
 	Entity *fighter;
 	int i, y, numCannons;
 	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
+	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
@@ -164,6 +166,8 @@ void drawFighterDatabase(void)
 	app.textWidth = 0;
 	
 	drawWidgets("fighterDB");
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static int countFighterGuns(Entity *fighter, int type)

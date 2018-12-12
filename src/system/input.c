@@ -108,13 +108,6 @@ void setMouseCursor(int isDrag)
 
 void drawMouse(void)
 {
-	int x, y;
-
-	SDL_GetMouseState(&x, &y);
-
-	app.mouse.x = x * app.scaleX;
-	app.mouse.y = y * app.scaleY;
-	
 	setAtlasColor(255, 255, 255, 255);
 
 	blit(mousePointer, app.mouse.x, app.mouse.y, 1);
@@ -123,6 +116,7 @@ void drawMouse(void)
 void doInput(void)
 {
 	SDL_Event event;
+	int x, y;
 	
 	while (SDL_PollEvent(&event))
 	{
@@ -169,6 +163,14 @@ void doInput(void)
 				break;
 		}
 	}
+	
+	SDL_GetMouseState(&x, &y);
+
+	app.mouse.x = x * app.scale.x;
+	app.mouse.y = y * app.scale.y;
+	
+	app.uiMouse.x = x * app.uiScale.x;
+	app.uiMouse.y = y * app.uiScale.y;
 }
 
 void clearInput(void)

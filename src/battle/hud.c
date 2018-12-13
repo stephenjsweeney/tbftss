@@ -452,13 +452,13 @@ static void drawNumFighters(void)
 {
 	/* Allies */
 	setAtlasColor(150, 200, 255, 255);
-	blit(smallFighter, 400, 15, 0);
-	drawText(425, 11, 14, TA_LEFT, colors.white, battle.numAllies < 1000 ? "(%d)" : "(999+)", battle.numAllies);
+	blit(smallFighter, (app.winWidth / 2) - 200, 15, 0);
+	drawText((app.winWidth / 2) - 175, 11, 14, TA_LEFT, colors.white, battle.numAllies < 1000 ? "(%d)" : "(999+)", battle.numAllies);
 	
 	/* Enemies */
 	setAtlasColor(255, 100, 100, 255);
-	blit(smallFighter, SCREEN_WIDTH - 410, 15, 0);
-	drawText(SCREEN_WIDTH - 420, 11, 14, TA_RIGHT, colors.white, !battle.unlimitedEnemies ? "(%d)" : "(999+)", battle.numEnemies);
+	blit(smallFighter, (app.winWidth / 2) + 195, 15, 0);
+	drawText((app.winWidth / 2) + 185, 11, 14, TA_RIGHT, colors.white, !battle.unlimitedEnemies ? "(%d)" : "(999+)", battle.numEnemies);
 }
 
 static void drawObjectives(void)
@@ -469,12 +469,12 @@ static void drawObjectives(void)
 	
 	if (!game.currentMission->challengeData.isChallenge)
 	{
-		blit(objectives, (SCREEN_WIDTH / 2) - 50, 14, 0);
-		drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, (battle.numObjectivesTotal + battle.numConditions));
+		blit(objectives, (app.winWidth / 2) - 50, 14, 0);
+		drawText(app.winWidth / 2, 10, 16, TA_CENTER, colors.white, "%d / %d", battle.numObjectivesComplete, (battle.numObjectivesTotal + battle.numConditions));
 		
 		if (battle.isEpic && battle.epicLives > 0)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, REMAINING_PILOTS_TEXT, battle.epicLives - 1);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, REMAINING_PILOTS_TEXT, battle.epicLives - 1);
 		}
 	}
 	else
@@ -483,46 +483,46 @@ static void drawObjectives(void)
 		{
 			timeRemaining = game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME];
 			
-			blit(clockIcon, (SCREEN_WIDTH / 2) - 50, 14, 0);
-			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, (timeRemaining < 11 * FPS) ? colors.red : colors.white, timeToString(timeRemaining, 0));
+			blit(clockIcon, (app.winWidth / 2) - 50, 14, 0);
+			drawText(app.winWidth / 2, 10, 16, TA_CENTER, (timeRemaining < 11 * FPS) ? colors.red : colors.white, timeToString(timeRemaining, 0));
 		}
 		else
 		{
-			drawText(SCREEN_WIDTH / 2, 10, 16, TA_CENTER, colors.white, timeToString(battle.stats[STAT_TIME], 0));
-			blit(clockIcon, (SCREEN_WIDTH / 2) - 50, 14, 0);
+			drawText(app.winWidth / 2, 10, 16, TA_CENTER, colors.white, timeToString(battle.stats[STAT_TIME], 0));
+			blit(clockIcon, (app.winWidth / 2) - 50, 14, 0);
 		}
 		
 		if (game.currentMission->challengeData.killLimit)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.killLimit);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.killLimit);
 		}
 		else if (game.currentMission->challengeData.itemLimit)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.itemLimit);
 		}
 		else if (game.currentMission->challengeData.playerItemLimit)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.playerItemLimit);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ITEMS_COLLECTED_PLAYER], game.currentMission->challengeData.playerItemLimit);
 		}
 		else if (game.currentMission->challengeData.rescueLimit)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_CIVILIANS_RESCUED], game.currentMission->challengeData.rescueLimit);
 		}
 		else if (game.currentMission->challengeData.disableLimit)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.disableLimit);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_DISABLED], game.currentMission->challengeData.disableLimit);
 		}
 		else if (game.currentMission->challengeData.surrenderLimit)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_SURRENDERED], game.currentMission->challengeData.surrenderLimit);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_ENEMIES_SURRENDERED], game.currentMission->challengeData.surrenderLimit);
 		}
 		else if (game.currentMission->challengeData.waypointLimit)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_WAYPOINTS_VISITED], game.currentMission->challengeData.waypointLimit);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, "%d / %d", battle.stats[STAT_WAYPOINTS_VISITED], game.currentMission->challengeData.waypointLimit);
 		}
 		else if (player->flags & EF_MUST_DISABLE)
 		{
-			drawText(SCREEN_WIDTH / 2, 35, 14, TA_CENTER, colors.white, SYSTEM_POWER_TEXT, player->systemPower);
+			drawText(app.winWidth / 2, 35, 14, TA_CENTER, colors.white, SYSTEM_POWER_TEXT, player->systemPower);
 		}
 	}
 }
@@ -552,18 +552,18 @@ static void drawDistancesInfo(void)
 	{
 		if (player->target->flags & EF_AI_LEADER && player->target->speed > 0)
 		{
-			drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, LEADER_DIST_TEXT, player->target->name);
+			drawText(app.winWidth - 15, y, 18, TA_RIGHT, colors.red, LEADER_DIST_TEXT, player->target->name);
 		}
 		else
 		{
-			drawText(SCREEN_WIDTH - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
+			drawText(app.winWidth - 15, y, 18, TA_RIGHT, colors.red, player->target->name);
 		}
 		
 		y += 30;
 		
 		distance = distanceToKM(player->x, player->y, player->target->x, player->target->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.red, TARGET_DIST_TEXT, distance);
+		drawText(app.winWidth - 15, y, 14, TA_RIGHT, colors.red, TARGET_DIST_TEXT, distance);
 		
 		y += 25;
 	}
@@ -572,7 +572,7 @@ static void drawDistancesInfo(void)
 	{
 		distance = distanceToKM(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.green, OBJECTIVE_DIST_TEXT, distance);
+		drawText(app.winWidth - 15, y, 14, TA_RIGHT, colors.green, OBJECTIVE_DIST_TEXT, distance);
 		
 		y += 25;
 	}
@@ -581,7 +581,7 @@ static void drawDistancesInfo(void)
 	{
 		distance = distanceToKM(player->x, player->y, battle.jumpgate->x, battle.jumpgate->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.yellow, JUMPGATE_DIST_TEXT, distance);
+		drawText(app.winWidth - 15, y, 14, TA_RIGHT, colors.yellow, JUMPGATE_DIST_TEXT, distance);
 		
 		y += 25;
 	}
@@ -590,7 +590,7 @@ static void drawDistancesInfo(void)
 	{
 		distance = distanceToKM(player->x, player->y, battle.messageSpeaker->x, battle.messageSpeaker->y);
 		
-		drawText(SCREEN_WIDTH - 15, y, 14, TA_RIGHT, colors.white, "%s: %.2fkm", battle.messageSpeaker->name, distance);
+		drawText(app.winWidth - 15, y, 14, TA_RIGHT, colors.white, "%s: %.2fkm", battle.messageSpeaker->name, distance);
 		
 		y += 25;
 	}
@@ -599,7 +599,7 @@ static void drawDistancesInfo(void)
 static void drawHudMessages(void)
 {
 	HudMessage *hudMessage;
-	int y = SCREEN_HEIGHT - 25;
+	int y = app.winHeight - 25;
 	
 	for (hudMessage = hudMessageHead.next ; hudMessage != NULL ; hudMessage = hudMessage->next)
 	{
@@ -620,17 +620,17 @@ static void drawPlayerSelect(void)
 	
 	blit(targetCircle, player->x - battle.camera.x, player->y - battle.camera.y, 1);
 	
-	drawText(SCREEN_WIDTH / 2, 500, 28, TA_CENTER, colors.white, NEW_FIGHTER_TEXT);
+	drawText(app.winWidth / 2, 500, 28, TA_CENTER, colors.white, NEW_FIGHTER_TEXT);
 	
 	if (player->health > 0)
 	{
-		drawText(SCREEN_WIDTH / 2, 540, 20, TA_CENTER, colors.white, "%s (%d%% / %d%%)", player->defName, getPercent(player->health, player->maxHealth), getPercent(player->shield, player->maxShield));
+		drawText(app.winWidth / 2, 540, 20, TA_CENTER, colors.white, "%s (%d%% / %d%%)", player->defName, getPercent(player->health, player->maxHealth), getPercent(player->shield, player->maxShield));
 	}
 	
 	setAtlasColor(255, 255, 255, 255);
 	
-	blit(arrowLeft, (SCREEN_WIDTH / 2) - 200, 520, 1);
-	blit(arrowRight, (SCREEN_WIDTH / 2) + 200, 520, 1);
+	blit(arrowLeft, (app.winWidth / 2) - 200, 520, 1);
+	blit(arrowRight, (app.winWidth / 2) + 200, 520, 1);
 }
 
 static void drawSuspicionLevel(void)
@@ -641,10 +641,10 @@ static void drawSuspicionLevel(void)
 	{
 		battle.suspicionLevel = MIN(battle.suspicionLevel, MAX_SUSPICION_LEVEL);
 		
-		drawText((SCREEN_WIDTH / 2) - 150, SCREEN_HEIGHT - 60, 18, TA_RIGHT, colors.white, SUSPICION_TEXT);
+		drawText((app.winWidth / 2) - 150, app.winHeight - 60, 18, TA_RIGHT, colors.white, SUSPICION_TEXT);
 		
-		r.x = (SCREEN_WIDTH / 2) - 140;
-		r.y = SCREEN_HEIGHT - 58;
+		r.x = (app.winWidth / 2) - 140;
+		r.y = app.winHeight - 58;
 		r.w = 400;
 		r.h = 20;
 		
@@ -678,7 +678,7 @@ static void drawSuspicionLevel(void)
 		
 		SDL_RenderFillRect(app.renderer, &r);
 		
-		drawText(r.x + r.w + 7, SCREEN_HEIGHT - 57, 12, TA_LEFT, colors.white, "%d%%", (battle.suspicionLevel > 0) ? getPercent(battle.suspicionLevel, MAX_SUSPICION_LEVEL) : 0);
+		drawText(r.x + r.w + 7, app.winHeight - 57, 12, TA_LEFT, colors.white, "%d%%", (battle.suspicionLevel > 0) ? getPercent(battle.suspicionLevel, MAX_SUSPICION_LEVEL) : 0);
 	}
 }
 
@@ -686,7 +686,7 @@ static void drawMissileWarning(void)
 {
 	if (battle.incomingMissile && battle.stats[STAT_TIME] % FPS < 40)
 	{
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 60, 18, TA_CENTER, colors.red, WARNING_TEXT);
+		drawText(app.winWidth / 2, app.winHeight - 60, 18, TA_CENTER, colors.red, WARNING_TEXT);
 	}
 }
 

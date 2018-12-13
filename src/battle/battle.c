@@ -276,6 +276,8 @@ static void drawMenu(void)
 	
 	if (app.modalDialog.type == MD_NONE)
 	{
+		SDL_SetRenderTarget(app.renderer, app.uiBuffer);
+		
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 		SDL_RenderFillRect(app.renderer, NULL);
@@ -283,8 +285,8 @@ static void drawMenu(void)
 
 		r.w = 400;
 		r.h = 400;
-		r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-		r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+		r.x = (UI_WIDTH / 2) - r.w / 2;
+		r.y = (UI_HEIGHT / 2) - r.h / 2;
 
 		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 		SDL_RenderFillRect(app.renderer, &r);
@@ -292,6 +294,8 @@ static void drawMenu(void)
 		SDL_RenderDrawRect(app.renderer, &r);
 
 		drawWidgets("inBattle");
+		
+		SDL_SetRenderTarget(app.renderer, app.backBuffer);
 	}
 }
 

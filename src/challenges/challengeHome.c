@@ -243,7 +243,7 @@ static void doChallenges(void)
 	
 	for (c = game.challengeMissionHead.next ; c != NULL ; c = c->next)
 	{
-		if (i >= startIndex && i < end && app.mouse.button[SDL_BUTTON_LEFT] && collision(app.mouse.x, app.mouse.y, 3, 3, c->rect.x, c->rect.y, c->rect.w, c->rect.h))
+		if (i >= startIndex && i < end && app.mouse.button[SDL_BUTTON_LEFT] && collision(app.uiMouse.x, app.uiMouse.y, 3, 3, c->rect.x, c->rect.y, c->rect.w, c->rect.h))
 		{
 			if (c->available)
 			{
@@ -308,6 +308,8 @@ static void draw(void)
 
 	drawStars();
 	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
+	
 	drawText(SCREEN_WIDTH / 2, 40, 28, TA_CENTER, colors.white, CHALLENGES_TEXT);
 	drawText(SCREEN_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, COMPLETED_TEXT, game.completedChallenges, game.totalChallenges);
 	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
@@ -340,6 +342,8 @@ static void draw(void)
 			drawFighterDatabase();
 			break;
 	}
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static void drawChallenges(void)

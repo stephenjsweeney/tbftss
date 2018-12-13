@@ -151,6 +151,8 @@ void drawControls(void)
 {
 	int i;
 	SDL_Rect r;
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -201,6 +203,8 @@ void drawControls(void)
 	app.textWidth = 0;
 	
 	drawWidgets("controls");
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static void restoreDefaults(void)

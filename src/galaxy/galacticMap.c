@@ -640,8 +640,8 @@ static void drawStarSystemDetail(void)
 
 	r.w = 900;
 	r.h = 600;
-	r.x = (SCREEN_WIDTH / 2) - (r.w / 2);
-	r.y = (SCREEN_HEIGHT / 2) - (r.h / 2);
+	r.x = (UI_WIDTH / 2) - (r.w / 2);
+	r.y = (UI_HEIGHT / 2) - (r.h / 2);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 225);
@@ -654,7 +654,7 @@ static void drawStarSystemDetail(void)
 
 	y = 70;
 
-	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.cyan, selectedStarSystem->name);
+	drawText(UI_WIDTH / 2, y, 28, TA_CENTER, colors.cyan, selectedStarSystem->name);
 
 	SDL_RenderDrawLine(app.renderer, r.x, 120, r.x + r.w - 1, 120);
 
@@ -710,15 +710,15 @@ static void drawStarSystemDetail(void)
 
 	if (game.currentMission->completed)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.green, COMPLETED_TEXT);
+		drawText(525, UI_HEIGHT - 95, 18, TA_LEFT, colors.green, COMPLETED_TEXT);
 	}
 	else if (game.currentMission->epic)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.yellow, EPIC_TEXT);
+		drawText(525, UI_HEIGHT - 95, 18, TA_LEFT, colors.yellow, EPIC_TEXT);
 	}
 	else if (game.currentMission->isOptional)
 	{
-		drawText(525, SCREEN_HEIGHT - 95, 18, TA_LEFT, colors.cyan, OPTIONAL_TEXT);
+		drawText(525, UI_HEIGHT - 95, 18, TA_LEFT, colors.cyan, OPTIONAL_TEXT);
 	}
 
 	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->type == SS_SOL || campaignComplete);
@@ -805,6 +805,8 @@ static void startMission(void)
 static void drawMenu(void)
 {
 	SDL_Rect r;
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -813,8 +815,8 @@ static void drawMenu(void)
 
 	r.w = 400;
 	r.h = 500;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	r.x = (UI_WIDTH / 2) - r.w / 2;
+	r.y = (UI_HEIGHT / 2) - r.h / 2;
 
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);
@@ -822,6 +824,8 @@ static void drawMenu(void)
 	SDL_RenderDrawRect(app.renderer, &r);
 
 	drawWidgets("galacticMap");
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static void resume(void)

@@ -142,17 +142,17 @@ void drawTrophies(void)
 	
 	r.w = boxWidth;
 	r.h = 650;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	r.x = (UI_WIDTH / 2) - r.w / 2;
+	r.y = (UI_HEIGHT / 2) - r.h / 2;
 	
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 	
-	drawText(SCREEN_WIDTH / 2, 40, 28, TA_CENTER, colors.white, TROPHIES_TEXT);
-	drawText(SCREEN_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, AWARDED_TEXT, awarded, total);
-	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
+	drawText(UI_WIDTH / 2, 40, 28, TA_CENTER, colors.white, TROPHIES_TEXT);
+	drawText(UI_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, AWARDED_TEXT, awarded, total);
+	drawText(UI_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
 	
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, 150, r.x + r.w, 150);

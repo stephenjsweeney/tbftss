@@ -30,8 +30,8 @@ void initStars(void)
 	
 	for (i = 0 ; i < MAX_STARS ; i++)
 	{
-		stars[i].x = rand() % SCREEN_WIDTH;
-		stars[i].y = rand() % SCREEN_HEIGHT;
+		stars[i].x = rand() % app.winWidth;
+		stars[i].y = rand() % app.winHeight;
 		stars[i].speed = 5 + rand() % 35;
 		
 		stars[i].speed *= 0.1;
@@ -47,8 +47,8 @@ void doStars(float dx, float dy)
 		stars[i].x -= (dx * stars[i].speed);
 		stars[i].y -= (dy * stars[i].speed);
 		
-		stars[i].x = mod(stars[i].x, SCREEN_WIDTH - 1);
-		stars[i].y = mod(stars[i].y, SCREEN_HEIGHT - 1);
+		stars[i].x = mod(stars[i].x, app.winWidth - 1);
+		stars[i].y = mod(stars[i].y, app.winHeight - 1);
 	}
 }
 

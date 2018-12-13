@@ -109,27 +109,27 @@ void drawFighterDatabase(void)
 	
 	r.w = 700;
 	r.h = 650;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	r.x = (UI_WIDTH / 2) - r.w / 2;
+	r.y = (UI_HEIGHT / 2) - r.h / 2;
 	
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 	
-	drawText(SCREEN_WIDTH / 2, 50, 28, TA_CENTER, colors.white, DB_TEXT);
+	drawText(UI_WIDTH / 2, 50, 28, TA_CENTER, colors.white, DB_TEXT);
 	
-	drawText(SCREEN_WIDTH / 2, 90, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
+	drawText(UI_WIDTH / 2, 90, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
 	
 	fighter = dbFighters[page];
 	
-	drawText(SCREEN_WIDTH / 2, 130, 28, TA_CENTER, colors.white, fighter->name);
+	drawText(UI_WIDTH / 2, 130, 28, TA_CENTER, colors.white, fighter->name);
 	
 	blitRotated(fighter->texture, r.x + (r.w / 2), 250, rotation);
 	
 	if (fighter->flags & EF_COMMON_FIGHTER)
 	{
-		drawText(SCREEN_WIDTH / 2, 170, 18, TA_CENTER, colors.darkGrey, COMMON_TEXT);
+		drawText(UI_WIDTH / 2, 170, 18, TA_CENTER, colors.darkGrey, COMMON_TEXT);
 		
 		drawText(r.x + (r.w / 2), 290, 18, TA_CENTER, colors.lightGrey, "%s: %d", DESTROYED_TEXT, numDestroyed);
 	}

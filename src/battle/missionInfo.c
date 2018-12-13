@@ -56,6 +56,8 @@ void initMissionInfo(void)
 
 void drawMissionInfo(void)
 {
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
+	
 	switch (battle.status)
 	{
 		case MS_START:
@@ -96,6 +98,8 @@ void drawMissionInfo(void)
 			}
 			break;
 	}
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static void drawMissionSummary(AtlasImage *header)

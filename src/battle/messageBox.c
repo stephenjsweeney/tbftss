@@ -131,7 +131,7 @@ void drawMessageBox(void)
 		r.y = 50;
 		r.w = 650;
 		r.h = msg->height + 40;
-		r.x = (SCREEN_WIDTH - r.w) / 2;
+		r.x = (app.winWidth - r.w) / 2;
 		
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 		

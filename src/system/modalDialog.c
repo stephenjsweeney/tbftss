@@ -100,6 +100,8 @@ void doModalDialog(void)
 void drawModalDialog(void)
 {
 	SDL_Rect r;
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	app.textWidth = 700;
 
@@ -109,8 +111,8 @@ void drawModalDialog(void)
 
 	r.w = 800;
 	r.h = getWrappedTextHeight(app.modalDialog.message, 24) + 100;
-	r.x = (SCREEN_WIDTH / 2) - (r.w / 2);
-	r.y = (SCREEN_HEIGHT / 2) - (r.h / 2);
+	r.x = (UI_WIDTH / 2) - (r.w / 2);
+	r.y = (UI_HEIGHT / 2) - (r.h / 2);
 
 	ok->rect.y = okCancelOK->rect.y = okCancelCancel->rect.y = r.y + r.h - 50;
 
@@ -122,7 +124,7 @@ void drawModalDialog(void)
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 
-	drawText(SCREEN_WIDTH / 2, r.y + 10, 24, TA_CENTER, colors.white, app.modalDialog.message);
+	drawText(UI_WIDTH / 2, r.y + 10, 24, TA_CENTER, colors.white, app.modalDialog.message);
 
 	switch (app.modalDialog.type)
 	{
@@ -136,4 +138,6 @@ void drawModalDialog(void)
 	}
 
 	app.textWidth = 0;
+	
+	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }

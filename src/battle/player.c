@@ -515,8 +515,8 @@ static void selectNewPlayer(int dir)
 	}
 	while (player == NULL);
 
-	battle.camera.x = player->x - (SCREEN_WIDTH / 2);
-	battle.camera.y = player->y - (SCREEN_HEIGHT / 2);
+	battle.camera.x = player->x - (app.winWidth / 2);
+	battle.camera.y = player->y - (app.winHeight / 2);
 }
 
 static void activateBoost(void)

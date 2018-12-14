@@ -26,6 +26,7 @@ extern void drawWidgets(char *groupName);
 extern AtlasImage *getAtlasImage(char *filename);
 extern char *getChallengeDescription(Challenge *c);
 extern char *timeToString(long millis, int showHours);
+extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;
 extern Battle battle;

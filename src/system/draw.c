@@ -26,17 +26,17 @@ static PointF backgroundPoint[4];
 
 void initGraphics(void)
 {
-	backgroundPoint[0].x = -SCREEN_WIDTH / 2;
-	backgroundPoint[0].y = -SCREEN_HEIGHT / 2;
+	backgroundPoint[0].x = -app.winWidth / 2;
+	backgroundPoint[0].y = -app.winHeight / 2;
 	
-	backgroundPoint[1].x = SCREEN_WIDTH / 2;
-	backgroundPoint[1].y = -SCREEN_HEIGHT / 2;
+	backgroundPoint[1].x = app.winWidth / 2;
+	backgroundPoint[1].y = -app.winHeight / 2;
 	
-	backgroundPoint[2].x = -SCREEN_WIDTH / 2;
-	backgroundPoint[2].y = SCREEN_HEIGHT / 2;
+	backgroundPoint[2].x = -app.winWidth / 2;
+	backgroundPoint[2].y = app.winHeight / 2;
 	
-	backgroundPoint[3].x = SCREEN_WIDTH / 2;
-	backgroundPoint[3].y = SCREEN_HEIGHT / 2;
+	backgroundPoint[3].x = app.winWidth / 2;
+	backgroundPoint[3].y = app.winHeight / 2;
 	
 	initColor(&colors.red, 255, 0, 0);
 	initColor(&colors.orange, 255, 128, 0);
@@ -75,11 +75,11 @@ void presentScene(void)
 {
 	if (dev.debug)
 	{
-		drawText(5, SCREEN_HEIGHT - 25, 14, TA_LEFT, colors.white, "DEBUG MODE");
+		drawText(5, app.winHeight - 25, 14, TA_LEFT, colors.white, "DEBUG MODE");
 		
 		if (dev.showFPS)
 		{
-			drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 25, 14, TA_CENTER, colors.white, "FPS: %d", dev.fps);
+			drawText(app.winWidth / 2, app.winHeight - 25, 14, TA_CENTER, colors.white, "FPS: %d", dev.fps);
 		}
 	}
 	
@@ -193,22 +193,22 @@ void scrollBackground(float x, float y)
 		
 		if (backgroundPoint[i].x < 0)
 		{
-			backgroundPoint[i].x += (SCREEN_WIDTH * 2);
+			backgroundPoint[i].x += (app.winWidth * 2);
 		}
 		
-		if (backgroundPoint[i].x >= SCREEN_WIDTH)
+		if (backgroundPoint[i].x >= app.winWidth)
 		{
-			backgroundPoint[i].x -= (SCREEN_WIDTH * 2);
+			backgroundPoint[i].x -= (app.winWidth * 2);
 		}
 		
 		if (backgroundPoint[i].y < 0)
 		{
-			backgroundPoint[i].y += (SCREEN_HEIGHT * 2);
+			backgroundPoint[i].y += (app.winHeight * 2);
 		}
 		
-		if (backgroundPoint[i].y >= SCREEN_HEIGHT)
+		if (backgroundPoint[i].y >= app.winHeight)
 		{
-			backgroundPoint[i].y -= (SCREEN_HEIGHT * 2);
+			backgroundPoint[i].y -= (app.winHeight * 2);
 		}
 	}
 }
@@ -222,8 +222,8 @@ void drawBackground(SDL_Texture *texture)
 	{
 		dstRect.x = backgroundPoint[i].x;
 		dstRect.y = backgroundPoint[i].y;
-		dstRect.w = SCREEN_WIDTH;
-		dstRect.h = SCREEN_HEIGHT;
+		dstRect.w = app.winWidth;
+		dstRect.h = app.winHeight;
 
 		SDL_RenderCopy(app.renderer, texture, NULL, &dstRect);
 	}
@@ -232,20 +232,20 @@ void drawBackground(SDL_Texture *texture)
 int isOnBattleScreen(int x, int y, int w, int h)
 {
 	x -= (w / 2);
-	x -= (SCREEN_WIDTH / 2);
+	x -= (app.winWidth / 2);
 	x -= battle.camera.x;
 	
 	y -= (h / 2);
-	y -= (SCREEN_HEIGHT / 2);
+	y -= (app.winHeight / 2);
 	y -= battle.camera.y;
 	
 	w *= 2;
-	w += SCREEN_WIDTH;
+	w += app.winWidth;
 	
 	h *= 2;
-	h += SCREEN_HEIGHT;
+	h += app.winHeight;
 	
-	return collision(x, y, w, h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+	return collision(x, y, w, h, 0, 0, app.winWidth, app.winHeight);
 }
 
 void saveScreenshot(void)
@@ -256,7 +256,7 @@ void saveScreenshot(void)
 	
 	sprintf(filename, "/tmp/tbftss/%d.bmp", ++i);
 	
-	sshot = SDL_CreateRGBSurface(0, SCREEN_WIDTH, SCREEN_HEIGHT, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
+	sshot = SDL_CreateRGBSurface(0, app.winWidth, app.winHeight, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
 	SDL_RenderReadPixels(app.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, sshot->pixels, sshot->pitch);
 	SDL_SaveBMP(sshot, filename);
 	SDL_FreeSurface(sshot);

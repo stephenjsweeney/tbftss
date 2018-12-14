@@ -100,8 +100,8 @@ void initChallengeHome(void)
 
 	battle.camera.x =  battle.camera.y = 0;
 
-	planet.x = rand() % SCREEN_WIDTH;
-	planet.y = rand() % SCREEN_HEIGHT;
+	planet.x = rand() % app.winWidth;
+	planet.y = rand() % app.winHeight;
 	
 	maxPages = page = 0;
 	
@@ -202,8 +202,8 @@ static void logic(void)
 	planet.x -= 0.25;
 	if (planet.x <= -200)
 	{
-		planet.x = SCREEN_WIDTH + 128 + (rand() % SCREEN_WIDTH);
-		planet.y = (rand() % SCREEN_HEIGHT - 128);
+		planet.x = app.winWidth + 128 + (rand() % app.winWidth);
+		planet.y = (rand() % app.winHeight - 128);
 	}
 
 	switch (show)
@@ -310,9 +310,9 @@ static void draw(void)
 	
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 	
-	drawText(SCREEN_WIDTH / 2, 40, 28, TA_CENTER, colors.white, CHALLENGES_TEXT);
-	drawText(SCREEN_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, COMPLETED_TEXT, game.completedChallenges, game.totalChallenges);
-	drawText(SCREEN_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
+	drawText(UI_WIDTH / 2, 40, 28, TA_CENTER, colors.white, CHALLENGES_TEXT);
+	drawText(UI_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, COMPLETED_TEXT, game.completedChallenges, game.totalChallenges);
+	drawText(UI_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
 
 	drawChallenges();
 
@@ -390,7 +390,7 @@ static void drawChallenges(void)
 
 			r.x += 150;
 
-			if (r.x > SCREEN_WIDTH - 200)
+			if (r.x > UI_WIDTH - 200)
 			{
 				r.y += 165;
 				r.x = 135;
@@ -400,9 +400,9 @@ static void drawChallenges(void)
 		i++;
 	}
 
-	r.y = SCREEN_HEIGHT - 245;
+	r.y = UI_HEIGHT - 245;
 	r.x = 100;
-	r.w = SCREEN_WIDTH - 200;
+	r.w = UI_WIDTH - 200;
 	r.h = 150;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -416,29 +416,29 @@ static void drawChallenges(void)
 
 	if (game.currentMission)
 	{
-		drawText(SCREEN_WIDTH / 2, SCREEN_HEIGHT - r.y, 24, TA_CENTER, colors.white, game.currentMission->description);
+		drawText(UI_WIDTH / 2, SCREEN_HEIGHT - r.y, 24, TA_CENTER, colors.white, game.currentMission->description);
 
 		r.y -= 50;
 		c = game.currentMission->challengeData.challenges[0];
-		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, CRAFT_TEXT, game.currentMission->craft);
-		drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "1. %s", getChallengeDescription(c));
+		drawText((UI_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, CRAFT_TEXT, game.currentMission->craft);
+		drawText((UI_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "1. %s", getChallengeDescription(c));
 
 		r.y -= 30;
-		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, TIME_TEXT, timeLimit);
+		drawText((UI_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, colors.white, TIME_TEXT, timeLimit);
 
 		c = game.currentMission->challengeData.challenges[1];
 		if (c)
 		{
-			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "2. %s", getChallengeDescription(c));
+			drawText((UI_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "2. %s", getChallengeDescription(c));
 		}
 
 		r.y -= 30;
-		drawText((SCREEN_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, hasRestrictions ? colors.red : colors.white, RESTRICTIONS_TEXT, restrictions);
+		drawText((UI_WIDTH / 2) - 25, SCREEN_HEIGHT - r.y, 18, TA_RIGHT, hasRestrictions ? colors.red : colors.white, RESTRICTIONS_TEXT, restrictions);
 
 		c = game.currentMission->challengeData.challenges[2];
 		if (c)
 		{
-			drawText((SCREEN_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "3. %s", getChallengeDescription(c));
+			drawText((UI_WIDTH / 2) + 25, SCREEN_HEIGHT - r.y, 18, TA_LEFT, (c->passed) ? colors.green : colors.white, "3. %s", getChallengeDescription(c));
 		}
 	}
 }
@@ -454,8 +454,8 @@ static void drawMenu(void)
 
 	r.w = 400;
 	r.h = 500;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	r.x = (UI_WIDTH / 2) - r.w / 2;
+	r.y = (UI_HEIGHT / 2) - r.h / 2;
 
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);

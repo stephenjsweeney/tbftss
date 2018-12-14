@@ -58,6 +58,8 @@ void drawMissionInfo(void)
 {
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 	
+	setAtlasColor(255, 255, 255, 255);
+	
 	switch (battle.status)
 	{
 		case MS_START:
@@ -109,7 +111,7 @@ static void drawMissionSummary(AtlasImage *header)
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	
-	blit(header, SCREEN_WIDTH / 2, 150, 1);
+	blit(header, UI_WIDTH / 2, 150, 1);
 	
 	if (!game.currentMission->challengeData.isChallenge)
 	{
@@ -127,7 +129,7 @@ static void drawObjectives(void)
 	SDL_Color color;
 	int y = 215;
 	
-	drawText(SCREEN_WIDTH / 2, y, 28, TA_CENTER, colors.white, OBJECTIVES_TEXT);
+	drawText(UI_WIDTH / 2, y, 28, TA_CENTER, colors.white, OBJECTIVES_TEXT);
 		
 	y += 10;
 	
@@ -152,14 +154,14 @@ static void drawObjectives(void)
 					break;
 			}
 			
-			drawText(SCREEN_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
+			drawText(UI_WIDTH / 2 - 100, y, 22, TA_RIGHT, colors.white, o->description);
 			
 			if (o->targetValue > 1 && !o->hideNumbers)
 			{
-				drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
+				drawText(UI_WIDTH / 2, y, 22, TA_CENTER, colors.white, "%d / %d", o->currentValue, o->targetValue);
 			}
 			
-			drawText(SCREEN_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
+			drawText(UI_WIDTH / 2 + 100, y, 22, TA_LEFT, color, objectiveStatus[o->status]);
 		}
 	}
 	
@@ -167,7 +169,7 @@ static void drawObjectives(void)
 	{
 		y += 50;
 		
-		drawText(SCREEN_WIDTH / 2, y, 22, TA_CENTER, colors.white, NONE_TEXT);
+		drawText(UI_WIDTH / 2, y, 22, TA_CENTER, colors.white, NONE_TEXT);
 	}
 	
 	y += 75;
@@ -181,13 +183,13 @@ static void drawChallenges(void)
 	SDL_Color color;
 	int y = 215;
 	
-	drawText(SCREEN_WIDTH / 2, y, 24, TA_CENTER, colors.white, game.currentMission->description);
+	drawText(UI_WIDTH / 2, y, 24, TA_CENTER, colors.white, game.currentMission->description);
 	
 	if (battle.status == MS_START && game.currentMission->challengeData.timeLimit)
 	{
 		y+= 50;
 		
-		drawText(SCREEN_WIDTH / 2, y, 20, TA_CENTER, colors.white, TIME_LIMIT_TEXT, timeToString(game.currentMission->challengeData.timeLimit, 0));
+		drawText(UI_WIDTH / 2, y, 20, TA_CENTER, colors.white, TIME_LIMIT_TEXT, timeToString(game.currentMission->challengeData.timeLimit, 0));
 	}
 		
 	y += 25;
@@ -217,8 +219,8 @@ static void drawChallenges(void)
 				challengeStatus = _("Failed");
 			}
 			
-			drawText(SCREEN_WIDTH / 2 - 50, y, 22, TA_RIGHT, colors.white, "%s", getChallengeDescription(c));
-			drawText(SCREEN_WIDTH / 2 + 50, y, 22, TA_LEFT, color, challengeStatus);
+			drawText(UI_WIDTH / 2 - 50, y, 22, TA_RIGHT, colors.white, "%s", getChallengeDescription(c));
+			drawText(UI_WIDTH / 2 + 50, y, 22, TA_LEFT, color, challengeStatus);
 		}
 	}
 }

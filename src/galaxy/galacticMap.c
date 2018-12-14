@@ -278,11 +278,11 @@ static void doStarSystems(void)
 			}
 		}
 
-		cameraMin.x -= SCREEN_WIDTH / 2;
-		cameraMin.y -= SCREEN_HEIGHT / 2;
+		cameraMin.x -= app.winWidth / 2;
+		cameraMin.y -= app.winHeight / 2;
 
-		cameraMax.x -= SCREEN_WIDTH / 2;
-		cameraMax.y -= SCREEN_HEIGHT / 2;
+		cameraMax.x -= app.winWidth / 2;
+		cameraMax.y -= app.winHeight / 2;
 	}
 }
 
@@ -481,10 +481,10 @@ static void drawPulses(void)
 static void centerOnSelectedStarSystem(void)
 {
 	camera.x = selectedStarSystem->x;
-	camera.x -= SCREEN_WIDTH / 2;
+	camera.x -= app.winWidth / 2;
 
 	camera.y = selectedStarSystem->y;
-	camera.y -= SCREEN_HEIGHT / 2;
+	camera.y -= app.winHeight / 2;
 }
 
 static void drawGalaxy(void)

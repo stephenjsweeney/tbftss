@@ -112,7 +112,7 @@ void doEffects(void)
 
 static int pointOnScreen(float x, float y)
 {
-	return collision(x, y, 1, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+	return collision(x, y, 1, 1, 0, 0, app.winWidth, app.winHeight);
 }
 
 static void resizeDrawList(void)
@@ -166,7 +166,7 @@ void drawEffects(void)
 
 			case EFFECT_ECM:
 				setAtlasColor(e->r, e->g, e->b, e->a);
-				blitScaled(e->texture, SCREEN_WIDTH / 2 - (e->size / 2), SCREEN_HEIGHT / 2 - (e->size / 2), e->size, e->size, 0);
+				blitScaled(e->texture, app.winWidth / 2 - (e->size / 2), app.winHeight / 2 - (e->size / 2), e->size, e->size, 0);
 				break;
 		}
 		

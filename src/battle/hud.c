@@ -453,12 +453,12 @@ static void drawNumFighters(void)
 	/* Allies */
 	setAtlasColor(150, 200, 255, 255);
 	blit(smallFighter, (app.winWidth / 2) - 200, 15, 0);
-	drawText((app.winWidth / 2) - 175, 11, 14, TA_LEFT, colors.white, battle.numAllies < 1000 ? "(%d)" : "(999+)", battle.numAllies);
+	drawText((app.winWidth / 2) - 160, 11, 14, TA_RIGHT, colors.white, battle.numAllies < 1000 ? "(%d)" : "(999+)", battle.numAllies);
 	
 	/* Enemies */
 	setAtlasColor(255, 100, 100, 255);
-	blit(smallFighter, (app.winWidth / 2) + 195, 15, 0);
-	drawText((app.winWidth / 2) + 185, 11, 14, TA_RIGHT, colors.white, !battle.unlimitedEnemies ? "(%d)" : "(999+)", battle.numEnemies);
+	blit(smallFighter, (app.winWidth / 2) + 185, 15, 0);
+	drawText((app.winWidth / 2) + 160, 11, 14, TA_LEFT, colors.white, !battle.unlimitedEnemies ? "(%d)" : "(999+)", battle.numEnemies);
 }
 
 static void drawObjectives(void)

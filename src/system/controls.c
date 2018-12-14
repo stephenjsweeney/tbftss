@@ -161,15 +161,15 @@ void drawControls(void)
 
 	r.w = 800;
 	r.h = 650;
-	r.x = (SCREEN_WIDTH / 2) - r.w / 2;
-	r.y = (SCREEN_HEIGHT / 2) - r.h / 2;
+	r.x = (UI_WIDTH / 2) - r.w / 2;
+	r.y = (UI_HEIGHT / 2) - r.h / 2;
 
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
 
-	drawText(SCREEN_WIDTH / 2, 50, 28, TA_CENTER, colors.white, CONTROLS_TEXT);
+	drawText(UI_WIDTH / 2, 50, 28, TA_CENTER, colors.white, CONTROLS_TEXT);
 
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, r.y + 65, r.x + r.w, r.y + 65);
@@ -193,12 +193,12 @@ void drawControls(void)
 		}
 	}
 	
-	drawText((SCREEN_WIDTH / 2) - 50, 525, 16, TA_RIGHT, colors.white, BACKSPACE_TEXT);
-	drawText((SCREEN_WIDTH / 2) + 50, 525, 16, TA_LEFT, colors.white, ESCAPE_TEXT);
+	drawText((UI_WIDTH / 2) - 50, 525, 16, TA_RIGHT, colors.white, BACKSPACE_TEXT);
+	drawText((UI_WIDTH / 2) + 50, 525, 16, TA_LEFT, colors.white, ESCAPE_TEXT);
 	
 	app.textWidth = r.w - 100;
 	
-	drawText(SCREEN_WIDTH / 2, 560, 16, TA_CENTER, colors.white, HELP_TEXT);
+	drawText(UI_WIDTH / 2, 560, 16, TA_CENTER, colors.white, HELP_TEXT);
 	
 	app.textWidth = 0;
 	

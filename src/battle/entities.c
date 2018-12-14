@@ -390,7 +390,7 @@ void drawEntities(void)
 	int i;
 	Entity *e, **candidates;
 	
-	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, SCREEN_WIDTH, SCREEN_HEIGHT, NULL);
+	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, app.winWidth, app.winHeight, NULL);
 	
 	/* counting entities to draw */
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i]) {};
@@ -613,8 +613,8 @@ static void activateEpicFighters(int side)
 				e->x = player->x;
 				e->y = player->y;
 				
-				e->x += (rand() % 2) ? -SCREEN_WIDTH : SCREEN_WIDTH;
-				e->y += (rand() % 2) ? -SCREEN_HEIGHT : SCREEN_HEIGHT;
+				e->x += (rand() % 2) ? -app.winWidth : app.winWidth;
+				e->y += (rand() % 2) ? -app.winHeight : app.winHeight;
 			}
 			
 			return;

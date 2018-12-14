@@ -67,6 +67,7 @@ extern void stopMusic(void);
 extern void updateChallengeMissions(void);
 extern void updateStarSystemMissions(void);
 
+extern App app;
 extern Battle battle;
 extern Dev dev;
 extern Entity *player;

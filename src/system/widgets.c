@@ -408,7 +408,7 @@ static void loadWidgetSet(char *filename)
 
 			if (w->rect.x == -1)
 			{
-				w->rect.x = SCREEN_WIDTH / 2;
+				w->rect.x = UI_WIDTH / 2;
 			}
 
 			switch (w->type)
@@ -553,7 +553,7 @@ void autoSizeWidgetButtons(char *group, int recenter)
 			
 			if (recenter)
 			{
-				w->rect.x = (SCREEN_WIDTH / 2) - (w->rect.w / 2);
+				w->rect.x = (UI_WIDTH / 2) - (w->rect.w / 2);
 			}
 		}
 	}

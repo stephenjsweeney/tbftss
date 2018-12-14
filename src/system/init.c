@@ -215,9 +215,9 @@ static void loadConfig(int argc, char *argv[])
 	
 	handleCommandLineConfig(argc, argv);
 	
-	/* don't go higher than 8K or lower than 320 x 240 */
-	app.winWidth = MIN(MAX(app.winWidth, 320), 7680);
-	app.winHeight = MIN(MAX(app.winHeight, 240), 4320);
+	/* don't go higher than 8K or lower than 1280 x 720 */
+	app.winWidth = MIN(MAX(app.winWidth, 1280), 7680);
+	app.winHeight = MIN(MAX(app.winHeight, 720), 4320);
 	
 	/* so that the player doesn't get confused if this is a new game */
 	saveConfig();

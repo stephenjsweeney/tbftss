@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TBFTSS: The Pandoran War\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-06 18:26:00+0100\n"
+"POT-Creation-Date: 2018-12-16 12:58:45+0000\n"
 "PO-Revision-Date: ???\n"
 "Last-Translator: ???\n"
 "Language-Team: ???\n"
@@ -316,6 +316,18 @@ msgstr ""
 msgid "Speed"
 msgstr ""
 
+msgid "Missiles x %d"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Note: you must restart the game for window size and fullscreen options to take effect."
+msgstr ""
+
+msgid "Note: this device does not support changing the screen resolution."
+msgstr ""
+
 msgid "Percent Complete"
 msgstr ""
 
@@ -485,15 +497,6 @@ msgid "[BACKSPACE] - Clear"
 msgstr ""
 
 msgid "[ESCAPE] - Cancel"
-msgstr ""
-
-msgid "Options"
-msgstr ""
-
-msgid "Note: you must restart the game for window size and fullscreen options to take effect."
-msgstr ""
-
-msgid "Note: this device does not support changing the screen resolution."
 msgstr ""
 
 msgid "Retry"
@@ -3004,13 +3007,13 @@ msgstr ""
 msgid "They'll keep lining 'em up, and we'll keep knocking them down."
 msgstr ""
 
-msgid " Another group. That tallies with the numbers we were expecting."
+msgid "Another group. That tallies with the numbers we were expecting."
 msgstr ""
 
-msgid " Looks like that was the last of 'em."
+msgid "Looks like that was the last of 'em."
 msgstr ""
 
-msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated."
+msgid "Spirit, this is Commander Strickland. Opposing forces have been defeated."
 msgstr ""
 
 msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."

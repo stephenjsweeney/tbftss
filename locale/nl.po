@@ -3005,14 +3005,14 @@ msgstr "Een andere groep is net aangekomen."
 msgid "They'll keep lining 'em up, and we'll keep knocking them down."
 msgstr "Ze zullen ze blijven vullen en we zullen ze blijven omverwerpen."
 
-msgid " Another group. That tallies with the numbers we were expecting."
-msgstr " Een andere groep. Dat komt overeen met de cijfers die we verwachtten."
+msgid "Another group. That tallies with the numbers we were expecting."
+msgstr "Een andere groep. Dat komt overeen met de cijfers die we verwachtten."
 
-msgid " Looks like that was the last of 'em."
-msgstr " Het lijkt erop dat dit de laatste was."
+msgid "Looks like that was the last of 'em."
+msgstr "Het lijkt erop dat dit de laatste was."
 
-msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated."
-msgstr " Geest, dit is commandant Strickland. Tegengestelde krachten zijn verslagen."
+msgid "Spirit, this is Commander Strickland. Opposing forces have been defeated."
+msgstr "Geest, dit is commandant Strickland. Tegengestelde krachten zijn verslagen."
 
 msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
 msgstr "Erkend. Goed gedaan, commandant. Dankzij jou zal Temper een veiliger systeem zijn en kunnen we ons richten op het versterken van onze verdediging tegen de Pandoran-troepen. Kom op naar huis."

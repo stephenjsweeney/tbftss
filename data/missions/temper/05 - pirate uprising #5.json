@@ -121,15 +121,15 @@
 			"lines" : [
 				"ACTIVATE_ENTITY_GROUPS group4",
 				"WAIT 3",
-				"MSG_BOX Strickland; Another group. That tallies with the numbers we were expecting."
+				"MSG_BOX Strickland;Another group. That tallies with the numbers we were expecting."
 			]
 		},
 		{
 			"function" : "ALL_OBJECTIVES_COMPLETE",
 			"lines" : [
 				"WAIT 2",
-				"MSG_BOX Strickland; Looks like that was the last of 'em.",
-				"MSG_BOX Strickland; Spirit, this is Commander Strickland. Opposing forces have been defeated.",
+				"MSG_BOX Strickland;Looks like that was the last of 'em.",
+				"MSG_BOX Strickland;Spirit, this is Commander Strickland. Opposing forces have been defeated.",
 				"MSG_BOX Spirit Orbital;Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home.",
 				"WAIT_MSG_BOX",
 				"COMPLETE_MISSION"

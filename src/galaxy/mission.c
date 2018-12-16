@@ -46,7 +46,7 @@ Mission *loadMissionMeta(char *filename)
 		mission = malloc(sizeof(Mission));
 		memset(mission, 0, sizeof(Mission));
 
-		STRNCPY(mission->name, cJSON_GetObjectItem(root, "name")->valuestring, MAX_NAME_LENGTH);
+		STRNCPY(mission->name, _(cJSON_GetObjectItem(root, "name")->valuestring), MAX_NAME_LENGTH);
 		STRNCPY(mission->description, _(cJSON_GetObjectItem(root, "description")->valuestring), MAX_DESCRIPTION_LENGTH);
 		STRNCPY(mission->filename, filename, MAX_DESCRIPTION_LENGTH);
 

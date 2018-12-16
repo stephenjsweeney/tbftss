@@ -29,7 +29,6 @@ void useFont(char *name);
 static void initChars(Font *f);
 static char *nextCharacter(const char *str, int *i);
 static Glyph *findGlyph(char *c);
-static int strlenMB(char *text);
 
 static SDL_Color white = {255, 255, 255, 255};
 static char drawTextBuffer[1024];
@@ -365,7 +364,7 @@ int getWrappedTextHeight(char *text, int size)
 	y = 0;
 	h = 0;
 	currentWidth = 0;
-	len = strlenMB(drawTextBuffer);
+	len = strlen(drawTextBuffer);
 	memset(word, 0, MAX_WORD_LENGTH);
 	
 	for (i = 0 ; i < len ; i++)
@@ -420,24 +419,4 @@ static char *nextCharacter(const char *str, int *i)
 		
 		*i = *i + 1;
 	}
-}
-
-static int strlenMB(char *text)
-{
-	int i, n;
-	unsigned char bit;
-	
-	n = 0;
-	
-	for (i = 0 ; i < strlen(text) ; i++)
-	{
-		bit = (unsigned char)text[i];
-		
-		if ((bit >= ' ' && bit <= '~') || bit >= 0xC0)
-		{
-			n++;
-		}
-	}
-	
-	return n;
 }

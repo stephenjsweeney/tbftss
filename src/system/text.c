@@ -187,7 +187,7 @@ static void drawTextLines(int x, int y, int size, int align, SDL_Color color)
 	memset(&line, '\0', sizeof(line));
 	memset(&token, '\0', sizeof(token));
 	
-	len = strlenMB(drawTextBuffer);
+	len = strlen(drawTextBuffer);
 	
 	n = currentWidth = 0;
 	

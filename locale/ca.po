@@ -3005,14 +3005,14 @@ msgstr "Un altre grup acaba d'arribar."
 msgid "They'll keep lining 'em up, and we'll keep knocking them down."
 msgstr "Ells seguiran enfrontant-los, i anem a deixar-los tocar."
 
-msgid " Another group. That tallies with the numbers we were expecting."
-msgstr " Un altre grup. Això s'ajusta als números que esperàvem."
+msgid "Another group. That tallies with the numbers we were expecting."
+msgstr "Un altre grup. Això s'ajusta als números que esperàvem."
 
-msgid " Looks like that was the last of 'em."
-msgstr " Sembla que va ser l'últim dels em."
+msgid "Looks like that was the last of 'em."
+msgstr "Sembla que va ser l'últim dels em."
 
-msgid " Spirit, this is Commander Strickland. Opposing forces have been defeated."
-msgstr " Esperit, aquest és el comandant Strickland. Les forces oposades han estat derrotats."
+msgid "Spirit, this is Commander Strickland. Opposing forces have been defeated."
+msgstr "Esperit, aquest és el comandant Strickland. Les forces oposades han estat derrotats."
 
 msgid "Acknowledged. Good work out there, Commander. Thanks to you, Temper will be a safer system, and we can focus on shoring up our defenses against the Pandoran forces. Come on home."
 msgstr "Reconeguda. Bon treball, Commander. Gràcies a vostès, Temper serà un sistema més segur, i ens podem centrar a reforçar les nostres defenses contra les forces de Pandoran. Vine a casa."

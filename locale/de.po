@@ -1087,7 +1087,7 @@ msgid "Take on three enemy targets single handedly. Once again, these are Darts 
 "outclassed here, so long as the enemy are not allowed to gain the upper hand."
 msgstr "Nimm drei feindliche Ziele im Alleingang an. Auch dies sind Darts, die mit einfachen Partikelkanonen ausgestattet sind. Ein einzelner TAF sollte sich hier nicht in den Schatten stellen, solange der Gegner nicht die Oberhand gewinnen darf."
 
-msgid "The Pandoran's push in to Independent space has led to a surge in pirate "
+msgid "The Pandorans' push in to Independent space has led to a surge in pirate "
 "activity along the Confederation border. The threat needs to be dealt with "
 "immediately, starting with cutting back on the enemy presense at Temper."
 msgstr "Der Vorstoß des Pandoran in den unabhängigen Raum hat zu einem Anstieg der Piratenaktivität entlang der Konföderationsgrenze geführt. Die Bedrohung muss sofort angegangen werden, beginnend mit der Verringerung der Feindpräsens bei Temper."

@@ -2914,7 +2914,7 @@ msgstr ""
 msgid "Pirate Uprising #1"
 msgstr ""
 
-msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
+msgid "The Pandorans' push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
 msgstr ""
 
 msgid "Multiple incoming enemy fighters."

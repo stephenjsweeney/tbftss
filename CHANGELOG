@@ -2,8 +2,10 @@ Changelog
 
 1.5
 
+	* Game now renders at chosen resolution instead of scaling up from 1280 x 720
 	* Added command line switch -size to allow for custom window sizes.
 		- For example: -size 900x600 for a width and height of 900 x 600.
+	* Minimum resolution is now 1280 x 720
 	* Graphics and fonts now use texture atlases to help with performance.
 	* Misc. bug fixes.
 

@@ -165,12 +165,12 @@ void doInput(void)
 	}
 	
 	SDL_GetMouseState(&x, &y);
-
-	app.mouse.x = x * app.scale.x;
-	app.mouse.y = y * app.scale.y;
 	
-	app.uiMouse.x = x * app.uiScale.x;
-	app.uiMouse.y = y * app.uiScale.y;
+	app.mouse.x = x;
+	app.mouse.y = y;
+	
+	app.uiMouse.x = x - app.uiOffset.x;
+	app.uiMouse.y = y - app.uiOffset.y;
 }
 
 void clearInput(void)

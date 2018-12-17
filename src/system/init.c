@@ -113,19 +113,13 @@ void initSDL(int argc, char *argv[])
 
 	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, app.winWidth, app.winHeight);
 
-	app.scale.x = app.scale.y = 1;
-	
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Game scale factor: %.2f,%.2f\n", app.scale.x, app.scale.y);
-	
 	app.uiBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, UI_WIDTH, UI_HEIGHT);
 	SDL_SetTextureBlendMode(app.uiBuffer, SDL_BLENDMODE_BLEND);
 
-	app.uiScale.x = UI_WIDTH;
-	app.uiScale.x /= app.winWidth;
-	app.uiScale.y = UI_HEIGHT;
-	app.uiScale.y /= app.winHeight;
+	app.uiOffset.x = (app.winWidth / 2) - (UI_WIDTH / 2);
+	app.uiOffset.y = (app.winHeight / 2) - (UI_HEIGHT / 2);
 
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "UI scale factor: %.2f,%.2f\n", app.uiScale.x, app.uiScale.y);
+	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "UI offset: %d,%d\n", app.uiOffset.x, app.uiOffset.y);
 }
 
 void initGameSystem(void)

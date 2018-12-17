@@ -91,12 +91,12 @@ static void drawMain(void)
 {
 	SDL_Rect r;
 	
-	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
-
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	r.w = 500;
 	r.h = 600;
@@ -157,6 +157,11 @@ static void controls(void)
 static void changeWindowSize(char *value)
 {
 	sscanf(value, "%d x %d", &app.winWidth, &app.winHeight);
+	
+	SDL_SetWindowSize(app.window, app.winWidth, app.winHeight);
+	
+	app.uiOffset.x = (app.winWidth / 2) - (UI_WIDTH / 2);
+	app.uiOffset.y = (app.winHeight / 2) - (UI_HEIGHT / 2);
 }
 
 static void changeSoundVolume(char *value)

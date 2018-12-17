@@ -133,12 +133,12 @@ void drawTrophies(void)
 	SDL_Rect r;
 	int start, end, i, x, y;
 	
-	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
-	
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 	
 	r.w = boxWidth;
 	r.h = 650;

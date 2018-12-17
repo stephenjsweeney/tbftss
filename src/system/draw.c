@@ -73,6 +73,13 @@ void prepareScene(void)
 
 void presentScene(void)
 {
+	SDL_Rect uiDest;
+	
+	uiDest.w = UI_WIDTH;
+	uiDest.h = UI_HEIGHT;
+	uiDest.x = (app.winWidth / 2) - (UI_WIDTH / 2);
+	uiDest.y = (app.winHeight / 2) - (UI_HEIGHT / 2);
+	
 	if (dev.debug)
 	{
 		drawText(5, app.winHeight - 25, 14, TA_LEFT, colors.white, "DEBUG MODE");
@@ -85,7 +92,7 @@ void presentScene(void)
 	
 	SDL_SetRenderTarget(app.renderer, NULL);
 	SDL_RenderCopy(app.renderer, app.backBuffer, NULL, NULL);
-	SDL_RenderCopy(app.renderer, app.uiBuffer, NULL, NULL);
+	SDL_RenderCopy(app.renderer, app.uiBuffer, NULL, &uiDest);
 	if (!app.hideMouse)
 	{
 		drawMouse();

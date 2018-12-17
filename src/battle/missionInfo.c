@@ -56,8 +56,6 @@ void initMissionInfo(void)
 
 void drawMissionInfo(void)
 {
-	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
-	
 	setAtlasColor(255, 255, 255, 255);
 	
 	switch (battle.status)
@@ -110,6 +108,8 @@ static void drawMissionSummary(AtlasImage *header)
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 	
 	blit(header, UI_WIDTH / 2, 150, 1);
 	

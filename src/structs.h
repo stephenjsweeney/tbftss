@@ -498,8 +498,7 @@ typedef struct {
 	int saveGame;
 	int winWidth;
 	int winHeight;
-	PointF scale;
-	PointF uiScale;
+	SDL_Point uiOffset;
 	int fullscreen;
 	int musicVolume;
 	int soundVolume;

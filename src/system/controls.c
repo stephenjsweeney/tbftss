@@ -152,12 +152,12 @@ void drawControls(void)
 	int i;
 	SDL_Rect r;
 	
-	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
-
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	
+	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	r.w = 800;
 	r.h = 650;

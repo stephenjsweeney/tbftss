@@ -162,6 +162,14 @@ static void changeWindowSize(char *value)
 	
 	app.uiOffset.x = (app.winWidth / 2) - (UI_WIDTH / 2);
 	app.uiOffset.y = (app.winHeight / 2) - (UI_HEIGHT / 2);
+	
+	SDL_DestroyTexture(app.backBuffer);
+	
+	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, app.winWidth, app.winHeight);
+	
+	initGraphics();
+	
+	initStars();
 }
 
 static void changeSoundVolume(char *value)
@@ -181,6 +189,8 @@ static void changeMusicVolume(char *value)
 static void changeFullscreen(char *value)
 {
 	app.fullscreen = strcmp(value, "On") == 0;
+	
+	SDL_SetWindowFullscreen(app.window, app.fullscreen? SDL_WINDOW_FULLSCREEN : 0);
 }
 
 static void ok(void)

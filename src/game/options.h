@@ -30,6 +30,8 @@ extern void drawText(int x, int y, int size, int align, SDL_Color c, const char 
 extern void drawWidgets(char *groupName);
 extern Widget *getWidget(const char *name, const char *group);
 extern void initControlsDisplay(void);
+extern void initGraphics(void);
+extern void initStars(void);
 extern void saveConfig(void);
 extern void selectWidget(const char *name, const char *group);
 extern void setWidgetOption(const char *name, const char *group, const char *value);

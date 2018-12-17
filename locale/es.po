@@ -2912,7 +2912,7 @@ msgstr "Curso final Usa todo tu entrenamiento para derrotar a los tres oponentes
 msgid "Pirate Uprising #1"
 msgstr "Pirate Uprising # 1"
 
-msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
+msgid "The Pandorans' push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
 msgstr "El empuje de Pandoran hacia el espacio Independiente ha llevado a un aumento en la actividad pirata a lo largo de la frontera de la Confederación. La amenaza debe abordarse de inmediato, comenzando por recortar la presencia del enemigo en Temper."
 
 msgid "Multiple incoming enemy fighters."

@@ -2912,7 +2912,7 @@ msgstr "Slutkurs. Använd all din träning för att besegra de tre motståndarna
 msgid "Pirate Uprising #1"
 msgstr "Piratupproret # 1"
 
-msgid "The Pandoran's push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
+msgid "The Pandorans' push in to Independent space has led to a surge in pirate activity along the Confederation border. The threat needs to be dealt with immediately, starting with cutting back on the enemy presence at Temper."
 msgstr "Pandorans push in till oberoende rymden har lett till en ökning av pirataktivitet längs förbundsgränsen. Hotet måste hanteras omedelbart, och börja med att klippa tillbaka på fiendens närvaro vid Temper."
 
 msgid "Multiple incoming enemy fighters."

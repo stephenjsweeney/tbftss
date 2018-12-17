@@ -81,7 +81,7 @@ msgid "Missiles"
 msgstr "Missiles"
 
 msgid "Missiles (%d)"
-msgstr "Missiles ( %d )"
+msgstr "Missiles (%d)"
 
 msgid "Target: %.2fkm"
 msgstr "Cible:% .2fkm"

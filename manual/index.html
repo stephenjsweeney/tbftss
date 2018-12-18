@@ -16,6 +16,7 @@ div.content {width: 75%; display: block; margin-left: auto; margin-right: auto; 
 div.annotation {font-size: 12px; position:absolute; background-color:#08f; color:#fff; padding:3px; font-weight:bold; border:2px #fff solid; border-radius: 5px; text-align:center}
 div.annotationContainer {position:relative; width:800px; display: block; margin-left: auto; margin-right: auto;}
 span.highlight {font-weight:bold; color: #0bf;}
+span.code {font-family: monospace; color: #0f0;}
 </style>
 <title>TBFTSS - The Pandoran War</title>
 </head>
@@ -408,6 +409,16 @@ Various game options can be changed:
 <li><span class="highlight">Fullscreen</span> - Whether or not to start the game in fullscreen mode.<sup>[1]</sup></li>
 <li><span class="highlight">Control Configuration</span> - Allows you to configure the controls (see below for more details)</li>
 </ul>
+<p>A command line switch also exists to allow a user to specify an arbitary screen size. This can be done with:</p>
+<p>
+<span class='code'>./tbftss -size &lt;w&gt;x&lt;h&gt;</span>
+</p>
+<p>
+Where <span class='code'>w</span> is the width of the window and <span class='code'>h</span> is the height.
+</p>
+<p>
+For example, running the game with <span class='code'>-size 800x600</span> will open a 800 x 600 window. Resolutions cannot be made smaller than 1280 x 720 or larger than 3840 x 2160.
+</p>
 <p style="font-size:8pt">[1] - changes to this option will take effect next time you start the game.</p>
 </p>
 

@@ -77,8 +77,8 @@ void presentScene(void)
 	
 	uiDest.w = UI_WIDTH;
 	uiDest.h = UI_HEIGHT;
-	uiDest.x = (app.winWidth / 2) - (UI_WIDTH / 2);
-	uiDest.y = (app.winHeight / 2) - (UI_HEIGHT / 2);
+	uiDest.x = app.uiOffset.x;
+	uiDest.y = app.uiOffset.y;
 	
 	if (dev.debug)
 	{

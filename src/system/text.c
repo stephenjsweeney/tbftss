@@ -22,15 +22,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void initFont(char *name, char *filename);
 static void drawWord(char *word, int *x, int *y, int startX);
-static void drawTextLines(int x, int y, int size, int align, SDL_Color color);
-static void drawTextLine(int x, int y, int size, int align, SDL_Color color, const char *line);
+static void drawTextLines(int x, int y, int size, int align);
+static void drawTextLine(int x, int y, int size, int align, const char *line);
 void calcTextDimensions(const char *text, int size, int *w, int *h);
 void useFont(char *name);
 static void initChars(Font *f);
 static char *nextCharacter(const char *str, int *i);
 static Glyph *findGlyph(char *c);
 
-static SDL_Color white = {255, 255, 255, 255};
 static char drawTextBuffer[1024];
 static Font fontHead;
 static Font *fontTail;
@@ -58,6 +57,7 @@ static void initFont(char *name, char *filename)
 	SDL_Rect dest;
 	Glyph *g;
 	int i;
+	SDL_Color white = {255, 255, 255, 255};
 	
 	f = malloc(sizeof(Font));
 	memset(f, 0, sizeof(Font));
@@ -169,16 +169,16 @@ void drawText(int x, int y, int size, int align, SDL_Color color, const char *fo
 		
 		if (app.textWidth == 0)
 		{
-			drawTextLine(x, y, size, align, color, drawTextBuffer);
+			drawTextLine(x, y, size, align, drawTextBuffer);
 		}
 		else
 		{
-			drawTextLines(x, y, size, align, color);
+			drawTextLines(x, y, size, align);
 		}
 	}
 }
 
-static void drawTextLines(int x, int y, int size, int align, SDL_Color color)
+static void drawTextLines(int x, int y, int size, int align)
 {
 	char line[MAX_LINE_LENGTH], token[MAX_WORD_LENGTH];
 	int i, n, w, h, currentWidth, len;
@@ -200,7 +200,7 @@ static void drawTextLines(int x, int y, int size, int align, SDL_Color color)
 		
 			if (currentWidth + w > app.textWidth)
 			{
-				drawTextLine(x, y, size, align, color, line);
+				drawTextLine(x, y, size, align, line);
 				
 				currentWidth = 0;
 				
@@ -219,10 +219,10 @@ static void drawTextLines(int x, int y, int size, int align, SDL_Color color)
 		}
 	}
 	
-	drawTextLine(x, y, size, align, color, line);
+	drawTextLine(x, y, size, align, line);
 }
 
-static void drawTextLine(int x, int y, int size, int align, SDL_Color color, const char *line)
+static void drawTextLine(int x, int y, int size, int align, const char *line)
 {
 	int i, startX, n, w, h;
 	char word[MAX_WORD_LENGTH];

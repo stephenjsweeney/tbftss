@@ -143,8 +143,8 @@ static void doBattle(void)
 
 	scrollBackground(-ssx * 0.1, -ssy * 0.1);
 
-	battle.planet.x -= ssx * 0.1;
-	battle.planet.y -= ssy * 0.1;
+	battle.planet.x -= ssx * 0.15;
+	battle.planet.y -= ssy * 0.15;
 
 	doObjectives();
 

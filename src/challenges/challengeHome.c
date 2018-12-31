@@ -308,6 +308,14 @@ static void draw(void)
 
 	drawStars();
 	
+	if (show == SHOW_MENU)
+	{
+		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
+		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
+		SDL_RenderFillRect(app.renderer, NULL);
+		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
+	}
+	
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 	
 	drawText(UI_WIDTH / 2, 40, 28, TA_CENTER, colors.white, CHALLENGES_TEXT);
@@ -446,11 +454,6 @@ static void drawChallenges(void)
 static void drawMenu(void)
 {
 	SDL_Rect r;
-
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
-	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
-	SDL_RenderFillRect(app.renderer, NULL);
-	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 
 	r.w = 400;
 	r.h = 500;

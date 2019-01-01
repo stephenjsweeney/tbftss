@@ -24,6 +24,7 @@ static void loadCredits(void);
 static void logic(void);
 static void draw(void);
 static void handleKeyboard(void);
+void destroyCredits(void);
 
 static SDL_Texture *background;
 static AtlasImage *earthTexture;
@@ -77,6 +78,8 @@ static void logic(void)
 	if (--timeout <= 0)
 	{
 		app.hideMouse = 0;
+		
+		destroyCredits();
 		
 		initTitle();
 	}

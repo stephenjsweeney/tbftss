@@ -3,7 +3,7 @@
 <?php
 
 /*
-Copyright (C) 2015-2018 Parallel Realities
+Copyright (C) 2015-2019 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2018 Parallel Realities
+Copyright (C) 2015-2019 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -195,7 +195,7 @@ static void draw(void)
 	
 	blit(pandoranWar, app.winWidth / 2, 110, 1);
 	
-	drawText(10, app.winHeight - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2018");
+	drawText(10, app.winHeight - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2019");
 	drawText(app.winWidth - 10, app.winHeight - 25, 14, TA_RIGHT, colors.white, "Version %.2f.%d", VERSION, REVISION);
 	
 	switch (show)

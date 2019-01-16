@@ -12,11 +12,12 @@
 	{
 		"name" : "close",
 		"group" : "starSystem",
-		"type" : "WT_BUTTON",
+		"type" : "WT_IMG_BUTTON",
 		"text" : "X",
-		"x" : 1060,
-		"y" : 98,
-		"w" : 34,
-		"h": 34
+		"x" : 1040,
+		"y" : 75,
+		"w" : 32,
+		"h": 32,
+		"texture" : "gfx/widgets/close.png"
 	}
 ]

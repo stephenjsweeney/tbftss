@@ -1080,7 +1080,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/craft/infTug.png",
+		"filename": "gfx/widgets/close.png",
 		"x": 1100,
 		"y": 1320,
 		"w": 32,
@@ -1092,7 +1092,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/craft/shuttle.png",
+		"filename": "gfx/craft/infTug.png",
 		"x": 1133,
 		"y": 1320,
 		"w": 32,
@@ -1104,7 +1104,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/craft/civilian02.png",
+		"filename": "gfx/craft/shuttle.png",
 		"x": 1166,
 		"y": 1320,
 		"w": 32,
@@ -1116,7 +1116,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/craft/tug.png",
+		"filename": "gfx/craft/civilian02.png",
 		"x": 1199,
 		"y": 1320,
 		"w": 32,
@@ -1128,7 +1128,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/craft/civilian01.png",
+		"filename": "gfx/craft/tug.png",
 		"x": 1232,
 		"y": 1320,
 		"w": 32,
@@ -1140,7 +1140,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/lynx.png",
+		"filename": "gfx/craft/civilian01.png",
 		"x": 1265,
 		"y": 1320,
 		"w": 32,
@@ -1152,7 +1152,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/dart04.png",
+		"filename": "gfx/fighters/lynx.png",
 		"x": 1298,
 		"y": 1320,
 		"w": 32,
@@ -1164,7 +1164,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/dart02.png",
+		"filename": "gfx/fighters/dart04.png",
 		"x": 1331,
 		"y": 1320,
 		"w": 32,
@@ -1176,31 +1176,31 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/leopard.png",
+		"filename": "gfx/fighters/dart02.png",
 		"x": 1364,
-		"y": 1320,
-		"w": 30,
-		"h": 32,
-		"rotated": false,
-		"x1": 0.666,
-		"y1": 0.645,
-		"x2": 0.68,
-		"y2": 0.66
-	},
-	{
-		"filename": "gfx/fighters/dart05.png",
-		"x": 1395,
 		"y": 1320,
 		"w": 32,
 		"h": 32,
 		"rotated": false,
-		"x1": 0.681,
+		"x1": 0.666,
+		"y1": 0.645,
+		"x2": 0.681,
+		"y2": 0.66
+	},
+	{
+		"filename": "gfx/fighters/leopard.png",
+		"x": 1397,
+		"y": 1320,
+		"w": 30,
+		"h": 32,
+		"rotated": false,
+		"x1": 0.682,
 		"y1": 0.645,
 		"x2": 0.697,
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/thunderhead.png",
+		"filename": "gfx/fighters/dart05.png",
 		"x": 1428,
 		"y": 1320,
 		"w": 32,
@@ -1212,7 +1212,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/razor.png",
+		"filename": "gfx/fighters/thunderhead.png",
 		"x": 1461,
 		"y": 1320,
 		"w": 32,
@@ -1224,7 +1224,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/sk34.png",
+		"filename": "gfx/fighters/razor.png",
 		"x": 1494,
 		"y": 1320,
 		"w": 32,
@@ -1236,7 +1236,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/dart01.png",
+		"filename": "gfx/fighters/sk34.png",
 		"x": 1527,
 		"y": 1320,
 		"w": 32,
@@ -1248,7 +1248,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/khepri.png",
+		"filename": "gfx/fighters/dart01.png",
 		"x": 1560,
 		"y": 1320,
 		"w": 32,
@@ -1260,7 +1260,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/hyena.png",
+		"filename": "gfx/fighters/khepri.png",
 		"x": 1593,
 		"y": 1320,
 		"w": 32,
@@ -1272,7 +1272,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/ray.png",
+		"filename": "gfx/fighters/hyena.png",
 		"x": 1626,
 		"y": 1320,
 		"w": 32,
@@ -1284,31 +1284,31 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/mantis.png",
+		"filename": "gfx/fighters/ray.png",
 		"x": 1659,
-		"y": 1320,
-		"w": 30,
-		"h": 32,
-		"rotated": false,
-		"x1": 0.81,
-		"y1": 0.645,
-		"x2": 0.824,
-		"y2": 0.66
-	},
-	{
-		"filename": "gfx/fighters/dart07.png",
-		"x": 1690,
 		"y": 1320,
 		"w": 32,
 		"h": 32,
 		"rotated": false,
-		"x1": 0.825,
+		"x1": 0.81,
+		"y1": 0.645,
+		"x2": 0.825,
+		"y2": 0.66
+	},
+	{
+		"filename": "gfx/fighters/mantis.png",
+		"x": 1692,
+		"y": 1320,
+		"w": 30,
+		"h": 32,
+		"rotated": false,
+		"x1": 0.826,
 		"y1": 0.645,
 		"x2": 0.841,
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/dart06.png",
+		"filename": "gfx/fighters/dart07.png",
 		"x": 1723,
 		"y": 1320,
 		"w": 32,
@@ -1320,7 +1320,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/rook.png",
+		"filename": "gfx/fighters/dart06.png",
 		"x": 1756,
 		"y": 1320,
 		"w": 32,
@@ -1332,7 +1332,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/kingfisher.png",
+		"filename": "gfx/fighters/rook.png",
 		"x": 1789,
 		"y": 1320,
 		"w": 32,
@@ -1344,7 +1344,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/scarab.png",
+		"filename": "gfx/fighters/kingfisher.png",
 		"x": 1822,
 		"y": 1320,
 		"w": 32,
@@ -1356,7 +1356,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/dart03.png",
+		"filename": "gfx/fighters/scarab.png",
 		"x": 1855,
 		"y": 1320,
 		"w": 32,
@@ -1368,31 +1368,31 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/blizzard.png",
+		"filename": "gfx/fighters/dart03.png",
 		"x": 1888,
-		"y": 1320,
-		"w": 27,
-		"h": 32,
-		"rotated": false,
-		"x1": 0.922,
-		"y1": 0.645,
-		"x2": 0.935,
-		"y2": 0.66
-	},
-	{
-		"filename": "gfx/fighters/taf.png",
-		"x": 1916,
 		"y": 1320,
 		"w": 32,
 		"h": 32,
 		"rotated": false,
-		"x1": 0.936,
+		"x1": 0.922,
+		"y1": 0.645,
+		"x2": 0.937,
+		"y2": 0.66
+	},
+	{
+		"filename": "gfx/fighters/blizzard.png",
+		"x": 1921,
+		"y": 1320,
+		"w": 27,
+		"h": 32,
+		"rotated": false,
+		"x1": 0.938,
 		"y1": 0.645,
 		"x2": 0.951,
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/sphinx.png",
+		"filename": "gfx/fighters/taf.png",
 		"x": 1949,
 		"y": 1320,
 		"w": 32,
@@ -1404,7 +1404,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/ataf.png",
+		"filename": "gfx/fighters/sphinx.png",
 		"x": 1982,
 		"y": 1320,
 		"w": 32,
@@ -1416,7 +1416,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/zakSphinx.png",
+		"filename": "gfx/fighters/ataf.png",
 		"x": 2015,
 		"y": 1320,
 		"w": 32,
@@ -1428,7 +1428,7 @@
 		"y2": 0.66
 	},
 	{
-		"filename": "gfx/fighters/jackal.png",
+		"filename": "gfx/fighters/zakSphinx.png",
 		"x": 1928,
 		"y": 1565,
 		"w": 32,
@@ -1440,7 +1440,7 @@
 		"y2": 0.78
 	},
 	{
-		"filename": "gfx/fighters/nymph.png",
+		"filename": "gfx/fighters/jackal.png",
 		"x": 1961,
 		"y": 1565,
 		"w": 32,
@@ -1452,7 +1452,7 @@
 		"y2": 0.78
 	},
 	{
-		"filename": "gfx/fighters/hammerhead.png",
+		"filename": "gfx/fighters/nymph.png",
 		"x": 1994,
 		"y": 1565,
 		"w": 32,
@@ -1464,7 +1464,7 @@
 		"y2": 0.78
 	},
 	{
-		"filename": "gfx/fighters/shale.png",
+		"filename": "gfx/fighters/hammerhead.png",
 		"x": 1928,
 		"y": 1598,
 		"w": 32,
@@ -1473,6 +1473,18 @@
 		"x1": 0.942,
 		"y1": 0.781,
 		"x2": 0.957,
+		"y2": 0.796
+	},
+	{
+		"filename": "gfx/fighters/shale.png",
+		"x": 1961,
+		"y": 1598,
+		"w": 32,
+		"h": 32,
+		"rotated": false,
+		"x1": 0.958,
+		"y1": 0.781,
+		"x2": 0.973,
 		"y2": 0.796
 	},
 	{

@@ -17,19 +17,19 @@ Screenshots from various versions can be found here: https://github.com/stephenj
 
 ### GRAPHICS
 
-gfx/planets/earth.png - derived from the the Blue Marble NASA photograph: http://visibleearth.nasa.gov/view.php?id=57723
-gfx/trophies/bronze.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
-gfx/trophies/gold.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
-gfx/trophies/platinum.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
-gfx/trophies/silver.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
-gfx/trophies/unearned.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+* gfx/planets/earth.png - derived from the the Blue Marble NASA photograph: http://visibleearth.nasa.gov/view.php?id=57723
+* gfx/trophies/bronze.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+* gfx/trophies/gold.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+* gfx/trophies/platinum.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+* gfx/trophies/silver.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
+* gfx/trophies/unearned.png - dervied from Trophy icon, by Lorc (CC BY 3.0): http://game-icons.net/lorc/originals/trophy.html
 
 All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 
 ### DATA FILES
 
-data/fonts/Roboto-Medium.ttf, by Christian Robertson. Licensed under the Apache License, version 2.0
-data/fonts/Khosrau.ttf, by Fereydoun Rostam. Free for non-commercial use (http://www.dafont.com/khosrau.font)
+* data/fonts/Roboto-Medium.ttf, by Christian Robertson. Licensed under the Apache License, version 2.0
+* data/fonts/Khosrau.ttf, by Fereydoun Rostam. Free for non-commercial use (http://www.dafont.com/khosrau.font)
 
 All other data files are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 

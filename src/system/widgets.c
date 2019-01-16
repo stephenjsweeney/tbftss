@@ -33,6 +33,7 @@ static void updateSelectWidgets(void);
 static Widget head;
 static Widget *tail;
 static Widget *selectedWidget;
+static Widget *hoverWidget;
 static AtlasImage *optionsLeft;
 static AtlasImage *optionsRight;
 static int drawingWidgets;
@@ -67,6 +68,11 @@ void doWidgets(void)
 		{
 			handleControlWidgets();
 		}
+	}
+	
+	if (hoverWidget != selectedWidget)
+	{
+		selectedWidget = NULL;
 	}
 
 	drawingWidgets = 0;
@@ -124,6 +130,8 @@ void drawWidgets(const char *group)
 
 	drawingWidgets = 1;
 	mouseOver = 0;
+	
+	hoverWidget = NULL;
 
 	for (w = head.next; w != NULL ; w = w->next)
 	{
@@ -133,19 +141,31 @@ void drawWidgets(const char *group)
 			{
 				mouseOver = (w->type != WT_SELECT && w->enabled && collision(w->rect.x, w->rect.y, w->rect.w, w->rect.h, app.uiMouse.x, app.uiMouse.y, 1, 1));
 
-				if (mouseOver && selectedWidget != w)
+				if (mouseOver)
 				{
-					if (w->type == WT_BUTTON || w->type == WT_CONTROL_CONFIG)
+					hoverWidget = w;
+					
+					if (selectedWidget != w)
 					{
-						playSound(SND_GUI_CLICK);
-					}
+						if (w->type == WT_BUTTON || w->type == WT_IMG_BUTTON || w->type == WT_CONTROL_CONFIG)
+						{
+							playSound(SND_GUI_CLICK);
+						}
 
-					selectedWidget = w;
+						selectedWidget = w;
+					}
 				}
 			}
 
 			if (w->texture)
 			{
+				setAtlasColor(255, 255, 255, 255);
+				
+				if (selectedWidget == w)
+				{
+					setAtlasColor(128, 192, 255, 255);
+				}
+				
 				blit(w->texture , w->rect.x, w->rect.y, 0);
 			}
 			else

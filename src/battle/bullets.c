@@ -244,7 +244,7 @@ static void checkCollisions(Bullet *b)
 						battle.lastKilledPlayer = b->owner;
 					}
 					
-					if (b->owner == player && e == battle.lastKilledPlayer)
+					if (battle.isEpic && b->owner == player && e == battle.lastKilledPlayer)
 					{
 						awardTrophy("REVENGE");
 					}

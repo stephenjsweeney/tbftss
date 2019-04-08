@@ -155,7 +155,7 @@ static void capFrameRate(long *then, float *remainder)
 	
 	SDL_Delay(wait);
 	
-	*remainder += 0.667;
+	*remainder += 0.666667;
 	
 	*then = SDL_GetTicks();
 }

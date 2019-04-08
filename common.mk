@@ -4,12 +4,13 @@ LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
 OUT = bin
 
-SEARCHPATH += src/ src/battle 
-SEARCHPATH += src/challenges 
-SEARCHPATH += src/game 
-SEARCHPATH += src/galaxy 
-SEARCHPATH += src/json 
-SEARCHPATH += src/system 
+SEARCHPATH += src
+SEARCHPATH += src/battle
+SEARCHPATH += src/challenges
+SEARCHPATH += src/game
+SEARCHPATH += src/galaxy
+SEARCHPATH += src/json
+SEARCHPATH += src/system
 SEARCHPATH += src/test
 
 vpath %.c $(SEARCHPATH)

@@ -4,8 +4,6 @@
 
 The develop branch on GitHub (https://github.com/stephenjsweeney/tbftss/tree/develop) is where all the dev work happens. Stable(ish) releases will go in to master (https://github.com/stephenjsweeney/tbftss/tree/master).
 
-You can support development of this game by purchasing one of the books in the trilogy: www.battleforthesolarsystem.com/purchase/
-
 Website: www.battleforthesolarsystem.com
 Email: stephenjsweeney@battleforthesolarsystem.com
 

@@ -2,6 +2,8 @@
 
 2D mission-based space shooter, based on the Battle for the Solar System space opera novel trilogy.
 
+![Alt text](dev/screenshots/v0.6-06.png?raw=true "Screenshot")
+
 The develop branch on GitHub (https://github.com/stephenjsweeney/tbftss/tree/develop) is where all the dev work happens. Stable(ish) releases will go in to master (https://github.com/stephenjsweeney/tbftss/tree/master).
 
 Website: www.battleforthesolarsystem.com
@@ -24,12 +26,16 @@ Screenshots from various versions can be found here: https://github.com/stephenj
 
 All other graphics are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
 
+<img src="gfx/by-nc-sa.png?raw=true" alt="CC BY-NC-SA logo" width="125">
+
 ### DATA FILES
 
 * data/fonts/Roboto-Medium.ttf, by Christian Robertson. Licensed under the Apache License, version 2.0
 * data/fonts/Khosrau.ttf, by Fereydoun Rostam. Free for non-commercial use (http://www.dafont.com/khosrau.font)
 
 All other data files are CC BY-NC-SA 3.0, with the following attribution: Copyright 2015-2016, Stephen J Sweeney | www.battleforthesolarsystem.com
+
+<img src="gfx/by-nc-sa.png?raw=true" alt="CC BY-NC-SA logo" width="125">
 
 ### SOUND
 

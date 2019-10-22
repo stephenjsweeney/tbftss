@@ -39,7 +39,7 @@ msgid "%s (Gun)"
 msgstr "%s (arma)"
 
 msgid "We've lost engines! We're a sitting duck!"
-msgstr "Hem perdut motors! Som un ànec assegut!"
+msgstr "Hem perdut motors! Som un blanc fàcil!"
 
 msgid "Our guns have been shot out! We have no defences!"
 msgstr "Les nostres armes s'han disparat! No tenim cap defensa!"
@@ -48,7 +48,7 @@ msgid "Be advised, we're taking damage here. Please step up support."
 msgstr "Tingueu en compte que estem fent mal aquí. Augmenta el suport."
 
 msgid "We're sustaining heavy damage! All fighters, please assist, ASAP!"
-msgstr "Estem patint danys greus! Tots els lluitadors, si us plau, ajuden, ¡AVANÇ!"
+msgstr "Estem patint danys greus! A tots els lluitadors, si us plau ajudeu, RÀPID!"
 
 msgid "Mayday! Mayday! Defences are critical. We can't hold out much longer!"
 msgstr "Auxili! Auxili! Les defenses són crítiques. No podem aguantar molt més!"
@@ -60,7 +60,7 @@ msgid "Civilian has been killed"
 msgstr "Civil ha estat assassinat"
 
 msgid "Ally has been killed"
-msgstr "Ally ha estat assassinada"
+msgstr "Un aliat ha estat assassinat"
 
 msgid "Particle Cannon"
 msgstr "Canó de partícules"
@@ -72,10 +72,10 @@ msgid "Laser Cannon"
 msgstr "Canó làser"
 
 msgid "Mag Cannon"
-msgstr "Mag Cannon"
+msgstr "Can màgic"
 
 msgid "Rockets"
-msgstr "Rockets"
+msgstr "Cohets"
 
 msgid "Missiles"
 msgstr "Míssils"
@@ -102,10 +102,10 @@ msgid "Objective: %.2fkm"
 msgstr "Objectiu:% .2fkm"
 
 msgid "Jumpgate: %.2fkm"
-msgstr "Jumpgate:% .2fkm"
+msgstr "Porta de salt:% .2fkm"
 
 msgid "SELECT NEW FIGHTER"
-msgstr "SELECCIONEU NOU PERSONAL"
+msgstr "SELECCIONEU NOU LLUITADOR"
 
 msgid "Suspicion"
 msgstr "Sospita"
@@ -114,7 +114,7 @@ msgid "Remaining Pilots: %d"
 msgstr "Pilots restants: %d"
 
 msgid "WARNING: INCOMING MISSILE!"
-msgstr "ADVERTIMENT: INCOMPLE MISSIL!"
+msgstr "ADVERTIMENT: MÍSSIL ENTRANT!"
 
 msgid "Picked up %s"
 msgstr "S'ha escollit %s"
@@ -159,16 +159,16 @@ msgid "Destroy at least %d enemy fighters"
 msgstr "Destrueix com a mínim %d combatents enemics"
 
 msgid "Challenge Failed!"
-msgstr "El repte va fallar!"
+msgstr "El repte no s'ha superat!"
 
 msgid "Target not in range"
-msgstr "Orientació no dins del rang"
+msgstr "Orientació fora del rang"
 
 msgid "Out of missiles"
-msgstr "Fora de míssils"
+msgstr "Sense míssils"
 
 msgid "Caution: Leaving battle area - turn around."
-msgstr "Precaució: deixar la zona de batalla: girar-se."
+msgstr "Precaució: sortint de la zona de batalla - gira't."
 
 msgid "Tow rope attached"
 msgstr "Corda de remolc adjunta"
@@ -183,7 +183,7 @@ msgid "Cannot activate waypoint - outstanding objectives not yet complete"
 msgstr "No es pot activar el waypoint: els objectius pendents encara no s'han completat"
 
 msgid "Cannot activate waypoint - eliminate enemies first"
-msgstr "No es pot activar el waypoint: elimineu primer als enemics"
+msgstr "No es pot activar el waypoint: elimineu primer els enemics"
 
 msgid "Cannot activate waypoint - team mates too far away"
 msgstr "No es pot activar el waypoint: companys d'equip massa lluny"
@@ -240,7 +240,7 @@ msgid "Do not lose any team mates"
 msgstr "No perdeu cap company d'equip"
 
 msgid "Do not lose more than 1 team mate"
-msgstr "No perdis més de 1 company d'equip"
+msgstr "No perdis més d'1 company d'equip"
 
 msgid "Do not lose more than %d team mates"
 msgstr "No perdis més de %d companys d'equip"
@@ -252,7 +252,7 @@ msgid "Disable %d or more enemy fighters"
 msgstr "Desactiveu %d o més lluitadors enemics"
 
 msgid "Collect %d packages"
-msgstr "Recol·leu %d paquets"
+msgstr "Recolliu %d paquets"
 
 msgid "Rescue %d civilians"
 msgstr "Rescata %d civils"
@@ -330,16 +330,16 @@ msgid "Optional Missions Completed"
 msgstr "S'han completat les missions opcionals"
 
 msgid "Challenges Started"
-msgstr "Els reptes van començar"
+msgstr "Els reptes han començat"
 
 msgid "Challenges Completed"
 msgstr "Reptes finalitzats"
 
 msgid "Shots Fired"
-msgstr "Xuts disparats"
+msgstr "Trets disparats"
 
 msgid "Shots Hit"
-msgstr "Xuts colpejar"
+msgstr "Trets encertats"
 
 msgid "Accuracy"
 msgstr "Precisió"
@@ -348,19 +348,19 @@ msgid "Rockets Fired"
 msgstr "Coets llançats"
 
 msgid "Rockets Hit"
-msgstr "Rockets Hit"
+msgstr "Cohets encertats"
 
 msgid "Missiles Fired"
-msgstr "Míssils acomiadats"
+msgstr "Míssils llançats"
 
 msgid "Missiles Hit"
-msgstr "Míssils colpejar"
+msgstr "Míssils encertats"
 
 msgid "Enemies Killed"
 msgstr "Enemics assassinats"
 
 msgid "Enemies Killed (Player)"
-msgstr "Enemics killed (Jugador)"
+msgstr "Enemics assassinats (Jugador)"
 
 msgid "Allies Killed"
 msgstr "Aliats assassinats"
@@ -417,7 +417,7 @@ msgid "Capital Ships Destroyed"
 msgstr "Vaixells de capital destruïts"
 
 msgid "Capital Ships Lost"
-msgstr "Capital Ships Lost"
+msgstr "Vaixells de capital perduts"
 
 msgid "Mines Destroyed"
 msgstr "Mines destruïdes"
@@ -444,7 +444,7 @@ msgid "Fire"
 msgstr "Foc"
 
 msgid "Accelerate"
-msgstr "Accelerate"
+msgstr "Accelerar"
 
 msgid "Boost"
 msgstr "Estímul"
@@ -507,7 +507,7 @@ msgid "Continue"
 msgstr "Continua"
 
 msgid "Resume"
-msgstr "Resum"
+msgstr "Reprèn"
 
 msgid "Return to Title"
 msgstr "Torna al títol"
@@ -525,10 +525,10 @@ msgid "Restart"
 msgstr "Reinicia"
 
 msgid "Cancel"
-msgstr "Cancel · lar"
+msgstr "Cancel·lar"
 
 msgid "Window Size"
-msgstr "Mida de finestra"
+msgstr "Mida de la finestra"
 
 msgid "Sound Volume"
 msgstr "Volum de so"
@@ -555,7 +555,7 @@ msgid "Credits"
 msgstr "Crèdits"
 
 msgid "Patrol #1"
-msgstr "Patrulla nº 1"
+msgstr "Patrulla núm. 1"
 
 msgid "With the Pandorans having invaded Independent systems boardering the Mitikas Empire, we need to become more vigilant. Patrols around Torelli are being stepped up. Ensure you hit all the waypoints, and report any unusual activity that you encounter."
 msgstr "Quan els Pandorans havien envaït els sistemes independents que travessen l'Imperi Mitikas, hem de ser més vigilants. S'estan intensificant les patrulles de Torelli. Assegureu-vos que toqueu tots els punts de cerca i informeu sobre qualsevol activitat inusual que trobareu."
@@ -567,13 +567,13 @@ msgid "Anyone got anything to report?"
 msgstr "Algú ha rebut alguna cosa per informar?"
 
 msgid "You getting paranoid, Curtis?"
-msgstr "Et fas paranoico, Curtis?"
+msgstr "T'ests tornant paranoic, Curtis?"
 
 msgid "You all saw what happened at Coyote."
-msgstr "Tots vèiem el que va passar al Coyote."
+msgstr "Tots vam veure el que li va passar al Coyote."
 
 msgid "So, those Pandorans are, what, robots?"
-msgstr "Per tant, els Pandorans són, què, robots?"
+msgstr "Per tant, els Pandorans són, què? robots?"
 
 msgid "Alien-Human hybrid, I heard."
 msgstr "Alien-Híbrid humà, he escoltat."
@@ -582,22 +582,22 @@ msgid "Hard to kill, whatever they are. Heard they'll still be coming at you eve
 msgstr "Difícil de matar, siguin quines siguin. Heu escoltat que encara us arribaran encara que treguis els dos braços."
 
 msgid "And what'll they do then? Bite you to death?"
-msgstr "I què faran llavors? Mosseguis a mort?"
+msgstr "I què faran llavors? Et mossegaran fins a la mort?"
 
 msgid "Eyes open, lads."
-msgstr "Ulls oberts, nois."
+msgstr "Obriu els ulls, nois."
 
 msgid "We're done. Anyone detect anything unusual?"
-msgstr "Estaven fets. Qualsevol persona detecta alguna cosa inusual?"
+msgstr "Hem acabat. Qualsevol persona detecta alguna cosa inusual?"
 
 msgid "Same old, same old."
-msgstr "Mateix vell, igual antic."
+msgstr "El mateix de sempre."
 
 msgid "Believe me, that's a good thing. Right, let's head home and report in."
-msgstr "Creieu-me, això és bo. Dret, anem a casa i ens informem."
+msgstr "Creieu-me, això és bo. Correcte, anem a casa i ens informem."
 
 msgid "Patrol #2"
-msgstr "Patrulla nº 2"
+msgstr "Patrulla núm. 2"
 
 msgid "Patrols so far have not uncovered anything unusual, and it seems as though the increase in military presence is reducing the amount of illegal activity in this sector, with reported incidents down 80%%. Still, we cannot afford to become complacent, and must continue with our sweeps."
 msgstr "Les patrulles fins ara no han descobert res inusual, i sembla que l'augment de la presència militar és reduir la quantitat d'activitat il·legal en aquest sector, amb incidents denunciats un 80 %% menys. Tot i això, no podem permetre'ns tornar-nos complaents i continuar amb els nostres escombrats."
@@ -606,10 +606,10 @@ msgid "Check all Waypoints"
 msgstr "Marqueu tots els Waypoints"
 
 msgid "Destroy Pandoran fighters"
-msgstr "Destruir els lluitadors de Pandoran"
+msgstr "Destruiu els lluitadors de Pandoran"
 
 msgid "Eightballers, you have hostiles incoming. Identified as 3 Mitikas fighters; Jackals, possibly Pandoran. Engage, but exercise extreme caution."
-msgstr "Obleballers, tens hostils entrants. Identificat com 3 lluitadors Mitikas; Jackals, possiblement Pandoran. Participa, però exerceix una gran precaució."
+msgstr "Eightballers, tens hostils entrants. Identificats com 3 lluitadors Mitikas; Jackals, possiblement Pandoran. Participa, però exerceix una gran precaució."
 
 msgid "Control, enemies have been dispatched. Wasn't a comfortable fight."
 msgstr "Control, els enemics s'han enviat. No era una baralla confortable."
@@ -621,7 +621,7 @@ msgid "Got it. See you soon."
 msgstr "Ho tinc. Fins aviat."
 
 msgid "Patrol #3"
-msgstr "Patrulla nº 3"
+msgstr "Patrulla núm. 3"
 
 msgid "Following the devastating loss of the Iliad system, we need to continue to be vigilant against incursion into the Alba system. Check all five waypoints, and report immediate any unusual or suspicious activity you encounter."
 msgstr "Després de la pèrdua devastadora del sistema Ilíada, hem de seguir vigilant contra la incursió al sistema Alba. Comproveu els cinc waypoints i informe immediatament qualsevol activitat inusual o sospitosa que trobeu."
@@ -666,10 +666,10 @@ msgid "What about?"
 msgstr "I què passa amb?"
 
 msgid "How long it'll be before the Pandorans show up here."
-msgstr "Quant de temps serà abans que els Pandorans apareguin aquí."
+msgstr "Quant de temps passarà abans que els Pandorans apareguin aquí."
 
 msgid "They came by earlier, in case you don't remember."
-msgstr "Van venir abans, en cas que no us recordeu."
+msgstr "Van venir abans, en cas que no us en recordeu."
 
 msgid "And haven't been back since. Maybe we scared them off."
 msgstr "I no he tornat des de llavors. Potser els hem espantat."
@@ -681,10 +681,10 @@ msgid "Where the hell are the CSN? Why weren't they at Iliad?"
 msgstr "On són els inferns el CSN? Per què no estaven a la Ilíada?"
 
 msgid "They weren't wanted, apparently. Iliad and the UNF aren't getting along so well at the moment."
-msgstr "No eren volguts, aparentment. La Ilíada i la UNF no estan aconseguint tan bé en aquest moment."
+msgstr "No eren volguts, aparentment. La Ilíada i la UNF no estan tan bé en aquest moment."
 
 msgid "Something to do with Adrian Parsons?"
-msgstr "Alguna cosa que veure amb Adrian Parsons?"
+msgstr "Alguna cosa a veure amb Adrian Parsons?"
 
 msgid "That bloody idiot? It wouldn't surprise me. He's the reason we're now in this mess! If I ever meet that guy, nothing'll stop me from-"
 msgstr "Aquest idiota sagnant? No m'estranyaria. Ell és el motiu pel qual estem ara en aquest embolic! Si alguna vegada conec a aquest noi,"
@@ -750,7 +750,7 @@ msgid "Enemies sighted."
 msgstr "Enemics observats."
 
 msgid "Break and attack, people!"
-msgstr "Trencar i atacar, gent!"
+msgstr "Trenqueu i ataqueu, gent!"
 
 msgid "That's the first group handled. Let's get to the next waypoint."
 msgstr "Aquest és el primer grup manejat. Anem al següent punt de referència."
@@ -792,7 +792,7 @@ msgid "Destroy INF Burnside"
 msgstr "Destrueix INF Burnside"
 
 msgid "Break and attack, lads. Let's send these guys back home."
-msgstr "Trencar i atacar, nois. Anem a enviar aquests nois a casa seva."
+msgstr "Trenqueu i ataqueu, nois. Enviem aquests nois a casa seva."
 
 msgid "More Tzac fighters incoming."
 msgstr "Més entrenadors de Tzac entrants."

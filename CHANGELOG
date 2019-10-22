@@ -1,5 +1,9 @@
 Changelog
 
+1.5.1
+	* Updated Catalan translation (thanks, oriolhub)
+	* Misc bug and compile fixes.
+
 1.5
 
 	* Game now renders at chosen resolution instead of scaling up from 1280 x 720
@@ -37,7 +41,7 @@ Changelog
 	* Epic missions now have limited "lives". A player can only be killed a certain number of times before they automatically fail the mission. This is to discourage reckless play.
 
 1.01
-	
+
 	* Corrected "Nation of Tzac" to "Kingdom of Tzac" in a few cases
 	* Fixed broken REVISION makefile macro when git is not available
 
@@ -69,7 +73,7 @@ Changelog
 	* Campaign tweaks and bugs fixes
 
 0.95
-	
+
 	* AI fixes
 	* Campaign tweaks and bugs fixes
 	* Reset entity owner when detaching tow rope
@@ -87,11 +91,11 @@ Changelog
 	* Lowered difficulty of some missions
 
 0.92
-	
+
 	* Campaign tweaks and bug fixes
 
 0.91
-	
+
 	* New music track by Vehicle
 	* Added effects when bullets hit targets
 	* Updated Mantis sprite
@@ -101,7 +105,7 @@ Changelog
 	* Misc. tweaks and fixes
 
 0.9
-	
+
 	* Added final campaign missions
 	* Added final challenges
 	* Enabled all trophies
@@ -151,7 +155,7 @@ Changelog
 	* Misc. AI, mission, and bug fixes
 
 0.4
-	
+
 	* Added mouse + keyboard controls (replaces keyboard-only method)
 	* Added new craft: Kingfisher, Mantis, Rook, Hammerhead, Khepri, Scarab, Thunderhead.
 	* Added laser cannon - highly effective against shields

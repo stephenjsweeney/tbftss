@@ -61,16 +61,16 @@ void initSDL(int argc, char *argv[])
 
 	/* done in src/plat/ */
 	createSaveFolder();
-	
+
 	loadConfig(argc, argv);
 
 	rendererFlags = SDL_RENDERER_ACCELERATED;
-	
+
 	if (app.vSync)
 	{
 		rendererFlags |= SDL_RENDERER_PRESENTVSYNC;
 	}
-	
+
 	windowFlags = 0;
 
 	if (app.fullscreen)
@@ -148,9 +148,9 @@ void initGameSystem(void)
 	};
 
 	initAtlas();
-	
+
 	initInput();
-	
+
 	numInitFuns = sizeof(initFuncs) / sizeof(void*);
 
 	for (i = 0 ; i < numInitFuns ; i++)
@@ -162,7 +162,7 @@ void initGameSystem(void)
 }
 
 /*
- * Just in case the initial loading takes a while on the target machine. The rest of the loading a pretty quick by comparison.
+ * Just in case the initial loading takes a while on the target machine. The rest of the loading is pretty quick by comparison.
  */
 static void showLoadingStep(float step, float maxSteps)
 {
@@ -195,10 +195,10 @@ static void showLoadingStep(float step, float maxSteps)
 static void loadConfig(int argc, char *argv[])
 {
 	char *configFilename;
-	
+
 	/* load default config first */
 	loadConfigFile("data/app/"CONFIG_FILENAME);
-	
+
 	/* load saved config */
 	configFilename = getSaveFilePath(CONFIG_FILENAME);
 
@@ -206,13 +206,13 @@ static void loadConfig(int argc, char *argv[])
 	{
 		loadConfigFile(configFilename);
 	}
-	
+
 	handleCommandLineConfig(argc, argv);
-	
+
 	/* don't go higher than 8K or lower than 1280 x 720 */
 	app.winWidth = MIN(MAX(app.winWidth, 1280), 7680);
 	app.winHeight = MIN(MAX(app.winHeight, 720), 4320);
-	
+
 	/* so that the player doesn't get confused if this is a new game */
 	saveConfig();
 }
@@ -233,7 +233,7 @@ static void loadConfigFile(char *filename)
 	app.musicVolume = cJSON_GetObjectItem(root, "musicVolume")->valueint;
 	app.soundVolume = cJSON_GetObjectItem(root, "soundVolume")->valueint;
 	app.vSync = getJSONValue(root, "vSync", 1);
-	
+
 	controlsJSON = cJSON_GetObjectItem(root, "controls");
 	if (controlsJSON)
 	{
@@ -257,7 +257,7 @@ static void loadConfigFile(char *filename)
 			node = node->next;
 		}
 	}
-	
+
 	gameplayJSON = cJSON_GetObjectItem(root, "gameplay");
 	if (gameplayJSON)
 	{
@@ -305,7 +305,7 @@ void saveConfig(void)
 	cJSON_AddItemToObject(controlsJSON, "keys", keysJSON);
 	cJSON_AddItemToObject(controlsJSON, "mouse", mouseJSON);
 	cJSON_AddItemToObject(root, "controls", controlsJSON);
-	
+
 	gameplayJSON = cJSON_CreateObject();
 	cJSON_AddNumberToObject(gameplayJSON, "friendlyFire", app.gameplay.friendlyFire);
 	cJSON_AddNumberToObject(gameplayJSON, "autoSwitchPlayerTarget", app.gameplay.autoSwitchPlayerTarget);
@@ -327,7 +327,7 @@ void saveConfig(void)
 static void handleCommandLineConfig(int argc, char *argv[])
 {
 	int i;
-	
+
 	for (i = 1 ; i < argc ; i++)
 	{
 		if (strcmp(argv[i], "-size") == 0)
@@ -366,17 +366,17 @@ void cleanup(void)
 	destroyWidgets();
 
 	destroyResources();
-	
+
 	destroyFighterDatabase();
-	
+
 	destroyFighterStats();
-	
+
 	destroyCredits();
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Done");
-	
+
 	SDL_DestroyRenderer(app.renderer);
-	
+
 	SDL_DestroyWindow(app.window);
 
 	TTF_Quit();

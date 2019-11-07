@@ -47,7 +47,7 @@ char *readFile(char *filename)
 	char *buffer;
 	long length;
 	FILE *file;
-	
+
 	file = fopen(getFileLocation(filename), "rb");
 
 	if (file)

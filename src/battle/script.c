@@ -31,16 +31,16 @@ static int runScript;
 void initScript(cJSON *root)
 {
 	cJSON *function;
-	
+
 	memset(&head, 0, sizeof(ScriptRunner));
 	tail = &head;
-	
+
 	rootJSON = root;
-	
+
 	runScript = 0;
 
 	scriptJSON = cJSON_GetObjectItem(root, "script");
-	
+
 	if (scriptJSON)
 	{
 		function = scriptJSON->child;
@@ -48,10 +48,10 @@ void initScript(cJSON *root)
 		while (function)
 		{
 			SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Found script function: '%s'", cJSON_GetObjectItem(function, "function")->valuestring);
-			
+
 			function = function->next;
 		}
-		
+
 		runScript = 1;
 	}
 }
@@ -128,7 +128,7 @@ void runScriptFunction(const char *format, ...)
 				tail = scriptRunner;
 
 				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Running script '%s'", funcNameBuffer);
-				
+
 				return;
 			}
 
@@ -284,25 +284,25 @@ static void executeNextLine(ScriptRunner *runner)
 void cancelScript(void)
 {
 	ScriptRunner *runner;
-	
+
 	while (head.next)
 	{
 		runner = head.next;
 		head.next = runner->next;
 		free(runner);
 	}
-	
+
 	tail = &head;
 }
 
 void destroyScript(void)
 {
 	ScriptRunner *scriptRunner;
-	
+
 	if (rootJSON)
 	{
 		cJSON_Delete(rootJSON);
-		
+
 		rootJSON = NULL;
 	}
 
@@ -314,6 +314,6 @@ void destroyScript(void)
 	}
 
 	tail = &head;
-	
+
 	scriptJSON = NULL;
 }

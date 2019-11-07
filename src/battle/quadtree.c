@@ -36,7 +36,7 @@ void initQuadtree(Quadtree *root)
 {
 	Quadtree *node;
 	int i, w, h;
-	
+
 	/* entire battlefield */
 	if (root->depth == 0)
 	{
@@ -45,16 +45,16 @@ void initQuadtree(Quadtree *root)
 		root->capacity = QT_INITIAL_CAPACITY;
 		root->ents = malloc(sizeof(Entity*) * root->capacity);
 		memset(root->ents, 0, sizeof(Entity*) * root->capacity);
-		
+
 		cIndex = 0;
 		cCapacity = QT_INITIAL_CAPACITY;
 		candidates = malloc(sizeof(Entity*) * cCapacity);
 		memset(candidates, 0, sizeof(Entity*) * cCapacity);
 	}
-	
+
 	w = root->w / 2;
 	h = root->h / 2;
-	
+
 	if (root->depth + 1 < QT_MAX_DEPTH)
 	{
 		for (i = 0 ; i < 4 ; i++)
@@ -62,12 +62,12 @@ void initQuadtree(Quadtree *root)
 			node = malloc(sizeof(Quadtree));
 			memset(node, 0, sizeof(Quadtree));
 			root->node[i] = node;
-			
+
 			node->depth = root->depth + 1;
 			node->capacity = QT_INITIAL_CAPACITY;
 			node->ents = malloc(sizeof(Entity*) * node->capacity);
 			memset(node->ents, 0, sizeof(Entity*) * node->capacity);
-			
+
 			if (i == 0)
 			{
 				node->x = root->x;
@@ -96,7 +96,7 @@ void initQuadtree(Quadtree *root)
 				node->w = w;
 				node->h = h;
 			}
-			
+
 			initQuadtree(node);
 		}
 	}
@@ -105,36 +105,36 @@ void initQuadtree(Quadtree *root)
 void addToQuadtree(Entity *e, Quadtree *root)
 {
 	int index;
-	
+
 	root->addedTo = 1;
-	
+
 	if (root->node[0])
 	{
 		index = getIndex(root, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h);
-		
+
 		if (index != -1)
 		{
 			addToQuadtree(e, root->node[index]);
 			return;
 		}
 	}
-	
+
 	if (root->numEnts == root->capacity)
 	{
 		resizeQTEntCapacity(root);
 	}
-	
+
 	root->ents[root->numEnts++] = e;
 }
 
 static void resizeQTEntCapacity(Quadtree *root)
 {
 	int n;
-	
+
 	n = root->capacity + QT_INITIAL_CAPACITY;
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing QT node: %d -> %d", root->capacity, n);
-	
+
 	root->ents = resize(root->ents, sizeof(Entity*) * root->capacity, sizeof(Entity*) * n);
 	root->capacity = n;
 }
@@ -177,26 +177,26 @@ static int getIndex(Quadtree *root, int x, int y, int w, int h)
 void removeFromQuadtree(Entity *e, Quadtree *root)
 {
 	int index;
-	
+
 	if (root->addedTo)
 	{
 		if (root->node[0])
 		{
 			index = getIndex(root, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h);
-			
+
 			if (index != -1)
 			{
 				removeFromQuadtree(e, root->node[index]);
 				return;
 			}
 		}
-	
+
 		removeEntity(e, root);
-		
+
 		if (root->numEnts == 0)
 		{
 			root->addedTo = 0;
-			
+
 			if (root->node[0])
 			{
 				root->addedTo = root->node[0]->addedTo || root->node[1]->addedTo || root->node[2]->addedTo || root->node[3]->addedTo;
@@ -208,9 +208,9 @@ void removeFromQuadtree(Entity *e, Quadtree *root)
 static void removeEntity(Entity *e, Quadtree *root)
 {
 	int i, n;
-	
+
 	n = root->numEnts;
-	
+
 	for (i = 0 ; i < root->capacity ; i++)
 	{
 		if (root->ents[i] == e)
@@ -219,7 +219,7 @@ static void removeEntity(Entity *e, Quadtree *root)
 			root->numEnts--;
 		}
 	}
-	
+
 	qsort(root->ents, n, sizeof(Entity*), candidatesComparator);
 }
 
@@ -227,9 +227,9 @@ Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore)
 {
 	cIndex = 0;
 	memset(candidates, 0, sizeof(Entity*) * cCapacity);
-	
+
 	getAllEntsWithinNode(x, y, w, h, ignore, &battle.quadtree);
-	
+
 	return candidates;
 }
 
@@ -241,13 +241,13 @@ Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore)
 static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Quadtree *root)
 {
 	int index, i;
-	
+
 	if (root->addedTo)
 	{
 		if (root->node[0])
 		{
 			index = getIndex(root, x, y, w, h);
-			
+
 			if (index != -1)
 			{
 				getAllEntsWithinNode(x, y, w, h, ignore, root->node[index]);
@@ -260,11 +260,11 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Qua
 				}
 			}
 		}
-		
+
 		for (i = 0 ; i < root->numEnts ; i++)
 		{
 			candidates[cIndex++] = root->ents[i];
-			
+
 			if (cIndex == cCapacity)
 			{
 				resizeCandidates();
@@ -276,11 +276,11 @@ static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Qua
 static void resizeCandidates(void)
 {
 	int n;
-	
+
 	n = cCapacity + QT_INITIAL_CAPACITY;
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing candidates: %d -> %d", cCapacity, n);
-	
+
 	candidates = resize(candidates, sizeof(Entity*) * cCapacity, sizeof(Entity*) * n);
 	cCapacity = n;
 }
@@ -288,11 +288,11 @@ static void resizeCandidates(void)
 void destroyQuadtree(void)
 {
 	destroyQuadtreeNode(&battle.quadtree);
-	
+
 	if (candidates)
 	{
 		free(candidates);
-		
+
 		candidates = NULL;
 	}
 }
@@ -300,19 +300,19 @@ void destroyQuadtree(void)
 static void destroyQuadtreeNode(Quadtree *root)
 {
 	int i;
-	
+
 	free(root->ents);
-	
+
 	root->ents = NULL;
-	
+
 	if (root->node[0])
 	{
 		for (i = 0 ; i < 4 ; i++)
 		{
 			destroyQuadtreeNode(root->node[i]);
-			
+
 			free(root->node[i]);
-			
+
 			root->node[i] = NULL;
 		}
 	}
@@ -322,7 +322,7 @@ static int candidatesComparator(const void *a, const void *b)
 {
 	Entity *e1 = *((Entity**)a);
 	Entity *e2 = *((Entity**)b);
-	
+
 	if (!e1)
     {
         return 1;

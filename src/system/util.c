@@ -109,16 +109,16 @@ char *timeToString(long millis, int showHours)
 char *timeToDate(long millis)
 {
 	static char DATE[MAX_NAME_LENGTH];
-	
+
 	struct tm *timeinfo;
 	time_t time;
-	
+
 	time = millis;
-	
+
 	timeinfo = localtime(&time);
-	
+
 	strftime(DATE, MAX_NAME_LENGTH, "%d %b %Y, %I:%M%p", timeinfo);
-	
+
 	return DATE;
 }
 
@@ -160,14 +160,14 @@ void *resize(void *array, int oldSize, int newSize)
 {
 	void **newArray;
 	int copySize;
-	
+
 	copySize = newSize > oldSize ? oldSize : newSize;
-	
+
 	newArray = malloc(newSize);
 	memset(newArray, 0, newSize);
 	memcpy(newArray, array, copySize);
 	free(array);
-	
+
 	return newArray;
 }
 
@@ -186,7 +186,7 @@ unsigned long hashcode(const char *str)
 	}
 
 	hash = ((hash << 5) + hash);
-	
+
 	return hash;
 }
 

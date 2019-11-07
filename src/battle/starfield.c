@@ -25,15 +25,15 @@ static Star stars[MAX_STARS];
 void initStars(void)
 {
 	int i;
-	
+
 	memset(stars, 0, sizeof(Star) * MAX_STARS);
-	
+
 	for (i = 0 ; i < MAX_STARS ; i++)
 	{
 		stars[i].x = rand() % app.winWidth;
 		stars[i].y = rand() % app.winHeight;
 		stars[i].speed = 5 + rand() % 35;
-		
+
 		stars[i].speed *= 0.1;
 	}
 }
@@ -41,12 +41,12 @@ void initStars(void)
 void doStars(float dx, float dy)
 {
 	int i;
-	
+
 	for (i = 0 ; i < MAX_STARS ; i++)
 	{
 		stars[i].x -= (dx * stars[i].speed);
 		stars[i].y -= (dy * stars[i].speed);
-		
+
 		stars[i].x = mod(stars[i].x, app.winWidth - 1);
 		stars[i].y = mod(stars[i].y, app.winHeight - 1);
 	}
@@ -56,15 +56,15 @@ void drawStars(void)
 {
 	int i;
 	int c;
-	
+
 	for (i = 0 ; i < MAX_STARS ; i++)
 	{
 		c = 64 * stars[i].speed;
-		
+
 		SDL_SetRenderDrawColor(app.renderer, c, c, c, 255);
-		
+
 		SDL_RenderDrawPoint(app.renderer, stars[i].x, stars[i].y);
-		
+
 		if (c >= 240)
 		{
 			SDL_RenderDrawPoint(app.renderer, stars[i].x + 1, stars[i].y + 1);

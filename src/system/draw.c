@@ -28,16 +28,16 @@ void initGraphics(void)
 {
 	backgroundPoint[0].x = -app.winWidth / 2;
 	backgroundPoint[0].y = -app.winHeight / 2;
-	
+
 	backgroundPoint[1].x = app.winWidth / 2;
 	backgroundPoint[1].y = -app.winHeight / 2;
-	
+
 	backgroundPoint[2].x = -app.winWidth / 2;
 	backgroundPoint[2].y = app.winHeight / 2;
-	
+
 	backgroundPoint[3].x = app.winWidth / 2;
 	backgroundPoint[3].y = app.winHeight / 2;
-	
+
 	initColor(&colors.red, 255, 0, 0);
 	initColor(&colors.orange, 255, 128, 0);
 	initColor(&colors.yellow, 255, 255, 0);
@@ -65,7 +65,7 @@ void prepareScene(void)
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 0);
 	SDL_RenderClear(app.renderer);
-	
+
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderClear(app.renderer);
@@ -74,22 +74,22 @@ void prepareScene(void)
 void presentScene(void)
 {
 	SDL_Rect uiDest;
-	
+
 	uiDest.w = UI_WIDTH;
 	uiDest.h = UI_HEIGHT;
 	uiDest.x = app.uiOffset.x;
 	uiDest.y = app.uiOffset.y;
-	
+
 	if (dev.debug)
 	{
 		drawText(5, app.winHeight - 25, 14, TA_LEFT, colors.white, "DEBUG MODE");
-		
+
 		if (dev.showFPS)
 		{
 			drawText(app.winWidth / 2, app.winHeight - 25, 14, TA_CENTER, colors.white, "FPS: %d", dev.fps);
 		}
 	}
-	
+
 	SDL_SetRenderTarget(app.renderer, NULL);
 	SDL_RenderCopy(app.renderer, app.backBuffer, NULL, NULL);
 	SDL_RenderCopy(app.renderer, app.uiBuffer, NULL, &uiDest);
@@ -103,7 +103,7 @@ void presentScene(void)
 void blit(AtlasImage *atlasImage, int x, int y, int center)
 {
 	SDL_Rect dstRect;
-	
+
 	dstRect.x = x;
 	dstRect.y = y;
 	dstRect.w = atlasImage->rect.w;
@@ -114,19 +114,19 @@ void blit(AtlasImage *atlasImage, int x, int y, int center)
 		dstRect.x -= (dstRect.w / 2);
 		dstRect.y -= (dstRect.h / 2);
 	}
-	
+
 	SDL_RenderCopy(app.renderer, atlasImage->texture, &atlasImage->rect, &dstRect);
 }
 
 void blitScaled(AtlasImage *atlasImage, int x, int y, int w, int h, int center)
 {
 	SDL_Rect dstRect;
-	
+
 	dstRect.x = x;
 	dstRect.y = y;
 	dstRect.w = w;
 	dstRect.h = h;
-	
+
 	if (center)
 	{
 		dstRect.x -= (dstRect.w / 2);
@@ -139,12 +139,12 @@ void blitScaled(AtlasImage *atlasImage, int x, int y, int w, int h, int center)
 void blitRotated(AtlasImage *atlasImage, int x, int y, float angle)
 {
 	SDL_Rect dstRect;
-	
+
 	dstRect.x = x;
 	dstRect.y = y;
 	dstRect.w = atlasImage->rect.w;
 	dstRect.h = atlasImage->rect.h;
-	
+
 	dstRect.x -= (dstRect.w / 2);
 	dstRect.y -= (dstRect.h / 2);
 
@@ -192,27 +192,27 @@ void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a)
 void scrollBackground(float x, float y)
 {
 	int i;
-	
+
 	for (i = 0 ; i < 4 ; i++)
 	{
 		backgroundPoint[i].x += x;
 		backgroundPoint[i].y += y;
-		
+
 		if (backgroundPoint[i].x < 0)
 		{
 			backgroundPoint[i].x += (app.winWidth * 2);
 		}
-		
+
 		if (backgroundPoint[i].x >= app.winWidth)
 		{
 			backgroundPoint[i].x -= (app.winWidth * 2);
 		}
-		
+
 		if (backgroundPoint[i].y < 0)
 		{
 			backgroundPoint[i].y += (app.winHeight * 2);
 		}
-		
+
 		if (backgroundPoint[i].y >= app.winHeight)
 		{
 			backgroundPoint[i].y -= (app.winHeight * 2);
@@ -224,7 +224,7 @@ void drawBackground(SDL_Texture *texture)
 {
 	int i;
 	SDL_Rect dstRect;
-	
+
 	for (i = 0 ; i < 4 ; i++)
 	{
 		dstRect.x = backgroundPoint[i].x;
@@ -241,17 +241,17 @@ int isOnBattleScreen(int x, int y, int w, int h)
 	x -= (w / 2);
 	x -= (app.winWidth / 2);
 	x -= battle.camera.x;
-	
+
 	y -= (h / 2);
 	y -= (app.winHeight / 2);
 	y -= battle.camera.y;
-	
+
 	w *= 2;
 	w += app.winWidth;
-	
+
 	h *= 2;
 	h += app.winHeight;
-	
+
 	return collision(x, y, w, h, 0, 0, app.winWidth, app.winHeight);
 }
 
@@ -260,14 +260,14 @@ void saveScreenshot(void)
 	static int i = 0;
 	char filename[MAX_NAME_LENGTH];
 	SDL_Surface *sshot;
-	
+
 	sprintf(filename, "/tmp/tbftss/%d.bmp", ++i);
-	
+
 	sshot = SDL_CreateRGBSurface(0, app.winWidth, app.winHeight, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
 	SDL_RenderReadPixels(app.renderer, NULL, SDL_PIXELFORMAT_ARGB8888, sshot->pixels, sshot->pitch);
 	SDL_SaveBMP(sshot, filename);
 	SDL_FreeSurface(sshot);
-	
+
 	if (!dev.takeScreenshots)
 	{
 		printf("Saved '%s'\n", filename);

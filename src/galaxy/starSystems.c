@@ -57,7 +57,7 @@ static StarSystem *loadStarSystem(cJSON *starSystemJSON)
 	starSystem->x = cJSON_GetObjectItem(starSystemJSON, "x")->valueint;
 	starSystem->y = cJSON_GetObjectItem(starSystemJSON, "y")->valueint;
 	starSystem->fallsToPandorans = getJSONValue(starSystemJSON, "fallsToPandorans", 0);
-	
+
 	starSystem->type = (starSystem->side != SIDE_PANDORAN) ? SS_NORMAL : SS_PANDORAN;
 
 	if (strcmp(starSystem->name, "Sol") == 0)
@@ -91,26 +91,26 @@ static void loadMissions(StarSystem *starSystem)
 	{
 		name[i] = tolower(name[i]);
 	}
-	
+
 	sprintf(path, "data/missions/%s", name);
-	
+
 	filenames = getFileList(path, &count);
-	
+
 	for (i = 0 ; i < count ; i++)
 	{
 		sprintf(path, "data/missions/%s/%s", name, filenames[i]);
-		
+
 		mission = loadMissionMeta(path);
-		
+
 		if (mission)
 		{
 			tail->next = mission;
 			tail = mission;
 		}
-		
+
 		free(filenames[i]);
 	}
-	
+
 	free(filenames);
 }
 
@@ -143,16 +143,16 @@ void updateStarSystemMissions(void)
 		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
 		{
 			starSystem->totalMissions++;
-			
+
 			if (starSystem->type == SS_NORMAL && !mission->isOptional)
 			{
 				game.totalMissions++;
 			}
-			
+
 			if (mission->completed)
 			{
 				starSystem->completedMissions++;
-				
+
 				if (starSystem->type == SS_NORMAL && !mission->isOptional)
 				{
 					game.completedMissions++;
@@ -172,12 +172,12 @@ void updateStarSystemMissions(void)
 			if (mission->available)
 			{
 				starSystem->availableMissions++;
-				
+
 				if (starSystem->type == SS_NORMAL && !mission->isOptional)
 				{
 					game.availableMissions++;
 				}
-				
+
 				if (!mission->completed)
 				{
 					starSystem->activeMission = mission;

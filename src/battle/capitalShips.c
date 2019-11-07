@@ -87,7 +87,7 @@ void doCapitalShip(void)
 	if (self->alive == ALIVE_ALIVE)
 	{
 		handleDisabled();
-		
+
 		if (self->health <= 0)
 		{
 			self->health = 0;
@@ -111,7 +111,7 @@ void doCapitalShip(void)
 
 				runScriptFunction("CAPITAL_SHIPS_DESTROYED %d", battle.stats[STAT_CAPITAL_SHIPS_DESTROYED]);
 			}
-			
+
 			runScriptFunction(self->name);
 		}
 	}
@@ -243,7 +243,7 @@ static int steer(void)
 static void gunThink(void)
 {
 	doAI();
-	
+
 	handleDisabled();
 }
 
@@ -259,7 +259,7 @@ static void componentDie(void)
 	if (self->owner->health > 0)
 	{
 		runScriptFunction("CAP_HEALTH %s %d", self->owner->name, self->owner->health);
-		
+
 		if (self->side != SIDE_PANDORAN && self->side == player->side)
 		{
 			issueDamageMessage(self->owner);
@@ -270,12 +270,12 @@ static void componentDie(void)
 static void gunDie(void)
 {
 	Entity *e;
-	
+
 	self->alive = ALIVE_DEAD;
 	addSmallExplosion();
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	addDebris(self->x, self->y, 3 + rand() % 4);
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e != self && e->health > 0 && e->owner == self->owner && e->type == ET_COMPONENT_GUN)
@@ -283,14 +283,14 @@ static void gunDie(void)
 			return;
 		}
 	}
-	
+
 	runScriptFunction("CAP_GUNS_DESTROYED %s", self->owner->name);
-	
+
 	if (self->side != SIDE_PANDORAN && self->side == player->side)
 	{
 		issueGunsDestroyedMessage(self->owner);
 	}
-	
+
 	if (--self->owner->systemPower == 1)
 	{
 		disable();
@@ -300,7 +300,7 @@ static void gunDie(void)
 static void engineThink(void)
 {
 	handleDisabled();
-	
+
 	addLargeEngineEffect();
 }
 
@@ -329,13 +329,13 @@ static void engineDie(void)
 		self->owner->dx = self->owner->dy = 0;
 
 		runScriptFunction("CAP_ENGINES_DESTROYED %s", self->owner->name);
-		
+
 		if (self->side != SIDE_PANDORAN && self->side == player->side)
 		{
 			issueEnginesDestroyedMessage(self->owner);
 		}
 	}
-	
+
 	if (--self->owner->systemPower == 1)
 	{
 		disable();
@@ -347,11 +347,11 @@ static void die(void)
 	Entity *e;
 
 	self->alive = ALIVE_DEAD;
-	
+
 	playBattleSound(SND_CAP_DEATH, self->x, self->y);
 
 	addLargeExplosion();
-	
+
 	addDebris(self->x, self->y, 12);
 
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
@@ -364,7 +364,7 @@ static void die(void)
 
 	updateObjective(self->name, TT_DESTROY);
 	updateObjective(self->groupName, TT_DESTROY);
-	
+
 	updateCondition(self->name, TT_DESTROY);
 	updateCondition(self->groupName, TT_DESTROY);
 }
@@ -384,9 +384,9 @@ static void handleDisabled(void)
 static void disable(void)
 {
 	Entity *e;
-	
+
 	runScriptFunction("CAP_DISABLED %s", self->owner->name);
-		
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->owner == self->owner || e == self->owner)
@@ -395,7 +395,7 @@ static void disable(void)
 			e->flags |= EF_DISABLED;
 		}
 	}
-	
+
 	updateObjective(self->owner->name, TT_DISABLE);
 	updateObjective(self->owner->groupName, TT_DISABLE);
 }
@@ -631,7 +631,7 @@ static void loadEngines(Entity *parent, cJSON *engines)
 void updateCapitalShipComponentProperties(Entity *parent, long flags)
 {
 	Entity *e;
-	
+
 	if (flags != -1)
 	{
 		flags &= ~EF_AI_LEADER;
@@ -645,7 +645,7 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 			{
 				e->flags |= flags;
 			}
-			
+
 			switch (e->type)
 			{
 				case ET_COMPONENT_ENGINE:
@@ -743,9 +743,9 @@ void loadCapitalShips(cJSON *node)
 						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
 					}
 				}
-				
+
 				updateCapitalShipComponentProperties(e, flags);
-				
+
 				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "%s (%d / %d)", e->name, e->health, e->maxHealth);
 			}
 

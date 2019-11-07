@@ -33,13 +33,13 @@ static float portalAngle;
 Entity *spawnJumpgate(int side, long flags)
 {
 	Entity *jumpgate;
-	
+
 	if (battle.jumpgate)
 	{
 		printf("ERROR: Only one jumpgate is allowed\n");
 		exit(1);
 	}
-	
+
 	jumpgate = spawnEntity();
 	jumpgate->type = ET_JUMPGATE;
 	jumpgate->health = jumpgate->maxHealth = 1;
@@ -48,20 +48,20 @@ Entity *spawnJumpgate(int side, long flags)
 	jumpgate->draw = draw;
 	jumpgate->side = side;
 	jumpgate->flags = EF_NO_MT_BOX+EF_IMMORTAL+EF_AI_IGNORE+EF_NON_SOLID+EF_NO_HEALTH_BAR;
-	
+
 	if (flags != -1 && flags & EF_DISABLED)
 	{
 		jumpgate->flags |= EF_DISABLED;
 	}
-	
+
 	addNodes(jumpgate, flags);
 
 	portal = getAtlasImage("gfx/entities/portal.png");
 	portalAngle = 0;
-	
+
 	jumpgate->w = jumpgate->texture->rect.w;
 	jumpgate->h = jumpgate->texture->rect.h;
-	
+
 	battle.jumpgate = jumpgate;
 
 	return jumpgate;
@@ -72,9 +72,9 @@ static void addNodes(Entity *jumpgate, long flags)
 	Entity *node;
 	AtlasImage *nodeTexture;
 	int i;
-	
+
 	nodeTexture = getAtlasImage("gfx/entities/jumpgateNode.png");
-	
+
 	for (i = 0 ; i < 360 ; i += 36)
 	{
 		node = spawnEntity();
@@ -90,20 +90,20 @@ static void addNodes(Entity *jumpgate, long flags)
 		node->die = nodeDie;
 		node->w = node->texture->rect.w;
 		node->h = node->texture->rect.h;
-		
+
 		if (jumpgate->side == SIDE_NONE)
 		{
 			node->flags |= EF_NO_HEALTH_BAR;
 		}
-		
+
 		if (flags != -1)
 		{
 			node->flags = flags;
 		}
-		
+
 		jumpgate->maxHealth++;
 	}
-	
+
 	jumpgate->health = jumpgate->maxHealth;
 }
 
@@ -117,7 +117,7 @@ static void nodeDie(void)
 	if (--battle.jumpgate->health == 1)
 	{
 		battle.jumpgate->flags |= EF_DISABLED;
-		
+
 		updateObjective("Jumpgate", TT_DESTROY);
 		updateCondition("Jumpgate", TT_DESTROY);
 	}
@@ -133,7 +133,7 @@ int jumpgateEnabled(void)
 void activateJumpgate(int activate)
 {
 	Entity *e;
-	
+
 	if (battle.jumpgate && battle.jumpgate->health > 1)
 	{
 		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
@@ -158,19 +158,19 @@ static void think(void)
 	self->thinkTime = 4;
 
 	self->angle += 0.1;
-	
+
 	if (self->angle >= 360)
 	{
 		self->angle -= 360;
 	}
-	
+
 	if (jumpgateEnabled())
 	{
 		handleFleeingEntities();
 	}
-	
+
 	portalAngle += 2;
-	
+
 	if (portalAngle >= 360)
 	{
 		portalAngle -= 360;

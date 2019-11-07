@@ -31,7 +31,7 @@ void initMessageBox(void)
 {
 	memset(&head, 0, sizeof(MessageBox));
 	tail = &head;
-	
+
 	lastWingmate = NULL;
 }
 
@@ -40,22 +40,22 @@ void addMessageBox(char *title, char *body, int type)
 	MessageBox *msg;
 	int isFirst;
 	float time;
-	
+
 	isFirst = (tail == &head);
-	
+
 	msg = malloc(sizeof(MessageBox));
 	memset(msg, 0, sizeof(MessageBox));
 	tail->next = msg;
 	tail = msg;
-	
+
 	time = 0.075 * strlen(body);
 	time = MIN(MAX(time, 3), 7);
-	
+
 	STRNCPY(msg->title, title, MAX_NAME_LENGTH);
 	STRNCPY(msg->body, body, MAX_DESCRIPTION_LENGTH);
 	msg->time = time * FPS;
 	msg->type = type;
-	
+
 	if (isFirst)
 	{
 		nextMessage();
@@ -65,9 +65,9 @@ void addMessageBox(char *title, char *body, int type)
 void doMessageBox(void)
 {
 	MessageBox *msg;
-	
+
 	msg = head.next;
-	
+
 	if (msg)
 	{
 		if (--msg->time <= -(FPS / 4))
@@ -76,13 +76,13 @@ void doMessageBox(void)
 			{
 				tail = &head;
 			}
-			
+
 			head.next = msg->next;
 			free(msg);
 			msg = &head;
-			
+
 			battle.messageSpeaker = NULL;
-			
+
 			if (head.next)
 			{
 				nextMessage();
@@ -94,7 +94,7 @@ void doMessageBox(void)
 static void calculateMessageBoxHeight(MessageBox *msg)
 {
 	app.textWidth = MSG_BOX_TEXT_WIDTH;
-	
+
 	if (msg->type == MB_PANDORAN)
 	{
 		useFont("khosrau");
@@ -103,11 +103,11 @@ static void calculateMessageBoxHeight(MessageBox *msg)
 	{
 		useFont("roboto");
 	}
-	
+
 	msg->height = getWrappedTextHeight(msg->body, 18);
-	
+
 	app.textWidth = 0;
-	
+
 	useFont("roboto");
 }
 
@@ -120,21 +120,21 @@ void drawMessageBox(void)
 {
 	MessageBox *msg = head.next;
 	SDL_Rect r;
-	
+
 	if (msg && msg->time > 0)
 	{
 		if (!msg->height)
 		{
 			calculateMessageBoxHeight(msg);
 		}
-		
+
 		r.y = 50;
 		r.w = 650;
 		r.h = msg->height + 40;
 		r.x = (app.winWidth - r.w) / 2;
-		
+
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
-		
+
 		if (msg->type == MB_IMPORTANT)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 64);
@@ -144,15 +144,15 @@ void drawMessageBox(void)
 			SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 		}
 		SDL_RenderFillRect(app.renderer, &r);
-		
+
 		SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 128);
 		SDL_RenderDrawRect(app.renderer, &r);
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-		
+
 		drawText(r.x + 10, r.y + 5, 18, TA_LEFT, colors.cyan, msg->title);
-		
+
 		app.textWidth = MSG_BOX_TEXT_WIDTH;
-		
+
 		if (msg->type == MB_PANDORAN)
 		{
 			useFont("khosrau");
@@ -161,12 +161,12 @@ void drawMessageBox(void)
 		{
 			useFont("roboto");
 		}
-		
+
 		drawText(r.x + 10, r.y + 30, 18, TA_LEFT, (msg->type != MB_IMPORTANT) ? colors.white : colors.red, msg->body);
-		
+
 		app.textWidth = 0;
 	}
-	
+
 	useFont("roboto");
 }
 
@@ -174,13 +174,13 @@ static void nextMessage(void)
 {
 	Entity *e, *wingmate;
 	int isWingmate;
-	
+
 	wingmate = NULL;
-	
+
 	isWingmate = strcmp(head.next->title, "Wingmate") == 0;
-	
+
 	playSound(SND_RADIO);
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->active && e != player)
@@ -190,11 +190,11 @@ static void nextMessage(void)
 				battle.messageSpeaker = lastWingmate = e;
 				return;
 			}
-			
+
 			if (isWingmate &&  e->side == player->side && e->type == ET_FIGHTER && e->speed > 0)
 			{
 				wingmate = e;
-				
+
 				if (rand() % 2 && e != lastWingmate)
 				{
 					battle.messageSpeaker = lastWingmate = e;
@@ -203,20 +203,20 @@ static void nextMessage(void)
 			}
 		}
 	}
-	
+
 	battle.messageSpeaker = wingmate;
 }
 
 void resetMessageBox(void)
 {
 	MessageBox *messageBox;
-	
+
 	while (head.next)
 	{
 		messageBox = head.next;
 		head.next = messageBox->next;
 		free(messageBox);
 	}
-	
+
 	tail = &head;
 }

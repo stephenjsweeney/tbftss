@@ -44,9 +44,9 @@ void loadGame(void)
 	loadChallenges(cJSON_GetObjectItem(gameJSON, "challenges"));
 
 	loadStats(cJSON_GetObjectItem(gameJSON, "stats"));
-	
+
 	loadTrophies(cJSON_GetObjectItem(gameJSON, "trophies"));
-	
+
 	loadFighterStats(cJSON_GetObjectItem(gameJSON, "fighterStats"));
 
 	cJSON_Delete(root);
@@ -76,7 +76,7 @@ static void loadMissions(cJSON *missionsJSON)
 	for (missionJSON = missionsJSON->child ; missionJSON != NULL ; missionJSON = missionJSON->next)
 	{
 		mission = getMission(cJSON_GetObjectItem(missionJSON, "filename")->valuestring);
-		
+
 		if (mission)
 		{
 			mission->completed = cJSON_GetObjectItem(missionJSON, "completed")->valueint;
@@ -133,13 +133,13 @@ static void loadTrophies(cJSON *trophiesJSON)
 {
 	Trophy *t;
 	cJSON *trophyJSON;
-	
+
 	if (trophiesJSON)
 	{
 		for (trophyJSON = trophiesJSON->child ; trophyJSON != NULL ; trophyJSON = trophyJSON->next)
 		{
 			t = getTrophy(cJSON_GetObjectItem(trophyJSON, "id")->valuestring);
-			
+
 			if (t)
 			{
 				t->awardDate = cJSON_GetObjectItem(trophyJSON, "awardDate")->valueint;
@@ -153,21 +153,21 @@ static void loadFighterStats(cJSON *fighterStatsJSON)
 {
 	Tuple *t, *tail;
 	cJSON *fighterStatJSON;
-	
+
 	destroyFighterStats();
-	
+
 	tail = &game.fighterStatHead;
-	
+
 	if (fighterStatsJSON)
 	{
 		for (fighterStatJSON = fighterStatsJSON->child ; fighterStatJSON != NULL ; fighterStatJSON = fighterStatJSON->next)
 		{
 			t = malloc(sizeof(Tuple));
 			memset(t, 0, sizeof(Tuple));
-			
+
 			STRNCPY(t->key, cJSON_GetObjectItem(fighterStatJSON, "key")->valuestring, MAX_NAME_LENGTH);
 			t->value = cJSON_GetObjectItem(fighterStatJSON, "value")->valueint;
-			
+
 			tail->next = t;
 			tail = t;
 		}

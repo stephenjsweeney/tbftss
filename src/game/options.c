@@ -58,7 +58,7 @@ void initOptions(void (*rtn)(void))
 	setWidgetOption("musicVolume", "options", optionStr);
 
 	setWidgetOption("fullscreen", "options", app.fullscreen ? "On" : "Off");
-	
+
 	OPTIONS_TEXT = _("Options");
 	RESOLUTION_TEXT = _("Note: you must restart the game for window size and fullscreen options to take effect.");
 
@@ -69,7 +69,7 @@ void initOptions(void (*rtn)(void))
 	#endif
 
 	returnFromOptions = rtn;
-	
+
 	show = SHOW_MAIN;
 }
 
@@ -80,7 +80,7 @@ void drawOptions(void)
 		case SHOW_MAIN:
 			drawMain();
 			break;
-			
+
 		case SHOW_CONTROLS:
 			drawControls();
 			break;
@@ -90,12 +90,12 @@ void drawOptions(void)
 static void drawMain(void)
 {
 	SDL_Rect r;
-	
+
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-	
+
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	r.w = 500;
@@ -116,11 +116,11 @@ static void drawMain(void)
 	drawWidgets("options");
 
 	app.textWidth = r.w - 100;
-	
+
 	drawText(UI_WIDTH / 2, r.y + r.h - 135, 16, TA_CENTER, colors.yellow, RESOLUTION_TEXT);
-	
+
 	app.textWidth = 0;
-	
+
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
@@ -129,11 +129,11 @@ void updateCustomResolutionOption(void)
 	Widget *w;
 	char value[MAX_NAME_LENGTH];
 	int i;
-	
+
 	sprintf(value, "%d x %d", app.winWidth, app.winHeight);
-	
+
 	w = getWidget("windowSize", "options");
-	
+
 	for (i = 0 ; i < w->numOptions - 1 ; i++)
 	{
 		if (strcmp(w->options[i], value) == 0)
@@ -142,7 +142,7 @@ void updateCustomResolutionOption(void)
 			return;
 		}
 	}
-	
+
 	w->options[w->numOptions - 1] = malloc(strlen(value) + 1);
 	strcpy(w->options[w->numOptions - 1], value);
 }
@@ -150,25 +150,25 @@ void updateCustomResolutionOption(void)
 static void controls(void)
 {
 	initControlsDisplay();
-	
+
 	show = SHOW_CONTROLS;
 }
 
 static void changeWindowSize(char *value)
 {
 	sscanf(value, "%d x %d", &app.winWidth, &app.winHeight);
-	
+
 	SDL_SetWindowSize(app.window, app.winWidth, app.winHeight);
-	
+
 	app.uiOffset.x = (app.winWidth / 2) - (UI_WIDTH / 2);
 	app.uiOffset.y = (app.winHeight / 2) - (UI_HEIGHT / 2);
-	
+
 	SDL_DestroyTexture(app.backBuffer);
-	
+
 	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, app.winWidth, app.winHeight);
-	
+
 	initGraphics();
-	
+
 	initStars();
 }
 
@@ -189,7 +189,7 @@ static void changeMusicVolume(char *value)
 static void changeFullscreen(char *value)
 {
 	app.fullscreen = strcmp(value, "On") == 0;
-	
+
 	SDL_SetWindowFullscreen(app.window, app.fullscreen? SDL_WINDOW_FULLSCREEN : 0);
 }
 

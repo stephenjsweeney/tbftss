@@ -50,7 +50,7 @@ void loadItemDefs(void)
 		e->texture = getAtlasImage(cJSON_GetObjectItem(node, "texture")->valuestring);
 		e->health = e->maxHealth = FPS;
 		e->flags = EF_NO_HEALTH_BAR;
-		
+
 		e->w = e->texture->rect.w;
 		e->h = e->texture->rect.h;
 
@@ -65,7 +65,7 @@ void loadItemDefs(void)
 Entity *spawnItem(char *name)
 {
 	Entity *e, *def, *item;
-	
+
 	def = NULL;
 
 	item = spawnEntity();
@@ -86,9 +86,9 @@ Entity *spawnItem(char *name)
 	}
 
 	memcpy(item, def, sizeof(Entity));
-	
+
 	item->next = NULL;
-	
+
 	item->action = action;
 
 	return item;
@@ -97,7 +97,7 @@ Entity *spawnItem(char *name)
 void addRandomItem(int x, int y)
 {
 	Entity *item;
-	
+
 	item = spawnItem("RANDOM");
 	item->x = x;
 	item->y = y;

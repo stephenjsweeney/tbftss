@@ -117,7 +117,7 @@ void doInput(void)
 {
 	SDL_Event event;
 	int x, y;
-	
+
 	while (SDL_PollEvent(&event))
 	{
 		switch (event.type)
@@ -125,11 +125,11 @@ void doInput(void)
 			case SDL_MOUSEMOTION:
 				doMouseMotion(&event.motion);
 				break;
-			
+
 			case SDL_MOUSEWHEEL:
 				doMouseWheel(&event.wheel);
 				break;
-			
+
 			case SDL_MOUSEBUTTONDOWN:
 				doMouseDown(&event.button);
 				break;
@@ -137,11 +137,11 @@ void doInput(void)
 			case SDL_MOUSEBUTTONUP:
 				doMouseUp(&event.button);
 				break;
-			
+
 			case SDL_KEYDOWN:
 				doKeyDown(&event.key);
 				break;
-				
+
 			case SDL_KEYUP:
 				doKeyUp(&event.key);
 				break;
@@ -163,12 +163,12 @@ void doInput(void)
 				break;
 		}
 	}
-	
+
 	SDL_GetMouseState(&x, &y);
-	
+
 	app.mouse.x = x;
 	app.mouse.y = y;
-	
+
 	app.uiMouse.x = x - app.uiOffset.x;
 	app.uiMouse.y = y - app.uiOffset.y;
 }
@@ -176,7 +176,7 @@ void doInput(void)
 void clearInput(void)
 {
 	SDL_Event event;
-	
+
 	memset(app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 	memset(app.mouse.button, 0, sizeof(int) * MAX_MOUSE_BUTTONS);
 

@@ -81,30 +81,30 @@ void initPlayer(void)
 	{
 		player->selectedGunType = 0;
 	}
-	
+
 	setPilotName();
 
 	player->action = NULL;
 
 	battle.boostTimer = BOOST_RECHARGE_TIME;
 	battle.ecmTimer = ECM_RECHARGE_TIME;
-	
+
 	player->flags |= EF_NO_HEALTH_BAR;
 	player->flags &= ~EF_IMMORTAL;
-	
+
 	player->target = NULL;
-	
+
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
-	
+
 	battle.stats[STAT_EPIC_KILL_STREAK] = 0;
 }
 
 static void setPilotName(void)
 {
 	int i, pos;
-	
+
 	pos = -1;
-	
+
 	for (i = 0 ; i < strlen(game.currentMission->pilot) ; i++)
 	{
 		if (game.currentMission->pilot[i] == ' ')
@@ -112,34 +112,34 @@ static void setPilotName(void)
 			pos = i;
 		}
 	}
-	
+
 	memset(player->name, '\0', MAX_NAME_LENGTH);
-	
+
 	if (pos != -1)
 	{
 		memcpy(player->name, game.currentMission->pilot + pos + 1, strlen(game.currentMission->pilot) - pos - 1);
 	}
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Pilot name = '%s'", player->name);
 }
 
 void doPlayer(void)
 {
 	self = player;
-	
+
 	rechargeBoostECM();
-	
+
 	if (game.currentMission->challengeData.isChallenge)
 	{
 		applyRestrictions();
 	}
-	
+
 	if (player->alive == ALIVE_ALIVE && player->systemPower > 0)
 	{
 		handleKeyboard();
 
 		handleMouse();
-		
+
 		handleSuspicionLevel();
 
 		if (!player->target || player->target->health <= 0 || player->target->systemPower <= 0 || targetOutOfRange())
@@ -157,22 +157,22 @@ void doPlayer(void)
 			if (!game.currentMission->challengeData.allowPlayerDeath)
 			{
 				updateDeathStats();
-				
+
 				failMission();
 			}
 		}
 		else if (!battle.isEpic)
 		{
 			updateDeathStats();
-			
+
 			failMission();
 		}
 		else if (player->health == -FPS)
 		{
 			updateDeathStats();
-			
+
 			updateCondition("PLAYER", TT_DESTROY);
-			
+
 			if (battle.status == MS_IN_PROGRESS)
 			{
 				initPlayerSelect();
@@ -189,7 +189,7 @@ void doPlayer(void)
 	{
 		player->missiles = 999;
 	}
-	
+
 	/* really only used in challenge mode */
 	if (player->systemPower <= 0 && battle.status == MS_IN_PROGRESS)
 	{
@@ -209,7 +209,7 @@ void doPlayer(void)
 static void updateDeathStats(void)
 {
 	battle.stats[STAT_PLAYER_KILLED]++;
-		
+
 	/* the player is known as "Player", so we need to check the craft they were assigned to */
 	if (strcmp(game.currentMission->craft, "ATAF") == 0)
 	{
@@ -220,14 +220,14 @@ static void updateDeathStats(void)
 static void rechargeBoostECM(void)
 {
 	int boostTimer, ecmTimer;
-	
+
 	boostTimer = battle.boostTimer;
 	battle.boostTimer = MIN(battle.boostTimer + 1, BOOST_RECHARGE_TIME);
 	if (boostTimer < BOOST_RECHARGE_TIME && battle.boostTimer == BOOST_RECHARGE_TIME)
 	{
 		playSound(SND_RECHARGED);
 	}
-	
+
 	ecmTimer = battle.ecmTimer;
 	battle.ecmTimer = MIN(battle.ecmTimer + 1, ECM_RECHARGE_TIME);
 	if (ecmTimer < ECM_RECHARGE_TIME && battle.ecmTimer == ECM_RECHARGE_TIME)
@@ -247,17 +247,17 @@ static void applyRestrictions(void)
 	{
 		player->missiles = 0;
 	}
-	
+
 	if (game.currentMission->challengeData.noBoost)
 	{
 		battle.boostTimer = 0;
 	}
-	
+
 	if (game.currentMission->challengeData.noECM)
 	{
 		battle.ecmTimer = 0;
 	}
-	
+
 	if (game.currentMission->challengeData.noGuns)
 	{
 		player->reload = 1;
@@ -342,7 +342,7 @@ static void handleKeyboard(void)
 static void handleMouse(void)
 {
 	faceMouse();
-	
+
 	if (battle.status == MS_IN_PROGRESS)
 	{
 		if (isControl(CONTROL_FIRE) && !player->reload && player->guns[0].type)
@@ -355,13 +355,13 @@ static void handleMouse(void)
 			{
 				fireRocket(player);
 			}
-			
+
 			if (battle.hasSuspicionLevel && !battle.numEnemies && !battle.suspicionCoolOff)
 			{
 				battle.suspicionLevel += (MAX_SUSPICION_LEVEL * 0.05);
 			}
 		}
-		
+
 		if (isControl(CONTROL_ACCELERATE))
 		{
 			if (battle.boostTimer > BOOST_FINISHED_TIME || game.currentMission->challengeData.noBoost)
@@ -369,25 +369,25 @@ static void handleMouse(void)
 				applyFighterThrust();
 			}
 		}
-		
+
 		if (isControl(CONTROL_MISSILE))
 		{
 			preFireMissile();
-			
+
 			app.mouse.button[SDL_BUTTON_MIDDLE] = 0;
 		}
-		
+
 		if (isControl(CONTROL_GUNS))
 		{
 			switchGuns();
-			
+
 			app.mouse.button[SDL_BUTTON_X1] = 0;
 		}
-		
+
 		if (isControl(CONTROL_RADAR))
 		{
 			cycleRadarZoom();
-			
+
 			app.mouse.button[SDL_BUTTON_X2] = 0;
 		}
 	}
@@ -425,14 +425,14 @@ static void preFireMissile(void)
 		else
 		{
 			playSound(SND_GUI_DENIED);
-			
+
 			addHudMessage(colors.white, _("Target not in range"));
 		}
 	}
 	else if (!player->missiles)
 	{
 		addHudMessage(colors.white, _("Out of missiles"));
-		
+
 		playSound(SND_NO_MISSILES);
 	}
 }
@@ -440,11 +440,11 @@ static void preFireMissile(void)
 static void initPlayerSelect(void)
 {
 	Entity *e;
-	
+
 	memset(&availablePlayerUnits, 0, sizeof(Entity*) * MAX_SELECTABLE_PLAYERS);
 
 	selectedPlayerIndex = 0;
-	
+
 	if (battle.epicLives == 0 || (battle.epicLives > 0 && --battle.epicLives > 0))
 	{
 		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
@@ -465,7 +465,7 @@ static void initPlayerSelect(void)
 	else
 	{
 		battle.isEpic = 0;
-		
+
 		if (battle.epicKills > 0 && battle.stats[STAT_ENEMIES_KILLED_PLAYER] < battle.epicKills)
 		{
 			battle.unwinnable = 0;
@@ -480,23 +480,23 @@ void doPlayerSelect(void)
 	if (isControl(CONTROL_PREV_FIGHTER))
 	{
 		selectNewPlayer(-1);
-		
+
 		clearControl(CONTROL_PREV_FIGHTER);
 	}
-	
+
 	if (isControl(CONTROL_NEXT_FIGHTER))
 	{
 		selectNewPlayer(1);
-		
+
 		clearControl(CONTROL_NEXT_FIGHTER);
 	}
-	
+
 	if (player->health > 0 && isAcceptControl())
 	{
 		battle.playerSelect = 0;
-		
+
 		initPlayer();
-		
+
 		resetAcceptControls();
 	}
 }
@@ -504,7 +504,7 @@ void doPlayerSelect(void)
 static void selectNewPlayer(int dir)
 {
 	player = NULL;
-	
+
 	do
 	{
 		selectedPlayerIndex += dir;
@@ -554,7 +554,7 @@ static void activateECM(void)
 	addECMEffect(player);
 
 	battle.stats[STAT_ECM]++;
-	
+
 	if (battle.hasSuspicionLevel && !battle.numEnemies && !battle.suspicionCoolOff)
 	{
 		battle.suspicionLevel += (MAX_SUSPICION_LEVEL * 0.25);
@@ -594,18 +594,18 @@ static void selectTarget(void)
 	i = 0;
 	near = NULL;
 	memset(targets, 0, sizeof(Entity*) * MAX_SELECTABLE_TARGETS);
-	
+
 	if (player->target && (!player->target->health || !player->target->systemPower))
 	{
 		player->target = NULL;
 	}
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->active && e != player && (e->flags & EF_TAKES_DAMAGE) && (!(e->flags & EF_NO_PLAYER_TARGET)) && e->side != player->side && e->alive == ALIVE_ALIVE && e->systemPower > 0 && i < MAX_SELECTABLE_TARGETS)
 		{
 			dist = getDistance(player->x, player->y, e->x, e->y);
-			
+
 			if (dist < closest)
 			{
 				near = e;
@@ -693,13 +693,13 @@ static int isPriorityMissionTarget(Entity *e, int dist, int closest)
 	{
 		return 1;
 	}
-	
+
 	/* battle.missionTarget is not secondary, e is */
 	if ((battle.missionTarget->flags & EF_SECONDARY_TARGET) < (e->flags & EF_SECONDARY_TARGET))
 	{
 		return 0;
 	}
-	
+
 	/* normal distance check */
 	return dist < closest;
 }
@@ -707,9 +707,9 @@ static int isPriorityMissionTarget(Entity *e, int dist, int closest)
 void setInitialPlayerAngle(void)
 {
 	Entity *e;
-	
+
 	selectMissionTarget();
-	
+
 	if (battle.missionTarget)
 	{
 		player->angle = getAngle(player->x, player->y, battle.missionTarget->x, battle.missionTarget->y);
@@ -717,7 +717,7 @@ void setInitialPlayerAngle(void)
 	else
 	{
 		selectTarget();
-		
+
 		if (player->target)
 		{
 			player->angle = getAngle(player->x, player->y, player->target->x, player->target->y);
@@ -730,7 +730,7 @@ void setInitialPlayerAngle(void)
 			}
 		}
 	}
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->side == player->side)
@@ -743,7 +743,7 @@ void setInitialPlayerAngle(void)
 static void cycleRadarZoom(void)
 {
 	battle.radarRange = (battle.radarRange + 1) % 3;
-	
+
 	playSound(SND_ZOOM);
 }
 
@@ -780,12 +780,12 @@ void loadPlayer(cJSON *node)
 		player->x = (cJSON_GetObjectItem(node, "x")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_WIDTH;
 		player->y = (cJSON_GetObjectItem(node, "y")->valuedouble / BATTLE_AREA_CELLS) * BATTLE_AREA_HEIGHT;
 	}
-	
+
 	if (cJSON_GetObjectItem(node, "flags"))
 	{
 		flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
 	}
-	
+
 	if (flags != -1)
 	{
 		if (addFlags)

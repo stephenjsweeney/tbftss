@@ -77,7 +77,7 @@ void setLanguage(char *applicationName, char *languageCode)
 	{
 		STRNCPY(language, languageCode, MAX_DESCRIPTION_LENGTH);
 	}
-	
+
 	strtok(language, ".");
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Locale is %s", language);
@@ -100,9 +100,9 @@ void setLanguage(char *applicationName, char *languageCode)
 		{
 			return;
 		}
-		
+
 		strtok(language, "_");
-		
+
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Language is %s", language);
 
 		sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);

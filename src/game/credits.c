@@ -36,51 +36,51 @@ static int timeout;
 void initCredits(void)
 {
 	startSectionTransition();
-	
+
 	stopMusic();
-	
+
 	memset(&head, 0, sizeof(Credit));
 	tail = &head;
-	
+
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-	
+
 	background = getTexture("gfx/backgrounds/background02.jpg");
-	
+
 	earthTexture = getAtlasImage("gfx/planets/earth.png");
-	
+
 	loadCredits();
-	
+
 	app.hideMouse = 1;
-	
+
 	endSectionTransition();
-	
+
 	playMusic("music/main/Her Violet Eyes.mp3", 0);
 }
 
 static void logic(void)
 {
 	Credit *c;
-	
+
 	handleKeyboard();
-	
+
 	for (c = head.next ; c != NULL ; c = c->next)
 	{
 		c->y -= creditSpeed;
-		
+
 		if (!c->next)
 		{
 			c->y = MAX(c->y, (app.winHeight - c->h) / 2);
 		}
 	}
-	
+
 	if (--timeout <= 0)
 	{
 		app.hideMouse = 0;
-		
+
 		destroyCredits();
-		
+
 		initTitle();
 	}
 }
@@ -88,13 +88,13 @@ static void logic(void)
 static void draw(void)
 {
 	Credit *c;
-	
+
 	drawBackground(background);
-	
+
 	blit(earthTexture, app.winWidth - 200, (app.winHeight / 2) + 100, 1);
-	
+
 	app.textWidth = CREDIT_LINE_LIMIT;
-	
+
 	for (c = head.next ; c != NULL ; c = c->next)
 	{
 		if (c->y > -c->h && c->y < app.winHeight)
@@ -102,7 +102,7 @@ static void draw(void)
 			drawText(app.winWidth / 2, (int)c->y, c->size, TA_CENTER, colors.white, c->text);
 		}
 	}
-	
+
 	app.textWidth = 0;
 }
 
@@ -112,12 +112,12 @@ static void loadCredits(void)
 	int y, dist;
 	char *text;
 	Credit *c;
-	
+
 	y = app.winHeight + 100;
 
 	text = readFile("data/credits/credits.json");
 	root = cJSON_Parse(text);
-	
+
 	app.textWidth = CREDIT_LINE_LIMIT;
 
 	for (node = root->child ; node != NULL ; node = node->next)
@@ -126,28 +126,28 @@ static void loadCredits(void)
 		memset(c, 0, sizeof(Credit));
 		tail->next = c;
 		tail = c;
-		
+
 		c->y = y;
-		
+
 		c->text = malloc(sizeof(char) * strlen(node->valuestring));
 		memset(c->text, '\0', sizeof(char) * strlen(node->valuestring));
-		
+
 		sscanf(node->valuestring, "%d %d %[^\n]", &dist, &c->size, c->text);
-		
+
 		c->y += dist;
 		c->h = getWrappedTextHeight(c->text, c->size);
-		
+
 		y += c->h + dist;
 	}
-	
+
 	app.textWidth = 0;
-	
+
 	/* the music that plays over the credits is 2m 44s, so scroll credits roughly inline with that (plus 2 seconds) */
 	timeout = ((2 * 60) + 46) * FPS;
-	
+
 	creditSpeed = y;
 	creditSpeed /= timeout;
-	
+
 	cJSON_Delete(root);
 	free(text);
 }
@@ -163,7 +163,7 @@ static void handleKeyboard(void)
 void destroyCredits(void)
 {
 	Credit *c;
-	
+
 	while (head.next)
 	{
 		c = head.next;

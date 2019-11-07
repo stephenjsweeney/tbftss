@@ -27,27 +27,27 @@ void doSpawners(void)
 	char *type;
 	int i, num, addFlags, addAIFlags;
 	long flags, aiFlags;
-	
+
 	for (s = battle.spawnerHead.next ; s != NULL ; s = s->next)
 	{
 		if (s->active && --s->time <= 0)
 		{
 			aiFlags = flags = -1;
-			
+
 			num = s->step;
-			
+
 			if (s->total != -1)
 			{
 				num = MIN(s->step, s->total);
-				
+
 				s->total -= num;
 			}
-			
+
 			if (s->side != SIDE_ALLIES)
 			{
 				battle.numInitialEnemies += num;
 			}
-			
+
 			if (strlen(s->flags))
 			{
 				flags = flagsToLong(s->flags, &addFlags);
@@ -57,15 +57,15 @@ void doSpawners(void)
 			{
 				aiFlags = flagsToLong(s->aiFlags, &addAIFlags);
 			}
-			
+
 			for (i = 0 ; i < num ; i++)
 			{
 				type = s->types[rand() % s->numTypes];
-				
+
 				e = spawnFighter(type, 0, 0, s->side);
-				
+
 				e->spawned = 1;
-				
+
 				if (s->offscreen)
 				{
 					e->x = player->x;
@@ -76,10 +76,10 @@ void doSpawners(void)
 					e->x = rand() % 2 ? 0 : BATTLE_AREA_WIDTH;
 					e->y = rand() % 2 ? 0 : BATTLE_AREA_HEIGHT;
 				}
-				
+
 				e->x += (rand() % 2) ? -SCREEN_WIDTH * 3 : SCREEN_WIDTH * 3;
 				e->y += (rand() % 2) ? -SCREEN_HEIGHT * 3 : SCREEN_HEIGHT * 3;
-				
+
 				if (flags != -1)
 				{
 					if (addFlags)
@@ -91,7 +91,7 @@ void doSpawners(void)
 						e->flags = flags;
 					}
 				}
-				
+
 				if (aiFlags != -1)
 				{
 					if (addAIFlags)
@@ -104,7 +104,7 @@ void doSpawners(void)
 					}
 				}
 			}
-			
+
 			s->time = s->interval;
 		}
 	}
@@ -127,12 +127,12 @@ void activateTrespasserSpawner(void)
 {
 	Spawner *s;
 	char types[MAX_DESCRIPTION_LENGTH];
-	
+
 	s = malloc(sizeof(Spawner));
 	memset(s, 0, sizeof(Spawner));
 	battle.spawnerTail->next = s;
 	battle.spawnerTail = s;
-	
+
 	STRNCPY(types, "Jackal;Mantis;Sphinx;Scarab", MAX_DESCRIPTION_LENGTH);
 
 	s->types = toTypeArray(types, &s->numTypes);

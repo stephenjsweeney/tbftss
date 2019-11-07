@@ -48,9 +48,9 @@ void doEffects(void)
 	int i, onScreen;
 	Effect *e;
 	Effect *prev = &battle.effectHead;
-	
+
 	i = 0;
-	
+
 	memset(effectsToDraw, 0, sizeof(Effect*) * drawCapacity);
 
 	for (e = battle.effectHead.next ; e != NULL ; e = e->next)
@@ -79,22 +79,22 @@ void doEffects(void)
 		else
 		{
 			onScreen = 0;
-			
+
 			switch (e->type)
 			{
 				case EFFECT_LINE:
 					onScreen = pointOnScreen(e->x - battle.camera.x, e->y - battle.camera.y) || pointOnScreen(e->x + (e->dx * 3) - battle.camera.x, e->y + (e->dy * 3) - battle.camera.y);
 					break;
-					
+
 				case EFFECT_POINT:
 					onScreen = pointOnScreen(e->x - battle.camera.x, e->y - battle.camera.y);
 					break;
-					
+
 				default:
 					onScreen = isOnBattleScreen(e->x, e->y, e->size, e->size);
 					break;
 			}
-				
+
 			if (onScreen)
 			{
 				effectsToDraw[i++] = e;
@@ -124,7 +124,7 @@ static void resizeDrawList(void)
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing effect draw capacity: %d -> %d", drawCapacity, n);
 
 	effectsToDraw = resize(effectsToDraw, sizeof(Effect*) * drawCapacity, sizeof(Effect*) * n);
-	
+
 	drawCapacity = n;
 }
 
@@ -169,20 +169,20 @@ void drawEffects(void)
 				blitScaled(e->texture, app.winWidth / 2 - (e->size / 2), app.winHeight / 2 - (e->size / 2), e->size, e->size, 0);
 				break;
 		}
-		
+
 		if (e->texture != NULL)
 		{
 			SDL_SetTextureBlendMode(e->texture->texture, SDL_BLENDMODE_BLEND);
 		}
 	}
-	
+
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 }
 
 void drawShieldHitEffect(Entity *e)
 {
 	int size = MAX(e->w, e->h) + 32;
-	
+
 	SDL_SetTextureBlendMode(shieldHitTexture->texture, SDL_BLENDMODE_BLEND);
 	SDL_SetTextureAlphaMod(shieldHitTexture->texture, e->shieldHit);
 	blitScaled(shieldHitTexture, e->x - battle.camera.x, e->y - battle.camera.y, size, size, 1);
@@ -192,7 +192,7 @@ void addBulletHitEffect(int x, int y, int r, int g, int b)
 {
 	Effect *e;
 	int i;
-	
+
 	for (i = 0 ; i < 4 ; i++)
 	{
 		e = malloc(sizeof(Effect));
@@ -205,7 +205,7 @@ void addBulletHitEffect(int x, int y, int r, int g, int b)
 		e->size = 16;
 		e->x = x;
 		e->y = y;
-		
+
 		e->dx = (rand() % 25) - (rand() % 25);
 		e->dx *= 0.01;
 		e->dy = (rand() % 25) - (rand() % 25);
@@ -406,7 +406,7 @@ void addLargeExplosion(void)
 		e->x -= e->size / 2;
 		e->y -= e->size / 2;
 	}
-	
+
 	e = malloc(sizeof(Effect));
 
 	memset(e, 0, sizeof(Effect));
@@ -603,7 +603,7 @@ void addShieldSplinterEffect(Entity *ent)
 		e->dy = rand() % 64 - rand() % 64;
 		e->dy *= 0.1;
 		e->a = 255;
-		
+
 		e->health = e->a;
 
 		setRandomShieldHue(e);

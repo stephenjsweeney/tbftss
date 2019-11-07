@@ -59,17 +59,17 @@ void doWidgets(void)
 	if (drawingWidgets)
 	{
 		updateSelectWidgets();
-		
+
 		handleMouse();
 
 		handleKeyboard();
-		
+
 		if (app.awaitingWidgetInput)
 		{
 			handleControlWidgets();
 		}
 	}
-	
+
 	if (hoverWidget != selectedWidget)
 	{
 		selectedWidget = NULL;
@@ -87,12 +87,12 @@ static void updateSelectWidgets(void)
 		if (w->type == WT_SELECT_BUTTON && w->parent)
 		{
 			w->visible = 1;
-			
+
 			if (w->value == -1 && w->parent->value == 0)
 			{
 				w->visible = 0;
 			}
-			
+
 			if (w->value == 1 && w->parent->value == w->parent->numOptions - 1)
 			{
 				w->visible = 0;
@@ -130,7 +130,7 @@ void drawWidgets(const char *group)
 
 	drawingWidgets = 1;
 	mouseOver = 0;
-	
+
 	hoverWidget = NULL;
 
 	for (w = head.next; w != NULL ; w = w->next)
@@ -144,7 +144,7 @@ void drawWidgets(const char *group)
 				if (mouseOver)
 				{
 					hoverWidget = w;
-					
+
 					if (selectedWidget != w)
 					{
 						if (w->type == WT_BUTTON || w->type == WT_IMG_BUTTON || w->type == WT_CONTROL_CONFIG)
@@ -160,12 +160,12 @@ void drawWidgets(const char *group)
 			if (w->texture)
 			{
 				setAtlasColor(255, 255, 255, 255);
-				
+
 				if (selectedWidget == w)
 				{
 					setAtlasColor(128, 192, 255, 255);
 				}
-				
+
 				blit(w->texture , w->rect.x, w->rect.y, 0);
 			}
 			else
@@ -198,10 +198,10 @@ void drawWidgets(const char *group)
 					drawText(w->rect.x + 10, w->rect.y + 2, 20, TA_LEFT, colors.white, w->text);
 					drawText(w->rect.x + w->rect.w - 10, w->rect.y + 2, 20, TA_RIGHT, colors.white, w->options[w->value]);
 					break;
-					
+
 				case WT_CONTROL_CONFIG:
 					SDL_RenderDrawRect(app.renderer, &w->rect);
-					
+
 					if (!app.awaitingWidgetInput || (app.awaitingWidgetInput && w != selectedWidget))
 					{
 						if (strlen(w->options[0]) && strlen(w->options[1]))
@@ -302,7 +302,7 @@ static void handleMouse(void)
 					changeSelectedValue(selectedWidget->parent, selectedWidget->value);
 					app.mouse.button[SDL_BUTTON_LEFT] = 0;
 					break;
-					
+
 				case WT_CONTROL_CONFIG:
 					if (!app.awaitingWidgetInput)
 					{
@@ -320,7 +320,7 @@ static void handleMouse(void)
 static void handleKeyboard(void)
 {
 	Widget *old;
-	
+
 	if (selectedWidget != NULL)
 	{
 		if (selectedWidget->type == WT_BUTTON)
@@ -347,7 +347,7 @@ static void handleControlWidgets(void)
 	if (app.lastKeyPressed == SDL_SCANCODE_BACKSPACE)
 	{
 		clearControlConfig(selectedWidget->name);
-		
+
 		app.awaitingWidgetInput = 0;
 	}
 	else if (app.lastKeyPressed == SDL_SCANCODE_ESCAPE)
@@ -360,23 +360,23 @@ static void handleControlWidgets(void)
 		if (app.lastKeyPressed != -1)
 		{
 			updateControlKey(selectedWidget->name);
-			
+
 			app.awaitingWidgetInput = 0;
 		}
-		
+
 		if (app.lastButtonPressed != -1)
 		{
 			updateControlButton(selectedWidget->name);
-			
+
 			app.awaitingWidgetInput = 0;
 		}
 	}
-	
+
 	if (!app.awaitingWidgetInput)
 	{
 		clearInput();
 	}
-	
+
 	app.lastKeyPressed = app.lastButtonPressed = -1;
 }
 
@@ -410,7 +410,7 @@ static void loadWidgetSet(char *filename)
 
 	text = readFile(filename);
 	root = cJSON_Parse(text);
-	
+
 	if (root)
 	{
 		for (node = root->child ; node != NULL ; node = node->next)
@@ -456,12 +456,12 @@ static void loadWidgetSet(char *filename)
 					createSelectButtons(w);
 					createOptions(w, cJSON_GetObjectItem(node, "options")->valuestring);
 					break;
-					
+
 				case WT_CONTROL_CONFIG:
 					w->rect.w = cJSON_GetObjectItem(node, "w")->valueint;
 					w->rect.h = cJSON_GetObjectItem(node, "h")->valueint;
 					break;
-					
+
 				default:
 					printf("Widget type %d not handled\n", w->type);
 					exit(1);
@@ -478,7 +478,7 @@ static void loadWidgetSet(char *filename)
 	{
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Failed to load '%s'", filename);
 	}
-	
+
 	free(text);
 }
 
@@ -504,7 +504,7 @@ static void createOptions(Widget *w, char *options)
 	while (option)
 	{
 		option = _(option);
-		
+
 		w->options[i] = malloc(strlen(option) + 1);
 		strcpy(w->options[i], option);
 
@@ -552,25 +552,25 @@ void autoSizeWidgetButtons(char *group, int recenter)
 {
 	int width, height, maxWidth;
 	Widget *w;
-	
+
 	maxWidth = 0;
-	
+
 	for (w = head.next; w != NULL ; w = w->next)
 	{
 		if (strcmp(w->group, group) == 0 && w->type == WT_BUTTON)
 		{
 			calcTextDimensions(w->text, 20, &width, &height);
-			
+
 			maxWidth = MAX(MAX(w->rect.w, width), maxWidth);
 		}
 	}
-	
+
 	for (w = head.next; w != NULL ; w = w->next)
 	{
 		if (strcmp(w->group, group) == 0 && w->type == WT_BUTTON)
 		{
 			w->rect.w = maxWidth + 20;
-			
+
 			if (recenter)
 			{
 				w->rect.x = (UI_WIDTH / 2) - (w->rect.w / 2);
@@ -591,7 +591,7 @@ void destroyWidgets(void)
 		{
 			free(w->options[i]);
 		}
-		
+
 		free(w->options);
 
 		next = w->next;

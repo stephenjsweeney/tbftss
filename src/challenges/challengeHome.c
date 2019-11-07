@@ -66,7 +66,7 @@ static char *RESTRICTIONS_TEXT;
 void initChallengeHome(void)
 {
 	Mission *m;
-	
+
 	startSectionTransition();
 
 	stopMusic();
@@ -80,7 +80,7 @@ void initChallengeHome(void)
 	awardStatsTrophies();
 
 	app.saveGame = 1;
-	
+
 	CHALLENGES_TEXT = _("Challenges");
 	COMPLETED_TEXT = _("Completed : %d / %d");
 	PAGE_TEXT = _("Page : %d / %d");
@@ -102,14 +102,14 @@ void initChallengeHome(void)
 
 	planet.x = rand() % app.winWidth;
 	planet.y = rand() % app.winHeight;
-	
+
 	maxPages = page = 0;
-	
+
 	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
 	{
 		maxPages++;
 	}
-	
+
 	maxPages /= CHALLENGES_PER_PAGE;
 	maxPages = ceil(maxPages);
 
@@ -128,11 +128,11 @@ void initChallengeHome(void)
 	getWidget("ok", "stats")->action = ok;
 	getWidget("ok", "trophies")->action = ok;
 	getWidget("ok", "fighterDB")->action = ok;
-	
+
 	prev = getWidget("prev", "challenges");
 	prev->action = prevPage;
 	prev->visible = 0;
-	
+
 	next = getWidget("next", "challenges");
 	next->action = nextPage;
 	next->visible = 1;
@@ -143,9 +143,9 @@ void initChallengeHome(void)
 		game.currentMission = game.challengeMissionHead.next;
 		updateChallengeMissionData();
 	}
-	
+
 	SDL_SetWindowGrab(app.window, 0);
-	
+
 	autoSizeWidgetButtons("challenges", 1);
 
 	endSectionTransition();
@@ -156,7 +156,7 @@ void initChallengeHome(void)
 static void nextPage(void)
 {
 	page = MIN(page + 1, maxPages - 1);
-	
+
 	next->visible = page < maxPages - 1;
 	prev->visible = 1;
 }
@@ -164,7 +164,7 @@ static void nextPage(void)
 static void prevPage(void)
 {
 	page = MAX(0, page - 1);
-	
+
 	next->visible = 1;
 	prev->visible = page > 0;
 }
@@ -223,12 +223,12 @@ static void logic(void)
 	}
 
 	doWidgets();
-	
+
 	if (show == SHOW_FIGHTER_DB)
 	{
 		doFighterDatabase();
 	}
-	
+
 	app.doTrophyAlerts = 1;
 }
 
@@ -236,11 +236,11 @@ static void doChallenges(void)
 {
 	Mission *c;
 	int i, startIndex, end;
-	
+
 	i = 0;
 	startIndex = page * CHALLENGES_PER_PAGE;
 	end = startIndex + CHALLENGES_PER_PAGE;
-	
+
 	for (c = game.challengeMissionHead.next ; c != NULL ; c = c->next)
 	{
 		if (i >= startIndex && i < end && app.mouse.button[SDL_BUTTON_LEFT] && collision(app.uiMouse.x, app.uiMouse.y, 3, 3, c->rect.x, c->rect.y, c->rect.w, c->rect.h))
@@ -258,7 +258,7 @@ static void doChallenges(void)
 
 			app.mouse.button[SDL_BUTTON_LEFT] = 0;
 		}
-		
+
 		i++;
 	}
 }
@@ -307,7 +307,7 @@ static void draw(void)
 	blit(planetTexture, planet.x, planet.y, 1);
 
 	drawStars();
-	
+
 	if (show == SHOW_MENU)
 	{
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -315,9 +315,9 @@ static void draw(void)
 		SDL_RenderFillRect(app.renderer, NULL);
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
 	}
-	
+
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
-	
+
 	drawText(UI_WIDTH / 2, 40, 28, TA_CENTER, colors.white, CHALLENGES_TEXT);
 	drawText(UI_WIDTH / 2, 83, 16, TA_CENTER, colors.lightGrey, COMPLETED_TEXT, game.completedChallenges, game.totalChallenges);
 	drawText(UI_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
@@ -337,7 +337,7 @@ static void draw(void)
 		case SHOW_STATS:
 			drawStats();
 			break;
-			
+
 		case SHOW_TROPHIES:
 			drawTrophies();
 			break;
@@ -345,12 +345,12 @@ static void draw(void)
 		case SHOW_OPTIONS:
 			drawOptions();
 			break;
-			
+
 		case SHOW_FIGHTER_DB:
 			drawFighterDatabase();
 			break;
 	}
-	
+
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
@@ -367,7 +367,7 @@ static void drawChallenges(void)
 
 	start = page * CHALLENGES_PER_PAGE;
 	end = start + CHALLENGES_PER_PAGE;
-	
+
 	i = 0;
 
 	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
@@ -492,7 +492,7 @@ static void stats(void)
 static void fighterDatabase(void)
 {
 	show = SHOW_FIGHTER_DB;
-	
+
 	initFighterDatabaseDisplay();
 }
 

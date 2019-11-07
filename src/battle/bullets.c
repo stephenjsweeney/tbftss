@@ -179,7 +179,7 @@ static void checkCollisions(Bullet *b)
 					{
 						battle.stats[STAT_ROCKETS_HIT]++;
 					}
-					
+
 					if (battle.hasSuspicionLevel)
 					{
 						if (e->aiFlags & (AIF_AVOIDS_COMBAT|AIF_DEFENSIVE))
@@ -192,14 +192,14 @@ static void checkCollisions(Bullet *b)
 						}
 					}
 				}
-				
+
 				if (e->flags & EF_IMMORTAL)
 				{
 					b->damage = 0;
 				}
-				
+
 				damageFighter(e, b->damage, b->flags);
-				
+
 				doBulletHitEffect(b);
 
 				b->life = 0;
@@ -215,13 +215,13 @@ static void checkCollisions(Bullet *b)
 						battle.stats[STAT_MISSILES_STRUCK]++;
 					}
 				}
-				
+
 				/* missile was targetting player, but hit something else */
 				if (b->type == BT_MISSILE && b->target == player && e != player)
 				{
 					battle.stats[STAT_MISSILES_EVADED]++;
 				}
-				
+
 				if (b->type == BT_MISSILE && b->target != e)
 				{
 					if (e == player)
@@ -233,23 +233,23 @@ static void checkCollisions(Bullet *b)
 						awardTrophy("BODYGUARD");
 					}
 				}
-				
+
 				/* assuming that health <= 0 will always mean killed */
 				if (e->health <= 0)
 				{
 					e->killedBy = b->owner;
-					
+
 					if (e == player)
 					{
 						battle.lastKilledPlayer = b->owner;
 					}
-					
+
 					if (battle.isEpic && b->owner == player && e == battle.lastKilledPlayer)
 					{
 						awardTrophy("REVENGE");
 					}
 				}
-				
+
 				if (b->owner == player && b->type == BT_MISSILE)
 				{
 					battle.stats[STAT_MISSILES_HIT]++;
@@ -268,19 +268,19 @@ void doBulletHitEffect(Bullet *b)
 		case BT_PARTICLE:
 			addBulletHitEffect(b->x, b->y, 255, 0, 255);
 			break;
-			
+
 		case BT_PLASMA:
 			addBulletHitEffect(b->x, b->y, 0, 255, 0);
 			break;
-			
+
 		case BT_LASER:
 			addBulletHitEffect(b->x, b->y, 255, 0, 0);
 			break;
-			
+
 		case BT_MAG:
 			addBulletHitEffect(b->x, b->y, 196, 196, 255);
 			break;
-			
+
 		default:
 			addBulletHitEffect(b->x, b->y, 255, 255, 255);
 			break;
@@ -291,7 +291,7 @@ void drawBullets(void)
 {
 	int i;
 	Bullet *b;
-	
+
 	setAtlasColor(255, 255, 255, 255);
 
 	for (i = 0, b = bulletsToDraw[i] ; b != NULL ; b = bulletsToDraw[++i])
@@ -303,7 +303,7 @@ void drawBullets(void)
 static void faceTarget(Bullet *b)
 {
 	int dir, wantedAngle, dist;
-	
+
 	wantedAngle = (int)getAngle(b->x, b->y, b->target->x, b->target->y) % 360;
 
 	if (abs(wantedAngle - b->angle) > TURN_THRESHOLD)
@@ -311,23 +311,23 @@ static void faceTarget(Bullet *b)
 		dir = (wantedAngle - b->angle + 360) % 360 > 180 ? -1 : 1;
 
 		b->angle += dir * TURN_SPEED;
-		
+
 		dist = getDistance(b->x, b->y, b->target->x, b->target->y);
-		
+
 		if (dist < 250)
 		{
 			dist = 250 - dist;
-			
+
 			while (dist > 0)
 			{
 				b->angle += dir;
-				
+
 				dist -= 50;
 			}
 		}
 
 		b->angle = mod(b->angle, 360);
-		
+
 		b->dx *= 0.5;
 		b->dy *= 0.5;
 	}
@@ -378,29 +378,29 @@ static void selectNewTarget(Bullet *b)
 {
 	int i;
 	Entity *e, **candidates;
-	
+
 	if (app.gameplay.missileReTarget)
 	{
 		b->target = NULL;
-	
+
 		candidates = getAllEntsInRadius(b->x, b->y, SCREEN_HEIGHT, NULL);
-		
+
 		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 		{
 			if (e->type == ET_FIGHTER && e->side != b->owner->side && e->health > 0)
 			{
 				b->target = e;
-				
+
 				if (b->target == player)
 				{
 					playSound(SND_INCOMING);
 				}
-				
+
 				return;
 			}
 		}
 	}
-	
+
 	/* no target, just explode */
 	b->life = 0;
 	addMissileExplosion(b);
@@ -438,7 +438,7 @@ void fireGuns(Entity *owner)
 	int i;
 	float x, y;
 	float c, s;
-	
+
 	b = NULL;
 
 	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
@@ -492,7 +492,7 @@ void fireMissile(Entity *owner)
 	Bullet *b;
 
 	b = createBullet(BT_MISSILE, owner->x, owner->y, owner);
-	
+
 	b->dx *= 0.5;
 	b->dy *= 0.5;
 

@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void initGame(void)
 {
 	memset(&game, 0, sizeof(Game));
-	
+
 	STRNCPY(game.selectedStarSystem, "Sol", MAX_NAME_LENGTH);
 }
 

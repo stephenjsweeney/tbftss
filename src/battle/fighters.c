@@ -97,7 +97,7 @@ Entity *spawnFighter(char *name, int x, int y, int side)
 
 	e->action = doAI;
 	e->die = die;
-	
+
 	if (game.currentMission->challengeData.isDeathMatch)
 	{
 		e->side = SDL_GetTicks();
@@ -193,14 +193,14 @@ static void randomizeDartGuns(Entity *dart)
 void resetFighter(Entity *fighter)
 {
 	Entity *e;
-	
+
 	e = spawnFighter(fighter->defName, fighter->x, fighter->y, fighter->side);
-	
+
 	e->x += (rand() % 7500) - (rand() % 7500);
 	e->y += (rand() % 7500) - (rand() % 7500);
-	
+
 	e->active = 0;
-	
+
 	if (rand() % 4)
 	{
 		e->aiFlags |= AIF_TARGET_FOCUS;
@@ -251,7 +251,7 @@ void doFighter(void)
 
 				self->flags |= EF_DISABLED;
 				self->flags |= EF_SECONDARY_TARGET;
-				
+
 				if (self->aiFlags & AIF_SURRENDERING)
 				{
 					self->aiFlags |= AIF_SURRENDERED;
@@ -262,7 +262,7 @@ void doFighter(void)
 
 				updateObjective(self->name, TT_DISABLE);
 				updateObjective(self->groupName, TT_DISABLE);
-				
+
 				if (self->side != player->side)
 				{
 					runScriptFunction("ENEMIES_DISABLED %d", battle.stats[STAT_ENEMIES_DISABLED]);
@@ -279,12 +279,12 @@ void doFighter(void)
 				self->action = doAI;
 			}
 		}
-		
+
 		if (self->aiFlags & AIF_SUSPICIOUS)
 		{
 			checkSuspicionLevel();
 		}
-		
+
 		if (self->aiFlags & AIF_ZAK_SUSPICIOUS)
 		{
 			checkZackariaSuspicionLevel();
@@ -296,7 +296,7 @@ void doFighter(void)
 		if (self == player && !game.currentMission->challengeData.isChallenge)
 		{
 			updateObjective("Player", TT_ESCAPED);
-			
+
 			completeMission();
 		}
 
@@ -346,7 +346,7 @@ void doFighter(void)
 					{
 						addHudMessage(colors.red, _("Civilian has been killed"));
 					}
-					
+
 					runScriptFunction("CIVILIANS_KILLED %d", battle.stats[STAT_CIVILIANS_KILLED]);
 				}
 				else
@@ -360,10 +360,10 @@ void doFighter(void)
 					runScriptFunction("ALLIES_KILLED %d", battle.stats[STAT_ALLIES_KILLED]);
 				}
 			}
-			
+
 			updateObjective(self->name, TT_DESTROY);
 			updateObjective(self->groupName, TT_DESTROY);
-			
+
 			if (battle.isEpic && self->killedBy == player)
 			{
 				updateObjective("EPIC_PLAYER_KILLS", TT_DESTROY);
@@ -373,7 +373,7 @@ void doFighter(void)
 
 			updateCondition(self->name, TT_DESTROY);
 			updateCondition(self->groupName, TT_DESTROY);
-			
+
 			/* don't fire if the opposing side is responsible */
 			if (self->aiFlags & AIF_SURRENDERED && self->killedBy->side == player->side)
 			{
@@ -461,21 +461,21 @@ void damageFighter(Entity *e, int amount, long flags)
 
 	e->aiDamageTimer = FPS;
 	e->aiDamagePerSec += amount;
-	
+
 	if (flags & BF_SYSTEM_DAMAGE)
 	{
 		if (e->shield > 0)
 		{
 			amount /= 2;
-			
+
 			e->shield -= amount;
-			
+
 			if (e->shield < 0)
 			{
 				amount = -e->shield;
 			}
 		}
-		
+
 		if (amount >= 0)
 		{
 			e->systemPower = MAX(0, e->systemPower - amount);
@@ -487,7 +487,7 @@ void damageFighter(Entity *e, int amount, long flags)
 				e->shield = e->maxShield = 0;
 				e->action = NULL;
 			}
-			
+
 			playBattleSound(SND_MAG_HIT, e->x, e->y);
 		}
 	}
@@ -509,13 +509,13 @@ void damageFighter(Entity *e, int amount, long flags)
 		if (e->shield > 0)
 		{
 			e->shield -= amount;
-			
+
 			if (e->shield <= 0)
 			{
 				e->armourHit = 255;
 				e->health += e->shield;
 				e->shield = 0;
-				
+
 				playBattleSound(SND_ARMOUR_HIT, e->x, e->y);
 			}
 		}
@@ -534,7 +534,7 @@ void damageFighter(Entity *e, int amount, long flags)
 
 		playBattleSound(SND_SHIELD_HIT, e->x, e->y);
 	}
-	
+
 	/* don't allow the shield to recharge immediately after taking a hit */
 	e->shieldRecharge = e->shieldRechargeRate;
 
@@ -596,22 +596,22 @@ static void die(void)
 			self->action = simpleDie;
 			break;
 	}
-	
+
 	if (self->killedBy == player && (!(self->flags & EF_NO_KILL_INC)))
 	{
 		battle.stats[STAT_ENEMIES_KILLED_PLAYER]++;
-		
+
 		if (self->flags & EF_COMMON_FIGHTER)
 		{
 			incFighterStat(self->defName);
 		}
-		
+
 		if (battle.isEpic && player->flags & EF_COMMON_FIGHTER)
 		{
 			battle.stats[STAT_EPIC_KILL_STREAK]++;
 		}
 	}
-	
+
 	if (self->flags & EF_DROPS_ITEMS)
 	{
 		addRandomItem(self->x, self->y);
@@ -688,14 +688,14 @@ void retreatEnemies(void)
 		if (e->type == ET_FIGHTER && e->side != player->side)
 		{
 			e->flags |= EF_RETREATING;
-			
+
 			e->aiFlags |= AIF_AVOIDS_COMBAT;
 			e->aiFlags |= AIF_UNLIMITED_RANGE;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
 			e->aiFlags &= ~AIF_WANDERS;
-			
+
 			e->aiActionTime = MIN(e->aiActionTime, FPS);
-			
+
 			if (!game.currentMission->challengeData.isChallenge)
 			{
 				e->aiFlags |= AIF_GOAL_JUMPGATE;
@@ -720,9 +720,9 @@ void retreatAllies(void)
 			e->aiFlags &= ~AIF_MOVES_TO_PLAYER;
 			e->aiFlags &= ~AIF_MOVES_TO_LEADER;
 			e->aiFlags &= ~AIF_WANDERS;
-			
+
 			e->aiActionTime = MIN(e->aiActionTime, FPS);
-			
+
 			if (!game.currentMission->challengeData.isChallenge)
 			{
 				e->aiFlags |= AIF_GOAL_JUMPGATE;
@@ -751,7 +751,7 @@ Entity **getDBFighters(int *num)
 {
 	Entity *e, **dbFighters;
 	int i;
-	
+
 	i = *num = 0;
 
 	for (e = defHead.next ; e != NULL ; e = e->next)
@@ -761,19 +761,19 @@ Entity **getDBFighters(int *num)
 			*num = *num + 1;
 		}
 	}
-	
+
 	dbFighters = malloc(sizeof(Entity*) * *num);
-	
+
 	for (e = defHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->description != NULL)
 		{
 			dbFighters[i] = e;
-			
+
 			i++;
 		}
 	}
-	
+
 	return dbFighters;
 }
 
@@ -839,7 +839,7 @@ static void loadFighterDef(char *filename)
 		e->reloadTime = getJSONValue(root, "reloadTime", 0);
 		e->shieldRechargeRate = getJSONValue(root, "shieldRechargeRate", 0);
 		e->texture = getAtlasImage(cJSON_GetObjectItem(root, "texture")->valuestring);
-		
+
 		if (strlen(cJSON_GetObjectItem(root, "description")->valuestring) > 0)
 		{
 			len = strlen(_(cJSON_GetObjectItem(root, "description")->valuestring)) + 1;
@@ -890,7 +890,7 @@ static void loadFighterDef(char *filename)
 		{
 			e->deathType = lookup(cJSON_GetObjectItem(root, "deathType")->valuestring);
 		}
-		
+
 		if (e->flags & EF_COMMON_FIGHTER)
 		{
 			addFighterStat(e->name);
@@ -913,33 +913,33 @@ static void loadFighterDef(char *filename)
 static void addFighterStat(char *key)
 {
 	Tuple *t, *tail;
-	
+
 	tail = &game.fighterStatHead;
-	
+
 	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
 	{
 		if (strcmp(t->key, key) == 0)
 		{
 			return;
 		}
-		
+
 		tail = t;
 	}
-	
+
 	t = malloc(sizeof(Tuple));
 	memset(t, 0, sizeof(Tuple));
 	tail->next = t;
-	
+
 	STRNCPY(t->key, key, MAX_NAME_LENGTH);
 	t->value = 0;
-	
+
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Added '%s' to fighter stats", key);
 }
 
 static void incFighterStat(char *key)
 {
 	Tuple *t;
-	
+
 	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
 	{
 		if (strcmp(t->key, key) == 0)
@@ -962,7 +962,7 @@ void loadFighters(cJSON *node)
 	if (node)
 	{
 		id = 0;
-		
+
 		node = node->child;
 
 		while (node)
@@ -1018,7 +1018,7 @@ void loadFighters(cJSON *node)
 
 						SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Flags for '%s' (%s) replaced", e->name, e->defName);
 					}
-					
+
 					if (e->flags & EF_DISABLED)
 					{
 						e->speed = 0;
@@ -1042,10 +1042,10 @@ void loadFighters(cJSON *node)
 				if (name)
 				{
 					STRNCPY(e->name, name, MAX_NAME_LENGTH);
-					
+
 					/* update 'name #?' to 'name #1', etc. */
 					strpos = strstr(e->name, "#?");
-					
+
 					if (strpos)
 					{
 						*(++strpos) = ('0' + ++id);
@@ -1078,12 +1078,12 @@ void destroyFighterDefs(void)
 	{
 		e = defHead.next;
 		defHead.next = e->next;
-		
+
 		if (e->description)
 		{
 			free(e->description);
 		}
-		
+
 		free(e);
 	}
 }
@@ -1091,7 +1091,7 @@ void destroyFighterDefs(void)
 void destroyFighterStats(void)
 {
 	Tuple *t;
-	
+
 	while (game.fighterStatHead.next)
 	{
 		t = game.fighterStatHead.next;

@@ -84,7 +84,7 @@ void doEntities(void)
 			e->health = e->maxHealth;
 			e->shield = e->maxShield;
 		}
-		
+
 		if (e->active)
 		{
 			self = e;
@@ -149,19 +149,19 @@ void doEntities(void)
 						e->action();
 					}
 				}
-				
+
 				doRope(e);
-				
+
 				restrictToBattleArea(e);
-				
+
 				if (!e->speed)
 				{
 					e->dx = e->dy = 0;
 				}
-				
+
 				e->x += e->dx;
 				e->y += e->dy;
-				
+
 				addToQuadtree(e, &battle.quadtree);
 			}
 			else
@@ -175,7 +175,7 @@ void doEntities(void)
 				{
 					battle.missionTarget = NULL;
 				}
-				
+
 				if (e->killedBy == player && battle.hasSuspicionLevel)
 				{
 					if (e->aiFlags & (AIF_AVOIDS_COMBAT|AIF_DEFENSIVE))
@@ -196,12 +196,12 @@ void doEntities(void)
 				cutRope(e);
 
 				prev->next = e->next;
-				
+
 				e->next = NULL;
-				
+
 				deadTail->next = e;
 				deadTail = e;
-				
+
 				/* actually just creates another fighter in this one's place */
 				if (e->type == ET_FIGHTER && battle.isEpic && e->side != player->side && battle.unlimitedEnemies)
 				{
@@ -230,13 +230,13 @@ void doEntities(void)
 				if (e->health > 0 && e->active)
 				{
 					numActiveEnemies++;
-					
+
 					if (e->spawned)
 					{
 						numSpawnedEnemies++;
 					}
 				}
-				
+
 				if (!(e->flags & EF_DISABLED) || battle.isEpic)
 				{
 					battle.hasThreats = 1;
@@ -249,7 +249,7 @@ void doEntities(void)
 
 	battle.numAllies = (battle.isEpic) ? numAllies : numActiveAllies;
 	battle.numEnemies = (battle.isEpic) ? numEnemies : numActiveEnemies;
-	
+
 	if (battle.status == MS_IN_PROGRESS && battle.stats[STAT_TIME] % (FPS * 30) == 0)
 	{
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "numEnemies=%d, numActiveEnemies=%d, hasThreats=%d", numEnemies, numActiveEnemies, battle.hasThreats);
@@ -261,7 +261,7 @@ void doEntities(void)
 		{
 			activateEpicFighters(SIDE_ALLIES);
 		}
-		
+
 		numActiveEnemies -= numSpawnedEnemies;
 
 		if (numActiveEnemies < battle.epicFighterLimit)
@@ -357,7 +357,7 @@ static void alignComponents(void)
 		if (isComponent(e))
 		{
 			removeFromQuadtree(e, &battle.quadtree);
-			
+
 			s = sin(TO_RAIDANS(e->owner->angle));
 			c = cos(TO_RAIDANS(e->owner->angle));
 
@@ -389,12 +389,12 @@ void drawEntities(void)
 {
 	int i;
 	Entity *e, **candidates;
-	
+
 	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, app.winWidth, app.winHeight, NULL);
-	
+
 	/* counting entities to draw */
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i]) {};
-	
+
 	qsort(candidates, i, sizeof(Entity*), drawComparator);
 
 	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
@@ -409,11 +409,11 @@ void drawEntities(void)
 		{
 			drawEntity(e);
 		}
-		
+
 		drawHealthBar(e);
-		
+
 		drawTargetRects(e);
-		
+
 		drawRope(e);
 	}
 }
@@ -448,14 +448,14 @@ static void drawEntity(Entity *e)
 static void drawHealthBar(Entity *e)
 {
 	SDL_Rect r;
-	
+
 	if (app.gameplay.healthBars && !(e->flags & EF_NO_HEALTH_BAR) && e->health > 0)
 	{
 		r.x = e->x - (e->w / 2) - battle.camera.x;
 		r.y = e->y - e->h - battle.camera.y;
 		r.w = 32;
 		r.h = 1;
-		
+
 		if (e->side == player->side || e->flags & EF_FRIENDLY_HEALTH_BAR)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 0, 128, 0, 255);
@@ -464,11 +464,11 @@ static void drawHealthBar(Entity *e)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 128, 0, 0, 255);
 		}
-		
+
 		SDL_RenderFillRect(app.renderer, &r);
-		
+
 		r.w = 32 * (e->health * 1.0f / e->maxHealth);
-		
+
 		if (e->side == player->side || e->flags & EF_FRIENDLY_HEALTH_BAR)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
@@ -477,7 +477,7 @@ static void drawHealthBar(Entity *e)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 255, 0, 0, 255);
 		}
-		
+
 		SDL_RenderFillRect(app.renderer, &r);
 	}
 }
@@ -509,7 +509,7 @@ static void drawTargetRects(Entity *e)
 		SDL_SetRenderDrawColor(app.renderer, 0, 255, 0, 255);
 		SDL_RenderDrawRect(app.renderer, &r);
 	}
-	
+
 	if (e == battle.messageSpeaker && e != player && battle.stats[STAT_TIME] % 40 < 20)
 	{
 		r.x = e->x - (size / 2) - battle.camera.x;
@@ -564,9 +564,9 @@ void activateEntityGroups(char *groupNames)
 			if (strcmp(e->groupName, groupName) == 0)
 			{
 				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Activated %s (%s)", e->name, groupName);
-				
+
 				e->active = 1;
-				
+
 				if (e->type == ET_CAPITAL_SHIP)
 				{
 					updateCapitalShipComponentProperties(e, 0);
@@ -600,23 +600,23 @@ static void notifyNewArrivals(void)
 static void activateEpicFighters(int side)
 {
 	Entity *e;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (!e->active && e->type == ET_FIGHTER && !(e->flags & EF_NO_EPIC) && ((side == SIDE_ALLIES && e->side == SIDE_ALLIES) || (side != SIDE_ALLIES && e->side != SIDE_ALLIES)))
 		{
 			e->active = 1;
-			
+
 			/* don't spring into existence in front of the player */
 			if (isOnBattleScreen(e->x, e->y, e->w, e->h))
 			{
 				e->x = player->x;
 				e->y = player->y;
-				
+
 				e->x += (rand() % 2) ? -app.winWidth : app.winWidth;
 				e->y += (rand() % 2) ? -app.winHeight : app.winHeight;
 			}
-			
+
 			return;
 		}
 	}
@@ -640,7 +640,7 @@ void countNumEnemies(void)
 void addAllToQuadtree(void)
 {
 	Entity *e;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->active)
@@ -661,14 +661,14 @@ static int drawComparator(const void *a, const void *b)
 void killEntity(char *name)
 {
 	Entity *e;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (strcmp(e->name, name) == 0)
 		{
 			e->health = 0;
 			e->deathType = DT_INSTANT;
-			
+
 			/* prevent objectives and conditions from firing */
 			strcpy(e->name, "");
 			strcpy(e->groupName, "");
@@ -680,15 +680,15 @@ void updateEntitySide(char *sideStr, char *name)
 {
 	Entity *e;
 	int side;
-	
+
 	side = lookup(sideStr);
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (strcmp(e->name, name) == 0)
 		{
 			e->side = side;
-			
+
 			if (e->side != player->side)
 			{
 				e->flags |= EF_MISSION_TARGET;
@@ -700,7 +700,7 @@ void updateEntitySide(char *sideStr, char *name)
 void awardPandoranCraftTrophy(void)
 {
 	Entity *e;
-	
+
 	for (e = deadHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->killedBy == player && e->side == SIDE_PANDORAN)

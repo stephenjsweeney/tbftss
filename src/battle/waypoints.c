@@ -37,7 +37,7 @@ void resetWaypoints(void)
 Entity *spawnWaypoint(void)
 {
 	Entity *waypoint = spawnEntity();
-	
+
 	sprintf(waypoint->name, "Waypoint #%d", waypointId);
 	waypoint->id = waypointId;
 	waypoint->type = ET_WAYPOINT;
@@ -46,43 +46,43 @@ Entity *spawnWaypoint(void)
 	waypoint->texture = getAtlasImage("gfx/entities/waypoint.png");
 	waypoint->flags = EF_NO_MT_BOX+EF_MISSION_TARGET+EF_NO_HEALTH_BAR;
 	waypoint->action = think;
-	
+
 	waypoint->w = waypoint->texture->rect.w;
 	waypoint->h = waypoint->texture->rect.h;
-	
+
 	waypointId++;
-	
+
 	return waypoint;
 }
 
 static void think(void)
 {
 	self->angle += 0.25;
-	
+
 	if (self->angle >= 360)
 	{
 		self->angle -= 360;
 	}
-	
+
 	if (--self->aiActionTime <= 0)
 	{
 		self->aiActionTime = 0;
-		
+
 		if (self->health && player->alive == ALIVE_ALIVE && getDistance(player->x, player->y, self->x, self->y) <= 128 && isCurrentObjective() && teamMatesClose())
 		{
 			self->health = 0;
-			
+
 			updateObjective("Waypoint", TT_WAYPOINT);
-			
+
 			runScriptFunction(self->name);
-			
+
 			if (battle.waypointAutoAdvance)
 			{
 				activateNextWaypoint();
 			}
-			
+
 			battle.stats[STAT_WAYPOINTS_VISITED]++;
-			
+
 			playSound(SND_WAYPOINT);
 		}
 	}
@@ -91,28 +91,28 @@ static void think(void)
 static int isCurrentObjective(void)
 {
 	int numActiveObjectives = battle.numObjectivesTotal - battle.numObjectivesComplete;
-	
+
 	if (numActiveObjectives > 1)
 	{
 		addHudMessage(colors.cyan, _("Cannot activate waypoint - outstanding objectives not yet complete"));
 		self->aiActionTime = FPS;
 		return 0;
 	}
-	
+
 	if (game.currentMission->challengeData.isChallenge && game.currentMission->challengeData.clearWaypointEnemies && battle.numEnemies > 0)
 	{
 		addHudMessage(colors.cyan, _("Cannot activate waypoint - eliminate enemies first"));
 		self->aiActionTime = FPS;
 		return 0;
 	}
-	
+
 	return 1;
 }
 
 static int teamMatesClose(void)
 {
 	Entity *e;
-	
+
 	if (player->side != SIDE_PANDORAN)
 	{
 		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
@@ -128,7 +128,7 @@ static int teamMatesClose(void)
 			}
 		}
 	}
-	
+
 	return 1;
 }
 
@@ -136,9 +136,9 @@ void activateNextWaypoint(void)
 {
 	Entity *e;
 	Entity *nextWaypoint = NULL;
-	
+
 	currentWaypointId++;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (e->type == ET_WAYPOINT && e->id == currentWaypointId)
@@ -146,11 +146,11 @@ void activateNextWaypoint(void)
 			nextWaypoint = e;
 		}
 	}
-	
+
 	if (nextWaypoint != NULL)
 	{
 		nextWaypoint->active = 1;
-		
+
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Activating %s", nextWaypoint->name);
 	}
 }

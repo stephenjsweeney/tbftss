@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static Lookup head;
 static Lookup *tail;
 
-static void addLookup(char *name, long value); 
+static void addLookup(char *name, long value);
 
 void initLookups(void)
 {
@@ -42,13 +42,13 @@ void initLookups(void)
 	addLookup("CONTROL_NEXT_FIGHTER", CONTROL_NEXT_FIGHTER);
 	addLookup("CONTROL_PREV_FIGHTER", CONTROL_PREV_FIGHTER);
 	addLookup("CONTROL_SCREENSHOT", CONTROL_SCREENSHOT);
-	
+
 	addLookup("ET_WAYPOINT", ET_WAYPOINT);
 	addLookup("ET_JUMPGATE", ET_JUMPGATE);
 	addLookup("ET_CAPITAL_SHIP", ET_CAPITAL_SHIP);
 	addLookup("ET_MINE", ET_MINE);
 	addLookup("ET_SHADOW_MINE", ET_SHADOW_MINE);
-	
+
 	addLookup("EF_NO_KILL", EF_NO_KILL);
 	addLookup("EF_DISABLED", EF_DISABLED);
 	addLookup("EF_MUST_DISABLE", EF_MUST_DISABLE);
@@ -261,14 +261,14 @@ long flagsToLong(char *in, int *add)
 {
 	char *flag, *flags;
 	long total;
-	
+
 	total = 0;
 
 	if (add)
 	{
 		*add = (in[0] == '+');
 	}
-	
+
 	flags = malloc(strlen(in) + 1);
 	STRNCPY(flags, in, strlen(in) + 1);
 
@@ -278,7 +278,7 @@ long flagsToLong(char *in, int *add)
 		total += lookup(flag);
 		flag = strtok(NULL, "+");
 	}
-	
+
 	free(flags);
 
 	return total;

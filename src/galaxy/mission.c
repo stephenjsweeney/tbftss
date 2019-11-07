@@ -51,11 +51,11 @@ Mission *loadMissionMeta(char *filename)
 		STRNCPY(mission->filename, filename, MAX_DESCRIPTION_LENGTH);
 
 		mission->requires = getJSONValue(root, "requires", 0);
-		
+
 		mission->isOptional = getJSONValue(root, "isOptional", 0);
 		mission->requiresOptional = getJSONValue(root, "requiresOptional", 0);
 		mission->expires = getJSONValue(root, "expires", 0);
-		
+
 		if (cJSON_GetObjectItem(root, "epic"))
 		{
 			mission->epic = 1;
@@ -154,27 +154,27 @@ void loadMission(char *filename)
 	{
 		planet = getAutoPlanet(filename);
 	}
-	
+
 	battle.planetTexture = getAtlasImage(planet);
 	battle.fireStormTexture = getAtlasImage("gfx/misc/torelliFireStorm.png");
 	battle.planet.x = (app.winWidth / 2) - (rand() % app.winWidth) + (rand() % app.winWidth);
 	battle.planet.y = (app.winHeight / 2) - (rand() % app.winHeight) + (rand() % app.winHeight);
-	
+
 	if (strcmp(planet, "gfx/planets/star.png") != 0)
 	{
 		battle.planetWidth = battle.planetTexture->rect.w;
 		battle.planetHeight = battle.planetTexture->rect.h;
-		
+
 		planetScale = 75 + (rand() % 125);
 		planetScale *= 0.01;
-		
+
 		if (getJSONValue(root, "largePlanet", 0))
 		{
 			battle.planet.x = (app.winWidth / 2);
 			battle.planet.y = (app.winHeight / 2);
 			planetScale = 5;
 		}
-		
+
 		battle.planetWidth *= planetScale;
 		battle.planetHeight *= planetScale;
 	}
@@ -198,7 +198,7 @@ void loadMission(char *filename)
 	{
 		battle.status = MS_IN_PROGRESS;
 	}
-	
+
 	if (battle.waypointAutoAdvance)
 	{
 		activateNextWaypoint();
@@ -209,7 +209,7 @@ void loadMission(char *filename)
 	initPlayer();
 
 	initMissionInfo();
-	
+
 	setInitialPlayerAngle();
 
 	addAllToQuadtree();
@@ -274,10 +274,10 @@ void completeMission(void)
 		selectWidget("continue", "battleWon");
 
 		game.stats[STAT_MISSIONS_COMPLETED]++;
-		
+
 		if (game.currentMission->isOptional)
 		{
-			game.stats[STAT_OPTIONAL_COMPLETED]++;	
+			game.stats[STAT_OPTIONAL_COMPLETED]++;
 		}
 
 		completeConditions();
@@ -285,11 +285,11 @@ void completeMission(void)
 		retreatEnemies();
 
 		player->flags |= EF_IMMORTAL;
-		
+
 		awardStatsTrophies();
-		
+
 		awardPostMissionTrophies();
-		
+
 		awardCraftTrophy();
 	}
 }
@@ -305,7 +305,7 @@ void failMission(void)
 		failIncompleteObjectives();
 
 		player->flags |= EF_IMMORTAL;
-		
+
 		awardStatsTrophies();
 	}
 }
@@ -338,7 +338,7 @@ static void loadEntities(cJSON *node)
 			active = getJSONValue(node, "active", 1);
 			scatter = getJSONValue(node, "scatter", 1);
 			side = lookup(getJSONValueStr(node, "side", "SIDE_NONE"));
-			
+
 			if (cJSON_GetObjectItem(node, "flags"))
 			{
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
@@ -356,7 +356,7 @@ static void loadEntities(cJSON *node)
 					case ET_JUMPGATE:
 						e = spawnJumpgate(side, flags);
 						break;
-						
+
 					case ET_MINE:
 					case ET_SHADOW_MINE:
 						e = spawnMine(type);
@@ -394,7 +394,7 @@ static void loadEntities(cJSON *node)
 
 				e->x = x;
 				e->y = y;
-				
+
 				e->side = side;
 
 				if (scatter > 1)
@@ -423,12 +423,12 @@ static void loadEpicData(cJSON *node)
 	battle.unlimitedEnemies = getJSONValue(node, "unlimitedEnemies", 0);
 	battle.epicLives = getJSONValue(node, "lives", 0);
 	battle.epicKills = getJSONValue(node, "kills", 0);
-	
+
 	if (battle.epicLives > 0)
 	{
 		addEpicLivesObjective();
 	}
-	
+
 	if (battle.epicKills != 0)
 	{
 		addEpicKillsObjective();
@@ -490,7 +490,7 @@ int isMissionAvailable(Mission *mission, Mission *prev)
 	else
 	{
 		return mission->completed || (
-			game.completedMissions >= mission->requires && 
+			game.completedMissions >= mission->requires &&
 			game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional &&
 			game.completedMissions < mission->expires
 		) || dev.debug;

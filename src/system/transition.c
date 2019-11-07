@@ -27,9 +27,9 @@ void startSectionTransition(void)
 	transitionStartTime = SDL_GetTicks();
 
 	prepareScene();
-	
+
 	clearInput();
-	
+
 	presentScene();
 }
 

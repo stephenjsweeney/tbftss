@@ -74,7 +74,7 @@ void initStats(void)
 	statDescription[STAT_MINES_DESTROYED] = _("Mines Destroyed");
 	statDescription[STAT_ENEMIES_SURRENDERED] = _("Enemies Surrendered");
 	statDescription[STAT_TIME] = _("Time Played");
-	
+
 	STATS_TEXT = _("Stats");
 	PAGE_TEXT = _("Page %d / %d");
 }
@@ -82,21 +82,21 @@ void initStats(void)
 void initStatsDisplay(void)
 {
 	page = 0;
-	
+
 	maxPages = STAT_TIME;
 	maxPages /= STATS_PER_PAGE;
 	maxPages = ceil(maxPages);
-	
+
 	prev = getWidget("prev", "stats");
 	prev->action = prevPage;
 	prev->visible = 0;
-	
+
 	next = getWidget("next", "stats");
 	next->action = nextPage;
 	next->visible = 1;
-	
+
 	calculatePercentComplete();
-	
+
 	updateAccuracyStats(game.stats);
 }
 
@@ -105,9 +105,9 @@ static void calculatePercentComplete(void)
 	StarSystem *starSystem;
 	Mission *mission;
 	int completed, total;
-	
+
 	completed = total = 0;
-	
+
 	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
 	{
 		if (starSystem->type == SS_NORMAL)
@@ -116,13 +116,13 @@ static void calculatePercentComplete(void)
 			total += starSystem->totalMissions;
 		}
 	}
-	
+
 	for (mission = game.challengeMissionHead.next ; mission != NULL ; mission = mission->next)
 	{
 		completed += mission->completedChallenges;
 		total += mission->totalChallenges;
 	}
-	
+
 	game.stats[STAT_PERCENT_COMPLETE] = getPercent(completed, total);
 }
 
@@ -130,41 +130,41 @@ void drawStats(void)
 {
 	int i, y, startIndex;
 	SDL_Rect r;
-	
+
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-	
+
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
-	
+
 	r.w = 500;
 	r.h = 600;
 	r.x = (UI_WIDTH / 2) - r.w / 2;
 	r.y = (UI_HEIGHT / 2) - r.h / 2;
-	
+
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 255);
 	SDL_RenderFillRect(app.renderer, &r);
 	SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
 	SDL_RenderDrawRect(app.renderer, &r);
-	
+
 	drawText(UI_WIDTH / 2, 70, 28, TA_CENTER, colors.white, STATS_TEXT);
-	
+
 	drawText(UI_WIDTH / 2, 110, 16, TA_CENTER, colors.lightGrey, PAGE_TEXT, page + 1, (int)maxPages);
-	
+
 	SDL_SetRenderDrawColor(app.renderer, 128, 128, 128, 255);
 	SDL_RenderDrawLine(app.renderer, r.x, 150, r.x + r.w, 150);
-	
+
 	y = 170;
-	
+
 	startIndex = (page * STATS_PER_PAGE);
-	
+
 	for (i = startIndex ; i < startIndex + STATS_PER_PAGE ; i++)
 	{
 		if (i < STAT_TIME)
 		{
 			drawText(r.x + 20, y, 18, TA_LEFT, colors.white, statDescription[i]);
-			
+
 			switch (i)
 			{
 				case STAT_PERCENT_COMPLETE:
@@ -173,28 +173,28 @@ void drawStats(void)
 				case STAT_MISSILE_ACCURACY:
 					drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d%%", game.stats[i]);
 					break;
-					
+
 				default:
 					drawText(r.x + r.w - 20, y, 18, TA_RIGHT, colors.white, "%d", game.stats[i]);
 					break;
 			}
-			
+
 			y += 40;
 		}
 	}
-	
+
 	drawText(r.x + 20, 565, 18, TA_LEFT, colors.white, statDescription[STAT_TIME]);
 	drawText(r.x + r.w - 20, 565, 18, TA_RIGHT, colors.white, timeToString(game.stats[STAT_TIME], 1));
-		
+
 	drawWidgets("stats");
-	
+
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
 static void nextPage(void)
 {
 	page = MIN(page + 1, maxPages - 1);
-	
+
 	next->visible = page < maxPages - 1;
 	prev->visible = 1;
 }
@@ -202,7 +202,7 @@ static void nextPage(void)
 static void prevPage(void)
 {
 	page = MAX(0, page - 1);
-	
+
 	next->visible = 1;
 	prev->visible = page > 0;
 }

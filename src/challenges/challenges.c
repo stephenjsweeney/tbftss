@@ -76,13 +76,13 @@ void initChallenges(void)
 		sprintf(path, "data/challenges/%s", filenames[i]);
 
 		mission = loadMissionMeta(path);
-		
+
 		if (mission)
 		{
 			tail->next = mission;
 			tail = mission;
 		}
-		
+
 		free(filenames[i]);
 	}
 
@@ -93,7 +93,7 @@ void loadChallenge(Mission *mission, cJSON *node)
 {
 	int i;
 	Challenge *challenge;
-	
+
 	mission->challengeData.isChallenge = 1;
 
 	/* limits */
@@ -112,12 +112,12 @@ void loadChallenge(Mission *mission, cJSON *node)
 	mission->challengeData.noECM = getJSONValue(node, "noECM", 0);
 	mission->challengeData.noBoost = getJSONValue(node, "noBoost", 0);
 	mission->challengeData.noGuns = getJSONValue(node, "noGuns", 0);
-	
+
 	if (getJSONValue(node, "noWeapons", 0))
 	{
 		mission->challengeData.noMissiles = mission->challengeData.noGuns = 1;
 	}
-	
+
 	/* misc */
 	mission->challengeData.allowPlayerDeath = getJSONValue(node, "allowPlayerDeath", 0);
 	mission->challengeData.clearWaypointEnemies = getJSONValue(node, "clearWaypointEnemies", 0);
@@ -152,18 +152,18 @@ void loadChallenge(Mission *mission, cJSON *node)
 void doChallenges(void)
 {
 	int passed;
-	
+
 	if (game.currentMission->challengeData.isChallenge && battle.status == MS_IN_PROGRESS)
 	{
 		if (challengeFinished())
 		{
 			passed = 0;
-			
+
 			if (player->health > 0 || (player->health <= 0 && game.currentMission->challengeData.allowPlayerDeath))
 			{
 				passed = updateChallenges();
 			}
-			
+
 			if (passed)
 			{
 				completeChallenge();
@@ -182,53 +182,53 @@ static int challengeFinished(void)
 	{
 		return 1;
 	}
-	
+
 	/* disabled enemies count as killed during challenges - not player exclusive, but no need to worry about AI contributions here */
 	if (game.currentMission->challengeData.killLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_CAPITAL_SHIPS_DESTROYED] + battle.stats[STAT_ENEMIES_DISABLED]) >= game.currentMission->challengeData.killLimit)
 	{
 		return 1;
 	}
-	
+
 	if (game.currentMission->challengeData.escapeLimit > 0 && (battle.stats[STAT_ENEMIES_KILLED_PLAYER] + battle.stats[STAT_ENEMIES_ESCAPED]) >= game.currentMission->challengeData.escapeLimit)
 	{
 		return 1;
 	}
-	
+
 	if (game.currentMission->challengeData.waypointLimit > 0 && battle.stats[STAT_WAYPOINTS_VISITED] >= game.currentMission->challengeData.waypointLimit)
 	{
 		return 1;
 	}
-	
+
 	if (game.currentMission->challengeData.itemLimit > 0 && battle.stats[STAT_ITEMS_COLLECTED] + battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= game.currentMission->challengeData.itemLimit)
 	{
 		return 1;
 	}
-	
+
 	if (game.currentMission->challengeData.playerItemLimit > 0 && battle.stats[STAT_ITEMS_COLLECTED_PLAYER] >= game.currentMission->challengeData.playerItemLimit)
 	{
 		return 1;
 	}
-	
+
 	if (game.currentMission->challengeData.rescueLimit > 0 && (battle.stats[STAT_CIVILIANS_RESCUED] + battle.stats[STAT_CIVILIANS_KILLED]) >= game.currentMission->challengeData.rescueLimit)
 	{
 		return 1;
 	}
-	
+
 	if (game.currentMission->challengeData.surrenderLimit > 0 && battle.stats[STAT_ENEMIES_SURRENDERED] >= game.currentMission->challengeData.surrenderLimit)
 	{
 		return 1;
 	}
-	
+
 	if (game.currentMission->challengeData.waypointLimit > 0 && (battle.stats[STAT_WAYPOINTS_VISITED]) >= game.currentMission->challengeData.waypointLimit)
 	{
 		return 1;
 	}
-	
+
 	if (game.currentMission->challengeData.eliminateThreats && !battle.hasThreats)
 	{
 		return 1;
 	}
-	
+
 	return (player->health <= 0 || player->alive == ALIVE_ESCAPED || battle.scriptedEnd);
 }
 
@@ -238,7 +238,7 @@ static int updateChallenges(void)
 	Challenge *c;
 
 	updateAccuracyStats(battle.stats);
-	
+
 	numPassed = 0;
 
 	for (i = 0 ; i < MAX_CHALLENGES ; i++)
@@ -254,7 +254,7 @@ static int updateChallenges(void)
 					case CHALLENGE_TIME:
 						updateTimeChallenge(c);
 						break;
-					
+
 					case CHALLENGE_SURVIVE:
 						updateSurvivalChallenge(c);
 						break;
@@ -282,26 +282,26 @@ static int updateChallenges(void)
 					case CHALLENGE_DISABLE:
 						updateDisabledChallenge(c);
 						break;
-						
+
 					case CHALLENGE_ITEMS:
 					case CHALLENGE_PLAYER_ITEMS:
 						updateItemsChallenge(c);
 						break;
-						
+
 					case CHALLENGE_SURRENDER:
 						updateSurrenderChallenge(c);
 						break;
-						
+
 					case CHALLENGE_WAYPOINTS:
 						updateWaypointChallenge(c);
 						break;
-						
+
 					case CHALLENGE_RESCUE:
 						updateRescueChallenge(c);
 						break;
 				}
 			}
-			
+
 			if (c->passed)
 			{
 				numPassed++;
@@ -313,7 +313,7 @@ static int updateChallenges(void)
 	{
 		printStats();
 	}
-	
+
 	return numPassed;
 }
 
@@ -472,7 +472,7 @@ char *getChallengeDescription(Challenge *c)
 			return getFormattedChallengeDescription(_("Complete challenge in %s or less"), timeToString(c->value * FPS, 0));
 		}
 	}
-	
+
 	return getFormattedChallengeDescription(challengeDescription[c->type], c->value);
 }
 
@@ -545,13 +545,13 @@ static void completeChallenge(void)
 		game.stats[STAT_CHALLENGES_COMPLETED]++;
 
 		player->flags |= EF_IMMORTAL;
-		
+
 		retreatAllies();
-		
+
 		retreatEnemies();
-		
+
 		awardStatsTrophies();
-		
+
 		awardCraftTrophy();
 	}
 }
@@ -565,16 +565,16 @@ static void failChallenge(void)
 		selectWidget("retry", "battleLost");
 
 		player->flags |= EF_IMMORTAL;
-		
+
 		if (alreadyPassed())
 		{
 			battle.status = MS_TIME_UP;
 		}
-		
+
 		retreatAllies();
-		
+
 		retreatEnemies();
-		
+
 		awardStatsTrophies();
 	}
 }
@@ -593,6 +593,6 @@ static int alreadyPassed(void)
 			return 1;
 		}
 	}
-	
+
 	return 0;
 }

@@ -43,7 +43,7 @@ void initResources(void)
 		sprintf(backgrounds[i], "gfx/backgrounds/%s", filenames[i]);
 
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Adding AUTO %s", filenames[i]);
-		
+
 		free(filenames[i]);
 	}
 
@@ -56,9 +56,9 @@ void initResources(void)
 	{
 		planets[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		strcpy(planets[i], filenames[i]);
-		
+
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Adding AUTO %s", filenames[i]);
-		
+
 		free(filenames[i]);
 	}
 
@@ -72,9 +72,9 @@ void initResources(void)
 	{
 		musicFiles[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(musicFiles[i], "music/battle/%s", filenames[i]);
-		
+
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Adding AUTO %s", filenames[i]);
-		
+
 		free(filenames[i]);
 	}
 
@@ -99,17 +99,17 @@ char *getMusicFilename(unsigned long i)
 void destroyResources(void)
 {
 	int i;
-	
+
 	for (i = 0 ; i < numBackgrounds ; i++)
 	{
 		free(backgrounds[i]);
 	}
-	
+
 	for (i = 0 ; i < numPlanets ; i++)
 	{
 		free(planets[i]);
 	}
-	
+
 	for (i = 0 ; i < numMusicFiles ; i++)
 	{
 		free(musicFiles[i]);

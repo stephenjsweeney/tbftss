@@ -87,7 +87,7 @@ void initGalacticMap(void)
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-	
+
 	MISSIONS_TEXT = _("Missions: %d / %d");
 	PILOT_TEXT = _("Pilot: %s");
 	CRAFT_TEXT = _("Craft: %s");
@@ -113,9 +113,9 @@ void initGalacticMap(void)
 	awardCampaignTrophies();
 
 	awardStatsTrophies();
-	
+
 	updateCampaignProgress();
-	
+
 	hoverMission = NULL;
 
 	app.saveGame = 1;
@@ -123,7 +123,7 @@ void initGalacticMap(void)
 	pulseTimer = 0;
 
 	arrowPulse = 0;
-	
+
 	selectedStarSystem = NULL;
 
 	/* clear the pulses */
@@ -145,11 +145,11 @@ void initGalacticMap(void)
 	getWidget("ok", "fighterDB")->action = ok;
 
 	getWidget("ok", "fallen")->action = fallenOK;
-	
+
 	autoSizeWidgetButtons("galacticMap", 1);
 
 	endSectionTransition();
-	
+
 	SDL_SetWindowGrab(app.window, 0);
 
 	playMusic("music/main/Pressure.ogg", 1);
@@ -158,7 +158,7 @@ void initGalacticMap(void)
 static void updateCampaignProgress(void)
 {
 	StarSystem *starSystem;
-	
+
 	if (!campaignComplete && game.completedMissions == game.totalMissions)
 	{
 		for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
@@ -168,9 +168,9 @@ static void updateCampaignProgress(void)
 				starSystem->activeMission = starSystem->missionHead.next;
 			}
 		}
-		
+
 		campaignComplete = 1;
-		
+
 		showOKDialog(&campaignCompleteOK, _("Congratulations, you have completed the campaign! You may now replay past missions, for fun, to boost stats, or to earn missing trophies!"));
 	}
 }
@@ -230,12 +230,12 @@ static void logic(void)
 	arrowPulse += 0.1;
 
 	doWidgets();
-	
+
 	if (show == SHOW_FIGHTER_DB)
 	{
 		doFighterDatabase();
 	}
-	
+
 	app.doTrophyAlerts = 1;
 }
 
@@ -302,13 +302,13 @@ static void scrollGalaxy(void)
 
 		ssx = -app.mouse.dx;
 		ssx /= 3;
-		
+
 		ssy = -app.mouse.dy;
 		ssy /= 3;
 
 		camera.x = MAX(cameraMin.x, MIN(camera.x, cameraMax.x));
 		camera.y = MAX(cameraMin.y, MIN(camera.y, cameraMax.y));
-		
+
 		if (lastX == camera.x)
 		{
 			ssx = 0;
@@ -330,7 +330,7 @@ static void doStarSystemView(void)
 		if (mission->available && collision(app.uiMouse.x - app.mouse.w / 2, app.uiMouse.y - app.mouse.h / 2, app.mouse.w, app.mouse.h, mission->rect.x, mission->rect.y, mission->rect.w, mission->rect.h))
 		{
 			hoverMission = mission;
-			
+
 			if (app.mouse.button[SDL_BUTTON_LEFT])
 			{
 				if (game.currentMission != mission)
@@ -343,12 +343,12 @@ static void doStarSystemView(void)
 			}
 		}
 	}
-	
+
 	/* allow closing by pressing the right mouse button */
 	if (app.mouse.button[SDL_BUTTON_RIGHT])
 	{
 		show = SHOW_GALAXY;
-			
+
 		playSound(SND_GUI_CLOSE);
 	}
 }
@@ -368,7 +368,7 @@ static void addPulses(void)
 			pulse->x = starSystem->x;
 			pulse->y = starSystem->y;
 			pulse->life = 255;
-			
+
 			switch (starSystem->type)
 			{
 				case SS_NORMAL:
@@ -383,18 +383,18 @@ static void addPulses(void)
 						pulse->b = 255;
 					}
 					break;
-					
+
 				case SS_SOL:
 					pulse->g = 255;
 					break;
-					
+
 				case SS_PANDORAN:
 					pulse->r = 128;
 					pulse->g = 128;
 					pulse->b = 255;
 					break;
 			}
-			
+
 			pulseTail->next = pulse;
 			pulseTail = pulse;
 		}
@@ -453,7 +453,7 @@ static void draw(void)
 		case SHOW_STATS:
 			drawStats();
 			break;
-			
+
 		case SHOW_TROPHIES:
 			drawTrophies();
 			break;
@@ -461,7 +461,7 @@ static void draw(void)
 		case SHOW_OPTIONS:
 			drawOptions();
 			break;
-			
+
 		case SHOW_FIGHTER_DB:
 			drawFighterDatabase();
 			break;
@@ -555,18 +555,18 @@ static void drawGalaxy(void)
 					case SS_NORMAL:
 						setAtlasColor(255, 0, 0, 255);
 						break;
-						
+
 					case SS_SOL:
 						setAtlasColor(0, 255, 0, 255);
 						break;
-						
+
 					case SS_PANDORAN:
 						setAtlasColor(64, 128, 255, 255);
 						break;
 				}
-				
+
 				blitRotated(arrowTexture, ax, ay, aa);
-				
+
 				setAtlasColor(255, 255, 255, 255);
 			}
 		}
@@ -618,7 +618,7 @@ static void selectStarSystem(void)
 static Mission *nextAvailableMission(StarSystem *starSystem)
 {
 	Mission *m;
-	
+
 	for (m = starSystem->missionHead.next ; m != NULL ; m = m->next)
 	{
 		if (m->available && !m->completed)
@@ -626,7 +626,7 @@ static Mission *nextAvailableMission(StarSystem *starSystem)
 			return m;
 		}
 	}
-	
+
 	return starSystem->missionHead.next;
 }
 
@@ -635,7 +635,7 @@ static void drawStarSystemDetail(void)
 	int y;
 	Mission *mission;
 	SDL_Rect r;
-	
+
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	r.w = 900;
@@ -668,7 +668,7 @@ static void drawStarSystemDetail(void)
 		mission->rect.y = y - 2;
 		mission->rect.w = 300;
 		mission->rect.h = 38;
-		
+
 		if (mission == hoverMission)
 		{
 			SDL_SetRenderDrawColor(app.renderer, 16, 32, 64, 255);
@@ -690,7 +690,7 @@ static void drawStarSystemDetail(void)
 		if (mission->available)
 		{
 			drawText(210, y, 22, TA_LEFT, mission->completed ? colors.lightGrey : colors.yellow, mission->name);
-			
+
 			y += 42;
 		}
 	}
@@ -702,9 +702,9 @@ static void drawStarSystemDetail(void)
 		drawText(525, 185, 18, TA_LEFT, colors.lightGrey, SQUADRON_TEXT, game.currentMission->squadron);
 
 		app.textWidth = 525;
-		
+
 		drawText(525, 230, 22, TA_LEFT, colors.white, game.currentMission->description);
-		
+
 		app.textWidth = 0;
 	}
 
@@ -724,7 +724,7 @@ static void drawStarSystemDetail(void)
 	startMissionButton->enabled = (!game.currentMission->completed || selectedStarSystem->type == SS_SOL || campaignComplete);
 
 	drawWidgets("starSystem");
-	
+
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
@@ -740,7 +740,7 @@ static void campaignCompleteOK(void)
 	show = SHOW_GALAXY;
 
 	app.modalDialog.type = MD_NONE;
-	
+
 	campaignComplete = 2;
 }
 
@@ -791,7 +791,7 @@ static void handleMouse(void)
 	{
 		scrollingMap = 0;
 	}
-	
+
 	setMouseCursor(app.mouse.button[SDL_BUTTON_LEFT] && show == SHOW_GALAXY);
 }
 
@@ -805,12 +805,12 @@ static void startMission(void)
 static void drawMenu(void)
 {
 	SDL_Rect r;
-	
+
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 	SDL_RenderFillRect(app.renderer, NULL);
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-	
+
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	r.w = 400;
@@ -824,7 +824,7 @@ static void drawMenu(void)
 	SDL_RenderDrawRect(app.renderer, &r);
 
 	drawWidgets("galacticMap");
-	
+
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }
 
@@ -843,7 +843,7 @@ static void options(void)
 static void fighterDatabase(void)
 {
 	show = SHOW_FIGHTER_DB;
-	
+
 	initFighterDatabaseDisplay();
 }
 

@@ -27,11 +27,11 @@ void doObjectives(void)
 	int objectiveFailed;
 	int hasHidden;
 	Objective *o;
-	
+
 	battle.numObjectivesComplete = battle.numObjectivesTotal = battle.numConditions = 0;
 	objectiveFailed = 0;
 	hasHidden = 0;
-	
+
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
 		if (o->active)
@@ -44,17 +44,17 @@ void doObjectives(void)
 			{
 				battle.numConditions++;
 			}
-			
+
 			if (o->isEliminateAll && o->status != OS_COMPLETE && !battle.hasThreats)
 			{
 				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
-				
+
 				o->currentValue = o->targetValue;
-				
+
 				o->status = OS_COMPLETE;
-				
+
 				runScriptFunction("OBJECTIVES_COMPLETE %d", battle.numObjectivesComplete + 1);
-				
+
 				playSound(SND_OBJECTIVE_COMPLETE);
 			}
 		}
@@ -62,7 +62,7 @@ void doObjectives(void)
 		{
 			hasHidden = 1;
 		}
-		
+
 		if (o->currentValue == o->targetValue)
 		{
 			switch (o->status)
@@ -70,14 +70,14 @@ void doObjectives(void)
 				case OS_COMPLETE:
 					battle.numObjectivesComplete++;
 					break;
-					
+
 				case OS_FAILED:
 					objectiveFailed = 1;
 					break;
 			}
 		}
 	}
-	
+
 	if (battle.status == MS_IN_PROGRESS)
 	{
 		if (!hasHidden && battle.numObjectivesTotal > 0 && battle.numObjectivesComplete == battle.numObjectivesTotal)
@@ -85,16 +85,16 @@ void doObjectives(void)
 			if (fireObjectivesComplete)
 			{
 				fireObjectivesComplete = 0;
-				
+
 				runScriptFunction("ALL_OBJECTIVES_COMPLETE");
 			}
-			
+
 			if (!battle.manualComplete)
 			{
 				completeMission();
 			}
 		}
-		
+
 		if (objectiveFailed)
 		{
 			failMission();
@@ -106,13 +106,13 @@ void updateObjective(char *name, int type)
 {
 	Objective *o;
 	int completed, hasHidden;
-	
+
 	if (strlen(name))
 	{
 		completed = battle.numObjectivesComplete;
-		
+
 		hasHidden = 0;
-		
+
 		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 		{
 			if (o->active && o->status != OS_COMPLETE)
@@ -120,7 +120,7 @@ void updateObjective(char *name, int type)
 				if (!o->isEliminateAll && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 				{
 					o->currentValue++;
-					
+
 					if (!o->hideNumbers)
 					{
 						if (o->targetValue - o->currentValue <= 10)
@@ -132,32 +132,32 @@ void updateObjective(char *name, int type)
 							addHudMessage(colors.cyan, "%s - %d / %d", o->description, o->currentValue, o->targetValue);
 						}
 					}
-					
+
 					if (o->currentValue == o->targetValue)
 					{
 						addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
-						
+
 						runScriptFunction(o->description);
-						
+
 						o->status = OS_COMPLETE;
-						
+
 						runScriptFunction("OBJECTIVES_COMPLETE %d", ++completed);
-						
+
 						playSound(SND_OBJECTIVE_COMPLETE);
 					}
 				}
 			}
-			
+
 			if (!o->active)
 			{
 				hasHidden = 1;
 			}
 		}
-		
+
 		if (completed == battle.numObjectivesTotal && !hasHidden && fireObjectivesComplete)
 		{
 			fireObjectivesComplete = 0;
-			
+
 			runScriptFunction("ALL_OBJECTIVES_COMPLETE");
 		}
 	}
@@ -166,20 +166,20 @@ void updateObjective(char *name, int type)
 void adjustObjectiveTargetValue(char *name, int type, int amount)
 {
 	Objective *o;
-	
+
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
 		if (o->active && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 		{
 			o->targetValue += amount;
 			o->currentValue = MIN(o->currentValue, o->targetValue);
-			
+
 			if (o->currentValue >= o->targetValue && o->targetValue > 0)
 			{
 				o->status = OS_COMPLETE;
-				
+
 				addHudMessage(colors.green, _("%s - Objective Complete!"), o->description);
-				
+
 				playSound(SND_OBJECTIVE_COMPLETE);
 			}
 		}
@@ -189,7 +189,7 @@ void adjustObjectiveTargetValue(char *name, int type, int amount)
 void updateCondition(char *name, int type)
 {
 	Objective *o;
-	
+
 	if (strlen(name))
 	{
 		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
@@ -197,7 +197,7 @@ void updateCondition(char *name, int type)
 			if (o->active && o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 			{
 				o->currentValue++;
-				
+
 				if (o->currentValue == o->targetValue)
 				{
 					o->status = OS_FAILED;
@@ -216,7 +216,7 @@ void updateCondition(char *name, int type)
 void completeAllObjectives(void)
 {
 	Objective *o;
-	
+
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
 		o->status = OS_COMPLETE;
@@ -226,13 +226,13 @@ void completeAllObjectives(void)
 void completeConditions(void)
 {
 	Objective *o;
-	
+
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
 		if (o->isCondition)
 		{
 			o->currentValue = o->targetValue;
-			
+
 			o->status = OS_COMPLETE;
 		}
 	}
@@ -242,7 +242,7 @@ void completeConditions(void)
 void failIncompleteObjectives(void)
 {
 	Objective *o;
-	
+
 	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
 	{
 		if (o->status != OS_COMPLETE)
@@ -257,11 +257,11 @@ void activateObjectives(char *objectives)
 	char *token;
 	Objective *o;
 	int activated;
-	
+
 	activated = 0;
-	
+
 	token = strtok(objectives, ";");
-	
+
 	while (token)
 	{
 		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
@@ -269,24 +269,24 @@ void activateObjectives(char *objectives)
 			if (strcmp(token, o->id) == 0)
 			{
 				addHudMessage(colors.cyan, _("New Objective : %s"), o->description);
-				
+
 				o->active = 1;
-				
+
 				/* prevent race condition */
 				doObjectives();
-				
+
 				if (o->isEliminateAll)
 				{
 					updateObjective(o->targetName, o->targetType);
 				}
-				
+
 				activated = 1;
 			}
 		}
-		
+
 		token = strtok(NULL, ";");
 	}
-	
+
 	if (activated)
 	{
 		playSound(SND_NEW_OBJECTIVE);
@@ -326,7 +326,7 @@ void loadObjectives(cJSON *node)
 			node = node->next;
 		}
 	}
-	
+
 	fireObjectivesComplete = 1;
 }
 
@@ -334,12 +334,12 @@ void addEpicLivesObjective(void)
 {
 	Objective *o;
 	char id[MAX_DESCRIPTION_LENGTH];
-	
+
 	o = malloc(sizeof(Objective));
 	memset(o, 0, sizeof(Objective));
 	battle.objectiveTail->next = o;
 	battle.objectiveTail = o;
-	
+
 	sprintf(id, _("Do not lose more than %d pilots"), battle.epicLives);
 
 	STRNCPY(o->id, id, MAX_DESCRIPTION_LENGTH);
@@ -355,12 +355,12 @@ void addEpicKillsObjective(void)
 {
 	Objective *o;
 	char id[MAX_DESCRIPTION_LENGTH];
-	
+
 	o = malloc(sizeof(Objective));
 	memset(o, 0, sizeof(Objective));
 	battle.objectiveTail->next = o;
 	battle.objectiveTail = o;
-	
+
 	sprintf(id, _("Destroy at least %d enemy fighters"), battle.epicKills);
 
 	STRNCPY(o->id, id, MAX_DESCRIPTION_LENGTH);

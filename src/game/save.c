@@ -45,9 +45,9 @@ void saveGame(void)
 	saveChallenges(gameJSON);
 
 	saveStats(gameJSON);
-	
+
 	saveTrophies(gameJSON);
-	
+
 	saveFighterStats(gameJSON);
 
 	out = cJSON_Print(root);
@@ -118,18 +118,18 @@ static void saveChallenges(cJSON *gameJSON)
 		cJSON_AddStringToObject(missionJSON, "filename", mission->filename);
 
 		challengesJSON = cJSON_CreateArray();
-		
+
 		for (i = 0 ; i < MAX_CHALLENGES ; i++)
 		{
 			c = mission->challengeData.challenges[i];
-			
+
 			if (c)
 			{
 				challengeJSON = cJSON_CreateObject();
 				cJSON_AddStringToObject(challengeJSON, "type", getLookupName("CHALLENGE_", c->type));
 				cJSON_AddNumberToObject(challengeJSON, "value", c->value);
 				cJSON_AddNumberToObject(challengeJSON, "passed", c->passed);
-				
+
 				cJSON_AddItemToArray(challengesJSON, challengeJSON);
 			}
 		}
@@ -160,7 +160,7 @@ static void saveTrophies(cJSON *gameJSON)
 {
 	Trophy *t;
 	cJSON *trophiesJSON, *trophyJSON;
-	
+
 	trophiesJSON = cJSON_CreateArray();
 
 	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
@@ -168,14 +168,14 @@ static void saveTrophies(cJSON *gameJSON)
 		if (t->awarded)
 		{
 			trophyJSON = cJSON_CreateObject();
-			
+
 			cJSON_AddStringToObject(trophyJSON, "id", t->id);
 			cJSON_AddNumberToObject(trophyJSON, "awardDate", t->awardDate);
-			
+
 			cJSON_AddItemToArray(trophiesJSON, trophyJSON);
 		}
 	}
-	
+
 	cJSON_AddItemToObject(gameJSON, "trophies", trophiesJSON);
 }
 
@@ -183,18 +183,18 @@ static void saveFighterStats(cJSON *gameJSON)
 {
 	Tuple *t;
 	cJSON *fighterStatsJSON, *fighterStatJSON;
-	
+
 	fighterStatsJSON = cJSON_CreateArray();
 
 	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
 	{
 		fighterStatJSON = cJSON_CreateObject();
-		
+
 		cJSON_AddStringToObject(fighterStatJSON, "key", t->key);
 		cJSON_AddNumberToObject(fighterStatJSON, "value", t->value);
-		
+
 		cJSON_AddItemToArray(fighterStatsJSON, fighterStatJSON);
 	}
-	
+
 	cJSON_AddItemToObject(gameJSON, "fighterStats", fighterStatsJSON);
 }

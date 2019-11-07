@@ -23,20 +23,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void doLocations(void)
 {
 	Location *l, *prev;
-	
+
 	prev = &battle.locationHead;
-	
+
 	for (l = battle.locationHead.next ; l != NULL ; l = l->next)
 	{
 		if (l->active && getDistance(player->x, player->y, l->x, l->y) <= l->size)
 		{
 			runScriptFunction(l->name);
-			
+
 			prev->next = l->next;
 			free(l);
 			l = prev;
 		}
-		
+
 		prev = l;
 	}
 }
@@ -44,7 +44,7 @@ void doLocations(void)
 void drawLocations(void)
 {
 	Location *l;
-	
+
 	for (l = battle.locationHead.next ; l != NULL ; l = l->next)
 	{
 		if (l->active)
@@ -58,9 +58,9 @@ void activateLocations(char *locations)
 {
 	char *token;
 	Location *l;
-	
+
 	token = strtok(locations, ";");
-	
+
 	while (token)
 	{
 		for (l = battle.locationHead.next ; l != NULL ; l = l->next)
@@ -70,7 +70,7 @@ void activateLocations(char *locations)
 				l->active = 1;
 			}
 		}
-		
+
 		token = strtok(NULL, ";");
 	}
 }
@@ -82,7 +82,7 @@ void createChristabelLocation(void)
 {
 	Location *l;
 	Entity *e;
-	
+
 	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
 	{
 		if (strcmp(e->name, "Christabel") == 0)
@@ -100,7 +100,7 @@ void createChristabelLocation(void)
 
 			l->x -= l->size / 2;
 			l->y -= l->size / 2;
-			
+
 			return;
 		}
 	}
@@ -130,7 +130,7 @@ void loadLocations(cJSON *node)
 
 			l->x += (SCREEN_WIDTH / 2);
 			l->y += (SCREEN_HEIGHT / 2);
-			
+
 
 			node = node->next;
 		}

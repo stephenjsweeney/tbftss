@@ -100,13 +100,13 @@ void doModalDialog(void)
 void drawModalDialog(void)
 {
 	SDL_Rect r;
-	
+
 	app.textWidth = 700;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 96);
 	SDL_RenderFillRect(app.renderer, NULL);
-	
+
 	SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 	r.w = 800;
@@ -138,6 +138,6 @@ void drawModalDialog(void)
 	}
 
 	app.textWidth = 0;
-	
+
 	SDL_SetRenderTarget(app.renderer, app.backBuffer);
 }

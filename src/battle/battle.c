@@ -57,7 +57,7 @@ void initBattle(void)
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
-	
+
 	battle.hasThreats = 1;
 
 	initQuadtree(&battle.quadtree);
@@ -96,7 +96,7 @@ void initBattle(void)
 	getWidget("quit", "battleLost")->action = quitBattle;
 
 	selectWidget("ok", "startBattle");
-	
+
 	SDL_SetWindowGrab(app.window, 1);
 }
 
@@ -117,9 +117,9 @@ static void logic(void)
 				doPlayerSelect();
 			}
 		}
-		
+
 		app.doTrophyAlerts = (battle.status != MS_IN_PROGRESS && battle.missionFinishedTimer <= -FPS * 2);
-		
+
 		if (battle.campaignFinished)
 		{
 			endCampaign();
@@ -163,9 +163,9 @@ static void doBattle(void)
 	doDebris();
 
 	doPlayer();
-	
+
 	checkSuspicionLevel();
-	
+
 	doTorelliFireStorm();
 
 	if (player->alive == ALIVE_ALIVE)
@@ -175,7 +175,7 @@ static void doBattle(void)
 		doLocations();
 
 		doMessageBox();
-		
+
 		if (battle.status == MS_IN_PROGRESS || battle.status == MS_COMPLETE)
 		{
 			doScript();
@@ -186,7 +186,7 @@ static void doBattle(void)
 			if (battle.stats[STAT_TIME]++ % FPS == 0)
 			{
 				runScriptFunction("TIME %d", battle.stats[STAT_TIME] / FPS);
-				
+
 				if (game.currentMission->challengeData.timeLimit && game.currentMission->challengeData.timeLimit - battle.stats[STAT_TIME] < 11 * FPS)
 				{
 					playSound(SND_TIME_WARNING);
@@ -198,11 +198,11 @@ static void doBattle(void)
 	if (battle.status != MS_IN_PROGRESS)
 	{
 		battle.missionFinishedTimer--;
-		
+
 		if (battle.unwinnable && battle.missionFinishedTimer <= -FPS * 6)
 		{
 			battle.status = MS_COMPLETE;
-			
+
 			postBattle();
 
 			destroyBattle();
@@ -221,11 +221,11 @@ static void draw(void)
 	}
 
 	drawBackground(battle.background);
-	
+
 	setAtlasColor(255, 255, 255, 255);
 
 	blitScaled(battle.planetTexture, battle.planet.x, battle.planet.y, battle.planetWidth, battle.planetHeight, 0);
-	
+
 	if (battle.destroyTorelli)
 	{
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -273,14 +273,14 @@ static void draw(void)
 static void drawMenu(void)
 {
 	SDL_Rect r;
-	
+
 	if (app.modalDialog.type == MD_NONE)
 	{
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 		SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
 		SDL_RenderFillRect(app.renderer, NULL);
 		SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_NONE);
-		
+
 		SDL_SetRenderTarget(app.renderer, app.uiBuffer);
 
 		r.w = 400;
@@ -294,7 +294,7 @@ static void drawMenu(void)
 		SDL_RenderDrawRect(app.renderer, &r);
 
 		drawWidgets("inBattle");
-		
+
 		SDL_SetRenderTarget(app.renderer, app.backBuffer);
 	}
 }
@@ -331,9 +331,9 @@ static void handleKeyboard(void)
 	if (battle.status == MS_IN_PROGRESS && app.keyboard[SDL_SCANCODE_TAB])
 	{
 		battle.status = MS_PAUSED;
-		
+
 		selectWidget("ok", "startBattle");
-		
+
 		SDL_SetWindowGrab(app.window, 0);
 	}
 }
@@ -341,14 +341,14 @@ static void handleKeyboard(void)
 static void start(void)
 {
 	battle.status = MS_IN_PROGRESS;
-	
+
 	SDL_SetWindowGrab(app.window, 1);
 }
 
 static void resume(void)
 {
 	show = SHOW_BATTLE;
-	
+
 	SDL_SetWindowGrab(app.window, 1);
 
 	clearInput();
@@ -397,7 +397,7 @@ static void restart(void)
 static void retry(void)
 {
 	app.modalDialog.type = MD_NONE;
-	
+
 	postBattle();
 
 	destroyBattle();
@@ -415,7 +415,7 @@ static void optQuitBattle(void)
 static void quitBattle(void)
 {
 	app.modalDialog.type = MD_NONE;
-	
+
 	postBattle();
 
 	destroyBattle();
@@ -441,13 +441,13 @@ static void postBattle(void)
 			game.stats[i] += battle.stats[i];
 		}
 	}
-	
+
 	game.stats[STAT_EPIC_KILL_STREAK] = MAX(game.stats[STAT_EPIC_KILL_STREAK], battle.stats[STAT_EPIC_KILL_STREAK]);
 
 	updateAccuracyStats(game.stats);
-	
+
 	game.currentMission->completed = (game.currentMission->completed || battle.status == MS_COMPLETE || !battle.numObjectivesTotal);
-	
+
 	app.saveGame = 1;
 }
 
@@ -456,11 +456,11 @@ static void checkSuspicionLevel(void)
 	if (battle.hasSuspicionLevel && battle.suspicionLevel >= MAX_SUSPICION_LEVEL)
 	{
 		cancelScript();
-		
+
 		resetMessageBox();
-		
+
 		runScriptFunction("MAX_SUSPICION_LEVEL");
-		
+
 		battle.hasSuspicionLevel = 0;
 	}
 }
@@ -476,11 +476,11 @@ static void doTorelliFireStorm(void)
 static void endCampaign(void)
 {
 	awardTrophy("CAMPAIGN_COMPLETE");
-	
+
 	postBattle();
 
 	destroyBattle();
-	
+
 	initCredits();
 }
 
@@ -567,7 +567,7 @@ void destroyBattle(void)
 	destroyBullets();
 
 	destroyEffects();
-	
+
 	memset(&battle, 0, sizeof(Battle));
 	battle.bulletTail = &battle.bulletHead;
 	battle.debrisTail = &battle.debrisHead;

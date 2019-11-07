@@ -24,35 +24,35 @@ void attachRope(void)
 {
 	int i, distance;
 	Entity *e, **candidates;
-	
+
 	if ((self->flags & EF_HAS_ROPE) && self->towing == NULL)
 	{
 		candidates = getAllEntsInRadius(self->x, self->y, self->separationRadius, self);
-	
+
 		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
 		{
 			if (!e->owner && e->type == ET_FIGHTER && (e->flags & EF_DISABLED) && (e->flags & EF_ROPED_ATTACHED) == 0 && e->alive == ALIVE_ALIVE)
 			{
 				distance = getDistance(e->x, e->y, self->x, self->y);
-				
+
 				if (distance > 0 && distance <= self->separationRadius)
 				{
 					self->towing = e;
 					self->aiFlags |= AIF_GOAL_JUMPGATE;
-					
+
 					e->owner = self;
 					e->speed = 1;
 					e->flags |= EF_RETREATING;
 					e->flags |= EF_ROPED_ATTACHED;
-					
+
 					runScriptFunction("TOWING %s", e->name);
-					
+
 					if (self == player)
 					{
 						battle.stats[STAT_NUM_TOWED]++;
 						addHudMessage(colors.white, _("Tow rope attached"));
 					}
-					
+
 					playBattleSound(SND_TOW_ROPE, e->x, e->y);
 				}
 			}
@@ -64,23 +64,23 @@ void doRope(Entity *owner)
 {
 	float dx, dy, angle, force;
 	int distance;
-	
+
 	if (owner->towing)
 	{
 		distance = getDistance(owner->towing->x, owner->towing->y, owner->x, owner->y);
-		
+
 		if (distance > ROPE_DISTANCE)
 		{
 			angle = getAngle(owner->x, owner->y, owner->towing->x, owner->towing->y);
-				
+
 			dx = sin(TO_RAIDANS(angle));
 			dy = -cos(TO_RAIDANS(angle));
 			force = (distance - ROPE_DISTANCE) * 0.02;
-			
+
 			owner->towing->dx -= (dx * force);
 			owner->towing->dy -= (dy * force);
 		}
-		
+
 		owner->towing->dx *= 0.985;
 		owner->towing->dy *= 0.985;
 	}
@@ -91,7 +91,7 @@ void drawRope(Entity *e)
 	if (e->towing)
 	{
 		SDL_SetRenderDrawColor(app.renderer, 200, 200, 200, 255);
-	
+
 		SDL_RenderDrawLine(app.renderer, e->x - battle.camera.x, e->y - battle.camera.y, e->towing->x - battle.camera.x, e->towing->y - battle.camera.y);
 	}
 }
@@ -104,7 +104,7 @@ void cutRope(Entity *e)
 		e->owner->towing = NULL;
 		e->owner->aiFlags &= ~AIF_GOAL_JUMPGATE;
 	}
-	
+
 	/* tug is dead - reset thing being tugged */
 	if (e->towing)
 	{

@@ -11,8 +11,7 @@ NPROCS = $(shell grep -c 'processor' /proc/cpuinfo)
 MAKEFLAGS += -j$(NPROCS)
 
 CXXFLAGS += `$(SDLC) --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
-CXXFLAGS += -ansi
-CXXFLAGS += -m32
+CXXFLAGS += -Wall -Wempty-body -ansi -pedantic -Werror -Wstrict-prototypes -Werror=maybe-uninitialized -Warray-bounds
 
 LDFLAGS += `$(SDLC) --libs` -lm -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lSDL2main
 

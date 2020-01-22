@@ -35,6 +35,7 @@ static Font fontHead;
 static Font *fontTail;
 static Font *activeFont = NULL;
 static float scale;
+static char character[MAX_NAME_LENGTH];
 
 void initFonts(void)
 {
@@ -394,10 +395,8 @@ int getWrappedTextHeight(char *text, int size)
 
 static char *nextCharacter(const char *str, int *i)
 {
-	static char character[MAX_NAME_LENGTH];
-
 	unsigned char bit;
-	int n, numBits;
+	int numBits;
 
 	memset(character, '\0', MAX_NAME_LENGTH);
 
@@ -434,10 +433,9 @@ static char *nextCharacter(const char *str, int *i)
 		numBits = 6;
 	}
 
-	for (n = 0 ; n < numBits ; n++)
-	{
-		character[n] = str[(*i)++];
-	}
+	memcpy(character, &str[*i], numBits);
+
+	(*i) += numBits;
 
 	return character;
 }

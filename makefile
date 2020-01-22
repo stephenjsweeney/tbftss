@@ -54,13 +54,13 @@ install:
 	cp -p icons/$(PROG)-128x128.png $(INST_ICON_DIR)/128x128/apps/$(PROG).png
 	mkdir -p $(INST_DESKTOP_DIR)
 	cp -p icons/$(PROG).desktop $(INST_DESKTOP_DIR)
-	
+
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
 		mkdir -p $(INST_LOCALE_DIR)/$$lang/LC_MESSAGES; \
 		cp -v $$f $(INST_LOCALE_DIR)/$$lang/LC_MESSAGES/$(PROG).mo; \
 	done
-	
+
 uninstall:
 	$(RM) $(BIN_DIR)/$(PROG)
 	$(RM) -rf $(DATA_DIR)
@@ -69,10 +69,10 @@ uninstall:
 	$(RM) $(ICON_DIR)/64x64/apps/$(PROG).png
 	$(RM) $(ICON_DIR)/128x128/apps/$(PROG).png
 	$(RM) $(DESKTOP_DIR)/$(PROG).desktop
-	
+
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
 		$(RM) -v $(LOCALE_DIR)/$$lang/LC_MESSAGES/$(PROG).mo; \
 	done
-	
+
 .PHONY: dist

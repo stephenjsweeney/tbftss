@@ -4,7 +4,7 @@
 
 ![Alt text](dev/screenshots/v0.6-06.png?raw=true "Screenshot")
 
-The develop branch on GitHub (https://github.com/stephenjsweeney/tbftss/tree/develop) is where all the dev work happens. Stable(ish) releases will go in to master (https://github.com/stephenjsweeney/tbftss/tree/master).
+The develop branch on GitHub (https://github.com/stephenjsweeney/tbftss/tree/develop) is where all the dev work happens. Stable releases will go in to master (https://github.com/stephenjsweeney/tbftss/tree/master).
 
 Website: www.battleforthesolarsystem.com
 Email: stephenjsweeney@battleforthesolarsystem.com

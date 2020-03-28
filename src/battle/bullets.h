@@ -22,10 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-#define INITIAL_BULLET_DRAW_CAPACITY	32
-#define MISSILE_LIFE 					(FPS * 30)
-#define TURN_SPEED 						2
-#define TURN_THRESHOLD 					3
+#define INITIAL_BULLET_DRAW_CAPACITY    32
+#define MISSILE_LIFE                    (FPS * 30)
+#define TURN_SPEED                      2
+#define TURN_THRESHOLD                  3
 
 extern void addBulletHitEffect(int x, int y, int r, int g, int b);
 extern void addMissileEngineEffect(Bullet *b);

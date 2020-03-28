@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define ROPE_DISTANCE	128
+#define ROPE_DISTANCE    128
 
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);

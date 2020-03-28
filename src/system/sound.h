@@ -22,8 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "SDL2/SDL_mixer.h"
 
-#define MAX_BATTLE_SOUND_DISTANCE	1500
-#define MIN_BATTLE_SOUND_DISTANCE	100
+#define MAX_BATTLE_SOUND_DISTANCE    1500
+#define MIN_BATTLE_SOUND_DISTANCE    100
 
 extern float getAngle(int x1, int y1, int x2, int y2);
 extern int getDistance(int x1, int y1, int x2, int y2);

@@ -20,14 +20,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define MAX_LISTED_MISSIONS		9
-#define SHOW_FIGHTER_DB			6
-#define SHOW_GALAXY				0
-#define SHOW_MENU				2
-#define SHOW_OPTIONS			3
-#define SHOW_STAR_SYSTEM		1
-#define SHOW_STATS				4
-#define SHOW_TROPHIES			5
+#define MAX_LISTED_MISSIONS    9
+#define SHOW_FIGHTER_DB        6
+#define SHOW_GALAXY            0
+#define SHOW_MENU              2
+#define SHOW_OPTIONS           3
+#define SHOW_STAR_SYSTEM       1
+#define SHOW_STATS             4
+#define SHOW_TROPHIES          5
 
 extern void autoSizeWidgetButtons(char *group, int recenter);
 extern void awardCampaignTrophies(void);

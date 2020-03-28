@@ -28,10 +28,10 @@ function funcSort($a, $b)
 {
 	$a = str_replace("*", "", $a);
 	$b = str_replace("*", "", $b);
-	
+
 	$aParts = explode(" ", $a);
 	$bParts = explode(" ", $b);
-	
+
 	return strcmp($aParts[2], $bParts[2]);
 }
 
@@ -40,9 +40,9 @@ function updateExterns($header, $defines, $functions, $structs)
 	asort($defines);
 	usort($functions, "funcSort");
 	asort($structs);
-	
+
 	$newHeader = [];
-	
+
 	foreach ($header as $line)
 	{
 		$newHeader[] = $line;
@@ -53,7 +53,7 @@ function updateExterns($header, $defines, $functions, $structs)
 		$newHeader[] = "\n";
 		$newHeader = array_merge($newHeader, $defines);
 	}
-	
+
 	if (count($functions) > 0)
 	{
 		$newHeader[] = "\n";
@@ -79,32 +79,32 @@ function cleanHeader($headerFile)
 
 	$bodyFile = $headerFile;
 	$bodyFile[strlen($bodyFile) - 1] = 'c';
-	
+
 	if (file_exists($bodyFile))
 	{
 		$header = file($headerFile);
 		$body = file_get_contents($bodyFile);
-		$isMain = strpos($body, "int main(int argc, char *argv[])");
+		$isMain = strpos($body, "int main(");
 		$lines = [];
 		$defines = [];
 		$functions = [];
 		$structs = [];
-	
+
 		$i = 0;
 		$hasChanges = false;
-		
+
 		foreach ($header as $line)
 		{
 			if ((preg_match("/extern|define/", $line) || preg_match("/;$/", $line)))
 			{
 				preg_match($func_pattern, $line, $matches);
-				
+
 				if (count($matches) == 3)
 				{
 					unset($header[$i]);
-					
+
 					$extern = $matches[2];
-					
+
 					if (!preg_match_all("/\b${extern}\b/", $body))
 					{
 						if (!$hasChanges)
@@ -119,17 +119,17 @@ function cleanHeader($headerFile)
 						$functions[] = $line;
 					}
 				}
-				
+
 				preg_match($struct_pattern, $line, $matches);
 
 				if (count($matches) == 2)
 				{
 					unset($header[$i]);
-					
+
 					$extern = $matches[1];
-					
+
 					$externs[] = $extern;
-					
+
 					if (!$isMain)
 					{
 						if (!preg_match_all("/\b${extern}\b/", $body))
@@ -151,17 +151,17 @@ function cleanHeader($headerFile)
 						$structs[] = $line;
 					}
 				}
-				
+
 				preg_match($define_pattern, $line, $matches);
 
 				if (count($matches) == 2)
 				{
 					unset($header[$i]);
-					
+
 					$extern = $matches[1];
-					
+
 					$externs[] = $extern;
-					
+
 					if (strstr($body, "$extern") === FALSE)
 					{
 						if (!$hasChanges)
@@ -177,7 +177,7 @@ function cleanHeader($headerFile)
 					}
 				}
 			}
-			
+
 			$i++;
 		}
 
@@ -192,13 +192,15 @@ function cleanHeader($headerFile)
 			}
 		}
 		while ($wasBlank);
-		
+
 		$defines = array_unique($defines);
 		$functions = array_unique($functions);
 		$structs = array_unique($structs);
-		
+
+		$defines = alignDefines($defines);
+
 		$header = updateExterns($header, $defines, $functions, $structs);
-		
+
 		if ($UPDATE_FILES)
 		{
 			file_put_contents($headerFile, $header);
@@ -206,12 +208,36 @@ function cleanHeader($headerFile)
 	}
 }
 
+function alignDefines($defines)
+{
+	$newAligns = [];
+	$largest = 0;
+	$defineName;
+	$defineValue;
+
+	foreach ($defines as $define)
+	{
+		sscanf($define, "%*s %s", $defineName);
+
+		$largest = max($largest, strlen($defineName) + 4);
+	}
+
+	foreach ($defines as $define)
+	{
+		sscanf($define, "%*s %s %[^\n]", $defineName, $defineValue);
+
+		$newAligns[] = "#define " . str_pad($defineName, $largest, " ") . $defineValue . "\n";
+	}
+
+	return $newAligns;
+}
+
 function recurseDir($dir)
 {
 	if ($dir != "../src/json")
 	{
 		$files = array_diff(scandir($dir), array('..', '.'));
-		
+
 		foreach ($files as $file)
 		{
 			if (is_dir("$dir/$file"))

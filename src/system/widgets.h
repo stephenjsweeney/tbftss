@@ -33,9 +33,9 @@ extern char **getFileList(char *dir, int *count);
 extern long lookup(char *name);
 extern void playSound(int id);
 extern char *readFile(char *filename);
+extern void setAtlasColor(int r, int g, int b, int a);
 extern void updateControlButton(char *name);
 extern void updateControlKey(char *name);
-extern void setAtlasColor(int r, int g, int b, int a);
 
 extern App app;
 extern Colors colors;

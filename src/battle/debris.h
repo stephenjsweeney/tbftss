@@ -22,8 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-#define INITIAL_DEBRIS_DRAW_CAPACITY		32
-#define MAX_DEBRIS_TEXTURES					6
+#define INITIAL_DEBRIS_DRAW_CAPACITY    32
+#define MAX_DEBRIS_TEXTURES             6
 
 extern void addDebrisFire(int x, int y);
 extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);

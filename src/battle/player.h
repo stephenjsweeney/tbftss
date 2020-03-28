@@ -21,8 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
-#define MAX_SELECTABLE_PLAYERS	8
-#define MAX_SELECTABLE_TARGETS	8
+#define MAX_SELECTABLE_PLAYERS    8
+#define MAX_SELECTABLE_TARGETS    8
 
 extern void addECMEffect(Entity *ent);
 extern void addHudMessage(SDL_Color c, char *format, ...);

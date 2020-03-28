@@ -22,8 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "SDL2/SDL_mixer.h"
 
-#define SHOW_CONTROLS	1
-#define SHOW_MAIN		0
+#define SHOW_CONTROLS    1
+#define SHOW_MAIN        0
 
 extern void drawControls(void);
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);

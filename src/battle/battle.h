@@ -22,10 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../json/cJSON.h"
 
-#define SHOW_BATTLE			0
-#define SHOW_MENU			1
-#define SHOW_OBJECTIVES		2
-#define SHOW_OPTIONS		3
+#define SHOW_BATTLE        0
+#define SHOW_MENU          1
+#define SHOW_OBJECTIVES    2
+#define SHOW_OPTIONS       3
 
 extern void awardTrophy(char *id);
 extern void blitScaled(AtlasImage *atlasImage, int x, int y, int w, int h, int center);

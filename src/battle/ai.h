@@ -20,11 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define AI_EVADE		0
-#define AI_FALLBACK		1
-#define AI_HUNT			2
-#define TURN_SPEED 		4
-#define TURN_THRESHOLD 	2
+#define AI_EVADE          0
+#define AI_FALLBACK       1
+#define AI_HUNT           2
+#define TURN_SPEED        4
+#define TURN_THRESHOLD    2
 
 extern void addHudMessage(SDL_Color c, char *format, ...);
 extern void applyFighterBrakes(void);

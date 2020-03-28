@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define ESCAPE_DISTANCE 256
+#define ESCAPE_DISTANCE    256
 
 extern void addDebris(int x, int y, int amount);
 extern void addSmallExplosion(void);

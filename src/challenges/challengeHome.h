@@ -20,13 +20,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define CHALLENGES_PER_PAGE		14
-#define SHOW_CHALLENGES 		0
-#define SHOW_FIGHTER_DB			5
-#define SHOW_MENU 				1
-#define SHOW_OPTIONS 			2
-#define SHOW_STATS 				3
-#define SHOW_TROPHIES			4
+#define CHALLENGES_PER_PAGE    14
+#define SHOW_CHALLENGES        0
+#define SHOW_FIGHTER_DB        5
+#define SHOW_MENU              1
+#define SHOW_OPTIONS           2
+#define SHOW_STATS             3
+#define SHOW_TROPHIES          4
 
 extern void autoSizeWidgetButtons(char *group, int recenter);
 extern void awardChallengeTrophies(void);

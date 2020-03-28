@@ -20,8 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define QT_INITIAL_CAPACITY		8
-#define QT_MAX_DEPTH			5
+#define QT_INITIAL_CAPACITY    8
+#define QT_MAX_DEPTH           5
 
 extern void *resize(void *array, int oldSize, int newSize);
 

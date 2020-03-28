@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "time.h"
 
-#define TROPHIES_PER_PAGE			4
+#define TROPHIES_PER_PAGE    4
 
 extern void awardPandoranCraftTrophy(void);
 extern void blit(AtlasImage *atlasImage, int x, int y, int centered);

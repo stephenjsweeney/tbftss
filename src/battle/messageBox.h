@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define MSG_BOX_TEXT_WIDTH	600
+#define MSG_BOX_TEXT_WIDTH    600
 
 extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
 extern int getWrappedTextHeight(char *text, int size);

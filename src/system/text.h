@@ -26,9 +26,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define FONT_SIZE			32
-#define FONT_TEXTURE_SIZE	512
-#define MAX_WORD_LENGTH		128
+#define FONT_SIZE            32
+#define FONT_TEXTURE_SIZE    512
+#define MAX_WORD_LENGTH      128
 
 extern char *getFileLocation(char *filename);
 extern unsigned long hashcode(const char *str);

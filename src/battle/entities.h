@@ -20,9 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../common.h"
 
-#define DISABLED_GLOW_MAX 				255
-#define DISABLED_GLOW_MIN 				128
-#define DISABLED_GLOW_SPEED 			3
+#define DISABLED_GLOW_MAX      255
+#define DISABLED_GLOW_MIN      128
+#define DISABLED_GLOW_SPEED    3
 
 extern void addToQuadtree(Entity *e, Quadtree *root);
 extern void awardTrophy(char *id);

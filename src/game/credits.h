@@ -21,7 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../common.h"
 #include "../json/cJSON.h"
 
-#define CREDIT_LINE_LIMIT	(UI_WIDTH - 300)
+#define CREDIT_LINE_LIMIT    (UI_WIDTH - 300)
 
 extern void blit(AtlasImage *atlasImage, int x, int y, int centered);
 extern void drawBackground(SDL_Texture *texture);

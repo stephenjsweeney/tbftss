@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-body {background-color:#000; color: #fff; font-family: "sans"; background-image: url("background02.jpg");}
+body {background-color:#000; color: #fff; font-family: Arial; font-size: 18px; background-image: url("background02.jpg");}
 h3 {background-color:#47c; padding:0.25em; color:#fff; margin-top:3em; border: 1px solid #fff;}
 h4 {background-color:#000; padding:0.25em; color:#fff; margin-top:3em; border: 1px solid #5ad;}
 h5 {border-bottom: 1px solid #5ad; width: 50%;}
@@ -513,7 +513,7 @@ $('h3,h4').each(function(i, e) {
 	{
 		toc.append("&blacksquare; <a href='#" + link + "'>" + e.innerText + "</a><br>");
 	}
-	
+
 	if (e.tagName == 'H4')
 	{
 		toc.append("<span style='text-indent: 2em; display: inline-block'>&#9643 <a href='#" + link + "'>" + e.innerText + "</a></span><br>");

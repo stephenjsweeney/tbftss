@@ -396,46 +396,26 @@ int getWrappedTextHeight(char *text, int size)
 static char *nextCharacter(const char *str, int *i)
 {
 	unsigned char bit;
-	int numBits;
+	int n;
 
 	memset(character, '\0', MAX_NAME_LENGTH);
 
-	bit = (unsigned char)str[*i];
+	n = 0;
 
-	numBits = 0;
+	while (1)
+	{
+		bit = (unsigned char)str[*i];
 
-	if (bit == '\0')
-	{
-		return NULL;
-	}
-	else if (bit <= 0x0000007F)
-	{
-		numBits = 1;
-	}
-	else if (bit <= 0x000007FF)
-	{
-		numBits = 2;
-	}
-	else if (bit <= 0x0000FFFF)
-	{
-		numBits = 3;
-	}
-	else if (bit <= 0x001FFFFF)
-	{
-		numBits = 4;
-	}
-	else if (bit <= 0x03FFFFFF)
-	{
-		numBits = 5;
-	}
-	else if (bit <= 0x7FFFFFFF)
-	{
-		numBits = 6;
-	}
+		if ((bit >= ' ' && bit <= '~') || bit >= 0xC0 || bit == '\0')
+		{
+			if (n > 0)
+			{
+				return character[0] != '\0' ? character : NULL;
+			}
+		}
 
-	memcpy(character, &str[*i], numBits);
+		character[n++] = str[*i];
 
-	(*i) += numBits;
-
-	return character;
+		*i = *i + 1;
+	}
 }

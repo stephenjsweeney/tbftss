@@ -99,7 +99,7 @@
 			"number" : 12,
 			"scatter" : 5000,
 			"aiFlags" : "+AIF_UNLIMITED_RANGE",
-			"flags" : "+EF_AI_LEADER"
+			"flags" : "+EF_AI_LEADER+EF_MUST_DISABLE"
 		},
 		{
 			"types" : "Sphinx;Thunderhead",
@@ -158,7 +158,9 @@
 			"lines" : [
 				"MSG_BOX CSN Griffin;White Knights, the enemy tugs are already in position and are attaching tow ropes. They must not be allowed to get those fighters and pilots to the jumpgate.",
 				"MSG_BOX de Winter;Can you disable the gate remotely?",
-				"MSG_BOX CSN Griffin;Negative, the Pandorans have control. We're working take back command functions. Stand by."
+				"MSG_BOX CSN Griffin;Negative, the Pandorans have control. We're working take back command functions. Stand by.",
+				"MSG_BOX de Winter;Understood. Kelly, we should mag the tugs first and destroy them when its safe. Stray plasma fire could hit our pilots.",
+				"MSG_BOX Taylor;Agreed."
 			]
 		},
 		{
@@ -189,4 +191,4 @@
 		}
 	]
 }
- 
+

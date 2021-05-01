@@ -261,7 +261,7 @@ static void checkCollisions(Bullet *b)
 	}
 }
 
-void doBulletHitEffect(Bullet *b)
+static void doBulletHitEffect(Bullet *b)
 {
 	switch (b->type)
 	{

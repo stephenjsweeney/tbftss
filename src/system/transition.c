@@ -35,10 +35,10 @@ void startSectionTransition(void)
 
 void endSectionTransition(void)
 {
-	long elasped = 250 - (SDL_GetTicks() - transitionStartTime);
+	long elapsed = 250 - (SDL_GetTicks() - transitionStartTime);
 
-	if (elasped > 0)
+	if (elapsed > 0)
 	{
-		SDL_Delay(elasped);
+		SDL_Delay(elapsed);
 	}
 }

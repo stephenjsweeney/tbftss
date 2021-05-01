@@ -117,7 +117,7 @@ char *timeToDate(long millis)
 
 	timeinfo = localtime(&time);
 
-	strftime(DATE, MAX_NAME_LENGTH, "%d %b %Y, %I:%M%p", timeinfo);
+	strftime(DATE, MAX_NAME_LENGTH, "%d %b %Y, %H:%M%p", timeinfo);
 
 	return DATE;
 }

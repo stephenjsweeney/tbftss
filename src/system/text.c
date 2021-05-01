@@ -20,44 +20,47 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "text.h"
 
-static void initFont(char *name, char *filename);
+static void initFont(char *name, char *filename, char *characters);
 static void drawWord(char *word, int *x, int *y, int startX);
 static void drawTextLines(int x, int y, int size, int align);
 static void drawTextLine(int x, int y, int size, int align, const char *line);
 void calcTextDimensions(const char *text, int size, int *w, int *h);
 void useFont(char *name);
-static void initChars(Font *f);
-static char *nextCharacter(const char *str, int *i);
-static Glyph *findGlyph(char *c);
+static int nextGlyph(const char *str, int *i, char *glyphBuffer);
 
 static char drawTextBuffer[1024];
 static Font fontHead;
 static Font *fontTail;
 static Font *activeFont = NULL;
 static float scale;
-static char character[MAX_NAME_LENGTH];
 
 void initFonts(void)
 {
+	char *characters;
+
 	memset(&fontHead, 0, sizeof(Font));
 	fontTail = &fontHead;
 
-	initFont("roboto", getFileLocation("data/fonts/Roboto-Medium.ttf"));
+	characters = readFile("data/locale/characters.dat");
 
-	initFont("khosrau", getFileLocation("data/fonts/Khosrau.ttf"));
+	initFont("roboto", getFileLocation("data/fonts/Roboto-Medium.ttf"), characters);
+
+	initFont("khosrau", getFileLocation("data/fonts/Khosrau.ttf"), characters);
 
 	useFont("roboto");
+
+	free(characters);
 }
 
-static void initFont(char *name, char *filename)
+static void initFont(char *name, char *filename, char *characters)
 {
 	SDL_Texture *texture;
 	TTF_Font *font;
 	Font *f;
 	SDL_Surface *surface, *text;
 	SDL_Rect dest;
-	Glyph *g;
-	int i;
+	int i, n, largest;
+	char glyphBuffer[MAX_GLYPH_SIZE];
 	SDL_Color white = {255, 255, 255, 255};
 
 	f = malloc(sizeof(Font));
@@ -65,43 +68,48 @@ static void initFont(char *name, char *filename)
 
 	font = TTF_OpenFont(filename, FONT_SIZE);
 
-	initChars(f);
-
 	surface = SDL_CreateRGBSurface(0, FONT_TEXTURE_SIZE, FONT_TEXTURE_SIZE, 32, 0, 0, 0, 0xff);
 
 	SDL_SetColorKey(surface, SDL_TRUE, SDL_MapRGBA(surface->format, 0, 0, 0, 0));
 
 	dest.x = dest.y = 0;
 
-	for (i = 0 ; i < NUM_GLYPH_BUCKETS ; i++)
+	largest = 0;
+
+	i = 0;
+
+	n = nextGlyph(characters, &i, glyphBuffer);
+
+	while (n)
 	{
-		for (g = f->glyphHead[i].next ; g != NULL ; g = g->next)
+		largest = MAX(largest, n);
+
+		text = TTF_RenderUTF8_Blended(font, glyphBuffer, white);
+
+		TTF_SizeText(font, glyphBuffer, &dest.w, &dest.h);
+
+		if (dest.x + dest.w >= FONT_TEXTURE_SIZE)
 		{
-			text = TTF_RenderUTF8_Blended(font, g->character, white);
+			dest.x = 0;
 
-			TTF_SizeText(font, g->character, &dest.w, &dest.h);
+			dest.y += dest.h + 1;
 
-			if (dest.x + dest.w >= FONT_TEXTURE_SIZE)
+			if (dest.y + dest.h >= FONT_TEXTURE_SIZE)
 			{
-				dest.x = 0;
-
-				dest.y += dest.h + 1;
-
-				if (dest.y + dest.h >= FONT_TEXTURE_SIZE)
-				{
-					SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Out of glyph space in %dx%d font atlas texture map.", FONT_TEXTURE_SIZE, FONT_TEXTURE_SIZE);
-					exit(1);
-				}
+				SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Out of glyph space in %dx%d font atlas texture map.", FONT_TEXTURE_SIZE, FONT_TEXTURE_SIZE);
+				exit(1);
 			}
-
-			SDL_BlitSurface(text, NULL, surface, &dest);
-
-			g->rect = dest;
-
-			SDL_FreeSurface(text);
-
-			dest.x += dest.w;
 		}
+
+		SDL_BlitSurface(text, NULL, surface, &dest);
+
+		f->glyphs[n] = dest;
+
+		SDL_FreeSurface(text);
+
+		dest.x += dest.w;
+
+		n = nextGlyph(characters, &i, glyphBuffer);
 	}
 
 	TTF_CloseFont(font);
@@ -114,43 +122,6 @@ static void initFont(char *name, char *filename)
 
 	fontTail->next = f;
 	fontTail = f;
-}
-
-static void initChars(Font *f)
-{
-	char *characters, *character;
-	Glyph *g, *glyphTail;
-	int i, bucket;
-
-	characters = readFile("data/locale/characters.dat");
-
-	i = 0;
-
-	character = nextCharacter(characters, &i);
-
-	while (character)
-	{
-		bucket = hashcode(character) % NUM_GLYPH_BUCKETS;
-
-		glyphTail = &f->glyphHead[bucket];
-
-		/* horrible bit to look for the tail */
-		while (glyphTail->next)
-		{
-			glyphTail = glyphTail->next;
-		}
-
-		g = malloc(sizeof(Glyph));
-		memset(g, 0, sizeof(Glyph));
-		glyphTail->next = g;
-		glyphTail = g;
-
-		STRNCPY(g->character, character, MAX_NAME_LENGTH);
-
-		character = nextCharacter(characters, &i);
-	}
-
-	free(characters);
 }
 
 void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...)
@@ -266,51 +237,26 @@ static void drawTextLine(int x, int y, int size, int align, const char *line)
 
 static void drawWord(char *word, int *x, int *y, int startX)
 {
-	int i;
-	char *character;
+	int i, n;
 	SDL_Rect dest;
-	Glyph *g;
 
 	i = 0;
 
-	character = nextCharacter(word, &i);
+	n = nextGlyph(word, &i, NULL);
 
-	while (character)
+	while (n)
 	{
-		g = findGlyph(character);
-
 		dest.x = *x;
 		dest.y = *y;
-		dest.w = g->rect.w * scale;
-		dest.h = g->rect.h * scale;
+		dest.w = activeFont->glyphs[n].w * scale;
+		dest.h = activeFont->glyphs[n].h * scale;
 
-		SDL_RenderCopy(app.renderer, activeFont->texture, &g->rect, &dest);
+		SDL_RenderCopy(app.renderer, activeFont->texture, &activeFont->glyphs[n], &dest);
 
-		*x += g->rect.w * scale;
+		*x += activeFont->glyphs[n].w * scale;
 
-		character = nextCharacter(word, &i);
+		n = nextGlyph(word, &i, NULL);
 	}
-}
-
-static Glyph *findGlyph(char *c)
-{
-	Glyph *g;
-	int bucket;
-
-	bucket = hashcode(c) % NUM_GLYPH_BUCKETS;
-
-	for (g = activeFont->glyphHead[bucket].next ; g != NULL ; g = g->next)
-	{
-		if (strcmp(g->character, c) == 0)
-		{
-			return g;
-		}
-	}
-
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Couldn't find glyph for '%s'", c);
-	exit(1);
-
-	return NULL;
 }
 
 void useFont(char *name)
@@ -330,9 +276,7 @@ void useFont(char *name)
 void calcTextDimensions(const char *text, int size, int *w, int *h)
 {
 	float scale;
-	int i;
-	char *character;
-	Glyph *g;
+	int i, n;
 
 	scale = size / (FONT_SIZE * 1.0f);
 
@@ -341,16 +285,14 @@ void calcTextDimensions(const char *text, int size, int *w, int *h)
 
 	i = 0;
 
-	character = nextCharacter(text, &i);
+	n = nextGlyph(text, &i, NULL);
 
-	while (character)
+	while (n)
 	{
-		g = findGlyph(character);
+		*w += activeFont->glyphs[n].w * scale;
+		*h = MAX(activeFont->glyphs[n].h * scale, *h);
 
-		*w += g->rect.w * scale;
-		*h = MAX(g->rect.h * scale, *h);
-
-		character = nextCharacter(text, &i);
+		n = nextGlyph(text, &i, NULL);
 	}
 }
 
@@ -393,29 +335,57 @@ int getWrappedTextHeight(char *text, int size)
 	return y + h;
 }
 
-static char *nextCharacter(const char *str, int *i)
+static int nextGlyph(const char *str, int *i, char *glyphBuffer)
 {
-	unsigned char bit;
-	int n;
+	int n, len;
+	unsigned bit;
 
-	memset(character, '\0', MAX_NAME_LENGTH);
+	bit = (unsigned char)str[*i];
 
-	n = 0;
-
-	while (1)
+	if (bit < ' ')
 	{
-		bit = (unsigned char)str[*i];
-
-		if ((bit >= ' ' && bit <= '~') || bit >= 0xC0 || bit == '\0')
-		{
-			if (n > 0)
-			{
-				return character[0] != '\0' ? character : NULL;
-			}
-		}
-
-		character[n++] = str[*i];
-
-		*i = *i + 1;
+		return 0;
 	}
+
+	len = 1;
+
+	if (bit >= 0xF0)
+	{
+		bit  = (int)(str[*i]     & 0x07) << 18;
+		bit |= (int)(str[*i + 1] & 0x3F) << 12;
+		bit |= (int)(str[*i + 2] & 0x3F) << 6;
+		bit |= (int)(str[*i + 3] & 0x3F);
+
+		len = 4;
+	}
+	else if (bit >= 0xE0)
+	{
+		bit  = (int)(str[*i]     & 0x0F) << 12;
+		bit |= (int)(str[*i + 1] & 0x3F) << 6;
+		bit |= (int)(str[*i + 2] & 0x3F);
+
+		len = 3;
+	}
+	else if (bit >= 0xC0)
+	{
+		bit  = (int)(str[*i]     & 0x1F) << 6;
+		bit |= (int)(str[*i + 1] & 0x3F);
+
+		len = 2;
+	}
+
+	/* only fill the buffer if it's been supplied */
+	if (glyphBuffer != NULL)
+	{
+		memset(glyphBuffer, 0, MAX_GLYPH_SIZE);
+
+		for (n = 0 ; n < len ; n++)
+		{
+			glyphBuffer[n] = str[*i + n];
+		}
+	}
+
+	*i = *i + len;
+
+	return bit;
 }

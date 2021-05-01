@@ -545,16 +545,10 @@ struct Credit {
 	Credit *next;
 };
 
-struct Glyph {
-	char character[MAX_NAME_LENGTH];
-	SDL_Rect rect;
-	Glyph *next;
-};
-
 struct Font {
 	char name[MAX_NAME_LENGTH];
 	SDL_Texture *texture;
-	Glyph glyphHead[NUM_GLYPH_BUCKETS];
+	SDL_Rect glyphs[MAX_GLYPHS];
 	Font *next;
 };
 

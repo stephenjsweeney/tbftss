@@ -29,9 +29,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define FONT_SIZE            32
 #define FONT_TEXTURE_SIZE    512
 #define MAX_WORD_LENGTH      128
+#define MAX_GLYPH_SIZE       8
 
 extern char *getFileLocation(char *filename);
-extern unsigned long hashcode(const char *str);
 extern char *readFile(char *filename);
 extern SDL_Texture *toTexture(SDL_Surface *surface, int destroySurface);
 

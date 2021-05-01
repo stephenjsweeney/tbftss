@@ -25,9 +25,7 @@ MAKEFLAGS += -j$(NPROCS)
 CXXFLAGS += `sdl2-config --cflags` -DVERSION=$(VERSION) -DREVISION=$(REVISION) -DDATA_DIR=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
 CXXFLAGS += -ansi -pedantic
 CXXFLAGS += -g -lefence
-ifneq ("$(wildcard .errors)","")
 CXXFLAGS += -Wall -Wempty-body -Werror -Wstrict-prototypes -Werror=maybe-uninitialized -Warray-bounds
-endif
 
 LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 

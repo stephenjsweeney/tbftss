@@ -43,7 +43,6 @@ typedef struct Tuple Tuple;
 typedef struct Credit Credit;
 typedef struct AtlasImage AtlasImage;
 typedef struct Font Font;
-typedef struct Glyph Glyph;
 
 typedef struct {
 	int debug;

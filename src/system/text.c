@@ -78,9 +78,7 @@ static void initFont(char *name, char *filename, char *characters)
 
 	i = 0;
 
-	n = nextGlyph(characters, &i, glyphBuffer);
-
-	while (n)
+	while ((n = nextGlyph(characters, &i, glyphBuffer)) != 0)
 	{
 		largest = MAX(largest, n);
 
@@ -108,8 +106,6 @@ static void initFont(char *name, char *filename, char *characters)
 		SDL_FreeSurface(text);
 
 		dest.x += dest.w;
-
-		n = nextGlyph(characters, &i, glyphBuffer);
 	}
 
 	TTF_CloseFont(font);
@@ -242,9 +238,7 @@ static void drawWord(char *word, int *x, int *y, int startX)
 
 	i = 0;
 
-	n = nextGlyph(word, &i, NULL);
-
-	while (n)
+	while ((n = nextGlyph(word, &i, NULL)) != 0)
 	{
 		dest.x = *x;
 		dest.y = *y;
@@ -254,8 +248,6 @@ static void drawWord(char *word, int *x, int *y, int startX)
 		SDL_RenderCopy(app.renderer, activeFont->texture, &activeFont->glyphs[n], &dest);
 
 		*x += activeFont->glyphs[n].w * scale;
-
-		n = nextGlyph(word, &i, NULL);
 	}
 }
 
@@ -285,14 +277,10 @@ void calcTextDimensions(const char *text, int size, int *w, int *h)
 
 	i = 0;
 
-	n = nextGlyph(text, &i, NULL);
-
-	while (n)
+	while ((n = nextGlyph(text, &i, NULL)) != 0)
 	{
 		*w += activeFont->glyphs[n].w * scale;
 		*h = MAX(activeFont->glyphs[n].h * scale, *h);
-
-		n = nextGlyph(text, &i, NULL);
 	}
 }
 
@@ -337,10 +325,11 @@ int getWrappedTextHeight(char *text, int size)
 
 static int nextGlyph(const char *str, int *i, char *glyphBuffer)
 {
-	int n, len;
+	int len;
 	unsigned bit;
+	const char *p;
 
-	bit = (unsigned char)str[*i];
+	bit = (unsigned char) str[*i];
 
 	if (bit < ' ')
 	{
@@ -377,11 +366,16 @@ static int nextGlyph(const char *str, int *i, char *glyphBuffer)
 	/* only fill the buffer if it's been supplied */
 	if (glyphBuffer != NULL)
 	{
+		p = str + *i;
+
 		memset(glyphBuffer, 0, MAX_GLYPH_SIZE);
 
-		for (n = 0 ; n < len ; n++)
+		memcpy(glyphBuffer, p, len);
+
+		if (bit >= MAX_GLYPHS)
 		{
-			glyphBuffer[n] = str[*i + n];
+			printf("Glyph '%s' index exceeds array size (%d >= %d)\n", glyphBuffer, bit, MAX_GLYPHS);
+			exit(1);
 		}
 	}
 

@@ -44,7 +44,7 @@ char *getFileLocation(char *filename)
 
 char *readFile(char *filename)
 {
-	char *buffer;
+	char *buffer = NULL;
 	long length;
 	FILE *file;
 

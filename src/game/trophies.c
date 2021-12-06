@@ -426,7 +426,8 @@ void awardStatsTrophies(void)
 
 void awardCampaignTrophies(void)
 {
-	char trophyId[MAX_NAME_LENGTH];
+	/* add 9 to MAX_NAME_LENGTH to account for "CAMPAIGN_" */
+	char trophyId[MAX_NAME_LENGTH+9];
 	char name[MAX_NAME_LENGTH];
 	int i, len;
 	StarSystem *starSystem;

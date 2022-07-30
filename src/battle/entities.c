@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "entities.h"
+#include "../system/lookup.h"
+#include "../battle/capitalShips.h"
+#include "../battle/fighters.h"
+#include "../battle/quadtree.h"
+#include "../battle/rope.h"
+#include "../system/atlas.h"
+#include "../game/trophies.h"
+#include "../battle/effects.h"
+#include "../system/draw.h"
+
+#define DISABLED_GLOW_MAX      255
+#define DISABLED_GLOW_MIN      128
+#define DISABLED_GLOW_SPEED    3
+
+extern App app;
+extern Battle battle;
+extern Dev dev;
+extern Entity *player;
+extern Entity *self;
 
 static void drawEntity(Entity *e);
 static void doEntity(void);

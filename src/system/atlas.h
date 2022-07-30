@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2018-2019 Parallel Realities
+Copyright (C) 2018-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,10 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "../json/cJSON.h"
-
-extern SDL_Texture *getTexture(const char *filename);
-extern unsigned long hashcode(const char *str);
-extern char *readFile(const char *filename);
-extern int stringComparator(const void *a, const void *b);
+char **getAtlasFileList(char *dir, int *count);
+AtlasImage *getAtlasImage(const char *filename);
+void setAtlasColor(int r, int g, int b, int a);
+void initAtlas(void);

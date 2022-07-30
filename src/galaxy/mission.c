@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,10 +18,43 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "mission.h"
+#include <time.h>
+#include "../json/cJSON.h"
+#include "../battle/locations.h"
+#include "../system/widgets.h"
+#include "../system/io.h"
+#include "../galaxy/starSystems.h"
+#include "../battle/jumpgate.h"
+#include "../battle/missionInfo.h"
+#include "../system/util.h"
+#include "../battle/player.h"
+#include "../system/sound.h"
+#include "../system/transition.h"
+#include "../battle/objectives.h"
+#include "../battle/script.h"
+#include "../battle/waypoints.h"
+#include "../battle/spawners.h"
+#include "../system/lookup.h"
+#include "../battle/mine.h"
+#include "../challenges/challenges.h"
+#include "../battle/fighters.h"
+#include "../system/atlas.h"
+#include "../system/resources.h"
+#include "../battle/capitalShips.h"
+#include "../game/trophies.h"
+#include "../system/textures.h"
+#include "../battle/items.h"
+#include "../battle/entities.h"
+
+extern App app;
+extern Battle battle;
+extern Dev dev;
+extern Entity *player;
+extern Game game;
 
 static void loadEntities(cJSON *node);
-static unsigned long hashcode(const char *str);
 static void loadEpicData(cJSON *node);
 static char *getAutoBackground(char *filename);
 static char *getAutoPlanet(char *filename);
@@ -495,21 +528,4 @@ int isMissionAvailable(Mission *mission, Mission *prev)
 			game.completedMissions < mission->expires
 		) || dev.debug;
 	}
-}
-
-static unsigned long hashcode(const char *str)
-{
-    unsigned long hash = 5381;
-    int c;
-
-	c = *str;
-
-	while (c)
-	{
-        hash = ((hash << 5) + hash) + c;
-
-        c = *str++;
-	}
-
-	return hash;
 }

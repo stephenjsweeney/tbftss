@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,26 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-#define MAX_HUD_MESSAGES    6
-
-extern void blit(AtlasImage *atlasImage, int x, int y, int center);
-extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
-extern void drawRadar(void);
-extern void drawRadarRangeWarning(void);
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern float getAngle(int x1, int y1, int x2, int y2);
-extern AtlasImage *getAtlasImage(char *filename);
-extern int getDistance(int x1, int y1, int x2, int y2);
-extern int getPercent(float current, float total);
-extern int jumpgateEnabled(void);
-extern int playerHasGun(int type);
-extern void setAtlasColor(int r, int g, int b, int a);
-extern char *timeToString(long millis, int showHours);
-
-extern App app;
-extern Battle battle;
-extern Colors colors;
-extern Entity *player;
-extern Game game;
+void resetHud(void);
+void drawHud(void);
+void addHudMessage(SDL_Color c, char *format, ...);
+void doHud(void);
+void initHud(void);

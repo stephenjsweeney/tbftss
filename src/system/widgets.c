@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "widgets.h"
+#include "../json/cJSON.h"
+#include <SDL2/SDL_image.h>
+#include "../system/lookup.h"
+#include "../system/draw.h"
+#include "../system/util.h"
+#include "../system/input.h"
+#include "../system/controls.h"
+#include "../system/sound.h"
+#include "../system/io.h"
+#include "../system/text.h"
+#include "../system/atlas.h"
+
+extern App app;
+extern Colors colors;
 
 static void loadWidgets(void);
 static void loadWidgetSet(char *filename);

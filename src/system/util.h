@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,6 +18,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "../json/cJSON.h"
-#include "time.h"
+int stringComparator(const void *a, const void *b);
+unsigned long hashcode(const char *str);
+void *resize(void *array, int oldSize, int newSize);
+int getJSONValue(struct cJSON *node, char *name, int defValue);
+char *getJSONValueStr(struct cJSON *node, char *name, char *defValue);
+char *timeToDate(long millis);
+char *timeToString(long millis, int showHours);
+char **toTypeArray(char *types, int *numTypes);
+int getDistance(int x1, int y1, int x2, int y2);
+float getAngle(int x1, int y1, int x2, int y2);
+int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+int getPercent(float current, float total);
+float mod(float n, float x);

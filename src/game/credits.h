@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,23 +18,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "../json/cJSON.h"
-
-#define CREDIT_LINE_LIMIT    (UI_WIDTH - 300)
-
-extern void blit(AtlasImage *atlasImage, int x, int y, int centered);
-extern void drawBackground(SDL_Texture *texture);
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern void endSectionTransition(void);
-extern AtlasImage *getAtlasImage(const char *filename);
-extern SDL_Texture *getTexture(const char *filename);
-extern int getWrappedTextHeight(char *text, int size);
-extern void initTitle(void);
-extern void playMusic(char *filename, int loop);
-extern char *readFile(char *filename);
-extern void startSectionTransition(void);
-extern void stopMusic(void);
-
-extern App app;
-extern Colors colors;
+void destroyCredits(void);
+void initCredits(void);

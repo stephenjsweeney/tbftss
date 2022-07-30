@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,40 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "title.h"
+#include "../galaxy/mission.h"
+#include "../system/transition.h"
+#include "../battle/starfield.h"
+#include "../game/credits.h"
+#include "../system/input.h"
+#include "../game/stats.h"
+#include "../system/widgets.h"
+#include "../challenges/challengeHome.h"
+#include "../battle/battle.h"
+#include "../galaxy/galacticMap.h"
+#include "../game/options.h"
+#include "../system/atlas.h"
+#include "../game/fighterDatabase.h"
+#include "../game/trophies.h"
+#include "../battle/effects.h"
+#include "../system/text.h"
+#include "../system/draw.h"
+#include "../system/sound.h"
+#include "../system/textures.h"
+
+#define NUM_FIGHTERS       12
+#define SHOW_FIGHTER_DB    4
+#define SHOW_OPTIONS       2
+#define SHOW_STATS         1
+#define SHOW_TITLE         0
+#define SHOW_TROPHIES      3
+
+extern App app;
+extern Battle battle;
+extern Colors colors;
+extern Entity *self;
+extern Game game;
 
 static void logic(void);
 static void draw(void);
@@ -195,7 +228,7 @@ static void draw(void)
 
 	blit(pandoranWar, app.winWidth / 2, 110, 1);
 
-	drawText(10, app.winHeight - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2019");
+	drawText(10, app.winHeight - 25, 14, TA_LEFT, colors.white, "Copyright,2022 Parallel Realities, 2015-2019,2022");
 	drawText(app.winWidth - 10, app.winHeight - 25, 14, TA_RIGHT, colors.white, "Version %.2f.%d", VERSION, REVISION);
 
 	switch (show)

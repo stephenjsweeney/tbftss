@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "debris.h"
+#include "../json/cJSON.h"
+#include "../system/atlas.h"
+#include "../system/draw.h"
+#include "../system/util.h"
+#include "../battle/effects.h"
+
+#define INITIAL_DEBRIS_DRAW_CAPACITY    32
+#define MAX_DEBRIS_TEXTURES             6
+
+extern Battle battle;
 
 static void changeCourse(Debris *d);
 static void resizeDrawList(void);

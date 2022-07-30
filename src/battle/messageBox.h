@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,16 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-#define MSG_BOX_TEXT_WIDTH    600
-
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern int getWrappedTextHeight(char *text, int size);
-extern void playSound(int sound);
-extern void useFont(char *name);
-
-extern App app;
-extern Battle battle;
-extern Colors colors;
-extern Entity *player;
+void resetMessageBox(void);
+void drawMessageBox(void);
+int showingMessageBoxes(void);
+void doMessageBox(void);
+void addMessageBox(char *title, char *body, int type);
+void initMessageBox(void);

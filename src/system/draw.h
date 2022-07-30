@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,13 +18,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-extern int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
-extern void drawMouse(void);
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-
-extern App app;
-extern Battle battle;
-extern Colors colors;
-extern Dev dev;
+void saveScreenshot(void);
+int isOnBattleScreen(int x, int y, int w, int h);
+void drawBackground(SDL_Texture *texture);
+void scrollBackground(float x, float y);
+void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a);
+void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
+void blitScaled(AtlasImage *atlasImage, int x, int y, int w, int h, int center);
+void blit(AtlasImage *atlasImage, int x, int y, int center);
+void presentScene(void);
+void prepareScene(void);
+void initGraphics(void);

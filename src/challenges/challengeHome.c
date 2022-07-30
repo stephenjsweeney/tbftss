@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,13 +18,47 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "challengeHome.h"
+#include "../battle/starfield.h"
+#include "../system/util.h"
+#include "../system/input.h"
+#include "../game/title.h"
+#include "../game/stats.h"
+#include "../system/sound.h"
+#include "../system/widgets.h"
+#include "../galaxy/mission.h"
+#include "../game/trophies.h"
+#include "../game/options.h"
+#include "../system/atlas.h"
+#include "../game/fighterDatabase.h"
+#include "../system/transition.h"
+#include "../challenges/challenges.h"
+#include "../system/text.h"
+#include "../system/draw.h"
+#include "../battle/battle.h"
+#include "../system/resources.h"
+#include "../system/textures.h"
+
+#define CHALLENGES_PER_PAGE    14
+#define SHOW_CHALLENGES        0
+#define SHOW_FIGHTER_DB        5
+#define SHOW_MENU              1
+#define SHOW_OPTIONS           2
+#define SHOW_STATS             3
+#define SHOW_TROPHIES          4
+
+extern App app;
+extern Battle battle;
+extern Colors colors;
+extern Dev dev;
+extern Game game;
 
 static void logic(void);
 static void draw(void);
 static void handleKeyboard(void);
 static void drawChallenges(void);
-static void doChallenges(void);
+static void doChallengeList(void);
 static void startChallengeMission(void);
 static void drawMenu(void);
 static void resume(void);
@@ -209,7 +243,7 @@ static void logic(void)
 	switch (show)
 	{
 		case SHOW_CHALLENGES:
-			doChallenges();
+			doChallengeList();
 			break;
 
 		case SHOW_MENU:
@@ -232,7 +266,7 @@ static void logic(void)
 	app.doTrophyAlerts = 1;
 }
 
-static void doChallenges(void)
+static void doChallengeList(void)
 {
 	Mission *c;
 	int i, startIndex, end;

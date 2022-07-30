@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,18 +18,4 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-#include "../json/cJSON.h"
-
-extern void destroyFighterStats(void);
-extern Challenge *getChallenge(Mission *mission, int type, int value);
-extern char *getLookupName(char *prefix, long num);
-extern Mission *getMission(char *filename);
-extern char *getSaveFilePath(char *filename);
-extern StarSystem *getStarSystem(char *name);
-extern Trophy *getTrophy(char *id);
-extern int lookup(char *lookup);
-extern char *readFile(char *filename);
-
-extern Game game;
+void loadGame(void);

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,11 +18,48 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "init.h"
+#include <SDL2/SDL_image.h>
+#include "../json/cJSON.h"
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
+#include "../game/credits.h"
+#include "../system/widgets.h"
+#include "../battle/bullets.h"
+#include "../system/modalDialog.h"
+#include "../system/io.h"
+#include "../galaxy/starSystems.h"
+#include "../system/draw.h"
+#include "../battle/starfield.h"
+#include "../system/util.h"
+#include "../system/sound.h"
+#include "../system/lookup.h"
+#include "../challenges/challenges.h"
+#include "../system/controls.h"
+#include "../battle/fighters.h"
+#include "../game/game.h"
+#include "../battle/battle.h"
+#include "../game/options.h"
+#include "../system/text.h"
+#include "../system/i18n.h"
+#include "../system/atlas.h"
+#include "../system/resources.h"
+#include "../battle/capitalShips.h"
+#include "../system/input.h"
+#include "../game/stats.h"
+#include "../galaxy/galacticMap.h"
+#include "../game/trophies.h"
+#include "../game/fighterDatabase.h"
+#include "../system/textures.h"
+#include "../battle/items.h"
+#include "../plat/win32/win32Init.h"
+#include "locale.h"
+
+extern App app;
 
 static void loadConfig(int argc, char *argv[]);
 static void loadConfigFile(char *filename);
-void saveConfig(void);
 static void showLoadingStep(float step, float maxSteps);
 static void handleCommandLineConfig(int argc, char *argv[]);
 
@@ -88,7 +125,7 @@ void initSDL(int argc, char *argv[])
 
 	if (Mix_OpenAudio(AUDIO_FREQUENCY, MIX_DEFAULT_FORMAT, AUDIO_CHANNELS, AUDIO_CHUNKSIZE) == -1)
     {
-        printf("Couldn't initialize SDL Mixer\n");
+		printf("Couldn't initialize SDL Mixer\n");
 		exit(1);
     }
 

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,31 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "fighters.h"
+#include "../json/cJSON.h"
+#include "../system/lookup.h"
+#include "../system/atlas.h"
+#include "../system/util.h"
+#include "../battle/ai.h"
+#include "../battle/quadtree.h"
+#include "../battle/debris.h"
+#include "../battle/rope.h"
+#include "../galaxy/mission.h"
+#include "../battle/hud.h"
+#include "../battle/objectives.h"
+#include "../battle/script.h"
+#include "../battle/effects.h"
+#include "../battle/items.h"
+#include "../system/io.h"
+#include "../system/sound.h"
+#include "../battle/entities.h"
+
+extern Battle battle;
+extern Colors colors;
+extern Entity *player;
+extern Entity *self;
+extern Game game;
 
 static void separate(void);
 static void die(void);
@@ -171,7 +195,6 @@ static void randomizeDartGuns(Entity *dart)
 			dart->guns[2].type = BT_PARTICLE;
 			dart->guns[2].y = -10;
 			break;
-
 
 		/* Plasma / Laser cannons */
 		case 3:

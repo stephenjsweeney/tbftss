@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "bullets.h"
+#include "../json/cJSON.h"
+#include "../system/lookup.h"
+#include "../system/atlas.h"
+#include "../system/util.h"
+#include "../battle/fighters.h"
+#include "../battle/quadtree.h"
+#include "../game/trophies.h"
+#include "../battle/effects.h"
+#include "../system/draw.h"
+#include "../system/io.h"
+#include "../system/sound.h"
+
+#define INITIAL_BULLET_DRAW_CAPACITY    32
+#define MISSILE_LIFE                    (FPS * 30)
+#define TURN_SPEED                      2
+#define TURN_THRESHOLD                  3
+
+extern App app;
+extern Battle battle;
+extern Entity *player;
 
 static void huntTarget(Bullet *b);
 static void checkCollisions(Bullet *b);

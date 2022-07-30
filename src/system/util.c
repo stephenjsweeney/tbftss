@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "util.h"
+#include <time.h>
+#include "../json/cJSON.h"
 
 float mod(float n, float x)
 {
@@ -194,5 +197,5 @@ int stringComparator(const void *a, const void *b)
 {
     char **s1 = (char **)a;
     char **s2 = (char **)b;
-    return strcmp(*s1, *s2);
+	return strcmp(*s1, *s2);
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,14 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-#include "../json/cJSON.h"
-
-extern void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a);
-extern int getDistance(int x1, int y1, int x2, int y2);
-extern int getJSONValue(cJSON *node, char *name, int defValue);
-extern void runScriptFunction(char *format, ...);
-
-extern Battle battle;
-extern Entity *player;
+void loadLocations(struct cJSON *node);
+void createChristabelLocation(void);
+void activateLocations(char *locations);
+void drawLocations(void);
+void doLocations(void);

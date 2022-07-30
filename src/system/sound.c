@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "sound.h"
+#include <SDL2/SDL_mixer.h>
+#include "../system/util.h"
+#include "../system/io.h"
+
+#define MAX_BATTLE_SOUND_DISTANCE    1500
+#define MIN_BATTLE_SOUND_DISTANCE    100
+
+extern Entity *player;
 
 static void loadSounds(void);
 
@@ -48,7 +57,7 @@ void playMusic(char *filename, int loop)
 
 	music = Mix_LoadMUS(getFileLocation(filename));
 
-    Mix_PlayMusic(music, (loop) ? -1 : 0);
+	Mix_PlayMusic(music, (loop) ? -1 : 0);
 }
 
 void stopMusic(void)

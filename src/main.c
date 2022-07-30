@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,32 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "common.h"
 #include "main.h"
+#include <time.h>
+#include "game/load.h"
+#include "system/lookup.h"
+#include "system/draw.h"
+#include "game/credits.h"
+#include "system/input.h"
+#include "system/controls.h"
+#include "game/title.h"
+#include "game/trophies.h"
+#include "system/modalDialog.h"
+#include "test/testMission.h"
+#include "game/save.h"
+#include "system/io.h"
+#include "system/dev.h"
+#include "system/init.h"
+#include "plat/win32/win32Init.h"
+
+App app;
+Battle battle;
+Colors colors;
+Dev dev;
+Entity *player;
+Entity *self;
+Game game;
 
 static void handleMissionArgs(int argc, char *argv[]);
 static void handleLoggingArgs(int argc, char *argv[]);

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2016 Parallel Realities
+Copyright (C) 2009-2016,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -17,11 +17,15 @@ along with this program; if not, write to the Free Software
 Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
+#include "../common.h"
 #include "i18n.h"
+#include "../system/io.h"
+#ifdef _WIN32
+	#include <windows.h>
+#endif
 
-char *getTranslatedString(char *);
-void setLanguage(char *, char *);
-void cleanupLanguage(void);
+#define TABLE_SIZE	255
+
 static int hashCode(char *);
 static void put(char *, char *);
 static void initTable(void);
@@ -363,7 +367,7 @@ char *getTranslatedString(char *key)
 	return key;
 }
 
-void cleanupLanguage()
+void cleanupLanguage(void)
 {
 	int i;
 	Bucket *bucket, *p, *q;

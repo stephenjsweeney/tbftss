@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,15 +18,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "../json/cJSON.h"
-
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern void drawWidgets(char *groupName);
-extern char *getLookupName(char *prefix, long num);
-extern Widget *getWidget(const char *name, const char *group);
-extern long lookup(char *name);
-extern char *readFile(char *filename);
-
-extern App app;
-extern Colors colors;
+void drawControls(void);
+void clearControlConfig(char *name);
+void updateControlButton(char *name);
+void updateControlKey(char *name);
+void resetAcceptControls(void);
+void clearControl(int type);
+int isAcceptControl(void);
+int isControl(int type);
+void initControlsDisplay(void);
+void initControls(void);

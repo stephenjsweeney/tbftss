@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,31 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "player.h"
+#include "../json/cJSON.h"
+#include "../system/lookup.h"
+#include "../system/util.h"
+#include "../system/controls.h"
+#include "../battle/fighters.h"
+#include "../system/sound.h"
+#include "../galaxy/mission.h"
+#include "../game/trophies.h"
+#include "../battle/hud.h"
+#include "../battle/objectives.h"
+#include "../battle/bullets.h"
+#include "../battle/effects.h"
+
+#define MAX_SELECTABLE_PLAYERS    8
+#define MAX_SELECTABLE_TARGETS    8
+
+extern App app;
+extern Battle battle;
+extern Colors colors;
+extern Dev dev;
+extern Entity *player;
+extern Entity *self;
+extern Game game;
 
 static void selectTarget(void);
 static void switchGuns(void);

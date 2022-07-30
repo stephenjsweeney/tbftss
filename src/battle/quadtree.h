@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,11 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-#define QT_INITIAL_CAPACITY    8
-#define QT_MAX_DEPTH           5
-
-extern void *resize(void *array, int oldSize, int newSize);
-
-extern Battle battle;
+void destroyQuadtree(void);
+Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
+Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
+void removeFromQuadtree(Entity *e, Quadtree *root);
+void addToQuadtree(Entity *e, Quadtree *root);
+void initQuadtree(Quadtree *root);

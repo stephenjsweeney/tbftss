@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2018-2019 Parallel Realities
+Copyright (C) 2018-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,14 +18,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "text.h"
+#include <SDL2/SDL_ttf.h>
+#include "../system/textures.h"
+#include "../system/io.h"
+
+#define FONT_SIZE            32
+#define FONT_TEXTURE_SIZE    512
+#define MAX_WORD_LENGTH      128
+#define MAX_GLYPH_SIZE       8
+
+extern App app;
 
 static void initFont(char *name, char *filename, char *characters);
 static void drawWord(char *word, int *x, int *y, int startX);
 static void drawTextLines(int x, int y, int size, int align);
 static void drawTextLine(int x, int y, int size, int align, const char *line);
-void calcTextDimensions(const char *text, int size, int *w, int *h);
-void useFont(char *name);
 static int nextGlyph(const char *str, int *i, char *glyphBuffer);
 
 static char drawTextBuffer[1024];

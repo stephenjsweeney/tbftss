@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,18 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-#include "../json/cJSON.h"
-
-#define INITIAL_DEBRIS_DRAW_CAPACITY    32
-#define MAX_DEBRIS_TEXTURES             6
-
-extern void addDebrisFire(int x, int y);
-extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
-extern AtlasImage *getAtlasImage(char *filename);
-extern int isOnBattleScreen(int x, int y, int w, int h);
-extern float mod(float n, float x);
-extern void *resize(void *array, int oldSize, int newSize);
-
-extern Battle battle;
+void destroyDebris(void);
+void drawDebris(void);
+void doDebris(void);
+void addDebris(int x, int y, int amount);
+void initDebris(void);

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,11 +18,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-extern void blit(AtlasImage *atlasImage, int x, int y, int centered);
-extern AtlasImage *getAtlasImage(char *filename);
-extern void musicSetPlaying(int playing);
-extern void setAtlasColor(int r, int g, int b, int a);
-
-extern App app;
+void clearInput(void);
+void doInput(void);
+void drawMouse(void);
+void setMouseCursor(int isDrag);
+void doMouseMotion(SDL_MouseMotionEvent *event);
+void doMouseWheel(SDL_MouseWheelEvent *event);
+void doMouseUp(SDL_MouseButtonEvent *event);
+void doMouseDown(SDL_MouseButtonEvent *event);
+void doKeyUp(SDL_KeyboardEvent *event);
+void doKeyDown(SDL_KeyboardEvent *event);
+void initInput(void);

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "ai.h"
+#include "../battle/mine.h"
+#include "../system/util.h"
+#include "../battle/fighters.h"
+#include "../battle/quadtree.h"
+#include "../battle/bullets.h"
+#include "../battle/hud.h"
+#include "../battle/script.h"
+
+#define AI_EVADE          0
+#define AI_FALLBACK       1
+#define AI_HUNT           2
+#define TURN_SPEED        4
+#define TURN_THRESHOLD    2
+
+extern Battle battle;
+extern Colors colors;
+extern Dev dev;
+extern Entity *player;
+extern Entity *self;
 
 static void faceTarget(Entity *e);
 static int isInFOV(Entity *e, int fov);

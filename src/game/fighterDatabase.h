@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,15 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-extern void blitRotated(AtlasImage *atlasImage, int x, int y, float angle);
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern void drawWidgets(char *groupName);
-extern Entity **getDBFighters(int *num);
-extern Widget *getWidget(const char *name, const char *group);
-extern float mod(float n, float x);
-
-extern App app;
-extern Colors colors;
-extern Game game;
+void drawFighterDatabase(void);
+void doFighterDatabase(void);
+void initFighterDatabaseDisplay(void);
+void destroyFighterDatabase(void);
+void initFighterDatabase(void);

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,16 +18,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "../json/cJSON.h"
-
-extern void addHudMessage(SDL_Color c, char *format, ...);
-extern void completeMission(void);
-extern void failMission(void);
-extern int getJSONValue(cJSON *node, char *name, int defValue);
-extern long lookup(char *name);
-extern void playSound(int id);
-extern void runScriptFunction(char *format, ...);
-
-extern Battle battle;
-extern Colors colors;
+void addEpicKillsObjective(void);
+void addEpicLivesObjective(void);
+void loadObjectives(struct cJSON *node);
+void activateObjectives(char *objectives);
+void failIncompleteObjectives(void);
+void completeConditions(void);
+void completeAllObjectives(void);
+void updateCondition(char *name, int type);
+void adjustObjectiveTargetValue(char *name, int type, int amount);
+void updateObjective(char *name, int type);
+void doObjectives(void);

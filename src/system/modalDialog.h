@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,14 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-extern void clearInput(void);
-extern void doWidgets(void);
-extern void drawText(int x, int y, int size, int align, SDL_Color c, const char *format, ...);
-extern void drawWidgets(char *groupName);
-extern Widget *getWidget(const char *name, const char *group);
-extern int getWrappedTextHeight(char *text, int size);
-
-extern App app;
-extern Colors colors;
+void drawModalDialog(void);
+void doModalDialog(void);
+void showOKCancelDialog(void (*okCallback)(void), void (*cancelCallback)(void), const char *format, ...);
+void showOKDialog(void (*callback)(void), const char *format, ...);
+void initModalDialog(void);

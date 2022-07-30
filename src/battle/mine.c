@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,26 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "mine.h"
+#include "../system/sound.h"
+#include "../system/util.h"
+#include "../battle/fighters.h"
+#include "../battle/quadtree.h"
+#include "../game/trophies.h"
+#include "../battle/objectives.h"
+#include "../battle/script.h"
+#include "../battle/effects.h"
+#include "../system/atlas.h"
+#include "../battle/entities.h"
+
+#define DAMAGE_RANGE     250
+#define SYSTEM_POWER     50
+#define TRIGGER_RANGE    150
+
+extern Battle battle;
+extern Entity *player;
+extern Entity *self;
 
 static void think(void);
 static void die(void);

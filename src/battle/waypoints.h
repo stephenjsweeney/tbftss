@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,18 +18,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-extern void addHudMessage(SDL_Color c, char *format, ...);
-extern AtlasImage *getAtlasImage(char *filename);
-extern int getDistance(int x1, int y1, int x2, int y2);
-extern void playSound(int id);
-extern void runScriptFunction(char *format, ...);
-extern Entity *spawnEntity(void);
-extern void updateObjective(char *name, int type);
-
-extern Battle battle;
-extern Colors colors;
-extern Entity *player;
-extern Entity *self;
-extern Game game;
+void activateNextWaypoint(void);
+Entity *spawnWaypoint(void);
+void resetWaypoints(void);

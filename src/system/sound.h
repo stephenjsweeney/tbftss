@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,15 +18,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-
-#include "SDL2/SDL_mixer.h"
-
-#define MAX_BATTLE_SOUND_DISTANCE    1500
-#define MIN_BATTLE_SOUND_DISTANCE    100
-
-extern float getAngle(int x1, int y1, int x2, int y2);
-extern int getDistance(int x1, int y1, int x2, int y2);
-extern char *getFileLocation(char *filename);
-
-extern Entity *player;
+void destroySounds(void);
+void playBattleSound(int id, int x, int y);
+void playSound(int id);
+void musicSetPlaying(int playing);
+void stopMusic(void);
+void playMusic(char *filename, int loop);
+void initSounds(void);

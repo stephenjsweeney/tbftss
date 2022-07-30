@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,23 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "../json/cJSON.h"
-
-extern void awardCraftTrophy(void);
-extern void awardStatsTrophies(void);
-extern char **getFileList(char *dir, int *count);
-extern int getJSONValue(cJSON *node, char *name, int defValue);
-extern char *getLookupName(char *prefix, long num);
-extern Mission *loadMissionMeta(char *filename);
-extern long lookup(char *name);
-extern void retreatAllies(void);
-extern void retreatEnemies(void);
-extern void selectWidget(const char *name, const char *group);
-extern char *timeToString(long millis, int showHours);
-extern void updateAccuracyStats(unsigned int *stats);
-
-extern Battle battle;
-extern Dev dev;
-extern Entity *player;
-extern Game game;
+void updateChallengeMissions(void);
+Challenge *getChallenge(Mission *mission, int type, int value);
+char *getChallengeDescription(Challenge *c);
+void doChallenges(void);
+void loadChallenge(Mission *mission, struct cJSON *node);
+void initChallenges(void);

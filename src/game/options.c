@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "options.h"
+#include <SDL2/SDL_mixer.h>
+#include "../battle/starfield.h"
+#include "../system/controls.h"
+#include "../system/widgets.h"
+#include "../system/init.h"
+#include "../system/text.h"
+#include "../system/draw.h"
+
+#define SHOW_CONTROLS    1
+#define SHOW_MAIN        0
+
+extern App app;
+extern Colors colors;
 
 static void changeWindowSize(char *value);
 static void changeSoundVolume(char *value);

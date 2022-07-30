@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "challenges.h"
+#include "../json/cJSON.h"
+#include "../system/lookup.h"
+#include "../system/util.h"
+#include "../battle/fighters.h"
+#include "../system/widgets.h"
+#include "../galaxy/mission.h"
+#include "../game/trophies.h"
+#include "../game/stats.h"
+#include "../system/io.h"
+
+extern Battle battle;
+extern Dev dev;
+extern Entity *player;
+extern Game game;
 
 static void updateTimeChallenge(Challenge *c);
 static void updateSurvivalChallenge(Challenge *c);
@@ -35,7 +50,6 @@ static void completeChallenge(void);
 static void failChallenge(void);
 static int updateChallenges(void);
 static char *getFormattedChallengeDescription(const char *format, ...);
-char *getChallengeDescription(Challenge *c);
 static int challengeFinished(void);
 static int alreadyPassed(void);
 static void printStats(void);

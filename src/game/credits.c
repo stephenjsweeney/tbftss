@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,13 +18,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "credits.h"
+#include "../json/cJSON.h"
+#include "../system/draw.h"
+#include "../game/title.h"
+#include "../system/sound.h"
+#include "../system/transition.h"
+#include "../system/textures.h"
+#include "../system/io.h"
+#include "../system/text.h"
+#include "../system/atlas.h"
+
+#define CREDIT_LINE_LIMIT    (UI_WIDTH - 300)
+
+extern App app;
+extern Colors colors;
 
 static void loadCredits(void);
 static void logic(void);
 static void draw(void);
 static void handleKeyboard(void);
-void destroyCredits(void);
 
 static SDL_Texture *background;
 static AtlasImage *earthTexture;

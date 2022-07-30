@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,7 +18,30 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "capitalShips.h"
+#include "../json/cJSON.h"
+#include "../system/lookup.h"
+#include "../system/sound.h"
+#include "../system/util.h"
+#include "../battle/ai.h"
+#include "../battle/fighters.h"
+#include "../battle/quadtree.h"
+#include "../battle/debris.h"
+#include "../battle/messageBox.h"
+#include "../battle/script.h"
+#include "../battle/effects.h"
+#include "../battle/objectives.h"
+#include "../system/atlas.h"
+#include "../system/io.h"
+#include "../battle/entities.h"
+
+#define TURN_SPEED        0.1
+#define TURN_THRESHOLD    2
+
+extern Battle battle;
+extern Entity *player;
+extern Entity *self;
 
 static int steer(void);
 static void think(void);

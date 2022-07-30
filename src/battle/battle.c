@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2019 Parallel Realities
+Copyright (C) 2015-2019,2022 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,13 +18,55 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#include "../common.h"
 #include "battle.h"
+#include "../json/cJSON.h"
+#include "../game/credits.h"
+#include "../battle/locations.h"
+#include "../system/widgets.h"
+#include "../galaxy/mission.h"
+#include "../battle/bullets.h"
+#include "../galaxy/galacticMap.h"
+#include "../battle/effects.h"
+#include "../system/draw.h"
+#include "../battle/starfield.h"
+#include "../battle/player.h"
+#include "../system/sound.h"
+#include "../battle/messageBox.h"
+#include "../battle/spawners.h"
+#include "../battle/waypoints.h"
+#include "../battle/radar.h"
+#include "../battle/objectives.h"
+#include "../battle/script.h"
+#include "../battle/quadtree.h"
+#include "../challenges/challenges.h"
+#include "../challenges/challengeHome.h"
+#include "../system/modalDialog.h"
+#include "../game/options.h"
+#include "../battle/hud.h"
+#include "../battle/missionInfo.h"
+#include "../system/atlas.h"
+#include "../system/input.h"
+#include "../game/stats.h"
+#include "../battle/debris.h"
+#include "../game/trophies.h"
+#include "../battle/entities.h"
+
+#define SHOW_BATTLE        0
+#define SHOW_MENU          1
+#define SHOW_OBJECTIVES    2
+#define SHOW_OPTIONS       3
+
+extern App app;
+extern Battle battle;
+extern Dev dev;
+extern Entity *player;
+extern Game game;
 
 static void logic(void);
 static void draw(void);
 static void handleKeyboard(void);
 static void postBattle(void);
-void destroyBattle(void);
 static void doBattle(void);
 static void optQuitBattle(void);
 static void quitBattle(void);

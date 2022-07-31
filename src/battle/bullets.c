@@ -19,26 +19,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "bullets.h"
-#include "../json/cJSON.h"
-#include "../system/lookup.h"
-#include "../system/atlas.h"
-#include "../system/util.h"
+
+#include "../battle/effects.h"
 #include "../battle/fighters.h"
 #include "../battle/quadtree.h"
 #include "../game/trophies.h"
-#include "../battle/effects.h"
+#include "../json/cJSON.h"
+#include "../system/atlas.h"
 #include "../system/draw.h"
 #include "../system/io.h"
+#include "../system/lookup.h"
 #include "../system/sound.h"
+#include "../system/util.h"
+#include "bullets.h"
 
-#define INITIAL_BULLET_DRAW_CAPACITY    32
-#define MISSILE_LIFE                    (FPS * 30)
-#define TURN_SPEED                      2
-#define TURN_THRESHOLD                  3
+#define INITIAL_BULLET_DRAW_CAPACITY 32
+#define MISSILE_LIFE				 (FPS * 30)
+#define TURN_SPEED					 2
+#define TURN_THRESHOLD				 3
 
-extern App app;
-extern Battle battle;
+extern App	   app;
+extern Battle  battle;
 extern Entity *player;
 
 static void huntTarget(Bullet *b);
@@ -47,23 +48,23 @@ static void resizeDrawList(void);
 static void selectNewTarget(Bullet *b);
 static void doBulletHitEffect(Bullet *b);
 
-static Bullet bulletDef[BT_MAX];
+static Bullet	bulletDef[BT_MAX];
 static Bullet **bulletsToDraw;
-static int drawCapacity;
+static int		drawCapacity;
 
 void initBullets(void)
 {
 	drawCapacity = INITIAL_BULLET_DRAW_CAPACITY;
 
-	bulletsToDraw = malloc(sizeof(Bullet*) * drawCapacity);
-	memset(bulletsToDraw, 0, sizeof(Bullet*) * drawCapacity);
+	bulletsToDraw = malloc(sizeof(Bullet *) * drawCapacity);
+	memset(bulletsToDraw, 0, sizeof(Bullet *) * drawCapacity);
 }
 
 void initBulletDefs(void)
 {
-	cJSON *root, *node;
-	char *text;
-	int type;
+	cJSON  *root, *node;
+	char	 *text;
+	int		type;
 	Bullet *def;
 
 	memset(&bulletDef, 0, sizeof(Bullet) * BT_MAX);
@@ -72,7 +73,7 @@ void initBulletDefs(void)
 
 	root = cJSON_Parse(text);
 
-	for (node = root->child ; node != NULL ; node = node->next)
+	for (node = root->child; node != NULL; node = node->next)
 	{
 		type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
 
@@ -93,15 +94,15 @@ void initBulletDefs(void)
 
 void doBullets(void)
 {
-	int i = 0;
+	int		i = 0;
 	Bullet *b;
 	Bullet *prev = &battle.bulletHead;
 
 	battle.incomingMissile = 0;
 
-	memset(bulletsToDraw, 0, sizeof(Bullet*) * drawCapacity);
+	memset(bulletsToDraw, 0, sizeof(Bullet *) * drawCapacity);
 
-	for (b = battle.bulletHead.next ; b != NULL ; b = b->next)
+	for (b = battle.bulletHead.next; b != NULL; b = b->next)
 	{
 		b->x += b->dx;
 		b->y += b->dy;
@@ -163,7 +164,7 @@ static void resizeDrawList(void)
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing bullet draw capacity: %d -> %d", drawCapacity, n);
 
-	bulletsToDraw = resize(bulletsToDraw, sizeof(Bullet*) * drawCapacity, sizeof(Bullet*) * n);
+	bulletsToDraw = resize(bulletsToDraw, sizeof(Bullet *) * drawCapacity, sizeof(Bullet *) * n);
 
 	drawCapacity = n;
 }
@@ -171,11 +172,11 @@ static void resizeDrawList(void)
 static void checkCollisions(Bullet *b)
 {
 	Entity *e, **candidates;
-	int i;
+	int		i;
 
 	candidates = getAllEntsWithin(b->x - (b->w / 2), b->y - (b->h / 2), b->w, b->h, NULL);
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (e->flags & EF_TAKES_DAMAGE)
 		{
@@ -203,7 +204,7 @@ static void checkCollisions(Bullet *b)
 
 					if (battle.hasSuspicionLevel)
 					{
-						if (e->aiFlags & (AIF_AVOIDS_COMBAT|AIF_DEFENSIVE))
+						if (e->aiFlags & (AIF_AVOIDS_COMBAT | AIF_DEFENSIVE))
 						{
 							battle.suspicionLevel -= (MAX_SUSPICION_LEVEL * 0.1);
 						}
@@ -310,12 +311,12 @@ static void doBulletHitEffect(Bullet *b)
 
 void drawBullets(void)
 {
-	int i;
+	int		i;
 	Bullet *b;
 
 	setAtlasColor(255, 255, 255, 255);
 
-	for (i = 0, b = bulletsToDraw[i] ; b != NULL ; b = bulletsToDraw[++i])
+	for (i = 0, b = bulletsToDraw[i]; b != NULL; b = bulletsToDraw[++i])
 	{
 		blitRotated(b->texture, b->x - battle.camera.x, b->y - battle.camera.y, b->angle);
 	}
@@ -356,7 +357,7 @@ static void faceTarget(Bullet *b)
 
 static void applyMissileThrust(Bullet *b)
 {
-	int maxSpeed;
+	int	  maxSpeed;
 	float v, thrust;
 
 	b->dx += sin(TO_RAIDANS(b->angle));
@@ -397,7 +398,7 @@ static void huntTarget(Bullet *b)
 
 static void selectNewTarget(Bullet *b)
 {
-	int i;
+	int		i;
 	Entity *e, **candidates;
 
 	if (app.gameplay.missileReTarget)
@@ -406,7 +407,7 @@ static void selectNewTarget(Bullet *b)
 
 		candidates = getAllEntsInRadius(b->x, b->y, SCREEN_HEIGHT, NULL);
 
-		for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+		for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 		{
 			if (e->type == ET_FIGHTER && e->side != b->owner->side && e->health > 0)
 			{
@@ -456,13 +457,13 @@ static Bullet *createBullet(int type, int x, int y, Entity *owner)
 void fireGuns(Entity *owner)
 {
 	Bullet *b;
-	int i;
-	float x, y;
-	float c, s;
+	int		i;
+	float	x, y;
+	float	c, s;
 
 	b = NULL;
 
-	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
+	for (i = 0; i < MAX_FIGHTER_GUNS; i++)
 	{
 		if (owner->guns[i].type != BT_NONE && (owner->guns[i].type == owner->selectedGunType || owner->combinedGuns))
 		{

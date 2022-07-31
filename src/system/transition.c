@@ -19,9 +19,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "transition.h"
+
 #include "../system/draw.h"
 #include "../system/input.h"
+#include "transition.h"
 
 static long transitionStartTime;
 

@@ -18,11 +18,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "lookup.h"
 #include <SDL2/SDL_image.h>
 
-static Lookup head;
+#include "../common.h"
+
+#include "lookup.h"
+
+static Lookup  head;
 static Lookup *tail;
 
 static void addLookup(char *name, long value);
@@ -225,7 +227,7 @@ long lookup(char *name)
 {
 	Lookup *l;
 
-	for (l = head.next ; l != NULL ; l = l->next)
+	for (l = head.next; l != NULL; l = l->next)
 	{
 		if (strcmp(l->name, name) == 0)
 		{
@@ -244,7 +246,7 @@ char *getLookupName(char *prefix, long num)
 {
 	Lookup *l;
 
-	for (l = head.next ; l != NULL ; l = l->next)
+	for (l = head.next; l != NULL; l = l->next)
 	{
 		if (l->value == num && strncmp(prefix, l->name, strlen(prefix)) == 0)
 		{
@@ -262,7 +264,7 @@ char *getLookupName(char *prefix, long num)
 long flagsToLong(char *in, int *add)
 {
 	char *flag, *flags;
-	long total;
+	long  total;
 
 	total = 0;
 

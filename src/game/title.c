@@ -19,39 +19,40 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "title.h"
-#include "../galaxy/mission.h"
-#include "../system/transition.h"
-#include "../battle/starfield.h"
-#include "../game/credits.h"
-#include "../system/input.h"
-#include "../game/stats.h"
-#include "../system/widgets.h"
-#include "../challenges/challengeHome.h"
+
 #include "../battle/battle.h"
-#include "../galaxy/galacticMap.h"
-#include "../game/options.h"
-#include "../system/atlas.h"
-#include "../game/fighterDatabase.h"
-#include "../game/trophies.h"
 #include "../battle/effects.h"
-#include "../system/text.h"
+#include "../battle/starfield.h"
+#include "../challenges/challengeHome.h"
+#include "../galaxy/galacticMap.h"
+#include "../galaxy/mission.h"
+#include "../game/credits.h"
+#include "../game/fighterDatabase.h"
+#include "../game/options.h"
+#include "../game/stats.h"
+#include "../game/trophies.h"
+#include "../system/atlas.h"
 #include "../system/draw.h"
+#include "../system/input.h"
 #include "../system/sound.h"
+#include "../system/text.h"
 #include "../system/textures.h"
+#include "../system/transition.h"
+#include "../system/widgets.h"
+#include "title.h"
 
-#define NUM_FIGHTERS       12
-#define SHOW_FIGHTER_DB    4
-#define SHOW_OPTIONS       2
-#define SHOW_STATS         1
-#define SHOW_TITLE         0
-#define SHOW_TROPHIES      3
+#define NUM_FIGHTERS	12
+#define SHOW_FIGHTER_DB 4
+#define SHOW_OPTIONS	2
+#define SHOW_STATS		1
+#define SHOW_TITLE		0
+#define SHOW_TROPHIES	3
 
-extern App app;
-extern Battle battle;
-extern Colors colors;
+extern App	   app;
+extern Battle  battle;
+extern Colors  colors;
 extern Entity *self;
-extern Game game;
+extern Game	   game;
 
 static void logic(void);
 static void draw(void);
@@ -71,13 +72,13 @@ static void quit(void);
 static void returnFromOptions(void);
 
 static SDL_Texture *background;
-static AtlasImage *logo[2];
-static AtlasImage *pandoranWar;
-static AtlasImage *earthTexture;
-static PointF earth;
-static Entity fighters[NUM_FIGHTERS];
-static const char *fighterTextures[] = {"gfx/fighters/firefly.png", "gfx/fighters/hammerhead.png", "gfx/fighters/hyena.png", "gfx/fighters/lynx.png", "gfx/fighters/kingfisher.png", "gfx/fighters/leopard.png", "gfx/fighters/nymph.png", "gfx/fighters/ray.png", "gfx/fighters/rook.png", "gfx/fighters/taf.png"};
-static int show;
+static AtlasImage  *logo[2];
+static AtlasImage  *pandoranWar;
+static AtlasImage  *earthTexture;
+static PointF		earth;
+static Entity		fighters[NUM_FIGHTERS];
+static const char  *fighterTextures[] = {"gfx/fighters/firefly.png", "gfx/fighters/hammerhead.png", "gfx/fighters/hyena.png", "gfx/fighters/lynx.png", "gfx/fighters/kingfisher.png", "gfx/fighters/leopard.png", "gfx/fighters/nymph.png", "gfx/fighters/ray.png", "gfx/fighters/rook.png", "gfx/fighters/taf.png"};
+static int			show;
 
 void initTitle(void)
 {
@@ -89,7 +90,7 @@ void initTitle(void)
 	app.delegate.draw = &draw;
 	memset(&app.keyboard, 0, sizeof(int) * MAX_KEYBOARD_KEYS);
 
-	battle.camera.x =  battle.camera.y = 0;
+	battle.camera.x = battle.camera.y = 0;
 
 	destroyBattle();
 
@@ -137,11 +138,11 @@ static void initFighters(void)
 {
 	int i, numTextures;
 
-	numTextures = sizeof(fighterTextures) / sizeof(char*);
+	numTextures = sizeof(fighterTextures) / sizeof(char *);
 
 	memset(&fighters, 0, sizeof(Entity) * NUM_FIGHTERS);
 
-	for (i = 0 ; i < NUM_FIGHTERS ; i++)
+	for (i = 0; i < NUM_FIGHTERS; i++)
 	{
 		fighters[i].x = rand() % (app.winWidth - 32);
 		fighters[i].y = app.winHeight + (rand() % app.winHeight);
@@ -184,9 +185,9 @@ static void doFighters(void)
 {
 	int i, numTextures;
 
-	numTextures = sizeof(fighterTextures) / sizeof(char*);
+	numTextures = sizeof(fighterTextures) / sizeof(char *);
 
-	for (i = 0 ; i < NUM_FIGHTERS ; i++)
+	for (i = 0; i < NUM_FIGHTERS; i++)
 	{
 		self = &fighters[i];
 
@@ -263,7 +264,7 @@ static void drawFighters(void)
 
 	setAtlasColor(255, 255, 255, 255);
 
-	for (i = 0 ; i < NUM_FIGHTERS ; i++)
+	for (i = 0; i < NUM_FIGHTERS; i++)
 	{
 		blit(fighters[i].texture, fighters[i].x, fighters[i].y, 1);
 	}

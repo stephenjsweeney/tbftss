@@ -18,43 +18,45 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "init.h"
+#include <locale.h>
 #include <SDL2/SDL_image.h>
-#include "../json/cJSON.h"
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
-#include "../game/credits.h"
-#include "../system/widgets.h"
-#include "../battle/bullets.h"
-#include "../system/modalDialog.h"
-#include "../system/io.h"
-#include "../galaxy/starSystems.h"
-#include "../system/draw.h"
-#include "../battle/starfield.h"
-#include "../system/util.h"
-#include "../system/sound.h"
-#include "../system/lookup.h"
-#include "../challenges/challenges.h"
-#include "../system/controls.h"
-#include "../battle/fighters.h"
-#include "../game/game.h"
+
+#include "../common.h"
+
 #include "../battle/battle.h"
-#include "../game/options.h"
-#include "../system/text.h"
-#include "../system/i18n.h"
-#include "../system/atlas.h"
-#include "../system/resources.h"
+#include "../battle/bullets.h"
 #include "../battle/capitalShips.h"
-#include "../system/input.h"
-#include "../game/stats.h"
-#include "../galaxy/galacticMap.h"
-#include "../game/trophies.h"
-#include "../game/fighterDatabase.h"
-#include "../system/textures.h"
+#include "../battle/fighters.h"
 #include "../battle/items.h"
+#include "../battle/starfield.h"
+#include "../challenges/challenges.h"
+#include "../galaxy/galacticMap.h"
+#include "../galaxy/starSystems.h"
+#include "../game/credits.h"
+#include "../game/fighterDatabase.h"
+#include "../game/game.h"
+#include "../game/options.h"
+#include "../game/stats.h"
+#include "../game/trophies.h"
+#include "../json/cJSON.h"
 #include "../plat/win32/win32Init.h"
-#include "locale.h"
+#include "../system/atlas.h"
+#include "../system/controls.h"
+#include "../system/draw.h"
+#include "../system/i18n.h"
+#include "../system/input.h"
+#include "../system/io.h"
+#include "../system/lookup.h"
+#include "../system/modalDialog.h"
+#include "../system/resources.h"
+#include "../system/sound.h"
+#include "../system/text.h"
+#include "../system/textures.h"
+#include "../system/util.h"
+#include "../system/widgets.h"
+#include "init.h"
 
 extern App app;
 
@@ -70,7 +72,7 @@ void init18N(int argc, char *argv[])
 
 	setlocale(LC_NUMERIC, "");
 
-	for (i = 1 ; i < argc ; i++)
+	for (i = 1; i < argc; i++)
 	{
 		if (strcmp(argv[i], "-language") == 0)
 		{
@@ -115,7 +117,7 @@ void initSDL(int argc, char *argv[])
 		windowFlags |= SDL_WINDOW_FULLSCREEN;
 	}
 
-	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
 	{
 		printf("Couldn't initialize SDL: %s\n", SDL_GetError());
 		exit(1);
@@ -124,12 +126,12 @@ void initSDL(int argc, char *argv[])
 	SDL_ShowCursor(0);
 
 	if (Mix_OpenAudio(AUDIO_FREQUENCY, MIX_DEFAULT_FORMAT, AUDIO_CHANNELS, AUDIO_CHUNKSIZE) == -1)
-    {
+	{
 		printf("Couldn't initialize SDL Mixer\n");
 		exit(1);
-    }
+	}
 
-    Mix_AllocateChannels(AUDIO_MIX_CHANNELS);
+	Mix_AllocateChannels(AUDIO_MIX_CHANNELS);
 
 	Mix_Volume(-1, app.soundVolume * MIX_MAX_VOLUME / 10);
 	Mix_VolumeMusic(app.musicVolume * MIX_MAX_VOLUME / 10);
@@ -162,35 +164,15 @@ void initSDL(int argc, char *argv[])
 void initGameSystem(void)
 {
 	int i, numInitFuns;
-	void (*initFuncs[]) (void) = {
-		initGraphics,
-		initFonts,
-		initResources,
-		initSounds,
-		initWidgets,
-		initGame,
-		loadFighterDefs,
-		loadCapitalShipDefs,
-		loadItemDefs,
-		initBulletDefs,
-		initStarSystems,
-		initChallenges,
-		initStats,
-		initModalDialog,
-		initStars,
-		initControls,
-		initTrophies,
-		initFighterDatabase,
-		updateCustomResolutionOption
-	};
+	void (*initFuncs[])(void) = {initGraphics, initFonts, initResources, initSounds, initWidgets, initGame, loadFighterDefs, loadCapitalShipDefs, loadItemDefs, initBulletDefs, initStarSystems, initChallenges, initStats, initModalDialog, initStars, initControls, initTrophies, initFighterDatabase, updateCustomResolutionOption};
 
 	initAtlas();
 
 	initInput();
 
-	numInitFuns = sizeof(initFuncs) / sizeof(void*);
+	numInitFuns = sizeof(initFuncs) / sizeof(void *);
 
-	for (i = 0 ; i < numInitFuns ; i++)
+	for (i = 0; i < numInitFuns; i++)
 	{
 		showLoadingStep(i + 1, numInitFuns);
 
@@ -234,7 +216,7 @@ static void loadConfig(int argc, char *argv[])
 	char *configFilename;
 
 	/* load default config first */
-	loadConfigFile("data/app/"CONFIG_FILENAME);
+	loadConfigFile("data/app/" CONFIG_FILENAME);
 
 	/* load saved config */
 	configFilename = getSaveFilePath(CONFIG_FILENAME);
@@ -256,9 +238,9 @@ static void loadConfig(int argc, char *argv[])
 
 static void loadConfigFile(char *filename)
 {
-	int i;
+	int	   i;
 	cJSON *root, *controlsJSON, *node, *gameplayJSON;
-	char *text;
+	char	 *text;
 
 	text = readFile(filename);
 
@@ -310,8 +292,8 @@ static void loadConfigFile(char *filename)
 
 void saveConfig(void)
 {
-	int i;
-	char *out, *configFilename;
+	int	   i;
+	char	 *out, *configFilename;
 	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON, *gameplayJSON;
 
 	configFilename = getSaveFilePath(CONFIG_FILENAME);
@@ -327,13 +309,13 @@ void saveConfig(void)
 	cJSON_AddNumberToObject(root, "vSync", app.vSync);
 
 	keysJSON = cJSON_CreateObject();
-	for (i = 0 ; i < CONTROL_MAX ; i++)
+	for (i = 0; i < CONTROL_MAX; i++)
 	{
 		cJSON_AddNumberToObject(keysJSON, getLookupName("CONTROL_", i), app.keyControls[i]);
 	}
 
 	mouseJSON = cJSON_CreateObject();
-	for (i = 0 ; i < CONTROL_MAX ; i++)
+	for (i = 0; i < CONTROL_MAX; i++)
 	{
 		cJSON_AddNumberToObject(mouseJSON, getLookupName("CONTROL_", i), app.mouseControls[i]);
 	}
@@ -365,7 +347,7 @@ static void handleCommandLineConfig(int argc, char *argv[])
 {
 	int i;
 
-	for (i = 1 ; i < argc ; i++)
+	for (i = 1; i < argc; i++)
 	{
 		if (strcmp(argv[i], "-size") == 0)
 		{

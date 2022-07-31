@@ -19,21 +19,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "jumpgate.h"
-#include "../system/draw.h"
-#include "../system/util.h"
-#include "../battle/quadtree.h"
+
 #include "../battle/debris.h"
-#include "../battle/objectives.h"
-#include "../battle/script.h"
 #include "../battle/effects.h"
-#include "../system/atlas.h"
-#include "../system/sound.h"
 #include "../battle/entities.h"
+#include "../battle/objectives.h"
+#include "../battle/quadtree.h"
+#include "../battle/script.h"
+#include "../system/atlas.h"
+#include "../system/draw.h"
+#include "../system/sound.h"
+#include "../system/util.h"
+#include "jumpgate.h"
 
-#define ESCAPE_DISTANCE    256
+#define ESCAPE_DISTANCE 256
 
-extern Battle battle;
+extern Battle  battle;
 extern Entity *self;
 
 static void think(void);
@@ -44,7 +45,7 @@ static void addNodes(Entity *jumpgate, long flags);
 static void nodeDie(void);
 
 static AtlasImage *portal;
-static float portalAngle;
+static float	   portalAngle;
 
 Entity *spawnJumpgate(int side, long flags)
 {
@@ -63,7 +64,7 @@ Entity *spawnJumpgate(int side, long flags)
 	jumpgate->action = think;
 	jumpgate->draw = draw;
 	jumpgate->side = side;
-	jumpgate->flags = EF_NO_MT_BOX+EF_IMMORTAL+EF_AI_IGNORE+EF_NON_SOLID+EF_NO_HEALTH_BAR;
+	jumpgate->flags = EF_NO_MT_BOX + EF_IMMORTAL + EF_AI_IGNORE + EF_NON_SOLID + EF_NO_HEALTH_BAR;
 
 	if (flags != -1 && flags & EF_DISABLED)
 	{
@@ -85,13 +86,13 @@ Entity *spawnJumpgate(int side, long flags)
 
 static void addNodes(Entity *jumpgate, long flags)
 {
-	Entity *node;
+	Entity	   *node;
 	AtlasImage *nodeTexture;
-	int i;
+	int			i;
 
 	nodeTexture = getAtlasImage("gfx/entities/jumpgateNode.png");
 
-	for (i = 0 ; i < 360 ; i += 36)
+	for (i = 0; i < 360; i += 36)
 	{
 		node = spawnEntity();
 		STRNCPY(node->name, _("Jumpgate System Node"), MAX_NAME_LENGTH);
@@ -102,7 +103,7 @@ static void addNodes(Entity *jumpgate, long flags)
 		node->owner = jumpgate;
 		node->side = jumpgate->side;
 		node->texture = nodeTexture;
-		node->flags = EF_TAKES_DAMAGE+EF_AI_IGNORE;
+		node->flags = EF_TAKES_DAMAGE + EF_AI_IGNORE;
 		node->die = nodeDie;
 		node->w = node->texture->rect.w;
 		node->h = node->texture->rect.h;
@@ -152,7 +153,7 @@ void activateJumpgate(int activate)
 
 	if (battle.jumpgate && battle.jumpgate->health > 1)
 	{
-		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+		for (e = battle.entityHead.next; e != NULL; e = e->next)
 		{
 			if (e == battle.jumpgate || e->owner == battle.jumpgate)
 			{
@@ -196,11 +197,11 @@ static void think(void)
 static void handleFleeingEntities(void)
 {
 	Entity *e, **candidates;
-	int i;
+	int		i;
 
 	candidates = getAllEntsInRadius(self->x, self->y, ESCAPE_DISTANCE * 2, self);
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (e->health > 0 && (e->flags & EF_RETREATING) && getDistance(self->x, self->y, e->x, e->y) <= ESCAPE_DISTANCE)
 		{
@@ -216,11 +217,11 @@ static void handleFleeingEntities(void)
 static void addEscapeEffect(Entity *ent)
 {
 	Effect *e;
-	int i, n, speed;
+	int		i, n, speed;
 
 	n = ent->w * ent->h;
 
-	for (i = 0 ; i < n ; i++)
+	for (i = 0; i < n; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));

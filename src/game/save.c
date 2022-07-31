@@ -19,23 +19,24 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "save.h"
+
 #include "../json/cJSON.h"
-#include "../system/lookup.h"
 #include "../system/io.h"
+#include "../system/lookup.h"
+#include "save.h"
 
 extern Game game;
 
-static void saveStarSystems(cJSON *gameJSON);
-static void saveChallenges(cJSON *gameJSON);
+static void	  saveStarSystems(cJSON *gameJSON);
+static void	  saveChallenges(cJSON *gameJSON);
 static cJSON *getMissionsJSON(StarSystem *starSystem);
-static void saveStats(cJSON *gameJSON);
-static void saveTrophies(cJSON *gameJSON);
-static void saveFighterStats(cJSON *gameJSON);
+static void	  saveStats(cJSON *gameJSON);
+static void	  saveTrophies(cJSON *gameJSON);
+static void	  saveFighterStats(cJSON *gameJSON);
 
 void saveGame(void)
 {
-	char *out;
+	char	 *out;
 	cJSON *root, *gameJSON;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Saving Game ...");
@@ -66,12 +67,12 @@ void saveGame(void)
 
 static void saveStarSystems(cJSON *gameJSON)
 {
-	cJSON *starSystemJSON, *starSystemsJSON;
+	cJSON	  *starSystemJSON, *starSystemsJSON;
 	StarSystem *starSystem;
 
 	starSystemsJSON = cJSON_CreateArray();
 
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
 	{
 		if (starSystem->totalMissions > 0)
 		{
@@ -90,12 +91,12 @@ static void saveStarSystems(cJSON *gameJSON)
 
 static cJSON *getMissionsJSON(StarSystem *starSystem)
 {
-	cJSON *missionJSON, *missionsJSON;
+	cJSON	  *missionJSON, *missionsJSON;
 	Mission *mission;
 
 	missionsJSON = cJSON_CreateArray();
 
-	for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+	for (mission = starSystem->missionHead.next; mission != NULL; mission = mission->next)
 	{
 		missionJSON = cJSON_CreateObject();
 
@@ -110,14 +111,14 @@ static cJSON *getMissionsJSON(StarSystem *starSystem)
 
 static void saveChallenges(cJSON *gameJSON)
 {
-	int i;
-	Mission *mission;
+	int		   i;
+	Mission	*mission;
 	Challenge *c;
-	cJSON *missionsJSON, *missionJSON, *challengesJSON, *challengeJSON;
+	cJSON	  *missionsJSON, *missionJSON, *challengesJSON, *challengeJSON;
 
 	missionsJSON = cJSON_CreateArray();
 
-	for (mission = game.challengeMissionHead.next ; mission != NULL ; mission = mission->next)
+	for (mission = game.challengeMissionHead.next; mission != NULL; mission = mission->next)
 	{
 		missionJSON = cJSON_CreateObject();
 
@@ -125,7 +126,7 @@ static void saveChallenges(cJSON *gameJSON)
 
 		challengesJSON = cJSON_CreateArray();
 
-		for (i = 0 ; i < MAX_CHALLENGES ; i++)
+		for (i = 0; i < MAX_CHALLENGES; i++)
 		{
 			c = mission->challengeData.challenges[i];
 
@@ -154,7 +155,7 @@ static void saveStats(cJSON *gameJSON)
 
 	cJSON *stats = cJSON_CreateObject();
 
-	for (i = 0 ; i < STAT_MAX ; i++)
+	for (i = 0; i < STAT_MAX; i++)
 	{
 		cJSON_AddNumberToObject(stats, getLookupName("STAT_", i), game.stats[i]);
 	}
@@ -165,11 +166,11 @@ static void saveStats(cJSON *gameJSON)
 static void saveTrophies(cJSON *gameJSON)
 {
 	Trophy *t;
-	cJSON *trophiesJSON, *trophyJSON;
+	cJSON  *trophiesJSON, *trophyJSON;
 
 	trophiesJSON = cJSON_CreateArray();
 
-	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	for (t = game.trophyHead.next; t != NULL; t = t->next)
 	{
 		if (t->awarded)
 		{
@@ -192,7 +193,7 @@ static void saveFighterStats(cJSON *gameJSON)
 
 	fighterStatsJSON = cJSON_CreateArray();
 
-	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
+	for (t = game.fighterStatHead.next; t != NULL; t = t->next)
 	{
 		fighterStatJSON = cJSON_CreateObject();
 

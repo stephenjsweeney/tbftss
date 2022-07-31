@@ -18,21 +18,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "widgets.h"
-#include "../json/cJSON.h"
 #include <SDL2/SDL_image.h>
-#include "../system/lookup.h"
-#include "../system/draw.h"
-#include "../system/util.h"
-#include "../system/input.h"
-#include "../system/controls.h"
-#include "../system/sound.h"
-#include "../system/io.h"
-#include "../system/text.h"
-#include "../system/atlas.h"
 
-extern App app;
+#include "../common.h"
+
+#include "../json/cJSON.h"
+#include "../system/atlas.h"
+#include "../system/controls.h"
+#include "../system/draw.h"
+#include "../system/input.h"
+#include "../system/io.h"
+#include "../system/lookup.h"
+#include "../system/sound.h"
+#include "../system/text.h"
+#include "../system/util.h"
+#include "widgets.h"
+
+extern App	  app;
 extern Colors colors;
 
 static void loadWidgets(void);
@@ -45,13 +47,13 @@ static void createSelectButtons(Widget *w);
 static void handleControlWidgets(void);
 static void updateSelectWidgets(void);
 
-static Widget head;
-static Widget *tail;
-static Widget *selectedWidget;
-static Widget *hoverWidget;
+static Widget	   head;
+static Widget	  *tail;
+static Widget	  *selectedWidget;
+static Widget	  *hoverWidget;
 static AtlasImage *optionsLeft;
 static AtlasImage *optionsRight;
-static int drawingWidgets;
+static int		   drawingWidgets;
 
 void initWidgets(void)
 {
@@ -97,7 +99,7 @@ static void updateSelectWidgets(void)
 {
 	Widget *w;
 
-	for (w = head.next; w != NULL ; w = w->next)
+	for (w = head.next; w != NULL; w = w->next)
 	{
 		if (w->type == WT_SELECT_BUTTON && w->parent)
 		{
@@ -120,7 +122,7 @@ Widget *getWidget(const char *name, const char *group)
 {
 	Widget *w;
 
-	for (w = head.next; w != NULL ; w = w->next)
+	for (w = head.next; w != NULL; w = w->next)
 	{
 		if (strcmp(w->name, name) == 0 && strcmp(w->group, group) == 0)
 		{
@@ -140,7 +142,7 @@ void selectWidget(const char *name, const char *group)
 
 void drawWidgets(const char *group)
 {
-	int mouseOver;
+	int		mouseOver;
 	Widget *w;
 
 	drawingWidgets = 1;
@@ -148,7 +150,7 @@ void drawWidgets(const char *group)
 
 	hoverWidget = NULL;
 
-	for (w = head.next; w != NULL ; w = w->next)
+	for (w = head.next; w != NULL; w = w->next)
 	{
 		if ((app.modalDialog.type == MD_NONE || (app.modalDialog.type != MD_NONE && w->isModal)) && w->visible && strcmp(w->group, group) == 0)
 		{
@@ -181,7 +183,7 @@ void drawWidgets(const char *group)
 					setAtlasColor(128, 192, 255, 255);
 				}
 
-				blit(w->texture , w->rect.x, w->rect.y, 0);
+				blit(w->texture, w->rect.x, w->rect.y, 0);
 			}
 			else
 			{
@@ -272,12 +274,12 @@ static void changeSelectedValue(Widget *w, int dir)
 
 void setWidgetOption(const char *name, const char *group, const char *value)
 {
-	int i;
+	int		i;
 	Widget *w = getWidget(name, group);
 
 	if (w)
 	{
-		for (i = 0 ; i < w->numOptions ; i++)
+		for (i = 0; i < w->numOptions; i++)
 		{
 			if (strcmp(w->options[i], value) == 0)
 			{
@@ -340,7 +342,7 @@ static void handleKeyboard(void)
 	{
 		if (selectedWidget->type == WT_BUTTON)
 		{
-			if (app.keyboard[SDL_SCANCODE_SPACE] ||app.keyboard[SDL_SCANCODE_RETURN])
+			if (app.keyboard[SDL_SCANCODE_SPACE] || app.keyboard[SDL_SCANCODE_RETURN])
 			{
 				playSound(SND_GUI_SELECT);
 				old = selectedWidget;
@@ -398,12 +400,12 @@ static void handleControlWidgets(void)
 static void loadWidgets()
 {
 	char **filenames;
-	char path[MAX_FILENAME_LENGTH];
-	int count, i;
+	char   path[MAX_FILENAME_LENGTH];
+	int	   count, i;
 
 	filenames = getFileList("data/widgets", &count);
 
-	for (i = 0 ; i < count ; i++)
+	for (i = 0; i < count; i++)
 	{
 		sprintf(path, "data/widgets/%s", filenames[i]);
 
@@ -417,8 +419,8 @@ static void loadWidgets()
 
 static void loadWidgetSet(char *filename)
 {
-	cJSON *root, *node;
-	char *text;
+	cJSON  *root, *node;
+	char	 *text;
 	Widget *w;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
@@ -428,7 +430,7 @@ static void loadWidgetSet(char *filename)
 
 	if (root)
 	{
-		for (node = root->child ; node != NULL ; node = node->next)
+		for (node = root->child; node != NULL; node = node->next)
 		{
 			w = malloc(sizeof(Widget));
 			memset(w, 0, sizeof(Widget));
@@ -499,12 +501,12 @@ static void loadWidgetSet(char *filename)
 
 static void createOptions(Widget *w, char *options)
 {
-	int i;
+	int	  i;
 	char *option;
 
 	w->numOptions = 1;
 
-	for (i = 0 ; i < strlen(options) ; i++)
+	for (i = 0; i < strlen(options); i++)
 	{
 		if (options[i] == ';')
 		{
@@ -512,7 +514,7 @@ static void createOptions(Widget *w, char *options)
 		}
 	}
 
-	w->options = malloc(w->numOptions * sizeof(char*));
+	w->options = malloc(w->numOptions * sizeof(char *));
 
 	i = 0;
 	option = strtok(options, ";");
@@ -531,10 +533,10 @@ static void createOptions(Widget *w, char *options)
 
 static void createSelectButtons(Widget *w)
 {
-	int i;
+	int		i;
 	Widget *btn;
 
-	for (i = 0 ; i < 2 ; i++)
+	for (i = 0; i < 2; i++)
 	{
 		btn = malloc(sizeof(Widget));
 		memcpy(btn, w, sizeof(Widget));
@@ -565,12 +567,12 @@ static void createSelectButtons(Widget *w)
 
 void autoSizeWidgetButtons(char *group, int recenter)
 {
-	int width, height, maxWidth;
+	int		width, height, maxWidth;
 	Widget *w;
 
 	maxWidth = 0;
 
-	for (w = head.next; w != NULL ; w = w->next)
+	for (w = head.next; w != NULL; w = w->next)
 	{
 		if (strcmp(w->group, group) == 0 && w->type == WT_BUTTON)
 		{
@@ -580,7 +582,7 @@ void autoSizeWidgetButtons(char *group, int recenter)
 		}
 	}
 
-	for (w = head.next; w != NULL ; w = w->next)
+	for (w = head.next; w != NULL; w = w->next)
 	{
 		if (strcmp(w->group, group) == 0 && w->type == WT_BUTTON)
 		{
@@ -596,13 +598,13 @@ void autoSizeWidgetButtons(char *group, int recenter)
 
 void destroyWidgets(void)
 {
-	int i;
+	int		i;
 	Widget *w = head.next;
 	Widget *next;
 
 	while (w)
 	{
-		for (i = 0 ; i < w->numOptions ; i++)
+		for (i = 0; i < w->numOptions; i++)
 		{
 			free(w->options[i]);
 		}

@@ -18,9 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void updateChallengeMissions(void);
+void	   updateChallengeMissions(void);
 Challenge *getChallenge(Mission *mission, int type, int value);
-char *getChallengeDescription(Challenge *c);
-void doChallenges(void);
-void loadChallenge(Mission *mission, struct cJSON *node);
-void initChallenges(void);
+char	  *getChallengeDescription(Challenge *c);
+void	   doChallenges(void);
+void	   loadChallenge(Mission *mission, struct cJSON *node);
+void	   initChallenges(void);

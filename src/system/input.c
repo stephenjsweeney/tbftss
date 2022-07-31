@@ -19,10 +19,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "input.h"
+
 #include "../system/atlas.h"
 #include "../system/draw.h"
 #include "../system/sound.h"
+#include "input.h"
 
 extern App app;
 
@@ -122,7 +123,7 @@ void drawMouse(void)
 void doInput(void)
 {
 	SDL_Event event;
-	int x, y;
+	int		  x, y;
 
 	while (SDL_PollEvent(&event))
 	{

@@ -18,11 +18,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../../common.h"
-#include "win32Init.h"
+#include <errno.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <errno.h>
+
+#include "../../common.h"
+
+#include "win32Init.h"
 
 extern App app;
 extern Dev dev;
@@ -30,7 +32,7 @@ extern Dev dev;
 void createSaveFolder(void)
 {
 	char *userHome;
-	char dir[MAX_FILENAME_LENGTH];
+	char  dir[MAX_FILENAME_LENGTH];
 
 	userHome = getenv("USERPROFILE");
 

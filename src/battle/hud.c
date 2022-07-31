@@ -19,22 +19,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "hud.h"
-#include "../system/atlas.h"
-#include "../system/util.h"
-#include "../battle/player.h"
-#include "../system/text.h"
-#include "../battle/radar.h"
-#include "../system/draw.h"
+
 #include "../battle/jumpgate.h"
+#include "../battle/player.h"
+#include "../battle/radar.h"
+#include "../system/atlas.h"
+#include "../system/draw.h"
+#include "../system/text.h"
+#include "../system/util.h"
+#include "hud.h"
 
-#define MAX_HUD_MESSAGES    6
+#define MAX_HUD_MESSAGES 6
 
-extern App app;
-extern Battle battle;
-extern Colors colors;
+extern App	   app;
+extern Battle  battle;
+extern Colors  colors;
 extern Entity *player;
-extern Game game;
+extern Game	   game;
 
 static void drawPlayerTargeter(void);
 static void drawNumFighters(void);
@@ -50,7 +51,7 @@ static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g
 static void drawSuspicionLevel(void);
 static void drawMissileWarning(void);
 
-static HudMessage hudMessageHead;
+static HudMessage  hudMessageHead;
 static HudMessage *hudMessageTail;
 static AtlasImage *targetPointer;
 static AtlasImage *targetCircle;
@@ -64,21 +65,21 @@ static AtlasImage *boost;
 static AtlasImage *nextGun;
 static AtlasImage *clockIcon;
 static AtlasImage *objectives;
-static int numMessages;
+static int		   numMessages;
 static const char *gunName[BT_MAX];
-static char *MISSILES_TEXT;
-static char *TARGET_TEXT;
-static char *NONE_TEXT;
-static char *COMBINED_TEXT;
-static char *SYSTEM_POWER_TEXT;
-static char *LEADER_DIST_TEXT;
-static char *TARGET_DIST_TEXT;
-static char *OBJECTIVE_DIST_TEXT;
-static char *JUMPGATE_DIST_TEXT;
-static char *NEW_FIGHTER_TEXT;
-static char *SUSPICION_TEXT;
-static char *REMAINING_PILOTS_TEXT;
-static char *WARNING_TEXT;
+static char		*MISSILES_TEXT;
+static char		*TARGET_TEXT;
+static char		*NONE_TEXT;
+static char		*COMBINED_TEXT;
+static char		*SYSTEM_POWER_TEXT;
+static char		*LEADER_DIST_TEXT;
+static char		*TARGET_DIST_TEXT;
+static char		*OBJECTIVE_DIST_TEXT;
+static char		*JUMPGATE_DIST_TEXT;
+static char		*NEW_FIGHTER_TEXT;
+static char		*SUSPICION_TEXT;
+static char		*REMAINING_PILOTS_TEXT;
+static char		*WARNING_TEXT;
 
 void initHud(void)
 {
@@ -129,7 +130,7 @@ void doHud(void)
 
 	prev = &hudMessageHead;
 
-	for (hudMessage = hudMessageHead.next ; hudMessage != NULL ; hudMessage = hudMessage->next)
+	for (hudMessage = hudMessageHead.next; hudMessage != NULL; hudMessage = hudMessage->next)
 	{
 		hudMessage->life--;
 
@@ -219,7 +220,7 @@ void drawHud(void)
 static void drawHealthBars(void)
 {
 	float p;
-	int r, g, b;
+	int	  r, g, b;
 
 	r = g = b = 0;
 	p = player->health;
@@ -251,7 +252,7 @@ static void drawHealthBars(void)
 static void drawHealthShieldBar(int current, int max, int x, int y, int r, int g, int b, int flashLow)
 {
 	SDL_Rect rect;
-	float percent = 0;
+	float	 percent = 0;
 
 	if (max > 0)
 	{
@@ -348,7 +349,7 @@ static void drawWeaponInfo(void)
 		{
 			y = 70;
 
-			for (i = 0 ; i < BT_MAX ; i++)
+			for (i = 0; i < BT_MAX; i++)
 			{
 				if (playerHasGun(i))
 				{
@@ -383,7 +384,7 @@ static void drawWeaponInfo(void)
 static void drawPlayerTargeter(void)
 {
 	float angle;
-	int x, y;
+	int	  x, y;
 
 	if (player->target || battle.missionTarget || jumpgateEnabled() || battle.messageSpeaker)
 	{
@@ -559,7 +560,7 @@ static float distanceToKM(int x1, int y1, int x2, int y2)
 
 static void drawDistancesInfo(void)
 {
-	int y;
+	int	  y;
 	float distance;
 
 	y = 11;
@@ -615,9 +616,9 @@ static void drawDistancesInfo(void)
 static void drawHudMessages(void)
 {
 	HudMessage *hudMessage;
-	int y = app.winHeight - 25;
+	int			y = app.winHeight - 25;
 
-	for (hudMessage = hudMessageHead.next ; hudMessage != NULL ; hudMessage = hudMessage->next)
+	for (hudMessage = hudMessageHead.next; hudMessage != NULL; hudMessage = hudMessage->next)
 	{
 		drawText(10, y, 14, TA_LEFT, hudMessage->color, hudMessage->message);
 

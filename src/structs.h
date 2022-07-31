@@ -18,66 +18,71 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-typedef struct Texture Texture;
-typedef struct Lookup Lookup;
-typedef struct Weapon Weapon;
-typedef struct Quadtree Quadtree;
-typedef struct Entity Entity;
-typedef struct Bullet Bullet;
-typedef struct Debris Debris;
-typedef struct Effect Effect;
-typedef struct Spawner Spawner;
-typedef struct Objective Objective;
-typedef struct StarSystem StarSystem;
-typedef struct Challenge Challenge;
-typedef struct Mission Mission;
-typedef struct Pulse Pulse;
-typedef struct Widget Widget;
-typedef struct HudMessage HudMessage;
-typedef struct MessageBox MessageBox;
+typedef struct Texture		Texture;
+typedef struct Lookup		Lookup;
+typedef struct Weapon		Weapon;
+typedef struct Quadtree		Quadtree;
+typedef struct Entity		Entity;
+typedef struct Bullet		Bullet;
+typedef struct Debris		Debris;
+typedef struct Effect		Effect;
+typedef struct Spawner		Spawner;
+typedef struct Objective	Objective;
+typedef struct StarSystem	StarSystem;
+typedef struct Challenge	Challenge;
+typedef struct Mission		Mission;
+typedef struct Pulse		Pulse;
+typedef struct Widget		Widget;
+typedef struct HudMessage	HudMessage;
+typedef struct MessageBox	MessageBox;
 typedef struct ScriptRunner ScriptRunner;
-typedef struct Location Location;
-typedef struct Bucket Bucket;
-typedef struct Trophy Trophy;
-typedef struct Tuple Tuple;
-typedef struct Credit Credit;
-typedef struct AtlasImage AtlasImage;
-typedef struct Font Font;
+typedef struct Location		Location;
+typedef struct Bucket		Bucket;
+typedef struct Trophy		Trophy;
+typedef struct Tuple		Tuple;
+typedef struct Credit		Credit;
+typedef struct AtlasImage	AtlasImage;
+typedef struct Font			Font;
 
-typedef struct {
-	int debug;
-	int takeScreenshots;
+typedef struct
+{
+	int	  debug;
+	int	  takeScreenshots;
 	char *screenshotFolder;
-	int noAIWeapons;
-	int showFPS;
-	int playerImmortal;
-	int playerUnlimitedMissiles;
-	int noEntityActions;
-	int allImmortal;
-	int fps;
+	int	  noAIWeapons;
+	int	  showFPS;
+	int	  playerImmortal;
+	int	  playerUnlimitedMissiles;
+	int	  noEntityActions;
+	int	  allImmortal;
+	int	  fps;
 } Dev;
 
-typedef struct {
+typedef struct
+{
 	float x;
 	float y;
 } PointF;
 
-struct Texture {
-	char name[MAX_DESCRIPTION_LENGTH];
-	long hash;
-	long ttl;
+struct Texture
+{
+	char		 name[MAX_DESCRIPTION_LENGTH];
+	long		 hash;
+	long		 ttl;
 	SDL_Texture *texture;
-	Texture *next;
+	Texture		*next;
 };
 
-struct AtlasImage {
-	char filename[MAX_FILENAME_LENGTH];
-	SDL_Rect rect;
+struct AtlasImage
+{
+	char		 filename[MAX_FILENAME_LENGTH];
+	SDL_Rect	 rect;
 	SDL_Texture *texture;
-	AtlasImage *next;
+	AtlasImage  *next;
 };
 
-typedef struct {
+typedef struct
+{
 	void (*logic)(void);
 	void (*draw)(void);
 	void (*handleClick)(int x, int y, int btn);
@@ -85,18 +90,21 @@ typedef struct {
 	void (*handleMouseUp)(int x, int y, int btn);
 } Delegate;
 
-typedef struct {
-	int type;
+typedef struct
+{
+	int	 type;
 	char message[MAX_DESCRIPTION_LENGTH];
 } ModalDialog;
 
-struct Lookup {
-	char name[MAX_NAME_LENGTH];
-	long value;
+struct Lookup
+{
+	char	name[MAX_NAME_LENGTH];
+	long	value;
 	Lookup *next;
 };
 
-struct Weapon {
+struct Weapon
+{
 	int type;
 	int ammo;
 	int maxAmmo;
@@ -104,361 +112,382 @@ struct Weapon {
 	int y;
 };
 
-struct Entity {
-	int type;
-	char name[MAX_NAME_LENGTH];
-	char defName[MAX_NAME_LENGTH];
-	char groupName[MAX_NAME_LENGTH];
-	char *description;
-	char affiliation[MAX_NAME_LENGTH];
-	int active;
-	int spawned;
-	int id;
-	int side;
-	float x;
-	float y;
-	int offsetX;
-	int offsetY;
-	int w;
-	int h;
-	float dx;
-	float dy;
-	float thrust;
-	float speed;
-	float angle;
-	int alive;
-	int health;
-	int maxHealth;
-	int shield;
-	int maxShield;
-	int reload;
-	int reloadTime;
-	int selectedGunType;
-	int combinedGuns;
-	int shieldRecharge;
-	int shieldRechargeRate;
-	int systemPower;
-	int armourHit;
-	int shieldHit;
-	int systemHit;
-	int thinkTime;
-	int aiActionTime;
-	int aiAggression;
-	int aiDamagePerSec;
-	int aiDamageTimer;
-	int aiEvadeTimer;
-	int separationRadius;
-	int deathType;
-	Weapon guns[MAX_FIGHTER_GUNS];
-	int missiles;
-	long flags;
-	long aiFlags;
+struct Entity
+{
+	int		  type;
+	char	  name[MAX_NAME_LENGTH];
+	char	  defName[MAX_NAME_LENGTH];
+	char	  groupName[MAX_NAME_LENGTH];
+	char	 *description;
+	char	  affiliation[MAX_NAME_LENGTH];
+	int		  active;
+	int		  spawned;
+	int		  id;
+	int		  side;
+	float	  x;
+	float	  y;
+	int		  offsetX;
+	int		  offsetY;
+	int		  w;
+	int		  h;
+	float	  dx;
+	float	  dy;
+	float	  thrust;
+	float	  speed;
+	float	  angle;
+	int		  alive;
+	int		  health;
+	int		  maxHealth;
+	int		  shield;
+	int		  maxShield;
+	int		  reload;
+	int		  reloadTime;
+	int		  selectedGunType;
+	int		  combinedGuns;
+	int		  shieldRecharge;
+	int		  shieldRechargeRate;
+	int		  systemPower;
+	int		  armourHit;
+	int		  shieldHit;
+	int		  systemHit;
+	int		  thinkTime;
+	int		  aiActionTime;
+	int		  aiAggression;
+	int		  aiDamagePerSec;
+	int		  aiDamageTimer;
+	int		  aiEvadeTimer;
+	int		  separationRadius;
+	int		  deathType;
+	Weapon	  guns[MAX_FIGHTER_GUNS];
+	int		  missiles;
+	long	  flags;
+	long	  aiFlags;
 	SDL_Point targetLocation;
-	Entity *towing;
-	Entity *target;
-	Entity *leader;
-	Entity *owner;
-	Entity *killedBy;
+	Entity   *towing;
+	Entity   *target;
+	Entity   *leader;
+	Entity   *owner;
+	Entity   *killedBy;
 	void (*action)(void);
 	void (*draw)(void);
 	void (*die)(void);
 	AtlasImage *texture;
-	Entity *next;
+	Entity	   *next;
 };
 
-struct Bullet {
-	int type;
-	float x;
-	float y;
-	int w;
-	int h;
-	float dx;
-	float dy;
-	int sound;
-	int life;
-	int damage;
-	int angle;
-	long flags;
+struct Bullet
+{
+	int			type;
+	float		x;
+	float		y;
+	int			w;
+	int			h;
+	float		dx;
+	float		dy;
+	int			sound;
+	int			life;
+	int			damage;
+	int			angle;
+	long		flags;
 	AtlasImage *texture;
-	Entity *owner;
-	Entity *target;
-	Bullet *next;
+	Entity	   *owner;
+	Entity	   *target;
+	Bullet	   *next;
 };
 
-struct Debris {
-	float x;
-	float y;
-	float dx;
-	float dy;
-	int health;
-	int thinkTime;
-	float angle;
+struct Debris
+{
+	float		x;
+	float		y;
+	float		dx;
+	float		dy;
+	int			health;
+	int			thinkTime;
+	float		angle;
 	AtlasImage *texture;
-	Debris *next;
+	Debris	   *next;
 };
 
-typedef struct {
+typedef struct
+{
 	float x;
 	float y;
 	float speed;
 } Star;
 
-struct Pulse {
-	int x;
-	int y;
-	float size;
-	int life;
-	int r, g, b;
+struct Pulse
+{
+	int	   x;
+	int	   y;
+	float  size;
+	int	   life;
+	int	   r, g, b;
 	Pulse *next;
 };
 
-struct Effect {
-	int type;
-	float x;
-	float y;
-	float dx;
-	float dy;
-	float health;
-	float size;
-	float scaleAmount;
-	int r;
-	int g;
-	int b;
-	int a;
+struct Effect
+{
+	int			type;
+	float		x;
+	float		y;
+	float		dx;
+	float		dy;
+	float		health;
+	float		size;
+	float		scaleAmount;
+	int			r;
+	int			g;
+	int			b;
+	int			a;
 	AtlasImage *texture;
-	Effect *next;
+	Effect	   *next;
 };
 
-struct Location {
-	int active;
-	char name[MAX_NAME_LENGTH];
-	int x;
-	int y;
-	int size;
+struct Location
+{
+	int		  active;
+	char	  name[MAX_NAME_LENGTH];
+	int		  x;
+	int		  y;
+	int		  size;
 	Location *next;
 };
 
-struct Objective {
-	int active;
-	char id[MAX_DESCRIPTION_LENGTH];
-	char description[MAX_DESCRIPTION_LENGTH];
-	char targetName[MAX_NAME_LENGTH];
-	int targetType;
-	int currentValue;
-	int targetValue;
-	int status;
-	int isCondition;
-	int isEliminateAll;
-	int hideNumbers;
+struct Objective
+{
+	int		   active;
+	char	   id[MAX_DESCRIPTION_LENGTH];
+	char	   description[MAX_DESCRIPTION_LENGTH];
+	char	   targetName[MAX_NAME_LENGTH];
+	int		   targetType;
+	int		   currentValue;
+	int		   targetValue;
+	int		   status;
+	int		   isCondition;
+	int		   isEliminateAll;
+	int		   hideNumbers;
 	Objective *next;
 };
 
-struct Challenge {
-	int type;
-	int value;
-	int passed;
+struct Challenge
+{
+	int		   type;
+	int		   value;
+	int		   passed;
 	Challenge *next;
 };
 
-typedef struct {
-	int isChallenge;
-	int timeLimit;
-	int killLimit;
-	int lossLimit;
-	int itemLimit;
-	int playerItemLimit;
-	int escapeLimit;
-	int waypointLimit;
-	int rescueLimit;
-	int disableLimit;
-	int surrenderLimit;
-	int noMissiles;
-	int noBoost;
-	int noECM;
-	int noGuns;
-	int allowPlayerDeath;
-	int clearWaypointEnemies;
-	int eliminateThreats;
-	int isDeathMatch;
+typedef struct
+{
+	int		   isChallenge;
+	int		   timeLimit;
+	int		   killLimit;
+	int		   lossLimit;
+	int		   itemLimit;
+	int		   playerItemLimit;
+	int		   escapeLimit;
+	int		   waypointLimit;
+	int		   rescueLimit;
+	int		   disableLimit;
+	int		   surrenderLimit;
+	int		   noMissiles;
+	int		   noBoost;
+	int		   noECM;
+	int		   noGuns;
+	int		   allowPlayerDeath;
+	int		   clearWaypointEnemies;
+	int		   eliminateThreats;
+	int		   isDeathMatch;
 	Challenge *challenges[MAX_CHALLENGES];
 } ChallengeData;
 
-struct Mission {
+struct Mission
+{
 	char name[MAX_NAME_LENGTH];
 	char description[MAX_DESCRIPTION_LENGTH];
 	char filename[MAX_DESCRIPTION_LENGTH];
 	int requires;
-	int requiresOptional;
-	int expires;
-	char pilot[MAX_NAME_LENGTH];
-	char squadron[MAX_NAME_LENGTH];
-	char craft[MAX_NAME_LENGTH];
-	int available;
-	int completed;
-	int completedChallenges;
-	int totalChallenges;
-	int epic;
-	int isOptional;
+	int			  requiresOptional;
+	int			  expires;
+	char		  pilot[MAX_NAME_LENGTH];
+	char		  squadron[MAX_NAME_LENGTH];
+	char		  craft[MAX_NAME_LENGTH];
+	int			  available;
+	int			  completed;
+	int			  completedChallenges;
+	int			  totalChallenges;
+	int			  epic;
+	int			  isOptional;
 	ChallengeData challengeData;
-	SDL_Rect rect;
-	Mission *next;
+	SDL_Rect	  rect;
+	Mission		*next;
 };
 
-struct StarSystem {
-	char name[MAX_NAME_LENGTH];
-	char description[MAX_DESCRIPTION_LENGTH];
-	int side;
-	int x;
-	int y;
-	int completedMissions;
-	int totalMissions;
-	int availableMissions;
-	int fallsToPandorans;
-	int type;
-	Mission *activeMission;
-	Mission missionHead;
+struct StarSystem
+{
+	char		name[MAX_NAME_LENGTH];
+	char		description[MAX_DESCRIPTION_LENGTH];
+	int			side;
+	int			x;
+	int			y;
+	int			completedMissions;
+	int			totalMissions;
+	int			availableMissions;
+	int			fallsToPandorans;
+	int			type;
+	Mission	*activeMission;
+	Mission		missionHead;
 	StarSystem *next;
 };
 
-struct Quadtree {
-	int depth;
-	int x, y, w, h;
-	Entity **ents;
-	int capacity;
-	int numEnts;
-	int addedTo;
+struct Quadtree
+{
+	int		  depth;
+	int		  x, y, w, h;
+	Entity  **ents;
+	int		  capacity;
+	int		  numEnts;
+	int		  addedTo;
 	Quadtree *node[4];
 };
 
-struct Spawner {
-	char name[MAX_NAME_LENGTH];
-	char **types;
-	int numTypes;
-	int side;
-	int time;
-	int interval;
-	int total;
-	int step;
-	int offscreen;
-	int active;
-	char flags[MAX_DESCRIPTION_LENGTH];
-	char aiFlags[MAX_DESCRIPTION_LENGTH];
+struct Spawner
+{
+	char	 name[MAX_NAME_LENGTH];
+	char	 **types;
+	int		 numTypes;
+	int		 side;
+	int		 time;
+	int		 interval;
+	int		 total;
+	int		 step;
+	int		 offscreen;
+	int		 active;
+	char	 flags[MAX_DESCRIPTION_LENGTH];
+	char	 aiFlags[MAX_DESCRIPTION_LENGTH];
 	Spawner *next;
 };
 
-typedef struct {
-	SDL_Point camera;
-	int numAllies;
-	int numEnemies;
-	int numInitialEnemies;
-	int status;
-	int isEpic;
-	int unlimitedEnemies;
-	int epicFighterLimit;
-	int epicLives;
-	int epicKills;
-	int playerSelect;
-	int manualComplete;
-	int unwinnable;
-	int waypointAutoAdvance;
-	int missionFinishedTimer;
-	int boostTimer;
-	int ecmTimer;
-	int radarRange;
-	int numPlayerGuns;
-	int numObjectivesComplete, numObjectivesTotal, numConditions;
-	int scriptedEnd;
-	int hasThreats;
-	int hasSuspicionLevel;
-	int suspicionLevel;
-	int suspicionCoolOff;
-	int zackariaSuspicionLevel;
-	int incomingMissile;
-	int destroyTorelli;
-	float torelliFireStormAlpha;
-	int campaignFinished;
-	Entity *missionTarget;
-	Entity *jumpgate;
-	Entity *messageSpeaker;
-	Entity *lastKilledPlayer;
-	SDL_Texture *background;
-	AtlasImage *planetTexture, *fireStormTexture;
-	PointF planet;
-	int planetWidth, planetHeight;
-	Entity entityHead, *entityTail;
-	Bullet bulletHead, *bulletTail;
-	Debris debrisHead, *debrisTail;
-	Effect effectHead, *effectTail;
-	Objective objectiveHead, *objectiveTail;
-	Location locationHead, *locationTail;
-	Spawner spawnerHead, *spawnerTail;
+typedef struct
+{
+	SDL_Point	  camera;
+	int			  numAllies;
+	int			  numEnemies;
+	int			  numInitialEnemies;
+	int			  status;
+	int			  isEpic;
+	int			  unlimitedEnemies;
+	int			  epicFighterLimit;
+	int			  epicLives;
+	int			  epicKills;
+	int			  playerSelect;
+	int			  manualComplete;
+	int			  unwinnable;
+	int			  waypointAutoAdvance;
+	int			  missionFinishedTimer;
+	int			  boostTimer;
+	int			  ecmTimer;
+	int			  radarRange;
+	int			  numPlayerGuns;
+	int			  numObjectivesComplete, numObjectivesTotal, numConditions;
+	int			  scriptedEnd;
+	int			  hasThreats;
+	int			  hasSuspicionLevel;
+	int			  suspicionLevel;
+	int			  suspicionCoolOff;
+	int			  zackariaSuspicionLevel;
+	int			  incomingMissile;
+	int			  destroyTorelli;
+	float		  torelliFireStormAlpha;
+	int			  campaignFinished;
+	Entity	   *missionTarget;
+	Entity	   *jumpgate;
+	Entity	   *messageSpeaker;
+	Entity	   *lastKilledPlayer;
+	SDL_Texture	*background;
+	AtlasImage   *planetTexture, *fireStormTexture;
+	PointF		  planet;
+	int			  planetWidth, planetHeight;
+	Entity		  entityHead, *entityTail;
+	Bullet		  bulletHead, *bulletTail;
+	Debris		  debrisHead, *debrisTail;
+	Effect		  effectHead, *effectTail;
+	Objective	  objectiveHead, *objectiveTail;
+	Location	  locationHead, *locationTail;
+	Spawner		  spawnerHead, *spawnerTail;
 	struct cJSON *missionJSON;
-	unsigned int stats[STAT_MAX];
-	Quadtree quadtree;
+	unsigned int  stats[STAT_MAX];
+	Quadtree	  quadtree;
 } Battle;
 
-struct ScriptRunner {
+struct ScriptRunner
+{
 	struct cJSON *line;
-	long delay;
-	int waitForMessageBox;
+	long		  delay;
+	int			  waitForMessageBox;
 	ScriptRunner *next;
 };
 
-struct Trophy {
-	char id[MAX_NAME_LENGTH];
-	char title[MAX_DESCRIPTION_LENGTH];
-	char description[MAX_DESCRIPTION_LENGTH];
-	char awardDateStr[MAX_NAME_LENGTH];
-	int value;
-	int hidden;
-	int stat;
-	int statValue;
-	int awarded;
+struct Trophy
+{
+	char		  id[MAX_NAME_LENGTH];
+	char		  title[MAX_DESCRIPTION_LENGTH];
+	char		  description[MAX_DESCRIPTION_LENGTH];
+	char		  awardDateStr[MAX_NAME_LENGTH];
+	int			  value;
+	int			  hidden;
+	int			  stat;
+	int			  statValue;
+	int			  awarded;
 	unsigned long awardDate;
-	int notify;
-	Trophy *next;
+	int			  notify;
+	Trophy	   *next;
 };
 
-typedef struct {
+typedef struct
+{
 	int friendlyFire;
 	int autoSwitchPlayerTarget;
 	int missileReTarget;
 	int healthBars;
 } Gameplay;
 
-struct Tuple {
-	char key[MAX_NAME_LENGTH];
-	int value;
+struct Tuple
+{
+	char   key[MAX_NAME_LENGTH];
+	int	   value;
 	Tuple *next;
 };
 
-typedef struct {
-	StarSystem starSystemHead;
-	Mission challengeMissionHead;
-	Mission *currentMission;
-	char selectedStarSystem[MAX_NAME_LENGTH];
-	int completedMissions;
-	int availableMissions;
-	int totalMissions;
-	int completedChallenges;
-	int totalChallenges;
+typedef struct
+{
+	StarSystem	 starSystemHead;
+	Mission		 challengeMissionHead;
+	Mission		*currentMission;
+	char		 selectedStarSystem[MAX_NAME_LENGTH];
+	int			 completedMissions;
+	int			 availableMissions;
+	int			 totalMissions;
+	int			 completedChallenges;
+	int			 totalChallenges;
 	unsigned int stats[STAT_MAX];
-	Trophy trophyHead;
-	Tuple fighterStatHead;
+	Trophy		 trophyHead;
+	Tuple		 fighterStatHead;
 } Game;
 
-struct Widget {
-	char name[MAX_NAME_LENGTH];
-	char group[MAX_NAME_LENGTH];
-	int type;
-	int value;
-	char text[MAX_NAME_LENGTH];
-	char **options;
-	int numOptions;
-	int visible;
-	int enabled;
-	int isModal;
-	SDL_Rect rect;
+struct Widget
+{
+	char		name[MAX_NAME_LENGTH];
+	char		group[MAX_NAME_LENGTH];
+	int			type;
+	int			value;
+	char		text[MAX_NAME_LENGTH];
+	char		 **options;
+	int			numOptions;
+	int			visible;
+	int			enabled;
+	int			isModal;
+	SDL_Rect	rect;
 	AtlasImage *texture;
 	void (*action)(void);
 	void (*onChange)(char *value);
@@ -466,23 +495,26 @@ struct Widget {
 	Widget *next;
 };
 
-struct HudMessage {
-	char message[MAX_DESCRIPTION_LENGTH];
-	SDL_Color color;
-	int life;
+struct HudMessage
+{
+	char		message[MAX_DESCRIPTION_LENGTH];
+	SDL_Color	color;
+	int			life;
 	HudMessage *next;
 };
 
-struct MessageBox {
-	char title[MAX_NAME_LENGTH];
-	char body[MAX_DESCRIPTION_LENGTH];
-	int time;
-	int height;
-	int type;
+struct MessageBox
+{
+	char		title[MAX_NAME_LENGTH];
+	char		body[MAX_DESCRIPTION_LENGTH];
+	int			time;
+	int			height;
+	int			type;
 	MessageBox *next;
 };
 
-typedef struct {
+typedef struct
+{
 	int x;
 	int y;
 	int w;
@@ -492,37 +524,39 @@ typedef struct {
 	int button[MAX_MOUSE_BUTTONS];
 } Mouse;
 
-typedef struct {
-	char saveDir[MAX_FILENAME_LENGTH];
-	int saveGame;
-	int winWidth;
-	int winHeight;
-	SDL_Point uiOffset;
-	int fullscreen;
-	int musicVolume;
-	int soundVolume;
-	int vSync;
-	int doTrophyAlerts;
-	int hideMouse;
-	Gameplay gameplay;
-	Mouse mouse;
-	PointF uiMouse;
-	int keyboard[MAX_KEYBOARD_KEYS];
-	SDL_Texture *backBuffer;
-	SDL_Texture *uiBuffer;
+typedef struct
+{
+	char		  saveDir[MAX_FILENAME_LENGTH];
+	int			  saveGame;
+	int			  winWidth;
+	int			  winHeight;
+	SDL_Point	  uiOffset;
+	int			  fullscreen;
+	int			  musicVolume;
+	int			  soundVolume;
+	int			  vSync;
+	int			  doTrophyAlerts;
+	int			  hideMouse;
+	Gameplay	  gameplay;
+	Mouse		  mouse;
+	PointF		  uiMouse;
+	int			  keyboard[MAX_KEYBOARD_KEYS];
+	SDL_Texture	*backBuffer;
+	SDL_Texture	*uiBuffer;
 	SDL_Renderer *renderer;
-	SDL_Window *window;
-	Delegate delegate;
-	ModalDialog modalDialog;
-	int awaitingWidgetInput;
-	int lastKeyPressed;
-	int lastButtonPressed;
-	int keyControls[CONTROL_MAX];
-	int mouseControls[CONTROL_MAX];
-	int textWidth;
+	SDL_Window   *window;
+	Delegate	  delegate;
+	ModalDialog	  modalDialog;
+	int			  awaitingWidgetInput;
+	int			  lastKeyPressed;
+	int			  lastButtonPressed;
+	int			  keyControls[CONTROL_MAX];
+	int			  mouseControls[CONTROL_MAX];
+	int			  textWidth;
 } App;
 
-typedef struct {
+typedef struct
+{
 	SDL_Color red;
 	SDL_Color orange;
 	SDL_Color yellow;
@@ -536,36 +570,42 @@ typedef struct {
 	SDL_Color darkGrey;
 } Colors;
 
-struct Credit {
-	char *text;
-	float y;
-	int size;
-	int h;
+struct Credit
+{
+	char	 *text;
+	float	y;
+	int		size;
+	int		h;
 	Credit *next;
 };
 
-struct Font {
-	char name[MAX_NAME_LENGTH];
+struct Font
+{
+	char		 name[MAX_NAME_LENGTH];
 	SDL_Texture *texture;
-	SDL_Rect glyphs[MAX_GLYPHS];
-	Font *next;
+	SDL_Rect	 glyphs[MAX_GLYPHS];
+	Font		 *next;
 };
 
-struct Bucket {
-	char *key, *value;
+struct Bucket
+{
+	char	 *key, *value;
 	Bucket *next;
 };
 
-typedef struct {
+typedef struct
+{
 	Bucket **bucket;
-	int *bucketCount;
+	int		*bucketCount;
 } HashTable;
 
-typedef struct {
+typedef struct
+{
 	int32_t magicNumber, version, stringCount;
 	int32_t originalOffset, translationOffset;
 } MOHeader;
 
-typedef struct {
+typedef struct
+{
 	int32_t length, offset;
 } MOEntry;

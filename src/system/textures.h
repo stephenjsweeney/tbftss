@@ -18,6 +18,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void destroyTextures(void);
+void		 destroyTextures(void);
 SDL_Texture *toTexture(SDL_Surface *surface, int destroySurface);
 SDL_Texture *getTexture(char *filename);

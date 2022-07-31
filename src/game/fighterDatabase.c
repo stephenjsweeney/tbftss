@@ -19,40 +19,41 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "fighterDatabase.h"
-#include "../system/text.h"
+
 #include "../battle/fighters.h"
 #include "../system/draw.h"
-#include "../system/widgets.h"
+#include "../system/text.h"
 #include "../system/util.h"
+#include "../system/widgets.h"
+#include "fighterDatabase.h"
 
-extern App app;
+extern App	  app;
 extern Colors colors;
-extern Game game;
+extern Game	  game;
 
 static void prevFighter(void);
 static void nextFighter(void);
-static int countFighterGuns(Entity *fighter, int type);
+static int	countFighterGuns(Entity *fighter, int type);
 static void setNumDestroyed(void);
 
-static int page;
-static int maxPages;
-static int numDestroyed;
-static Widget *prev;
-static Widget *next;
-static char *DB_TEXT;
-static char *PAGE_TEXT;
-static char *COMMON_TEXT;
-static char *DESTROYED_TEXT;
-static char *AFFILIATION_TEXT;
-static char *ARMOUR_TEXT;
-static char *SHIELD_TEXT;
-static char *SPEED_TEXT;
-static char *MISSILES_TEXT;
-static char *MISSILE_NUM_TEXT;
+static int		   page;
+static int		   maxPages;
+static int		   numDestroyed;
+static Widget	  *prev;
+static Widget	  *next;
+static char		*DB_TEXT;
+static char		*PAGE_TEXT;
+static char		*COMMON_TEXT;
+static char		*DESTROYED_TEXT;
+static char		*AFFILIATION_TEXT;
+static char		*ARMOUR_TEXT;
+static char		*SHIELD_TEXT;
+static char		*SPEED_TEXT;
+static char		*MISSILES_TEXT;
+static char		*MISSILE_NUM_TEXT;
 static const char *gunName[BT_MAX];
-static Entity **dbFighters;
-static float rotation;
+static Entity	  **dbFighters;
+static float	   rotation;
 
 void initFighterDatabase(void)
 {
@@ -107,8 +108,8 @@ void doFighterDatabase(void)
 void drawFighterDatabase(void)
 {
 	SDL_Rect r;
-	Entity *fighter;
-	int i, y, numCannons;
+	Entity  *fighter;
+	int		 i, y, numCannons;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -151,7 +152,7 @@ void drawFighterDatabase(void)
 
 	y = 200;
 
-	for (i = 1 ; i < BT_MAX ; i++)
+	for (i = 1; i < BT_MAX; i++)
 	{
 		numCannons = countFighterGuns(fighter, i);
 		if (numCannons > 0)
@@ -186,7 +187,7 @@ static int countFighterGuns(Entity *fighter, int type)
 
 	num = 0;
 
-	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
+	for (i = 0; i < MAX_FIGHTER_GUNS; i++)
 	{
 		if (fighter->guns[i].type == type)
 		{
@@ -213,14 +214,14 @@ static void nextFighter(void)
 
 static void setNumDestroyed(void)
 {
-	Tuple *t;
+	Tuple  *t;
 	Entity *fighter;
 
 	fighter = dbFighters[page];
 
 	numDestroyed = 0;
 
-	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
+	for (t = game.fighterStatHead.next; t != NULL; t = t->next)
 	{
 		if (strcmp(t->key, fighter->name) == 0)
 		{

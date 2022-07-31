@@ -19,32 +19,33 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "items.h"
+
+#include "../battle/entities.h"
+#include "../battle/hud.h"
+#include "../battle/objectives.h"
+#include "../battle/quadtree.h"
 #include "../json/cJSON.h"
+#include "../system/atlas.h"
+#include "../system/io.h"
 #include "../system/lookup.h"
 #include "../system/sound.h"
 #include "../system/util.h"
-#include "../battle/quadtree.h"
-#include "../battle/hud.h"
-#include "../battle/objectives.h"
-#include "../system/io.h"
-#include "../system/atlas.h"
-#include "../battle/entities.h"
+#include "items.h"
 
-extern Battle battle;
-extern Colors colors;
+extern Battle  battle;
+extern Colors  colors;
 extern Entity *player;
 extern Entity *self;
 
-static void action(void);
+static void	   action(void);
 static Entity *getItemDef(char *name);
 
 static Entity defHead, *defTail;
 
 void loadItemDefs(void)
 {
-	cJSON *root, *node;
-	char *text;
+	cJSON  *root, *node;
+	char	 *text;
 	Entity *e;
 
 	text = readFile("data/battle/items.json");
@@ -54,7 +55,7 @@ void loadItemDefs(void)
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
 
-	for (node = root->child ; node != NULL ; node = node->next)
+	for (node = root->child; node != NULL; node = node->next)
 	{
 		e = malloc(sizeof(Entity));
 		memset(e, 0, sizeof(Entity));
@@ -92,7 +93,7 @@ Entity *spawnItem(char *name)
 	}
 	else
 	{
-		for (e = defHead.next ; e != NULL ; e = e->next)
+		for (e = defHead.next; e != NULL; e = e->next)
 		{
 			if (!def || rand() % 2)
 			{
@@ -129,7 +130,7 @@ static Entity *getItemDef(char *defName)
 {
 	Entity *e;
 
-	for (e = defHead.next ; e != NULL ; e = e->next)
+	for (e = defHead.next; e != NULL; e = e->next)
 	{
 		if (strcmp(e->defName, defName) == 0)
 		{
@@ -144,11 +145,11 @@ static Entity *getItemDef(char *defName)
 static void action(void)
 {
 	Entity *e, **candidates;
-	int i;
+	int		i;
 
 	candidates = getAllEntsInRadius(self->x, self->y, MAX(self->w, self->h), self);
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (e->alive == ALIVE_ALIVE && (e->flags & EF_COLLECTS_ITEMS) && collision(self->x - (self->w / 2), self->y - (self->h / 2), self->w, self->h, e->x - (e->w / 2), e->y - (e->h / 2), e->w, e->h))
 		{
@@ -175,10 +176,10 @@ static void action(void)
 void loadItems(cJSON *node)
 {
 	Entity *e;
-	char *name, *groupName, *type;
-	int i, scatter, number, active, addFlags;
-	long flags;
-	float x, y;
+	char	 *name, *groupName, *type;
+	int		i, scatter, number, active, addFlags;
+	long	flags;
+	float	x, y;
 
 	flags = -1;
 	scatter = 1;
@@ -206,7 +207,7 @@ void loadItems(cJSON *node)
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
 			}
 
-			for (i = 0 ; i < number ; i++)
+			for (i = 0; i < number; i++)
 			{
 				e = spawnItem(type);
 

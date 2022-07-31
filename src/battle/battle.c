@@ -19,49 +19,50 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "battle.h"
-#include "../json/cJSON.h"
-#include "../game/credits.h"
-#include "../battle/locations.h"
-#include "../system/widgets.h"
-#include "../galaxy/mission.h"
+
 #include "../battle/bullets.h"
-#include "../galaxy/galacticMap.h"
-#include "../battle/effects.h"
-#include "../system/draw.h"
-#include "../battle/starfield.h"
-#include "../battle/player.h"
-#include "../system/sound.h"
-#include "../battle/messageBox.h"
-#include "../battle/spawners.h"
-#include "../battle/waypoints.h"
-#include "../battle/radar.h"
-#include "../battle/objectives.h"
-#include "../battle/script.h"
-#include "../battle/quadtree.h"
-#include "../challenges/challenges.h"
-#include "../challenges/challengeHome.h"
-#include "../system/modalDialog.h"
-#include "../game/options.h"
-#include "../battle/hud.h"
-#include "../battle/missionInfo.h"
-#include "../system/atlas.h"
-#include "../system/input.h"
-#include "../game/stats.h"
 #include "../battle/debris.h"
-#include "../game/trophies.h"
+#include "../battle/effects.h"
 #include "../battle/entities.h"
+#include "../battle/hud.h"
+#include "../battle/locations.h"
+#include "../battle/messageBox.h"
+#include "../battle/missionInfo.h"
+#include "../battle/objectives.h"
+#include "../battle/player.h"
+#include "../battle/quadtree.h"
+#include "../battle/radar.h"
+#include "../battle/script.h"
+#include "../battle/spawners.h"
+#include "../battle/starfield.h"
+#include "../battle/waypoints.h"
+#include "../challenges/challengeHome.h"
+#include "../challenges/challenges.h"
+#include "../galaxy/galacticMap.h"
+#include "../galaxy/mission.h"
+#include "../game/credits.h"
+#include "../game/options.h"
+#include "../game/stats.h"
+#include "../game/trophies.h"
+#include "../json/cJSON.h"
+#include "../system/atlas.h"
+#include "../system/draw.h"
+#include "../system/input.h"
+#include "../system/modalDialog.h"
+#include "../system/sound.h"
+#include "../system/widgets.h"
+#include "battle.h"
 
-#define SHOW_BATTLE        0
-#define SHOW_MENU          1
-#define SHOW_OBJECTIVES    2
-#define SHOW_OPTIONS       3
+#define SHOW_BATTLE		0
+#define SHOW_MENU		1
+#define SHOW_OBJECTIVES 2
+#define SHOW_OPTIONS	3
 
-extern App app;
-extern Battle battle;
-extern Dev dev;
+extern App	   app;
+extern Battle  battle;
+extern Dev	   dev;
 extern Entity *player;
-extern Game game;
+extern Game	   game;
 
 static void logic(void);
 static void draw(void);
@@ -82,7 +83,7 @@ static void checkSuspicionLevel(void);
 static void doTorelliFireStorm(void);
 static void endCampaign(void);
 
-static int show;
+static int	 show;
 static float ssx, ssy;
 
 void initBattle(void)
@@ -476,7 +477,7 @@ static void postBattle(void)
 {
 	int i;
 
-	for (i = 0 ; i < STAT_MAX ; i++)
+	for (i = 0; i < STAT_MAX; i++)
 	{
 		if (i != STAT_TIME && i != STAT_EPIC_KILL_STREAK)
 		{
@@ -528,13 +529,13 @@ static void endCampaign(void)
 
 void destroyBattle(void)
 {
-	Entity *ent;
-	Bullet *b;
-	Debris *d;
-	Effect *e;
+	Entity	   *ent;
+	Bullet	   *b;
+	Debris	   *d;
+	Effect	   *e;
 	Objective *o;
-	Location *l;
-	Spawner *s;
+	Location	 *l;
+	Spawner	*s;
 
 	while (battle.entityHead.next)
 	{

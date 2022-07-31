@@ -18,10 +18,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "util.h"
 #include <time.h>
+
+#include "../common.h"
+
 #include "../json/cJSON.h"
+#include "util.h"
 
 float mod(float n, float x)
 {
@@ -51,17 +53,17 @@ int getDistance(int x1, int y1, int x2, int y2)
 	x = x2 - x1;
 	y = y2 - y1;
 
-	return sqrt(x * x + y *y);
+	return sqrt(x * x + y * y);
 }
 
 char **toTypeArray(char *types, int *numTypes)
 {
-	int i;
+	int	   i;
 	char **typeArray, *type;
 
 	*numTypes = 1;
 
-	for (i = 0 ; i < strlen(types) ; i++)
+	for (i = 0; i < strlen(types); i++)
 	{
 		if (types[i] == ';')
 		{
@@ -69,7 +71,7 @@ char **toTypeArray(char *types, int *numTypes)
 		}
 	}
 
-	typeArray = malloc(*numTypes * sizeof(char*));
+	typeArray = malloc(*numTypes * sizeof(char *));
 
 	i = 0;
 	type = strtok(types, ";");
@@ -114,7 +116,7 @@ char *timeToDate(long millis)
 	static char DATE[MAX_NAME_LENGTH];
 
 	struct tm *timeinfo;
-	time_t time;
+	time_t	   time;
 
 	time = millis;
 
@@ -162,7 +164,7 @@ int getJSONValue(cJSON *node, char *name, int defValue)
 void *resize(void *array, int oldSize, int newSize)
 {
 	void **newArray;
-	int copySize;
+	int	   copySize;
 
 	copySize = newSize > oldSize ? oldSize : newSize;
 
@@ -176,16 +178,16 @@ void *resize(void *array, int oldSize, int newSize)
 
 unsigned long hashcode(const char *str)
 {
-    unsigned long hash = 5381;
-    int c;
+	unsigned long hash = 5381;
+	int			  c;
 
 	c = *str;
 
 	while (c)
 	{
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+		hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
 
-        c = *str++;
+		c = *str++;
 	}
 
 	hash = ((hash << 5) + hash);
@@ -195,7 +197,7 @@ unsigned long hashcode(const char *str)
 
 int stringComparator(const void *a, const void *b)
 {
-    char **s1 = (char **)a;
-    char **s2 = (char **)b;
+	char **s1 = (char **)a;
+	char **s2 = (char **)b;
 	return strcmp(*s1, *s2);
 }

@@ -19,13 +19,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "locations.h"
+
+#include "../battle/script.h"
 #include "../json/cJSON.h"
 #include "../system/draw.h"
 #include "../system/util.h"
-#include "../battle/script.h"
+#include "locations.h"
 
-extern Battle battle;
+extern Battle  battle;
 extern Entity *player;
 
 void doLocations(void)
@@ -34,7 +35,7 @@ void doLocations(void)
 
 	prev = &battle.locationHead;
 
-	for (l = battle.locationHead.next ; l != NULL ; l = l->next)
+	for (l = battle.locationHead.next; l != NULL; l = l->next)
 	{
 		if (l->active && getDistance(player->x, player->y, l->x, l->y) <= l->size)
 		{
@@ -53,7 +54,7 @@ void drawLocations(void)
 {
 	Location *l;
 
-	for (l = battle.locationHead.next ; l != NULL ; l = l->next)
+	for (l = battle.locationHead.next; l != NULL; l = l->next)
 	{
 		if (l->active)
 		{
@@ -64,14 +65,14 @@ void drawLocations(void)
 
 void activateLocations(char *locations)
 {
-	char *token;
+	char	 *token;
 	Location *l;
 
 	token = strtok(locations, ";");
 
 	while (token)
 	{
-		for (l = battle.locationHead.next ; l != NULL ; l = l->next)
+		for (l = battle.locationHead.next; l != NULL; l = l->next)
 		{
 			if (strcmp(token, l->name) == 0)
 			{
@@ -89,9 +90,9 @@ void activateLocations(char *locations)
 void createChristabelLocation(void)
 {
 	Location *l;
-	Entity *e;
+	Entity   *e;
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (strcmp(e->name, "Christabel") == 0)
 		{
@@ -116,7 +117,7 @@ void createChristabelLocation(void)
 
 void loadLocations(cJSON *node)
 {
-	int active;
+	int		  active;
 	Location *l;
 
 	if (node)

@@ -19,14 +19,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "objectives.h"
-#include "../json/cJSON.h"
-#include "../system/lookup.h"
-#include "../system/util.h"
-#include "../system/sound.h"
-#include "../galaxy/mission.h"
+
 #include "../battle/hud.h"
 #include "../battle/script.h"
+#include "../galaxy/mission.h"
+#include "../json/cJSON.h"
+#include "../system/lookup.h"
+#include "../system/sound.h"
+#include "../system/util.h"
+#include "objectives.h"
 
 extern Battle battle;
 extern Colors colors;
@@ -35,15 +36,15 @@ static int fireObjectivesComplete;
 
 void doObjectives(void)
 {
-	int objectiveFailed;
-	int hasHidden;
+	int		   objectiveFailed;
+	int		   hasHidden;
 	Objective *o;
 
 	battle.numObjectivesComplete = battle.numObjectivesTotal = battle.numConditions = 0;
 	objectiveFailed = 0;
 	hasHidden = 0;
 
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 	{
 		if (o->active)
 		{
@@ -116,7 +117,7 @@ void doObjectives(void)
 void updateObjective(char *name, int type)
 {
 	Objective *o;
-	int completed, hasHidden;
+	int		   completed, hasHidden;
 
 	if (strlen(name))
 	{
@@ -124,7 +125,7 @@ void updateObjective(char *name, int type)
 
 		hasHidden = 0;
 
-		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+		for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 		{
 			if (o->active && o->status != OS_COMPLETE)
 			{
@@ -178,7 +179,7 @@ void adjustObjectiveTargetValue(char *name, int type, int amount)
 {
 	Objective *o;
 
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 	{
 		if (o->active && !o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 		{
@@ -203,7 +204,7 @@ void updateCondition(char *name, int type)
 
 	if (strlen(name))
 	{
-		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+		for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 		{
 			if (o->active && o->isCondition && o->targetType == type && o->currentValue < o->targetValue && strcmp(o->targetName, name) == 0)
 			{
@@ -228,7 +229,7 @@ void completeAllObjectives(void)
 {
 	Objective *o;
 
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 	{
 		o->status = OS_COMPLETE;
 	}
@@ -238,7 +239,7 @@ void completeConditions(void)
 {
 	Objective *o;
 
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 	{
 		if (o->isCondition)
 		{
@@ -253,7 +254,7 @@ void failIncompleteObjectives(void)
 {
 	Objective *o;
 
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 	{
 		if (o->status != OS_COMPLETE)
 		{
@@ -264,9 +265,9 @@ void failIncompleteObjectives(void)
 
 void activateObjectives(char *objectives)
 {
-	char *token;
+	char		 *token;
 	Objective *o;
-	int activated;
+	int		   activated;
 
 	activated = 0;
 
@@ -274,7 +275,7 @@ void activateObjectives(char *objectives)
 
 	while (token)
 	{
-		for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+		for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 		{
 			if (strcmp(token, o->id) == 0)
 			{
@@ -343,7 +344,7 @@ void loadObjectives(cJSON *node)
 void addEpicLivesObjective(void)
 {
 	Objective *o;
-	char id[MAX_DESCRIPTION_LENGTH];
+	char	   id[MAX_DESCRIPTION_LENGTH];
 
 	o = malloc(sizeof(Objective));
 	memset(o, 0, sizeof(Objective));
@@ -364,7 +365,7 @@ void addEpicLivesObjective(void)
 void addEpicKillsObjective(void)
 {
 	Objective *o;
-	char id[MAX_DESCRIPTION_LENGTH];
+	char	   id[MAX_DESCRIPTION_LENGTH];
 
 	o = malloc(sizeof(Objective));
 	memset(o, 0, sizeof(Objective));

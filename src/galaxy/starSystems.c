@@ -19,22 +19,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "starSystems.h"
-#include "../json/cJSON.h"
+
 #include "../galaxy/mission.h"
+#include "../json/cJSON.h"
+#include "../system/io.h"
 #include "../system/lookup.h"
 #include "../system/util.h"
-#include "../system/io.h"
+#include "starSystems.h"
 
 extern Game game;
 
-static void loadMissions(StarSystem *starSystem);
+static void		   loadMissions(StarSystem *starSystem);
 static StarSystem *loadStarSystem(cJSON *starSystemJSON);
 
 void initStarSystems(void)
 {
-	cJSON *root, *node;
-	char *text;
+	cJSON	  *root, *node;
+	char		 *text;
 	StarSystem *starSystem, *tail;
 
 	tail = &game.starSystemHead;
@@ -42,7 +43,7 @@ void initStarSystems(void)
 	text = readFile("data/galaxy/starSystems.json");
 	root = cJSON_Parse(text);
 
-	for (node = cJSON_GetObjectItem(root, "starSystems")->child ; node != NULL ; node = node->next)
+	for (node = cJSON_GetObjectItem(root, "starSystems")->child; node != NULL; node = node->next)
 	{
 		starSystem = loadStarSystem(node);
 		tail->next = starSystem;
@@ -85,17 +86,17 @@ static StarSystem *loadStarSystem(cJSON *starSystemJSON)
 
 static void loadMissions(StarSystem *starSystem)
 {
-	int i, count;
-	char name[MAX_NAME_LENGTH];
-	char path[MAX_FILENAME_LENGTH];
-	char **filenames;
+	int		 i, count;
+	char	 name[MAX_NAME_LENGTH];
+	char	 path[MAX_FILENAME_LENGTH];
+	char	 **filenames;
 	Mission *mission, *tail;
 
 	tail = &starSystem->missionHead;
 
 	STRNCPY(name, starSystem->name, MAX_NAME_LENGTH);
 
-	for (i = 0 ; name[i] ; i++)
+	for (i = 0; name[i]; i++)
 	{
 		name[i] = tolower(name[i]);
 	}
@@ -104,7 +105,7 @@ static void loadMissions(StarSystem *starSystem)
 
 	filenames = getFileList(path, &count);
 
-	for (i = 0 ; i < count ; i++)
+	for (i = 0; i < count; i++)
 	{
 		sprintf(path, "data/missions/%s/%s", name, filenames[i]);
 
@@ -126,7 +127,7 @@ StarSystem *getStarSystem(char *name)
 {
 	StarSystem *starSystem;
 
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
 	{
 		if (strcmp(starSystem->name, name) == 0)
 		{
@@ -140,15 +141,15 @@ StarSystem *getStarSystem(char *name)
 void updateStarSystemMissions(void)
 {
 	StarSystem *starSystem;
-	Mission *mission, *prev;
+	Mission	*mission, *prev;
 
 	game.completedMissions = game.totalMissions = game.availableMissions = 0;
 
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
 	{
 		starSystem->completedMissions = starSystem->availableMissions = starSystem->totalMissions = 0;
 
-		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+		for (mission = starSystem->missionHead.next; mission != NULL; mission = mission->next)
 		{
 			starSystem->totalMissions++;
 
@@ -169,11 +170,11 @@ void updateStarSystemMissions(void)
 		}
 	}
 
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
 	{
 		prev = &starSystem->missionHead;
 
-		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+		for (mission = starSystem->missionHead.next; mission != NULL; mission = mission->next)
 		{
 			mission->available = starSystem->type == SS_SOL || isMissionAvailable(mission, prev);
 
@@ -202,7 +203,7 @@ void updateStarSystemMissions(void)
 void destroyStarSystems(void)
 {
 	StarSystem *starSystem;
-	Mission *mission;
+	Mission	*mission;
 
 	while (game.starSystemHead.next)
 	{

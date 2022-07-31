@@ -19,15 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "atlas.h"
+
 #include "../json/cJSON.h"
 #include "../system/io.h"
 #include "../system/textures.h"
 #include "../system/util.h"
+#include "atlas.h"
 
 static void loadAtlasData(void);
 
-static AtlasImage atlases[NUM_ATLAS_BUCKETS];
+static AtlasImage	atlases[NUM_ATLAS_BUCKETS];
 static SDL_Texture *atlasTexture;
 
 void initAtlas(void)
@@ -47,12 +48,12 @@ void setAtlasColor(int r, int g, int b, int a)
 
 AtlasImage *getAtlasImage(const char *filename)
 {
-	AtlasImage *a;
+	AtlasImage   *a;
 	unsigned long i;
 
 	i = hashcode(filename) % NUM_ATLAS_BUCKETS;
 
-	for (a = atlases[i].next ; a != NULL ; a = a->next)
+	for (a = atlases[i].next; a != NULL; a = a->next)
 	{
 		if (strcmp(a->filename, filename) == 0)
 		{
@@ -69,15 +70,15 @@ AtlasImage *getAtlasImage(const char *filename)
 char **getAtlasFileList(char *dir, int *count)
 {
 	AtlasImage *a;
-	int i, bucket;
-	char **filenames;
+	int			i, bucket;
+	char		 **filenames;
 
 	i = 0;
 	filenames = NULL;
 
-	for (bucket = 0 ; bucket < NUM_ATLAS_BUCKETS ; bucket++)
+	for (bucket = 0; bucket < NUM_ATLAS_BUCKETS; bucket++)
 	{
-		for (a = atlases[bucket].next ; a != NULL ; a = a->next)
+		for (a = atlases[bucket].next; a != NULL; a = a->next)
 		{
 			if (strncmp(dir, a->filename, strlen(dir)) == 0)
 			{
@@ -88,14 +89,14 @@ char **getAtlasFileList(char *dir, int *count)
 
 	if (i > 0)
 	{
-		filenames = malloc(sizeof(char*) * i);
-		memset(filenames, 0, sizeof(char*) * i);
+		filenames = malloc(sizeof(char *) * i);
+		memset(filenames, 0, sizeof(char *) * i);
 
 		i = 0;
 
-		for (bucket = 0 ; bucket < NUM_ATLAS_BUCKETS ; bucket++)
+		for (bucket = 0; bucket < NUM_ATLAS_BUCKETS; bucket++)
 		{
-			for (a = atlases[bucket].next ; a != NULL ; a = a->next)
+			for (a = atlases[bucket].next; a != NULL; a = a->next)
 			{
 				if (strncmp(dir, a->filename, strlen(dir)) == 0)
 				{
@@ -113,7 +114,7 @@ char **getAtlasFileList(char *dir, int *count)
 
 	if (filenames)
 	{
-		qsort(filenames, i, sizeof(char*), stringComparator);
+		qsort(filenames, i, sizeof(char *), stringComparator);
 	}
 
 	return filenames;
@@ -121,17 +122,17 @@ char **getAtlasFileList(char *dir, int *count)
 
 static void loadAtlasData(void)
 {
-	AtlasImage *atlasImage, *a;
-	int x, y, w, h;
-	cJSON *root, *node;
-	char *text, *filename;
+	AtlasImage   *atlasImage, *a;
+	int			  x, y, w, h;
+	cJSON		  *root, *node;
+	char		 *text, *filename;
 	unsigned long i;
 
 	text = readFile("data/atlas/atlas.json");
 
 	root = cJSON_Parse(text);
 
-	for (node = root->child ; node != NULL ; node = node->next)
+	for (node = root->child; node != NULL; node = node->next)
 	{
 		filename = cJSON_GetObjectItem(node, "filename")->valuestring;
 		x = cJSON_GetObjectItem(node, "x")->valueint;

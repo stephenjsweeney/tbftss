@@ -18,27 +18,29 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "trophies.h"
 #include <time.h>
+
+#include "../common.h"
+
+#include "../battle/entities.h"
 #include "../json/cJSON.h"
-#include "../system/lookup.h"
+#include "../system/atlas.h"
 #include "../system/draw.h"
+#include "../system/io.h"
+#include "../system/lookup.h"
+#include "../system/sound.h"
+#include "../system/text.h"
 #include "../system/util.h"
 #include "../system/widgets.h"
-#include "../system/io.h"
-#include "../system/text.h"
-#include "../system/atlas.h"
-#include "../system/sound.h"
-#include "../battle/entities.h"
+#include "trophies.h"
 
-#define TROPHIES_PER_PAGE    4
+#define TROPHIES_PER_PAGE 4
 
-extern App app;
-extern Battle battle;
-extern Colors colors;
+extern App	   app;
+extern Battle  battle;
+extern Colors  colors;
 extern Entity *player;
-extern Game game;
+extern Game	   game;
 
 static void prevPage(void);
 static void nextPage(void);
@@ -47,24 +49,24 @@ static void resetAlert(void);
 static void setSparkleColor(Trophy *t);
 static void nextAlert(void);
 
-static Trophy *alertTrophy;
+static Trophy	  *alertTrophy;
 static AtlasImage *trophyIcons[TROPHY_MAX];
 static AtlasImage *sparkle;
 static AtlasImage *alertSphere;
-static SDL_Rect alertRect;
-static int alertTimer;
-static int page;
-static int awarded;
-static int total;
-static int boxWidth;
-static float sparkleAngle;
-static float maxPages;
-static Widget *prev;
-static Widget *next;
-static char *TROPHIES_TEXT;
-static char *AWARDED_TEXT;
-static char *PAGE_TEXT;
-static char *HIDDEN_TEXT;
+static SDL_Rect	   alertRect;
+static int		   alertTimer;
+static int		   page;
+static int		   awarded;
+static int		   total;
+static int		   boxWidth;
+static float	   sparkleAngle;
+static float	   maxPages;
+static Widget	  *prev;
+static Widget	  *next;
+static char		*TROPHIES_TEXT;
+static char		*AWARDED_TEXT;
+static char		*PAGE_TEXT;
+static char		*HIDDEN_TEXT;
 
 void initTrophies(void)
 {
@@ -93,12 +95,12 @@ void initTrophies(void)
 
 void initTrophiesDisplay(void)
 {
-	int w, h;
+	int		w, h;
 	Trophy *t;
 
 	boxWidth = total = awarded = 0;
 
-	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	for (t = game.trophyHead.next; t != NULL; t = t->next)
 	{
 		total++;
 
@@ -149,9 +151,9 @@ static void prevPage(void)
 
 void drawTrophies(void)
 {
-	Trophy *t;
+	Trophy  *t;
 	SDL_Rect r;
-	int start, end, i, x, y;
+	int		 start, end, i, x, y;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -183,7 +185,7 @@ void drawTrophies(void)
 	end = start + TROPHIES_PER_PAGE;
 	i = 0;
 
-	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	for (t = game.trophyHead.next; t != NULL; t = t->next)
 	{
 		if (i >= start && i < end)
 		{
@@ -230,11 +232,11 @@ void drawTrophies(void)
 void awardTrophy(char *id)
 {
 	Trophy *t;
-	int numRemaining;
+	int		numRemaining;
 
 	numRemaining = 0;
 
-	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	for (t = game.trophyHead.next; t != NULL; t = t->next)
 	{
 		if (!t->awarded && strcmp(t->id, id) == 0)
 		{
@@ -290,10 +292,10 @@ void doTrophyAlerts(void)
 
 static void nextAlert(void)
 {
-	int w, h;
+	int		w, h;
 	Trophy *t;
 
-	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	for (t = game.trophyHead.next; t != NULL; t = t->next)
 	{
 		if (t->notify)
 		{
@@ -356,7 +358,7 @@ Trophy *getTrophy(char *id)
 {
 	Trophy *t;
 
-	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	for (t = game.trophyHead.next; t != NULL; t = t->next)
 	{
 		if (strcmp(t->id, id) == 0)
 		{
@@ -369,10 +371,10 @@ Trophy *getTrophy(char *id)
 
 static void loadTrophyData(char *filename)
 {
-	cJSON *root, *node;
-	char *text;
+	cJSON  *root, *node;
+	char	 *text;
 	Trophy *t, *tail;
-	int count[TROPHY_MAX];
+	int		count[TROPHY_MAX];
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
@@ -383,7 +385,7 @@ static void loadTrophyData(char *filename)
 
 	memset(count, 0, sizeof(int) * TROPHY_MAX);
 
-	for (node = root->child ; node != NULL ; node = node->next)
+	for (node = root->child; node != NULL; node = node->next)
 	{
 		if (cJSON_GetObjectItem(node, "id")->valuestring[0] != '_')
 		{
@@ -422,9 +424,9 @@ static void loadTrophyData(char *filename)
 void awardStatsTrophies(void)
 {
 	Trophy *t;
-	Tuple *tp;
+	Tuple  *tp;
 
-	for (t = game.trophyHead.next ; t != NULL ; t = t->next)
+	for (t = game.trophyHead.next; t != NULL; t = t->next)
 	{
 		if (t->stat != -1 && !t->awarded && (game.stats[t->stat] + battle.stats[t->stat]) >= t->statValue)
 		{
@@ -433,7 +435,7 @@ void awardStatsTrophies(void)
 	}
 
 	/* check to see if we've destroyed one of each common starfighter */
-	for (tp = game.fighterStatHead.next ; tp != NULL ; tp = tp->next)
+	for (tp = game.fighterStatHead.next; tp != NULL; tp = tp->next)
 	{
 		if (tp->value == 0)
 		{
@@ -446,9 +448,9 @@ void awardStatsTrophies(void)
 
 void awardCampaignTrophies(void)
 {
-	char trophyId[MAX_NAME_LENGTH * 2];
-	char name[MAX_NAME_LENGTH];
-	int i, len;
+	char		trophyId[MAX_NAME_LENGTH * 2];
+	char		name[MAX_NAME_LENGTH];
+	int			i, len;
 	StarSystem *starSystem;
 
 	if (game.completedMissions)
@@ -457,7 +459,7 @@ void awardCampaignTrophies(void)
 	}
 
 	/* check if all star system missions are completed */
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
 	{
 		if (starSystem->totalMissions && starSystem->completedMissions == starSystem->totalMissions)
 		{
@@ -465,7 +467,7 @@ void awardCampaignTrophies(void)
 
 			len = strlen(starSystem->name);
 
-			for (i = 0 ; i < len ; i++)
+			for (i = 0; i < len; i++)
 			{
 				name[i] = toupper(starSystem->name[i]);
 			}
@@ -479,7 +481,7 @@ void awardCampaignTrophies(void)
 void awardChallengeTrophies(void)
 {
 	char trophyId[MAX_NAME_LENGTH];
-	int completed;
+	int	 completed;
 
 	/* check % of challenges completed - 25% increments*/
 	completed = (getPercent(game.completedChallenges, game.totalChallenges) / 25) * 25;

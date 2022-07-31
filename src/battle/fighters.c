@@ -19,44 +19,45 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "fighters.h"
-#include "../json/cJSON.h"
-#include "../system/lookup.h"
-#include "../system/atlas.h"
-#include "../system/util.h"
-#include "../battle/ai.h"
-#include "../battle/quadtree.h"
-#include "../battle/debris.h"
-#include "../battle/rope.h"
-#include "../galaxy/mission.h"
-#include "../battle/hud.h"
-#include "../battle/objectives.h"
-#include "../battle/script.h"
-#include "../battle/effects.h"
-#include "../battle/items.h"
-#include "../system/io.h"
-#include "../system/sound.h"
-#include "../battle/entities.h"
 
-extern Battle battle;
-extern Colors colors;
+#include "../battle/ai.h"
+#include "../battle/debris.h"
+#include "../battle/effects.h"
+#include "../battle/entities.h"
+#include "../battle/hud.h"
+#include "../battle/items.h"
+#include "../battle/objectives.h"
+#include "../battle/quadtree.h"
+#include "../battle/rope.h"
+#include "../battle/script.h"
+#include "../galaxy/mission.h"
+#include "../json/cJSON.h"
+#include "../system/atlas.h"
+#include "../system/io.h"
+#include "../system/lookup.h"
+#include "../system/sound.h"
+#include "../system/util.h"
+#include "fighters.h"
+
+extern Battle  battle;
+extern Colors  colors;
 extern Entity *player;
 extern Entity *self;
-extern Game game;
+extern Game	   game;
 
-static void separate(void);
-static void die(void);
-static void immediateDie(void);
-static void spinDie(void);
-static void straightDie(void);
-static void simpleDie(void);
-static void randomizeDart(Entity *dart);
-static void randomizeDartGuns(Entity *dart);
-static void loadFighterDef(char *filename);
-static void loadFighterDefList(char *filename);
+static void	   separate(void);
+static void	   die(void);
+static void	   immediateDie(void);
+static void	   spinDie(void);
+static void	   straightDie(void);
+static void	   simpleDie(void);
+static void	   randomizeDart(Entity *dart);
+static void	   randomizeDartGuns(Entity *dart);
+static void	   loadFighterDef(char *filename);
+static void	   loadFighterDefList(char *filename);
 static Entity *getFighterDef(char *name);
-static void addFighterStat(char *name);
-static void incFighterStat(char *key);
+static void	   addFighterStat(char *name);
+static void	   incFighterStat(char *key);
 
 static Entity defHead, *defTail;
 
@@ -175,7 +176,7 @@ static void randomizeDartGuns(Entity *dart)
 			dart->guns[0].type = BT_PLASMA;
 			dart->guns[0].x = dart->guns[0].y = 0;
 
-			for (i = 1 ; i < MAX_FIGHTER_GUNS ; i++)
+			for (i = 1; i < MAX_FIGHTER_GUNS; i++)
 			{
 				if (dart->guns[i].type)
 				{
@@ -408,12 +409,12 @@ void doFighter(void)
 
 static void separate(void)
 {
-	int angle;
-	int distance;
-	float dx, dy, force;
-	int count;
+	int		angle;
+	int		distance;
+	float	dx, dy, force;
+	int		count;
 	Entity *e, **candidates;
-	int i;
+	int		i;
 
 	dx = dy = 0;
 	count = 0;
@@ -421,7 +422,7 @@ static void separate(void)
 
 	candidates = getAllEntsInRadius(self->x, self->y, self->separationRadius, self);
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if ((e->flags & EF_TAKES_DAMAGE) && (!(e->flags & EF_NON_SOLID)))
 		{
@@ -706,7 +707,7 @@ void retreatEnemies(void)
 {
 	Entity *e;
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->type == ET_FIGHTER && e->side != player->side)
 		{
@@ -731,7 +732,7 @@ void retreatAllies(void)
 {
 	Entity *e;
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->type == ET_FIGHTER && e->side == player->side)
 		{
@@ -758,7 +759,7 @@ static Entity *getFighterDef(char *name)
 {
 	Entity *e;
 
-	for (e = defHead.next ; e != NULL ; e = e->next)
+	for (e = defHead.next; e != NULL; e = e->next)
 	{
 		if (strcmp(e->name, name) == 0)
 		{
@@ -773,11 +774,11 @@ static Entity *getFighterDef(char *name)
 Entity **getDBFighters(int *num)
 {
 	Entity *e, **dbFighters;
-	int i;
+	int		i;
 
 	i = *num = 0;
 
-	for (e = defHead.next ; e != NULL ; e = e->next)
+	for (e = defHead.next; e != NULL; e = e->next)
 	{
 		if (e->description != NULL)
 		{
@@ -785,9 +786,9 @@ Entity **getDBFighters(int *num)
 		}
 	}
 
-	dbFighters = malloc(sizeof(Entity*) * *num);
+	dbFighters = malloc(sizeof(Entity *) * *num);
 
-	for (e = defHead.next ; e != NULL ; e = e->next)
+	for (e = defHead.next; e != NULL; e = e->next)
 	{
 		if (e->description != NULL)
 		{
@@ -813,12 +814,12 @@ void loadFighterDefs(void)
 static void loadFighterDefList(char *dir)
 {
 	char **filenames;
-	char path[MAX_FILENAME_LENGTH];
-	int count, i;
+	char   path[MAX_FILENAME_LENGTH];
+	int	   count, i;
 
 	filenames = getFileList(dir, &count);
 
-	for (i = 0 ; i < count ; i++)
+	for (i = 0; i < count; i++)
 	{
 		sprintf(path, "%s/%s", dir, filenames[i]);
 
@@ -832,10 +833,10 @@ static void loadFighterDefList(char *dir)
 
 static void loadFighterDef(char *filename)
 {
-	cJSON *root, *node;
-	char *text;
+	cJSON  *root, *node;
+	char	 *text;
 	Entity *e;
-	int i, len;
+	int		i, len;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
@@ -877,7 +878,7 @@ static void loadFighterDef(char *filename)
 		{
 			i = 0;
 
-			for (node = cJSON_GetObjectItem(root, "guns")->child ; node != NULL ; node = node->next)
+			for (node = cJSON_GetObjectItem(root, "guns")->child; node != NULL; node = node->next)
 			{
 				e->guns[i].type = lookup(cJSON_GetObjectItem(node, "type")->valuestring);
 				e->guns[i].x = cJSON_GetObjectItem(node, "x")->valueint;
@@ -939,7 +940,7 @@ static void addFighterStat(char *key)
 
 	tail = &game.fighterStatHead;
 
-	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
+	for (t = game.fighterStatHead.next; t != NULL; t = t->next)
 	{
 		if (strcmp(t->key, key) == 0)
 		{
@@ -963,7 +964,7 @@ static void incFighterStat(char *key)
 {
 	Tuple *t;
 
-	for (t = game.fighterStatHead.next ; t != NULL ; t = t->next)
+	for (t = game.fighterStatHead.next; t != NULL; t = t->next)
 	{
 		if (strcmp(t->key, key) == 0)
 		{
@@ -976,11 +977,11 @@ static void incFighterStat(char *key)
 void loadFighters(cJSON *node)
 {
 	Entity *e;
-	char **types, *name, *groupName, *type, *strpos;
-	int side, scatter, number, active;
-	int i, numTypes, addFlags, addAIFlags, id;
-	long flags, aiFlags;
-	float x, y;
+	char	 **types, *name, *groupName, *type, *strpos;
+	int		side, scatter, number, active;
+	int		i, numTypes, addFlags, addAIFlags, id;
+	long	flags, aiFlags;
+	float	x, y;
 
 	if (node)
 	{
@@ -1015,7 +1016,7 @@ void loadFighters(cJSON *node)
 				aiFlags = flagsToLong(cJSON_GetObjectItem(node, "aiFlags")->valuestring, &addAIFlags);
 			}
 
-			for (i = 0 ; i < number ; i++)
+			for (i = 0; i < number; i++)
 			{
 				type = types[rand() % numTypes];
 
@@ -1083,7 +1084,7 @@ void loadFighters(cJSON *node)
 
 			node = node->next;
 
-			for (i = 0 ; i < numTypes ; i++)
+			for (i = 0; i < numTypes; i++)
 			{
 				free(types[i]);
 			}

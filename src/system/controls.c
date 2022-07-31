@@ -19,24 +19,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "controls.h"
-#include "../json/cJSON.h"
-#include "../system/text.h"
-#include "../system/lookup.h"
-#include "../system/widgets.h"
-#include "../system/io.h"
 
-extern App app;
+#include "../json/cJSON.h"
+#include "../system/io.h"
+#include "../system/lookup.h"
+#include "../system/text.h"
+#include "../system/widgets.h"
+#include "controls.h"
+
+extern App	  app;
 extern Colors colors;
 
 static void restoreDefaults(void);
 
 static const char *controlName[CONTROL_MAX];
-static Widget *controlWidget[CONTROL_MAX];
-static char *CONTROLS_TEXT;
-static char *HELP_TEXT;
-static char *BACKSPACE_TEXT;
-static char *ESCAPE_TEXT;
+static Widget	  *controlWidget[CONTROL_MAX];
+static char		*CONTROLS_TEXT;
+static char		*HELP_TEXT;
+static char		*BACKSPACE_TEXT;
+static char		*ESCAPE_TEXT;
 
 void initControls(void)
 {
@@ -55,11 +56,11 @@ void initControls(void)
 	controlName[CONTROL_PREV_FIGHTER] = _("Previous Fighter");
 	controlName[CONTROL_SCREENSHOT] = _("Screenshot");
 
-	for (i = 0 ; i < CONTROL_MAX ; i++)
+	for (i = 0; i < CONTROL_MAX; i++)
 	{
 		controlWidget[i] = getWidget(getLookupName("CONTROL_", i), "controls");
 		controlWidget[i]->numOptions = 2;
-		controlWidget[i]->options = malloc(2 * sizeof(char*));
+		controlWidget[i]->options = malloc(2 * sizeof(char *));
 		controlWidget[i]->options[0] = malloc(sizeof(char) * MAX_NAME_LENGTH);
 		controlWidget[i]->options[1] = malloc(sizeof(char) * MAX_NAME_LENGTH);
 		strcpy(controlWidget[i]->options[0], "");
@@ -76,7 +77,7 @@ void initControlsDisplay(void)
 {
 	int i;
 
-	for (i = 0 ; i < CONTROL_MAX ; i++)
+	for (i = 0; i < CONTROL_MAX; i++)
 	{
 		strcpy(controlWidget[i]->options[0], "");
 		strcpy(controlWidget[i]->options[1], "");
@@ -105,7 +106,7 @@ int isControl(int type)
 
 int isAcceptControl(void)
 {
-	return (app.keyboard[SDL_SCANCODE_SPACE] ||app.keyboard[SDL_SCANCODE_RETURN] || isControl(CONTROL_FIRE));
+	return (app.keyboard[SDL_SCANCODE_SPACE] || app.keyboard[SDL_SCANCODE_RETURN] || isControl(CONTROL_FIRE));
 }
 
 void clearControl(int type)
@@ -158,7 +159,7 @@ void clearControlConfig(char *name)
 
 void drawControls(void)
 {
-	int i;
+	int		 i;
 	SDL_Rect r;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -186,7 +187,7 @@ void drawControls(void)
 	r.x += 25;
 	r.y = 125;
 
-	for (i = 0 ; i < CONTROL_MAX ; i++)
+	for (i = 0; i < CONTROL_MAX; i++)
 	{
 		drawText(r.x, r.y + 2, 20, TA_LEFT, colors.white, controlName[i]);
 
@@ -218,11 +219,11 @@ void drawControls(void)
 
 static void restoreDefaults(void)
 {
-	int i;
+	int	   i;
 	cJSON *root, *controlsJSON, *node;
-	char *text;
+	char	 *text;
 
-	text = readFile("data/app/"CONFIG_FILENAME);
+	text = readFile("data/app/" CONFIG_FILENAME);
 
 	root = cJSON_Parse(text);
 

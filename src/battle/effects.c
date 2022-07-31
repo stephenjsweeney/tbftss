@@ -19,27 +19,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "effects.h"
+
 #include "../system/atlas.h"
 #include "../system/draw.h"
 #include "../system/util.h"
+#include "effects.h"
 
-#define INITIAL_EFFECT_DRAW_CAPACITY    128
+#define INITIAL_EFFECT_DRAW_CAPACITY 128
 
-extern App app;
-extern Battle battle;
+extern App	   app;
+extern Battle  battle;
 extern Entity *self;
 
 static void setRandomFlameHue(Effect *e);
 static void setRandomShieldHue(Effect *e);
 static void resizeDrawList(void);
-static int pointOnScreen(float x, float y);
+static int	pointOnScreen(float x, float y);
 
 static AtlasImage *explosionTexture;
 static AtlasImage *shieldHitTexture;
 static AtlasImage *haloTexture;
-static Effect **effectsToDraw;
-static int drawCapacity;
+static Effect	  **effectsToDraw;
+static int		   drawCapacity;
 
 void initEffects(void)
 {
@@ -49,21 +50,21 @@ void initEffects(void)
 
 	drawCapacity = INITIAL_EFFECT_DRAW_CAPACITY;
 
-	effectsToDraw = malloc(sizeof(Effect*) * drawCapacity);
-	memset(effectsToDraw, 0, sizeof(Effect*) * drawCapacity);
+	effectsToDraw = malloc(sizeof(Effect *) * drawCapacity);
+	memset(effectsToDraw, 0, sizeof(Effect *) * drawCapacity);
 }
 
 void doEffects(void)
 {
-	int i, onScreen;
+	int		i, onScreen;
 	Effect *e;
 	Effect *prev = &battle.effectHead;
 
 	i = 0;
 
-	memset(effectsToDraw, 0, sizeof(Effect*) * drawCapacity);
+	memset(effectsToDraw, 0, sizeof(Effect *) * drawCapacity);
 
-	for (e = battle.effectHead.next ; e != NULL ; e = e->next)
+	for (e = battle.effectHead.next; e != NULL; e = e->next)
 	{
 		e->x += e->dx;
 		e->y += e->dy;
@@ -133,19 +134,19 @@ static void resizeDrawList(void)
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing effect draw capacity: %d -> %d", drawCapacity, n);
 
-	effectsToDraw = resize(effectsToDraw, sizeof(Effect*) * drawCapacity, sizeof(Effect*) * n);
+	effectsToDraw = resize(effectsToDraw, sizeof(Effect *) * drawCapacity, sizeof(Effect *) * n);
 
 	drawCapacity = n;
 }
 
 void drawEffects(void)
 {
-	int i;
+	int		i;
 	Effect *e;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 
-	for (i = 0, e = effectsToDraw[i] ; e != NULL ; e = effectsToDraw[++i])
+	for (i = 0, e = effectsToDraw[i]; e != NULL; e = effectsToDraw[++i])
 	{
 		SDL_SetRenderDrawColor(app.renderer, e->r, e->g, e->b, e->a);
 
@@ -201,9 +202,9 @@ void drawShieldHitEffect(Entity *e)
 void addBulletHitEffect(int x, int y, int r, int g, int b)
 {
 	Effect *e;
-	int i;
+	int		i;
 
-	for (i = 0 ; i < 4 ; i++)
+	for (i = 0; i < 4; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -281,10 +282,10 @@ void addDebrisFire(int x, int y)
 
 void addSmallExplosion(void)
 {
-	int i;
+	int		i;
 	Effect *e;
 
-	for (i = 0 ; i < 32 ; i++)
+	for (i = 0; i < 32; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -312,7 +313,7 @@ void addSmallExplosion(void)
 		e->y -= e->size / 2;
 	}
 
-	for (i = 0 ; i < 96 ; i++)
+	for (i = 0; i < 96; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -336,10 +337,10 @@ void addSmallExplosion(void)
 
 void addMineExplosion(void)
 {
-	int i;
+	int		i;
 	Effect *e;
 
-	for (i = 0 ; i < 64 ; i++)
+	for (i = 0; i < 64; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -386,10 +387,10 @@ void addMineExplosion(void)
 
 void addLargeExplosion(void)
 {
-	int i;
+	int		i;
 	Effect *e;
 
-	for (i = 0 ; i < 64 ; i++)
+	for (i = 0; i < 64; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -440,10 +441,10 @@ void addLargeExplosion(void)
 
 void addMissileExplosion(Bullet *b)
 {
-	int i;
+	int		i;
 	Effect *e;
 
-	for (i = 0 ; i < 8 ; i++)
+	for (i = 0; i < 8; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -471,7 +472,7 @@ void addMissileExplosion(Bullet *b)
 		e->y -= e->size / 2;
 	}
 
-	for (i = 0 ; i < 24 ; i++)
+	for (i = 0; i < 24; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -496,8 +497,8 @@ void addMissileExplosion(Bullet *b)
 void addEngineEffect(void)
 {
 	Effect *e;
-	float c, s;
-	int h;
+	float	c, s;
+	int		h;
 
 	e = malloc(sizeof(Effect));
 	memset(e, 0, sizeof(Effect));
@@ -595,10 +596,10 @@ void addMissileEngineEffect(Bullet *b)
 
 void addShieldSplinterEffect(Entity *ent)
 {
-	int i;
+	int		i;
 	Effect *e;
 
-	for (i = 0 ; i < 48 ; i++)
+	for (i = 0; i < 48; i++)
 	{
 		e = malloc(sizeof(Effect));
 		memset(e, 0, sizeof(Effect));
@@ -622,10 +623,10 @@ void addShieldSplinterEffect(Entity *ent)
 
 void addECMEffect(Entity *ent)
 {
-	int i;
+	int		i;
 	Effect *e;
 
-	for (i = 0 ; i < 3 ; i++)
+	for (i = 0; i < 3; i++)
 	{
 		e = malloc(sizeof(Effect));
 

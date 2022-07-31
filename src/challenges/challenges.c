@@ -19,50 +19,51 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "challenges.h"
+
+#include "../battle/fighters.h"
+#include "../galaxy/mission.h"
+#include "../game/stats.h"
+#include "../game/trophies.h"
 #include "../json/cJSON.h"
+#include "../system/io.h"
 #include "../system/lookup.h"
 #include "../system/util.h"
-#include "../battle/fighters.h"
 #include "../system/widgets.h"
-#include "../galaxy/mission.h"
-#include "../game/trophies.h"
-#include "../game/stats.h"
-#include "../system/io.h"
+#include "challenges.h"
 
-extern Battle battle;
-extern Dev dev;
+extern Battle  battle;
+extern Dev	   dev;
 extern Entity *player;
-extern Game game;
+extern Game	   game;
 
-static void updateTimeChallenge(Challenge *c);
-static void updateSurvivalChallenge(Challenge *c);
-static void updateAccuracyChallenge(Challenge *c);
-static void updateArmourChallenge(Challenge *c);
-static void updateLossesChallenge(Challenge *c);
-static void updatePlayerKillsChallenge(Challenge *c);
-static void updateDisabledChallenge(Challenge *c);
-static void updateItemsChallenge(Challenge *c);
-static void updateSurrenderChallenge(Challenge *c);
-static void updateWaypointChallenge(Challenge *c);
-static void updateRescueChallenge(Challenge *c);
-static void completeChallenge(void);
-static void failChallenge(void);
-static int updateChallenges(void);
+static void	 updateTimeChallenge(Challenge *c);
+static void	 updateSurvivalChallenge(Challenge *c);
+static void	 updateAccuracyChallenge(Challenge *c);
+static void	 updateArmourChallenge(Challenge *c);
+static void	 updateLossesChallenge(Challenge *c);
+static void	 updatePlayerKillsChallenge(Challenge *c);
+static void	 updateDisabledChallenge(Challenge *c);
+static void	 updateItemsChallenge(Challenge *c);
+static void	 updateSurrenderChallenge(Challenge *c);
+static void	 updateWaypointChallenge(Challenge *c);
+static void	 updateRescueChallenge(Challenge *c);
+static void	 completeChallenge(void);
+static void	 failChallenge(void);
+static int	 updateChallenges(void);
 static char *getFormattedChallengeDescription(const char *format, ...);
-static int challengeFinished(void);
-static int alreadyPassed(void);
-static void printStats(void);
+static int	 challengeFinished(void);
+static int	 alreadyPassed(void);
+static void	 printStats(void);
 
-static char descriptionBuffer[MAX_DESCRIPTION_LENGTH];
+static char		   descriptionBuffer[MAX_DESCRIPTION_LENGTH];
 static const char *challengeDescription[CHALLENGE_MAX];
 
 void initChallenges(void)
 {
 	Mission *mission, *tail;
-	char **filenames;
-	char path[MAX_FILENAME_LENGTH];
-	int count, i;
+	char	 **filenames;
+	char	 path[MAX_FILENAME_LENGTH];
+	int		 count, i;
 
 	challengeDescription[CHALLENGE_ARMOUR] = _("Retain at least %d%% armour");
 	challengeDescription[CHALLENGE_TIME] = _("Complete challenge in %d seconds or less");
@@ -85,7 +86,7 @@ void initChallenges(void)
 
 	filenames = getFileList("data/challenges", &count);
 
-	for (i = 0 ; i < count ; i++)
+	for (i = 0; i < count; i++)
 	{
 		sprintf(path, "data/challenges/%s", filenames[i]);
 
@@ -105,7 +106,7 @@ void initChallenges(void)
 
 void loadChallenge(Mission *mission, cJSON *node)
 {
-	int i;
+	int		   i;
 	Challenge *challenge;
 
 	mission->challengeData.isChallenge = 1;
@@ -248,14 +249,14 @@ static int challengeFinished(void)
 
 static int updateChallenges(void)
 {
-	int i, numPassed;
+	int		   i, numPassed;
 	Challenge *c;
 
 	updateAccuracyStats(battle.stats);
 
 	numPassed = 0;
 
-	for (i = 0 ; i < MAX_CHALLENGES ; i++)
+	for (i = 0; i < MAX_CHALLENGES; i++)
 	{
 		c = game.currentMission->challengeData.challenges[i];
 
@@ -335,7 +336,7 @@ static void printStats(void)
 {
 	int i;
 
-	for (i = 0 ; i < STAT_MAX ; i++)
+	for (i = 0; i < STAT_MAX; i++)
 	{
 		if (battle.stats[i])
 		{
@@ -492,10 +493,10 @@ char *getChallengeDescription(Challenge *c)
 
 Challenge *getChallenge(Mission *mission, int type, int value)
 {
-	int i;
+	int		   i;
 	Challenge *c;
 
-	for (i = 0 ; i < MAX_CHALLENGES ; i++)
+	for (i = 0; i < MAX_CHALLENGES; i++)
 	{
 		c = mission->challengeData.challenges[i];
 
@@ -523,15 +524,15 @@ static char *getFormattedChallengeDescription(const char *format, ...)
 
 void updateChallengeMissions(void)
 {
-	int i;
-	Mission *m;
+	int		   i;
+	Mission	*m;
 	Challenge *c;
 
-	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
+	for (m = game.challengeMissionHead.next; m != NULL; m = m->next)
 	{
 		m->totalChallenges = m->completedChallenges = 0;
 
-		for (i = 0 ; i < MAX_CHALLENGES ; i++)
+		for (i = 0; i < MAX_CHALLENGES; i++)
 		{
 			c = m->challengeData.challenges[i];
 
@@ -595,10 +596,10 @@ static void failChallenge(void)
 
 static int alreadyPassed(void)
 {
-	int i;
+	int		   i;
 	Challenge *c;
 
-	for (i = 0 ; i < MAX_CHALLENGES ; i++)
+	for (i = 0; i < MAX_CHALLENGES; i++)
 	{
 		c = game.currentMission->challengeData.challenges[i];
 

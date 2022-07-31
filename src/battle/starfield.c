@@ -19,8 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "starfield.h"
+
 #include "../system/util.h"
+#include "starfield.h"
 
 extern App app;
 
@@ -32,7 +33,7 @@ void initStars(void)
 
 	memset(stars, 0, sizeof(Star) * MAX_STARS);
 
-	for (i = 0 ; i < MAX_STARS ; i++)
+	for (i = 0; i < MAX_STARS; i++)
 	{
 		stars[i].x = rand() % app.winWidth;
 		stars[i].y = rand() % app.winHeight;
@@ -46,7 +47,7 @@ void doStars(float dx, float dy)
 {
 	int i;
 
-	for (i = 0 ; i < MAX_STARS ; i++)
+	for (i = 0; i < MAX_STARS; i++)
 	{
 		stars[i].x -= (dx * stars[i].speed);
 		stars[i].y -= (dy * stars[i].speed);
@@ -61,7 +62,7 @@ void drawStars(void)
 	int i;
 	int c;
 
-	for (i = 0 ; i < MAX_STARS ; i++)
+	for (i = 0; i < MAX_STARS; i++)
 	{
 		c = 64 * stars[i].speed;
 

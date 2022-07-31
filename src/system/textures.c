@@ -18,10 +18,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "textures.h"
 #include <SDL2/SDL_image.h>
+
+#include "../common.h"
+
 #include "../system/io.h"
+#include "textures.h"
 
 extern App app;
 
@@ -32,7 +34,7 @@ static void addTextureToCache(char *name, SDL_Texture *texture);
 static void addTextureToCache(char *name, SDL_Texture *texture)
 {
 	Texture *t, *new;
-	int i;
+	int		 i;
 
 	i = strlen(name) % NUM_TEXTURE_BUCKETS;
 
@@ -75,12 +77,12 @@ static SDL_Texture *loadTexture(char *filename)
 SDL_Texture *getTexture(char *filename)
 {
 	Texture *t;
-	int i;
+	int		 i;
 
 	i = strlen(filename) % NUM_TEXTURE_BUCKETS;
 
 	/* check if the texture is already loaded */
-	for (t = textures[i].next ; t != NULL ; t = t->next)
+	for (t = textures[i].next; t != NULL; t = t->next)
 	{
 		if (strcmp(t->name, filename) == 0)
 		{
@@ -110,9 +112,9 @@ SDL_Texture *toTexture(SDL_Surface *surface, int destroySurface)
 void destroyTextures(void)
 {
 	Texture *t, *next;
-	int i;
+	int		 i;
 
-	for (i = 0 ; i < NUM_TEXTURE_BUCKETS ; i++)
+	for (i = 0; i < NUM_TEXTURE_BUCKETS; i++)
 	{
 		t = textures[i].next;
 

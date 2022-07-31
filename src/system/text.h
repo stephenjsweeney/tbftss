@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-int getWrappedTextHeight(char *text, int size);
+int	 getWrappedTextHeight(char *text, int size);
 void calcTextDimensions(const char *text, int size, int *w, int *h);
 void useFont(char *name);
 void drawText(int x, int y, int size, int align, SDL_Color color, const char *format, ...);

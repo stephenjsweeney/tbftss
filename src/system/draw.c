@@ -19,15 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "draw.h"
+
+#include "../system/input.h"
 #include "../system/text.h"
 #include "../system/util.h"
-#include "../system/input.h"
+#include "draw.h"
 
-extern App app;
+extern App	  app;
 extern Battle battle;
 extern Colors colors;
-extern Dev dev;
+extern Dev	  dev;
 
 static void initColor(SDL_Color *c, int r, int g, int b);
 
@@ -162,9 +163,9 @@ void blitRotated(AtlasImage *atlasImage, int x, int y, float angle)
 
 void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a)
 {
-	int x = radius;
-	int y = 0;
-	int radiusError = 1 - x;
+	int		  x = radius;
+	int		  y = 0;
+	int		  radiusError = 1 - x;
 	SDL_Point p[8];
 
 	SDL_SetRenderDrawColor(app.renderer, r, g, b, a);
@@ -172,14 +173,22 @@ void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a)
 
 	while (x >= y)
 	{
-		p[0].x =  x + cx; p[0].y = y + cy;
-		p[1].x =  y + cx; p[1].y =  x + cy;
-		p[2].x = -x + cx; p[2].y =  y + cy;
-		p[3].x = -y + cx; p[3].y =  x + cy;
-		p[4].x = -x + cx; p[4].y = -y + cy;
-		p[5].x = -y + cx; p[5].y = -x + cy;
-		p[6].x =  x + cx; p[6].y = -y + cy;
-		p[7].x =  y + cx; p[7].y = -x + cy;
+		p[0].x = x + cx;
+		p[0].y = y + cy;
+		p[1].x = y + cx;
+		p[1].y = x + cy;
+		p[2].x = -x + cx;
+		p[2].y = y + cy;
+		p[3].x = -y + cx;
+		p[3].y = x + cy;
+		p[4].x = -x + cx;
+		p[4].y = -y + cy;
+		p[5].x = -y + cx;
+		p[5].y = -x + cy;
+		p[6].x = x + cx;
+		p[6].y = -y + cy;
+		p[7].x = y + cx;
+		p[7].y = -x + cy;
 		SDL_RenderDrawPoints(app.renderer, p, 8);
 
 		y++;
@@ -202,7 +211,7 @@ void scrollBackground(float x, float y)
 {
 	int i;
 
-	for (i = 0 ; i < 4 ; i++)
+	for (i = 0; i < 4; i++)
 	{
 		backgroundPoint[i].x += x;
 		backgroundPoint[i].y += y;
@@ -231,10 +240,10 @@ void scrollBackground(float x, float y)
 
 void drawBackground(SDL_Texture *texture)
 {
-	int i;
+	int		 i;
 	SDL_Rect dstRect;
 
-	for (i = 0 ; i < 4 ; i++)
+	for (i = 0; i < 4; i++)
 	{
 		dstRect.x = backgroundPoint[i].x;
 		dstRect.y = backgroundPoint[i].y;
@@ -266,8 +275,8 @@ int isOnBattleScreen(int x, int y, int w, int h)
 
 void saveScreenshot(void)
 {
-	static int i = 0;
-	char filename[MAX_NAME_LENGTH];
+	static int	 i = 0;
+	char		 filename[MAX_NAME_LENGTH];
 	SDL_Surface *sshot;
 
 	sprintf(filename, "/tmp/tbftss/%d.bmp", ++i);

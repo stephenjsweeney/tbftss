@@ -19,31 +19,32 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "capitalShips.h"
+
+#include "../battle/ai.h"
+#include "../battle/debris.h"
+#include "../battle/effects.h"
+#include "../battle/entities.h"
+#include "../battle/fighters.h"
+#include "../battle/messageBox.h"
+#include "../battle/objectives.h"
+#include "../battle/quadtree.h"
+#include "../battle/script.h"
 #include "../json/cJSON.h"
+#include "../system/atlas.h"
+#include "../system/io.h"
 #include "../system/lookup.h"
 #include "../system/sound.h"
 #include "../system/util.h"
-#include "../battle/ai.h"
-#include "../battle/fighters.h"
-#include "../battle/quadtree.h"
-#include "../battle/debris.h"
-#include "../battle/messageBox.h"
-#include "../battle/script.h"
-#include "../battle/effects.h"
-#include "../battle/objectives.h"
-#include "../system/atlas.h"
-#include "../system/io.h"
-#include "../battle/entities.h"
+#include "capitalShips.h"
 
-#define TURN_SPEED        0.1
-#define TURN_THRESHOLD    2
+#define TURN_SPEED	   0.1
+#define TURN_THRESHOLD 2
 
-extern Battle battle;
+extern Battle  battle;
 extern Entity *player;
 extern Entity *self;
 
-static int steer(void);
+static int	steer(void);
 static void think(void);
 static void gunThink(void);
 static void gunDie(void);
@@ -69,7 +70,7 @@ Entity *spawnCapitalShip(char *name, int x, int y, int side)
 
 	capitalShip = NULL;
 
-	for (def = defHead.next ; def != NULL ; def = def->next)
+	for (def = defHead.next; def != NULL; def = def->next)
 	{
 		if ((strcmp(def->name, name) == 0) || (def->owner != NULL && strcmp(def->owner->name, name) == 0))
 		{
@@ -143,7 +144,7 @@ void doCapitalShip(void)
 static void think(void)
 {
 	float dir;
-	int wantedAngle;
+	int	  wantedAngle;
 
 	if (--self->aiActionTime <= 0)
 	{
@@ -168,13 +169,13 @@ static void think(void)
 
 static void findAITarget(void)
 {
-	Entity *e;
+	Entity	   *e;
 	unsigned int dist, closest;
 
 	self->target = NULL;
 	dist = closest = MAX_TARGET_RANGE;
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->active && e->side != self->side && e->flags & EF_AI_TARGET)
 		{
@@ -206,13 +207,13 @@ static void findAITarget(void)
 
 static int steer(void)
 {
-	int wantedAngle;
-	int angle;
-	int distance;
-	float dx, dy, force;
-	int count;
+	int		wantedAngle;
+	int		angle;
+	int		distance;
+	float	dx, dy, force;
+	int		count;
 	Entity *e, **candidates;
-	int i;
+	int		i;
 
 	dx = dy = 0;
 	count = 0;
@@ -220,7 +221,7 @@ static int steer(void)
 
 	candidates = getAllEntsInRadius(self->x, self->y, 2000, self);
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (e->type == ET_CAPITAL_SHIP)
 		{
@@ -299,7 +300,7 @@ static void gunDie(void)
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	addDebris(self->x, self->y, 3 + rand() % 4);
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e != self && e->health > 0 && e->owner == self->owner && e->type == ET_COMPONENT_GUN)
 		{
@@ -336,7 +337,7 @@ static void engineDie(void)
 	playBattleSound(SND_EXPLOSION_1 + rand() % 4, self->x, self->y);
 	addDebris(self->x, self->y, 4 + rand() % 9);
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e != self && e->health > 0 && e->owner == self->owner && e->type == ET_COMPONENT_ENGINE)
 		{
@@ -377,7 +378,7 @@ static void die(void)
 
 	addDebris(self->x, self->y, 12);
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->owner == self)
 		{
@@ -410,7 +411,7 @@ static void disable(void)
 
 	runScriptFunction("CAP_DISABLED %s", self->owner->name);
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->owner == self->owner || e == self->owner)
 		{
@@ -426,15 +427,15 @@ static void disable(void)
 void loadCapitalShipDefs(void)
 {
 	char **filenames;
-	char path[MAX_FILENAME_LENGTH];
-	int count, i;
+	char   path[MAX_FILENAME_LENGTH];
+	int	   count, i;
 
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
 
 	filenames = getFileList("data/capitalShips", &count);
 
-	for (i = 0 ; i < count ; i++)
+	for (i = 0; i < count; i++)
 	{
 		sprintf(path, "data/capitalShips/%s", filenames[i]);
 
@@ -448,8 +449,8 @@ void loadCapitalShipDefs(void)
 
 static void loadCapitalShipDef(char *filename)
 {
-	cJSON *root;
-	char *text;
+	cJSON  *root;
+	char	 *text;
 	Entity *e;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
@@ -504,7 +505,7 @@ static void loadCapitalShipDef(char *filename)
 static void loadComponents(Entity *parent, cJSON *components)
 {
 	Entity *e;
-	cJSON *component;
+	cJSON  *component;
 
 	parent->health = 0;
 
@@ -558,7 +559,7 @@ static void loadComponents(Entity *parent, cJSON *components)
 static void loadGuns(Entity *parent, cJSON *guns)
 {
 	Entity *e;
-	cJSON *gun;
+	cJSON  *gun;
 
 	if (guns)
 	{
@@ -610,7 +611,7 @@ static void loadGuns(Entity *parent, cJSON *guns)
 static void loadEngines(Entity *parent, cJSON *engines)
 {
 	Entity *e;
-	cJSON *engine;
+	cJSON  *engine;
 
 	if (engines)
 	{
@@ -660,7 +661,7 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 		flags &= ~EF_AI_LEADER;
 	}
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->owner == parent)
 		{
@@ -698,11 +699,11 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 void loadCapitalShips(cJSON *node)
 {
 	Entity *e;
-	char **types, *name, *groupName, *type;
-	int side, scatter, number, active;
-	int i, numTypes, addFlags;
-	long flags;
-	float x, y;
+	char	 **types, *name, *groupName, *type;
+	int		side, scatter, number, active;
+	int		i, numTypes, addFlags;
+	long	flags;
+	float	x, y;
 
 	if (node)
 	{
@@ -729,7 +730,7 @@ void loadCapitalShips(cJSON *node)
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
 			}
 
-			for (i = 0 ; i < number ; i++)
+			for (i = 0; i < number; i++)
 			{
 				type = types[rand() % numTypes];
 
@@ -774,7 +775,7 @@ void loadCapitalShips(cJSON *node)
 
 			node = node->next;
 
-			for (i = 0 ; i < numTypes ; i++)
+			for (i = 0; i < numTypes; i++)
 			{
 				free(types[i]);
 			}

@@ -19,24 +19,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "waypoints.h"
-#include "../system/util.h"
-#include "../system/sound.h"
+
+#include "../battle/entities.h"
 #include "../battle/hud.h"
 #include "../battle/objectives.h"
 #include "../battle/script.h"
 #include "../system/atlas.h"
-#include "../battle/entities.h"
+#include "../system/sound.h"
+#include "../system/util.h"
+#include "waypoints.h"
 
-extern Battle battle;
-extern Colors colors;
+extern Battle  battle;
+extern Colors  colors;
 extern Entity *player;
 extern Entity *self;
-extern Game game;
+extern Game	   game;
 
 static void think(void);
-static int teamMatesClose(void);
-static int isCurrentObjective(void);
+static int	teamMatesClose(void);
+static int	isCurrentObjective(void);
 
 static int waypointId;
 static int currentWaypointId;
@@ -57,7 +58,7 @@ Entity *spawnWaypoint(void)
 	waypoint->active = 0;
 	waypoint->health = waypoint->maxHealth = FPS;
 	waypoint->texture = getAtlasImage("gfx/entities/waypoint.png");
-	waypoint->flags = EF_NO_MT_BOX+EF_MISSION_TARGET+EF_NO_HEALTH_BAR;
+	waypoint->flags = EF_NO_MT_BOX + EF_MISSION_TARGET + EF_NO_HEALTH_BAR;
 	waypoint->action = think;
 
 	waypoint->w = waypoint->texture->rect.w;
@@ -128,7 +129,7 @@ static int teamMatesClose(void)
 
 	if (player->side != SIDE_PANDORAN)
 	{
-		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+		for (e = battle.entityHead.next; e != NULL; e = e->next)
 		{
 			if (e->active && e->type == ET_FIGHTER && e->side == SIDE_ALLIES)
 			{
@@ -152,7 +153,7 @@ void activateNextWaypoint(void)
 
 	currentWaypointId++;
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->type == ET_WAYPOINT && e->id == currentWaypointId)
 		{

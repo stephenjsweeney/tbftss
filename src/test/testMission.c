@@ -19,10 +19,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "testMission.h"
-#include "../json/cJSON.h"
-#include "../galaxy/mission.h"
+
 #include "../battle/battle.h"
+#include "../galaxy/mission.h"
+#include "../json/cJSON.h"
+#include "testMission.h"
 
 extern Game game;
 

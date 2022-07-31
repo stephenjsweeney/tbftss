@@ -19,64 +19,65 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "ai.h"
-#include "../battle/mine.h"
-#include "../system/util.h"
-#include "../battle/fighters.h"
-#include "../battle/quadtree.h"
+
 #include "../battle/bullets.h"
+#include "../battle/fighters.h"
 #include "../battle/hud.h"
+#include "../battle/mine.h"
+#include "../battle/quadtree.h"
 #include "../battle/script.h"
+#include "../system/util.h"
+#include "ai.h"
 
-#define AI_EVADE          0
-#define AI_FALLBACK       1
-#define AI_HUNT           2
-#define TURN_SPEED        4
-#define TURN_THRESHOLD    2
+#define AI_EVADE	   0
+#define AI_FALLBACK	   1
+#define AI_HUNT		   2
+#define TURN_SPEED	   4
+#define TURN_THRESHOLD 2
 
-extern Battle battle;
-extern Colors colors;
-extern Dev dev;
+extern Battle  battle;
+extern Colors  colors;
+extern Dev	   dev;
 extern Entity *player;
 extern Entity *self;
 
 static void faceTarget(Entity *e);
-static int isInFOV(Entity *e, int fov);
+static int	isInFOV(Entity *e, int fov);
 static void preAttack(void);
 static void huntTarget(void);
 static void huntAndAttackTarget(void);
 static void moveToTargetLocation(void);
 static void nextAction(void);
 static void findTarget(void);
-static int hasClearShot(void);
+static int	hasClearShot(void);
 static void fallback(void);
 static void moveToPlayer(void);
-static int canAttack(Entity *e);
-static int selectWeapon(int type);
-static int nearJumpgate(void);
+static int	canAttack(Entity *e);
+static int	selectWeapon(int type);
+static int	nearJumpgate(void);
 static void moveToJumpgate(void);
-static int nearEnemies(void);
-static int nearItems(void);
-static int nearMines(void);
+static int	nearEnemies(void);
+static int	nearItems(void);
+static int	nearMines(void);
 static void moveToItem(void);
-static int nearTowableCraft(void);
+static int	nearTowableCraft(void);
 static void moveToTowableCraft(void);
-static int lookForPlayer(void);
-static int lookForLeader(void);
+static int	lookForPlayer(void);
+static int	lookForLeader(void);
 static void fleeEnemies(void);
-static int isRetreating(void);
-static int getActionChance(int type);
+static int	isRetreating(void);
+static int	getActionChance(int type);
 static void doFighterAI(void);
 static void doGunAI(void);
 static void moveToLeader(void);
 static void wander(void);
 static void doWander(void);
-static int selectWeaponForTarget(Entity *e);
+static int	selectWeaponForTarget(Entity *e);
 static void deployMine(void);
-static int isSurrendering(void);
+static int	isSurrendering(void);
 static void doSurrender(void);
 static void fleeWithinBattleArea(int x, int y, int numEnemies);
-static int evadeNonKillTargets(void);
+static int	evadeNonKillTargets(void);
 
 void doAI(void)
 {
@@ -151,7 +152,7 @@ void doAI(void)
 		return;
 	}
 
-	if ((self->aiFlags & (AIF_FOLLOWS_PLAYER|AIF_MOVES_TO_PLAYER)) && lookForPlayer())
+	if ((self->aiFlags & (AIF_FOLLOWS_PLAYER | AIF_MOVES_TO_PLAYER)) && lookForPlayer())
 	{
 		return;
 	}
@@ -340,8 +341,8 @@ static void huntAndAttackTarget(void)
 
 static void findTarget(void)
 {
-	int i;
-	Entity *e, **candidates;
+	int			 i;
+	Entity	   *e, **candidates;
 	unsigned int dist, closest;
 
 	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : SCREEN_WIDTH;
@@ -350,7 +351,7 @@ static void findTarget(void)
 
 	self->target = NULL;
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (canAttack(e) && selectWeaponForTarget(e))
 		{
@@ -437,7 +438,7 @@ static int selectWeapon(int type)
 {
 	int i;
 
-	for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
+	for (i = 0; i < MAX_FIGHTER_GUNS; i++)
 	{
 		if (self->guns[i].type == type)
 		{
@@ -481,14 +482,14 @@ static int isInFOV(Entity *e, int fov)
 
 static int hasClearShot(void)
 {
-	int dist;
+	int		dist;
 	Entity *e;
 
 	if (isInFOV(self->target, 4))
 	{
 		dist = getDistance(self->x, self->y, self->target->x, self->target->y);
 
-		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+		for (e = battle.entityHead.next; e != NULL; e = e->next)
 		{
 			if (self->owner != NULL && self->owner == e->owner)
 			{
@@ -523,7 +524,7 @@ static void preAttack(void)
 			{
 				fireGuns(self);
 			}
-			else if (self->missiles && (!(self->target->flags & (EF_NO_KILL|EF_MUST_DISABLE|EF_FRIENDLY_HEALTH_BAR))) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
+			else if (self->missiles && (!(self->target->flags & (EF_NO_KILL | EF_MUST_DISABLE | EF_FRIENDLY_HEALTH_BAR))) && getDistance(self->x, self->y, self->target->x, self->target->y) >= 350)
 			{
 				fireMissile(self);
 
@@ -675,7 +676,7 @@ static void doSurrender(void)
 
 static int nearEnemies(void)
 {
-	int i, numEnemies, x, y;
+	int		i, numEnemies, x, y;
 	Entity *e, **candidates;
 
 	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH, self);
@@ -685,7 +686,7 @@ static int nearEnemies(void)
 
 	numEnemies = 0;
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if ((e->flags & EF_TAKES_DAMAGE) && e->side != SIDE_NONE && e->side != self->side && !(e->flags & EF_DISABLED))
 		{
@@ -715,7 +716,7 @@ static int nearEnemies(void)
 
 static int evadeNonKillTargets(void)
 {
-	int i, numEnemies, x, y;
+	int		i, numEnemies, x, y;
 	Entity *e, **candidates;
 
 	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH, self);
@@ -725,7 +726,7 @@ static int evadeNonKillTargets(void)
 
 	numEnemies = 0;
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if ((e->flags & EF_TAKES_DAMAGE) && e->side != SIDE_NONE && e->side != self->side && (!(e->flags & EF_DISABLED)))
 		{
@@ -806,7 +807,7 @@ static void deployMine(void)
 
 static int nearMines(void)
 {
-	int i, numMines, x, y;
+	int		i, numMines, x, y;
 	Entity *e, **candidates;
 
 	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_HEIGHT, self);
@@ -815,7 +816,7 @@ static int nearMines(void)
 
 	numMines = 0;
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (e->side != self->side && e->type == ET_MINE && getDistance(e->x, e->y, self->x, self->y) <= SCREEN_HEIGHT)
 		{
@@ -913,8 +914,8 @@ static void moveToJumpgate(void)
 
 static int nearItems(void)
 {
-	int i;
-	long closest, distance;
+	int		i;
+	long	closest, distance;
 	Entity *e, **candidates;
 
 	closest = MAX_TARGET_RANGE;
@@ -923,7 +924,7 @@ static int nearItems(void)
 
 	self->target = NULL;
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (e->type == ET_ITEM)
 		{
@@ -961,8 +962,8 @@ static void moveToItem(void)
 
 static int nearTowableCraft(void)
 {
-	int i;
-	long closest, dist;
+	int		i;
+	long	closest, dist;
 	Entity *e, **candidates;
 
 	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 2000;
@@ -971,9 +972,9 @@ static int nearTowableCraft(void)
 
 	self->target = NULL;
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
-		if (!e->owner && (e->flags & (EF_DISABLED|EF_MISSION_TARGET)) == (EF_DISABLED|EF_MISSION_TARGET) && (e->flags & EF_ROPED_ATTACHED) == 0)
+		if (!e->owner && (e->flags & (EF_DISABLED | EF_MISSION_TARGET)) == (EF_DISABLED | EF_MISSION_TARGET) && (e->flags & EF_ROPED_ATTACHED) == 0)
 		{
 			dist = getDistance(self->x, self->y, e->x, e->y);
 
@@ -1018,13 +1019,13 @@ static int lookForPlayer(void)
 
 static int lookForLeader(void)
 {
-	long closest, distance;
+	long	closest, distance;
 	Entity *e;
 
 	self->leader = NULL;
 	closest = 0;
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->active && e->flags & EF_AI_LEADER && e->side == self->side)
 		{

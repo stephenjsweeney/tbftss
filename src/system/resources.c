@@ -19,28 +19,29 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "resources.h"
+
 #include "../system/atlas.h"
 #include "../system/io.h"
+#include "resources.h"
 
 char **backgrounds;
 char **planets;
 char **musicFiles;
-int numBackgrounds;
-int numPlanets;
-int numMusicFiles;
+int	   numBackgrounds;
+int	   numPlanets;
+int	   numMusicFiles;
 
 void initResources(void)
 {
 	char **filenames;
-	int i;
+	int	   i;
 
 	numBackgrounds = numPlanets = numMusicFiles = 0;
 
 	filenames = getFileList("gfx/backgrounds", &numBackgrounds);
-	backgrounds = malloc(sizeof(char*) * numBackgrounds);
+	backgrounds = malloc(sizeof(char *) * numBackgrounds);
 
-	for (i = 0 ; i < numBackgrounds ; i++)
+	for (i = 0; i < numBackgrounds; i++)
 	{
 		backgrounds[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(backgrounds[i], "gfx/backgrounds/%s", filenames[i]);
@@ -53,9 +54,9 @@ void initResources(void)
 	free(filenames);
 
 	filenames = getAtlasFileList("gfx/planets", &numPlanets);
-	planets = malloc(sizeof(char*) * numPlanets);
+	planets = malloc(sizeof(char *) * numPlanets);
 
-	for (i = 0 ; i < numPlanets ; i++)
+	for (i = 0; i < numPlanets; i++)
 	{
 		planets[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		strcpy(planets[i], filenames[i]);
@@ -69,9 +70,9 @@ void initResources(void)
 
 	filenames = getFileList("music/battle/", &numMusicFiles);
 
-	musicFiles = malloc(sizeof(char*) * numMusicFiles);
+	musicFiles = malloc(sizeof(char *) * numMusicFiles);
 
-	for (i = 0 ; i < numMusicFiles ; i++)
+	for (i = 0; i < numMusicFiles; i++)
 	{
 		musicFiles[i] = malloc(sizeof(char) * MAX_FILENAME_LENGTH);
 		sprintf(musicFiles[i], "music/battle/%s", filenames[i]);
@@ -103,17 +104,17 @@ void destroyResources(void)
 {
 	int i;
 
-	for (i = 0 ; i < numBackgrounds ; i++)
+	for (i = 0; i < numBackgrounds; i++)
 	{
 		free(backgrounds[i]);
 	}
 
-	for (i = 0 ; i < numPlanets ; i++)
+	for (i = 0; i < numPlanets; i++)
 	{
 		free(planets[i]);
 	}
 
-	for (i = 0 ; i < numMusicFiles ; i++)
+	for (i = 0; i < numMusicFiles; i++)
 	{
 		free(musicFiles[i]);
 	}

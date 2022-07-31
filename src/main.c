@@ -18,32 +18,34 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "common.h"
-#include "main.h"
 #include <time.h>
-#include "game/load.h"
-#include "system/lookup.h"
-#include "system/draw.h"
+
+#include "common.h"
+
 #include "game/credits.h"
-#include "system/input.h"
-#include "system/controls.h"
+#include "game/load.h"
+#include "game/save.h"
 #include "game/title.h"
 #include "game/trophies.h"
+#include "main.h"
+#include "plat/win32/win32Init.h"
+#include "system/controls.h"
+#include "system/dev.h"
+#include "system/draw.h"
+#include "system/init.h"
+#include "system/input.h"
+#include "system/io.h"
+#include "system/lookup.h"
 #include "system/modalDialog.h"
 #include "test/testMission.h"
-#include "game/save.h"
-#include "system/io.h"
-#include "system/dev.h"
-#include "system/init.h"
-#include "plat/win32/win32Init.h"
 
-App app;
-Battle battle;
-Colors colors;
-Dev dev;
+App		app;
+Battle	battle;
+Colors	colors;
+Dev		dev;
 Entity *player;
 Entity *self;
-Game game;
+Game	game;
 
 static void handleMissionArgs(int argc, char *argv[]);
 static void handleLoggingArgs(int argc, char *argv[]);
@@ -51,7 +53,7 @@ static void capFrameRate(long *then, float *remainder);
 
 int main(int argc, char *argv[])
 {
-	long then, lastFrameTime, frames;
+	long  then, lastFrameTime, frames;
 	float remainder;
 
 	memset(&app, 0, sizeof(App));
@@ -191,7 +193,7 @@ static void handleLoggingArgs(int argc, char *argv[])
 
 	SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN);
 
-	for (i = 1 ; i < argc ; i++)
+	for (i = 1; i < argc; i++)
 	{
 		if (strcmp(argv[i], "-debug") == 0)
 		{
@@ -213,7 +215,7 @@ static void handleMissionArgs(int argc, char *argv[])
 
 	showCredits = testingMission = 0;
 
-	for (i = 1 ; i < argc ; i++)
+	for (i = 1; i < argc; i++)
 	{
 		/* assume this is filename for testing */
 		if (strcmp(argv[i], "-mission") == 0)

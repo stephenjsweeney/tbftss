@@ -18,8 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void destroyLookups(void);
-long flagsToLong(char *in, int *add);
+void  destroyLookups(void);
+long  flagsToLong(char *in, int *add);
 char *getLookupName(char *prefix, long num);
-long lookup(char *name);
-void initLookups(void);
+long  lookup(char *name);
+void  initLookups(void);

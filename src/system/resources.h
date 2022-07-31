@@ -18,8 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void destroyResources(void);
+void  destroyResources(void);
 char *getMusicFilename(unsigned long i);
 char *getPlanetTextureName(unsigned long i);
 char *getBackgroundTextureName(unsigned long i);
-void initResources(void);
+void  initResources(void);

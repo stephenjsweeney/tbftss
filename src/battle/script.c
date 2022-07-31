@@ -19,28 +19,29 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "script.h"
-#include "../json/cJSON.h"
-#include "../battle/locations.h"
+
+#include "../battle/entities.h"
 #include "../battle/fighters.h"
-#include "../galaxy/mission.h"
 #include "../battle/hud.h"
+#include "../battle/jumpgate.h"
+#include "../battle/locations.h"
+#include "../battle/messageBox.h"
 #include "../battle/objectives.h"
 #include "../battle/spawners.h"
 #include "../battle/waypoints.h"
-#include "../battle/messageBox.h"
-#include "../battle/entities.h"
-#include "../battle/jumpgate.h"
+#include "../galaxy/mission.h"
+#include "../json/cJSON.h"
+#include "script.h"
 
 extern Battle battle;
 extern Colors colors;
 
 static void executeNextLine(ScriptRunner *runner);
 
-static cJSON *scriptJSON, *rootJSON;
-static ScriptRunner head;
+static cJSON		 *scriptJSON, *rootJSON;
+static ScriptRunner	 head;
 static ScriptRunner *tail;
-static int runScript;
+static int			 runScript;
 
 void initScript(cJSON *root)
 {
@@ -78,7 +79,7 @@ void doScript(void)
 	{
 		prev = &head;
 
-		for (runner = head.next ; runner != NULL ; runner = runner->next)
+		for (runner = head.next; runner != NULL; runner = runner->next)
 		{
 			runner->delay = MAX(0, runner->delay - 1);
 
@@ -112,10 +113,10 @@ void doScript(void)
 void runScriptFunction(const char *format, ...)
 {
 	ScriptRunner *scriptRunner;
-	cJSON *function;
-	char *functionName;
-	char funcNameBuffer[MAX_NAME_LENGTH];
-	va_list args;
+	cJSON		  *function;
+	char		 *functionName;
+	char		  funcNameBuffer[MAX_NAME_LENGTH];
+	va_list		  args;
 
 	if (scriptJSON && runScript)
 	{
@@ -154,9 +155,9 @@ void runScriptFunction(const char *format, ...)
 static void executeNextLine(ScriptRunner *runner)
 {
 	char *line;
-	char command[32];
-	char strParam[3][256];
-	int intParam[2];
+	char  command[32];
+	char  strParam[3][256];
+	int	  intParam[2];
 
 	line = runner->line->valuestring;
 

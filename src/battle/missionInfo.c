@@ -19,18 +19,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "missionInfo.h"
-#include "../system/draw.h"
-#include "../system/util.h"
-#include "../challenges/challenges.h"
-#include "../system/widgets.h"
-#include "../system/text.h"
-#include "../system/atlas.h"
 
-extern App app;
+#include "../challenges/challenges.h"
+#include "../system/atlas.h"
+#include "../system/draw.h"
+#include "../system/text.h"
+#include "../system/util.h"
+#include "../system/widgets.h"
+#include "missionInfo.h"
+
+extern App	  app;
 extern Battle battle;
 extern Colors colors;
-extern Game game;
+extern Game	  game;
 
 static void drawMissionSummary(AtlasImage *title);
 static void drawObjectives(void);
@@ -42,9 +43,9 @@ static AtlasImage *missionCompleteTexture;
 static AtlasImage *missionFailedTexture;
 static AtlasImage *timeUpTexture;
 static const char *objectiveStatus[OS_MAX];
-static char *OBJECTIVES_TEXT;
-static char *NONE_TEXT;
-static char *TIME_LIMIT_TEXT;
+static char		*OBJECTIVES_TEXT;
+static char		*NONE_TEXT;
+static char		*TIME_LIMIT_TEXT;
 
 void initMissionInfo(void)
 {
@@ -138,14 +139,14 @@ static void drawMissionSummary(AtlasImage *header)
 static void drawObjectives(void)
 {
 	Objective *o;
-	SDL_Color color;
-	int y = 215;
+	SDL_Color  color;
+	int		   y = 215;
 
 	drawText(UI_WIDTH / 2, y, 28, TA_CENTER, colors.white, OBJECTIVES_TEXT);
 
 	y += 10;
 
-	for (o = battle.objectiveHead.next ; o != NULL ; o = o->next)
+	for (o = battle.objectiveHead.next; o != NULL; o = o->next)
 	{
 		if (o->active)
 		{
@@ -189,24 +190,24 @@ static void drawObjectives(void)
 
 static void drawChallenges(void)
 {
-	int i;
+	int		   i;
 	Challenge *c;
-	char *challengeStatus;
-	SDL_Color color;
-	int y = 215;
+	char		 *challengeStatus;
+	SDL_Color  color;
+	int		   y = 215;
 
 	drawText(UI_WIDTH / 2, y, 24, TA_CENTER, colors.white, game.currentMission->description);
 
 	if (battle.status == MS_START && game.currentMission->challengeData.timeLimit)
 	{
-		y+= 50;
+		y += 50;
 
 		drawText(UI_WIDTH / 2, y, 20, TA_CENTER, colors.white, TIME_LIMIT_TEXT, timeToString(game.currentMission->challengeData.timeLimit, 0));
 	}
 
 	y += 25;
 
-	for (i = 0 ; i < MAX_CHALLENGES ; i++)
+	for (i = 0; i < MAX_CHALLENGES; i++)
 	{
 		c = game.currentMission->challengeData.challenges[i];
 
@@ -224,7 +225,7 @@ static void drawChallenges(void)
 
 				challengeStatus = _("Complete");
 			}
-			else if (battle.status == MS_COMPLETE ||battle.status == MS_FAILED)
+			else if (battle.status == MS_COMPLETE || battle.status == MS_FAILED)
 			{
 				color = colors.red;
 

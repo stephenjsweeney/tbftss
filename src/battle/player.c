@@ -19,30 +19,31 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "player.h"
-#include "../json/cJSON.h"
-#include "../system/lookup.h"
-#include "../system/util.h"
-#include "../system/controls.h"
-#include "../battle/fighters.h"
-#include "../system/sound.h"
-#include "../galaxy/mission.h"
-#include "../game/trophies.h"
-#include "../battle/hud.h"
-#include "../battle/objectives.h"
+
 #include "../battle/bullets.h"
 #include "../battle/effects.h"
+#include "../battle/fighters.h"
+#include "../battle/hud.h"
+#include "../battle/objectives.h"
+#include "../galaxy/mission.h"
+#include "../game/trophies.h"
+#include "../json/cJSON.h"
+#include "../system/controls.h"
+#include "../system/lookup.h"
+#include "../system/sound.h"
+#include "../system/util.h"
+#include "player.h"
 
-#define MAX_SELECTABLE_PLAYERS    8
-#define MAX_SELECTABLE_TARGETS    8
+#define MAX_SELECTABLE_PLAYERS 8
+#define MAX_SELECTABLE_TARGETS 8
 
-extern App app;
-extern Battle battle;
-extern Colors colors;
-extern Dev dev;
+extern App	   app;
+extern Battle  battle;
+extern Colors  colors;
+extern Dev	   dev;
 extern Entity *player;
 extern Entity *self;
-extern Game game;
+extern Game	   game;
 
 static void selectTarget(void);
 static void switchGuns(void);
@@ -58,15 +59,15 @@ static void faceMouse(void);
 static void handleMouse(void);
 static void preFireMissile(void);
 static void applyRestrictions(void);
-static int isPriorityMissionTarget(Entity *e, int dist, int closest);
-static int targetOutOfRange(void);
+static int	isPriorityMissionTarget(Entity *e, int dist, int closest);
+static int	targetOutOfRange(void);
 static void rechargeBoostECM(void);
 static void setPilotName(void);
 static void updateDeathStats(void);
 static void handleSuspicionLevel(void);
 
-static int selectedPlayerIndex;
-static int availableGuns[BT_MAX];
+static int	   selectedPlayerIndex;
+static int	   availableGuns[BT_MAX];
 static Entity *availablePlayerUnits[MAX_SELECTABLE_PLAYERS];
 
 void initPlayer(void)
@@ -81,7 +82,7 @@ void initPlayer(void)
 
 	if (!player->combinedGuns)
 	{
-		for (i = 0 ; i < MAX_FIGHTER_GUNS ; i++)
+		for (i = 0; i < MAX_FIGHTER_GUNS; i++)
 		{
 			n = player->guns[i].type;
 
@@ -129,7 +130,7 @@ static void setPilotName(void)
 
 	pos = -1;
 
-	for (i = 0 ; i < strlen(game.currentMission->pilot) ; i++)
+	for (i = 0; i < strlen(game.currentMission->pilot); i++)
 	{
 		if (game.currentMission->pilot[i] == ' ')
 		{
@@ -465,13 +466,13 @@ static void initPlayerSelect(void)
 {
 	Entity *e;
 
-	memset(&availablePlayerUnits, 0, sizeof(Entity*) * MAX_SELECTABLE_PLAYERS);
+	memset(&availablePlayerUnits, 0, sizeof(Entity *) * MAX_SELECTABLE_PLAYERS);
 
 	selectedPlayerIndex = 0;
 
 	if (battle.epicLives == 0 || (battle.epicLives > 0 && --battle.epicLives > 0))
 	{
-		for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+		for (e = battle.entityHead.next; e != NULL; e = e->next)
 		{
 			if (e->active && e->type == ET_FIGHTER && e->health > 0 && e->side == SIDE_ALLIES && selectedPlayerIndex < MAX_SELECTABLE_PLAYERS)
 			{
@@ -536,8 +537,7 @@ static void selectNewPlayer(int dir)
 		selectedPlayerIndex = mod(selectedPlayerIndex, MAX_SELECTABLE_PLAYERS);
 
 		player = availablePlayerUnits[selectedPlayerIndex];
-	}
-	while (player == NULL);
+	} while (player == NULL);
 
 	battle.camera.x = player->x - (app.winWidth / 2);
 	battle.camera.y = player->y - (app.winHeight / 2);
@@ -596,8 +596,7 @@ static void switchGuns(void)
 		do
 		{
 			i = (i + 1) % BT_MAX;
-		}
-		while (!availableGuns[i]);
+		} while (!availableGuns[i]);
 	}
 
 	if (player->selectedGunType != i)
@@ -611,20 +610,20 @@ static void selectTarget(void)
 {
 	unsigned int closest = MAX_TARGET_RANGE;
 	unsigned int dist = MAX_TARGET_RANGE;
-	int i, total;
-	Entity *e, *near;
-	Entity *targets[MAX_SELECTABLE_TARGETS];
+	int			 i, total;
+	Entity	   *e, *near;
+	Entity	   *targets[MAX_SELECTABLE_TARGETS];
 
 	i = 0;
 	near = NULL;
-	memset(targets, 0, sizeof(Entity*) * MAX_SELECTABLE_TARGETS);
+	memset(targets, 0, sizeof(Entity *) * MAX_SELECTABLE_TARGETS);
 
 	if (player->target && (!player->target->health || !player->target->systemPower))
 	{
 		player->target = NULL;
 	}
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->active && e != player && (e->flags & EF_TAKES_DAMAGE) && (!(e->flags & EF_NO_PLAYER_TARGET)) && e->side != player->side && e->alive == ALIVE_ALIVE && e->systemPower > 0 && i < MAX_SELECTABLE_TARGETS)
 		{
@@ -649,7 +648,7 @@ static void selectTarget(void)
 
 	total = i;
 
-	for (i = 0 ; i < total ; i++)
+	for (i = 0; i < total; i++)
 	{
 		if (targets[i] == player->target)
 		{
@@ -675,11 +674,11 @@ static void selectMissionTarget(void)
 {
 	unsigned int closest = MAX_TARGET_RANGE;
 	unsigned int dist = MAX_TARGET_RANGE;
-	Entity *e;
+	Entity	   *e;
 
 	battle.missionTarget = NULL;
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->active && e->flags & EF_MISSION_TARGET && e->alive == ALIVE_ALIVE)
 		{
@@ -755,7 +754,7 @@ void setInitialPlayerAngle(void)
 		}
 	}
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->side == player->side)
 		{
@@ -788,8 +787,8 @@ static void handleSuspicionLevel(void)
 void loadPlayer(cJSON *node)
 {
 	char *type;
-	int side, addFlags;
-	long flags;
+	int	  side, addFlags;
+	long  flags;
 
 	type = cJSON_GetObjectItem(node, "type")->valuestring;
 	side = lookup(cJSON_GetObjectItem(node, "side")->valuestring);

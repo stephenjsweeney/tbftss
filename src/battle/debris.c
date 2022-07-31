@@ -19,24 +19,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "debris.h"
+
+#include "../battle/effects.h"
 #include "../json/cJSON.h"
 #include "../system/atlas.h"
 #include "../system/draw.h"
 #include "../system/util.h"
-#include "../battle/effects.h"
+#include "debris.h"
 
-#define INITIAL_DEBRIS_DRAW_CAPACITY    32
-#define MAX_DEBRIS_TEXTURES             6
+#define INITIAL_DEBRIS_DRAW_CAPACITY 32
+#define MAX_DEBRIS_TEXTURES			 6
 
 extern Battle battle;
 
 static void changeCourse(Debris *d);
 static void resizeDrawList(void);
 
-static Debris **debrisToDraw;
+static Debris	  **debrisToDraw;
 static AtlasImage *debrisTexture[MAX_DEBRIS_TEXTURES];
-static int drawCapacity;
+static int		   drawCapacity;
 
 void initDebris(void)
 {
@@ -49,16 +50,16 @@ void initDebris(void)
 
 	drawCapacity = INITIAL_DEBRIS_DRAW_CAPACITY;
 
-	debrisToDraw = malloc(sizeof(Bullet*) * drawCapacity);
-	memset(debrisToDraw, 0, sizeof(Bullet*) * drawCapacity);
+	debrisToDraw = malloc(sizeof(Bullet *) * drawCapacity);
+	memset(debrisToDraw, 0, sizeof(Bullet *) * drawCapacity);
 }
 
 void addDebris(int x, int y, int amount)
 {
-	int i;
+	int		i;
 	Debris *d;
 
-	for (i = 0 ; i < amount ; i++)
+	for (i = 0; i < amount; i++)
 	{
 		d = malloc(sizeof(Debris));
 		memset(d, 0, sizeof(Debris));
@@ -79,16 +80,16 @@ void addDebris(int x, int y, int amount)
 
 void doDebris(void)
 {
-	int i;
+	int		i;
 	Debris *d, *prev;
 
-	memset(debrisToDraw, 0, sizeof(Debris*) * drawCapacity);
+	memset(debrisToDraw, 0, sizeof(Debris *) * drawCapacity);
 
 	prev = &battle.debrisHead;
 
 	i = 0;
 
-	for (d = battle.debrisHead.next ; d != NULL ; d = d->next)
+	for (d = battle.debrisHead.next; d != NULL; d = d->next)
 	{
 		d->x += d->dx;
 		d->y += d->dy;
@@ -138,7 +139,7 @@ static void resizeDrawList(void)
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_DEBUG, "Resizing debris draw capacity: %d -> %d", drawCapacity, n);
 
-	debrisToDraw = resize(debrisToDraw, sizeof(Debris*) * drawCapacity, sizeof(Debris*) * n);
+	debrisToDraw = resize(debrisToDraw, sizeof(Debris *) * drawCapacity, sizeof(Debris *) * n);
 	drawCapacity = n;
 }
 
@@ -159,10 +160,10 @@ static void changeCourse(Debris *d)
 
 void drawDebris(void)
 {
-	int i;
+	int		i;
 	Debris *d;
 
-	for (i = 0, d = debrisToDraw[i] ; d != NULL ; d = debrisToDraw[++i])
+	for (i = 0, d = debrisToDraw[i]; d != NULL; d = debrisToDraw[++i])
 	{
 		blitRotated(d->texture, d->x - battle.camera.x, d->y - battle.camera.y, d->angle);
 	}

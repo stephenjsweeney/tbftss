@@ -19,23 +19,24 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "mine.h"
+
+#include "../battle/effects.h"
+#include "../battle/entities.h"
+#include "../battle/fighters.h"
+#include "../battle/objectives.h"
+#include "../battle/quadtree.h"
+#include "../battle/script.h"
+#include "../game/trophies.h"
+#include "../system/atlas.h"
 #include "../system/sound.h"
 #include "../system/util.h"
-#include "../battle/fighters.h"
-#include "../battle/quadtree.h"
-#include "../game/trophies.h"
-#include "../battle/objectives.h"
-#include "../battle/script.h"
-#include "../battle/effects.h"
-#include "../system/atlas.h"
-#include "../battle/entities.h"
+#include "mine.h"
 
-#define DAMAGE_RANGE     250
-#define SYSTEM_POWER     50
-#define TRIGGER_RANGE    150
+#define DAMAGE_RANGE  250
+#define SYSTEM_POWER  50
+#define TRIGGER_RANGE 150
 
-extern Battle battle;
+extern Battle  battle;
 extern Entity *player;
 extern Entity *self;
 
@@ -68,7 +69,7 @@ Entity *spawnMine(int type)
 	mine->texture = (type == ET_MINE) ? mineNormal : shadowMine;
 	mine->action = think;
 	mine->die = die;
-	mine->flags = EF_TAKES_DAMAGE+EF_NO_PLAYER_TARGET+EF_SHORT_RADAR_RANGE+EF_NON_SOLID+EF_NO_HEALTH_BAR;
+	mine->flags = EF_TAKES_DAMAGE + EF_NO_PLAYER_TARGET + EF_SHORT_RADAR_RANGE + EF_NON_SOLID + EF_NO_HEALTH_BAR;
 
 	if (type == ET_SHADOW_MINE)
 	{
@@ -117,11 +118,11 @@ static void think(void)
 static void lookForFighters(void)
 {
 	Entity *e, **candidates;
-	int i;
+	int		i;
 
 	candidates = getAllEntsInRadius(self->x, self->y, DAMAGE_RANGE, self);
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (e->side != self->side && e->health > 0 && e->type == ET_FIGHTER && getDistance(self->x, self->y, e->x, e->y) <= TRIGGER_RANGE)
 		{
@@ -142,7 +143,7 @@ static void lookForFighters(void)
 static void lookForPlayer(void)
 {
 	float dx, dy, norm;
-	int distance;
+	int	  distance;
 
 	if (player->alive == ALIVE_ALIVE)
 	{
@@ -216,14 +217,14 @@ static void die(void)
 static void doSplashDamage(void)
 {
 	Entity *e, **candidates;
-	int i, dist, kills;
-	float damage, percent;
+	int		i, dist, kills;
+	float	damage, percent;
 
 	candidates = getAllEntsInRadius(self->x, self->y, DAMAGE_RANGE, self);
 
 	kills = 0;
 
-	for (i = 0, e = candidates[i] ; e != NULL ; e = candidates[++i])
+	for (i = 0, e = candidates[i]; e != NULL; e = candidates[++i])
 	{
 		if (e->health > 0 && (e->type == ET_FIGHTER || e->type == ET_MINE) && !(e->flags & EF_IMMORTAL))
 		{

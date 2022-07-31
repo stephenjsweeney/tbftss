@@ -19,28 +19,29 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "stats.h"
+
 #include "../system/text.h"
-#include "../system/widgets.h"
 #include "../system/util.h"
+#include "../system/widgets.h"
+#include "stats.h"
 
-#define STATS_PER_PAGE    9
+#define STATS_PER_PAGE 9
 
-extern App app;
+extern App	  app;
 extern Colors colors;
-extern Game game;
+extern Game	  game;
 
 static void prevPage(void);
 static void nextPage(void);
 static void calculatePercentComplete(void);
 
-static char *statDescription[STAT_MAX];
-static int page;
-static float maxPages;
+static char	*statDescription[STAT_MAX];
+static int	   page;
+static float   maxPages;
 static Widget *prev;
 static Widget *next;
-static char *STATS_TEXT;
-static char *PAGE_TEXT;
+static char	*STATS_TEXT;
+static char	*PAGE_TEXT;
 
 void initStats(void)
 {
@@ -112,12 +113,12 @@ void initStatsDisplay(void)
 static void calculatePercentComplete(void)
 {
 	StarSystem *starSystem;
-	Mission *mission;
-	int completed, total;
+	Mission	*mission;
+	int			completed, total;
 
 	completed = total = 0;
 
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
 	{
 		if (starSystem->type == SS_NORMAL)
 		{
@@ -126,7 +127,7 @@ static void calculatePercentComplete(void)
 		}
 	}
 
-	for (mission = game.challengeMissionHead.next ; mission != NULL ; mission = mission->next)
+	for (mission = game.challengeMissionHead.next; mission != NULL; mission = mission->next)
 	{
 		completed += mission->completedChallenges;
 		total += mission->totalChallenges;
@@ -137,7 +138,7 @@ static void calculatePercentComplete(void)
 
 void drawStats(void)
 {
-	int i, y, startIndex;
+	int		 i, y, startIndex;
 	SDL_Rect r;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -168,7 +169,7 @@ void drawStats(void)
 
 	startIndex = (page * STATS_PER_PAGE);
 
-	for (i = startIndex ; i < startIndex + STATS_PER_PAGE ; i++)
+	for (i = startIndex; i < startIndex + STATS_PER_PAGE; i++)
 	{
 		if (i < STAT_TIME)
 		{

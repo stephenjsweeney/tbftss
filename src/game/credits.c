@@ -19,20 +19,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "credits.h"
-#include "../json/cJSON.h"
-#include "../system/draw.h"
+
 #include "../game/title.h"
-#include "../system/sound.h"
-#include "../system/transition.h"
-#include "../system/textures.h"
-#include "../system/io.h"
-#include "../system/text.h"
+#include "../json/cJSON.h"
 #include "../system/atlas.h"
+#include "../system/draw.h"
+#include "../system/io.h"
+#include "../system/sound.h"
+#include "../system/text.h"
+#include "../system/textures.h"
+#include "../system/transition.h"
+#include "credits.h"
 
-#define CREDIT_LINE_LIMIT    (UI_WIDTH - 300)
+#define CREDIT_LINE_LIMIT (UI_WIDTH - 300)
 
-extern App app;
+extern App	  app;
 extern Colors colors;
 
 static void loadCredits(void);
@@ -41,11 +42,11 @@ static void draw(void);
 static void handleKeyboard(void);
 
 static SDL_Texture *background;
-static AtlasImage *earthTexture;
-static Credit head;
-static Credit *tail;
-static float creditSpeed;
-static int timeout;
+static AtlasImage  *earthTexture;
+static Credit		head;
+static Credit	  *tail;
+static float		creditSpeed;
+static int			timeout;
 
 void initCredits(void)
 {
@@ -79,7 +80,7 @@ static void logic(void)
 
 	handleKeyboard();
 
-	for (c = head.next ; c != NULL ; c = c->next)
+	for (c = head.next; c != NULL; c = c->next)
 	{
 		c->y -= creditSpeed;
 
@@ -109,7 +110,7 @@ static void draw(void)
 
 	app.textWidth = CREDIT_LINE_LIMIT;
 
-	for (c = head.next ; c != NULL ; c = c->next)
+	for (c = head.next; c != NULL; c = c->next)
 	{
 		if (c->y > -c->h && c->y < app.winHeight)
 		{
@@ -122,9 +123,9 @@ static void draw(void)
 
 static void loadCredits(void)
 {
-	cJSON *root, *node;
-	int y, dist;
-	char *text;
+	cJSON  *root, *node;
+	int		y, dist;
+	char	 *text;
 	Credit *c;
 
 	y = app.winHeight + 100;
@@ -134,7 +135,7 @@ static void loadCredits(void)
 
 	app.textWidth = CREDIT_LINE_LIMIT;
 
-	for (node = root->child ; node != NULL ; node = node->next)
+	for (node = root->child; node != NULL; node = node->next)
 	{
 		c = malloc(sizeof(Credit));
 		memset(c, 0, sizeof(Credit));

@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 void saveScreenshot(void);
-int isOnBattleScreen(int x, int y, int w, int h);
+int	 isOnBattleScreen(int x, int y, int w, int h);
 void drawBackground(SDL_Texture *texture);
 void scrollBackground(float x, float y);
 void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a);

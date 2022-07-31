@@ -18,14 +18,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "sound.h"
 #include <SDL2/SDL_mixer.h>
-#include "../system/util.h"
-#include "../system/io.h"
 
-#define MAX_BATTLE_SOUND_DISTANCE    1500
-#define MIN_BATTLE_SOUND_DISTANCE    100
+#include "../common.h"
+
+#include "../system/io.h"
+#include "../system/util.h"
+#include "sound.h"
+
+#define MAX_BATTLE_SOUND_DISTANCE 1500
+#define MIN_BATTLE_SOUND_DISTANCE 100
 
 extern Entity *player;
 
@@ -39,7 +41,7 @@ static int lastPlayerY;
 
 void initSounds(void)
 {
-	memset(sounds, 0, sizeof(Mix_Chunk*) * SND_MAX);
+	memset(sounds, 0, sizeof(Mix_Chunk *) * SND_MAX);
 
 	music = NULL;
 
@@ -88,7 +90,7 @@ void playSound(int id)
 void playBattleSound(int id, int x, int y)
 {
 	float distance, bearing, vol;
-	int channel;
+	int	  channel;
 
 	if (player->alive == ALIVE_ALIVE || player->alive == ALIVE_ESCAPED)
 	{
@@ -173,7 +175,7 @@ void destroySounds(void)
 {
 	int i;
 
-	for (i = 0 ; i < SND_MAX ; i++)
+	for (i = 0; i < SND_MAX; i++)
 	{
 		if (sounds[i])
 		{

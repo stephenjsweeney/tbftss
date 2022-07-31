@@ -19,83 +19,84 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "challengeHome.h"
-#include "../battle/starfield.h"
-#include "../system/util.h"
-#include "../system/input.h"
-#include "../game/title.h"
-#include "../game/stats.h"
-#include "../system/sound.h"
-#include "../system/widgets.h"
-#include "../galaxy/mission.h"
-#include "../game/trophies.h"
-#include "../game/options.h"
-#include "../system/atlas.h"
-#include "../game/fighterDatabase.h"
-#include "../system/transition.h"
-#include "../challenges/challenges.h"
-#include "../system/text.h"
-#include "../system/draw.h"
+
 #include "../battle/battle.h"
+#include "../battle/starfield.h"
+#include "../challenges/challenges.h"
+#include "../galaxy/mission.h"
+#include "../game/fighterDatabase.h"
+#include "../game/options.h"
+#include "../game/stats.h"
+#include "../game/title.h"
+#include "../game/trophies.h"
+#include "../system/atlas.h"
+#include "../system/draw.h"
+#include "../system/input.h"
 #include "../system/resources.h"
+#include "../system/sound.h"
+#include "../system/text.h"
 #include "../system/textures.h"
+#include "../system/transition.h"
+#include "../system/util.h"
+#include "../system/widgets.h"
+#include "challengeHome.h"
 
-#define CHALLENGES_PER_PAGE    14
-#define SHOW_CHALLENGES        0
-#define SHOW_FIGHTER_DB        5
-#define SHOW_MENU              1
-#define SHOW_OPTIONS           2
-#define SHOW_STATS             3
-#define SHOW_TROPHIES          4
+#define CHALLENGES_PER_PAGE 14
+#define SHOW_CHALLENGES		0
+#define SHOW_FIGHTER_DB		5
+#define SHOW_MENU			1
+#define SHOW_OPTIONS		2
+#define SHOW_STATS			3
+#define SHOW_TROPHIES		4
 
-extern App app;
+extern App	  app;
 extern Battle battle;
 extern Colors colors;
-extern Dev dev;
-extern Game game;
+extern Dev	  dev;
+extern Game	  game;
 
-static void logic(void);
-static void draw(void);
-static void handleKeyboard(void);
-static void drawChallenges(void);
-static void doChallengeList(void);
-static void startChallengeMission(void);
-static void drawMenu(void);
-static void resume(void);
-static void stats(void);
-static void trophies(void);
-static void options(void);
-static void ok(void);
-static void returnFromOptions(void);
-static void unlockChallenges(void);
-static void quit(void);
-static void updateChallengeMissionData(void);
+static void	 logic(void);
+static void	 draw(void);
+static void	 handleKeyboard(void);
+static void	 drawChallenges(void);
+static void	 doChallengeList(void);
+static void	 startChallengeMission(void);
+static void	 drawMenu(void);
+static void	 resume(void);
+static void	 stats(void);
+static void	 trophies(void);
+static void	 options(void);
+static void	 ok(void);
+static void	 returnFromOptions(void);
+static void	 unlockChallenges(void);
+static void	 quit(void);
+static void	 updateChallengeMissionData(void);
 static char *listRestrictions(void);
-static void prevPage(void);
-static void nextPage(void);
-static void fighterDatabase(void);
+static void	 prevPage(void);
+static void	 nextPage(void);
+static void	 fighterDatabase(void);
 
 static SDL_Texture *background;
-static AtlasImage *planetTexture;
-static AtlasImage *challengeIcon;
-static AtlasImage *challengeIconHighlight;
-static Widget *start;
-static PointF planet;
-static int show;
-static int page;
-static float maxPages;
-static char timeLimit[MAX_DESCRIPTION_LENGTH];
-static char restrictions[MAX_DESCRIPTION_LENGTH];
-static int hasRestrictions;
-static Widget *prev;
-static Widget *next;
-static char *CHALLENGES_TEXT;
-static char *COMPLETED_TEXT;
-static char *PAGE_TEXT;
-static char *LOCKED_TEXT;
-static char *CRAFT_TEXT;
-static char *TIME_TEXT;
-static char *RESTRICTIONS_TEXT;
+static AtlasImage  *planetTexture;
+static AtlasImage  *challengeIcon;
+static AtlasImage  *challengeIconHighlight;
+static Widget	  *start;
+static PointF		planet;
+static int			show;
+static int			page;
+static float		maxPages;
+static char			timeLimit[MAX_DESCRIPTION_LENGTH];
+static char			restrictions[MAX_DESCRIPTION_LENGTH];
+static int			hasRestrictions;
+static Widget	  *prev;
+static Widget	  *next;
+static char		*CHALLENGES_TEXT;
+static char		*COMPLETED_TEXT;
+static char		*PAGE_TEXT;
+static char		*LOCKED_TEXT;
+static char		*CRAFT_TEXT;
+static char		*TIME_TEXT;
+static char		*RESTRICTIONS_TEXT;
 
 void initChallengeHome(void)
 {
@@ -132,14 +133,14 @@ void initChallengeHome(void)
 	challengeIcon = getAtlasImage("gfx/challenges/challengeIcon.png");
 	challengeIconHighlight = getAtlasImage("gfx/challenges/challengeIconHighlight.png");
 
-	battle.camera.x =  battle.camera.y = 0;
+	battle.camera.x = battle.camera.y = 0;
 
 	planet.x = rand() % app.winWidth;
 	planet.y = rand() % app.winHeight;
 
 	maxPages = page = 0;
 
-	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
+	for (m = game.challengeMissionHead.next; m != NULL; m = m->next)
 	{
 		maxPages++;
 	}
@@ -213,7 +214,7 @@ static void unlockChallenges(void)
 
 	prevCompleted = 1;
 
-	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
+	for (m = game.challengeMissionHead.next; m != NULL; m = m->next)
 	{
 		m->available = (prevCompleted > 0 || dev.debug);
 
@@ -269,13 +270,13 @@ static void logic(void)
 static void doChallengeList(void)
 {
 	Mission *c;
-	int i, startIndex, end;
+	int		 i, startIndex, end;
 
 	i = 0;
 	startIndex = page * CHALLENGES_PER_PAGE;
 	end = startIndex + CHALLENGES_PER_PAGE;
 
-	for (c = game.challengeMissionHead.next ; c != NULL ; c = c->next)
+	for (c = game.challengeMissionHead.next; c != NULL; c = c->next)
 	{
 		if (i >= startIndex && i < end && app.mouse.button[SDL_BUTTON_LEFT] && collision(app.uiMouse.x, app.uiMouse.y, 3, 3, c->rect.x, c->rect.y, c->rect.w, c->rect.h))
 		{
@@ -331,7 +332,7 @@ static char *listRestrictions(void)
 	addRestriction(textBuffer, game.currentMission->challengeData.noBoost, _("No Boost"));
 	addRestriction(textBuffer, game.currentMission->challengeData.noGuns, _("No Guns"));
 
-	return strlen(textBuffer) > 0  ? textBuffer : "-";
+	return strlen(textBuffer) > 0 ? textBuffer : "-";
 }
 
 static void draw(void)
@@ -390,10 +391,10 @@ static void draw(void)
 
 static void drawChallenges(void)
 {
-	Mission *m;
+	Mission	*m;
 	Challenge *c;
-	SDL_Rect r;
-	int i, start, end;
+	SDL_Rect   r;
+	int		   i, start, end;
 
 	r.x = 135;
 	r.y = 165;
@@ -404,7 +405,7 @@ static void drawChallenges(void)
 
 	i = 0;
 
-	for (m = game.challengeMissionHead.next ; m != NULL ; m = m->next)
+	for (m = game.challengeMissionHead.next; m != NULL; m = m->next)
 	{
 		m->rect = r;
 

@@ -18,11 +18,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "io.h"
+#include <dirent.h>
 #include <sys/stat.h>
-#include "dirent.h"
+
+#include "../common.h"
+
 #include "../system/util.h"
+#include "io.h"
 
 extern App app;
 
@@ -43,7 +45,7 @@ char *getFileLocation(char *filename)
 		return filename;
 	}
 
-	sprintf(path, DATA_DIR"/%s", filename);
+	sprintf(path, DATA_DIR "/%s", filename);
 
 	return path;
 }
@@ -51,7 +53,7 @@ char *getFileLocation(char *filename)
 char *readFile(char *filename)
 {
 	char *buffer = NULL;
-	long length;
+	long  length;
 	FILE *file;
 
 	file = fopen(getFileLocation(filename), "rb");
@@ -100,10 +102,10 @@ char *getSaveFilePath(char *filename)
 
 char **getFileList(char *dir, int *count)
 {
-	DIR *d;
-	int i;
+	DIR		   *d;
+	int			   i;
 	struct dirent *ent;
-	char **filenames;
+	char		 **filenames;
 
 	i = 0;
 	filenames = NULL;
@@ -120,8 +122,8 @@ char **getFileList(char *dir, int *count)
 
 		if (i > 0)
 		{
-			filenames = malloc(sizeof(char*) * i);
-			memset(filenames, 0, sizeof(char*) * i);
+			filenames = malloc(sizeof(char *) * i);
+			memset(filenames, 0, sizeof(char *) * i);
 
 			rewinddir(d);
 
@@ -147,7 +149,7 @@ char **getFileList(char *dir, int *count)
 
 	if (filenames)
 	{
-		qsort(filenames, i, sizeof(char*), stringComparator);
+		qsort(filenames, i, sizeof(char *), stringComparator);
 	}
 
 	return filenames;

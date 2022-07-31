@@ -19,15 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "load.h"
-#include "../json/cJSON.h"
-#include "../system/lookup.h"
-#include "../challenges/challenges.h"
+
 #include "../battle/fighters.h"
+#include "../challenges/challenges.h"
 #include "../galaxy/mission.h"
-#include "../game/trophies.h"
-#include "../system/io.h"
 #include "../galaxy/starSystems.h"
+#include "../game/trophies.h"
+#include "../json/cJSON.h"
+#include "../system/io.h"
+#include "../system/lookup.h"
+#include "load.h"
 
 extern Game game;
 
@@ -41,7 +42,7 @@ static void loadFighterStats(cJSON *fighterStatsJSON);
 void loadGame(void)
 {
 	cJSON *root, *gameJSON;
-	char *text;
+	char	 *text;
 
 	text = readFile(getSaveFilePath(SAVE_FILENAME));
 	root = cJSON_Parse(text);
@@ -67,9 +68,9 @@ void loadGame(void)
 static void loadStarSystems(cJSON *starSystemsJSON)
 {
 	StarSystem *starSystem;
-	cJSON *starSystemJSON;
+	cJSON	  *starSystemJSON;
 
-	for (starSystemJSON = starSystemsJSON->child ; starSystemJSON != NULL ; starSystemJSON = starSystemJSON->next)
+	for (starSystemJSON = starSystemsJSON->child; starSystemJSON != NULL; starSystemJSON = starSystemJSON->next)
 	{
 		starSystem = getStarSystem(cJSON_GetObjectItem(starSystemJSON, "name")->valuestring);
 
@@ -82,9 +83,9 @@ static void loadStarSystems(cJSON *starSystemsJSON)
 static void loadMissions(cJSON *missionsJSON)
 {
 	Mission *mission;
-	cJSON *missionJSON;
+	cJSON	  *missionJSON;
 
-	for (missionJSON = missionsJSON->child ; missionJSON != NULL ; missionJSON = missionJSON->next)
+	for (missionJSON = missionsJSON->child; missionJSON != NULL; missionJSON = missionJSON->next)
 	{
 		mission = getMission(cJSON_GetObjectItem(missionJSON, "filename")->valuestring);
 
@@ -97,18 +98,18 @@ static void loadMissions(cJSON *missionsJSON)
 
 static void loadChallenges(cJSON *missionsJSON)
 {
-	Mission *mission;
+	Mission	*mission;
 	Challenge *challenge;
-	cJSON *missionJSON, *challengeJSON;
-	int type, value;
+	cJSON	  *missionJSON, *challengeJSON;
+	int		   type, value;
 
 	if (missionsJSON)
 	{
-		for (missionJSON = missionsJSON->child ; missionJSON != NULL ; missionJSON = missionJSON->next)
+		for (missionJSON = missionsJSON->child; missionJSON != NULL; missionJSON = missionJSON->next)
 		{
 			mission = getMission(cJSON_GetObjectItem(missionJSON, "filename")->valuestring);
 
-			for (challengeJSON = cJSON_GetObjectItem(missionJSON, "challenges")->child ; challengeJSON != NULL ; challengeJSON = challengeJSON->next)
+			for (challengeJSON = cJSON_GetObjectItem(missionJSON, "challenges")->child; challengeJSON != NULL; challengeJSON = challengeJSON->next)
 			{
 				type = lookup(cJSON_GetObjectItem(challengeJSON, "type")->valuestring);
 				value = cJSON_GetObjectItem(challengeJSON, "value")->valueint;
@@ -126,10 +127,10 @@ static void loadChallenges(cJSON *missionsJSON)
 
 static void loadStats(cJSON *statsJSON)
 {
-	int i;
+	int	  i;
 	char *statName;
 
-	for (i = 0 ; i < STAT_MAX ; i++)
+	for (i = 0; i < STAT_MAX; i++)
 	{
 		statName = getLookupName("STAT_", i);
 
@@ -143,11 +144,11 @@ static void loadStats(cJSON *statsJSON)
 static void loadTrophies(cJSON *trophiesJSON)
 {
 	Trophy *t;
-	cJSON *trophyJSON;
+	cJSON  *trophyJSON;
 
 	if (trophiesJSON)
 	{
-		for (trophyJSON = trophiesJSON->child ; trophyJSON != NULL ; trophyJSON = trophyJSON->next)
+		for (trophyJSON = trophiesJSON->child; trophyJSON != NULL; trophyJSON = trophyJSON->next)
 		{
 			t = getTrophy(cJSON_GetObjectItem(trophyJSON, "id")->valuestring);
 
@@ -171,7 +172,7 @@ static void loadFighterStats(cJSON *fighterStatsJSON)
 
 	if (fighterStatsJSON)
 	{
-		for (fighterStatJSON = fighterStatsJSON->child ; fighterStatJSON != NULL ; fighterStatJSON = fighterStatJSON->next)
+		for (fighterStatJSON = fighterStatsJSON->child; fighterStatJSON != NULL; fighterStatJSON = fighterStatJSON->next)
 		{
 			t = malloc(sizeof(Tuple));
 			memset(t, 0, sizeof(Tuple));

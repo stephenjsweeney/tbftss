@@ -18,44 +18,46 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "mission.h"
 #include <time.h>
-#include "../json/cJSON.h"
-#include "../battle/locations.h"
-#include "../system/widgets.h"
-#include "../system/io.h"
-#include "../galaxy/starSystems.h"
-#include "../battle/jumpgate.h"
-#include "../battle/missionInfo.h"
-#include "../system/util.h"
-#include "../battle/player.h"
-#include "../system/sound.h"
-#include "../system/transition.h"
-#include "../battle/objectives.h"
-#include "../battle/script.h"
-#include "../battle/waypoints.h"
-#include "../battle/spawners.h"
-#include "../system/lookup.h"
-#include "../battle/mine.h"
-#include "../challenges/challenges.h"
-#include "../battle/fighters.h"
-#include "../system/atlas.h"
-#include "../system/resources.h"
+
+#include "../common.h"
+
 #include "../battle/capitalShips.h"
-#include "../game/trophies.h"
-#include "../system/textures.h"
-#include "../battle/items.h"
 #include "../battle/entities.h"
+#include "../battle/fighters.h"
+#include "../battle/items.h"
+#include "../battle/jumpgate.h"
+#include "../battle/locations.h"
+#include "../battle/mine.h"
+#include "../battle/missionInfo.h"
+#include "../battle/objectives.h"
+#include "../battle/player.h"
+#include "../battle/script.h"
+#include "../battle/spawners.h"
+#include "../battle/waypoints.h"
+#include "../challenges/challenges.h"
+#include "../galaxy/starSystems.h"
+#include "../game/trophies.h"
+#include "../json/cJSON.h"
+#include "../system/atlas.h"
+#include "../system/io.h"
+#include "../system/lookup.h"
+#include "../system/resources.h"
+#include "../system/sound.h"
+#include "../system/textures.h"
+#include "../system/transition.h"
+#include "../system/util.h"
+#include "../system/widgets.h"
+#include "mission.h"
 
-extern App app;
-extern Battle battle;
-extern Dev dev;
+extern App	   app;
+extern Battle  battle;
+extern Dev	   dev;
 extern Entity *player;
-extern Game game;
+extern Game	   game;
 
-static void loadEntities(cJSON *node);
-static void loadEpicData(cJSON *node);
+static void	 loadEntities(cJSON *node);
+static void	 loadEpicData(cJSON *node);
 static char *getAutoBackground(char *filename);
 static char *getAutoPlanet(char *filename);
 static char *getAutoMusic(char *filename);
@@ -63,8 +65,8 @@ static char *getAutoMusic(char *filename);
 Mission *loadMissionMeta(char *filename)
 {
 	Mission *mission;
-	cJSON *root, *node;
-	char *text;
+	cJSON	  *root, *node;
+	char	 *text;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
@@ -126,8 +128,8 @@ Mission *loadMissionMeta(char *filename)
 void loadMission(char *filename)
 {
 	cJSON *root;
-	char *text, music[MAX_DESCRIPTION_LENGTH], *background, *planet;
-	float planetScale;
+	char	 *text, music[MAX_DESCRIPTION_LENGTH], *background, *planet;
+	float  planetScale;
 
 	startSectionTransition();
 
@@ -346,10 +348,10 @@ void failMission(void)
 static void loadEntities(cJSON *node)
 {
 	Entity *e;
-	char *name, *groupName;
-	int i, type, scatter, number, active, addFlags, side;
-	float x, y;
-	long flags;
+	char	 *name, *groupName;
+	int		i, type, scatter, number, active, addFlags, side;
+	float	x, y;
+	long	flags;
 
 	if (node)
 	{
@@ -377,7 +379,7 @@ static void loadEntities(cJSON *node)
 				flags = flagsToLong(cJSON_GetObjectItem(node, "flags")->valuestring, &addFlags);
 			}
 
-			for (i = 0 ; i < number ; i++)
+			for (i = 0; i < number; i++)
 			{
 				switch (type)
 				{
@@ -447,7 +449,7 @@ static void loadEntities(cJSON *node)
 static void loadEpicData(cJSON *node)
 {
 	Entity *e;
-	int numFighters[SIDE_MAX];
+	int		numFighters[SIDE_MAX];
 	memset(numFighters, 0, sizeof(int) * SIDE_MAX);
 
 	battle.isEpic = 1;
@@ -467,7 +469,7 @@ static void loadEpicData(cJSON *node)
 		addEpicKillsObjective();
 	}
 
-	for (e = battle.entityHead.next ; e != NULL ; e = e->next)
+	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
 		if (e->active && e->type == ET_FIGHTER && numFighters[e->side]++ >= battle.epicFighterLimit)
 		{
@@ -479,12 +481,12 @@ static void loadEpicData(cJSON *node)
 Mission *getMission(char *filename)
 {
 	StarSystem *starSystem;
-	Mission *mission;
+	Mission	*mission;
 
 	/* First, search the star systems */
-	for (starSystem = game.starSystemHead.next ; starSystem != NULL ; starSystem = starSystem->next)
+	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
 	{
-		for (mission = starSystem->missionHead.next ; mission != NULL ; mission = mission->next)
+		for (mission = starSystem->missionHead.next; mission != NULL; mission = mission->next)
 		{
 			if (strcmp(mission->filename, filename) == 0)
 			{
@@ -494,7 +496,7 @@ Mission *getMission(char *filename)
 	}
 
 	/* now search the challenges */
-	for (mission = game.challengeMissionHead.next ; mission != NULL ; mission = mission->next)
+	for (mission = game.challengeMissionHead.next; mission != NULL; mission = mission->next)
 	{
 		if (strcmp(mission->filename, filename) == 0)
 		{
@@ -522,10 +524,6 @@ int isMissionAvailable(Mission *mission, Mission *prev)
 	}
 	else
 	{
-		return mission->completed || (
-			game.completedMissions >= mission->requires &&
-			game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional &&
-			game.completedMissions < mission->expires
-		) || dev.debug;
+		return mission->completed || (game.completedMissions >= mission->requires && game.stats[STAT_OPTIONAL_COMPLETED] >= mission->requiresOptional && game.completedMissions < mission->expires) || dev.debug;
 	}
 }

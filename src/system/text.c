@@ -18,16 +18,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../common.h"
-#include "text.h"
 #include <SDL2/SDL_ttf.h>
-#include "../system/textures.h"
-#include "../system/io.h"
 
-#define FONT_SIZE            32
-#define FONT_TEXTURE_SIZE    512
-#define MAX_WORD_LENGTH      128
-#define MAX_GLYPH_SIZE       8
+#include "../common.h"
+
+#include "../system/io.h"
+#include "../system/textures.h"
+#include "text.h"
+
+#define FONT_SIZE		  32
+#define FONT_TEXTURE_SIZE 512
+#define MAX_WORD_LENGTH	  128
+#define MAX_GLYPH_SIZE	  8
 
 extern App app;
 
@@ -35,10 +37,10 @@ static void initFont(char *name, char *filename, char *characters);
 static void drawWord(char *word, int *x, int *y, int startX);
 static void drawTextLines(int x, int y, int size, int align);
 static void drawTextLine(int x, int y, int size, int align, const char *line);
-static int nextGlyph(const char *str, int *i, char *glyphBuffer);
+static int	nextGlyph(const char *str, int *i, char *glyphBuffer);
 
-static char drawTextBuffer[1024];
-static Font fontHead;
+static char	 drawTextBuffer[1024];
+static Font	 fontHead;
 static Font *fontTail;
 static Font *activeFont = NULL;
 static float scale;
@@ -64,13 +66,13 @@ void initFonts(void)
 static void initFont(char *name, char *filename, char *characters)
 {
 	SDL_Texture *texture;
-	TTF_Font *font;
-	Font *f;
+	TTF_Font	 *font;
+	Font		 *f;
 	SDL_Surface *surface, *text;
-	SDL_Rect dest;
-	int i, n, largest;
-	char glyphBuffer[MAX_GLYPH_SIZE];
-	SDL_Color white = {255, 255, 255, 255};
+	SDL_Rect	 dest;
+	int			 i, n, largest;
+	char		 glyphBuffer[MAX_GLYPH_SIZE];
+	SDL_Color	 white = {255, 255, 255, 255};
 
 	f = malloc(sizeof(Font));
 	memset(f, 0, sizeof(Font));
@@ -158,7 +160,7 @@ void drawText(int x, int y, int size, int align, SDL_Color color, const char *fo
 static void drawTextLines(int x, int y, int size, int align)
 {
 	char line[MAX_LINE_LENGTH], token[MAX_WORD_LENGTH];
-	int i, n, w, h, currentWidth, len;
+	int	 i, n, w, h, currentWidth, len;
 
 	memset(&line, '\0', sizeof(line));
 	memset(&token, '\0', sizeof(token));
@@ -167,7 +169,7 @@ static void drawTextLines(int x, int y, int size, int align)
 
 	n = currentWidth = 0;
 
-	for (i = 0 ; i < len ; i++)
+	for (i = 0; i < len; i++)
 	{
 		token[n++] = drawTextBuffer[i];
 
@@ -201,7 +203,7 @@ static void drawTextLines(int x, int y, int size, int align)
 
 static void drawTextLine(int x, int y, int size, int align, const char *line)
 {
-	int i, startX, n, w, h;
+	int	 i, startX, n, w, h;
 	char word[MAX_WORD_LENGTH];
 
 	scale = size / (FONT_SIZE * 1.0f);
@@ -223,7 +225,7 @@ static void drawTextLine(int x, int y, int size, int align, const char *line)
 		x -= (w / 2);
 	}
 
-	for (i = 0 ; i < strlen(line) ; i++)
+	for (i = 0; i < strlen(line); i++)
 	{
 		word[n++] = line[i];
 
@@ -242,7 +244,7 @@ static void drawTextLine(int x, int y, int size, int align, const char *line)
 
 static void drawWord(char *word, int *x, int *y, int startX)
 {
-	int i, n;
+	int		 i, n;
 	SDL_Rect dest;
 
 	i = 0;
@@ -264,7 +266,7 @@ void useFont(char *name)
 {
 	Font *f;
 
-	for (f = fontHead.next ; f != NULL ; f = f->next)
+	for (f = fontHead.next; f != NULL; f = f->next)
 	{
 		if (strcmp(f->name, name) == 0)
 		{
@@ -277,7 +279,7 @@ void useFont(char *name)
 void calcTextDimensions(const char *text, int size, int *w, int *h)
 {
 	float scale;
-	int i, n;
+	int	  i, n;
 
 	scale = size / (FONT_SIZE * 1.0f);
 
@@ -296,7 +298,7 @@ void calcTextDimensions(const char *text, int size, int *w, int *h)
 int getWrappedTextHeight(char *text, int size)
 {
 	char word[MAX_WORD_LENGTH];
-	int i, y, n, w, h, currentWidth, len;
+	int	 i, y, n, w, h, currentWidth, len;
 
 	STRNCPY(drawTextBuffer, text, MAX_LINE_LENGTH);
 
@@ -307,7 +309,7 @@ int getWrappedTextHeight(char *text, int size)
 	len = strlen(drawTextBuffer);
 	memset(word, 0, MAX_WORD_LENGTH);
 
-	for (i = 0 ; i < len ; i++)
+	for (i = 0; i < len; i++)
 	{
 		word[n++] = drawTextBuffer[i];
 
@@ -334,11 +336,11 @@ int getWrappedTextHeight(char *text, int size)
 
 static int nextGlyph(const char *str, int *i, char *glyphBuffer)
 {
-	int len;
-	unsigned bit;
+	int			len;
+	unsigned	bit;
 	const char *p;
 
-	bit = (unsigned char) str[*i];
+	bit = (unsigned char)str[*i];
 
 	if (bit < ' ')
 	{
@@ -349,7 +351,7 @@ static int nextGlyph(const char *str, int *i, char *glyphBuffer)
 
 	if (bit >= 0xF0)
 	{
-		bit  = (int)(str[*i]     & 0x07) << 18;
+		bit = (int)(str[*i] & 0x07) << 18;
 		bit |= (int)(str[*i + 1] & 0x3F) << 12;
 		bit |= (int)(str[*i + 2] & 0x3F) << 6;
 		bit |= (int)(str[*i + 3] & 0x3F);
@@ -358,7 +360,7 @@ static int nextGlyph(const char *str, int *i, char *glyphBuffer)
 	}
 	else if (bit >= 0xE0)
 	{
-		bit  = (int)(str[*i]     & 0x0F) << 12;
+		bit = (int)(str[*i] & 0x0F) << 12;
 		bit |= (int)(str[*i + 1] & 0x3F) << 6;
 		bit |= (int)(str[*i + 2] & 0x3F);
 
@@ -366,7 +368,7 @@ static int nextGlyph(const char *str, int *i, char *glyphBuffer)
 	}
 	else if (bit >= 0xC0)
 	{
-		bit  = (int)(str[*i]     & 0x1F) << 6;
+		bit = (int)(str[*i] & 0x1F) << 6;
 		bit |= (int)(str[*i + 1] & 0x3F);
 
 		len = 2;

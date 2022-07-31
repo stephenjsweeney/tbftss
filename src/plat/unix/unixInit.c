@@ -18,12 +18,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../../common.h"
-#include "unixInit.h"
-#include <sys/stat.h>
-#include <pwd.h>
-#include <unistd.h>
 #include <errno.h>
+#include <pwd.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
+#include "../../common.h"
+
+#include "unixInit.h"
 
 extern App app;
 extern Dev dev;
@@ -31,7 +33,7 @@ extern Dev dev;
 void createSaveFolder(void)
 {
 	char *userHome;
-	char dir[MAX_FILENAME_LENGTH];
+	char  dir[MAX_FILENAME_LENGTH];
 
 	userHome = getenv("HOME");
 
@@ -44,7 +46,7 @@ void createSaveFolder(void)
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "User home = %s", userHome);
 
 	sprintf(dir, "%s/.local/share/tbftss", userHome);
-	if (mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0 && errno != EEXIST)
+	if (mkdir(dir, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) != 0 && errno != EEXIST)
 	{
 		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_WARN, "Failed to create save dir '%s'. Will save to current dir.", dir);
 		return;
@@ -55,7 +57,7 @@ void createSaveFolder(void)
 
 void createScreenshotFolder(void)
 {
-	mkdir("/tmp/tbftss", S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH);
+	mkdir("/tmp/tbftss", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 
 	dev.screenshotFolder = "/tmp/tbftss";
 }

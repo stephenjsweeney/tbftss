@@ -19,24 +19,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../common.h"
-#include "spawners.h"
-#include "../json/cJSON.h"
+
 #include "../battle/fighters.h"
+#include "../json/cJSON.h"
 #include "../system/lookup.h"
 #include "../system/util.h"
+#include "spawners.h"
 
-extern Battle battle;
+extern Battle  battle;
 extern Entity *player;
 
 void doSpawners(void)
 {
-	Entity *e;
+	Entity  *e;
 	Spawner *s;
-	char *type;
-	int i, num, addFlags, addAIFlags;
-	long flags, aiFlags;
+	char	 *type;
+	int		 i, num, addFlags, addAIFlags;
+	long	 flags, aiFlags;
 
-	for (s = battle.spawnerHead.next ; s != NULL ; s = s->next)
+	for (s = battle.spawnerHead.next; s != NULL; s = s->next)
 	{
 		if (s->active && --s->time <= 0)
 		{
@@ -66,7 +67,7 @@ void doSpawners(void)
 				aiFlags = flagsToLong(s->aiFlags, &addAIFlags);
 			}
 
-			for (i = 0 ; i < num ; i++)
+			for (i = 0; i < num; i++)
 			{
 				type = s->types[rand() % s->numTypes];
 
@@ -122,7 +123,7 @@ void activateSpawner(char *name, int active)
 {
 	Spawner *s;
 
-	for (s = battle.spawnerHead.next ; s != NULL ; s = s->next)
+	for (s = battle.spawnerHead.next; s != NULL; s = s->next)
 	{
 		if (strcmp(s->name, name) == 0)
 		{
@@ -134,7 +135,7 @@ void activateSpawner(char *name, int active)
 void activateTrespasserSpawner(void)
 {
 	Spawner *s;
-	char types[MAX_DESCRIPTION_LENGTH];
+	char	 types[MAX_DESCRIPTION_LENGTH];
 
 	s = malloc(sizeof(Spawner));
 	memset(s, 0, sizeof(Spawner));

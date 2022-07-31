@@ -18,15 +18,15 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
 #include "../common.h"
+
 #include "i18n.h"
-#include "../system/io.h"
 #ifdef _WIN32
-	#include <windows.h>
+#include <windows.h>
 #endif
 
-#define TABLE_SIZE	255
+#define TABLE_SIZE 255
 
-static int hashCode(char *);
+static int	hashCode(char *);
 static void put(char *, char *);
 static void initTable(void);
 
@@ -34,18 +34,18 @@ static HashTable table;
 
 void setLanguage(char *applicationName, char *languageCode)
 {
-	char language[MAX_DESCRIPTION_LENGTH], c[MAX_LINE_LENGTH];
+	char   language[MAX_DESCRIPTION_LENGTH], c[MAX_LINE_LENGTH];
 	char **key, **value;
-	#ifndef _WIN32
+#ifndef _WIN32
 	char *lang;
-	#endif
-	int i, swap;
-	FILE *fp;
+#endif
+	int		 i, swap;
+	FILE	 *fp;
 	MOHeader header;
 	MOEntry *original, *translation;
-	#if DEV == 1
-		int read;
-	#endif
+#if DEV == 1
+	int read;
+#endif
 
 	initTable();
 
@@ -53,28 +53,28 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	if (languageCode == NULL)
 	{
-		#ifdef _WIN32
-			GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO639LANGNAME, c, MAX_LINE_LENGTH);
+#ifdef _WIN32
+		GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO639LANGNAME, c, MAX_LINE_LENGTH);
+
+		if (c[0] != '\0')
+		{
+			STRNCPY(language, c, MAX_DESCRIPTION_LENGTH);
+
+			GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO3166CTRYNAME, c, MAX_LINE_LENGTH);
 
 			if (c[0] != '\0')
 			{
-				STRNCPY(language, c, MAX_DESCRIPTION_LENGTH);
+				strncat(language, "_", MAX_DESCRIPTION_LENGTH - strlen(language) - 1);
 
-				GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO3166CTRYNAME, c, MAX_LINE_LENGTH);
-
-				if (c[0] != '\0')
-				{
-					strncat(language, "_", MAX_DESCRIPTION_LENGTH - strlen(language) - 1);
-
-					strncat(language, c, MAX_DESCRIPTION_LENGTH - strlen(language) - 1);
-				}
+				strncat(language, c, MAX_DESCRIPTION_LENGTH - strlen(language) - 1);
 			}
-		#else
-			if ((lang = getenv("LC_ALL")) || (lang = getenv("LC_CTYPE")) || (lang = getenv("LANG")))
-			{
-				STRNCPY(language, lang, MAX_DESCRIPTION_LENGTH);
-			}
-		#endif
+		}
+#else
+		if ((lang = getenv("LC_ALL")) || (lang = getenv("LC_CTYPE")) || (lang = getenv("LANG")))
+		{
+			STRNCPY(language, lang, MAX_DESCRIPTION_LENGTH);
+		}
+#endif
 	}
 
 	else
@@ -88,17 +88,17 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 
-	#if DEV == 1
-		printf("Opening %s\n", c);
-	#endif
+#if DEV == 1
+	printf("Opening %s\n", c);
+#endif
 
 	fp = fopen(c, "rb");
 
 	if (fp == NULL)
 	{
-		#if DEV == 1
-			printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
-		#endif
+#if DEV == 1
+		printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
+#endif
 
 		if (strstr(language, "_") == NULL)
 		{
@@ -111,17 +111,17 @@ void setLanguage(char *applicationName, char *languageCode)
 
 		sprintf(c, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 
-		#if DEV == 1
-			printf("Opening %s\n", c);
-		#endif
+#if DEV == 1
+		printf("Opening %s\n", c);
+#endif
 
 		fp = fopen(c, "rb");
 
 		if (fp == NULL)
 		{
-			#if DEV == 1
-				printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
-			#endif
+#if DEV == 1
+			printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
+#endif
 
 			return;
 		}
@@ -149,9 +149,9 @@ void setLanguage(char *applicationName, char *languageCode)
 		exit(1);
 	}
 
-	#if DEV == 1
-		printf("MO file has %d entries\n", header.stringCount);
-	#endif
+#if DEV == 1
+	printf("MO file has %d entries\n", header.stringCount);
+#endif
 
 	fseek(fp, header.originalOffset, SEEK_SET);
 
@@ -166,7 +166,7 @@ void setLanguage(char *applicationName, char *languageCode)
 		exit(1);
 	}
 
-	for (i=0;i<header.stringCount;i++)
+	for (i = 0; i < header.stringCount; i++)
 	{
 		fread(&original[i].length, sizeof(int32_t), 1, fp);
 		fread(&original[i].offset, sizeof(int32_t), 1, fp);
@@ -189,7 +189,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	fseek(fp, header.translationOffset, SEEK_SET);
 
-	for (i=0;i<header.stringCount;i++)
+	for (i = 0; i < header.stringCount; i++)
 	{
 		fread(&translation[i].length, sizeof(int32_t), 1, fp);
 		fread(&translation[i].offset, sizeof(int32_t), 1, fp);
@@ -210,7 +210,7 @@ void setLanguage(char *applicationName, char *languageCode)
 		}
 	}
 
-	for (i=0;i<header.stringCount;i++)
+	for (i = 0; i < header.stringCount; i++)
 	{
 		fseek(fp, original[i].offset, SEEK_SET);
 
@@ -219,7 +219,7 @@ void setLanguage(char *applicationName, char *languageCode)
 		key[i][original[i].length] = '\0';
 	}
 
-	for (i=0;i<header.stringCount;i++)
+	for (i = 0; i < header.stringCount; i++)
 	{
 		fseek(fp, translation[i].offset, SEEK_SET);
 
@@ -230,7 +230,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	fclose(fp);
 
-	for (i=0;i<header.stringCount;i++)
+	for (i = 0; i < header.stringCount; i++)
 	{
 		put(key[i], value[i]);
 
@@ -247,31 +247,31 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	free(translation);
 
-	#if DEV == 1
-		read = 0;
+#if DEV == 1
+	read = 0;
 
-		for (i=0;i<TABLE_SIZE;i++)
+	for (i = 0; i < TABLE_SIZE; i++)
+	{
+		if (table.bucketCount[i] != 0)
 		{
-			if (table.bucketCount[i] != 0)
-			{
-				read++;
-			}
+			read++;
 		}
+	}
 
-		printf("Using %d of %d buckets (%d%%)\n", read, TABLE_SIZE, (read *  100) / TABLE_SIZE);
-	#endif
+	printf("Using %d of %d buckets (%d%%)\n", read, TABLE_SIZE, (read * 100) / TABLE_SIZE);
+#endif
 }
 
 static int hashCode(char *data)
 {
-	int i, length;
+	int			 i, length;
 	unsigned int hash;
 
 	length = strlen(data);
 
 	hash = 0;
 
-	for (i=0;i<length;i++)
+	for (i = 0; i < length; i++)
 	{
 		hash = data[i] + (hash << 5) - hash;
 	}
@@ -294,7 +294,7 @@ static void initTable()
 		exit(1);
 	}
 
-	for (i=0;i<TABLE_SIZE;i++)
+	for (i = 0; i < TABLE_SIZE; i++)
 	{
 		table.bucket[i] = malloc(sizeof(Bucket));
 
@@ -306,12 +306,12 @@ static void initTable()
 
 static void put(char *key, char *value)
 {
-	Bucket *bucket, *newBucket;
+	Bucket	   *bucket, *newBucket;
 	unsigned int hash = hashCode(key);
 
-	#if DEV == 1
-		printf("%s = %d\n", key, hash);
-	#endif
+#if DEV == 1
+	printf("%s = %d\n", key, hash);
+#endif
 
 	bucket = table.bucket[hash];
 
@@ -329,7 +329,7 @@ static void put(char *key, char *value)
 		exit(1);
 	}
 
-	newBucket->key   = malloc(strlen(key) + 1);
+	newBucket->key = malloc(strlen(key) + 1);
 	newBucket->value = malloc(strlen(value) + 1);
 
 	if (newBucket->key == NULL || newBucket->value == NULL)
@@ -351,12 +351,12 @@ static void put(char *key, char *value)
 
 char *getTranslatedString(char *key)
 {
-	Bucket *bucket;
+	Bucket	   *bucket;
 	unsigned int hash = hashCode(key);
 
 	bucket = table.bucket[hash]->next;
 
-	for (;bucket!=NULL;bucket=bucket->next)
+	for (; bucket != NULL; bucket = bucket->next)
 	{
 		if (strcasecmp(key, bucket->key) == 0)
 		{
@@ -369,14 +369,14 @@ char *getTranslatedString(char *key)
 
 void cleanupLanguage(void)
 {
-	int i;
+	int		i;
 	Bucket *bucket, *p, *q;
 
-	for (i=0;i<TABLE_SIZE;i++)
+	for (i = 0; i < TABLE_SIZE; i++)
 	{
 		bucket = table.bucket[i];
 
-		for (p=bucket->next;p!=NULL;p=q)
+		for (p = bucket->next; p != NULL; p = q)
 		{
 			free(p->key);
 			free(p->value);

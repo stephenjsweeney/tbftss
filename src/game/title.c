@@ -229,7 +229,7 @@ static void draw(void)
 
 	blit(pandoranWar, app.winWidth / 2, 110, 1);
 
-	drawText(10, app.winHeight - 25, 14, TA_LEFT, colors.white, "Copyright,2022 Parallel Realities, 2015-2019,2022");
+	drawText(10, app.winHeight - 25, 14, TA_LEFT, colors.white, "Copyright Parallel Realities, 2015-2019,2022");
 	drawText(app.winWidth - 10, app.winHeight - 25, 14, TA_RIGHT, colors.white, "Version %.2f.%d", VERSION, REVISION);
 
 	switch (show)

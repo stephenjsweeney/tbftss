@@ -37,7 +37,7 @@ extern Colors  colors;
 extern Entity *player;
 extern Entity *self;
 
-static void	   action(void);
+static void    action(void);
 static Entity *getItemDef(char *name);
 
 static Entity defHead, *defTail;
@@ -45,7 +45,7 @@ static Entity defHead, *defTail;
 void loadItemDefs(void)
 {
 	cJSON  *root, *node;
-	char	 *text;
+	char   *text;
 	Entity *e;
 
 	text = readFile("data/battle/items.json");
@@ -145,7 +145,7 @@ static Entity *getItemDef(char *defName)
 static void action(void)
 {
 	Entity *e, **candidates;
-	int		i;
+	int     i;
 
 	candidates = getAllEntsInRadius(self->x, self->y, MAX(self->w, self->h), self);
 
@@ -176,10 +176,10 @@ static void action(void)
 void loadItems(cJSON *node)
 {
 	Entity *e;
-	char	 *name, *groupName, *type;
-	int		i, scatter, number, active, addFlags;
-	long	flags;
-	float	x, y;
+	char   *name, *groupName, *type;
+	int     i, scatter, number, active, addFlags;
+	long    flags;
+	float   x, y;
 
 	flags = -1;
 	scatter = 1;

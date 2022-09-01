@@ -36,8 +36,8 @@ static int fireObjectivesComplete;
 
 void doObjectives(void)
 {
-	int		   objectiveFailed;
-	int		   hasHidden;
+	int        objectiveFailed;
+	int        hasHidden;
 	Objective *o;
 
 	battle.numObjectivesComplete = battle.numObjectivesTotal = battle.numConditions = 0;
@@ -117,7 +117,7 @@ void doObjectives(void)
 void updateObjective(char *name, int type)
 {
 	Objective *o;
-	int		   completed, hasHidden;
+	int        completed, hasHidden;
 
 	if (strlen(name))
 	{
@@ -265,9 +265,9 @@ void failIncompleteObjectives(void)
 
 void activateObjectives(char *objectives)
 {
-	char		 *token;
+	char      *token;
 	Objective *o;
-	int		   activated;
+	int        activated;
 
 	activated = 0;
 
@@ -344,7 +344,7 @@ void loadObjectives(cJSON *node)
 void addEpicLivesObjective(void)
 {
 	Objective *o;
-	char	   id[MAX_DESCRIPTION_LENGTH];
+	char       id[MAX_DESCRIPTION_LENGTH];
 
 	o = malloc(sizeof(Objective));
 	memset(o, 0, sizeof(Objective));
@@ -365,7 +365,7 @@ void addEpicLivesObjective(void)
 void addEpicKillsObjective(void)
 {
 	Objective *o;
-	char	   id[MAX_DESCRIPTION_LENGTH];
+	char       id[MAX_DESCRIPTION_LENGTH];
 
 	o = malloc(sizeof(Objective));
 	memset(o, 0, sizeof(Objective));

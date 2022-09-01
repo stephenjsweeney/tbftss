@@ -19,8 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 char **getFileList(char *dir, int *count);
-char	 *getSaveFilePath(char *filename);
-int	   writeFile(char *filename, char *data);
-char	 *readFile(char *filename);
-char	 *getFileLocation(char *filename);
-int	   fileExists(char *filename);
+char  *getSaveFilePath(char *filename);
+int    writeFile(char *filename, char *data);
+char  *readFile(char *filename);
+char  *getFileLocation(char *filename);
+int    fileExists(char *filename);

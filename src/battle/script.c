@@ -38,10 +38,10 @@ extern Colors colors;
 
 static void executeNextLine(ScriptRunner *runner);
 
-static cJSON		 *scriptJSON, *rootJSON;
-static ScriptRunner	 head;
+static cJSON        *scriptJSON, *rootJSON;
+static ScriptRunner  head;
 static ScriptRunner *tail;
-static int			 runScript;
+static int           runScript;
 
 void initScript(cJSON *root)
 {
@@ -113,10 +113,10 @@ void doScript(void)
 void runScriptFunction(const char *format, ...)
 {
 	ScriptRunner *scriptRunner;
-	cJSON		  *function;
+	cJSON        *function;
 	char		 *functionName;
-	char		  funcNameBuffer[MAX_NAME_LENGTH];
-	va_list		  args;
+	char          funcNameBuffer[MAX_NAME_LENGTH];
+	va_list       args;
 
 	if (scriptJSON && runScript)
 	{
@@ -157,7 +157,7 @@ static void executeNextLine(ScriptRunner *runner)
 	char *line;
 	char  command[32];
 	char  strParam[3][256];
-	int	  intParam[2];
+	int   intParam[2];
 
 	line = runner->line->valuestring;
 

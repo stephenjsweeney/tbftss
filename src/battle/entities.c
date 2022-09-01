@@ -31,13 +31,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/lookup.h"
 #include "entities.h"
 
-#define DISABLED_GLOW_MAX	255
-#define DISABLED_GLOW_MIN	128
+#define DISABLED_GLOW_MAX   255
+#define DISABLED_GLOW_MIN   128
 #define DISABLED_GLOW_SPEED 3
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
-extern Dev	   dev;
+extern Dev     dev;
 extern Entity *player;
 extern Entity *self;
 
@@ -48,14 +48,14 @@ static void activateEpicFighters(int side);
 static void restrictToBattleArea(Entity *e);
 static void drawTargetRects(Entity *e);
 static void drawHealthBar(Entity *e);
-static int	drawComparator(const void *a, const void *b);
+static int  drawComparator(const void *a, const void *b);
 static void notifyNewArrivals(void);
-static int	isComponent(Entity *e);
+static int  isComponent(Entity *e);
 
 static Entity  deadHead;
 static Entity *deadTail;
-static int	   disabledGlow;
-static int	   disabledGlowDir;
+static int     disabledGlow;
+static int     disabledGlowDir;
 
 void initEntities(void)
 {
@@ -81,9 +81,9 @@ Entity *spawnEntity(void)
 
 void doEntities(void)
 {
-	int		numAllies, numEnemies;
-	int		numActiveAllies, numActiveEnemies;
-	int		numSpawnedEnemies;
+	int     numAllies, numEnemies;
+	int     numActiveAllies, numActiveEnemies;
+	int     numSpawnedEnemies;
 	Entity *e, *prev;
 
 	prev = &battle.entityHead;
@@ -370,8 +370,8 @@ static void doEntity(void)
 static void alignComponents(void)
 {
 	Entity *e;
-	float	x, y;
-	float	c, s;
+	float   x, y;
+	float   c, s;
 
 	for (e = battle.entityHead.next; e != NULL; e = e->next)
 	{
@@ -408,7 +408,7 @@ static int isComponent(Entity *e)
 
 void drawEntities(void)
 {
-	int		i;
+	int     i;
 	Entity *e, **candidates;
 
 	candidates = getAllEntsWithin(battle.camera.x, battle.camera.y, app.winWidth, app.winHeight, NULL);
@@ -548,7 +548,7 @@ static void drawTargetRects(Entity *e)
 void activateEntities(char *names)
 {
 	Entity *e;
-	char	 *name;
+	char   *name;
 
 	name = strtok(names, ";");
 
@@ -576,7 +576,7 @@ void activateEntities(char *names)
 void activateEntityGroups(char *groupNames)
 {
 	Entity *e;
-	char	 *groupName;
+	char   *groupName;
 
 	groupName = strtok(groupNames, ";");
 
@@ -702,7 +702,7 @@ void killEntity(char *name)
 void updateEntitySide(char *sideStr, char *name)
 {
 	Entity *e;
-	int		side;
+	int     side;
 
 	side = lookup(sideStr);
 

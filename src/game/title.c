@@ -41,18 +41,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/widgets.h"
 #include "title.h"
 
-#define NUM_FIGHTERS	12
+#define NUM_FIGHTERS    12
 #define SHOW_FIGHTER_DB 4
-#define SHOW_OPTIONS	2
-#define SHOW_STATS		1
-#define SHOW_TITLE		0
-#define SHOW_TROPHIES	3
+#define SHOW_OPTIONS    2
+#define SHOW_STATS      1
+#define SHOW_TITLE      0
+#define SHOW_TROPHIES   3
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
 extern Colors  colors;
 extern Entity *self;
-extern Game	   game;
+extern Game    game;
 
 static void logic(void);
 static void draw(void);
@@ -75,10 +75,10 @@ static SDL_Texture *background;
 static AtlasImage  *logo[2];
 static AtlasImage  *pandoranWar;
 static AtlasImage  *earthTexture;
-static PointF		earth;
-static Entity		fighters[NUM_FIGHTERS];
+static PointF       earth;
+static Entity       fighters[NUM_FIGHTERS];
 static const char  *fighterTextures[] = {"gfx/fighters/firefly.png", "gfx/fighters/hammerhead.png", "gfx/fighters/hyena.png", "gfx/fighters/lynx.png", "gfx/fighters/kingfisher.png", "gfx/fighters/leopard.png", "gfx/fighters/nymph.png", "gfx/fighters/ray.png", "gfx/fighters/rook.png", "gfx/fighters/taf.png"};
-static int			show;
+static int          show;
 
 void initTitle(void)
 {

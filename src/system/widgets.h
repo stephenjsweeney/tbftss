@@ -18,11 +18,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void	destroyWidgets(void);
-void	autoSizeWidgetButtons(char *group, int recenter);
-void	setWidgetOption(const char *name, const char *group, const char *value);
-void	drawWidgets(const char *group);
-void	selectWidget(const char *name, const char *group);
+void    destroyWidgets(void);
+void    autoSizeWidgetButtons(char *group, int recenter);
+void    setWidgetOption(const char *name, const char *group, const char *value);
+void    drawWidgets(const char *group);
+void    selectWidget(const char *name, const char *group);
 Widget *getWidget(const char *name, const char *group);
-void	doWidgets(void);
-void	initWidgets(void);
+void    doWidgets(void);
+void    initWidgets(void);

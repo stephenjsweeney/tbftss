@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 void loadPlayer(struct cJSON *node);
-int	 playerHasGun(int type);
+int  playerHasGun(int type);
 void setInitialPlayerAngle(void);
 void doPlayerSelect(void);
 void doPlayer(void);

@@ -18,9 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void	destroyCapitalShipDefs(void);
-void	loadCapitalShips(struct cJSON *node);
-void	updateCapitalShipComponentProperties(Entity *parent, long flags);
-void	loadCapitalShipDefs(void);
-void	doCapitalShip(void);
+void    destroyCapitalShipDefs(void);
+void    loadCapitalShips(struct cJSON *node);
+void    updateCapitalShipComponentProperties(Entity *parent, long flags);
+void    loadCapitalShipDefs(void);
+void    doCapitalShip(void);
 Entity *spawnCapitalShip(char *name, int x, int y, int side);

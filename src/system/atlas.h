@@ -20,5 +20,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 char	  **getAtlasFileList(char *dir, int *count);
 AtlasImage *getAtlasImage(const char *filename);
-void		setAtlasColor(int r, int g, int b, int a);
-void		initAtlas(void);
+void        setAtlasColor(int r, int g, int b, int a);
+void        initAtlas(void);

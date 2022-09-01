@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define ROPE_DISTANCE 128
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
 extern Colors  colors;
 extern Entity *player;
@@ -37,7 +37,7 @@ extern Entity *self;
 
 void attachRope(void)
 {
-	int		i, distance;
+	int     i, distance;
 	Entity *e, **candidates;
 
 	if ((self->flags & EF_HAS_ROPE) && self->towing == NULL)
@@ -78,7 +78,7 @@ void attachRope(void)
 void doRope(Entity *owner)
 {
 	float dx, dy, angle, force;
-	int	  distance;
+	int   distance;
 
 	if (owner->towing)
 	{

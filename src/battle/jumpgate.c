@@ -45,7 +45,7 @@ static void addNodes(Entity *jumpgate, long flags);
 static void nodeDie(void);
 
 static AtlasImage *portal;
-static float	   portalAngle;
+static float       portalAngle;
 
 Entity *spawnJumpgate(int side, long flags)
 {
@@ -86,9 +86,9 @@ Entity *spawnJumpgate(int side, long flags)
 
 static void addNodes(Entity *jumpgate, long flags)
 {
-	Entity	   *node;
+	Entity     *node;
 	AtlasImage *nodeTexture;
-	int			i;
+	int         i;
 
 	nodeTexture = getAtlasImage("gfx/entities/jumpgateNode.png");
 
@@ -197,7 +197,7 @@ static void think(void)
 static void handleFleeingEntities(void)
 {
 	Entity *e, **candidates;
-	int		i;
+	int     i;
 
 	candidates = getAllEntsInRadius(self->x, self->y, ESCAPE_DISTANCE * 2, self);
 
@@ -217,7 +217,7 @@ static void handleFleeingEntities(void)
 static void addEscapeEffect(Entity *ent)
 {
 	Effect *e;
-	int		i, n, speed;
+	int     i, n, speed;
 
 	n = ent->w * ent->h;
 

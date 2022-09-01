@@ -18,6 +18,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void	activateNextWaypoint(void);
+void    activateNextWaypoint(void);
 Entity *spawnWaypoint(void);
-void	resetWaypoints(void);
+void    resetWaypoints(void);

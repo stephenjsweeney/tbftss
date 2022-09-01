@@ -37,14 +37,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/util.h"
 #include "capitalShips.h"
 
-#define TURN_SPEED	   0.1
+#define TURN_SPEED     0.1
 #define TURN_THRESHOLD 2
 
 extern Battle  battle;
 extern Entity *player;
 extern Entity *self;
 
-static int	steer(void);
+static int  steer(void);
 static void think(void);
 static void gunThink(void);
 static void gunDie(void);
@@ -144,7 +144,7 @@ void doCapitalShip(void)
 static void think(void)
 {
 	float dir;
-	int	  wantedAngle;
+	int   wantedAngle;
 
 	if (--self->aiActionTime <= 0)
 	{
@@ -169,7 +169,7 @@ static void think(void)
 
 static void findAITarget(void)
 {
-	Entity	   *e;
+	Entity      *e;
 	unsigned int dist, closest;
 
 	self->target = NULL;
@@ -207,13 +207,13 @@ static void findAITarget(void)
 
 static int steer(void)
 {
-	int		wantedAngle;
-	int		angle;
-	int		distance;
-	float	dx, dy, force;
-	int		count;
+	int     wantedAngle;
+	int     angle;
+	int     distance;
+	float   dx, dy, force;
+	int     count;
 	Entity *e, **candidates;
-	int		i;
+	int     i;
 
 	dx = dy = 0;
 	count = 0;
@@ -428,7 +428,7 @@ void loadCapitalShipDefs(void)
 {
 	char **filenames;
 	char   path[MAX_FILENAME_LENGTH];
-	int	   count, i;
+	int    count, i;
 
 	memset(&defHead, 0, sizeof(Entity));
 	defTail = &defHead;
@@ -450,7 +450,7 @@ void loadCapitalShipDefs(void)
 static void loadCapitalShipDef(char *filename)
 {
 	cJSON  *root;
-	char	 *text;
+	char   *text;
 	Entity *e;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
@@ -699,11 +699,11 @@ void updateCapitalShipComponentProperties(Entity *parent, long flags)
 void loadCapitalShips(cJSON *node)
 {
 	Entity *e;
-	char	 **types, *name, *groupName, *type;
-	int		side, scatter, number, active;
-	int		i, numTypes, addFlags;
-	long	flags;
-	float	x, y;
+	char  **types, *name, *groupName, *type;
+	int     side, scatter, number, active;
+	int     i, numTypes, addFlags;
+	long    flags;
+	float   x, y;
 
 	if (node)
 	{

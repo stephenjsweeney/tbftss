@@ -33,11 +33,11 @@ extern Battle  battle;
 extern Colors  colors;
 extern Entity *player;
 extern Entity *self;
-extern Game	   game;
+extern Game    game;
 
 static void think(void);
-static int	teamMatesClose(void);
-static int	isCurrentObjective(void);
+static int  teamMatesClose(void);
+static int  isCurrentObjective(void);
 
 static int waypointId;
 static int currentWaypointId;

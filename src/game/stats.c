@@ -27,21 +27,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define STATS_PER_PAGE 9
 
-extern App	  app;
+extern App    app;
 extern Colors colors;
-extern Game	  game;
+extern Game   game;
 
 static void prevPage(void);
 static void nextPage(void);
 static void calculatePercentComplete(void);
 
-static char	*statDescription[STAT_MAX];
-static int	   page;
+static char   *statDescription[STAT_MAX];
+static int     page;
 static float   maxPages;
 static Widget *prev;
 static Widget *next;
-static char	*STATS_TEXT;
-static char	*PAGE_TEXT;
+static char   *STATS_TEXT;
+static char   *PAGE_TEXT;
 
 void initStats(void)
 {
@@ -113,8 +113,8 @@ void initStatsDisplay(void)
 static void calculatePercentComplete(void)
 {
 	StarSystem *starSystem;
-	Mission	*mission;
-	int			completed, total;
+	Mission    *mission;
+	int         completed, total;
 
 	completed = total = 0;
 
@@ -138,7 +138,7 @@ static void calculatePercentComplete(void)
 
 void drawStats(void)
 {
-	int		 i, y, startIndex;
+	int      i, y, startIndex;
 	SDL_Rect r;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);

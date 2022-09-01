@@ -25,14 +25,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/widgets.h"
 #include "modalDialog.h"
 
-extern App	  app;
+extern App    app;
 extern Colors colors;
 
-static int	   enableTimer;
+static int     enableTimer;
 static Widget *ok;
 static Widget *okCancelOK;
 static Widget *okCancelCancel;
-static char	   textBuffer[MAX_DESCRIPTION_LENGTH];
+static char    textBuffer[MAX_DESCRIPTION_LENGTH];
 
 void initModalDialog(void)
 {

@@ -27,14 +27,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 char **backgrounds;
 char **planets;
 char **musicFiles;
-int	   numBackgrounds;
-int	   numPlanets;
-int	   numMusicFiles;
+int    numBackgrounds;
+int    numPlanets;
+int    numMusicFiles;
 
 void initResources(void)
 {
 	char **filenames;
-	int	   i;
+	int    i;
 
 	numBackgrounds = numPlanets = numMusicFiles = 0;
 

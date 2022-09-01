@@ -43,21 +43,21 @@ extern Battle  battle;
 extern Colors  colors;
 extern Entity *player;
 extern Entity *self;
-extern Game	   game;
+extern Game    game;
 
-static void	   separate(void);
-static void	   die(void);
-static void	   immediateDie(void);
-static void	   spinDie(void);
-static void	   straightDie(void);
-static void	   simpleDie(void);
-static void	   randomizeDart(Entity *dart);
-static void	   randomizeDartGuns(Entity *dart);
-static void	   loadFighterDef(char *filename);
-static void	   loadFighterDefList(char *filename);
+static void    separate(void);
+static void    die(void);
+static void    immediateDie(void);
+static void    spinDie(void);
+static void    straightDie(void);
+static void    simpleDie(void);
+static void    randomizeDart(Entity *dart);
+static void    randomizeDartGuns(Entity *dart);
+static void    loadFighterDef(char *filename);
+static void    loadFighterDefList(char *filename);
 static Entity *getFighterDef(char *name);
-static void	   addFighterStat(char *name);
-static void	   incFighterStat(char *key);
+static void    addFighterStat(char *name);
+static void    incFighterStat(char *key);
 
 static Entity defHead, *defTail;
 
@@ -409,12 +409,12 @@ void doFighter(void)
 
 static void separate(void)
 {
-	int		angle;
-	int		distance;
-	float	dx, dy, force;
-	int		count;
+	int     angle;
+	int     distance;
+	float   dx, dy, force;
+	int     count;
 	Entity *e, **candidates;
-	int		i;
+	int     i;
 
 	dx = dy = 0;
 	count = 0;
@@ -774,7 +774,7 @@ static Entity *getFighterDef(char *name)
 Entity **getDBFighters(int *num)
 {
 	Entity *e, **dbFighters;
-	int		i;
+	int     i;
 
 	i = *num = 0;
 
@@ -815,7 +815,7 @@ static void loadFighterDefList(char *dir)
 {
 	char **filenames;
 	char   path[MAX_FILENAME_LENGTH];
-	int	   count, i;
+	int    count, i;
 
 	filenames = getFileList(dir, &count);
 
@@ -834,9 +834,9 @@ static void loadFighterDefList(char *dir)
 static void loadFighterDef(char *filename)
 {
 	cJSON  *root, *node;
-	char	 *text;
+	char   *text;
 	Entity *e;
-	int		i, len;
+	int     i, len;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
@@ -977,11 +977,11 @@ static void incFighterStat(char *key)
 void loadFighters(cJSON *node)
 {
 	Entity *e;
-	char	 **types, *name, *groupName, *type, *strpos;
-	int		side, scatter, number, active;
-	int		i, numTypes, addFlags, addAIFlags, id;
-	long	flags, aiFlags;
-	float	x, y;
+	char  **types, *name, *groupName, *type, *strpos;
+	int     side, scatter, number, active;
+	int     i, numTypes, addFlags, addAIFlags, id;
+	long    flags, aiFlags;
+	float   x, y;
 
 	if (node)
 	{

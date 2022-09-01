@@ -18,15 +18,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void	awardCraftTrophy(void);
-void	awardPostMissionTrophies(void);
-void	awardChallengeTrophies(void);
-void	awardCampaignTrophies(void);
-void	awardStatsTrophies(void);
+void    awardCraftTrophy(void);
+void    awardPostMissionTrophies(void);
+void    awardChallengeTrophies(void);
+void    awardCampaignTrophies(void);
+void    awardStatsTrophies(void);
 Trophy *getTrophy(char *id);
-void	drawTrophyAlert(void);
-void	doTrophyAlerts(void);
-void	awardTrophy(char *id);
-void	drawTrophies(void);
-void	initTrophiesDisplay(void);
-void	initTrophies(void);
+void    drawTrophyAlert(void);
+void    doTrophyAlerts(void);
+void    awardTrophy(char *id);
+void    drawTrophies(void);
+void    initTrophiesDisplay(void);
+void    initTrophies(void);

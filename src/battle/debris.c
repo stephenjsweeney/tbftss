@@ -28,16 +28,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "debris.h"
 
 #define INITIAL_DEBRIS_DRAW_CAPACITY 32
-#define MAX_DEBRIS_TEXTURES			 6
+#define MAX_DEBRIS_TEXTURES          6
 
 extern Battle battle;
 
 static void changeCourse(Debris *d);
 static void resizeDrawList(void);
 
-static Debris	  **debrisToDraw;
+static Debris    **debrisToDraw;
 static AtlasImage *debrisTexture[MAX_DEBRIS_TEXTURES];
-static int		   drawCapacity;
+static int         drawCapacity;
 
 void initDebris(void)
 {
@@ -56,7 +56,7 @@ void initDebris(void)
 
 void addDebris(int x, int y, int amount)
 {
-	int		i;
+	int     i;
 	Debris *d;
 
 	for (i = 0; i < amount; i++)
@@ -80,7 +80,7 @@ void addDebris(int x, int y, int amount)
 
 void doDebris(void)
 {
-	int		i;
+	int     i;
 	Debris *d, *prev;
 
 	memset(debrisToDraw, 0, sizeof(Debris *) * drawCapacity);
@@ -160,7 +160,7 @@ static void changeCourse(Debris *d)
 
 void drawDebris(void)
 {
-	int		i;
+	int     i;
 	Debris *d;
 
 	for (i = 0, d = debrisToDraw[i]; d != NULL; d = debrisToDraw[++i])

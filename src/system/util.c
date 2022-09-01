@@ -58,7 +58,7 @@ int getDistance(int x1, int y1, int x2, int y2)
 
 char **toTypeArray(char *types, int *numTypes)
 {
-	int	   i;
+	int    i;
 	char **typeArray, *type;
 
 	*numTypes = 1;
@@ -116,7 +116,7 @@ char *timeToDate(long millis)
 	static char DATE[MAX_NAME_LENGTH];
 
 	struct tm *timeinfo;
-	time_t	   time;
+	time_t     time;
 
 	time = millis;
 
@@ -164,7 +164,7 @@ int getJSONValue(cJSON *node, char *name, int defValue)
 void *resize(void *array, int oldSize, int newSize)
 {
 	void **newArray;
-	int	   copySize;
+	int    copySize;
 
 	copySize = newSize > oldSize ? oldSize : newSize;
 
@@ -179,7 +179,7 @@ void *resize(void *array, int oldSize, int newSize)
 unsigned long hashcode(const char *str)
 {
 	unsigned long hash = 5381;
-	int			  c;
+	int           c;
 
 	c = *str;
 

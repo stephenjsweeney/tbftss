@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define CREDIT_LINE_LIMIT (UI_WIDTH - 300)
 
-extern App	  app;
+extern App    app;
 extern Colors colors;
 
 static void loadCredits(void);
@@ -43,10 +43,10 @@ static void handleKeyboard(void);
 
 static SDL_Texture *background;
 static AtlasImage  *earthTexture;
-static Credit		head;
-static Credit	  *tail;
-static float		creditSpeed;
-static int			timeout;
+static Credit       head;
+static Credit      *tail;
+static float        creditSpeed;
+static int          timeout;
 
 void initCredits(void)
 {
@@ -124,8 +124,8 @@ static void draw(void)
 static void loadCredits(void)
 {
 	cJSON  *root, *node;
-	int		y, dist;
-	char	 *text;
+	int     y, dist;
+	char   *text;
 	Credit *c;
 
 	y = app.winHeight + 100;

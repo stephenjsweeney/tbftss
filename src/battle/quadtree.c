@@ -24,17 +24,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "quadtree.h"
 
 #define QT_INITIAL_CAPACITY 8
-#define QT_MAX_DEPTH		5
+#define QT_MAX_DEPTH        5
 
 extern Battle battle;
 
 static Entity **candidates;
-static int		cIndex;
-static int		cCapacity;
+static int      cIndex;
+static int      cCapacity;
 
-static int	getIndex(Quadtree *root, int x, int y, int w, int h);
+static int  getIndex(Quadtree *root, int x, int y, int w, int h);
 static void removeEntity(Entity *e, Quadtree *root);
-static int	candidatesComparator(const void *a, const void *b);
+static int  candidatesComparator(const void *a, const void *b);
 static void getAllEntsWithinNode(int x, int y, int w, int h, Entity *ignore, Quadtree *root);
 static void destroyQuadtreeNode(Quadtree *root);
 static void resizeQTEntCapacity(Quadtree *root);
@@ -43,7 +43,7 @@ static void resizeCandidates(void);
 void initQuadtree(Quadtree *root)
 {
 	Quadtree *node;
-	int		  i, w, h;
+	int       i, w, h;
 
 	/* entire battlefield */
 	if (root->depth == 0)

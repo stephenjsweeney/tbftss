@@ -34,11 +34,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "bullets.h"
 
 #define INITIAL_BULLET_DRAW_CAPACITY 32
-#define MISSILE_LIFE				 (FPS * 30)
-#define TURN_SPEED					 2
-#define TURN_THRESHOLD				 3
+#define MISSILE_LIFE                 (FPS * 30)
+#define TURN_SPEED                   2
+#define TURN_THRESHOLD               3
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
 extern Entity *player;
 
@@ -48,9 +48,9 @@ static void resizeDrawList(void);
 static void selectNewTarget(Bullet *b);
 static void doBulletHitEffect(Bullet *b);
 
-static Bullet	bulletDef[BT_MAX];
+static Bullet   bulletDef[BT_MAX];
 static Bullet **bulletsToDraw;
-static int		drawCapacity;
+static int      drawCapacity;
 
 void initBullets(void)
 {
@@ -63,8 +63,8 @@ void initBullets(void)
 void initBulletDefs(void)
 {
 	cJSON  *root, *node;
-	char	 *text;
-	int		type;
+	char   *text;
+	int     type;
 	Bullet *def;
 
 	memset(&bulletDef, 0, sizeof(Bullet) * BT_MAX);
@@ -94,7 +94,7 @@ void initBulletDefs(void)
 
 void doBullets(void)
 {
-	int		i = 0;
+	int     i = 0;
 	Bullet *b;
 	Bullet *prev = &battle.bulletHead;
 
@@ -172,7 +172,7 @@ static void resizeDrawList(void)
 static void checkCollisions(Bullet *b)
 {
 	Entity *e, **candidates;
-	int		i;
+	int     i;
 
 	candidates = getAllEntsWithin(b->x - (b->w / 2), b->y - (b->h / 2), b->w, b->h, NULL);
 
@@ -311,7 +311,7 @@ static void doBulletHitEffect(Bullet *b)
 
 void drawBullets(void)
 {
-	int		i;
+	int     i;
 	Bullet *b;
 
 	setAtlasColor(255, 255, 255, 255);
@@ -357,7 +357,7 @@ static void faceTarget(Bullet *b)
 
 static void applyMissileThrust(Bullet *b)
 {
-	int	  maxSpeed;
+	int   maxSpeed;
 	float v, thrust;
 
 	b->dx += sin(TO_RAIDANS(b->angle));
@@ -398,7 +398,7 @@ static void huntTarget(Bullet *b)
 
 static void selectNewTarget(Bullet *b)
 {
-	int		i;
+	int     i;
 	Entity *e, **candidates;
 
 	if (app.gameplay.missileReTarget)
@@ -457,9 +457,9 @@ static Bullet *createBullet(int type, int x, int y, Entity *owner)
 void fireGuns(Entity *owner)
 {
 	Bullet *b;
-	int		i;
-	float	x, y;
-	float	c, s;
+	int     i;
+	float   x, y;
+	float   c, s;
 
 	b = NULL;
 

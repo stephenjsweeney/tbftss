@@ -36,11 +36,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define TROPHIES_PER_PAGE 4
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
 extern Colors  colors;
 extern Entity *player;
-extern Game	   game;
+extern Game    game;
 
 static void prevPage(void);
 static void nextPage(void);
@@ -49,24 +49,24 @@ static void resetAlert(void);
 static void setSparkleColor(Trophy *t);
 static void nextAlert(void);
 
-static Trophy	  *alertTrophy;
+static Trophy     *alertTrophy;
 static AtlasImage *trophyIcons[TROPHY_MAX];
 static AtlasImage *sparkle;
 static AtlasImage *alertSphere;
-static SDL_Rect	   alertRect;
-static int		   alertTimer;
-static int		   page;
-static int		   awarded;
-static int		   total;
-static int		   boxWidth;
-static float	   sparkleAngle;
-static float	   maxPages;
-static Widget	  *prev;
-static Widget	  *next;
-static char		*TROPHIES_TEXT;
-static char		*AWARDED_TEXT;
-static char		*PAGE_TEXT;
-static char		*HIDDEN_TEXT;
+static SDL_Rect    alertRect;
+static int         alertTimer;
+static int         page;
+static int         awarded;
+static int         total;
+static int         boxWidth;
+static float       sparkleAngle;
+static float       maxPages;
+static Widget     *prev;
+static Widget     *next;
+static char       *TROPHIES_TEXT;
+static char       *AWARDED_TEXT;
+static char       *PAGE_TEXT;
+static char       *HIDDEN_TEXT;
 
 void initTrophies(void)
 {
@@ -95,7 +95,7 @@ void initTrophies(void)
 
 void initTrophiesDisplay(void)
 {
-	int		w, h;
+	int     w, h;
 	Trophy *t;
 
 	boxWidth = total = awarded = 0;
@@ -153,7 +153,7 @@ void drawTrophies(void)
 {
 	Trophy  *t;
 	SDL_Rect r;
-	int		 start, end, i, x, y;
+	int      start, end, i, x, y;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);
@@ -232,7 +232,7 @@ void drawTrophies(void)
 void awardTrophy(char *id)
 {
 	Trophy *t;
-	int		numRemaining;
+	int     numRemaining;
 
 	numRemaining = 0;
 
@@ -292,7 +292,7 @@ void doTrophyAlerts(void)
 
 static void nextAlert(void)
 {
-	int		w, h;
+	int     w, h;
 	Trophy *t;
 
 	for (t = game.trophyHead.next; t != NULL; t = t->next)
@@ -372,9 +372,9 @@ Trophy *getTrophy(char *id)
 static void loadTrophyData(char *filename)
 {
 	cJSON  *root, *node;
-	char	 *text;
+	char   *text;
 	Trophy *t, *tail;
-	int		count[TROPHY_MAX];
+	int     count[TROPHY_MAX];
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
@@ -448,9 +448,9 @@ void awardStatsTrophies(void)
 
 void awardCampaignTrophies(void)
 {
-	char		trophyId[MAX_NAME_LENGTH * 2];
-	char		name[MAX_NAME_LENGTH];
-	int			i, len;
+	char        trophyId[MAX_NAME_LENGTH * 2];
+	char        name[MAX_NAME_LENGTH];
+	int         i, len;
 	StarSystem *starSystem;
 
 	if (game.completedMissions)
@@ -481,7 +481,7 @@ void awardCampaignTrophies(void)
 void awardChallengeTrophies(void)
 {
 	char trophyId[MAX_NAME_LENGTH];
-	int	 completed;
+	int  completed;
 
 	/* check % of challenges completed - 25% increments*/
 	completed = (getPercent(game.completedChallenges, game.totalChallenges) / 25) * 25;

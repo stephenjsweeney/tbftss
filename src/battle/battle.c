@@ -53,16 +53,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/widgets.h"
 #include "battle.h"
 
-#define SHOW_BATTLE		0
-#define SHOW_MENU		1
+#define SHOW_BATTLE     0
+#define SHOW_MENU       1
 #define SHOW_OBJECTIVES 2
-#define SHOW_OPTIONS	3
+#define SHOW_OPTIONS    3
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
-extern Dev	   dev;
+extern Dev     dev;
 extern Entity *player;
-extern Game	   game;
+extern Game    game;
 
 static void logic(void);
 static void draw(void);
@@ -83,7 +83,7 @@ static void checkSuspicionLevel(void);
 static void doTorelliFireStorm(void);
 static void endCampaign(void);
 
-static int	 show;
+static int   show;
 static float ssx, ssy;
 
 void initBattle(void)
@@ -529,13 +529,13 @@ static void endCampaign(void)
 
 void destroyBattle(void)
 {
-	Entity	   *ent;
-	Bullet	   *b;
-	Debris	   *d;
-	Effect	   *e;
+	Entity    *ent;
+	Bullet    *b;
+	Debris    *d;
+	Effect    *e;
 	Objective *o;
-	Location	 *l;
-	Spawner	*s;
+	Location  *l;
+	Spawner   *s;
 
 	while (battle.entityHead.next)
 	{

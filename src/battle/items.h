@@ -18,8 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void	destroyItemDefs(void);
-void	loadItems(struct cJSON *node);
-void	addRandomItem(int x, int y);
+void    destroyItemDefs(void);
+void    loadItems(struct cJSON *node);
+void    addRandomItem(int x, int y);
 Entity *spawnItem(char *name);
-void	loadItemDefs(void);
+void    loadItemDefs(void);

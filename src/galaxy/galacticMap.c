@@ -42,72 +42,72 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "galacticMap.h"
 
 #define MAX_LISTED_MISSIONS 9
-#define SHOW_FIGHTER_DB		6
-#define SHOW_GALAXY			0
-#define SHOW_MENU			2
-#define SHOW_OPTIONS		3
-#define SHOW_STAR_SYSTEM	1
-#define SHOW_STATS			4
-#define SHOW_TROPHIES		5
+#define SHOW_FIGHTER_DB     6
+#define SHOW_GALAXY         0
+#define SHOW_MENU           2
+#define SHOW_OPTIONS        3
+#define SHOW_STAR_SYSTEM    1
+#define SHOW_STATS          4
+#define SHOW_TROPHIES       5
 
-extern App	  app;
+extern App    app;
 extern Colors colors;
-extern Game	  game;
+extern Game   game;
 
-static void		logic(void);
-static void		draw(void);
-static void		handleKeyboard(void);
-static void		handleMouse(void);
-static void		scrollGalaxy(void);
-static void		drawStarSystemDetail(void);
-static void		selectStarSystem(void);
-static void		drawGalaxy(void);
-static void		centerOnSelectedStarSystem(void);
-static void		doStarSystems(void);
-static void		drawPulses(void);
-static void		drawInfoBars(void);
-static void		doPulses(void);
-static void		addPulses(void);
-static void		drawMenu(void);
-static void		resume(void);
-static void		stats(void);
-static void		trophies(void);
-static void		options(void);
-static void		ok(void);
-static void		quit(void);
-static void		startMission(void);
-static void		returnFromOptions(void);
-static void		doStarSystemView(void);
-static void		updatePandoranAdvance(void);
-static void		fallenOK(void);
-static void		updateCampaignProgress(void);
-static void		campaignCompleteOK(void);
+static void     logic(void);
+static void     draw(void);
+static void     handleKeyboard(void);
+static void     handleMouse(void);
+static void     scrollGalaxy(void);
+static void     drawStarSystemDetail(void);
+static void     selectStarSystem(void);
+static void     drawGalaxy(void);
+static void     centerOnSelectedStarSystem(void);
+static void     doStarSystems(void);
+static void     drawPulses(void);
+static void     drawInfoBars(void);
+static void     doPulses(void);
+static void     addPulses(void);
+static void     drawMenu(void);
+static void     resume(void);
+static void     stats(void);
+static void     trophies(void);
+static void     options(void);
+static void     ok(void);
+static void     quit(void);
+static void     startMission(void);
+static void     returnFromOptions(void);
+static void     doStarSystemView(void);
+static void     updatePandoranAdvance(void);
+static void     fallenOK(void);
+static void     updateCampaignProgress(void);
+static void     campaignCompleteOK(void);
 static Mission *nextAvailableMission(StarSystem *starSystem);
-static void		fighterDatabase(void);
+static void     fighterDatabase(void);
 
 static StarSystem  *selectedStarSystem;
 static SDL_Texture *background;
 static AtlasImage  *starSystemTexture;
 static AtlasImage  *arrowTexture;
-static SDL_Point	camera;
-static Pulse		pulseHead = {0};
-static Pulse		 *pulseTail;
-static int			pulseTimer;
-static float		ssx, ssy;
-static float		arrowPulse;
-static int			show;
-static int			scrollingMap;
-static int			campaignComplete = 0;
-static PointF		cameraMin, cameraMax;
-static Widget	  *startMissionButton;
-static Mission	   *hoverMission;
-static char		*MISSIONS_TEXT;
-static char		*PILOT_TEXT;
-static char		*CRAFT_TEXT;
-static char		*SQUADRON_TEXT;
-static char		*COMPLETED_TEXT;
-static char		*EPIC_TEXT;
-static char		*OPTIONAL_TEXT;
+static SDL_Point    camera;
+static Pulse        pulseHead = {0};
+static Pulse       *pulseTail;
+static int          pulseTimer;
+static float        ssx, ssy;
+static float        arrowPulse;
+static int          show;
+static int          scrollingMap;
+static int          campaignComplete = 0;
+static PointF       cameraMin, cameraMax;
+static Widget      *startMissionButton;
+static Mission     *hoverMission;
+static char        *MISSIONS_TEXT;
+static char        *PILOT_TEXT;
+static char        *CRAFT_TEXT;
+static char        *SQUADRON_TEXT;
+static char        *COMPLETED_TEXT;
+static char        *EPIC_TEXT;
+static char        *OPTIONAL_TEXT;
 
 void initGalacticMap(void)
 {
@@ -275,7 +275,7 @@ static void logic(void)
 static void doStarSystems(void)
 {
 	StarSystem *starSystem;
-	int			cx, cy;
+	int         cx, cy;
 
 	if (!scrollingMap)
 	{
@@ -388,7 +388,7 @@ static void doStarSystemView(void)
 
 static void addPulses(void)
 {
-	Pulse	  *pulse;
+	Pulse      *pulse;
 	StarSystem *starSystem;
 
 	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
@@ -522,10 +522,10 @@ static void centerOnSelectedStarSystem(void)
 
 static void drawGalaxy(void)
 {
-	SDL_Rect	r;
+	SDL_Rect    r;
 	StarSystem *starSystem;
-	SDL_Color	color;
-	float		ax, ay, aa;
+	SDL_Color   color;
+	float       ax, ay, aa;
 
 	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)
 	{
@@ -665,7 +665,7 @@ static Mission *nextAvailableMission(StarSystem *starSystem)
 
 static void drawStarSystemDetail(void)
 {
-	int		 y;
+	int      y;
 	Mission *mission;
 	SDL_Rect r;
 

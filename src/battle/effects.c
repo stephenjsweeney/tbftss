@@ -27,20 +27,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define INITIAL_EFFECT_DRAW_CAPACITY 128
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
 extern Entity *self;
 
 static void setRandomFlameHue(Effect *e);
 static void setRandomShieldHue(Effect *e);
 static void resizeDrawList(void);
-static int	pointOnScreen(float x, float y);
+static int  pointOnScreen(float x, float y);
 
 static AtlasImage *explosionTexture;
 static AtlasImage *shieldHitTexture;
 static AtlasImage *haloTexture;
-static Effect	  **effectsToDraw;
-static int		   drawCapacity;
+static Effect    **effectsToDraw;
+static int         drawCapacity;
 
 void initEffects(void)
 {
@@ -56,7 +56,7 @@ void initEffects(void)
 
 void doEffects(void)
 {
-	int		i, onScreen;
+	int     i, onScreen;
 	Effect *e;
 	Effect *prev = &battle.effectHead;
 
@@ -141,7 +141,7 @@ static void resizeDrawList(void)
 
 void drawEffects(void)
 {
-	int		i;
+	int     i;
 	Effect *e;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -202,7 +202,7 @@ void drawShieldHitEffect(Entity *e)
 void addBulletHitEffect(int x, int y, int r, int g, int b)
 {
 	Effect *e;
-	int		i;
+	int     i;
 
 	for (i = 0; i < 4; i++)
 	{
@@ -282,7 +282,7 @@ void addDebrisFire(int x, int y)
 
 void addSmallExplosion(void)
 {
-	int		i;
+	int     i;
 	Effect *e;
 
 	for (i = 0; i < 32; i++)
@@ -337,7 +337,7 @@ void addSmallExplosion(void)
 
 void addMineExplosion(void)
 {
-	int		i;
+	int     i;
 	Effect *e;
 
 	for (i = 0; i < 64; i++)
@@ -387,7 +387,7 @@ void addMineExplosion(void)
 
 void addLargeExplosion(void)
 {
-	int		i;
+	int     i;
 	Effect *e;
 
 	for (i = 0; i < 64; i++)
@@ -441,7 +441,7 @@ void addLargeExplosion(void)
 
 void addMissileExplosion(Bullet *b)
 {
-	int		i;
+	int     i;
 	Effect *e;
 
 	for (i = 0; i < 8; i++)
@@ -497,8 +497,8 @@ void addMissileExplosion(Bullet *b)
 void addEngineEffect(void)
 {
 	Effect *e;
-	float	c, s;
-	int		h;
+	float   c, s;
+	int     h;
 
 	e = malloc(sizeof(Effect));
 	memset(e, 0, sizeof(Effect));
@@ -596,7 +596,7 @@ void addMissileEngineEffect(Bullet *b)
 
 void addShieldSplinterEffect(Entity *ent)
 {
-	int		i;
+	int     i;
 	Effect *e;
 
 	for (i = 0; i < 48; i++)
@@ -623,7 +623,7 @@ void addShieldSplinterEffect(Entity *ent)
 
 void addECMEffect(Entity *ent)
 {
-	int		i;
+	int     i;
 	Effect *e;
 
 	for (i = 0; i < 3; i++)

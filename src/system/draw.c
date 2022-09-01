@@ -25,10 +25,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/util.h"
 #include "draw.h"
 
-extern App	  app;
+extern App    app;
 extern Battle battle;
 extern Colors colors;
-extern Dev	  dev;
+extern Dev    dev;
 
 static void initColor(SDL_Color *c, int r, int g, int b);
 
@@ -163,9 +163,9 @@ void blitRotated(AtlasImage *atlasImage, int x, int y, float angle)
 
 void drawCircle(int cx, int cy, int radius, int r, int g, int b, int a)
 {
-	int		  x = radius;
-	int		  y = 0;
-	int		  radiusError = 1 - x;
+	int       x = radius;
+	int       y = 0;
+	int       radiusError = 1 - x;
 	SDL_Point p[8];
 
 	SDL_SetRenderDrawColor(app.renderer, r, g, b, a);
@@ -240,7 +240,7 @@ void scrollBackground(float x, float y)
 
 void drawBackground(SDL_Texture *texture)
 {
-	int		 i;
+	int      i;
 	SDL_Rect dstRect;
 
 	for (i = 0; i < 4; i++)
@@ -275,8 +275,8 @@ int isOnBattleScreen(int x, int y, int w, int h)
 
 void saveScreenshot(void)
 {
-	static int	 i = 0;
-	char		 filename[MAX_NAME_LENGTH];
+	static int   i = 0;
+	char         filename[MAX_NAME_LENGTH];
 	SDL_Surface *sshot;
 
 	sprintf(filename, "/tmp/tbftss/%d.bmp", ++i);

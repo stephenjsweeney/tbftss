@@ -18,9 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void	 destroyQuadtree(void);
+void     destroyQuadtree(void);
 Entity **getAllEntsInRadius(int x, int y, int radius, Entity *ignore);
 Entity **getAllEntsWithin(int x, int y, int w, int h, Entity *ignore);
-void	 removeFromQuadtree(Entity *e, Quadtree *root);
-void	 addToQuadtree(Entity *e, Quadtree *root);
-void	 initQuadtree(Quadtree *root);
+void     removeFromQuadtree(Entity *e, Quadtree *root);
+void     addToQuadtree(Entity *e, Quadtree *root);
+void     initQuadtree(Quadtree *root);

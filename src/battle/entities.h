@@ -18,15 +18,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void	destroyEntities(void);
-void	awardPandoranCraftTrophy(void);
-void	updateEntitySide(char *sideStr, char *name);
-void	killEntity(char *name);
-void	addAllToQuadtree(void);
-void	countNumEnemies(void);
-void	activateEntityGroups(char *groupNames);
-void	activateEntities(char *names);
-void	drawEntities(void);
-void	doEntities(void);
+void    destroyEntities(void);
+void    awardPandoranCraftTrophy(void);
+void    updateEntitySide(char *sideStr, char *name);
+void    killEntity(char *name);
+void    addAllToQuadtree(void);
+void    countNumEnemies(void);
+void    activateEntityGroups(char *groupNames);
+void    activateEntities(char *names);
+void    drawEntities(void);
+void    doEntities(void);
 Entity *spawnEntity(void);
-void	initEntities(void);
+void    initEntities(void);

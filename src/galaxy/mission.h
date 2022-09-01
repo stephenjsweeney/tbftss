@@ -18,10 +18,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-int		 isMissionAvailable(Mission *mission, Mission *prev);
-void	 updateAllMissions(void);
+int      isMissionAvailable(Mission *mission, Mission *prev);
+void     updateAllMissions(void);
 Mission *getMission(char *filename);
-void	 failMission(void);
-void	 completeMission(void);
-void	 loadMission(char *filename);
+void     failMission(void);
+void     completeMission(void);
+void     loadMission(char *filename);
 Mission *loadMissionMeta(char *filename);

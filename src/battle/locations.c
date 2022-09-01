@@ -65,7 +65,7 @@ void drawLocations(void)
 
 void activateLocations(char *locations)
 {
-	char	 *token;
+	char     *token;
 	Location *l;
 
 	token = strtok(locations, ";");
@@ -117,7 +117,7 @@ void createChristabelLocation(void)
 
 void loadLocations(cJSON *node)
 {
-	int		  active;
+	int       active;
 	Location *l;
 
 	if (node)

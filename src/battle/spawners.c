@@ -33,9 +33,9 @@ void doSpawners(void)
 {
 	Entity  *e;
 	Spawner *s;
-	char	 *type;
-	int		 i, num, addFlags, addAIFlags;
-	long	 flags, aiFlags;
+	char    *type;
+	int      i, num, addFlags, addAIFlags;
+	long     flags, aiFlags;
 
 	for (s = battle.spawnerHead.next; s != NULL; s = s->next)
 	{
@@ -135,7 +135,7 @@ void activateSpawner(char *name, int active)
 void activateTrespasserSpawner(void)
 {
 	Spawner *s;
-	char	 types[MAX_DESCRIPTION_LENGTH];
+	char     types[MAX_DESCRIPTION_LENGTH];
 
 	s = malloc(sizeof(Spawner));
 	memset(s, 0, sizeof(Spawner));

@@ -27,17 +27,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/widgets.h"
 #include "controls.h"
 
-extern App	  app;
+extern App    app;
 extern Colors colors;
 
 static void restoreDefaults(void);
 
 static const char *controlName[CONTROL_MAX];
-static Widget	  *controlWidget[CONTROL_MAX];
-static char		*CONTROLS_TEXT;
-static char		*HELP_TEXT;
-static char		*BACKSPACE_TEXT;
-static char		*ESCAPE_TEXT;
+static Widget     *controlWidget[CONTROL_MAX];
+static char       *CONTROLS_TEXT;
+static char       *HELP_TEXT;
+static char       *BACKSPACE_TEXT;
+static char       *ESCAPE_TEXT;
 
 void initControls(void)
 {
@@ -159,7 +159,7 @@ void clearControlConfig(char *name)
 
 void drawControls(void)
 {
-	int		 i;
+	int      i;
 	SDL_Rect r;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
@@ -219,9 +219,9 @@ void drawControls(void)
 
 static void restoreDefaults(void)
 {
-	int	   i;
+	int    i;
 	cJSON *root, *controlsJSON, *node;
-	char	 *text;
+	char  *text;
 
 	text = readFile("data/app/" CONFIG_FILENAME);
 

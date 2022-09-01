@@ -123,7 +123,7 @@ void drawMouse(void)
 void doInput(void)
 {
 	SDL_Event event;
-	int		  x, y;
+	int       x, y;
 
 	while (SDL_PollEvent(&event))
 	{

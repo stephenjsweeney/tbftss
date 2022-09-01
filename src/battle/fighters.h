@@ -18,16 +18,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-void	 destroyFighterStats(void);
-void	 destroyFighterDefs(void);
-void	 loadFighters(struct cJSON *node);
-void	 loadFighterDefs(void);
+void     destroyFighterStats(void);
+void     destroyFighterDefs(void);
+void     loadFighters(struct cJSON *node);
+void     loadFighterDefs(void);
 Entity **getDBFighters(int *num);
-void	 retreatAllies(void);
-void	 retreatEnemies(void);
-void	 damageFighter(Entity *e, int amount, long flags);
-void	 applyFighterBrakes(void);
-void	 applyFighterThrust(void);
-void	 doFighter(void);
-void	 resetFighter(Entity *fighter);
+void     retreatAllies(void);
+void     retreatEnemies(void);
+void     damageFighter(Entity *e, int amount, long flags);
+void     applyFighterBrakes(void);
+void     applyFighterThrust(void);
+void     doFighter(void);
+void     resetFighter(Entity *fighter);
 Entity  *spawnFighter(char *name, int x, int y, int side);

@@ -27,16 +27,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Game game;
 
-static void	  saveStarSystems(cJSON *gameJSON);
-static void	  saveChallenges(cJSON *gameJSON);
+static void   saveStarSystems(cJSON *gameJSON);
+static void   saveChallenges(cJSON *gameJSON);
 static cJSON *getMissionsJSON(StarSystem *starSystem);
-static void	  saveStats(cJSON *gameJSON);
-static void	  saveTrophies(cJSON *gameJSON);
-static void	  saveFighterStats(cJSON *gameJSON);
+static void   saveStats(cJSON *gameJSON);
+static void   saveTrophies(cJSON *gameJSON);
+static void   saveFighterStats(cJSON *gameJSON);
 
 void saveGame(void)
 {
-	char	 *out;
+	char  *out;
 	cJSON *root, *gameJSON;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Saving Game ...");
@@ -67,7 +67,7 @@ void saveGame(void)
 
 static void saveStarSystems(cJSON *gameJSON)
 {
-	cJSON	  *starSystemJSON, *starSystemsJSON;
+	cJSON      *starSystemJSON, *starSystemsJSON;
 	StarSystem *starSystem;
 
 	starSystemsJSON = cJSON_CreateArray();
@@ -91,7 +91,7 @@ static void saveStarSystems(cJSON *gameJSON)
 
 static cJSON *getMissionsJSON(StarSystem *starSystem)
 {
-	cJSON	  *missionJSON, *missionsJSON;
+	cJSON   *missionJSON, *missionsJSON;
 	Mission *mission;
 
 	missionsJSON = cJSON_CreateArray();
@@ -111,10 +111,10 @@ static cJSON *getMissionsJSON(StarSystem *starSystem)
 
 static void saveChallenges(cJSON *gameJSON)
 {
-	int		   i;
-	Mission	*mission;
+	int        i;
+	Mission   *mission;
 	Challenge *c;
-	cJSON	  *missionsJSON, *missionJSON, *challengesJSON, *challengeJSON;
+	cJSON     *missionsJSON, *missionJSON, *challengesJSON, *challengeJSON;
 
 	missionsJSON = cJSON_CreateArray();
 

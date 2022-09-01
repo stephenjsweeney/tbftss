@@ -23,9 +23,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../galaxy/mission.h"
 #include "dev.h"
 
-extern App	  app;
+extern App    app;
 extern Battle battle;
-extern Dev	  dev;
+extern Dev    dev;
 
 void doDevKeys(void)
 {

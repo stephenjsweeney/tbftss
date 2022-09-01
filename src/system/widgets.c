@@ -34,7 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/util.h"
 #include "widgets.h"
 
-extern App	  app;
+extern App    app;
 extern Colors colors;
 
 static void loadWidgets(void);
@@ -47,13 +47,13 @@ static void createSelectButtons(Widget *w);
 static void handleControlWidgets(void);
 static void updateSelectWidgets(void);
 
-static Widget	   head;
-static Widget	  *tail;
-static Widget	  *selectedWidget;
-static Widget	  *hoverWidget;
+static Widget      head;
+static Widget     *tail;
+static Widget     *selectedWidget;
+static Widget     *hoverWidget;
 static AtlasImage *optionsLeft;
 static AtlasImage *optionsRight;
-static int		   drawingWidgets;
+static int         drawingWidgets;
 
 void initWidgets(void)
 {
@@ -142,7 +142,7 @@ void selectWidget(const char *name, const char *group)
 
 void drawWidgets(const char *group)
 {
-	int		mouseOver;
+	int     mouseOver;
 	Widget *w;
 
 	drawingWidgets = 1;
@@ -274,7 +274,7 @@ static void changeSelectedValue(Widget *w, int dir)
 
 void setWidgetOption(const char *name, const char *group, const char *value)
 {
-	int		i;
+	int     i;
 	Widget *w = getWidget(name, group);
 
 	if (w)
@@ -401,7 +401,7 @@ static void loadWidgets()
 {
 	char **filenames;
 	char   path[MAX_FILENAME_LENGTH];
-	int	   count, i;
+	int    count, i;
 
 	filenames = getFileList("data/widgets", &count);
 
@@ -420,7 +420,7 @@ static void loadWidgets()
 static void loadWidgetSet(char *filename)
 {
 	cJSON  *root, *node;
-	char	 *text;
+	char   *text;
 	Widget *w;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
@@ -501,7 +501,7 @@ static void loadWidgetSet(char *filename)
 
 static void createOptions(Widget *w, char *options)
 {
-	int	  i;
+	int   i;
 	char *option;
 
 	w->numOptions = 1;
@@ -533,7 +533,7 @@ static void createOptions(Widget *w, char *options)
 
 static void createSelectButtons(Widget *w)
 {
-	int		i;
+	int     i;
 	Widget *btn;
 
 	for (i = 0; i < 2; i++)
@@ -567,7 +567,7 @@ static void createSelectButtons(Widget *w)
 
 void autoSizeWidgetButtons(char *group, int recenter)
 {
-	int		width, height, maxWidth;
+	int     width, height, maxWidth;
 	Widget *w;
 
 	maxWidth = 0;
@@ -598,7 +598,7 @@ void autoSizeWidgetButtons(char *group, int recenter)
 
 void destroyWidgets(void)
 {
-	int		i;
+	int     i;
 	Widget *w = head.next;
 	Widget *next;
 

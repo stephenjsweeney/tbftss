@@ -31,9 +31,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "options.h"
 
 #define SHOW_CONTROLS 1
-#define SHOW_MAIN	  0
+#define SHOW_MAIN     0
 
-extern App	  app;
+extern App    app;
 extern Colors colors;
 
 static void changeWindowSize(char *value);
@@ -46,7 +46,7 @@ static void drawMain(void);
 static void controls(void);
 
 static void (*returnFromOptions)(void);
-static int	 show;
+static int   show;
 static char *OPTIONS_TEXT;
 static char *RESOLUTION_TEXT;
 
@@ -143,8 +143,8 @@ static void drawMain(void)
 void updateCustomResolutionOption(void)
 {
 	Widget *w;
-	char	value[MAX_NAME_LENGTH];
-	int		i;
+	char    value[MAX_NAME_LENGTH];
+	int     i;
 
 	sprintf(value, "%d x %d", app.winWidth, app.winHeight);
 

@@ -37,13 +37,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_SELECTABLE_PLAYERS 8
 #define MAX_SELECTABLE_TARGETS 8
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
 extern Colors  colors;
-extern Dev	   dev;
+extern Dev     dev;
 extern Entity *player;
 extern Entity *self;
-extern Game	   game;
+extern Game    game;
 
 static void selectTarget(void);
 static void switchGuns(void);
@@ -59,15 +59,15 @@ static void faceMouse(void);
 static void handleMouse(void);
 static void preFireMissile(void);
 static void applyRestrictions(void);
-static int	isPriorityMissionTarget(Entity *e, int dist, int closest);
-static int	targetOutOfRange(void);
+static int  isPriorityMissionTarget(Entity *e, int dist, int closest);
+static int  targetOutOfRange(void);
 static void rechargeBoostECM(void);
 static void setPilotName(void);
 static void updateDeathStats(void);
 static void handleSuspicionLevel(void);
 
-static int	   selectedPlayerIndex;
-static int	   availableGuns[BT_MAX];
+static int     selectedPlayerIndex;
+static int     availableGuns[BT_MAX];
 static Entity *availablePlayerUnits[MAX_SELECTABLE_PLAYERS];
 
 void initPlayer(void)
@@ -610,9 +610,9 @@ static void selectTarget(void)
 {
 	unsigned int closest = MAX_TARGET_RANGE;
 	unsigned int dist = MAX_TARGET_RANGE;
-	int			 i, total;
-	Entity	   *e, *near;
-	Entity	   *targets[MAX_SELECTABLE_TARGETS];
+	int          i, total;
+	Entity      *e, *near;
+	Entity      *targets[MAX_SELECTABLE_TARGETS];
 
 	i = 0;
 	near = NULL;
@@ -674,7 +674,7 @@ static void selectMissionTarget(void)
 {
 	unsigned int closest = MAX_TARGET_RANGE;
 	unsigned int dist = MAX_TARGET_RANGE;
-	Entity	   *e;
+	Entity      *e;
 
 	battle.missionTarget = NULL;
 
@@ -787,7 +787,7 @@ static void handleSuspicionLevel(void)
 void loadPlayer(cJSON *node)
 {
 	char *type;
-	int	  side, addFlags;
+	int   side, addFlags;
 	long  flags;
 
 	type = cJSON_GetObjectItem(node, "type")->valuestring;

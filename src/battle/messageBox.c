@@ -26,7 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MSG_BOX_TEXT_WIDTH 600
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
 extern Colors  colors;
 extern Entity *player;
@@ -36,7 +36,7 @@ static void nextMessage(void);
 
 static MessageBox  head;
 static MessageBox *tail;
-static Entity	  *lastWingmate;
+static Entity     *lastWingmate;
 
 void initMessageBox(void)
 {
@@ -49,8 +49,8 @@ void initMessageBox(void)
 void addMessageBox(char *title, char *body, int type)
 {
 	MessageBox *msg;
-	int			isFirst;
-	float		time;
+	int         isFirst;
+	float       time;
 
 	isFirst = (tail == &head);
 
@@ -130,7 +130,7 @@ int showingMessageBoxes(void)
 void drawMessageBox(void)
 {
 	MessageBox *msg = head.next;
-	SDL_Rect	r;
+	SDL_Rect    r;
 
 	if (msg && msg->time > 0)
 	{
@@ -184,7 +184,7 @@ void drawMessageBox(void)
 static void nextMessage(void)
 {
 	Entity *e, *wingmate;
-	int		isWingmate;
+	int     isWingmate;
 
 	wingmate = NULL;
 

@@ -39,13 +39,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/modalDialog.h"
 #include "test/testMission.h"
 
-App		app;
-Battle	battle;
-Colors	colors;
-Dev		dev;
+App     app;
+Battle  battle;
+Colors  colors;
+Dev     dev;
 Entity *player;
 Entity *self;
-Game	game;
+Game    game;
 
 static void handleMissionArgs(int argc, char *argv[]);
 static void handleLoggingArgs(int argc, char *argv[]);

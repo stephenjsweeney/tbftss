@@ -26,15 +26,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/util.h"
 #include "radar.h"
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
 extern Colors  colors;
 extern Entity *player;
 
 static AtlasImage *radarTexture;
 static AtlasImage *radarWarningTexture;
-static int		   radarRanges[] = {20, 40, 60};
-static char		*CAUTION_TEXT;
+static int         radarRanges[] = {20, 40, 60};
+static char       *CAUTION_TEXT;
 
 void initRadar(void)
 {
@@ -51,7 +51,7 @@ void drawRadar(void)
 {
 	SDL_Rect r;
 	Entity  *e;
-	int		 dist, inRange, blink;
+	int      dist, inRange, blink;
 
 	blit(radarTexture, app.winWidth - 85, app.winHeight - 85, 1);
 

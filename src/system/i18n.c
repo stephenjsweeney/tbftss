@@ -26,7 +26,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define TABLE_SIZE 255
 
-static int	hashCode(char *);
+static int  hashCode(char *);
 static void put(char *, char *);
 static void initTable(void);
 
@@ -39,8 +39,8 @@ void setLanguage(char *applicationName, char *languageCode)
 #ifndef _WIN32
 	char *lang;
 #endif
-	int		 i, swap;
-	FILE	 *fp;
+	int      i, swap;
+	FILE    *fp;
 	MOHeader header;
 	MOEntry *original, *translation;
 #if DEV == 1
@@ -264,7 +264,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 static int hashCode(char *data)
 {
-	int			 i, length;
+	int          i, length;
 	unsigned int hash;
 
 	length = strlen(data);
@@ -306,7 +306,7 @@ static void initTable()
 
 static void put(char *key, char *value)
 {
-	Bucket	   *bucket, *newBucket;
+	Bucket      *bucket, *newBucket;
 	unsigned int hash = hashCode(key);
 
 #if DEV == 1
@@ -351,7 +351,7 @@ static void put(char *key, char *value)
 
 char *getTranslatedString(char *key)
 {
-	Bucket	   *bucket;
+	Bucket      *bucket;
 	unsigned int hash = hashCode(key);
 
 	bucket = table.bucket[hash]->next;
@@ -369,7 +369,7 @@ char *getTranslatedString(char *key)
 
 void cleanupLanguage(void)
 {
-	int		i;
+	int     i;
 	Bucket *bucket, *p, *q;
 
 	for (i = 0; i < TABLE_SIZE; i++)

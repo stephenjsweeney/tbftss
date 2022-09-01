@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void resetMessageBox(void);
 void drawMessageBox(void);
-int	 showingMessageBoxes(void);
+int  showingMessageBoxes(void);
 void doMessageBox(void);
 void addMessageBox(char *title, char *body, int type);
 void initMessageBox(void);

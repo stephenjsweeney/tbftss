@@ -118,7 +118,7 @@ static void think(void)
 static void lookForFighters(void)
 {
 	Entity *e, **candidates;
-	int		i;
+	int     i;
 
 	candidates = getAllEntsInRadius(self->x, self->y, DAMAGE_RANGE, self);
 
@@ -143,7 +143,7 @@ static void lookForFighters(void)
 static void lookForPlayer(void)
 {
 	float dx, dy, norm;
-	int	  distance;
+	int   distance;
 
 	if (player->alive == ALIVE_ALIVE)
 	{
@@ -217,8 +217,8 @@ static void die(void)
 static void doSplashDamage(void)
 {
 	Entity *e, **candidates;
-	int		i, dist, kills;
-	float	damage, percent;
+	int     i, dist, kills;
+	float   damage, percent;
 
 	candidates = getAllEntsInRadius(self->x, self->y, DAMAGE_RANGE, self);
 

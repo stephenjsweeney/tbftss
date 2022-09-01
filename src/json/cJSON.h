@@ -29,27 +29,27 @@ extern "C"
 #endif
 
 /* cJSON Types: */
-#define cJSON_False	 0
-#define cJSON_True	 1
-#define cJSON_NULL	 2
+#define cJSON_False  0
+#define cJSON_True   1
+#define cJSON_NULL   2
 #define cJSON_Number 3
 #define cJSON_String 4
-#define cJSON_Array	 5
+#define cJSON_Array  5
 #define cJSON_Object 6
 
-#define cJSON_IsReference	256
+#define cJSON_IsReference   256
 #define cJSON_StringIsConst 512
 
 	/* The cJSON structure: */
 	typedef struct cJSON
 	{
 		struct cJSON *next, *prev; /* next/prev allow you to walk array/object chains. Alternatively, use GetArraySize/GetArrayItem/GetObjectItem */
-		struct cJSON *child;	   /* An array or object item will have a child pointer pointing to a chain of the items in the array/object. */
+		struct cJSON *child;       /* An array or object item will have a child pointer pointing to a chain of the items in the array/object. */
 
 		int type; /* The type of the item, as above. */
 
-		char	 *valuestring; /* The item's string, if type==cJSON_String */
-		int	   valueint;	/* The item's number, if type==cJSON_Number */
+		char  *valuestring; /* The item's string, if type==cJSON_String */
+		int    valueint;    /* The item's number, if type==cJSON_Number */
 		double valuedouble; /* The item's number, if type==cJSON_Number */
 
 		char *string; /* The item's name string, if this item is the child of, or is in the list of subitems of an object. */
@@ -111,9 +111,9 @@ extern "C"
 
 	/* Remove/Detatch items from Arrays/Objects. */
 	extern cJSON *cJSON_DetachItemFromArray(cJSON *array, int which);
-	extern void	  cJSON_DeleteItemFromArray(cJSON *array, int which);
+	extern void   cJSON_DeleteItemFromArray(cJSON *array, int which);
 	extern cJSON *cJSON_DetachItemFromObject(cJSON *object, const char *string);
-	extern void	  cJSON_DeleteItemFromObject(cJSON *object, const char *string);
+	extern void   cJSON_DeleteItemFromObject(cJSON *object, const char *string);
 
 	/* Update array items. */
 	extern void cJSON_InsertItemInArray(cJSON *array, int which, cJSON *newitem); /* Shifts pre-existing items to the right. */
@@ -132,15 +132,15 @@ extern "C"
 	extern void cJSON_Minify(char *json);
 
 /* Macros for creating things quickly. */
-#define cJSON_AddNullToObject(object, name)		 cJSON_AddItemToObject(object, name, cJSON_CreateNull())
-#define cJSON_AddTrueToObject(object, name)		 cJSON_AddItemToObject(object, name, cJSON_CreateTrue())
-#define cJSON_AddFalseToObject(object, name)	 cJSON_AddItemToObject(object, name, cJSON_CreateFalse())
-#define cJSON_AddBoolToObject(object, name, b)	 cJSON_AddItemToObject(object, name, cJSON_CreateBool(b))
+#define cJSON_AddNullToObject(object, name)      cJSON_AddItemToObject(object, name, cJSON_CreateNull())
+#define cJSON_AddTrueToObject(object, name)      cJSON_AddItemToObject(object, name, cJSON_CreateTrue())
+#define cJSON_AddFalseToObject(object, name)     cJSON_AddItemToObject(object, name, cJSON_CreateFalse())
+#define cJSON_AddBoolToObject(object, name, b)   cJSON_AddItemToObject(object, name, cJSON_CreateBool(b))
 #define cJSON_AddNumberToObject(object, name, n) cJSON_AddItemToObject(object, name, cJSON_CreateNumber(n))
 #define cJSON_AddStringToObject(object, name, s) cJSON_AddItemToObject(object, name, cJSON_CreateString(s))
 
 /* When assigning an integer value, it needs to be propagated to valuedouble too. */
-#define cJSON_SetIntValue(object, val)	  ((object) ? (object)->valueint = (object)->valuedouble = (val) : (val))
+#define cJSON_SetIntValue(object, val)    ((object) ? (object)->valueint = (object)->valuedouble = (val) : (val))
 #define cJSON_SetNumberValue(object, val) ((object) ? (object)->valueint = (object)->valuedouble = (val) : (val))
 
 #ifdef __cplusplus

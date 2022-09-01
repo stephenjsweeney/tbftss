@@ -29,13 +29,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Game game;
 
-static void		   loadMissions(StarSystem *starSystem);
+static void        loadMissions(StarSystem *starSystem);
 static StarSystem *loadStarSystem(cJSON *starSystemJSON);
 
 void initStarSystems(void)
 {
-	cJSON	  *root, *node;
-	char		 *text;
+	cJSON      *root, *node;
+	char       *text;
 	StarSystem *starSystem, *tail;
 
 	tail = &game.starSystemHead;
@@ -86,10 +86,10 @@ static StarSystem *loadStarSystem(cJSON *starSystemJSON)
 
 static void loadMissions(StarSystem *starSystem)
 {
-	int		 i, count;
-	char	 name[MAX_NAME_LENGTH];
-	char	 path[MAX_FILENAME_LENGTH];
-	char	 **filenames;
+	int      i, count;
+	char     name[MAX_NAME_LENGTH];
+	char     path[MAX_FILENAME_LENGTH];
+	char   **filenames;
 	Mission *mission, *tail;
 
 	tail = &starSystem->missionHead;
@@ -141,7 +141,7 @@ StarSystem *getStarSystem(char *name)
 void updateStarSystemMissions(void)
 {
 	StarSystem *starSystem;
-	Mission	*mission, *prev;
+	Mission    *mission, *prev;
 
 	game.completedMissions = game.totalMissions = game.availableMissions = 0;
 
@@ -203,7 +203,7 @@ void updateStarSystemMissions(void)
 void destroyStarSystems(void)
 {
 	StarSystem *starSystem;
-	Mission	*mission;
+	Mission    *mission;
 
 	while (game.starSystemHead.next)
 	{

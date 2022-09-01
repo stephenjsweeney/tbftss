@@ -27,33 +27,33 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/widgets.h"
 #include "fighterDatabase.h"
 
-extern App	  app;
+extern App    app;
 extern Colors colors;
-extern Game	  game;
+extern Game   game;
 
 static void prevFighter(void);
 static void nextFighter(void);
-static int	countFighterGuns(Entity *fighter, int type);
+static int  countFighterGuns(Entity *fighter, int type);
 static void setNumDestroyed(void);
 
-static int		   page;
-static int		   maxPages;
-static int		   numDestroyed;
-static Widget	  *prev;
-static Widget	  *next;
-static char		*DB_TEXT;
-static char		*PAGE_TEXT;
-static char		*COMMON_TEXT;
-static char		*DESTROYED_TEXT;
-static char		*AFFILIATION_TEXT;
-static char		*ARMOUR_TEXT;
-static char		*SHIELD_TEXT;
-static char		*SPEED_TEXT;
-static char		*MISSILES_TEXT;
-static char		*MISSILE_NUM_TEXT;
+static int         page;
+static int         maxPages;
+static int         numDestroyed;
+static Widget     *prev;
+static Widget     *next;
+static char       *DB_TEXT;
+static char       *PAGE_TEXT;
+static char       *COMMON_TEXT;
+static char       *DESTROYED_TEXT;
+static char       *AFFILIATION_TEXT;
+static char       *ARMOUR_TEXT;
+static char       *SHIELD_TEXT;
+static char       *SPEED_TEXT;
+static char       *MISSILES_TEXT;
+static char       *MISSILE_NUM_TEXT;
 static const char *gunName[BT_MAX];
-static Entity	  **dbFighters;
-static float	   rotation;
+static Entity    **dbFighters;
+static float       rotation;
 
 void initFighterDatabase(void)
 {
@@ -109,7 +109,7 @@ void drawFighterDatabase(void)
 {
 	SDL_Rect r;
 	Entity  *fighter;
-	int		 i, y, numCannons;
+	int      i, y, numCannons;
 
 	SDL_SetRenderDrawBlendMode(app.renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(app.renderer, 0, 0, 0, 128);

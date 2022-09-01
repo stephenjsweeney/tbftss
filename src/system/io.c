@@ -103,7 +103,7 @@ char *getSaveFilePath(char *filename)
 char **getFileList(char *dir, int *count)
 {
 	DIR		   *d;
-	int			   i;
+	int            i;
 	struct dirent *ent;
 	char		 **filenames;
 

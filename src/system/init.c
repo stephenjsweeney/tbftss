@@ -238,9 +238,9 @@ static void loadConfig(int argc, char *argv[])
 
 static void loadConfigFile(char *filename)
 {
-	int	   i;
+	int    i;
 	cJSON *root, *controlsJSON, *node, *gameplayJSON;
-	char	 *text;
+	char  *text;
 
 	text = readFile(filename);
 
@@ -292,8 +292,8 @@ static void loadConfigFile(char *filename)
 
 void saveConfig(void)
 {
-	int	   i;
-	char	 *out, *configFilename;
+	int    i;
+	char  *out, *configFilename;
 	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON, *gameplayJSON;
 
 	configFilename = getSaveFilePath(CONFIG_FILENAME);

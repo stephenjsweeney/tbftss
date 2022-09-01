@@ -34,7 +34,7 @@ static void addTextureToCache(char *name, SDL_Texture *texture);
 static void addTextureToCache(char *name, SDL_Texture *texture)
 {
 	Texture *t, *new;
-	int		 i;
+	int      i;
 
 	i = strlen(name) % NUM_TEXTURE_BUCKETS;
 
@@ -77,7 +77,7 @@ static SDL_Texture *loadTexture(char *filename)
 SDL_Texture *getTexture(char *filename)
 {
 	Texture *t;
-	int		 i;
+	int      i;
 
 	i = strlen(filename) % NUM_TEXTURE_BUCKETS;
 
@@ -112,7 +112,7 @@ SDL_Texture *toTexture(SDL_Surface *surface, int destroySurface)
 void destroyTextures(void)
 {
 	Texture *t, *next;
-	int		 i;
+	int      i;
 
 	for (i = 0; i < NUM_TEXTURE_BUCKETS; i++)
 	{

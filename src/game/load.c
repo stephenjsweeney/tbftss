@@ -42,7 +42,7 @@ static void loadFighterStats(cJSON *fighterStatsJSON);
 void loadGame(void)
 {
 	cJSON *root, *gameJSON;
-	char	 *text;
+	char  *text;
 
 	text = readFile(getSaveFilePath(SAVE_FILENAME));
 	root = cJSON_Parse(text);
@@ -68,7 +68,7 @@ void loadGame(void)
 static void loadStarSystems(cJSON *starSystemsJSON)
 {
 	StarSystem *starSystem;
-	cJSON	  *starSystemJSON;
+	cJSON      *starSystemJSON;
 
 	for (starSystemJSON = starSystemsJSON->child; starSystemJSON != NULL; starSystemJSON = starSystemJSON->next)
 	{
@@ -83,7 +83,7 @@ static void loadStarSystems(cJSON *starSystemsJSON)
 static void loadMissions(cJSON *missionsJSON)
 {
 	Mission *mission;
-	cJSON	  *missionJSON;
+	cJSON   *missionJSON;
 
 	for (missionJSON = missionsJSON->child; missionJSON != NULL; missionJSON = missionJSON->next)
 	{
@@ -98,10 +98,10 @@ static void loadMissions(cJSON *missionsJSON)
 
 static void loadChallenges(cJSON *missionsJSON)
 {
-	Mission	*mission;
+	Mission   *mission;
 	Challenge *challenge;
-	cJSON	  *missionJSON, *challengeJSON;
-	int		   type, value;
+	cJSON     *missionJSON, *challengeJSON;
+	int        type, value;
 
 	if (missionsJSON)
 	{
@@ -127,7 +127,7 @@ static void loadChallenges(cJSON *missionsJSON)
 
 static void loadStats(cJSON *statsJSON)
 {
-	int	  i;
+	int   i;
 	char *statName;
 
 	for (i = 0; i < STAT_MAX; i++)

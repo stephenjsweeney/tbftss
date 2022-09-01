@@ -50,14 +50,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/widgets.h"
 #include "mission.h"
 
-extern App	   app;
+extern App     app;
 extern Battle  battle;
-extern Dev	   dev;
+extern Dev     dev;
 extern Entity *player;
-extern Game	   game;
+extern Game    game;
 
-static void	 loadEntities(cJSON *node);
-static void	 loadEpicData(cJSON *node);
+static void  loadEntities(cJSON *node);
+static void  loadEpicData(cJSON *node);
 static char *getAutoBackground(char *filename);
 static char *getAutoPlanet(char *filename);
 static char *getAutoMusic(char *filename);
@@ -65,8 +65,8 @@ static char *getAutoMusic(char *filename);
 Mission *loadMissionMeta(char *filename)
 {
 	Mission *mission;
-	cJSON	  *root, *node;
-	char	 *text;
+	cJSON   *root, *node;
+	char    *text;
 
 	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
@@ -128,7 +128,7 @@ Mission *loadMissionMeta(char *filename)
 void loadMission(char *filename)
 {
 	cJSON *root;
-	char	 *text, music[MAX_DESCRIPTION_LENGTH], *background, *planet;
+	char  *text, music[MAX_DESCRIPTION_LENGTH], *background, *planet;
 	float  planetScale;
 
 	startSectionTransition();
@@ -348,10 +348,10 @@ void failMission(void)
 static void loadEntities(cJSON *node)
 {
 	Entity *e;
-	char	 *name, *groupName;
-	int		i, type, scatter, number, active, addFlags, side;
-	float	x, y;
-	long	flags;
+	char   *name, *groupName;
+	int     i, type, scatter, number, active, addFlags, side;
+	float   x, y;
+	long    flags;
 
 	if (node)
 	{
@@ -449,7 +449,7 @@ static void loadEntities(cJSON *node)
 static void loadEpicData(cJSON *node)
 {
 	Entity *e;
-	int		numFighters[SIDE_MAX];
+	int     numFighters[SIDE_MAX];
 	memset(numFighters, 0, sizeof(int) * SIDE_MAX);
 
 	battle.isEpic = 1;
@@ -481,7 +481,7 @@ static void loadEpicData(cJSON *node)
 Mission *getMission(char *filename)
 {
 	StarSystem *starSystem;
-	Mission	*mission;
+	Mission    *mission;
 
 	/* First, search the star systems */
 	for (starSystem = game.starSystemHead.next; starSystem != NULL; starSystem = starSystem->next)

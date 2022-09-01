@@ -29,55 +29,55 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/util.h"
 #include "ai.h"
 
-#define AI_EVADE	   0
-#define AI_FALLBACK	   1
-#define AI_HUNT		   2
-#define TURN_SPEED	   4
+#define AI_EVADE       0
+#define AI_FALLBACK    1
+#define AI_HUNT        2
+#define TURN_SPEED     4
 #define TURN_THRESHOLD 2
 
 extern Battle  battle;
 extern Colors  colors;
-extern Dev	   dev;
+extern Dev     dev;
 extern Entity *player;
 extern Entity *self;
 
 static void faceTarget(Entity *e);
-static int	isInFOV(Entity *e, int fov);
+static int  isInFOV(Entity *e, int fov);
 static void preAttack(void);
 static void huntTarget(void);
 static void huntAndAttackTarget(void);
 static void moveToTargetLocation(void);
 static void nextAction(void);
 static void findTarget(void);
-static int	hasClearShot(void);
+static int  hasClearShot(void);
 static void fallback(void);
 static void moveToPlayer(void);
-static int	canAttack(Entity *e);
-static int	selectWeapon(int type);
-static int	nearJumpgate(void);
+static int  canAttack(Entity *e);
+static int  selectWeapon(int type);
+static int  nearJumpgate(void);
 static void moveToJumpgate(void);
-static int	nearEnemies(void);
-static int	nearItems(void);
-static int	nearMines(void);
+static int  nearEnemies(void);
+static int  nearItems(void);
+static int  nearMines(void);
 static void moveToItem(void);
-static int	nearTowableCraft(void);
+static int  nearTowableCraft(void);
 static void moveToTowableCraft(void);
-static int	lookForPlayer(void);
-static int	lookForLeader(void);
+static int  lookForPlayer(void);
+static int  lookForLeader(void);
 static void fleeEnemies(void);
-static int	isRetreating(void);
-static int	getActionChance(int type);
+static int  isRetreating(void);
+static int  getActionChance(int type);
 static void doFighterAI(void);
 static void doGunAI(void);
 static void moveToLeader(void);
 static void wander(void);
 static void doWander(void);
-static int	selectWeaponForTarget(Entity *e);
+static int  selectWeaponForTarget(Entity *e);
 static void deployMine(void);
-static int	isSurrendering(void);
+static int  isSurrendering(void);
 static void doSurrender(void);
 static void fleeWithinBattleArea(int x, int y, int numEnemies);
-static int	evadeNonKillTargets(void);
+static int  evadeNonKillTargets(void);
 
 void doAI(void)
 {
@@ -341,8 +341,8 @@ static void huntAndAttackTarget(void)
 
 static void findTarget(void)
 {
-	int			 i;
-	Entity	   *e, **candidates;
+	int          i;
+	Entity      *e, **candidates;
 	unsigned int dist, closest;
 
 	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : SCREEN_WIDTH;
@@ -482,7 +482,7 @@ static int isInFOV(Entity *e, int fov)
 
 static int hasClearShot(void)
 {
-	int		dist;
+	int     dist;
 	Entity *e;
 
 	if (isInFOV(self->target, 4))
@@ -676,7 +676,7 @@ static void doSurrender(void)
 
 static int nearEnemies(void)
 {
-	int		i, numEnemies, x, y;
+	int     i, numEnemies, x, y;
 	Entity *e, **candidates;
 
 	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH, self);
@@ -716,7 +716,7 @@ static int nearEnemies(void)
 
 static int evadeNonKillTargets(void)
 {
-	int		i, numEnemies, x, y;
+	int     i, numEnemies, x, y;
 	Entity *e, **candidates;
 
 	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_WIDTH, self);
@@ -807,7 +807,7 @@ static void deployMine(void)
 
 static int nearMines(void)
 {
-	int		i, numMines, x, y;
+	int     i, numMines, x, y;
 	Entity *e, **candidates;
 
 	candidates = getAllEntsInRadius(self->x, self->y, SCREEN_HEIGHT, self);
@@ -914,8 +914,8 @@ static void moveToJumpgate(void)
 
 static int nearItems(void)
 {
-	int		i;
-	long	closest, distance;
+	int     i;
+	long    closest, distance;
 	Entity *e, **candidates;
 
 	closest = MAX_TARGET_RANGE;
@@ -962,8 +962,8 @@ static void moveToItem(void)
 
 static int nearTowableCraft(void)
 {
-	int		i;
-	long	closest, dist;
+	int     i;
+	long    closest, dist;
 	Entity *e, **candidates;
 
 	dist = closest = (battle.isEpic || (self->aiFlags & AIF_UNLIMITED_RANGE)) ? MAX_TARGET_RANGE : 2000;
@@ -1019,7 +1019,7 @@ static int lookForPlayer(void)
 
 static int lookForLeader(void)
 {
-	long	closest, distance;
+	long    closest, distance;
 	Entity *e;
 
 	self->leader = NULL;

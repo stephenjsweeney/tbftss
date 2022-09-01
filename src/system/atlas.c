@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static void loadAtlasData(void);
 
-static AtlasImage	atlases[NUM_ATLAS_BUCKETS];
+static AtlasImage   atlases[NUM_ATLAS_BUCKETS];
 static SDL_Texture *atlasTexture;
 
 void initAtlas(void)
@@ -70,8 +70,8 @@ AtlasImage *getAtlasImage(const char *filename)
 char **getAtlasFileList(char *dir, int *count)
 {
 	AtlasImage *a;
-	int			i, bucket;
-	char		 **filenames;
+	int         i, bucket;
+	char      **filenames;
 
 	i = 0;
 	filenames = NULL;
@@ -123,8 +123,8 @@ char **getAtlasFileList(char *dir, int *count)
 static void loadAtlasData(void)
 {
 	AtlasImage   *atlasImage, *a;
-	int			  x, y, w, h;
-	cJSON		  *root, *node;
+	int           x, y, w, h;
+	cJSON        *root, *node;
 	char		 *text, *filename;
 	unsigned long i;
 

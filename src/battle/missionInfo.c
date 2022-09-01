@@ -28,10 +28,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/widgets.h"
 #include "missionInfo.h"
 
-extern App	  app;
+extern App    app;
 extern Battle battle;
 extern Colors colors;
-extern Game	  game;
+extern Game   game;
 
 static void drawMissionSummary(AtlasImage *title);
 static void drawObjectives(void);
@@ -43,9 +43,9 @@ static AtlasImage *missionCompleteTexture;
 static AtlasImage *missionFailedTexture;
 static AtlasImage *timeUpTexture;
 static const char *objectiveStatus[OS_MAX];
-static char		*OBJECTIVES_TEXT;
-static char		*NONE_TEXT;
-static char		*TIME_LIMIT_TEXT;
+static char       *OBJECTIVES_TEXT;
+static char       *NONE_TEXT;
+static char       *TIME_LIMIT_TEXT;
 
 void initMissionInfo(void)
 {
@@ -140,7 +140,7 @@ static void drawObjectives(void)
 {
 	Objective *o;
 	SDL_Color  color;
-	int		   y = 215;
+	int        y = 215;
 
 	drawText(UI_WIDTH / 2, y, 28, TA_CENTER, colors.white, OBJECTIVES_TEXT);
 
@@ -190,11 +190,11 @@ static void drawObjectives(void)
 
 static void drawChallenges(void)
 {
-	int		   i;
+	int        i;
 	Challenge *c;
-	char		 *challengeStatus;
+	char      *challengeStatus;
 	SDL_Color  color;
-	int		   y = 215;
+	int        y = 215;
 
 	drawText(UI_WIDTH / 2, y, 24, TA_CENTER, colors.white, game.currentMission->description);
 

@@ -90,7 +90,7 @@ void playSound(int id)
 void playBattleSound(int id, int x, int y)
 {
 	float distance, bearing, vol;
-	int	  channel;
+	int   channel;
 
 	if (player->alive == ALIVE_ALIVE || player->alive == ALIVE_ESCAPED)
 	{

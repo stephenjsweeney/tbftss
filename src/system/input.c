@@ -120,6 +120,71 @@ void drawMouse(void)
 	blit(mousePointer, app.mouse.x, app.mouse.y, 1);
 }
 
+void doControllerAxis(SDL_ControllerAxisEvent *event)
+{
+	int i;
+	if (event->which == app.controllerIndex)
+	{
+		if (event->axis == SDL_CONTROLLER_AXIS_LEFTX)
+		{
+			app.controllerAxis[0] = event->value / 512;
+		}
+		else if (event->axis == SDL_CONTROLLER_AXIS_LEFTY)
+		{
+			app.controllerAxis[1] = event->value / 512;
+		}
+		else
+		{
+			for (i = 0; i < CONTROL_MAX; i++)
+			{
+				if (app.controllerControls[i][0] == 1 && app.controllerControls[i][1] == event->axis)
+				{
+					if (event->value > 3200)
+					{
+						app.controllerButton[i] = 1;
+					}
+					else
+					{
+						app.controllerButton[i] = 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+void doControllerButtonDown(SDL_ControllerButtonEvent *event)
+{
+	int i;
+	if (event->which == app.controllerIndex)
+	{
+		for (i = 0; i < CONTROL_MAX; i++)
+		{
+			if (app.controllerControls[i][0] == 0 && app.controllerControls[i][1] == event->button)
+			{
+				app.controllerButton[i] = 1;
+				break;
+			}
+		}
+	}
+}
+
+void doControllerButtonUp(SDL_ControllerButtonEvent *event)
+{
+	int i;
+	if (event->which == app.controllerIndex)
+	{
+		for (i = 0; i < CONTROL_MAX; i++)
+		{
+			if (app.controllerControls[i][0] == 0 && app.controllerControls[i][1] == event->button)
+			{
+				app.controllerButton[i] = 0;
+				break;
+			}
+		}
+	}
+}
+
 void doInput(void)
 {
 	SDL_Event event;
@@ -151,6 +216,18 @@ void doInput(void)
 
 			case SDL_KEYUP:
 				doKeyUp(&event.key);
+				break;
+
+			case SDL_CONTROLLERAXISMOTION:
+				doControllerAxis(&event.caxis);
+				break;
+
+			case SDL_CONTROLLERBUTTONDOWN:
+				doControllerButtonDown(&event.cbutton);
+				break;
+
+			case SDL_CONTROLLERBUTTONUP:
+				doControllerButtonUp(&event.cbutton);
 				break;
 
 			case SDL_QUIT:

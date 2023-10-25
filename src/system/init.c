@@ -94,6 +94,7 @@ void init18N(int argc, char *argv[])
 void initSDL(int argc, char *argv[])
 {
 	int rendererFlags, windowFlags;
+	int i;
 
 	/* do this here, so we don't destroy the save dir stored in app */
 	memset(&app, 0, sizeof(App));
@@ -117,7 +118,7 @@ void initSDL(int argc, char *argv[])
 		windowFlags |= SDL_WINDOW_FULLSCREEN;
 	}
 
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER) < 0)
 	{
 		printf("Couldn't initialize SDL: %s\n", SDL_GetError());
 		exit(1);
@@ -148,6 +149,15 @@ void initSDL(int argc, char *argv[])
 	{
 		printf("Couldn't initialize SDL TTF: %s\n", SDL_GetError());
 		exit(1);
+	}
+	for (i = 0; i < SDL_NumJoysticks(); i++)
+	{
+		if (SDL_IsGameController(i))
+		{
+			app.controllerIndex = i;
+			app.controller = SDL_GameControllerOpen(i);
+			break;
+		}
 	}
 
 	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, app.winWidth, app.winHeight);
@@ -276,6 +286,30 @@ static void loadConfigFile(char *filename)
 			node = node->next;
 		}
 	}
+	app.controllerControls[CONTROL_FIRE][0] = 1;
+	app.controllerControls[CONTROL_FIRE][1] = SDL_CONTROLLER_AXIS_TRIGGERRIGHT;
+	app.controllerControls[CONTROL_ACCELERATE][0] = 0;
+	app.controllerControls[CONTROL_ACCELERATE][1] = SDL_CONTROLLER_BUTTON_A;
+	app.controllerControls[CONTROL_BOOST][0] = 0;
+	app.controllerControls[CONTROL_BOOST][1] = SDL_CONTROLLER_BUTTON_B;
+	app.controllerControls[CONTROL_ECM][0] = 0;
+	app.controllerControls[CONTROL_ECM][1] = SDL_CONTROLLER_BUTTON_X;
+	app.controllerControls[CONTROL_BRAKE][0] = 0;
+	app.controllerControls[CONTROL_BRAKE][1] = SDL_CONTROLLER_BUTTON_Y;
+	app.controllerControls[CONTROL_TARGET][0] = 1;
+	app.controllerControls[CONTROL_TARGET][1] = SDL_CONTROLLER_AXIS_TRIGGERLEFT;
+	app.controllerControls[CONTROL_MISSILE][0] = 0;
+	app.controllerControls[CONTROL_MISSILE][1] = SDL_CONTROLLER_BUTTON_LEFTSHOULDER;
+	app.controllerControls[CONTROL_GUNS][0] = 0;
+	app.controllerControls[CONTROL_GUNS][1] = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER;
+	app.controllerControls[CONTROL_RADAR][0] = 0;
+	app.controllerControls[CONTROL_RADAR][1] = SDL_CONTROLLER_BUTTON_DPAD_UP;
+	app.controllerControls[CONTROL_NEXT_FIGHTER][0] = 0;
+	app.controllerControls[CONTROL_NEXT_FIGHTER][1] = SDL_CONTROLLER_BUTTON_DPAD_RIGHT;
+	app.controllerControls[CONTROL_PREV_FIGHTER][0] = 0;
+	app.controllerControls[CONTROL_PREV_FIGHTER][1] = SDL_CONTROLLER_BUTTON_DPAD_LEFT;
+	app.controllerControls[CONTROL_SCREENSHOT][0] = 0;
+	app.controllerControls[CONTROL_SCREENSHOT][1] = SDL_CONTROLLER_BUTTON_BACK;
 
 	gameplayJSON = cJSON_GetObjectItem(root, "gameplay");
 	if (gameplayJSON)

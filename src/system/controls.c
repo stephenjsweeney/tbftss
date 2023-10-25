@@ -101,7 +101,7 @@ int isControl(int type)
 	int key = app.keyControls[type];
 	int btn = app.mouseControls[type];
 
-	return ((key != 0 && app.keyboard[key]) || (btn != 0 && app.mouse.button[btn]));
+	return ((key != 0 && app.keyboard[key]) || (btn != 0 && app.mouse.button[btn]) || (app.controller != NULL && app.controllerButton[type]));
 }
 
 int isAcceptControl(void)
@@ -123,6 +123,7 @@ void clearControl(int type)
 	{
 		app.mouse.button[btn] = 0;
 	}
+	app.controllerButton[type] = 0;
 }
 
 void resetAcceptControls(void)

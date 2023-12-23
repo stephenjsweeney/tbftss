@@ -274,8 +274,11 @@ void doInput(void)
 	app.mouse.x = x;
 	app.mouse.y = y;
 
-	app.uiMouse.x = x - app.uiOffset.x;
-	app.uiMouse.y = y - app.uiOffset.y;
+	if (app.controllerX == CONTROLLER_NOINPUT)
+	{
+		app.uiMouse.x = x - app.uiOffset.x;
+		app.uiMouse.y = y - app.uiOffset.y;
+	}
 }
 
 void clearInput(void)

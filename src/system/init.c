@@ -249,7 +249,7 @@ static void loadConfig(int argc, char *argv[])
 static void loadConfigFile(char *filename)
 {
 	int    i;
-	cJSON *root, *controlsJSON, *node, *gameplayJSON;
+	cJSON *root, *controlsJSON, *node, *subnode, *gameplayJSON, *controllerJSON;
 	char  *text;
 
 	text = readFile(filename);
@@ -285,31 +285,28 @@ static void loadConfigFile(char *filename)
 
 			node = node->next;
 		}
+
+		controllerJSON = cJSON_GetObjectItem(controlsJSON, "controller");
+		if (controllerJSON)
+		{
+			node = controllerJSON->child;
+			while (node)
+			{
+				i = lookup(node->string);
+				subnode = node->child;
+				while (subnode)
+				{
+					if (0 == strcmp(subnode->string, "axis"))
+						app.controllerControls[i][0] = subnode->valueint;
+					else if (0 == strcmp(subnode->string, "value"))
+						app.controllerControls[i][1] = subnode->valueint;
+					subnode = subnode->next;
+				}
+
+				node = node->next;
+			}
+		}
 	}
-	app.controllerControls[CONTROL_FIRE][0] = 1;
-	app.controllerControls[CONTROL_FIRE][1] = SDL_CONTROLLER_AXIS_TRIGGERRIGHT;
-	app.controllerControls[CONTROL_ACCELERATE][0] = 0;
-	app.controllerControls[CONTROL_ACCELERATE][1] = SDL_CONTROLLER_BUTTON_A;
-	app.controllerControls[CONTROL_BOOST][0] = 0;
-	app.controllerControls[CONTROL_BOOST][1] = SDL_CONTROLLER_BUTTON_B;
-	app.controllerControls[CONTROL_ECM][0] = 0;
-	app.controllerControls[CONTROL_ECM][1] = SDL_CONTROLLER_BUTTON_X;
-	app.controllerControls[CONTROL_BRAKE][0] = 0;
-	app.controllerControls[CONTROL_BRAKE][1] = SDL_CONTROLLER_BUTTON_Y;
-	app.controllerControls[CONTROL_TARGET][0] = 1;
-	app.controllerControls[CONTROL_TARGET][1] = SDL_CONTROLLER_AXIS_TRIGGERLEFT;
-	app.controllerControls[CONTROL_MISSILE][0] = 0;
-	app.controllerControls[CONTROL_MISSILE][1] = SDL_CONTROLLER_BUTTON_LEFTSHOULDER;
-	app.controllerControls[CONTROL_GUNS][0] = 0;
-	app.controllerControls[CONTROL_GUNS][1] = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER;
-	app.controllerControls[CONTROL_RADAR][0] = 0;
-	app.controllerControls[CONTROL_RADAR][1] = SDL_CONTROLLER_BUTTON_DPAD_UP;
-	app.controllerControls[CONTROL_NEXT_FIGHTER][0] = 0;
-	app.controllerControls[CONTROL_NEXT_FIGHTER][1] = SDL_CONTROLLER_BUTTON_DPAD_RIGHT;
-	app.controllerControls[CONTROL_PREV_FIGHTER][0] = 0;
-	app.controllerControls[CONTROL_PREV_FIGHTER][1] = SDL_CONTROLLER_BUTTON_DPAD_LEFT;
-	app.controllerControls[CONTROL_SCREENSHOT][0] = 0;
-	app.controllerControls[CONTROL_SCREENSHOT][1] = SDL_CONTROLLER_BUTTON_BACK;
 
 	gameplayJSON = cJSON_GetObjectItem(root, "gameplay");
 	if (gameplayJSON)
@@ -328,7 +325,7 @@ void saveConfig(void)
 {
 	int    i;
 	char  *out, *configFilename;
-	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON, *gameplayJSON;
+	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON, *controllerJSON, *gameplayJSON, *node;
 
 	configFilename = getSaveFilePath(CONFIG_FILENAME);
 
@@ -354,9 +351,19 @@ void saveConfig(void)
 		cJSON_AddNumberToObject(mouseJSON, getLookupName("CONTROL_", i), app.mouseControls[i]);
 	}
 
+	controllerJSON = cJSON_CreateObject();
+	for (i = 0; i < CONTROL_MAX; i++)
+	{
+		node = cJSON_CreateObject();
+		cJSON_AddNumberToObject(node, "axis", app.controllerControls[i][0]);
+		cJSON_AddNumberToObject(node, "value", app.controllerControls[i][1]);
+		cJSON_AddItemToObject(controllerJSON, getLookupName("CONTROL_", i), node);
+	}
+
 	controlsJSON = cJSON_CreateObject();
 	cJSON_AddItemToObject(controlsJSON, "keys", keysJSON);
 	cJSON_AddItemToObject(controlsJSON, "mouse", mouseJSON);
+	cJSON_AddItemToObject(controlsJSON, "controller", controllerJSON);
 	cJSON_AddItemToObject(root, "controls", controlsJSON);
 
 	gameplayJSON = cJSON_CreateObject();

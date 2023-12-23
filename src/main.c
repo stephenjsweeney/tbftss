@@ -59,6 +59,8 @@ int main(int argc, char *argv[])
 	memset(&app, 0, sizeof(App));
 	memset(&dev, 0, sizeof(Dev));
 	app.controllerIndex = -1;
+	app.controllerX = CONTROLLER_NOINPUT;
+	app.controllerY = CONTROLLER_NOINPUT;
 
 	handleLoggingArgs(argc, argv);
 

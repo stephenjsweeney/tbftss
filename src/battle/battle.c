@@ -67,6 +67,7 @@ extern Game    game;
 static void logic(void);
 static void draw(void);
 static void handleKeyboard(void);
+static void handleController(void);
 static void postBattle(void);
 static void doBattle(void);
 static void optQuitBattle(void);
@@ -145,6 +146,8 @@ void initBattle(void)
 
 static void logic(void)
 {
+	handleController();
+
 	if (battle.status == MS_IN_PROGRESS || battle.status == MS_COMPLETE || battle.status == MS_FAILED || battle.status == MS_TIME_UP)
 	{
 		handleKeyboard();
@@ -344,7 +347,7 @@ static void drawMenu(void)
 
 static void handleKeyboard(void)
 {
-	if (app.keyboard[SDL_SCANCODE_ESCAPE] && !app.awaitingWidgetInput && battle.status == MS_IN_PROGRESS)
+	if ((app.keyboard[SDL_SCANCODE_ESCAPE] || app.controllerStart) && !app.awaitingWidgetInput && battle.status == MS_IN_PROGRESS)
 	{
 		switch (show)
 		{
@@ -367,6 +370,7 @@ static void handleKeyboard(void)
 		}
 
 		clearInput();
+		app.controllerStart = 0;
 
 		playSound(SND_GUI_CLOSE);
 	}
@@ -378,6 +382,30 @@ static void handleKeyboard(void)
 		selectWidget("ok", "startBattle");
 
 		SDL_SetWindowGrab(app.window, 0);
+	}
+}
+
+static void handleController(void)
+{
+	if ((app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0))
+	{
+		if (app.controllerX == CONTROLLER_NOINPUT)
+		{
+			app.controllerX = app.mouse.x;
+			app.controllerY = app.mouse.y;
+		}
+		app.controllerX += app.controllerAxis[0] / 4;
+		if (app.controllerX < 0)
+			app.controllerX = 0;
+		else if (app.controllerX > app.winWidth)
+			app.controllerX = app.winWidth;
+		app.uiMouse.x = app.controllerX - app.uiOffset.x;
+		app.controllerY += app.controllerAxis[1] / 4;
+		if (app.controllerY < 0)
+			app.controllerY = 0;
+		else if (app.controllerY > app.winHeight)
+			app.controllerY = app.winHeight;
+		app.uiMouse.y = app.controllerY - app.uiOffset.y;
 	}
 }
 

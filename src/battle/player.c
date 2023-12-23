@@ -428,7 +428,7 @@ static void faceMouse(void)
 
 	x = player->x - battle.camera.x;
 	y = player->y - battle.camera.y;
-	if (app.controller)
+	if (app.controllerX != CONTROLLER_NOINPUT)
 	{
 		wantedAngle = getAngle(0, 0, app.controllerAxis[0], app.controllerAxis[1]);
 	}

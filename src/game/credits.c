@@ -169,9 +169,10 @@ static void loadCredits(void)
 
 static void handleKeyboard(void)
 {
-	if (app.keyboard[SDL_SCANCODE_ESCAPE])
+	if (app.keyboard[SDL_SCANCODE_ESCAPE] || app.controllerButton[CONTROL_BOOST])
 	{
 		timeout = 0;
+		app.controllerButton[CONTROL_BOOST] = 0;
 	}
 }
 

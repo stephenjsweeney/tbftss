@@ -542,7 +542,10 @@ typedef struct
 	PointF        uiMouse;
 	int           keyboard[MAX_KEYBOARD_KEYS];
 	int           controllerButton[CONTROL_MAX];
-	int           controllerAxis[2];
+	int           controllerStart;
+	int           controllerAxis[4];
+	int           controllerX;
+	int           controllerY;
 	SDL_Texture  *backBuffer;
 	SDL_Texture  *uiBuffer;
 	SDL_Renderer *renderer;

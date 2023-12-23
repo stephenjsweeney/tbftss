@@ -99,6 +99,8 @@ void doMouseMotion(SDL_MouseMotionEvent *event)
 {
 	app.mouse.dx = event->xrel;
 	app.mouse.dy = event->yrel;
+	app.controllerX = CONTROLLER_NOINPUT;
+	app.controllerY = CONTROLLER_NOINPUT;
 }
 
 void setMouseCursor(int isDrag)
@@ -117,7 +119,14 @@ void drawMouse(void)
 {
 	setAtlasColor(255, 255, 255, 255);
 
-	blit(mousePointer, app.mouse.x, app.mouse.y, 1);
+	if (app.controllerX != CONTROLLER_NOINPUT)
+	{
+		blit(mousePointer, app.controllerX, app.controllerY, 1);
+	}
+	else
+	{
+		blit(mousePointer, app.mouse.x, app.mouse.y, 1);
+	}
 }
 
 void doControllerAxis(SDL_ControllerAxisEvent *event)
@@ -127,11 +136,19 @@ void doControllerAxis(SDL_ControllerAxisEvent *event)
 	{
 		if (event->axis == SDL_CONTROLLER_AXIS_LEFTX)
 		{
-			app.controllerAxis[0] = event->value / 512;
+			app.controllerAxis[0] = event->value / 1024;
 		}
 		else if (event->axis == SDL_CONTROLLER_AXIS_LEFTY)
 		{
-			app.controllerAxis[1] = event->value / 512;
+			app.controllerAxis[1] = event->value / 1024;
+		}
+		else if (event->axis == SDL_CONTROLLER_AXIS_RIGHTX)
+		{
+			app.controllerAxis[2] = event->value / 1024 / 4;
+		}
+		else if (event->axis == SDL_CONTROLLER_AXIS_RIGHTY)
+		{
+			app.controllerAxis[3] = event->value / 1024 / 4;
 		}
 		else
 		{
@@ -166,6 +183,8 @@ void doControllerButtonDown(SDL_ControllerButtonEvent *event)
 				break;
 			}
 		}
+		if (event->button == SDL_CONTROLLER_BUTTON_START)
+			app.controllerStart = 1;
 	}
 }
 
@@ -182,6 +201,8 @@ void doControllerButtonUp(SDL_ControllerButtonEvent *event)
 				break;
 			}
 		}
+		if (event->button == SDL_CONTROLLER_BUTTON_START)
+			app.controllerStart = 0;
 	}
 }
 

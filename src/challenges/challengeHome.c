@@ -58,6 +58,7 @@ extern Game   game;
 static void  logic(void);
 static void  draw(void);
 static void  handleKeyboard(void);
+static void  handleController(void);
 static void  drawChallenges(void);
 static void  doChallengeList(void);
 static void  startChallengeMission(void);
@@ -228,6 +229,8 @@ static void unlockChallenges(void)
 
 static void logic(void)
 {
+	handleController();
+
 	handleKeyboard();
 
 	scrollBackground(-0.25, 0);
@@ -561,7 +564,7 @@ static void quit(void)
 
 static void handleKeyboard(void)
 {
-	if (app.keyboard[SDL_SCANCODE_ESCAPE] && !app.awaitingWidgetInput)
+	if ((app.keyboard[SDL_SCANCODE_ESCAPE] || app.controllerButton[CONTROL_BOOST]) && !app.awaitingWidgetInput)
 	{
 		switch (show)
 		{
@@ -587,6 +590,31 @@ static void handleKeyboard(void)
 		playSound(SND_GUI_CLOSE);
 
 		clearInput();
+		app.controllerButton[CONTROL_BOOST] = 0;
+	}
+}
+
+static void handleController(void)
+{
+	if ((app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0))
+	{
+		if (app.controllerX == CONTROLLER_NOINPUT)
+		{
+			app.controllerX = app.mouse.x;
+			app.controllerY = app.mouse.y;
+		}
+		app.controllerX += app.controllerAxis[0] / 4;
+		if (app.controllerX < 0)
+			app.controllerX = 0;
+		else if (app.controllerX > app.winWidth)
+			app.controllerX = app.winWidth;
+		app.uiMouse.x = app.controllerX - app.uiOffset.x;
+		app.controllerY += app.controllerAxis[1] / 4;
+		if (app.controllerY < 0)
+			app.controllerY = 0;
+		else if (app.controllerY > app.winHeight)
+			app.controllerY = app.winHeight;
+		app.uiMouse.y = app.controllerY - app.uiOffset.y;
 	}
 }
 

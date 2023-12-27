@@ -58,6 +58,7 @@ static void     logic(void);
 static void     draw(void);
 static void     handleKeyboard(void);
 static void     handleMouse(void);
+static void     handleController(void);
 static void     scrollGalaxy(void);
 static void     drawStarSystemDetail(void);
 static void     selectStarSystem(void);
@@ -232,6 +233,8 @@ static void updatePandoranAdvance(void)
 
 static void logic(void)
 {
+	handleController();
+
 	handleKeyboard();
 
 	handleMouse();
@@ -279,8 +282,16 @@ static void doStarSystems(void)
 
 	if (!scrollingMap)
 	{
-		cx = app.mouse.x - 32;
-		cy = app.mouse.y - 32;
+		if (app.controllerX == CONTROLLER_NOINPUT)
+		{
+			cx = app.mouse.x - 32;
+			cy = app.mouse.y - 32;
+		}
+		else
+		{
+			cx = app.controllerX - 32;
+			cy = app.controllerY - 32;
+		}
 
 		cameraMin.x = cameraMin.y = 99999;
 		cameraMax.x = cameraMax.y = -99999;
@@ -301,11 +312,12 @@ static void doStarSystems(void)
 				{
 					selectedStarSystem = starSystem;
 
-					if (app.mouse.button[SDL_BUTTON_LEFT])
+					if (app.mouse.button[SDL_BUTTON_LEFT] || app.controllerButton[CONTROL_ACCELERATE])
 					{
 						selectStarSystem();
 
 						app.mouse.button[SDL_BUTTON_LEFT] = 0;
+						app.controllerButton[CONTROL_ACCELERATE] = 0;
 					}
 				}
 			}
@@ -330,14 +342,28 @@ static void scrollGalaxy(void)
 
 	if (scrollingMap)
 	{
-		camera.x -= app.mouse.dx * 1.5;
-		camera.y -= app.mouse.dy * 1.5;
+		if (app.controllerX == CONTROLLER_NOINPUT)
+		{
+			camera.x -= app.mouse.dx * 1.5;
+			camera.y -= app.mouse.dy * 1.5;
 
-		ssx = -app.mouse.dx;
-		ssx /= 3;
+			ssx = -app.mouse.dx;
+			ssx /= 3;
 
-		ssy = -app.mouse.dy;
-		ssy /= 3;
+			ssy = -app.mouse.dy;
+			ssy /= 3;
+		}
+		else
+		{
+			camera.x -= app.controllerAxis[2] * 1.5;
+			camera.y -= app.controllerAxis[3] * 1.5;
+
+			ssx = -app.controllerAxis[2];
+			ssx /= 3;
+
+			ssy = -app.controllerAxis[3];
+			ssy /= 3;
+		}
 
 		camera.x = MAX(cameraMin.x, MIN(camera.x, cameraMax.x));
 		camera.y = MAX(cameraMin.y, MIN(camera.y, cameraMax.y));
@@ -364,7 +390,7 @@ static void doStarSystemView(void)
 		{
 			hoverMission = mission;
 
-			if (app.mouse.button[SDL_BUTTON_LEFT])
+			if (app.mouse.button[SDL_BUTTON_LEFT] || app.controllerButton[CONTROL_ACCELERATE])
 			{
 				if (game.currentMission != mission)
 				{
@@ -378,7 +404,7 @@ static void doStarSystemView(void)
 	}
 
 	/* allow closing by pressing the right mouse button */
-	if (app.mouse.button[SDL_BUTTON_RIGHT])
+	if (app.mouse.button[SDL_BUTTON_RIGHT] || app.controllerButton[CONTROL_BOOST])
 	{
 		show = SHOW_GALAXY;
 
@@ -779,7 +805,7 @@ static void campaignCompleteOK(void)
 
 static void handleKeyboard(void)
 {
-	if (app.keyboard[SDL_SCANCODE_ESCAPE] && !app.awaitingWidgetInput)
+	if ((app.keyboard[SDL_SCANCODE_ESCAPE] || app.controllerButton[CONTROL_BOOST]) && !app.awaitingWidgetInput)
 	{
 		switch (show)
 		{
@@ -804,6 +830,7 @@ static void handleKeyboard(void)
 				selectWidget("resume", "galacticMap");
 				break;
 		}
+		app.controllerButton[CONTROL_BOOST] = 0;
 
 		playSound(SND_GUI_CLOSE);
 
@@ -813,19 +840,53 @@ static void handleKeyboard(void)
 
 static void handleMouse(void)
 {
-	if (app.mouse.button[SDL_BUTTON_LEFT])
+	if ((app.mouse.button[SDL_BUTTON_LEFT]) || ((app.controllerX != CONTROLLER_NOINPUT) && (app.controllerAxis[2] != 0 || app.controllerAxis[3] != 0)))
 	{
-		if (app.mouse.dx != 0 || app.mouse.dy != 0)
+		if (app.mouse.dx != 0 || app.mouse.dy != 0 || app.controllerAxis[2] != 0 || app.controllerAxis[3] != 0)
 		{
 			scrollingMap = 1;
 		}
+
+		setMouseCursor(app.mouse.button[SDL_BUTTON_LEFT] && show == SHOW_GALAXY);
 	}
 	else
 	{
 		scrollingMap = 0;
-	}
 
-	setMouseCursor(app.mouse.button[SDL_BUTTON_LEFT] && show == SHOW_GALAXY);
+		setMouseCursor(0);
+	}
+}
+
+static void handleController(void)
+{
+	if ((app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0) || (app.controllerAxis[0] != 0))
+	{
+		if (app.controllerX == CONTROLLER_NOINPUT)
+		{
+			app.controllerX = app.mouse.x;
+			app.controllerY = app.mouse.y;
+		}
+		app.controllerX += app.controllerAxis[0] / 4;
+		if (app.controllerX < 0)
+		{
+			app.controllerX = 0;
+		}
+		else if (app.controllerX > app.winWidth)
+		{
+			app.controllerX = app.winWidth;
+		}
+		app.uiMouse.x = app.controllerX - app.uiOffset.x;
+		app.controllerY += app.controllerAxis[1] / 4;
+		if (app.controllerY < 0)
+		{
+			app.controllerY = 0;
+		}
+		else if (app.controllerY > app.winHeight)
+		{
+			app.controllerY = app.winHeight;
+		}
+		app.uiMouse.y = app.controllerY - app.uiOffset.y;
+	}
 }
 
 static void startMission(void)

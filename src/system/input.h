@@ -28,4 +28,7 @@ void doMouseUp(SDL_MouseButtonEvent *event);
 void doMouseDown(SDL_MouseButtonEvent *event);
 void doKeyUp(SDL_KeyboardEvent *event);
 void doKeyDown(SDL_KeyboardEvent *event);
+void doControllerAxis(SDL_ControllerAxisEvent *event);
+void doControllerButtonUp(SDL_ControllerButtonEvent *event);
+void doControllerButtonDown(SDL_ControllerButtonEvent *event);
 void initInput(void);

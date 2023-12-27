@@ -94,6 +94,7 @@ void init18N(int argc, char *argv[])
 void initSDL(int argc, char *argv[])
 {
 	int rendererFlags, windowFlags;
+	int i;
 
 	/* do this here, so we don't destroy the save dir stored in app */
 	memset(&app, 0, sizeof(App));
@@ -117,7 +118,7 @@ void initSDL(int argc, char *argv[])
 		windowFlags |= SDL_WINDOW_FULLSCREEN;
 	}
 
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER) < 0)
 	{
 		printf("Couldn't initialize SDL: %s\n", SDL_GetError());
 		exit(1);
@@ -148,6 +149,15 @@ void initSDL(int argc, char *argv[])
 	{
 		printf("Couldn't initialize SDL TTF: %s\n", SDL_GetError());
 		exit(1);
+	}
+	for (i = 0; i < SDL_NumJoysticks(); i++)
+	{
+		if (SDL_IsGameController(i))
+		{
+			app.controllerIndex = i;
+			app.controller = SDL_GameControllerOpen(i);
+			break;
+		}
 	}
 
 	app.backBuffer = SDL_CreateTexture(app.renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, app.winWidth, app.winHeight);
@@ -239,7 +249,7 @@ static void loadConfig(int argc, char *argv[])
 static void loadConfigFile(char *filename)
 {
 	int    i;
-	cJSON *root, *controlsJSON, *node, *gameplayJSON;
+	cJSON *root, *controlsJSON, *node, *subnode, *gameplayJSON, *controllerJSON;
 	char  *text;
 
 	text = readFile(filename);
@@ -275,6 +285,31 @@ static void loadConfigFile(char *filename)
 
 			node = node->next;
 		}
+
+		controllerJSON = cJSON_GetObjectItem(controlsJSON, "controller");
+		if (controllerJSON)
+		{
+			node = controllerJSON->child;
+			while (node)
+			{
+				i = lookup(node->string);
+				subnode = node->child;
+				while (subnode)
+				{
+					if (0 == strcmp(subnode->string, "axis"))
+					{
+						app.controllerControls[i][0] = subnode->valueint;
+					}
+					else if (0 == strcmp(subnode->string, "value"))
+					{
+						app.controllerControls[i][1] = subnode->valueint;
+					}
+					subnode = subnode->next;
+				}
+
+				node = node->next;
+			}
+		}
 	}
 
 	gameplayJSON = cJSON_GetObjectItem(root, "gameplay");
@@ -294,7 +329,7 @@ void saveConfig(void)
 {
 	int    i;
 	char  *out, *configFilename;
-	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON, *gameplayJSON;
+	cJSON *root, *controlsJSON, *keysJSON, *mouseJSON, *controllerJSON, *gameplayJSON, *node;
 
 	configFilename = getSaveFilePath(CONFIG_FILENAME);
 
@@ -320,9 +355,19 @@ void saveConfig(void)
 		cJSON_AddNumberToObject(mouseJSON, getLookupName("CONTROL_", i), app.mouseControls[i]);
 	}
 
+	controllerJSON = cJSON_CreateObject();
+	for (i = 0; i < CONTROL_MAX; i++)
+	{
+		node = cJSON_CreateObject();
+		cJSON_AddNumberToObject(node, "axis", app.controllerControls[i][0]);
+		cJSON_AddNumberToObject(node, "value", app.controllerControls[i][1]);
+		cJSON_AddItemToObject(controllerJSON, getLookupName("CONTROL_", i), node);
+	}
+
 	controlsJSON = cJSON_CreateObject();
 	cJSON_AddItemToObject(controlsJSON, "keys", keysJSON);
 	cJSON_AddItemToObject(controlsJSON, "mouse", mouseJSON);
+	cJSON_AddItemToObject(controlsJSON, "controller", controllerJSON);
 	cJSON_AddItemToObject(root, "controls", controlsJSON);
 
 	gameplayJSON = cJSON_CreateObject();

@@ -32,6 +32,20 @@
 			"CONTROL_PREV_FIGHTER" : 4,
 			"CONTROL_NEXT_FIGHTER" : 5,
 			"CONTROL_SCREENSHOT" : 0
+		},
+		"controller" : 	{
+			"CONTROL_FIRE" : { "axis" : 1, "value" : 5},
+			"CONTROL_ACCELERATE" : { "axis" : 0, "value" : 0},
+			"CONTROL_BOOST" : { "axis" : 0, "value" : 1},
+			"CONTROL_ECM" : { "axis" : 0, "value" : 2},
+			"CONTROL_BRAKE" : { "axis" : 0, "value" : 3},
+			"CONTROL_TARGET" : { "axis" : 1, "value" : 4},
+			"CONTROL_MISSILE" : { "axis" : 0, "value" : 9},
+			"CONTROL_GUNS" : { "axis" : 0, "value" : 10},
+			"CONTROL_RADAR" : { "axis" : 0, "value" : 11},
+			"CONTROL_PREV_FIGHTER" : { "axis" : 0, "value" : 13},
+			"CONTROL_NEXT_FIGHTER" : { "axis" : 0, "value" : 14},
+			"CONTROL_SCREENSHOT" : { "axis" : 0, "value" : 4}
 		}
 	},
 	"gameplay" : {

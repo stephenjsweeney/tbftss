@@ -400,6 +400,7 @@ static void handleMouse(void)
 			preFireMissile();
 
 			app.mouse.button[SDL_BUTTON_MIDDLE] = 0;
+			app.controllerButton[CONTROL_MISSILE] = 0;
 		}
 
 		if (isControl(CONTROL_GUNS))
@@ -407,6 +408,7 @@ static void handleMouse(void)
 			switchGuns();
 
 			app.mouse.button[SDL_BUTTON_X1] = 0;
+			app.controllerButton[CONTROL_GUNS] = 0;
 		}
 
 		if (isControl(CONTROL_RADAR))
@@ -414,6 +416,7 @@ static void handleMouse(void)
 			cycleRadarZoom();
 
 			app.mouse.button[SDL_BUTTON_X2] = 0;
+			app.controllerButton[CONTROL_RADAR] = 0;
 		}
 	}
 }
@@ -425,7 +428,14 @@ static void faceMouse(void)
 
 	x = player->x - battle.camera.x;
 	y = player->y - battle.camera.y;
-	wantedAngle = getAngle(x, y, app.mouse.x, app.mouse.y);
+	if (app.controllerX != CONTROLLER_NOINPUT)
+	{
+		wantedAngle = getAngle(0, 0, app.controllerAxis[0], app.controllerAxis[1]);
+	}
+	else
+	{
+		wantedAngle = getAngle(x, y, app.mouse.x, app.mouse.y);
+	}
 
 	wantedAngle %= 360;
 

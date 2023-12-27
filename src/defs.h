@@ -156,6 +156,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define AIF_SURRENDERING    (2 << 22)
 #define AIF_SURRENDERED     (2 << 23)
 
+#define CONTROLLER_NOINPUT -512
+
 /* player abilities */
 #define BOOST_RECHARGE_TIME (FPS * 7)
 #define BOOST_FINISHED_TIME (FPS * 0.75)

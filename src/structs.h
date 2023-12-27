@@ -541,6 +541,11 @@ typedef struct
 	Mouse         mouse;
 	PointF        uiMouse;
 	int           keyboard[MAX_KEYBOARD_KEYS];
+	int           controllerButton[CONTROL_MAX];
+	int           controllerStart;
+	int           controllerAxis[4];
+	int           controllerX;
+	int           controllerY;
 	SDL_Texture  *backBuffer;
 	SDL_Texture  *uiBuffer;
 	SDL_Renderer *renderer;
@@ -552,6 +557,9 @@ typedef struct
 	int           lastButtonPressed;
 	int           keyControls[CONTROL_MAX];
 	int           mouseControls[CONTROL_MAX];
+	SDL_GameController *controller;
+	int           controllerIndex;
+	int           controllerControls[CONTROL_MAX][2];
 	int           textWidth;
 } App;
 

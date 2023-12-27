@@ -296,7 +296,7 @@ static void handleMouse(void)
 
 	if (selectedWidget && collision(selectedWidget->rect.x, selectedWidget->rect.y, selectedWidget->rect.w, selectedWidget->rect.h, app.uiMouse.x, app.uiMouse.y, 1, 1))
 	{
-		if (app.mouse.button[SDL_BUTTON_LEFT])
+		if (app.mouse.button[SDL_BUTTON_LEFT] || app.controllerButton[CONTROL_ACCELERATE])
 		{
 			switch (selectedWidget->type)
 			{
@@ -312,12 +312,14 @@ static void handleMouse(void)
 							selectedWidget = NULL;
 						}
 						app.mouse.button[SDL_BUTTON_LEFT] = 0;
+						app.controllerButton[CONTROL_ACCELERATE] = 0;
 					}
 					break;
 
 				case WT_SELECT_BUTTON:
 					changeSelectedValue(selectedWidget->parent, selectedWidget->value);
 					app.mouse.button[SDL_BUTTON_LEFT] = 0;
+					app.controllerButton[CONTROL_ACCELERATE] = 0;
 					break;
 
 				case WT_CONTROL_CONFIG:
@@ -328,6 +330,7 @@ static void handleMouse(void)
 						playSound(SND_GUI_SELECT);
 					}
 					app.mouse.button[SDL_BUTTON_LEFT] = 0;
+					app.controllerButton[CONTROL_ACCELERATE] = 0;
 					break;
 			}
 		}

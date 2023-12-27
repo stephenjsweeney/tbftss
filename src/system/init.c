@@ -297,9 +297,13 @@ static void loadConfigFile(char *filename)
 				while (subnode)
 				{
 					if (0 == strcmp(subnode->string, "axis"))
+					{
 						app.controllerControls[i][0] = subnode->valueint;
+					}
 					else if (0 == strcmp(subnode->string, "value"))
+					{
 						app.controllerControls[i][1] = subnode->valueint;
+					}
 					subnode = subnode->next;
 				}
 

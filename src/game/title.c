@@ -296,15 +296,23 @@ static void handleController(void)
 		}
 		app.controllerX += app.controllerAxis[0] / 4;
 		if (app.controllerX < 0)
+		{
 			app.controllerX = 0;
+		}
 		else if (app.controllerX > app.winWidth)
+		{
 			app.controllerX = app.winWidth;
+		}
 		app.uiMouse.x = app.controllerX - app.uiOffset.x;
 		app.controllerY += app.controllerAxis[1] / 4;
 		if (app.controllerY < 0)
+		{
 			app.controllerY = 0;
+		}
 		else if (app.controllerY > app.winHeight)
+		{
 			app.controllerY = app.winHeight;
+		}
 		app.uiMouse.y = app.controllerY - app.uiOffset.y;
 	}
 }

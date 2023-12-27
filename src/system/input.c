@@ -184,7 +184,9 @@ void doControllerButtonDown(SDL_ControllerButtonEvent *event)
 			}
 		}
 		if (event->button == SDL_CONTROLLER_BUTTON_START)
+		{
 			app.controllerStart = 1;
+		}
 	}
 }
 
@@ -202,7 +204,9 @@ void doControllerButtonUp(SDL_ControllerButtonEvent *event)
 			}
 		}
 		if (event->button == SDL_CONTROLLER_BUTTON_START)
+		{
 			app.controllerStart = 0;
+		}
 	}
 }
 
